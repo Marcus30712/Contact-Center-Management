@@ -38,3 +38,11 @@ test('no excluded standards and no contact details', () => {
     assert.ok(!/\+?\d[\d\s-]{8,}\d/.test(text));
   }
 });
+
+test('pyworkforce is tied to the staffing lab', () => {
+  assert.equal(REFERENCES_TEXT.pyworkforce.ko,
+    'pyworkforce — 인력 산정과 스케줄링을 위한 오픈소스 도구(MIT 라이선스). 인력 산정 실험실의 계산 방식을 여기서 참고했고 결과를 대조했습니다.');
+  assert.ok(REFERENCES_TEXT.pyworkforce.en.includes('Staffing Lab'));
+  assert.equal(REFERENCES_TEXT.labLink.ko, '인력 산정 실험실 열기');
+  assert.equal(REFERENCES_TEXT.labLink.en, 'Open the Staffing Lab');
+});

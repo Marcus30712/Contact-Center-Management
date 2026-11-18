@@ -41,6 +41,7 @@ function draw() {
     section(T.openHeading, [
       h('p', { text: tr(T.pyworkforce) }),
       h('p', {}, [h('a', { href: PYWORKFORCE_URL, rel: 'noopener', text: tr(T.pyworkforceLink) })]),
+      h('p', {}, [h('a', { 'data-lab-link': true, href: '../staffing-calculator/', text: tr(T.labLink) })]),
     ]),
     section(T.noteHeading, [
       h('p', { text: tr(T.countryNote) }),
