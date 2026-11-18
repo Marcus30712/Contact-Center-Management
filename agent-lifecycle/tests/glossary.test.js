@@ -200,16 +200,16 @@ import { lessonText } from './helpers.js';
 
 const lessonIds = LESSONS.map((l) => l.id);
 const term = (id) => TERMS.find((x) => x.id === id);
-const ORDER = ['aht', 'fcr', 'csat', 'dsat', 'quality-score', 'sla', 'kpi', 'shrinkage', 'planned-shrinkage', 'unplanned-shrinkage',
+const ORDER = ['aht', 'fcr', 'csat', 'dsat', 'quality-score', 'sla', 'service-level', 'asa', 'kpi', 'shrinkage', 'planned-shrinkage', 'unplanned-shrinkage',
   'occupancy', 'schedule-adherence', 'forecast-accuracy', 'attrition',
   'agent', 'sme', 'team-lead', 'assistant-manager', 'operation-manager', 'qa', 'trainer', 'wfm', 'rta', 'fte', 'buddy',
   'rjp', 'ojt', 'nesting', 'floor-walking', 'calibration', 'escalation', 'one-on-one-coaching', 'grow', 'pip', 'sop', 'voc', 'eap',
   'crm', 'cti', 'ticket', 'knowledge-base', 'call-recording', 'chat-log', 'email-log'];
 
-test('the glossary has the 44 agreed terms in order', () => {
+test('the glossary has the 46 agreed terms in order', () => {
   assert.deepEqual(TERMS.map((x) => x.id), ORDER);
   const count = (c) => TERMS.filter((x) => x.category === c).length;
-  assert.deepEqual([count('metric'), count('role'), count('process'), count('tool')], [14, 11, 12, 7]);
+  assert.deepEqual([count('metric'), count('role'), count('process'), count('tool')], [16, 11, 12, 7]);
 });
 
 test('the terms are valid', () => {
@@ -311,4 +311,12 @@ test('Attrition links to the lesson that talks about it', () => {
 
 test('OJT links to lesson 3', () => {
   assert.deepEqual(term('ojt').seen, ['nesting']);
+});
+
+test('the staffing lab terms carry the approved definitions', () => {
+  assert.equal(term('service-level').definition.ko, '목표 시간 안에 응답한 문의의 비율입니다. 목표 시간과 비율은 센터마다 정합니다.');
+  assert.equal(term('service-level').name.ko, '서비스 레벨');
+  assert.equal(term('asa').definition.ko, '문의가 들어와 상담사가 응답할 때까지 걸린 시간의 평균입니다.');
+  assert.equal(term('asa').name.ko, '평균 응답 속도');
+  assert.equal(term('asa').name.en, 'Average Speed of Answer');
 });

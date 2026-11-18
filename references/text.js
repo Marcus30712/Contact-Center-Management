@@ -17,10 +17,11 @@ export const REFERENCES_TEXT = {
   codexLink: { ko: 'PDF 열기 (한국어)', en: 'Open the PDF (Korean)' },
   openHeading: { ko: '참고한 공개 자료', en: 'Open resources we draw on' },
   pyworkforce: {
-    ko: 'pyworkforce — 인력 산정과 스케줄링을 위한 오픈소스 도구(MIT 라이선스). 앞으로 추가할 인력 산정 계산기에서 계산 방식을 참고하고 결과를 대조합니다.',
-    en: 'pyworkforce — an open-source toolkit for staffing and scheduling (MIT license). The staffing calculator planned for this site will follow its approach and check results against it.',
+    ko: 'pyworkforce — 인력 산정과 스케줄링을 위한 오픈소스 도구(MIT 라이선스). 인력 산정 실험실의 계산 방식을 여기서 참고했고 결과를 대조했습니다.',
+    en: 'pyworkforce — an open-source toolkit for staffing and scheduling (MIT license). The Staffing Lab follows its approach, and its results are checked against it.',
   },
   pyworkforceLink: { ko: 'GitHub에서 보기', en: 'View on GitHub' },
+  labLink: { ko: '인력 산정 실험실 열기', en: 'Open the Staffing Lab' },
   noteHeading: { ko: '안내', en: 'Note' },
   countryNote: {
     ko: '법과 제도는 국가마다 다를 수 있습니다. 이 Knowledge Base의 내용은 일반적인 운영 원칙이며, 실제 적용 전에 해당 국가와 조직의 규정을 확인하세요.',
