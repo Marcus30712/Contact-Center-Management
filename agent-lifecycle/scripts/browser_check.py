@@ -17,8 +17,8 @@ OUT = ROOT / "scripts" / "out"
 LESSONS = ["hiring", "onboarding", "nesting", "coaching", "retention", "career"]
 TRACK_KEY = "agent-lifecycle-course:track"
 STEPS = {  # steps each track sees, per lesson
-    "general": {"hiring": 9, "onboarding": 10, "nesting": 9, "coaching": 12, "retention": 9, "career": 9},
-    "tech": {"hiring": 10, "onboarding": 10, "nesting": 9, "coaching": 12, "retention": 9, "career": 9},
+    "general": {"hiring": 9, "onboarding": 11, "nesting": 11, "coaching": 12, "retention": 9, "career": 11},
+    "tech": {"hiring": 10, "onboarding": 11, "nesting": 11, "coaching": 12, "retention": 9, "career": 11},
 }
 BLOCK_STORAGE = "Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });"
 
@@ -101,14 +101,14 @@ def main():
         page.click("[data-lang='ko']")
         page.wait_for_function("document.querySelector('[data-back]')?.textContent.includes('이전')")
         page.click("[data-next-lesson]")
-        page.wait_for_function("document.querySelector('[data-counter]')?.textContent === '1 / 10'")
+        page.wait_for_function("document.querySelector('[data-counter]')?.textContent === '1 / 11'")
         check("(i) next lesson opens", "onboarding-0" in page.url)
         page.click("[data-home]")
         page.wait_for_selector("[data-stage-list]")
         check("(i) finished lesson marked done", "is-done" in (page.get_attribute("[data-stage-list] a[data-stage='hiring']", "class") or ""))
         page.go_back()
         page.wait_for_selector("[data-counter]")
-        check("(i) browser back returns to lesson", page.inner_text("[data-counter]") == "1 / 10")
+        check("(i) browser back returns to lesson", page.inner_text("[data-counter]") == "1 / 11")
 
         # (h) language switch keeps the step and survives reload
         open_at(page, base, "#hiring-2")
@@ -158,7 +158,7 @@ def main():
         page.wait_for_selector("[data-track='general'][aria-pressed='true']")
 
         # (n) switching track inside the checkpoint keeps it open and clears answers
-        open_at(page, base, "#nesting-8")
+        open_at(page, base, "#nesting-10")
         page.click("[data-next]")
         page.click("[data-question='nesting-q1'] [data-option='b']")
         page.click("[data-track='tech']")
@@ -221,10 +221,10 @@ def main():
         page.click("[data-lang='en']")
         page.wait_for_function("document.querySelector('h1')?.textContent === 'The Agent Lifecycle'")
         open_at(page, base, "#career-0")
-        check("(e) lesson renders with storage blocked", page.inner_text("[data-counter]") == "1 / 9")
+        check("(e) lesson renders with storage blocked", page.inner_text("[data-counter]") == "1 / 11")
         page.click("[data-track='tech']")
         page.wait_for_function("document.querySelector('[data-track=tech]')?.getAttribute('aria-pressed') === 'true'")
-        check("(e) track switch works with storage blocked", page.inner_text("[data-counter]") == "1 / 9")
+        check("(e) track switch works with storage blocked", page.inner_text("[data-counter]") == "1 / 11")
         page.context.close()
 
         # (f) desktop + dark screenshots for a human look

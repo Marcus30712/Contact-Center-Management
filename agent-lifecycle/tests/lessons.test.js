@@ -192,3 +192,22 @@ test('shrinkage is split into planned and unplanned time', () => {
   const en = captions('coaching', 'en').find((c) => c.includes('Shrinkage'));
   for (const w of ['all time', 'planned shrinkage', 'unplanned shrinkage', 'breaks', 'training', 'meetings', 'absence', 'lateness', 'sick leave']) assert.ok(en.includes(w), w);
 });
+
+// --- aligning with the BPO Operation Codex (buddy, escalation, SME, mentorship) ---
+test('Codex additions are common steps in lessons 2, 3 and 6', () => {
+  const ko = (id) => commonCaptions(id, 'ko').join(' ');
+  const en = (id) => commonCaptions(id, 'en').join(' ');
+  for (const w of ['버디(Buddy)', '1:1로 만나']) assert.ok(ko('onboarding').includes(w), w);
+  for (const w of ['에스컬레이션입니다', '논쟁하지 않고', '사실대로 기록']) assert.ok(ko('nesting').includes(w), w);
+  for (const w of ['SME(Subject Matter Expert)', '지식 허브', '멘토십 프로그램']) assert.ok(ko('career').includes(w), w);
+  for (const w of ['buddy', 'one-on-one']) assert.ok(en('onboarding').includes(w), w);
+  for (const w of ['escalation', 'do not argue', 'factually']) assert.ok(en('nesting').includes(w), w);
+  for (const w of ['SME (Subject Matter Expert)', 'knowledge hub', 'mentorship program']) assert.ok(en('career').includes(w), w);
+});
+
+test('lessons 2, 3 and 6 show 11 steps on each track', () => {
+  for (const id of ['onboarding', 'nesting', 'career']) {
+    for (const track of ['general', 'tech']) assert.equal(visibleSteps(byId(id), track).length, 11, `${id} ${track}`);
+  }
+  assert.deepEqual(validateCourse(LESSONS, { requireEnglish: true, requireTracks: true }), []);
+});
