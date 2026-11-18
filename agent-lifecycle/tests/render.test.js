@@ -1,0 +1,248 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { setupDom, click, key } from './dom.js';
+import { makeLesson, makeBilingualLesson } from './fixtures.js';
+import { renderDiagram } from '../js/render/diagram.js';
+import { renderHome } from '../js/render/home.js';
+import { renderLesson } from '../js/render/lesson.js';
+import { renderLangToggle } from '../js/render/langToggle.js';
+import { UI } from '../js/i18n/ui.js';
+
+const IDS = ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'];
+const course = () => IDS.map((id, i) => makeLesson({
+  id, order: i + 1, connection: { to: IDS[(i + 1) % 6], text: { ko: '다음으로 이어집니다.' } },
+}));
+
+function mountLesson(lesson = makeLesson(), stepIndex = 0, lang = 'ko') {
+  const { root } = setupDom();
+  const calls = { navigate: [], complete: [] };
+  const view = renderLesson(root, lesson, stepIndex, lang, {
+    onNavigate: (href) => calls.navigate.push(href),
+    onComplete: (id) => calls.complete.push(id),
+  });
+  const $ = (sel) => root.querySelector(sel);
+  const $$ = (sel) => [...root.querySelectorAll(sel)];
+  return { root, view, calls, $, $$ };
+}
+
+test('home lists six stages in order with the loop edge', () => {
+  const { root } = setupDom();
+  renderHome(root, course(), { completed: ['hiring'] }, 'ko');
+  const ring = [...root.querySelectorAll('svg a[data-stage]')];
+  const list = [...root.querySelectorAll('[data-stage-list] a[data-stage]')];
+  const hrefs = IDS.map((id) => `#${id}-0`);
+  assert.deepEqual(ring.map((a) => a.getAttribute('href')), hrefs);
+  assert.deepEqual(list.map((a) => a.getAttribute('href')), hrefs);
+  assert.ok(root.querySelector('[data-edge="loop"]'));
+  assert.ok(ring[0].classList.contains('is-done'));
+  assert.ok(list[0].classList.contains('is-done'));
+  assert.ok(!ring[1].classList.contains('is-done'));
+});
+
+test('diagram classes follow the step without rebuilding nodes', () => {
+  const { document } = setupDom();
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const l = makeLesson();
+  renderDiagram(svg, l.diagram, l.steps[0], 'ko');
+  const nodeB = svg.querySelector('[data-node="b"]');
+  const count = svg.querySelectorAll('[data-node]').length;
+  assert.equal(count, 3);
+  assert.ok(nodeB.classList.contains('is-hidden'));
+  assert.ok(svg.querySelector('[data-node="a"]').classList.contains('is-active'));
+  assert.ok(svg.querySelector('[data-edge="ab"]').classList.contains('is-hidden'));
+
+  renderDiagram(svg, l.diagram, l.steps[2], 'ko');
+  assert.equal(svg.querySelector('[data-node="b"]'), nodeB);
+  assert.equal(svg.querySelectorAll('[data-node]').length, count);
+  assert.ok(!nodeB.classList.contains('is-hidden'));
+  assert.ok(nodeB.classList.contains('is-active'));
+  assert.ok(!svg.querySelector('[data-node="a"]').classList.contains('is-active'));
+  assert.ok(!svg.querySelector('[data-edge="ab"]').classList.contains('is-hidden'));
+});
+
+test('diagram persona hides when the step has none', () => {
+  const { document } = setupDom();
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const l = makeLesson();
+  renderDiagram(svg, l.diagram, l.steps[0], 'ko');
+  const persona = svg.querySelector('[data-persona]');
+  assert.ok(!persona.classList.contains('is-hidden'));
+  renderDiagram(svg, l.diagram, { ...l.steps[0], persona: null }, 'ko');
+  assert.ok(persona.classList.contains('is-hidden'));
+});
+
+test('lesson shows the first caption and counter', () => {
+  const l = makeLesson();
+  const { $ } = mountLesson(l);
+  assert.equal($('[data-caption]').textContent, l.steps[0].caption.ko);
+  assert.equal($('[data-counter]').textContent, '1 / 6');
+});
+
+test('prev on the first step does nothing', () => {
+  const { $, calls } = mountLesson();
+  click($('[data-prev]'));
+  key('ArrowLeft');
+  assert.deepEqual(calls.navigate, []);
+  assert.equal($('[data-counter]').textContent, '1 / 6');
+});
+
+test('next button and arrow key advance and navigate', () => {
+  const l = makeLesson();
+  const { $, calls } = mountLesson(l);
+  click($('[data-next]'));
+  assert.deepEqual(calls.navigate, ['#hiring-1']);
+  assert.equal($('[data-caption]').textContent, l.steps[1].caption.ko);
+  key('ArrowRight');
+  assert.deepEqual(calls.navigate, ['#hiring-1', '#hiring-2']);
+  key('ArrowLeft');
+  assert.equal($('[data-counter]').textContent, '2 / 6');
+});
+
+test('start index is clamped into range', () => {
+  const { $ } = mountLesson(makeLesson(), 99);
+  assert.equal($('[data-counter]').textContent, '6 / 6');
+});
+
+test('next on the last step opens the checkpoint, and repeated presses are harmless', () => {
+  const l = makeLesson();
+  const { $ } = mountLesson(l, 5);
+  assert.ok($('[data-view="checkpoint"]').hidden);
+  click($('[data-next]'));
+  key('ArrowRight');
+  key('ArrowRight');
+  assert.ok(!$('[data-view="checkpoint"]').hidden);
+  assert.ok($('[data-view="steps"]').hidden);
+  assert.equal($('[data-question="q1"] [data-prompt]').textContent, l.checkpoint[0].prompt.ko);
+});
+
+test('back from the checkpoint returns to the last step', () => {
+  const { $ } = mountLesson(makeLesson(), 5);
+  click($('[data-next]'));
+  click($('[data-back]'));
+  assert.ok($('[data-view="checkpoint"]').hidden);
+  assert.equal($('[data-counter]').textContent, '6 / 6');
+});
+
+test('re-answering replaces the explanation', () => {
+  const l = makeLesson();
+  const { $, $$ } = mountLesson(l, 5);
+  click($('[data-next]'));
+  click($('[data-option="y"]'));
+  assert.ok($('[data-option="y"]').classList.contains('is-wrong'));
+  click($('[data-option="x"]'));
+  const explanations = $$('[data-question="q1"] [data-explanation]').filter((e) => !e.hidden);
+  assert.equal(explanations.length, 1);
+  assert.ok(explanations[0].textContent.includes(l.checkpoint[0].explanation.ko));
+  assert.ok($('[data-option="x"]').classList.contains('is-correct'));
+  assert.ok(!$('[data-option="y"]').classList.contains('is-wrong'));
+});
+
+test('answering every question completes the lesson once', () => {
+  const l = makeLesson();
+  const { $, calls } = mountLesson(l, 5);
+  click($('[data-next]'));
+  assert.ok($('[data-connection]').hidden);
+  click($('[data-option="y"]'));
+  click($('[data-option="x"]'));
+  assert.deepEqual(calls.complete, ['hiring']);
+  assert.ok(!$('[data-connection]').hidden);
+  assert.ok($('[data-connection]').textContent.includes(l.connection.text.ko));
+  assert.equal($('[data-next-lesson]').getAttribute('href'), '#onboarding-0');
+});
+
+test('destroy stops keyboard handling', () => {
+  const { view, calls } = mountLesson();
+  view.destroy();
+  key('ArrowRight');
+  assert.deepEqual(calls.navigate, []);
+});
+
+test('goTo moves to a step without navigating', () => {
+  const { view, $, calls } = mountLesson();
+  view.goTo(3);
+  assert.equal($('[data-counter]').textContent, '4 / 6');
+  assert.deepEqual(calls.navigate, []);
+});
+
+test('english with translation shows English and no note', () => {
+  const l = makeBilingualLesson();
+  const { $ } = mountLesson(l, 0, 'en');
+  assert.equal($('[data-caption]').textContent, l.steps[0].caption.en);
+  assert.equal($('[data-prev]').textContent.trim(), UI.prev.en);
+  assert.equal($('[data-next]').textContent.trim(), UI.next.en);
+  assert.ok($('[data-translation-note]').hidden);
+  assert.equal(document.documentElement.lang, 'en');
+});
+
+test('english without translation falls back to Korean with a note', () => {
+  const l = makeLesson();
+  const { $ } = mountLesson(l, 0, 'en');
+  assert.equal($('[data-caption]').textContent, l.steps[0].caption.ko);
+  assert.equal($('[data-translation-note]').textContent, 'Translation coming soon');
+  assert.ok(!$('[data-translation-note]').hidden);
+  assert.equal($('[data-next]').textContent.trim(), UI.next.en);
+});
+
+test('home in English falls back with a note', () => {
+  const { root } = setupDom();
+  renderHome(root, course(), { completed: [] }, 'en');
+  assert.equal(root.querySelector('[data-translation-note]').textContent, 'Translation coming soon');
+});
+
+test('lang toggle reports the chosen language', () => {
+  const { root } = setupDom();
+  const picked = [];
+  renderLangToggle(root, 'ko', (lang) => picked.push(lang));
+  assert.equal(root.querySelector('[data-lang="ko"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(root.querySelector('[data-lang="en"]').getAttribute('aria-pressed'), 'false');
+  click(root.querySelector('[data-lang="en"]'));
+  assert.deepEqual(picked, ['en']);
+});
+
+// --- final review fixes ---
+import { readdirSync } from 'node:fs';
+
+test('no served file starts with an underscore (GitHub Pages skips them)', () => {
+  const bad = readdirSync(new URL('../js', import.meta.url), { recursive: true })
+    .filter((f) => String(f).split(/[\\/]/).pop().startsWith('_'));
+  assert.deepEqual(bad, []);
+});
+
+test('focus moves to the checkpoint heading and back to the next button', () => {
+  const { $ } = mountLesson(makeLesson(), 5);
+  click($('[data-next]'));
+  assert.equal(document.activeElement, $('[data-view="checkpoint"] h2'));
+  click($('[data-back]'));
+  assert.equal(document.activeElement, $('[data-next]'));
+});
+
+test('arrow keys with a modifier are left to the browser', () => {
+  const { calls } = mountLesson();
+  for (const mod of ['altKey', 'ctrlKey', 'metaKey', 'shiftKey']) {
+    document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowRight', [mod]: true, bubbles: true }));
+  }
+  assert.deepEqual(calls.navigate, []);
+});
+
+test('a snapshot restores the checkpoint and its answers in another language', () => {
+  const l = makeBilingualLesson();
+  const first = mountLesson(l, 5);
+  click(first.$('[data-next]'));
+  click(first.$('[data-option="x"]'));
+  const snap = first.view.snapshot();
+  first.view.destroy();
+
+  const root = document.getElementById('app');
+  renderLesson(root, l, snap.step, 'en', { onNavigate() {}, onComplete() {}, restore: snap });
+  assert.ok(!root.querySelector('[data-view="checkpoint"]').hidden);
+  assert.ok(root.querySelector('[data-option="x"]').classList.contains('is-correct'));
+  assert.ok(root.querySelector('[data-explanation]').textContent.includes(l.checkpoint[0].explanation.en));
+  assert.ok(!root.querySelector('[data-connection]').hidden);
+});
+
+test('ring links are decorative duplicates of the stage cards', () => {
+  const { root } = setupDom();
+  renderHome(root, course(), { completed: [] }, 'ko');
+  assert.equal(root.querySelector('svg.ring').getAttribute('aria-hidden'), 'true');
+  for (const a of root.querySelectorAll('svg a[data-stage]')) assert.equal(a.getAttribute('tabindex'), '-1');
+});
