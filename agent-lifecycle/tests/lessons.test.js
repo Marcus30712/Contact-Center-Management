@@ -184,3 +184,11 @@ test('lesson 4 boxes leave similar room for every arrow', () => {
   assert.ok(gap('calibration', 'qa') >= 30, String(gap('calibration', 'qa')));
   for (const n of Object.values(nodes)) assert.ok(n.x >= 56 && n.x <= 304 && n.y >= 19 && n.y <= 221, n.id);
 });
+
+// --- Shrinkage: planned and unplanned (user decision) ---
+test('shrinkage is split into planned and unplanned time', () => {
+  const ko = captions('coaching', 'ko').find((c) => c.includes('Shrinkage'));
+  for (const w of ['모든 시간', 'Planned Shrinkage', 'Unplanned Shrinkage', '휴식', '교육', '회의', '결근', '지각', '병가']) assert.ok(ko.includes(w), w);
+  const en = captions('coaching', 'en').find((c) => c.includes('Shrinkage'));
+  for (const w of ['all time', 'planned shrinkage', 'unplanned shrinkage', 'breaks', 'training', 'meetings', 'absence', 'lateness', 'sick leave']) assert.ok(en.includes(w), w);
+});
