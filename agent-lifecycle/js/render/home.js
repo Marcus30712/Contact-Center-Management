@@ -69,6 +69,7 @@ export function renderHome(root, lessons, progress, lang) {
     h('header', { class: 'home-head' }, [
       h('h1', { text: tr(UI.courseTitle) }),
       h('p', { class: 'tagline', text: tr(UI.courseTagline) }),
+      h('p', { class: 'track-hint', 'data-track-hint': true, text: tr(UI.trackHint) }),
       h('p', { class: 'translation-note', 'data-translation-note': true, hidden: !fallback, text: fallback ? tr(UI.translationComing) : '' }),
     ]),
     h('div', { class: 'home-body' }, [

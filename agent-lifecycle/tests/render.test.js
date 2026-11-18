@@ -246,3 +246,116 @@ test('ring links are decorative duplicates of the stage cards', () => {
   assert.equal(root.querySelector('svg.ring').getAttribute('aria-hidden'), 'true');
   for (const a of root.querySelectorAll('svg a[data-stage]')) assert.equal(a.getAttribute('tabindex'), '-1');
 });
+
+// --- tracks ---
+import { makeTrackLesson } from './fixtures.js';
+import { renderTrackToggle } from '../js/render/trackToggle.js';
+
+function mountTrack(track, stepIndex = 0, lang = 'ko', restore) {
+  const { root } = setupDom();
+  const calls = { navigate: [], complete: [] };
+  const view = renderLesson(root, makeTrackLesson(), stepIndex, lang, {
+    onNavigate: (href) => calls.navigate.push(href),
+    onComplete: (id) => calls.complete.push(id),
+    track, restore,
+  });
+  return { root, view, calls, $: (sel) => root.querySelector(sel), $$: (sel) => [...root.querySelectorAll(sel)] };
+}
+
+test('each track shows common steps plus its own', () => {
+  assert.equal(mountTrack('general').$('[data-counter]').textContent, '1 / 7');
+  assert.equal(mountTrack('tech').$('[data-counter]').textContent, '1 / 8');
+});
+
+test('step index clamps to the track step count', () => {
+  assert.equal(mountTrack('tech', 99).$('[data-counter]').textContent, '8 / 8');
+  assert.equal(mountTrack('general', 99).$('[data-counter]').textContent, '7 / 7');
+});
+
+test('track badge shows only on track-only steps', () => {
+  const { $ } = mountTrack('general', 1);
+  assert.ok($('[data-track-badge]').hidden);
+  click($('[data-next]')); // general-only step
+  assert.ok(!$('[data-track-badge]').hidden);
+  assert.equal($('[data-track-badge]').textContent, '일반 고객지원');
+  click($('[data-next]'));
+  assert.ok($('[data-track-badge]').hidden);
+});
+
+test('track badge is translated', () => {
+  const { $ } = mountTrack('general', 2, 'en');
+  assert.equal($('[data-track-badge]').textContent, 'General support');
+});
+
+test('checkpoint shows the common question plus the track question', () => {
+  const g = mountTrack('general', 99);
+  click(g.$('[data-next]'));
+  assert.deepEqual(g.$$('[data-question]').map((q) => q.getAttribute('data-question')), ['q1', 'qg']);
+  const t = mountTrack('tech', 99);
+  click(t.$('[data-next]'));
+  assert.deepEqual(t.$$('[data-question]').map((q) => q.getAttribute('data-question')), ['q1', 'qt']);
+});
+
+test('the lesson completes only after both visible questions are answered', () => {
+  const { $, calls } = mountTrack('tech', 99);
+  click($('[data-next]'));
+  click($('[data-question="q1"] [data-option="x"]'));
+  assert.deepEqual(calls.complete, []);
+  assert.ok($('[data-connection]').hidden);
+  click($('[data-question="qt"] [data-option="x"]'));
+  assert.deepEqual(calls.complete, ['hiring']);
+  assert.ok(!$('[data-connection]').hidden);
+});
+
+test('restoring a checkpoint into another track reopens it without answers', () => {
+  const g = mountTrack('general', 99);
+  click(g.$('[data-next]'));
+  click(g.$('[data-question="q1"] [data-option="x"]'));
+  const snap = g.view.snapshot();
+  assert.equal(snap.track, 'general');
+  g.view.destroy();
+  const t = mountTrack('tech', 0, 'ko', snap);
+  assert.ok(!t.$('[data-view="checkpoint"]').hidden);
+  assert.equal(t.$$('.is-correct').length, 0);
+  assert.ok(t.$('[data-connection]').hidden);
+  assert.deepEqual(t.calls.complete, []);
+});
+
+test('restoring a checkpoint into the same track keeps answers', () => {
+  const g = mountTrack('general', 99);
+  click(g.$('[data-next]'));
+  click(g.$('[data-question="q1"] [data-option="x"]'));
+  const snap = g.view.snapshot();
+  g.view.destroy();
+  const again = mountTrack('general', 99, 'ko', snap);
+  assert.ok(again.$('[data-question="q1"] [data-option="x"]').classList.contains('is-correct'));
+});
+
+test('track toggle reports the chosen track', () => {
+  const { root } = setupDom();
+  const picked = [];
+  renderTrackToggle(root, 'general', 'en', (t) => picked.push(t));
+  assert.equal(root.querySelector('[data-track="general"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(root.querySelector('[data-track="tech"]').getAttribute('aria-pressed'), 'false');
+  assert.equal(root.querySelector('[data-track="tech"]').textContent, 'Tech support');
+  assert.equal(root.querySelector('[role="group"]').getAttribute('aria-label'), 'Team type');
+  click(root.querySelector('[data-track="general"]'));
+  click(root.querySelector('[data-track="tech"]'));
+  assert.deepEqual(picked, ['tech']);
+});
+
+test('home shows the track hint', () => {
+  const { root } = setupDom();
+  renderHome(root, course(), { completed: [] }, 'ko');
+  assert.equal(root.querySelector('[data-track-hint]').textContent, UI.trackHint.ko);
+});
+
+test('the translation note looks only at what the track shows', () => {
+  const l = makeBilingualLesson();
+  l.steps.push({ track: 'tech', caption: { ko: '기술지원 전용입니다.' }, show: ['a'], highlight: [], persona: 'a' });
+  const { root } = setupDom();
+  renderLesson(root, l, 0, 'en', { onNavigate() {}, onComplete() {}, track: 'general' });
+  assert.ok(root.querySelector('[data-translation-note]').hidden);
+  renderLesson(root, l, 0, 'en', { onNavigate() {}, onComplete() {}, track: 'tech' }).destroy();
+  assert.ok(!root.querySelector('[data-translation-note]').hidden);
+});

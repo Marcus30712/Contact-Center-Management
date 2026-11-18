@@ -3,14 +3,18 @@ import { t, hasFallback } from '../engine/i18n.js';
 import { createPlayer } from '../engine/player.js';
 import { lessonHref, HOME_HREF } from '../engine/router.js';
 import { gradeAnswer } from '../engine/quiz.js';
+import { visibleSteps, visibleQuestions } from '../engine/track.js';
 import { renderDiagram } from './diagram.js';
 import { UI } from '../i18n/ui.js';
 
 // One lesson: step-through diagram, then the checkpoint questions, then the
 // card that links to the next stage.
-export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComplete, restore }) {
+export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComplete, restore, track = 'general' }) {
   const tr = (text) => t(text, lang).text;
-  const player = createPlayer(lesson.steps.length, stepIndex);
+  // Only the common content plus the chosen track's own is on screen.
+  const steps = visibleSteps(lesson, track);
+  const checkpoint = visibleQuestions(lesson, track);
+  const player = createPlayer(steps.length, stepIndex);
   const answers = new Map(); // question id -> chosen option id
   let completed = false;
   let inCheckpoint = false;
@@ -19,14 +23,16 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
   // --- steps view ---
   const svg = s('svg', { class: 'diagram', 'data-diagram': true, 'aria-label': tr(lesson.title) });
   const caption = h('p', { class: 'caption', 'data-caption': true, 'aria-live': 'polite' });
+  const badge = h('span', { class: 'track-badge', 'data-track-badge': true, hidden: true });
   const counter = h('span', { class: 'counter', 'data-counter': true });
   const prev = h('button', { type: 'button', class: 'btn', 'data-prev': true, text: tr(UI.prev), onclick: () => move(-1) });
   const next = h('button', { type: 'button', class: 'btn primary', 'data-next': true, text: tr(UI.next), onclick: () => move(1) });
-  const dots = h('div', { class: 'dots', 'aria-hidden': 'true' }, lesson.steps.map(() => h('i')));
+  const dots = h('div', { class: 'dots', 'aria-hidden': 'true' }, steps.map(() => h('i')));
   const stepsView = h('section', { class: 'steps', 'data-view': 'steps' }, [
     h('div', { class: 'stage-area' }, [svg]),
     h('div', { class: 'talk' }, [
       dots,
+      badge,
       caption,
       h('div', { class: 'controls' }, [prev, counter, next]),
     ]),
@@ -38,7 +44,7 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
     h('p', { text: tr(lesson.connection.text) }),
     h('a', { class: 'btn primary', 'data-next-lesson': true, href: lessonHref(lesson.connection.to, 0), text: `${tr(UI.nextLesson)} →` }),
   ]);
-  const questions = lesson.checkpoint.map((q) => {
+  const questions = checkpoint.map((q) => {
     const explanation = h('div', { class: 'explanation', 'data-explanation': true, hidden: true, 'aria-live': 'polite' });
     const buttons = q.options.map((o) => h('button', {
       type: 'button', class: 'option', 'data-option': o.id, text: tr(o.text),
@@ -73,7 +79,7 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
       document.createTextNode(tr(q.explanation)),
     );
     answers.set(q.id, optionId);
-    if (answers.size === lesson.checkpoint.length) {
+    if (answers.size === checkpoint.length) {
       connection.hidden = false;
       if (!completed) {
         completed = true;
@@ -95,10 +101,12 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
   }
 
   function drawStep() {
-    const step = lesson.steps[player.index];
+    const step = steps[player.index];
     renderDiagram(svg, lesson.diagram, step, lang);
     caption.textContent = tr(step.caption);
-    counter.textContent = `${player.index + 1} / ${lesson.steps.length}`;
+    counter.textContent = `${player.index + 1} / ${steps.length}`;
+    badge.hidden = !step.track;
+    badge.textContent = step.track ? tr(step.track === 'tech' ? UI.trackTech : UI.trackGeneral) : '';
     prev.disabled = player.atStart;
     [...dots.children].forEach((d, i) => d.classList.toggle('on', i <= player.index));
   }
@@ -120,7 +128,7 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
   }
   document.addEventListener('keydown', onKey);
 
-  const fallback = hasFallback(lesson, lang);
+  const fallback = hasFallback({ ...lesson, steps, checkpoint }, lang);
   root.replaceChildren(
     h('header', { class: 'lesson-head' }, [
       h('a', { class: 'home-link', 'data-home': true, href: HOME_HREF, text: `← ${tr(UI.home)}` }),
@@ -137,14 +145,16 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
   // Put back a checkpoint that was open before a language switch.
   if (restore?.inCheckpoint) {
     showCheckpoint(true);
-    for (const [qid, optionId] of Object.entries(restore.answers ?? {})) {
+    // Answers belong to the track they were given on.
+    const sameTrack = restore.track === undefined || restore.track === track;
+    for (const [qid, optionId] of Object.entries(sameTrack ? restore.answers ?? {} : {})) {
       checkpointView.querySelector(`[data-question="${qid}"] [data-option="${optionId}"]`)?.click();
     }
   }
 
   return {
     snapshot() {
-      return { step: player.index, inCheckpoint, answers: Object.fromEntries(answers) };
+      return { step: player.index, inCheckpoint, answers: Object.fromEntries(answers), track };
     },
     destroy() { document.removeEventListener('keydown', onKey); },
     // Jump to a step (used when the address changes, e.g. the back button).
