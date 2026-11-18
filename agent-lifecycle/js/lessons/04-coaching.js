@@ -13,11 +13,11 @@ export default {
   subtitle: tx('품질을 유지하고 역량을 끌어올립니다.', 'Keeping quality steady and building skill.'),
   diagram: {
     nodes: [
-      node('calls', '상담', 58, 120, 'Calls'),
-      node('qa', 'QA 평가', 180, 56, 'QA review'),
-      node('kpi', 'KPI', 180, 184, 'KPIs'),
-      node('coach', '1:1 코칭', 302, 120, '1:1 coaching'),
-      node('calibration', '캘리브레이션', 302, 30, 'Calibration'),
+      node('calls', '상담', 58, 150, 'Calls'),
+      node('qa', 'QA 평가', 180, 96, 'QA review'),
+      node('kpi', 'KPI', 180, 204, 'KPIs'),
+      node('coach', '1:1 코칭', 302, 150, '1:1 coaching'),
+      node('calibration', '캘리브레이션', 180, 24, 'Calibration'),
     ],
     edges: [
       edge('calls', 'qa'), edge('calls', 'kpi'),
@@ -78,7 +78,7 @@ export default {
     prompt: tx('지민의 티켓은 빨리 닫히지만 같은 고객의 문의가 다시 들어오는 일이 잦습니다. 무엇을 볼까요?', 'Jimin’s tickets close quickly, but the same customers often come back with the same issue. What do you look at?'),
     options: [
       option('a', tx('해결 시간이 짧으니 문제없다고 본다.', 'Resolution time is short, so there is no problem.')),
-      option('b', tx('진단 과정을 녹취와 티켓 기록으로 확인하고, 건너뛴 확인 단계를 코칭한다.', 'Review the diagnostic process through recordings and ticket notes, and coach the checks she skipped.')),
+      option('b', tx('진단 과정을 녹취, 채팅 로그, 이메일 로그와 티켓 기록으로 확인하고, 건너뛴 확인 단계를 코칭한다.', 'Review the diagnostic process through call recordings, chat logs, email logs, and ticket notes, and coach the checks she skipped.')),
       option('c', tx('에스컬레이션을 더 많이 하라고 한다.', 'Tell her to escalate more often.')),
     ],
     answer: 'b',

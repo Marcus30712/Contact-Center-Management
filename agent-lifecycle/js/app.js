@@ -28,7 +28,7 @@ const trackRoot = document.getElementById('track');
 const brand = document.getElementById('brand');
 const lessonIds = LESSONS.map((l) => l.id);
 
-let lang = loadLang(storage, navigator.language);
+let lang = loadLang(storage);
 let track = loadTrack(storage);
 const completed = new Set(loadProgress(storage).completed);
 let current = null; // { id, lang, track, view } while a lesson is on screen

@@ -5,21 +5,20 @@ import { UI } from '../js/i18n/ui.js';
 import { fakeStorage, throwingStorage } from './helpers.js';
 
 test('loadLang prefers a valid saved language', () => {
-  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'en' }), 'ko-KR'), 'en');
+  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'en' })), 'en');
 });
 
-test('loadLang falls back to the browser language', () => {
-  assert.equal(loadLang(fakeStorage(), 'ko-KR'), 'ko');
-  assert.equal(loadLang(fakeStorage(), 'en-US'), 'en');
-  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'fr' }), 'en-US'), 'en');
-  assert.equal(loadLang(throwingStorage, 'en-US'), 'en');
-  assert.equal(loadLang(null, 'ko'), 'ko');
+test('loadLang starts in Korean unless a valid language is saved', () => {
+  assert.equal(loadLang(fakeStorage()), 'ko');
+  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'fr' })), 'ko');
+  assert.equal(loadLang(throwingStorage), 'ko');
+  assert.equal(loadLang(null), 'ko');
 });
 
 test('saveLang stores the choice and never throws', () => {
   const s = fakeStorage();
   saveLang(s, 'en');
-  assert.equal(loadLang(s, 'ko-KR'), 'en');
+  assert.equal(loadLang(s), 'en');
   assert.doesNotThrow(() => saveLang(throwingStorage, 'en'));
   assert.doesNotThrow(() => saveLang(null, 'en'));
 });

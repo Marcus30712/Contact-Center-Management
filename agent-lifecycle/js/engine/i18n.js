@@ -1,12 +1,13 @@
 export const LANG_KEY = 'agent-lifecycle-course:lang';
 const LANGS = ['ko', 'en'];
 
-export function loadLang(storage, navigatorLanguage) {
+// First visit opens in Korean; after that the saved choice wins.
+export function loadLang(storage) {
   try {
     const saved = storage.getItem(LANG_KEY);
     if (LANGS.includes(saved)) return saved;
-  } catch { /* use the browser language */ }
-  return String(navigatorLanguage || '').toLowerCase().startsWith('ko') ? 'ko' : 'en';
+  } catch { /* fall back to the default */ }
+  return 'ko';
 }
 
 export function saveLang(storage, lang) {

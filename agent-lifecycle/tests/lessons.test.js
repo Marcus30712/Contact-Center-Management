@@ -166,3 +166,21 @@ test('English review fixes', () => {
   assert.ok(opt('career', 'career-tech', 'b').includes('alongside a Tier 2 agent'));
   assert.ok(!opt('hiring', 'hiring-tech', 'a').includes('call'));
 });
+
+// --- channel record names and lesson 4 layout ---
+test('tech coaching question names the record for each channel', () => {
+  const q = byId('coaching').checkpoint.find((x) => x.id === 'coaching-tech');
+  const b = q.options.find((o) => o.id === 'b').text;
+  for (const word of ['녹취', '채팅 로그', '이메일 로그']) assert.ok(b.ko.includes(word), word);
+  for (const word of ['call recordings', 'chat logs', 'email logs']) assert.ok(b.en.includes(word), word);
+});
+
+test('lesson 4 boxes leave similar room for every arrow', () => {
+  // Clear space between two boxes (box is 108 x 34 in diagram units).
+  const nodes = Object.fromEntries(byId('coaching').diagram.nodes.map((n) => [n.id, n]));
+  const gap = (a, b) => Math.max(Math.abs(nodes[a].x - nodes[b].x) - 108, Math.abs(nodes[a].y - nodes[b].y) - 34);
+  const gaps = ['calls-qa', 'calls-kpi', 'qa-coach', 'kpi-coach', 'calibration-qa'].map((id) => gap(...id.split('-')));
+  assert.ok(Math.min(...gaps) >= 14, String(gaps));
+  assert.ok(gap('calibration', 'qa') >= 30, String(gap('calibration', 'qa')));
+  for (const n of Object.values(nodes)) assert.ok(n.x >= 56 && n.x <= 304 && n.y >= 19 && n.y <= 221, n.id);
+});

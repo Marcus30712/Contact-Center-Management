@@ -80,7 +80,17 @@ a { color: inherit; }
   padding: 12px 0; border-bottom: 1px solid var(--line);
 }
 .brand { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; font-size: 0.95rem; }
-.switches { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+/* Narrow screens: title and language on the first row, team type on the
+   second. Wide screens: everything on one row. */
+#lang { order: 2; margin-left: auto; }
+#track { order: 3; flex-basis: 100%; }
+#track .lang-toggle { width: 100%; }
+#track .lang-btn { flex: 1; }
+@media (min-width: 640px) {
+  #track { order: 2; flex-basis: auto; margin-left: auto; }
+  #track .lang-toggle { width: auto; }
+  #lang { order: 3; margin-left: 0; }
+}
 .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
 .lang-btn {
   font: inherit; font-size: 0.8rem; padding: 6px 12px; min-height: 34px;
