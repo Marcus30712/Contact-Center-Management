@@ -5,6 +5,8 @@
 | 주제 | 폴더 | 설명 |
 |---|---|---|
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
+| 용어집 / Glossary | [`glossary/`](glossary/) | 운영 용어 44개를 검색·분류해 보는 페이지. 용어는 `glossary/terms.js`에 있습니다 |
+| 참고 자료 / References | [`references/`](references/) | 바탕 자료(BPO Contact Center Operation Codex 2.0)와 참고한 공개 자료 |
 
 - 첫 화면: `index.html` (주제 목록)
 - 설계 문서와 계획: `docs/superpowers/`

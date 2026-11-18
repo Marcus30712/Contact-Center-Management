@@ -8,11 +8,14 @@ import functools
 import http.server
 import pathlib
 import sys
+import tempfile
 import threading
 
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+REPO = ROOT.parent
+HUB = ""  # set by serve()
 OUT = ROOT / "scripts" / "out"
 LESSONS = ["hiring", "onboarding", "nesting", "coaching", "retention", "career"]
 TRACK_KEY = "agent-lifecycle-course:track"
@@ -35,10 +38,16 @@ def serve():
         def log_message(self, *args):
             pass
 
-    handler = functools.partial(Quiet, directory=str(ROOT))
+    # Serve the whole repository under a sub-path, the way GitHub Pages does
+    # (/Contact-Center-Management/), so relative links are really exercised.
+    web = pathlib.Path(tempfile.mkdtemp())
+    (web / "kb").symlink_to(REPO, target_is_directory=True)
+    handler = functools.partial(Quiet, directory=str(web))
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
-    return server, f"http://127.0.0.1:{server.server_address[1]}/index.html"
+    global HUB
+    HUB = f"http://127.0.0.1:{server.server_address[1]}/kb/"
+    return server, HUB + "agent-lifecycle/index.html"
 
 
 def new_page(browser, errors, width=390, height=780, locale="ko-KR", init=None, scheme="light"):
@@ -189,9 +198,13 @@ def main():
         page.set_viewport_size({"width": 320, "height": 780})
         bar = page.evaluate("document.querySelector('.topbar').getBoundingClientRect().height")
         check("(p) header takes at most two rows at 320px in English", bar <= 110, f"height={bar}")
+        cut = page.evaluate("(() => { const b = document.getElementById('brand'); return b.scrollWidth - b.clientWidth; })()")
+        check("(p) course title is not cut off at 320px in English", cut <= 0, f"cut={cut}")
         page.click("[data-lang='ko']")
         bar = page.evaluate("document.querySelector('.topbar').getBoundingClientRect().height")
         check("(p) header takes at most two rows at 320px in Korean", bar <= 110, f"height={bar}")
+        cut = page.evaluate("(() => { const b = document.getElementById('brand'); return b.scrollWidth - b.clientWidth; })()")
+        check("(p) course title is not cut off at 320px in Korean", cut <= 0, f"cut={cut}")
         page.click("[data-lang='en']")
         page.wait_for_function("document.querySelector('h1')?.textContent === 'The Agent Lifecycle'")
         page.set_viewport_size({"width": 390, "height": 780})
@@ -248,6 +261,83 @@ def main():
         open_at(page, base, "#coaching-8")
         page.wait_for_timeout(500)
         page.screenshot(path=str(OUT / "lesson-390-dark.png"), full_page=True)
+        page.context.close()
+
+        # ---- Knowledge Base hub, glossary and references ----
+        page = new_page(browser, errors)
+        page.goto(HUB)
+        cards = page.locator("a.card")
+        check("(r) hub shows three cards", cards.count() == 3, str(cards.count()))
+        for href, title in (("./agent-lifecycle/", "상담사 라이프사이클"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
+            page.goto(HUB)
+            page.click(f"a.card[href='{href}']")
+            page.wait_for_selector("#app h1")
+            check(f"(r) card opens {href}", page.inner_text("#app h1") == title, page.inner_text("#app h1"))
+        for path, link in (("glossary/", "[data-back]"), ("references/", "[data-back]"), ("agent-lifecycle/", "[data-kb-link]")):
+            page.goto(HUB + path)
+            page.wait_for_selector("#app > *")
+            page.click(link)
+            page.wait_for_selector("a.card")
+            check(f"(s) {path} links back to the hub", page.url == HUB, page.url)
+
+        page.goto(HUB + "glossary/#nope")
+        page.wait_for_selector("[data-count]")
+        check("(t) unknown term address shows the list", page.locator(".is-focus").count() == 0)
+        if page.locator("[data-term='aht']").count():
+            page.goto(HUB + "glossary/#aht")
+            page.wait_for_selector("[data-term='aht'].is-focus")
+            check("(t) term address focuses the card", page.locator(".is-focus").count() == 1)
+            check("(t) keyboard focus moves to the opened term", page.evaluate("document.activeElement?.getAttribute('data-term')") == "aht")
+            page.fill("[data-search]", "shrinkage")
+            check("(t) search narrows the list", page.locator("[data-term]").count() == 3, str(page.locator("[data-term]").count()))
+            check("(t) search box keeps focus while typing", page.evaluate("document.activeElement?.hasAttribute('data-search')"))
+            page.fill("[data-search]", "((")
+            check("(t) odd search text shows the empty note", page.is_visible("[data-empty]"))
+        for width in (320, 390, 1280):
+            page.set_viewport_size({"width": width, "height": 780})
+            for lang in ("ko", "en"):
+                for path in ("", "glossary/", "references/"):
+                    page.goto(HUB + path)
+                    if path:
+                        page.wait_for_selector("#app > *")
+                        page.click(f"[data-lang='{lang}']")
+                        page.wait_for_selector(f"[data-lang='{lang}'][aria-pressed='true']")
+                    overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
+                    check(f"(u) no horizontal scroll {width}px {lang} /{path}", overflow <= 0, f"overflow={overflow}")
+        page.click("[data-lang='ko']")
+        page.set_viewport_size({"width": 390, "height": 780})
+        page.goto(HUB + "glossary/")
+        page.wait_for_selector("[data-count]")
+        page.screenshot(path=str(OUT / "glossary-390.png"), full_page=False)
+        page.goto(HUB + "references/")
+        page.wait_for_selector("#app h1")
+        page.screenshot(path=str(OUT / "references-390.png"), full_page=True)
+        pdf = page.request.get(HUB + "references/" + page.get_attribute("a[data-codex-pdf]", "href").lstrip("./"))
+        check("(x) Codex PDF is served", pdf.status == 200 and pdf.headers.get("content-type", "").startswith("application/pdf"), str(pdf.status))
+
+        # (w) the language chosen in the course carries over
+        page.goto(HUB + "agent-lifecycle/")
+        page.wait_for_selector("[data-lang='en']")
+        page.click("[data-lang='en']")
+        page.goto(HUB + "glossary/")
+        page.wait_for_selector("#app h1")
+        check("(w) glossary follows the course language", page.inner_text("#app h1") == "Glossary", page.inner_text("#app h1"))
+        check("(w) English glossary needs no translation note", not page.is_visible("[data-translation-note]"))
+        check("(w) English glossary lists every term", page.locator("[data-term]").count() == 44, str(page.locator("[data-term]").count()))
+        page.screenshot(path=str(OUT / "glossary-390-en.png"), full_page=False)
+        page.goto(HUB + "references/")
+        page.wait_for_selector("#app h1")
+        check("(w) references follow the course language", page.inner_text("#app h1") == "References", page.inner_text("#app h1"))
+        page.context.close()
+
+        # (v) storage blocked
+        page = new_page(browser, errors, init=BLOCK_STORAGE)
+        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References")):
+            page.goto(HUB + path)
+            page.wait_for_selector("#app h1")
+            check(f"(v) {path} opens in Korean with storage blocked", page.inner_text("#app h1") == ko)
+            page.click("[data-lang='en']")
+            page.wait_for_function(f"document.querySelector('#app h1')?.textContent === '{en}'")
         page.context.close()
 
         browser.close()
