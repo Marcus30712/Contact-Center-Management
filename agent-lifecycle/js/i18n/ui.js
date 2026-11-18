@@ -19,6 +19,13 @@ export const UI = {
   start: { ko: '1단계부터 시작', en: 'Start with stage 1' },
   personaName: { ko: '지민', en: 'Jimin' },
   translationComing: { ko: '영어 번역 준비 중', en: 'Translation coming soon' },
+  trackLabel: { ko: '직군', en: 'Team type' },
+  trackGeneral: { ko: '일반 고객지원', en: 'General support' },
+  trackTech: { ko: '기술지원', en: 'Tech support' },
+  trackHint: {
+    ko: '팀의 직군을 고르면 그 직군에 맞는 내용이 더해집니다.',
+    en: 'Pick your team type to add content for that kind of support.',
+  },
   langKo: { ko: '한국어', en: '한국어' },
   langEn: { ko: 'English', en: 'English' },
 };

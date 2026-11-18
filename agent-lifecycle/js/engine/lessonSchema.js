@@ -1,3 +1,5 @@
+import { TRACKS, visibleSteps, visibleQuestions } from './track.js';
+
 // Checks lesson data against the course rules, so a content mistake shows up
 // as a test failure instead of a broken or off-policy screen.
 // Each function returns a list of error messages; an empty list means valid.
@@ -9,12 +11,14 @@ const RULES = {
 const BANNED_KO = '진상';
 const FIGURE = /%|\d\s*(분|명|초|min|people|sec)/; // durations in weeks or days are exempt
 const MAX_SENTENCES = 3;
+const MIN_STEPS = 6;
+const MAX_STEPS = 12; // per track: common steps plus that track's own
 
 const isText = (v) => v !== null && typeof v === 'object';
 const filled = (s) => typeof s === 'string' && s.trim() !== '';
 const sentenceCount = (s) => (s.match(/[.?!](?=\s|$)/g) || []).length;
 
-export function validateLesson(lesson, { requireEnglish = false } = {}) {
+export function validateLesson(lesson, { requireEnglish = false, requireTracks = false } = {}) {
   const errors = [];
   const where = lesson?.id ?? '(no id)';
   const err = (msg) => errors.push(`${where}: ${msg}`);
@@ -40,14 +44,28 @@ export function validateLesson(lesson, { requireEnglish = false } = {}) {
       if (!nodeIds.has(end)) err(`edge ${e.id} points to unknown node ${end}`);
     }
   }
-  if (steps.length < 6 || steps.length > 10) err(`steps must number 6-10, found ${steps.length}`);
+  for (const item of [...steps, ...checkpoint]) {
+    if (item.track !== undefined && !TRACKS.includes(item.track)) err(`unknown track "${item.track}"`);
+  }
+  const view = { steps, checkpoint };
+  for (const track of TRACKS) {
+    const count = visibleSteps(view, track).length;
+    if (count < MIN_STEPS || count > MAX_STEPS) {
+      err(`steps on the ${track} track must number ${MIN_STEPS}-${MAX_STEPS}, found ${count}`);
+    }
+    const questions = visibleQuestions(view, track).length;
+    if (questions < 1 || questions > 2) err(`checkpoint on the ${track} track must show 1-2 questions, found ${questions}`);
+    if (requireTracks) {
+      if (!steps.some((st) => st.track === track)) err(`no ${track} track step`);
+      if (!checkpoint.some((q) => q.track === track)) err(`no ${track} track question`);
+    }
+  }
   steps.forEach((s, i) => {
     for (const id of [...(s.show ?? []), ...(s.highlight ?? [])]) {
       if (!shapeIds.has(id)) err(`step ${i + 1} refers to unknown id ${id}`);
     }
     if (s.persona != null && !nodeIds.has(s.persona)) err(`step ${i + 1} persona on unknown node ${s.persona}`);
   });
-  if (checkpoint.length < 1 || checkpoint.length > 2) err(`checkpoint must have 1-2 questions, found ${checkpoint.length}`);
   for (const q of checkpoint) {
     const options = Array.isArray(q.options) ? q.options : [];
     if (options.length < 2) err(`question ${q.id} needs at least 2 options`);
@@ -87,11 +105,16 @@ export function validateLesson(lesson, { requireEnglish = false } = {}) {
         err(`step ${i + 1} ${lang} caption has a figure but no "${rule.example}" label`);
       }
     });
-    const personaPool = [
-      ...captions,
-      ...checkpoint.flatMap((q) => [q.prompt?.[lang], q.explanation?.[lang]]).filter(filled),
-    ].join(' ');
-    if (!personaPool.includes(rule.persona)) err(`${lang} text never mentions ${rule.persona}`);
+    for (const track of TRACKS) {
+      const personaPool = [
+        ...visibleSteps(view, track).map((st) => st.caption?.[lang]),
+        ...visibleQuestions(view, track).flatMap((q) => [q.prompt?.[lang], q.explanation?.[lang]]),
+      ].filter(filled).join(' ');
+      if (!personaPool.includes(rule.persona)) {
+        err(`${lang} text never mentions ${rule.persona}`);
+        break;
+      }
+    }
   }
 
   return errors;

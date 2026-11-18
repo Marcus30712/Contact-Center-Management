@@ -42,3 +42,11 @@ test('UI strings exist in both languages', () => {
   }
   assert.equal(UI.translationComing.en, 'Translation coming soon');
 });
+
+test('track UI strings exist in both languages', () => {
+  assert.deepEqual(UI.trackGeneral, { ko: '일반 고객지원', en: 'General support' });
+  assert.deepEqual(UI.trackTech, { ko: '기술지원', en: 'Tech support' });
+  assert.deepEqual(UI.trackLabel, { ko: '직군', en: 'Team type' });
+  assert.equal(UI.trackHint.ko, '팀의 직군을 고르면 그 직군에 맞는 내용이 더해집니다.');
+  assert.equal(UI.trackHint.en, 'Pick your team type to add content for that kind of support.');
+});
