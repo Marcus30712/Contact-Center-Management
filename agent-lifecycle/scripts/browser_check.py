@@ -230,6 +230,15 @@ def main():
         # (f) desktop + dark screenshots for a human look
         page = new_page(browser, errors, width=1280, height=800)
         open_at(page, base)
+        for width in (1280, 900, 640, 390, 320):
+            page.set_viewport_size({"width": width, "height": 800})
+            for lang in ("ko", "en"):
+                page.click(f"[data-lang='{lang}']")
+                page.wait_for_selector(f"[data-lang='{lang}'][aria-pressed='true']")
+                tall = page.evaluate("Math.max(...[...document.querySelectorAll('.lang-btn')].map((b) => b.getBoundingClientRect().height))")
+                check(f"(q) toggle labels stay on one line {width}px {lang}", tall <= 40, f"height={tall}")
+        page.click("[data-lang='ko']")
+        page.set_viewport_size({"width": 1280, "height": 800})
         page.screenshot(path=str(OUT / "home-1280.png"), full_page=True)
         open_at(page, base, "#career-7")
         page.wait_for_timeout(500)
