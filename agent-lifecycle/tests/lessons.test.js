@@ -57,8 +57,8 @@ test('Korean sign-off edits: AHT wording, duration phrasing, RJP is not a gate',
 });
 
 // --- English (plan Task 8) ---
-test('course is valid in English', { todo: 'new Korean copy awaits sign-off before translation (plan Task 6)' }, () => {
-  assert.deepEqual(validateCourse(LESSONS, { requireEnglish: true }), []);
+test('course is valid in English', () => {
+  assert.deepEqual(validateCourse(LESSONS, { requireEnglish: true, requireTracks: true }), []);
 });
 
 test('English: shrinkage is all unavailable time, not absenteeism', () => {
@@ -136,4 +136,21 @@ test('Jimin ends in QA on both tracks', () => {
 
 test('every lesson shows two questions per track', () => {
   for (const l of LESSONS) for (const track of ['general', 'tech']) assert.equal(visibleQuestions(l, track).length, 2, `${l.id} ${track}`);
+});
+
+// --- tracks and additions (English) ---
+test('English: verification, calibration, tickets, escalation', () => {
+  assert.ok(commonCaptions('onboarding', 'en').join(' ').includes('skills verification'));
+  assert.ok(commonCaptions('coaching', 'en').join(' ').includes('calibration'));
+  const tech = LESSONS.map((l) => trackCaptions(l.id, 'tech', 'en').join(' ')).join(' ');
+  assert.ok(tech.includes('ticket'));
+  assert.ok(trackCaptions('nesting', 'tech', 'en').join(' ').includes('escalat'));
+  assert.ok(trackCaptions('career', 'tech', 'en').join(' ').includes('Tier 2'));
+  assert.ok(trackCaptions('career', 'general', 'en').join(' ').includes('specialist'));
+});
+
+test('English: new diagram nodes are labelled', () => {
+  const label = (id, nodeId) => byId(id).diagram.nodes.find((n) => n.id === nodeId).label.en;
+  assert.equal(label('onboarding', 'verify'), 'Verification');
+  assert.equal(label('coaching', 'calibration'), 'Calibration');
 });

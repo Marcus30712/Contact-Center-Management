@@ -174,10 +174,14 @@ def main():
         for width in (320, 390):
             page.set_viewport_size({"width": width, "height": 780})
             page.evaluate(f"localStorage.setItem('{TRACK_KEY}', 'tech')")
+            page.reload()  # the track is read at load
+            page.wait_for_selector("[data-track='tech'][aria-pressed='true']")
             for hash_ in ["#home", "#hiring-1", "#hiring-6", "#nesting-5", "#coaching-8", "#career-7"]:
                 open_at(page, base, hash_)
                 overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
                 check(f"(k) English no horizontal scroll {width}px {hash_}", overflow <= 0, f"overflow={overflow}")
+        page.wait_for_timeout(500)
+        open_at(page, base, "#coaching-7")
         page.wait_for_timeout(500)
         page.screenshot(path=str(OUT / "lesson-390-en.png"), full_page=True)
         open_at(page, base)
@@ -227,7 +231,7 @@ def main():
 
 # English is fully translated, so no fallback note is expected. If English
 # text goes missing, the note appears and this check fails.
-EXPECT_TRANSLATION_NOTE = True
+EXPECT_TRANSLATION_NOTE = False
 EXPECT_TECH_COUNTER = "7 / 10"
 
 if __name__ == "__main__":
