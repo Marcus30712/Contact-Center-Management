@@ -1,0 +1,24 @@
+// Interface strings (buttons, labels). Lesson copy lives in js/lessons/.
+export const UI = {
+  courseTitle: { ko: '상담사 라이프사이클', en: 'The Agent Lifecycle' },
+  courseTagline: {
+    ko: '신입 팀장을 위한 인터랙티브 강의. 한 사람이 들어와서 성장하기까지, 여섯 단계를 따라갑니다.',
+    en: 'An interactive course for new team leaders. Follow one agent through six stages, from hiring to growth.',
+  },
+  prev: { ko: '이전', en: 'Back' },
+  next: { ko: '다음', en: 'Next' },
+  home: { ko: '전체 보기', en: 'Overview' },
+  stepCounter: { ko: '스텝', en: 'Step' },
+  checkpoint: { ko: '팀장 체크포인트', en: 'Team leader checkpoint' },
+  connection: { ko: '다음 단계와의 연결', en: 'How this connects' },
+  nextLesson: { ko: '다음 레슨', en: 'Next lesson' },
+  done: { ko: '완료', en: 'Done' },
+  correct: { ko: '맞습니다.', en: 'Correct.' },
+  incorrect: { ko: '다시 생각해 볼까요.', en: 'Not quite.' },
+  loop: { ko: '퇴사 면담의 교훈이 다음 채용으로', en: 'Exit interviews feed the next hire' },
+  start: { ko: '1단계부터 시작', en: 'Start with stage 1' },
+  personaName: { ko: '지민', en: 'Jimin' },
+  translationComing: { ko: '영어 번역 준비 중', en: 'Translation coming soon' },
+  langKo: { ko: '한국어', en: '한국어' },
+  langEn: { ko: 'English', en: 'English' },
+};

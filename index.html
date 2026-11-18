@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Center Management Knowledge Base</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root { --bg:#f1f5f4; --surface:#fff; --ink:#13282c; --muted:#55686d; --line:#cfd9d8; --accent:#0b6f6b; color-scheme: light; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#0e1a1c; --surface:#16272a; --ink:#e5eeed; --muted:#9db2b4; --line:#2c4145; --accent:#4fc4b9; color-scheme: dark; } }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6; word-break:keep-all;
+      font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:40px 16px; display:flex; flex-direction:column; gap:24px; }
+    h1 { margin:0; font-size:clamp(1.6rem,6vw,2.2rem); line-height:1.25; letter-spacing:-0.02em; }
+    p { margin:0; color:var(--muted); }
+    ul { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+    a.card { display:block; padding:16px 18px; border-radius:14px; background:var(--surface); border:1px solid var(--line); text-decoration:none; color:inherit; }
+    a.card:hover, a.card:focus-visible { border-color:var(--accent); outline:none; }
+    a.card strong { display:block; font-size:1.1rem; }
+    a.card span { color:var(--muted); font-size:0.92rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Contact Center Management<br>Knowledge Base</h1>
+      <p>컨택센터 운영 관리를 주제별로 배우는 인터랙티브 자료 모음입니다. / Interactive learning material on contact center management, one topic at a time.</p>
+    </header>
+    <ul>
+      <li><a class="card" href="./agent-lifecycle/">
+        <strong>상담사 라이프사이클 · The Agent Lifecycle</strong>
+        <span>신입 팀장을 위한 6단계 강의: 채용부터 경력 개발까지. / A six-stage course for new team leaders, from hiring to career growth.</span>
+      </a></li>
+    </ul>
+  </main>
+</body>
+</html>
