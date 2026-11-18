@@ -1,4 +1,4 @@
-import { tx, node, edge, step, option } from './build.js';
+import { tx, node, edge, step, option, trackStep, trackQuestion } from './build.js';
 
 const base = ['grad', 'grad-nest', 'nest'];
 const walk = [...base, 'mentor', 'mentor-nest'];
@@ -31,6 +31,10 @@ export default {
       walk, ['mentor', 'mentor-nest'], 'nest'),
     step(tx('멘토의 귓속말을 듣고 지민은 콜을 끝까지 마칩니다. 혼자 무너진 첫 콜과 도움을 받아 끝낸 첫 콜은 전혀 다른 기억으로 남습니다.', 'With the mentor’s whisper in her ear, Jimin finishes the call. A first call that fell apart alone and a first call finished with help leave very different memories.'),
       walk, ['mentor', 'nest'], 'nest'),
+    trackStep('general', tx('일반 고객지원에서는 쉬운 문의 유형부터 차례로 맡깁니다. 지민은 단순 조회와 안내 문의로 시작해, 익숙해지면 변경이나 불만 문의로 범위를 넓힙니다.'),
+      walk, ['nest'], 'nest'),
+    trackStep('tech', tx('기술지원에서는 1차 지원 범위의 쉬운 티켓부터 맡깁니다. 그리고 언제 상위 단계로 넘길지, 에스컬레이션 기준을 익히게 합니다. 기준은 보통 들인 시간, 문제의 난이도, 고객이 받는 영향으로 정합니다.'),
+      walk, ['nest'], 'nest'),
     step(tx('목표치도 완화합니다. 초기에는 평균 처리 시간(AHT) 같은 생산성 지표보다 정확한 안내와 적응에 초점을 맞춥니다.', 'Targets are relaxed too. Early on, the focus is on accurate information and settling in, not on productivity metrics such as average handle time (AHT).'),
       all, ['target', 'target-nest'], 'nest'),
     step(tx('지민의 통화는 선배들보다 깁니다. 이때 "왜 이렇게 오래 걸려요?"라는 말을 들으면, 지민은 정확히 안내하는 법보다 빨리 끊는 법을 먼저 배웁니다.', 'Jimin’s calls run longer than her seniors’ calls. If she hears “Why is this taking so long?” now, she learns to end calls quickly before she learns to get them right.'),
@@ -48,7 +52,27 @@ export default {
     ],
     answer: 'b',
     explanation: tx('네스팅 기간의 기준은 속도가 아니라 정확성과 적응입니다. 지금 시간을 압박하면 지민은 덜 해결하고 끊는 습관을 들이게 됩니다. 콜을 대신 받아 주면 스스로 끝내 본 경험이 쌓이지 않습니다.', 'During nesting the standard is accuracy and adjustment, not speed. Press on time now and Jimin builds a habit of ending calls with less resolved. Take calls over for her and she never gets the experience of finishing one herself.'),
-  }],
+  }, trackQuestion('general', {
+    id: 'nesting-general',
+    prompt: tx('네스팅 중인 지민에게 아직 맡기지 않은 유형인 복잡한 불만 문의가 연결됐습니다. 어떻게 할까요?'),
+    options: [
+      option('a', tx('좋은 경험이니 끝까지 혼자 하게 둔다.')),
+      option('b', tx('멘토가 옆에서 함께 처리하고, 그 유형은 준비된 뒤에 맡긴다.')),
+      option('c', tx('제대로 못 하면 지민의 실수로 기록한다.')),
+    ],
+    answer: 'b',
+    explanation: tx('문의 유형을 차례로 넓히는 것은 지민이 감당할 수 있는 범위에서 성공 경험을 쌓게 하려는 것입니다. 준비되지 않은 유형이 들어오면 멘토가 함께 처리합니다. 그 콜은 나중에 좋은 교육 자료가 됩니다.'),
+  }), trackQuestion('tech', {
+    id: 'nesting-tech',
+    prompt: tx('네스팅 중인 지민이 한 티켓을 오래 붙잡고 있습니다. 원인을 찾지 못했지만 넘기기를 망설입니다. 어떻게 할까요?'),
+    options: [
+      option('a', tx('스스로 해결할 때까지 기다린다.')),
+      option('b', tx('에스컬레이션 기준을 다시 짚어 주고, 확인한 내용을 기록해 상위 단계로 넘기게 한다.')),
+      option('c', tx('대신 받아서 조용히 처리한다.')),
+    ],
+    answer: 'b',
+    explanation: tx('넘기는 것은 실패가 아니라 정해진 절차입니다. 기준 없이 붙잡고 있으면 고객이 기다리는 시간만 길어집니다. 확인한 내용을 티켓에 남겨 넘기면 상위 단계가 처음부터 다시 묻지 않아도 됩니다.'),
+  })],
   connection: {
     to: 'coaching',
     text: tx('네스팅에서는 일부러 지표를 느슨하게 뒀습니다. 정식 팀에 안착한 뒤에는 품질과 지표를 꾸준히 보고 끌어올려야 합니다. 다음 단계는 성과 관리와 코칭입니다.', 'In nesting you kept the metrics loose on purpose. Once she has settled into a regular team, quality and metrics need steady attention and steady improvement. The next stage is performance management and coaching.'),
