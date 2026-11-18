@@ -89,6 +89,7 @@ a { color: inherit; }
 @media (min-width: 640px) {
   #track { order: 2; flex-basis: auto; margin-left: auto; }
   #track .lang-toggle { width: auto; }
+  #track .lang-btn { flex: none; } /* natural width again; flex: 1 here squeezed the label onto two lines */
   #lang { order: 3; margin-left: 0; }
 }
 .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
