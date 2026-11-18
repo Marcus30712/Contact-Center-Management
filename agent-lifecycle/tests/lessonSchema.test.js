@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { validateLesson, validateCourse } from '../js/engine/lessonSchema.js';
-import { makeLesson, makeBilingualLesson } from './fixtures.js';
+import { makeLesson, makeBilingualLesson, makeTrackLesson } from './fixtures.js';
 
 const has = (errors, part) => errors.some((e) => e.includes(part));
 
@@ -19,9 +19,11 @@ test('rejects fewer than 6 steps', () => {
   assert.ok(has(validateLesson(l), 'steps'));
 });
 
-test('rejects more than 10 steps', () => {
+test('accepts up to 12 steps and rejects 13', () => {
   const l = makeLesson();
-  while (l.steps.length < 11) l.steps.push(structuredClone(l.steps[0]));
+  while (l.steps.length < 12) l.steps.push(structuredClone(l.steps[0]));
+  assert.deepEqual(validateLesson(l), []);
+  l.steps.push(structuredClone(l.steps[0]));
   assert.ok(has(validateLesson(l), 'steps'));
 });
 
@@ -126,4 +128,51 @@ test('durations in weeks or days need no 예시 label, other figures still do', 
   assert.deepEqual(validateLesson(l), []);
   l.steps[2].caption.ko = '지민의 통화는 평균 5분입니다.';
   assert.ok(has(validateLesson(l), '예시'));
+});
+
+// --- tracks ---
+test('a lesson with both tracks passes requireTracks', () => {
+  assert.deepEqual(validateLesson(makeTrackLesson(), { requireTracks: true }), []);
+});
+
+test('requireTracks reports a lesson with no track content, default does not', () => {
+  assert.ok(has(validateLesson(makeLesson(), { requireTracks: true }), 'track'));
+  assert.deepEqual(validateLesson(makeLesson()), []);
+});
+
+test('requireTracks needs a track question for each track', () => {
+  const l = makeTrackLesson();
+  l.checkpoint = l.checkpoint.filter((q) => q.id !== 'qt');
+  assert.ok(has(validateLesson(l, { requireTracks: true }), 'tech'));
+});
+
+test('rejects an unknown track value', () => {
+  const l = makeTrackLesson();
+  l.steps[2].track = 'vip';
+  assert.ok(has(validateLesson(l), 'vip'));
+});
+
+test('step count is checked per track', () => {
+  const l = makeLesson();
+  while (l.steps.length < 11) l.steps.push(structuredClone(l.steps[0]));
+  for (let i = 0; i < 2; i++) l.steps.push({ ...structuredClone(l.steps[0]), track: 'general' });
+  const errors = validateLesson(l);
+  assert.ok(errors.some((e) => e.includes('steps') && e.includes('general')));
+  assert.ok(!errors.some((e) => e.includes('steps') && e.includes('tech')));
+});
+
+test('too few steps on one track is reported for that track', () => {
+  const l = makeLesson();
+  l.steps.pop();
+  l.steps.push({ ...structuredClone(l.steps[0]), track: 'tech' });
+  const errors = validateLesson(l);
+  assert.ok(errors.some((e) => e.includes('steps') && e.includes('general')));
+  assert.ok(!errors.some((e) => e.includes('steps') && e.includes('tech')));
+});
+
+test('at most two questions are visible on a track', () => {
+  const l = makeTrackLesson();
+  l.checkpoint.push({ ...structuredClone(l.checkpoint[1]), id: 'qg2' });
+  const errors = validateLesson(l);
+  assert.ok(errors.some((e) => e.includes('checkpoint') && e.includes('general')));
 });

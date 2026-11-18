@@ -1,4 +1,4 @@
 node_modules/
 .worktrees/
 .superpowers/
-scripts/out/
+**/scripts/out/

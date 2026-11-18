@@ -8,6 +8,7 @@
 
 - 첫 화면: `index.html` (주제 목록)
 - 설계 문서와 계획: `docs/superpowers/`
+- 업데이트 내역: [`LOG.md`](LOG.md)
 - 새 주제는 폴더를 하나 추가하고 `index.html`의 목록에 카드 한 장을 더하면 됩니다.
 
 빌드가 필요 없는 정적 사이트입니다. GitHub Pages로 배포하려면 저장소 Settings → Pages에서 기본 브랜치의 루트 폴더(`/`)를 선택합니다.

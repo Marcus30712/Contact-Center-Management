@@ -5,6 +5,10 @@
 - 비공개 미리보기 (Claude 아티팩트): https://claude.ai/artifact/PgJmo8k2gmRWJrfLNQHQQQ
 - 설계 문서: 저장소 루트의 `docs/superpowers/specs/2026-11-18-agent-lifecycle-course-design.md`
 
+## 직군 트랙
+
+상단의 `일반 고객지원 | 기술지원` 버튼으로 직군을 고르면, 공통 내용에 그 직군 전용 스텝과 문제가 더해집니다. 레슨 파일에서 `trackStep('general' | 'tech', …)`, `trackQuestion(…)`으로 쓴 항목이 직군 전용이고, 나머지는 공통입니다. 선택한 직군은 언어처럼 브라우저에 기억됩니다.
+
 ## 내용 고치기
 
 레슨 문안은 `js/lessons/01-hiring.js` … `06-career.js`에 있습니다. 고친 뒤 `npm test`를 돌리면 스텝 수, 문장 길이, 금지어, 수치의 "예시" 표시를 자동으로 점검합니다.

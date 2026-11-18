@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { LESSONS } from '../js/lessons/index.js';
 import { validateCourse } from '../js/engine/lessonSchema.js';
 import { lessonText } from './helpers.js';
+import { visibleSteps, visibleQuestions } from '../js/engine/track.js';
 
 const byId = (id) => LESSONS.find((l) => l.id === id);
 const captions = (id, lang) => byId(id).steps.map((s) => s.caption[lang] ?? '');
@@ -57,7 +58,7 @@ test('Korean sign-off edits: AHT wording, duration phrasing, RJP is not a gate',
 
 // --- English (plan Task 8) ---
 test('course is valid in English', () => {
-  assert.deepEqual(validateCourse(LESSONS, { requireEnglish: true }), []);
+  assert.deepEqual(validateCourse(LESSONS, { requireEnglish: true, requireTracks: true }), []);
 });
 
 test('English: shrinkage is all unavailable time, not absenteeism', () => {
@@ -84,4 +85,102 @@ test('English: hang-up authority is hedged', () => {
 test('English: the persona is Jimin Han and short labels fit the ring', () => {
   assert.ok(lessonText(byId('hiring'), 'en').includes('Jimin Han'));
   for (const l of LESSONS) assert.ok(l.short.en && l.short.en.length <= 10, l.id);
+});
+
+// --- tracks and additions (Korean) ---
+const trackCaptions = (id, track, lang = 'ko') => byId(id).steps.filter((st) => st.track === track).map((st) => st.caption[lang] ?? '');
+const commonCaptions = (id, lang = 'ko') => byId(id).steps.filter((st) => !st.track).map((st) => st.caption[lang] ?? '');
+const hasNode = (id, nodeId) => byId(id).diagram.nodes.some((n) => n.id === nodeId);
+
+test('course is valid with tracks', () => {
+  assert.deepEqual(validateCourse(LESSONS, { requireTracks: true }), []);
+});
+
+test('skills verification gates go-live', () => {
+  assert.ok(hasNode('onboarding', 'verify'));
+  const text = commonCaptions('onboarding').join(' ');
+  for (const word of ['스킬 검증', '재평가', '센터마다']) assert.ok(text.includes(word), word);
+  assert.ok(byId('onboarding').connection.text.ko.includes('스킬 검증'));
+});
+
+test('calibration and knowledge re-check added to coaching', () => {
+  assert.ok(hasNode('coaching', 'calibration'));
+  const caps = commonCaptions('coaching');
+  assert.ok(caps.some((c) => c.includes('캘리브레이션') && c.includes('각자') && c.includes('센터마다')));
+  assert.ok(caps.some((c) => c.includes('다시 확인') && !c.includes('캘리브레이션')));
+});
+
+test('tech track speaks in tickets', () => {
+  const all = LESSONS.map((l) => trackCaptions(l.id, 'tech').join(' ')).join(' ');
+  assert.ok(all.includes('티켓'));
+  assert.ok(trackCaptions('nesting', 'tech').join(' ').includes('에스컬레이션'));
+  assert.ok(trackCaptions('career', 'tech').join(' ').includes('2차'));
+  assert.ok(trackCaptions('onboarding', 'tech').join(' ').includes('이메일'));
+});
+
+test('general track adds what common steps lack', () => {
+  assert.ok(trackCaptions('coaching', 'general').join(' ').includes('정책'));
+  assert.ok(trackCaptions('career', 'general').join(' ').includes('전문 상담'));
+});
+
+test('no COPC wording anywhere', () => {
+  for (const l of LESSONS) for (const lang of ['ko', 'en']) assert.ok(!lessonText(l, lang).includes('COPC'), l.id);
+});
+
+test('Jimin ends in QA on both tracks', () => {
+  for (const track of ['general', 'tech']) {
+    const text = visibleSteps(byId('career'), track).map((st) => st.caption.ko).join(' ');
+    assert.ok(text.includes('QA') && text.includes('지민'), track);
+  }
+});
+
+test('every lesson shows two questions per track', () => {
+  for (const l of LESSONS) for (const track of ['general', 'tech']) assert.equal(visibleQuestions(l, track).length, 2, `${l.id} ${track}`);
+});
+
+// --- tracks and additions (English) ---
+test('English: verification, calibration, tickets, escalation', () => {
+  assert.ok(commonCaptions('onboarding', 'en').join(' ').includes('skills verification'));
+  assert.ok(commonCaptions('coaching', 'en').join(' ').includes('calibration'));
+  const tech = LESSONS.map((l) => trackCaptions(l.id, 'tech', 'en').join(' ')).join(' ');
+  assert.ok(tech.includes('ticket'));
+  assert.ok(trackCaptions('nesting', 'tech', 'en').join(' ').includes('escalat'));
+  assert.ok(trackCaptions('career', 'tech', 'en').join(' ').includes('Tier 2'));
+  assert.ok(trackCaptions('career', 'general', 'en').join(' ').includes('specialist'));
+});
+
+test('English: new diagram nodes are labelled', () => {
+  const label = (id, nodeId) => byId(id).diagram.nodes.find((n) => n.id === nodeId).label.en;
+  assert.equal(label('onboarding', 'verify'), 'Verification');
+  assert.equal(label('coaching', 'calibration'), 'Calibration');
+});
+
+// --- final review: English wording ---
+test('English review fixes', () => {
+  const opt = (id, qid, oid) => byId(id).checkpoint.find((q) => q.id === qid).options.find((o) => o.id === oid).text.en;
+  assert.ok(trackCaptions('career', 'tech', 'en').join(' ').includes('adds further paths'));
+  assert.ok(!lessonText(byId('career'), 'en').includes('more paths'));
+  assert.ok(commonCaptions('coaching', 'en').join(' ').includes('keeps giving correct information'));
+  assert.ok(!lessonText(byId('hiring'), 'en').includes('looks harder at'));
+  assert.ok(trackCaptions('onboarding', 'tech', 'en').join(' ').includes('logged as a ticket'));
+  assert.ok(opt('career', 'career-tech', 'b').includes('alongside a Tier 2 agent'));
+  assert.ok(!opt('hiring', 'hiring-tech', 'a').includes('call'));
+});
+
+// --- channel record names and lesson 4 layout ---
+test('tech coaching question names the record for each channel', () => {
+  const q = byId('coaching').checkpoint.find((x) => x.id === 'coaching-tech');
+  const b = q.options.find((o) => o.id === 'b').text;
+  for (const word of ['녹취', '채팅 로그', '이메일 로그']) assert.ok(b.ko.includes(word), word);
+  for (const word of ['call recordings', 'chat logs', 'email logs']) assert.ok(b.en.includes(word), word);
+});
+
+test('lesson 4 boxes leave similar room for every arrow', () => {
+  // Clear space between two boxes (box is 108 x 34 in diagram units).
+  const nodes = Object.fromEntries(byId('coaching').diagram.nodes.map((n) => [n.id, n]));
+  const gap = (a, b) => Math.max(Math.abs(nodes[a].x - nodes[b].x) - 108, Math.abs(nodes[a].y - nodes[b].y) - 34);
+  const gaps = ['calls-qa', 'calls-kpi', 'qa-coach', 'kpi-coach', 'calibration-qa'].map((id) => gap(...id.split('-')));
+  assert.ok(Math.min(...gaps) >= 14, String(gaps));
+  assert.ok(gap('calibration', 'qa') >= 30, String(gap('calibration', 'qa')));
+  for (const n of Object.values(nodes)) assert.ok(n.x >= 56 && n.x <= 304 && n.y >= 19 && n.y <= 221, n.id);
 });

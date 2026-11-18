@@ -49,3 +49,22 @@ export function makeBilingualLesson() {
   en(l.connection.text, 'Promises made in hiring carry into training.');
   return l;
 }
+
+// makeLesson() plus track-only content: general sees 7 steps, tech sees 8;
+// each track sees the common question q1 and one of its own (qg / qt).
+export function makeTrackLesson() {
+  const l = makeLesson();
+  const tstep = (track, caption, at) => ({ track, caption: { ko: caption }, show: ['a'], highlight: ['a'], persona: 'a', at });
+  const g = tstep('general', '일반 고객지원에서는 지민이 폭넓은 문의를 받습니다.');
+  const t1 = tstep('tech', '기술지원에서는 지민이 티켓을 기록합니다.');
+  const t2 = tstep('tech', '기술지원에서는 어려운 티켓을 상위 단계로 넘깁니다.');
+  const [s0, s1, s2, s3, s4, s5] = l.steps;
+  l.steps = [s0, s1, g, s2, t1, s3, s4, t2, s5].map(({ at, ...rest }) => rest);
+  const q = (id, track, prompt) => ({
+    id, track, prompt: { ko: prompt },
+    options: [{ id: 'x', text: { ko: '맞는 답' } }, { id: 'y', text: { ko: '틀린 답' } }],
+    answer: 'x', explanation: { ko: '직군에 맞는 판단입니다.' },
+  });
+  l.checkpoint.push(q('qg', 'general', '일반 고객지원 팀이라면 어떻게 할까요?'), q('qt', 'tech', '기술지원 팀이라면 어떻게 할까요?'));
+  return l;
+}

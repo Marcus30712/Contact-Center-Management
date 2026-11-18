@@ -5,21 +5,20 @@ import { UI } from '../js/i18n/ui.js';
 import { fakeStorage, throwingStorage } from './helpers.js';
 
 test('loadLang prefers a valid saved language', () => {
-  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'en' }), 'ko-KR'), 'en');
+  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'en' })), 'en');
 });
 
-test('loadLang falls back to the browser language', () => {
-  assert.equal(loadLang(fakeStorage(), 'ko-KR'), 'ko');
-  assert.equal(loadLang(fakeStorage(), 'en-US'), 'en');
-  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'fr' }), 'en-US'), 'en');
-  assert.equal(loadLang(throwingStorage, 'en-US'), 'en');
-  assert.equal(loadLang(null, 'ko'), 'ko');
+test('loadLang starts in Korean unless a valid language is saved', () => {
+  assert.equal(loadLang(fakeStorage()), 'ko');
+  assert.equal(loadLang(fakeStorage({ [LANG_KEY]: 'fr' })), 'ko');
+  assert.equal(loadLang(throwingStorage), 'ko');
+  assert.equal(loadLang(null), 'ko');
 });
 
 test('saveLang stores the choice and never throws', () => {
   const s = fakeStorage();
   saveLang(s, 'en');
-  assert.equal(loadLang(s, 'ko-KR'), 'en');
+  assert.equal(loadLang(s), 'en');
   assert.doesNotThrow(() => saveLang(throwingStorage, 'en'));
   assert.doesNotThrow(() => saveLang(null, 'en'));
 });
@@ -41,4 +40,12 @@ test('UI strings exist in both languages', () => {
     assert.ok(UI[k]?.en?.trim(), `${k}.en`);
   }
   assert.equal(UI.translationComing.en, 'Translation coming soon');
+});
+
+test('track UI strings exist in both languages', () => {
+  assert.deepEqual(UI.trackGeneral, { ko: '일반 고객지원', en: 'General support' });
+  assert.deepEqual(UI.trackTech, { ko: '기술지원', en: 'Tech support' });
+  assert.deepEqual(UI.trackLabel, { ko: '직군', en: 'Team type' });
+  assert.equal(UI.trackHint.ko, '팀의 직군을 고르면 그 직군에 맞는 내용이 더해집니다.');
+  assert.equal(UI.trackHint.en, 'Pick your team type to add content for that kind of support.');
 });
