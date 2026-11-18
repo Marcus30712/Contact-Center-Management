@@ -304,3 +304,11 @@ test('English wording fixes from the review', () => {
   assert.ok(term('one-on-one-coaching').definition.en.includes('based on'));
   assert.ok(term('nesting').definition.en.includes('accurate answers'));
 });
+
+test('Attrition links to the lesson that talks about it', () => {
+  assert.deepEqual(term('attrition').seen, ['nesting']);
+});
+
+test('OJT links to lesson 3', () => {
+  assert.deepEqual(term('ojt').seen, ['nesting']);
+});

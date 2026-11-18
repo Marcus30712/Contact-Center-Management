@@ -1,6 +1,7 @@
 import { tx, node, edge, step, option, trackStep, trackQuestion } from './build.js';
 
-const base = ['grad', 'grad-nest', 'nest'];
+const ojt = ['grad', 'grad-ojt', 'ojt'];
+const base = [...ojt, 'ojt-nest', 'nest'];
 const walk = [...base, 'mentor', 'mentor-nest'];
 const all = [...walk, 'target', 'target-nest'];
 
@@ -9,23 +10,26 @@ export default {
   order: 3,
   title: tx('실전 배치 및 네스팅', 'Go-Live and Nesting'),
   short: tx('네스팅', 'Nesting'),
-  subtitle: tx('처음 실제 전화를 받는 적응기. 가장 많이 떠나는 시기입니다.', 'The first weeks on real calls, when people are most likely to leave.'),
+  subtitle: tx('처음 실제 문의를 받는 적응기. 가장 많이 떠나는 시기입니다.', 'The first weeks on real contacts, when people are most likely to leave.'),
   diagram: {
     nodes: [
-      node('grad', '교육 수료', 58, 120, 'Training done'),
+      node('grad', '교육 수료', 58, 62, 'Training done'),
+      node('ojt', 'OJT', 58, 170, 'OJT'),
       node('mentor', '플로어 워킹', 180, 48, 'Floor walking'),
       node('nest', '네스팅 그룹', 180, 120, 'Nesting group'),
       node('target', '목표치 완화', 180, 192, 'Relaxed targets'),
       node('team', '정식 팀', 302, 120, 'Regular team'),
     ],
-    edges: [edge('grad', 'nest'), edge('mentor', 'nest'), edge('target', 'nest'), edge('nest', 'team')],
+    edges: [edge('grad', 'ojt'), edge('ojt', 'nest'), edge('mentor', 'nest'), edge('target', 'nest'), edge('nest', 'team')],
   },
   steps: [
-    step(tx('교육을 마친 지민이 처음으로 실제 고객의 전화를 받습니다. 이 적응기는 컨택센터에서 이직률이 가장 높은 시기입니다. 그래서 집중 관리가 필요합니다.', 'Training is over, and Jimin takes real customer calls for the first time. This adjustment period has the highest attrition in a contact center. That is why it needs close attention.'),
+    step(tx('교육을 마친 지민이 처음으로 실제 고객의 문의를 받습니다. 이 적응기는 컨택센터에서 퇴사율이 가장 높은 시기입니다. 그래서 집중 관리가 필요합니다.', 'Training is over, and Jimin handles real customer contacts for the first time. This adjustment period has the highest attrition in a contact center. That is why it needs close attention.'),
       ['grad'], ['grad'], 'grad'),
-    step(tx('곧바로 정식 팀에 넣지 않습니다. 별도의 집중 케어 그룹에서 먼저 전화를 받게 하는데, 이것이 네스팅입니다. 보통 1~2주 동안 운영합니다.', 'She does not go straight into a regular team. She first takes calls in a separate, closely supported group, which is called nesting. It usually runs for 1 to 2 weeks.'),
-      base, ['nest', 'grad-nest'], 'nest'),
-    step(tx('지민의 첫 콜입니다. 고객이 교육에서 다루지 않은 것을 묻습니다. 지민의 말이 멈춥니다.', 'Jimin’s first call. The customer asks about something training did not cover. Jimin goes silent.'),
+    step(tx('첫 단계는 OJT(직무교육)입니다. Trainer와 SME가 참관하는 가운데 실제 문의를 채널별로 경험해 봅니다.', 'The first step is OJT (on-the-job training). With a trainer and an SME observing, she handles real contacts in each channel.'),
+      ojt, ['ojt', 'grad-ojt'], 'ojt'),
+    step(tx('OJT를 마쳐도 곧바로 정식 팀에 넣지 않습니다. 별도의 집중 케어 그룹에서 먼저 문의를 받게 하는데, 이것이 네스팅입니다. 보통 1~2주 동안 운영합니다.', 'Even after OJT, she does not go straight into a regular team. She first takes contacts in a separate, closely supported group, which is called nesting. It usually runs for 1 to 2 weeks.'),
+      base, ['nest', 'ojt-nest'], 'nest'),
+    step(tx('네스팅에서 받은 콜입니다. 고객이 교육에서 다루지 않은 것을 묻습니다. 지민의 말이 멈춥니다.', 'A call during nesting. The customer asks about something training did not cover. Jimin goes silent.'),
       base, ['nest'], 'nest'),
     step(tx('여기서 밀착 지원, 플로어 워킹이 움직입니다. 관리자나 선배 멘토가 옆에서 콜을 실시간으로 듣다가, 막히는 순간 채팅이나 귓속말 기능으로 바로 도와줍니다.', 'This is where floor walking comes in. A supervisor or senior mentor listens to the call live from close by and helps at once through chat or the whisper function when she gets stuck.'),
       walk, ['mentor', 'mentor-nest'], 'nest'),

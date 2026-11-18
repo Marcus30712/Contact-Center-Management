@@ -27,7 +27,8 @@ test('RJP is linked to early attrition', () => {
 });
 
 test('nesting is marked as the highest-attrition period', () => {
-  assert.ok(lessonText(byId('nesting'), 'ko').includes('이직'));
+  assert.ok(lessonText(byId('nesting'), 'ko').includes('퇴사율이 가장 높은'));
+  assert.ok(!LESSONS.some((l) => lessonText(l, 'ko').includes('이직률')));
 });
 
 test('career closes the loop', () => {
@@ -206,8 +207,33 @@ test('Codex additions are common steps in lessons 2, 3 and 6', () => {
 });
 
 test('lessons 2, 3 and 6 show 11 steps on each track', () => {
-  for (const id of ['onboarding', 'nesting', 'career']) {
-    for (const track of ['general', 'tech']) assert.equal(visibleSteps(byId(id), track).length, 11, `${id} ${track}`);
+  for (const [id, count] of [['onboarding', 11], ['nesting', 12], ['career', 11]]) {
+    for (const track of ['general', 'tech']) assert.equal(visibleSteps(byId(id), track).length, count, `${id} ${track}`);
   }
   assert.deepEqual(validateCourse(LESSONS, { requireEnglish: true, requireTracks: true }), []);
+});
+
+// --- OJT comes before nesting in lesson 3 (user decision) ---
+test('lesson 3 runs training -> OJT -> nesting', () => {
+  assert.ok(hasNode('nesting', 'ojt'));
+  const ko = commonCaptions('nesting', 'ko');
+  const en = commonCaptions('nesting', 'en');
+  const iOjt = ko.findIndex((c) => c.includes('OJT(직무교육)'));
+  const iNest = ko.findIndex((c) => c.includes('이것이 네스팅입니다'));
+  assert.ok(iOjt === 1 && iNest === 2, `${iOjt} ${iNest}`);
+  for (const w of ['Trainer와 SME가 참관', '채널별']) assert.ok(ko[1].includes(w), w);
+  assert.ok(ko[0].includes('실제 고객의 문의'));
+  assert.ok(ko[2].startsWith('OJT를 마쳐도 곧바로 정식 팀에 넣지 않습니다.'));
+  assert.ok(ko[3].startsWith('네스팅에서 받은 콜입니다.'));
+  assert.ok(en[1].includes('OJT (on-the-job training)') && en[1].includes('observing'));
+  assert.ok(en[2].startsWith('Even after OJT'));
+  assert.ok(byId('nesting').diagram.edges.some((e) => e.from === 'grad' && e.to === 'ojt'));
+  assert.ok(byId('nesting').diagram.edges.some((e) => e.from === 'ojt' && e.to === 'nest'));
+});
+
+test('lesson 2 hands over to OJT and nesting; lesson 3 subtitle speaks of inquiries', () => {
+  assert.ok(byId('onboarding').connection.text.ko.includes('다음 단계인 OJT와 네스팅은 그 순간을 혼자 두지 않기 위한 장치입니다.'));
+  assert.ok(byId('onboarding').connection.text.en.includes('OJT and nesting'));
+  assert.equal(byId('nesting').subtitle.ko, '처음 실제 문의를 받는 적응기. 가장 많이 떠나는 시기입니다.');
+  assert.ok(byId('nesting').subtitle.en.includes('real contacts'));
 });

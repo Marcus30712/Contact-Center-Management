@@ -20,8 +20,8 @@ OUT = ROOT / "scripts" / "out"
 LESSONS = ["hiring", "onboarding", "nesting", "coaching", "retention", "career"]
 TRACK_KEY = "agent-lifecycle-course:track"
 STEPS = {  # steps each track sees, per lesson
-    "general": {"hiring": 9, "onboarding": 11, "nesting": 11, "coaching": 12, "retention": 9, "career": 11},
-    "tech": {"hiring": 10, "onboarding": 11, "nesting": 11, "coaching": 12, "retention": 9, "career": 11},
+    "general": {"hiring": 9, "onboarding": 11, "nesting": 12, "coaching": 12, "retention": 9, "career": 11},
+    "tech": {"hiring": 10, "onboarding": 11, "nesting": 12, "coaching": 12, "retention": 9, "career": 11},
 }
 BLOCK_STORAGE = "Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });"
 
@@ -167,7 +167,7 @@ def main():
         page.wait_for_selector("[data-track='general'][aria-pressed='true']")
 
         # (n) switching track inside the checkpoint keeps it open and clears answers
-        open_at(page, base, "#nesting-10")
+        open_at(page, base, "#nesting-11")
         page.click("[data-next]")
         page.click("[data-question='nesting-q1'] [data-option='b']")
         page.click("[data-track='tech']")
