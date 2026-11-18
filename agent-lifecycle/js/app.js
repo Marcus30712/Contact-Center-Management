@@ -37,6 +37,8 @@ function setLang(next) {
   lang = next;
   saveLang(storage, lang);
   render();
+  // render() rebuilds the buttons, so hand focus back to the one just used.
+  langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
 }
 
 // Switching track mid-lesson lands on the nearest common step, and the
@@ -54,6 +56,7 @@ function setTrack(next) {
   track = next;
   saveTrack(storage, track);
   render();
+  trackRoot.querySelector(`[data-track="${track}"]`)?.focus();
 }
 
 function leaveLesson() {

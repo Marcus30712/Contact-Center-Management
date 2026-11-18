@@ -154,3 +154,15 @@ test('English: new diagram nodes are labelled', () => {
   assert.equal(label('onboarding', 'verify'), 'Verification');
   assert.equal(label('coaching', 'calibration'), 'Calibration');
 });
+
+// --- final review: English wording ---
+test('English review fixes', () => {
+  const opt = (id, qid, oid) => byId(id).checkpoint.find((q) => q.id === qid).options.find((o) => o.id === oid).text.en;
+  assert.ok(trackCaptions('career', 'tech', 'en').join(' ').includes('adds further paths'));
+  assert.ok(!lessonText(byId('career'), 'en').includes('more paths'));
+  assert.ok(commonCaptions('coaching', 'en').join(' ').includes('keeps giving correct information'));
+  assert.ok(!lessonText(byId('hiring'), 'en').includes('looks harder at'));
+  assert.ok(trackCaptions('onboarding', 'tech', 'en').join(' ').includes('logged as a ticket'));
+  assert.ok(opt('career', 'career-tech', 'b').includes('alongside a Tier 2 agent'));
+  assert.ok(!opt('hiring', 'hiring-tech', 'a').includes('call'));
+});

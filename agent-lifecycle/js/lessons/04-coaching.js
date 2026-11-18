@@ -38,7 +38,7 @@ export default {
       kpi, ['kpi', 'calls-kpi'], 'calls'),
     step(tx('Shrinkage도 함께 봅니다. 결근만이 아니라 휴식, 교육, 회의처럼 상담사가 콜을 받을 수 없는 모든 시간의 비율입니다.', 'You also watch Shrinkage. It is the share of all time an agent cannot take calls: not only absence but also breaks, training, and meetings.'),
       kpi, ['kpi'], 'calls'),
-    step(tx('상품이나 정책이 바뀌면 지식도 다시 확인합니다. 한 번 검증을 통과했다고 계속 맞게 안내한다는 보장은 없기 때문입니다.', 'When products or policies change, knowledge is checked again. Passing verification once is no guarantee that the information stays correct.'),
+    step(tx('상품이나 정책이 바뀌면 지식도 다시 확인합니다. 한 번 검증을 통과했다고 계속 맞게 안내한다는 보장은 없기 때문입니다.', 'When products or policies change, knowledge is checked again. Passing verification once is no guarantee that an agent keeps giving correct information.'),
       kpi, ['qa'], 'calls'),
     trackStep('general', tx('일반 고객지원은 문의 유형이 다양합니다. 그래서 QA에서 정책을 정확히 안내했는지와 공감 표현을 함께 봅니다.', 'General support sees many kinds of inquiries. So QA looks at whether policy was explained accurately, along with expressions of empathy.'),
       kpi, ['qa'], 'calls'),

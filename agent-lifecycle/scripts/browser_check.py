@@ -143,6 +143,20 @@ def main():
         n = int(page.inner_text("[data-counter]").split(" / ")[0])
         check("(m) step stays in range after switching", 1 <= n <= 12, str(n))
 
+        # (o) keyboard focus stays on the toggle that was used
+        open_at(page, base, "#hiring-0")
+        page.focus("[data-track='tech']")
+        page.keyboard.press("Enter")
+        page.wait_for_selector("[data-track='tech'][aria-pressed='true']")
+        check("(o) focus stays on the track button", page.evaluate("document.activeElement?.getAttribute('data-track')") == "tech")
+        page.focus("[data-lang='en']")
+        page.keyboard.press("Enter")
+        page.wait_for_selector("[data-lang='en'][aria-pressed='true']")
+        check("(o) focus stays on the language button", page.evaluate("document.activeElement?.getAttribute('data-lang')") == "en")
+        page.click("[data-lang='ko']")
+        page.click("[data-track='general']")
+        page.wait_for_selector("[data-track='general'][aria-pressed='true']")
+
         # (n) switching track inside the checkpoint keeps it open and clears answers
         open_at(page, base, "#nesting-8")
         page.click("[data-next]")

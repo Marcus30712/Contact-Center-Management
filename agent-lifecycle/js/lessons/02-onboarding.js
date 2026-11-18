@@ -34,7 +34,7 @@ export default {
       hard, ['hard'], 'hard'),
     trackStep('general', tx('일반 고객지원은 다루는 상품과 정책, 절차의 범위가 넓습니다. 그래서 자주 들어오는 문의 유형별로 응대 흐름을 묶어서 익히게 합니다.', 'General support covers a wide range of products, policies, and procedures. So trainees learn handling flows grouped by the most common inquiry types.'),
       hard, ['hard'], 'hard'),
-    trackStep('tech', tx('기술지원은 제품 구조와 진단 도구, 티켓을 기록하는 방법, 지식 자료를 찾는 법을 익힙니다. 전화든 채팅이든 이메일이든 문의는 모두 티켓으로 남기 때문입니다. 제품이 바뀔 때마다 교육도 이어집니다.', 'Tech support trainees learn the product architecture, diagnostic tools, how to document a ticket, and how to find knowledge base articles. Whether it arrives by phone, chat, or email, every inquiry is kept as a ticket. Training continues every time the product changes.'),
+    trackStep('tech', tx('기술지원은 제품 구조와 진단 도구, 티켓을 기록하는 방법, 지식 자료를 찾는 법을 익힙니다. 전화든 채팅이든 이메일이든 문의는 모두 티켓으로 남기 때문입니다. 제품이 바뀔 때마다 교육도 이어집니다.', 'Tech support trainees learn the product architecture, diagnostic tools, how to document a ticket, and how to find knowledge base articles. That is because every inquiry is logged as a ticket, whether it arrives by phone, chat, or email. Training continues every time the product changes.'),
       hard, ['hard'], 'hard'),
     step(tx('소프트 스킬은 "어떻게 말할지"입니다. 전화 응대 예절, 경청 기법, 불만 고객 응대 화법, 감정 조절 방법을 훈련합니다.', 'Soft skills are how to say it. Trainees practice phone etiquette, active listening, wording for frustrated customers, and ways to manage their own emotions.'),
       soft, ['soft', 'join-soft'], 'soft'),
