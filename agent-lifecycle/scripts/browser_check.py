@@ -15,6 +15,11 @@ from playwright.sync_api import sync_playwright
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "scripts" / "out"
 LESSONS = ["hiring", "onboarding", "nesting", "coaching", "retention", "career"]
+TRACK_KEY = "agent-lifecycle-course:track"
+STEPS = {  # steps each track sees, per lesson
+    "general": {"hiring": 9, "onboarding": 10, "nesting": 9, "coaching": 12, "retention": 9, "career": 9},
+    "tech": {"hiring": 10, "onboarding": 10, "nesting": 9, "coaching": 12, "retention": 9, "career": 9},
+}
 BLOCK_STORAGE = "Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });"
 
 failures = []
@@ -60,12 +65,13 @@ def main():
 
         # (a) no sideways scroll at phone and desktop widths, home and every lesson
         for width in (320, 390, 1280):
-            page = new_page(browser, errors, width=width)
-            for hash_ in ["#home"] + [f"#{l}-0" for l in LESSONS]:
-                open_at(page, base, hash_)
-                overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
-                check(f"(a) no horizontal scroll {width}px {hash_}", overflow <= 0, f"overflow={overflow}")
-            page.context.close()
+            for track in ("general", "tech"):
+                page = new_page(browser, errors, width=width, init=f"try {{ localStorage.setItem('{TRACK_KEY}', '{track}'); }} catch (e) {{}}")
+                for hash_ in ["#home"] + [f"#{l}-{n}" for l in LESSONS for n in (0, 4)]:
+                    open_at(page, base, hash_)
+                    overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
+                    check(f"(a) no horizontal scroll {width}px {track} {hash_}", overflow <= 0, f"overflow={overflow}")
+                page.context.close()
 
         page = new_page(browser, errors)
 
@@ -75,16 +81,19 @@ def main():
 
         # (d) step past the end -> last step
         open_at(page, base, "#hiring-99")
-        check("(d) step clamps to last", page.inner_text("[data-counter]") == "8 / 8", page.inner_text("[data-counter]"))
+        check("(d) step clamps to last", page.inner_text("[data-counter]") == "9 / 9", page.inner_text("[data-counter]"))
 
         # (i) full run of lesson 1: steps -> checkpoint -> connection -> home shows done
         open_at(page, base, "#hiring-0")
-        for _ in range(8):
+        for _ in range(STEPS["general"]["hiring"]):
             page.click("[data-next]")
         check("(i) checkpoint opens after last step", page.is_visible("[data-view='checkpoint']"))
-        page.click("[data-option='a']")
-        page.click("[data-option='b']")
-        check("(i) one explanation shown", page.locator("[data-explanation]:visible").count() == 1)
+        check("(i) two questions on the general track", page.locator("[data-question]").count() == 2)
+        page.click("[data-question='hiring-q1'] [data-option='a']")
+        page.click("[data-question='hiring-q1'] [data-option='b']")
+        check("(i) one explanation per answered question", page.locator("[data-explanation]:visible").count() == 1)
+        check("(i) connection waits for every question", not page.is_visible("[data-connection]"))
+        page.click("[data-question='hiring-general'] [data-option='b']")
         check("(i) connection card shown", page.is_visible("[data-connection]"))
         page.click("[data-lang='en']")
         page.wait_for_function("document.querySelector('[data-back]')?.textContent.includes('Back')")
@@ -92,24 +101,58 @@ def main():
         page.click("[data-lang='ko']")
         page.wait_for_function("document.querySelector('[data-back]')?.textContent.includes('이전')")
         page.click("[data-next-lesson]")
-        page.wait_for_function("document.querySelector('[data-counter]')?.textContent === '1 / 7'")
+        page.wait_for_function("document.querySelector('[data-counter]')?.textContent === '1 / 10'")
         check("(i) next lesson opens", "onboarding-0" in page.url)
         page.click("[data-home]")
         page.wait_for_selector("[data-stage-list]")
         check("(i) finished lesson marked done", "is-done" in (page.get_attribute("[data-stage-list] a[data-stage='hiring']", "class") or ""))
         page.go_back()
         page.wait_for_selector("[data-counter]")
-        check("(i) browser back returns to lesson", page.inner_text("[data-counter]") == "1 / 7")
+        check("(i) browser back returns to lesson", page.inner_text("[data-counter]") == "1 / 10")
 
         # (h) language switch keeps the step and survives reload
         open_at(page, base, "#hiring-2")
         page.click("[data-lang='en']")
         page.wait_for_function("document.querySelector('[data-next]')?.textContent.trim() === 'Next'")
-        check("(h) step kept after language switch", page.inner_text("[data-counter]") == "3 / 8")
+        check("(h) step kept after language switch", page.inner_text("[data-counter]") == "3 / 9")
         page.reload()
         page.wait_for_selector("[data-next]")
         check("(h) language kept after reload", page.inner_text("[data-next]").strip() == "Next")
-        check("(h) step kept after reload", page.inner_text("[data-counter]") == "3 / 8")
+        check("(h) step kept after reload", page.inner_text("[data-counter]") == "3 / 9")
+
+        # (l) track choice survives a reload; (m) switching track keeps the step in range
+        page.click("[data-lang='ko']")
+        page.wait_for_function("document.querySelector('[data-next]')?.textContent.trim() === '다음'")
+        open_at(page, base, "#hiring-6")  # general: the mock-call step (common)
+        page.click("[data-track='tech']")
+        page.wait_for_function("document.querySelector('[data-counter]')?.textContent.endsWith('/ 10')")
+        check("(m) same common step after switching to tech", page.inner_text("[data-counter]") == EXPECT_TECH_COUNTER, page.inner_text("[data-counter]"))
+        check("(m) address follows the switch", page.url.endswith("#hiring-6"), page.url)
+        page.click("[data-next]")  # tech-only step
+        check("(m) badge on a tech-only step", page.inner_text("[data-track-badge]") == "기술지원")
+        page.click("[data-track='general']")
+        page.wait_for_function("document.querySelector('[data-counter]')?.textContent.endsWith('/ 9')")
+        check("(m) tech-only step falls back to the common step before it", page.inner_text("[data-counter]") == "7 / 9", page.inner_text("[data-counter]"))
+        page.click("[data-track='tech']")
+        page.reload()
+        page.wait_for_selector("[data-counter]")
+        check("(l) track kept after reload", page.get_attribute("[data-track='tech']", "aria-pressed") == "true")
+        open_at(page, base, "#coaching-11")
+        page.click("[data-track='general']")
+        page.wait_for_function("document.querySelector('[data-track=general]')?.getAttribute('aria-pressed') === 'true'")
+        n = int(page.inner_text("[data-counter]").split(" / ")[0])
+        check("(m) step stays in range after switching", 1 <= n <= 12, str(n))
+
+        # (n) switching track inside the checkpoint keeps it open and clears answers
+        open_at(page, base, "#nesting-8")
+        page.click("[data-next]")
+        page.click("[data-question='nesting-q1'] [data-option='b']")
+        page.click("[data-track='tech']")
+        page.wait_for_selector("[data-question='nesting-tech']")
+        check("(n) checkpoint stays open after a track switch", page.is_visible("[data-view='checkpoint']"))
+        check("(n) answers cleared after a track switch", page.locator(".option.is-correct").count() == 0)
+        check("(n) old track question gone", page.locator("[data-question='nesting-general']").count() == 0)
+        page.click("[data-track='general']")
         page.context.close()
 
         # (g) first visit follows the browser language
@@ -117,9 +160,10 @@ def main():
         open_at(page, base)
         check("(g) ko-KR starts in Korean", page.inner_text("h1") == "상담사 라이프사이클", page.inner_text("h1"))
         page.screenshot(path=str(OUT / "home-390.png"), full_page=True)
-        open_at(page, base, "#nesting-4")
+        page.click("[data-track='tech']")
+        open_at(page, base, "#onboarding-9")
         page.wait_for_timeout(500)
-        page.screenshot(path=str(OUT / "lesson-390.png"), full_page=True)
+        page.screenshot(path=str(OUT / "lesson-390-tech.png"), full_page=True)
         page.context.close()
 
         page = new_page(browser, errors, locale="en-US")
@@ -129,7 +173,8 @@ def main():
         check("(g) English translation note", note_visible == EXPECT_TRANSLATION_NOTE, f"visible={note_visible}")
         for width in (320, 390):
             page.set_viewport_size({"width": width, "height": 780})
-            for hash_ in ["#home", "#hiring-1", "#nesting-5", "#career-7"]:
+            page.evaluate(f"localStorage.setItem('{TRACK_KEY}', 'tech')")
+            for hash_ in ["#home", "#hiring-1", "#hiring-6", "#nesting-5", "#coaching-8", "#career-7"]:
                 open_at(page, base, hash_)
                 overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
                 check(f"(k) English no horizontal scroll {width}px {hash_}", overflow <= 0, f"overflow={overflow}")
@@ -146,7 +191,10 @@ def main():
         page.click("[data-lang='en']")
         page.wait_for_function("document.querySelector('h1')?.textContent === 'The Agent Lifecycle'")
         open_at(page, base, "#career-0")
-        check("(e) lesson renders with storage blocked", page.inner_text("[data-counter]") == "1 / 8")
+        check("(e) lesson renders with storage blocked", page.inner_text("[data-counter]") == "1 / 9")
+        page.click("[data-track='tech']")
+        page.wait_for_function("document.querySelector('[data-track=tech]')?.getAttribute('aria-pressed') === 'true'")
+        check("(e) track switch works with storage blocked", page.inner_text("[data-counter]") == "1 / 9")
         page.context.close()
 
         # (f) desktop + dark screenshots for a human look
@@ -179,7 +227,8 @@ def main():
 
 # English is fully translated, so no fallback note is expected. If English
 # text goes missing, the note appears and this check fails.
-EXPECT_TRANSLATION_NOTE = False
+EXPECT_TRANSLATION_NOTE = True
+EXPECT_TECH_COUNTER = "7 / 10"
 
 if __name__ == "__main__":
     main()
