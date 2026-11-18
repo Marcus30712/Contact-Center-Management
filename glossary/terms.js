@@ -63,7 +63,8 @@ export const TERMS = [
      'How close the forecast contact volume was to the actual volume. Staffing plans and schedules all start from this forecast.']),
   term('attrition', 'metric', 'Attrition', ['퇴사율', 'Attrition Rate'],
     ['일정 기간에 조직을 떠난 사람의 비율입니다. 이직률이라고도 하며, 인재를 유지하는 능력을 보여 줍니다.',
-     'The share of people who left the organization in a given period. It is also called turnover, and it shows how well the organization keeps its people.']),
+     'The share of people who left the organization in a given period. It is also called turnover, and it shows how well the organization keeps its people.'],
+    ['nesting']),
 
   // ---------- 사람과 역할 / People and roles ----------
   term('agent', 'role', 'Agent', ['상담사', 'Agent'],
@@ -114,7 +115,8 @@ export const TERMS = [
     ['hiring']),
   term('ojt', 'process', 'OJT', ['직무교육', 'On-the-Job Training'],
     ['온보딩과 기초 교육(Basic Training)을 마친 신입이 Trainer와 SME가 참관하는 가운데 실제 문의를 채널별로 경험해 보는 기간입니다.',
-     'The period when new hires who have finished onboarding and basic training handle real contacts in each channel, with a trainer and an SME observing.']),
+     'The period when new hires who have finished onboarding and basic training handle real contacts in each channel, with a trainer and an SME observing.'],
+    ['nesting']),
   term('nesting', 'process', 'Nesting', ['네스팅', 'Nesting'],
     ['OJT를 마친 신입이 정식 팀에 들어가기 전에 별도의 집중 케어 그룹에서 실제 문의를 받는 적응 기간입니다. 이 기간에는 생산성보다 정확한 안내와 적응을 우선합니다.',
      'The adjustment period when new hires who have finished OJT take real contacts in a separate, closely supported group before joining a regular team. During this period, accurate answers and settling in come before productivity.'],

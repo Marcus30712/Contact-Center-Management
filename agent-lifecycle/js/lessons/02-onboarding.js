@@ -84,6 +84,6 @@ export default {
   })],
   connection: {
     to: 'nesting',
-    text: tx('스킬 검증을 통과해도 아직 실제 고객을 만난 적은 없습니다. 첫 응대의 순간이 가장 흔들리는 때입니다. 다음 단계인 네스팅은 그 순간을 혼자 두지 않기 위한 장치입니다.', 'Passing skills verification still means she has never met a real customer. The first live contact is the shakiest moment. The next stage, nesting, exists so she does not face that moment alone.'),
+    text: tx('스킬 검증을 통과해도 아직 실제 고객을 만난 적은 없습니다. 첫 응대의 순간이 가장 흔들리는 때입니다. 다음 단계인 OJT와 네스팅은 그 순간을 혼자 두지 않기 위한 장치입니다.', 'Passing skills verification still means she has never met a real customer. The first live contact is the shakiest moment. The next stage, OJT and nesting, exists so she does not face that moment alone.'),
   },
 };
