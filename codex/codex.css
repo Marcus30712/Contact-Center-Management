@@ -1,0 +1,167 @@
+/* Codex one-pagers. Tokens come from the course stylesheet. Readability first:
+   text lines stay near 40 characters wide in Korean, and colour never carries
+   meaning alone (every chip has words). */
+#app { --cx-measure: 40rem; }
+.cx-home { display: inline-block; margin-top: 14px; }
+.cx-pagenav ol { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.cx-pagenav a {
+  display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 10px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; font-size: 0.85rem; line-height: 1.25;
+}
+.cx-pagenav a[aria-current="page"] { border-color: var(--accent); background: var(--accent-soft); font-weight: 700; }
+@media (max-width: 559px) {
+  /* The number shows; the name stays for screen readers. */
+  .cx-pagenav-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .cx-pagenav a { justify-content: center; }
+}
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+.cx-num {
+  flex: none; display: inline-grid; place-items: center; width: 1.7em; height: 1.7em; border-radius: 50%;
+  background: var(--accent); color: var(--surface); font-weight: 800; font-size: 0.85rem; font-variant-numeric: tabular-nums;
+}
+.cx-intro, .cx-note, .cx-hint, .cx-detail, .cx-cards, .cx-tasks { max-width: var(--cx-measure); }
+.cx-intro { display: grid; gap: 8px; margin-bottom: 14px; }
+.cx-note { color: var(--muted); font-size: 0.9rem; }
+.cx-hint { color: var(--muted); font-size: 0.85rem; margin: 6px 0; }
+.cx-sub { font-size: 1rem; color: var(--accent); margin: 18px 0 8px; }
+.cx-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+
+.cx-chip {
+  display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; line-height: 1.6;
+  background: var(--accent-soft); color: var(--ink); border: 1px solid transparent; white-space: nowrap;
+}
+.cx-chip[data-kind="problem"] { background: var(--bad-soft); color: var(--bad); }
+.cx-chip[data-kind="fix"], .cx-chip[data-kind="next"] { background: var(--good-soft); color: var(--good); }
+.cx-chip[data-kind="example"], .cx-chip[data-kind="use"] { background: transparent; border-color: var(--line); }
+.cx-chip[data-kind="you"] { background: var(--accent); color: var(--surface); }
+
+/* Pages list */
+.cx-pages { list-style: none; margin: 0; padding: 4px 0 10px; display: grid; gap: 10px; max-width: var(--cx-measure); }
+.cx-page-card {
+  display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--line); color: var(--ink); text-decoration: none;
+}
+.cx-page-card:hover, .cx-page-card:focus-visible { border-color: var(--accent); }
+.cx-card-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; text-align: left; }
+.cx-card-text > span:not(.cx-card-tags):not(.cx-share) { color: var(--muted); font-size: 0.9rem; }
+.cx-source { color: var(--muted); font-size: 0.85rem; padding-bottom: 24px; }
+
+/* Expandable cards: the front is a summary, the back opens below it. */
+.cx-cards { display: grid; gap: 10px; }
+.cx-card { border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.cx-card.is-open { border-color: var(--accent); }
+.cx-card-head {
+  width: 100%; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 0; background: none;
+  color: var(--ink); font: inherit; cursor: pointer; border-radius: var(--radius); text-align: left;
+}
+.cx-card-head:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.cx-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.cx-card-title { font-size: 1rem; overflow-wrap: anywhere; }
+.cx-caret { margin-left: auto; flex: none; width: 10px; height: 10px; margin-top: 6px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform 0.15s; }
+.cx-card.is-open .cx-caret { transform: rotate(-135deg); margin-top: 10px; }
+.cx-card-body { padding: 0 16px 16px; display: grid; gap: 8px; }
+.cx-card-body h3 { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+.cx-steps { display: grid; gap: 12px; }
+.cx-part { display: grid; gap: 4px; padding-left: 12px; border-left: 3px solid var(--line); }
+.cx-part[data-part="problem"] { border-color: var(--bad); }
+.cx-part[data-part="fix"] { border-color: var(--good); }
+
+.cx-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.cx-chips li { padding: 3px 10px; border-radius: 8px; border: 1px solid var(--line); font-size: 0.85rem; overflow-wrap: anywhere; }
+.cx-kpis { display: grid; gap: 10px; margin: 0; }
+.cx-kpi dt { font-weight: 700; overflow-wrap: anywhere; }
+.cx-kpi dd { margin: 2px 0 0; display: grid; gap: 2px; }
+.cx-why { color: var(--muted); font-size: 0.85rem; }
+
+/* Numbered workflow; arrows are drawn here so screen readers hear only the steps. */
+.cx-flow { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 14px; }
+.cx-flow li { counter-increment: step; position: relative; display: flex; align-items: center; gap: 10px; }
+.cx-flow li::before {
+  content: counter(step); flex: none; display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; border-radius: 50%;
+  border: 2px solid var(--accent); color: var(--accent); font-weight: 800; font-size: 0.8rem;
+}
+.cx-flow li:not(:last-child)::after { content: ''; position: absolute; left: 0.75em; top: 1.7em; height: 12px; border-left: 2px solid var(--line); }
+
+/* Tabs */
+.cx-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.cx-tab {
+  min-height: 40px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink); font: inherit; font-size: 0.88rem; cursor: pointer;
+}
+.cx-tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 700; }
+.cx-tab:focus-visible, .cx-rung:focus-visible, .cx-task:focus-visible, .cx-block:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+
+/* Career ladder */
+.cx-uses { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.cx-ladder-wrap { display: grid; gap: 16px; margin-bottom: 12px; }
+.cx-ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.cx-rung {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px;
+  border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+}
+.cx-rung span:first-child { overflow-wrap: anywhere; }
+.cx-rung[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); font-weight: 700; }
+.cx-detail { padding: 14px 16px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+.cx-detail h3 { font-size: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.cx-facts { margin: 0; display: grid; gap: 4px; }
+.cx-facts dt { font-size: 0.8rem; color: var(--muted); font-weight: 700; margin-top: 4px; }
+.cx-facts dd { margin: 0; overflow-wrap: anywhere; }
+.cx-facts ul { margin: 0; padding-left: 1.1em; }
+.cx-next { display: grid; gap: 4px; padding: 10px 12px; border-radius: 10px; background: var(--good-soft); }
+.cx-next .cx-chip { justify-self: start; background: var(--surface); }
+
+/* Day bar: width follows minutes; patterns differ by task so colour is not the only cue. */
+.cx-day { list-style: none; margin: 0; padding: 0; display: flex; gap: 2px; height: 48px; }
+.cx-day li { min-width: 0; display: flex; }
+.cx-block {
+  flex: 1; min-width: 0; border: 0; border-radius: 6px; cursor: pointer; font: inherit; font-weight: 800; font-size: 0.8rem;
+  color: var(--surface); background: var(--accent); padding: 0;
+}
+.cx-block.is-task-2 { background: color-mix(in srgb, var(--accent) 70%, var(--surface)); color: var(--ink); }
+.cx-block.is-task-3 { background: repeating-linear-gradient(45deg, var(--accent-soft) 0 6px, var(--surface) 6px 10px); color: var(--ink); border: 1px solid var(--accent); }
+.cx-block.is-task-4 { background: var(--surface); color: var(--ink); border: 2px solid var(--accent); }
+.cx-block.is-lunch { background: repeating-linear-gradient(-45deg, var(--line) 0 4px, transparent 4px 8px); }
+.cx-block.is-other { background: var(--surface); border: 2px dashed var(--muted); color: var(--muted); }
+.cx-block.is-selected { outline: 3px solid var(--signal); outline-offset: 1px; position: relative; z-index: 1; }
+.cx-axis { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.72rem; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.cx-day-grid { display: grid; gap: 16px; margin-top: 12px; }
+.cx-slots { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 4px; max-width: var(--cx-measure); }
+.cx-slot {
+  width: 100%; min-height: 40px; display: flex; gap: 8px; align-items: baseline; padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 0.88rem; text-align: left; cursor: pointer;
+}
+.cx-slot[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.cx-slot-time { flex: none; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.8rem; }
+.cx-slot:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.cx-tasks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cx-task {
+  width: 100%; display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; text-align: left;
+}
+.cx-task[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.cx-share { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); }
+.cx-share-bar { display: block; height: 6px; border-radius: 3px; background: var(--accent); min-width: 6px; max-width: 60%; }
+.cx-notes { margin: 14px 0; display: grid; gap: 4px; }
+
+/* Before / after links */
+.cx-related { display: grid; gap: 14px; margin: 24px 0 28px; padding-top: 16px; border-top: 1px solid var(--line); max-width: var(--cx-measure); }
+.cx-related h2 { font-size: 0.9rem; color: var(--muted); margin-bottom: 6px; }
+.cx-related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cx-related a {
+  display: grid; gap: 2px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink); text-decoration: none;
+}
+.cx-related a:hover, .cx-related a:focus-visible { border-color: var(--accent); }
+.cx-related a span { color: var(--muted); font-size: 0.85rem; }
+
+@media (min-width: 760px) {
+  .cx-ladder-wrap, .cx-day-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); align-items: start; max-width: 56rem; }
+  .cx-day-tasks { grid-row: 1; grid-column: 1; }
+  .cx-day-grid .cx-detail { grid-row: 1; grid-column: 2; }
+  /* The bar has room on wide screens, so the plain list of times is not needed. */
+  .cx-slots { display: none; }
+  .cx-related { grid-template-columns: 1fr 1fr; max-width: 56rem; }
+}
+@media (prefers-reduced-motion: reduce) { .cx-caret { transition: none; } }
+.cx-kpi dt .glossary-link { font-size: 0.8rem; font-weight: 400; }
