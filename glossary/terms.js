@@ -189,3 +189,16 @@ export const TERMS = [
      'The record of what was exchanged in an email contact. Like a call recording for phone, it is used as evidence for quality evaluation and coaching.'],
     ['coaching']),
 ];
+
+// Terms that have a step-by-step lesson in the SOP Library (sop-library/):
+// term id -> SOP lesson id.
+const SOP_LESSON = {
+  escalation: 'escalation',
+  'one-on-one-coaching': 'coaching',
+  grow: 'coaching',
+  pip: 'pip',
+  calibration: 'calibration',
+};
+for (const t of TERMS) {
+  if (SOP_LESSON[t.id]) t.sop = SOP_LESSON[t.id];
+}

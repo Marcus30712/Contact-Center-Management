@@ -2,16 +2,18 @@ import { s } from './dom.js';
 import { t } from '../engine/i18n.js';
 import { UI } from '../i18n/ui.js';
 
-// Node box half-sizes in viewBox units (viewBox is 0 0 360 240).
+// Node box half-sizes in viewBox units (viewBox is 0 0 360 240). A node may
+// set its own half-width with `hw`.
 const HW = 54;
 const HH = 17;
+const halfWidth = (n) => n.hw ?? HW;
 
 // Point where the line from `from` toward `to` leaves `from`'s box.
 function boxEdge(from, to, pad = 0) {
   const dx = to.x - from.x;
   const dy = to.y - from.y;
   const scale = Math.min(
-    dx === 0 ? Infinity : (HW + pad) / Math.abs(dx),
+    dx === 0 ? Infinity : (halfWidth(from) + pad) / Math.abs(dx),
     dy === 0 ? Infinity : (HH + pad) / Math.abs(dy),
   );
   return { x: from.x + dx * scale, y: from.y + dy * scale };
@@ -37,7 +39,7 @@ function build(svg, diagram) {
   }
   for (const n of diagram.nodes) {
     svg.append(s('g', { class: 'node', 'data-node': n.id, transform: `translate(${n.x} ${n.y})` }, [
-      s('rect', { x: -HW, y: -HH, width: HW * 2, height: HH * 2, rx: 9 }),
+      s('rect', { x: -halfWidth(n), y: -HH, width: halfWidth(n) * 2, height: HH * 2, rx: 9 }),
       s('text', { 'text-anchor': 'middle', 'dominant-baseline': 'central' }),
     ]));
   }
@@ -50,7 +52,7 @@ function build(svg, diagram) {
 // Draws the lesson diagram for one step. The first call creates the shapes;
 // later calls only switch classes and move the persona badge, so CSS
 // transitions animate the change.
-export function renderDiagram(svg, diagram, step, lang) {
+export function renderDiagram(svg, diagram, step, lang, { personaName = UI.personaName } = {}) {
   if (!svg.querySelector('[data-node]')) build(svg, diagram);
 
   const show = new Set(step.show);
@@ -65,9 +67,10 @@ export function renderDiagram(svg, diagram, step, lang) {
     const text = svg.querySelector(`[data-node="${n.id}"] text`);
     text.textContent = label;
     // Long labels (mostly English) are squeezed to fit inside the box.
-    const long = [...label].reduce((w, ch) => w + (ch.charCodeAt(0) > 0x2e80 ? 11 : 6.2), 0) > HW * 2 - 10;
+    const hw = halfWidth(n);
+    const long = [...label].reduce((w, ch) => w + (ch.charCodeAt(0) > 0x2e80 ? 11 : 6.2), 0) > hw * 2 - 10;
     if (long) {
-      text.setAttribute('textLength', HW * 2 - 12);
+      text.setAttribute('textLength', hw * 2 - 12);
       text.setAttribute('lengthAdjust', 'spacingAndGlyphs');
     } else {
       text.removeAttribute('textLength');
@@ -78,6 +81,6 @@ export function renderDiagram(svg, diagram, step, lang) {
   const persona = svg.querySelector('[data-persona]');
   const at = diagram.nodes.find((n) => n.id === step.persona);
   persona.classList.toggle('is-hidden', !at);
-  persona.querySelector('text').textContent = t(UI.personaName, lang).text;
-  if (at) persona.setAttribute('style', `transform: translate(${at.x - HW + 16}px, ${at.y - HH}px)`);
+  persona.querySelector('text').textContent = t(personaName, lang).text;
+  if (at) persona.setAttribute('style', `transform: translate(${at.x - halfWidth(at) + 16}px, ${at.y - HH}px)`);
 }

@@ -18,7 +18,10 @@ const isText = (v) => v !== null && typeof v === 'object';
 const filled = (s) => typeof s === 'string' && s.trim() !== '';
 const sentenceCount = (s) => (s.match(/[.?!](?=\s|$)/g) || []).length;
 
-export function validateLesson(lesson, { requireEnglish = false, requireTracks = false } = {}) {
+// Options: `figure` replaces the pattern that marks a figure needing an
+// example label. A lesson may carry `personaName` to name someone other than
+// the default persona.
+export function validateLesson(lesson, { requireEnglish = false, requireTracks = false, figure = FIGURE } = {}) {
   const errors = [];
   const where = lesson?.id ?? '(no id)';
   const err = (msg) => errors.push(`${where}: ${msg}`);
@@ -94,14 +97,14 @@ export function validateLesson(lesson, { requireEnglish = false, requireTracks =
   }
 
   for (const lang of ['ko', 'en']) {
-    const rule = RULES[lang];
+    const rule = { ...RULES[lang], persona: lesson.personaName?.[lang] ?? RULES[lang].persona };
     const captions = steps.map((s) => s.caption?.[lang]).filter(filled);
     if (lang === 'en' && captions.length === 0) continue; // not translated yet
     steps.forEach((s, i) => {
       const caption = s.caption?.[lang];
       if (!filled(caption)) return;
       if (sentenceCount(caption) > MAX_SENTENCES) err(`step ${i + 1} ${lang} caption has more than ${MAX_SENTENCES} sentences`);
-      if (FIGURE.test(caption) && !caption.includes(rule.example)) {
+      if (figure.test(caption) && !caption.includes(rule.example)) {
         err(`step ${i + 1} ${lang} caption has a figure but no "${rule.example}" label`);
       }
     });
@@ -120,9 +123,12 @@ export function validateLesson(lesson, { requireEnglish = false, requireTracks =
   return errors;
 }
 
-export function validateCourse(lessons, options = {}) {
+// Options beyond validateLesson's: `lessonCount` (default 6) and `loop`
+// (default true: the last lesson leads back to the first). With `loop: false`
+// the last lesson leads to the course list, written as connection.to 'home'.
+export function validateCourse(lessons, { lessonCount = 6, loop = true, ...options } = {}) {
   const errors = lessons.flatMap((l) => validateLesson(l, options));
-  if (lessons.length !== 6) errors.push(`course must have exactly 6 lessons, found ${lessons.length}`);
+  if (lessons.length !== lessonCount) errors.push(`course must have exactly ${lessonCount} lessons, found ${lessons.length}`);
 
   const seen = new Set();
   for (const l of lessons) {
@@ -132,7 +138,8 @@ export function validateCourse(lessons, options = {}) {
   const sorted = [...lessons].sort((a, b) => a.order - b.order);
   sorted.forEach((l, i) => {
     if (l.order !== i + 1) errors.push(`${l.id}: order should be ${i + 1}, found ${l.order}`);
-    const expected = sorted[(i + 1) % sorted.length].id;
+    const last = i === sorted.length - 1;
+    const expected = last && !loop ? 'home' : sorted[(i + 1) % sorted.length].id;
     if (l.connection?.to !== expected) {
       errors.push(`${l.id}: connection should lead to ${expected}, found ${l.connection?.to}`);
     }

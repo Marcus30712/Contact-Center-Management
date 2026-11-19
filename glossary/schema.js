@@ -10,7 +10,7 @@ const BANNED_KO = '진상';
 const filled = (s) => typeof s === 'string' && s.trim() !== '';
 const sentenceCount = (s) => (s.match(/[.?!](?=\s|$)/g) || []).length;
 
-export function validateTerms(terms, { requireEnglish = false, lessonIds = [] } = {}) {
+export function validateTerms(terms, { requireEnglish = false, lessonIds = [], sopIds } = {}) {
   const errors = [];
   const seenIds = new Set();
   for (const term of terms) {
@@ -40,6 +40,8 @@ export function validateTerms(terms, { requireEnglish = false, lessonIds = [] } 
     for (const lessonId of term.seen ?? []) {
       if (!lessonIds.includes(lessonId)) err(`seen refers to unknown lesson "${lessonId}"`);
     }
+    // Checked only when the caller passes the SOP Library's lesson ids.
+    if (sopIds && term.sop !== undefined && !sopIds.includes(term.sop)) err(`sop refers to unknown SOP lesson "${term.sop}"`);
   }
   return errors;
 }

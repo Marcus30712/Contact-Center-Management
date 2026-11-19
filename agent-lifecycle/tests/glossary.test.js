@@ -320,3 +320,36 @@ test('the staffing lab terms carry the approved definitions', () => {
   assert.equal(term('asa').name.ko, '평균 응답 속도');
   assert.equal(term('asa').name.en, 'Average Speed of Answer');
 });
+
+// --- links to the SOP Library ---
+import { SOP_LESSONS } from '../../sop-library/lessons/index.js';
+
+test('five terms point to their SOP lesson and no others do', () => {
+  const withSop = Object.fromEntries(TERMS.filter((x) => x.sop).map((x) => [x.id, x.sop]));
+  assert.deepEqual(withSop, {
+    calibration: 'calibration', escalation: 'escalation', 'one-on-one-coaching': 'coaching', grow: 'coaching', pip: 'pip',
+  });
+  const sopIds = SOP_LESSONS.map((l) => l.id);
+  assert.deepEqual(validateTerms(TERMS, { requireEnglish: true, lessonIds: LESSONS.map((l) => l.id), sopIds }), []);
+});
+
+test('an unknown SOP lesson is rejected', () => {
+  const terms = fixtureTerms();
+  terms[0].sop = 'nope';
+  assert.ok(validateTerms(terms, { lessonIds: ['coaching'], sopIds: ['pip'] }).some((e) => e.includes('nope')));
+  terms[0].sop = 'pip';
+  assert.deepEqual(validateTerms(terms, { lessonIds: ['coaching'], sopIds: ['pip'] }), []);
+});
+
+test('the card links to the SOP Library next to the course link', () => {
+  for (const [lang, label] of [['ko', 'SOP 라이브러리에서 보기'], ['en', 'See it in the SOP Library']]) {
+    const { $, $$ } = mount({}, lang, TERMS);
+    const link = $('[data-term="grow"] a[data-sop-link]');
+    assert.equal(link.getAttribute('href'), '../sop-library/#coaching-0');
+    assert.equal(link.textContent, label);
+    assert.equal($('[data-term="pip"] a[data-sop-link]').getAttribute('href'), '../sop-library/#pip-0');
+    assert.equal($$('a[data-sop-link]').length, 5);
+    assert.ok($('[data-term="calibration"] a[data-seen]'), 'course link stays');
+    assert.equal($('[data-term="aht"] a[data-sop-link]'), null);
+  }
+});

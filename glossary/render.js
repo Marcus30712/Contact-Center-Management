@@ -23,6 +23,7 @@ export const GLOSSARY_UI = {
   },
   empty: { ko: '찾는 용어가 없습니다.', en: 'No matching terms.' },
   seen: { ko: '강의에서 보기', en: 'See it in the course' },
+  sop: { ko: 'SOP 라이브러리에서 보기', en: 'See it in the SOP Library' },
   count: { ko: '개', en: 'terms' },
   translationComing: { ko: '영어 번역 준비 중', en: 'Translation coming soon' },
 };
@@ -55,6 +56,10 @@ function termCard(term, lang, focusId, lessons) {
       ]),
       h('p', { class: 'term-definition', 'data-definition': true, text: tr(term.definition) }),
       links.length ? h('p', { class: 'term-seen' }, [h('span', { text: `${tr(GLOSSARY_UI.seen)}: ` }), ...links]) : null,
+      // The step-by-step procedure for this term, in the SOP Library course.
+      term.sop ? h('p', { class: 'term-seen' }, [h('a', {
+        'data-sop-link': true, class: 'seen-link', href: `../sop-library/${lessonHref(term.sop, 0)}`, text: tr(GLOSSARY_UI.sop),
+      })]) : null,
     ]),
   ]);
 }

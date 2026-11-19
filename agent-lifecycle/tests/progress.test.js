@@ -22,3 +22,13 @@ test('markComplete survives a storage that throws on write', () => {
   assert.deepEqual(markComplete(s, 'hiring'), { completed: ['hiring'] });
   assert.deepEqual(markComplete(null, 'hiring'), { completed: ['hiring'] });
 });
+
+test('a second course keeps its own progress under its own key', () => {
+  const s = fakeStorage();
+  markComplete(s, 'coaching', 'sop-library:v1');
+  assert.deepEqual(loadProgress(s, 'sop-library:v1'), { completed: ['coaching'] });
+  assert.deepEqual(loadProgress(s), { completed: [] });
+  markComplete(s, 'hiring');
+  assert.deepEqual(loadProgress(s), { completed: ['hiring'] });
+  assert.deepEqual(loadProgress(s, 'sop-library:v1'), { completed: ['coaching'] });
+});

@@ -267,13 +267,13 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB)
         cards = page.locator("a.card")
-        check("(r) hub shows four cards", cards.count() == 4, str(cards.count()))
-        for href, title in (("./agent-lifecycle/", "상담사 라이프사이클"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
+        check("(r) hub shows five cards", cards.count() == 5, str(cards.count()))
+        for href, title in (("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
             page.goto(HUB)
             page.click(f"a.card[href='{href}']")
             page.wait_for_selector("#app h1")
             check(f"(r) card opens {href}", page.inner_text("#app h1") == title, page.inner_text("#app h1"))
-        for path, link in (("glossary/", "[data-back]"), ("references/", "[data-back]"), ("staffing-calculator/", "[data-back]"), ("agent-lifecycle/", "[data-kb-link]")):
+        for path, link in (("glossary/", "[data-back]"), ("references/", "[data-back]"), ("staffing-calculator/", "[data-back]"), ("agent-lifecycle/", "[data-kb-link]"), ("sop-library/", "[data-kb-link]")):
             page.goto(HUB + path)
             page.wait_for_selector("#app > *")
             page.click(link)
@@ -296,7 +296,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -395,9 +395,106 @@ def main():
         page.screenshot(path=str(OUT / "staffing-390-dark.png"), full_page=True)
         page.context.close()
 
+        # ---- SOP Library ----
+        SOP = HUB + "sop-library/"
+        SOP_STEPS = {"escalation": 10, "coaching": 11, "pip": 11, "calibration": 11}
+        LABELS_FIT = """[...document.querySelectorAll('[data-node]:not(.is-hidden)')].every((g) => {
+            const r = g.querySelector('rect').getBoundingClientRect();
+            const t = g.querySelector('text').getBoundingClientRect();
+            return t.left >= r.left - 0.5 && t.right <= r.right + 0.5;
+        })"""
+        page = new_page(browser, errors)
+        page.goto(SOP)
+        page.wait_for_selector("[data-sop-list]")
+        check("(s1) list shows four SOPs", page.locator("[data-sop-list] a[data-sop]").count() == 4)
+        page.screenshot(path=str(OUT / "sop-list-390.png"), full_page=True)
+        ids = list(SOP_STEPS)
+        for i, (sop, steps) in enumerate(SOP_STEPS.items()):
+            page.goto(SOP + f"#{sop}-0")
+            page.wait_for_selector("[data-counter]")
+            check(f"(s1) {sop} starts at 1 / {steps}", page.inner_text("[data-counter]") == f"1 / {steps}", page.inner_text("[data-counter]"))
+            check(f"(s1) {sop} is {i + 1} of 4", page.inner_text(".eyebrow") == f"{i + 1} / 4")
+            for n in range(steps - 1):
+                if n % 2:
+                    page.keyboard.press("ArrowRight")
+                else:
+                    page.click("[data-next]")
+            check(f"(s1) {sop} reaches the last step", page.inner_text("[data-counter]") == f"{steps} / {steps}", page.inner_text("[data-counter]"))
+            check(f"(s2) {sop} labels fit their boxes (ko)", page.evaluate(LABELS_FIT))
+            check(f"(s2) {sop} hides nothing at the end", page.locator("[data-node].is-hidden").count() == 0)
+            page.screenshot(path=str(OUT / f"sop-{sop}-390.png"), full_page=True)
+            page.click("[data-lang='en']")
+            page.wait_for_selector("[data-lang='en'][aria-pressed='true']")
+            check(f"(s2) {sop} labels fit their boxes (en)", page.evaluate(LABELS_FIT))
+            check(f"(s2) {sop} English has no Korean", not page.evaluate("/[가-힣]/.test(document.querySelector('#app').textContent)"))
+            if sop == "coaching":
+                page.screenshot(path=str(OUT / "sop-coaching-390-en.png"), full_page=True)
+            page.click("[data-lang='ko']")
+            page.wait_for_selector("[data-lang='ko'][aria-pressed='true']")
+            page.click("[data-next]")
+            check(f"(s1) {sop} checkpoint opens", page.is_visible("[data-view='checkpoint']"))
+            page.click(f"[data-question='{sop}-q1'] [data-option='b']")
+            check(f"(s1) {sop} connection waits for both answers", not page.is_visible("[data-connection]"))
+            page.click(f"[data-question='{sop}-q2'] [data-option='a']")
+            check(f"(s1) {sop} wrong answer is marked", page.locator(f"[data-question='{sop}-q2'] .explanation.is-wrong").count() == 1)
+            page.click(f"[data-question='{sop}-q2'] [data-option='b']")
+            check(f"(s1) {sop} connection card shown", page.is_visible("[data-connection]"))
+            page.click("[data-next-lesson]")
+            if i < 3:
+                page.wait_for_function(f"location.hash === '#{ids[i + 1]}-0'")
+            else:
+                page.wait_for_selector("[data-sop-list]")
+                check("(s4) the last SOP returns to the list", page.url.endswith("#home"), page.url)
+        done = page.locator("[data-sop-list] a.is-done").count()
+        check("(s3) all four SOPs marked done", done == 4, str(done))
+        page.goto(HUB + "agent-lifecycle/")
+        page.wait_for_selector("[data-stage-list]")
+        check("(s3) SOP progress does not mark the lifecycle course", page.locator("[data-stage-list] a.is-done").count() == 0)
+        page.evaluate("localStorage.setItem('agent-lifecycle-course:v1', JSON.stringify({completed: ['coaching']}))")
+        page.evaluate("localStorage.removeItem('sop-library:v1')")
+        page.goto(SOP)
+        page.wait_for_selector("[data-sop-list]")
+        check("(s3) lifecycle progress does not mark the SOP course", page.locator("[data-sop-list] a.is-done").count() == 0)
+        for bad in ("#hiring-0", "#nope"):
+            page.goto(SOP + bad)
+            page.wait_for_selector("#app > *")
+            page.reload()
+            page.wait_for_selector("#app > *")
+            check(f"(s5) {bad} opens the list", page.locator("[data-sop-list]").count() == 1)
+        page.goto(SOP + "#coaching-99")
+        page.reload()
+        page.wait_for_selector("[data-counter]")
+        check("(s5) a step past the end opens the last step", page.inner_text("[data-counter]") == "11 / 11", page.inner_text("[data-counter]"))
+        page.goto(SOP + "#pip-3")
+        page.reload()
+        page.wait_for_selector("[data-persona]")
+        check("(s6) PIP badge reads 도윤", page.text_content("[data-persona] text") == "도윤")
+        page.goto(HUB + "glossary/#pip")
+        page.wait_for_selector("[data-term='pip'] a[data-sop-link]")
+        page.click("[data-term='pip'] a[data-sop-link]")
+        page.wait_for_selector("[data-counter]")
+        check("(s6) glossary PIP card opens the PIP SOP", page.url.endswith("sop-library/#pip-0") and page.inner_text("#app h1") == "성과 개선 계획 (PIP)", page.url)
+        page.click("[data-lang='en']")
+        page.goto(SOP)
+        page.wait_for_selector("[data-sop-list]")
+        check("(s6) SOP list follows the shared language", page.inner_text("#app h1") == "SOP Library")
+        page.click("[data-lang='ko']")
+        page.set_viewport_size({"width": 1280, "height": 900})
+        page.screenshot(path=str(OUT / "sop-list-1280.png"), full_page=True)
+        page.goto(SOP + "#coaching-6")
+        page.reload()
+        page.wait_for_selector("[data-counter]")
+        page.screenshot(path=str(OUT / "sop-coaching-1280.png"), full_page=True)
+        page.context.close()
+        page = new_page(browser, errors, scheme="dark")
+        page.goto(SOP + "#pip-9")
+        page.wait_for_selector("[data-counter]")
+        page.screenshot(path=str(OUT / "sop-pip-390-dark.png"), full_page=True)
+        page.context.close()
+
         # (v) storage blocked
         page = new_page(browser, errors, init=BLOCK_STORAGE)
-        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab")):
+        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "SOP 라이브러리", "SOP Library")):
             page.goto(HUB + path)
             page.wait_for_selector("#app h1")
             check(f"(v) {path} opens in Korean with storage blocked", page.inner_text("#app h1") == ko)
