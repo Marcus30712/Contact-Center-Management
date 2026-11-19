@@ -1,3 +1,5 @@
 /* SOP Library: everything else comes from the lifecycle course stylesheet. */
-.sop-list { max-width: 40rem; padding: 14px 0 28px; }
+.sop-group { max-width: 40rem; padding-top: 18px; font-size: 0.95rem; color: var(--accent); }
+.sop-list { max-width: 40rem; padding: 8px 0 10px; }
+.sop-list:last-child { padding-bottom: 28px; }
 .stage-card-text .sop-roles { margin-top: 2px; font-size: 0.78rem; font-weight: 600; color: var(--accent); }

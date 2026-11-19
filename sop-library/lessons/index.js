@@ -5,5 +5,9 @@ import escalation from './01-escalation.js';
 import coaching from './02-coaching.js';
 import pip from './03-pip.js';
 import calibration from './04-calibration.js';
+import onboarding from './05-onboarding.js';
+import incident from './06-incident.js';
+import launch from './07-launch.js';
 
-export const SOP_LESSONS = [escalation, coaching, pip, calibration];
+// group: 'leader' = the team leader runs it; 'cross' = several teams run it together.
+export const SOP_LESSONS = [escalation, coaching, pip, calibration, onboarding, incident, launch];

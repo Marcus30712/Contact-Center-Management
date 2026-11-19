@@ -10,6 +10,7 @@ const branch = ['closed', 'attempt-closed'];
 export default {
   id: 'escalation',
   order: 1,
+  group: 'leader',
   title: tx('고객 불만 에스컬레이션', 'Customer Complaint Escalation'),
   short: tx('에스컬레이션', 'Escalation'),
   subtitle: tx('혼자 풀 수 없는 불만을 제대로 넘기는 순서.', 'How to properly hand over a complaint you cannot solve alone.'),
