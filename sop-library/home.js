@@ -34,9 +34,11 @@ export function renderSopHome(root, lessons, progress, lang) {
       const items = lessons.filter((l) => l.group === group);
       if (items.length === 0) return [];
       return [
-        h('h2', { class: 'sop-group', 'data-group': group, text: tr(label) }),
+        h('h2', { class: 'sop-group', id: `sop-group-${group}`, 'data-group': group, text: tr(label) }),
         // `start` keeps the numbering running across the two groups.
-        h('ol', { class: 'stage-list sop-list', 'data-sop-list': true, start: items[0].order }, items.map(card)),
+        h('ol', {
+          class: 'stage-list sop-list', 'data-sop-list': true, start: items[0].order, 'aria-labelledby': `sop-group-${group}`,
+        }, items.map(card)),
       ];
     }),
   );

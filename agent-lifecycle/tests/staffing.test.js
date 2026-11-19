@@ -177,7 +177,7 @@ test('pyworkforce is credited and glossary links point at real terms', () => {
   for (const id of Object.values(GLOSSARY_LINKS)) assert.ok(ids.includes(id), id);
   assert.deepEqual(GLOSSARY_LINKS, {
     seated: 'shrinkage', serviceLevel: 'service-level', wait: 'asa', occupancy: 'occupancy', required: 'fte',
-    aht: 'aht', planned: 'planned-shrinkage', unplanned: 'unplanned-shrinkage',
+    aht: 'aht', planned: 'planned-shrinkage', unplanned: 'unplanned-shrinkage', limits: 'wfm',
   });
 });
 
@@ -344,4 +344,14 @@ test('one status sentence is announced after the sliders settle', async () => {
   view.update({ ...initialValues(), rostered: 10, planned: 0, unplanned: 0 });
   await new Promise((resolve) => setTimeout(resolve, 30));
   assert.equal(status.textContent, `${T.overload.ko} 필요한 인원 4명 부족`);
+});
+
+// --- follow-ups from review ---
+test('the limits note links WFM to the glossary and the country note does not overstate', () => {
+  const { $ } = mount();
+  const link = $('a[data-glossary="wfm"]');
+  assert.equal(link.getAttribute('href'), '../glossary/#wfm');
+  assert.ok(link.closest('section').textContent.includes(T.limits.ko));
+  assert.equal(GLOSSARY_LINKS.limits, 'wfm');
+  assert.equal(T.countryNote.en, 'Laws and regulations on working hours and breaks can differ from country to country.');
 });
