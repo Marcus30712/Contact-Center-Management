@@ -276,3 +276,12 @@ test('the new English keeps the Korean meaning', () => {
   assert.ok(!/intensive-care|refresher training|start it steadily|4 weeks from launch day/.test(launch));
   assert.ok(byId('onboarding').checkpoint[0].options[0].text.en.includes('what was hard'));
 });
+
+test('each group heading names its list for screen readers', () => {
+  const { root } = setupDom();
+  renderSopHome(root, SOP_LESSONS, { completed: [] }, 'ko');
+  for (const ol of root.querySelectorAll('ol[data-sop-list]')) {
+    const heading = root.querySelector(`#${ol.getAttribute('aria-labelledby')}`);
+    assert.ok(heading?.hasAttribute('data-group'));
+  }
+});

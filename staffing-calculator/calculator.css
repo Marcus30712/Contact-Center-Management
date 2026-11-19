@@ -15,6 +15,8 @@
 .summary-item strong[data-gap-state="short"] { color: var(--bad); }
 .summary-item strong[data-gap-state="exact"], .summary-item strong[data-gap-state="spare"] { color: var(--good); }
 .summary[data-overloaded="true"] { border-bottom-color: var(--bad); }
+/* Keep a focused control clear of the sticky summary on phones. */
+html { scroll-padding-top: 72px; }
 .lab { display: grid; gap: 22px; padding-bottom: 18px; }
 .lab h2 { font-size: 1.05rem; color: var(--accent); }
 .lab-inputs, .lab-results { display: flex; flex-direction: column; gap: 14px; min-width: 0; }

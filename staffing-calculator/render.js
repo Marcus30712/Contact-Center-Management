@@ -190,7 +190,7 @@ export function renderCalculator(root, values, lang, { onInput, statusDelay = 60
       h('ol', { class: 'try-list' }, [T.try1, T.try2, T.try3].map((x) => h('li', { text: tr(x) }))),
     ]),
     section('ref-section', T.limitsHeading, [
-      h('p', { text: tr(T.limits) }),
+      h('p', {}, [`${tr(T.limits)} `, glossaryLink('limits', 'WFM')]),
       h('p', { text: tr(T.countryNote) }),
       h('p', {}, [`${tr(T.credit)} `, h('a', { 'data-credit': true, href: '../references/', text: tr(T.creditLink) })]),
     ]),

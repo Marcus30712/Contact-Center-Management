@@ -103,7 +103,7 @@ export const STAFFING_TEXT = {
   },
   countryNote: {
     ko: '근무 시간과 휴식에 관한 법과 제도는 국가마다 다를 수 있습니다.',
-    en: 'Laws and regulations on working hours and breaks differ from country to country.',
+    en: 'Laws and regulations on working hours and breaks can differ from country to country.',
   },
   credit: {
     ko: '계산 방식은 pyworkforce(MIT 라이선스, © Rodrigo Arenas)를 참고했고 결과를 그것과 대조했습니다.',
@@ -123,6 +123,7 @@ export const GLOSSARY_LINKS = {
   aht: 'aht',
   planned: 'planned-shrinkage',
   unplanned: 'unplanned-shrinkage',
+  limits: 'wfm',
 };
 
 export function fill(template, values) {
