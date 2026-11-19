@@ -281,7 +281,7 @@ test('related links show before and after, skipping an empty group', () => {
 
 // ---------- screens ----------
 import { renderCodexHome } from '../../codex/render/home.js';
-import { renderPage, parseCodexRoute, newState } from '../../codex/render/page.js';
+import { renderPage, parseCodexRoute, newState, openItem } from '../../codex/render/page.js';
 
 function mountPage(id, lang = 'ko', state = newState()) {
   const { root } = setupDom();
@@ -439,4 +439,22 @@ test('the English next-step conditions read as things already done', () => {
   const nexts = CAREER.teams.flatMap((team) => team.levels.filter((l) => l.next).map((l) => l.next.en));
   assert.ok(nexts.every((x) => !/^(Meet|Own|Manage|Lead) /.test(x)), nexts.join(' | '));
   assert.ok(!JSON.stringify(TEAMS).includes('final offer'));
+});
+
+// ---------- deep links from the situation guide ----------
+test('an address can open one item on a one-pager', () => {
+  assert.deepEqual(parseCodexRoute('#teams-ta'), { view: 'teams', item: 'ta' });
+  assert.deepEqual(parseCodexRoute('#principles-p3'), { view: 'principles', item: 'p3' });
+  assert.deepEqual(parseCodexRoute('#daily-tl'), { view: 'daily', item: 'tl' });
+  for (const bad of ['#teams-3', '#teams-nope', '#career-tl', '#principles-p9', '#daily-x']) assert.deepEqual(parseCodexRoute(bad), { view: 'home' }, bad);
+  assert.deepEqual(parseCodexRoute('#teams'), { view: 'teams' });
+});
+
+test('opening a page with an item shows that item open', () => {
+  const teams = mountPage('teams', 'ko', openItem(newState(), 'teams', 'ta'));
+  assert.ok(isOpen(teams.$('[data-card="ta"]')));
+  const principles = mountPage('principles', 'ko', openItem(newState(), 'principles', 'p3'));
+  assert.deepEqual(principles.$$('[data-card]').filter(isOpen).map((c) => c.getAttribute('data-card')), ['p3']);
+  const daily = mountPage('daily', 'ko', openItem(newState(), 'daily', 'am'));
+  assert.equal(daily.$('[data-tab="am"]').getAttribute('aria-pressed'), 'true');
 });

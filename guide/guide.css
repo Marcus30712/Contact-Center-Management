@@ -1,0 +1,13 @@
+/* Situation guide: cards and chips come from the Codex one-pager styles. */
+#app { --cx-measure: 40rem; }
+.gd-group { max-width: var(--cx-measure); }
+.gd-group:last-child { padding-bottom: 28px; }
+.gd-go { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.gd-go a {
+  display: grid; gap: 2px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--ink); text-decoration: none;
+}
+.gd-go a[data-go="first"] { border-color: var(--accent); }
+.gd-go a:hover, .gd-go a:focus-visible { border-color: var(--accent); background: var(--accent-soft); }
+.gd-kind { font-size: 0.78rem; font-weight: 700; color: var(--accent); }
+.gd-go strong { overflow-wrap: anywhere; }

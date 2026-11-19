@@ -267,13 +267,13 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB)
         cards = page.locator("a.card")
-        check("(r) hub shows six cards", cards.count() == 6, str(cards.count()))
-        for href, title in (("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("./codex/", "Codex 원페이저"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
+        check("(r) hub shows seven cards", cards.count() == 7, str(cards.count()))
+        for href, title in (("./guide/", "팀장 상황별 길잡이"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("./codex/", "Codex 원페이저"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
             page.goto(HUB)
             page.click(f"a.card[href='{href}']")
             page.wait_for_selector("#app h1")
             check(f"(r) card opens {href}", page.inner_text("#app h1") == title, page.inner_text("#app h1"))
-        for path, link in (("glossary/", "[data-back]"), ("references/", "[data-back]"), ("staffing-calculator/", "[data-back]"), ("agent-lifecycle/", "[data-kb-link]"), ("sop-library/", "[data-kb-link]"), ("codex/", "[data-kb-link]")):
+        for path, link in (("glossary/", "[data-back]"), ("references/", "[data-back]"), ("staffing-calculator/", "[data-back]"), ("agent-lifecycle/", "[data-kb-link]"), ("sop-library/", "[data-kb-link]"), ("codex/", "[data-kb-link]"), ("guide/", "a.brand")):
             page.goto(HUB + path)
             page.wait_for_selector("#app > *")
             page.click(link)
@@ -296,7 +296,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -589,9 +589,57 @@ def main():
         page.screenshot(path=str(OUT / "codex-teams-390-dark.png"), full_page=True)
         page.context.close()
 
+        # ---- Situation guide ----
+        GD = HUB + "guide/"
+        page = new_page(browser, errors)
+        page.goto(HUB)
+        check("(g1) the guide is the first hub card", page.get_attribute("main ul li:first-child a.card", "href") == "./guide/")
+        page.goto(GD)
+        page.wait_for_selector("[data-card]")
+        check("(g1) seventeen situations", page.locator("[data-card]").count() == 17)
+        page.focus("[data-tab='all']")
+        page.keyboard.press("ArrowRight")
+        page.keyboard.press("ArrowRight")
+        check("(g2) arrow keys pick a group", page.get_attribute("[data-tab='newcomer']", "aria-pressed") == "true" and page.locator("[data-card]:visible").count() == 3)
+        page.focus("[data-tab='org']")
+        page.keyboard.press("Tab")
+        check("(g2) Tab skips hidden groups and lands on the first visible situation", page.evaluate("document.activeElement.closest('[data-card]')?.dataset.card") == "s6")
+        page.screenshot(path=str(OUT / "guide-390.png"), full_page=True)
+        page.click("[data-tab='all']")
+        links = page.evaluate("(() => { document.querySelectorAll('[data-card] button[aria-expanded=false]').forEach((b) => b.click()); return [...document.querySelectorAll('a[data-go]')].map((a) => a.getAttribute('href')); })()")
+        check("(g3) thirty-four links", len(links) == 34, str(len(links)))
+        DEEP = {"#teams-ta": "[data-card='ta'] [aria-expanded='true']", "#teams-td": "[data-card='td'] [aria-expanded='true']",
+                "#teams-wfm": "[data-card='wfm'] [aria-expanded='true']", "#principles-p1": "[data-card='p1'] [aria-expanded='true']",
+                "#principles-p3": "[data-card='p3'] [aria-expanded='true']", "#daily-tl": "[data-tab='tl'][aria-pressed='true']"}
+        for href in sorted(set(links)):
+            page.goto(GD + href)
+            page.wait_for_selector("h1")
+            if "#" in href:
+                page.reload()
+                page.wait_for_selector("h1")
+            check(f"(g3) {href} opens a page", page.locator("h1").count() >= 1 and page.locator("a[data-page], [data-counter], [data-term].is-focus, #app h1").count() >= 1, page.url)
+            hashpart = href[href.find("#"):] if "#" in href else ""
+            if hashpart in DEEP and "codex/" in href:
+                check(f"(g3) {href} opens the named item", page.locator(DEEP[hashpart]).count() == 1)
+        page.goto(GD)
+        page.wait_for_selector("[data-card]")
+        page.click("[data-card='s13'] button")
+        page.click("[data-lang='en']")
+        page.wait_for_selector("[data-lang='en'][aria-pressed='true']")
+        check("(g4) language switch keeps the open card", page.get_attribute("[data-card='s13'] button", "aria-expanded") == "true")
+        page.set_viewport_size({"width": 320, "height": 700})
+        page.evaluate("document.querySelectorAll('[data-card] button[aria-expanded=false]').forEach((b) => b.click())")
+        over = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
+        check("(g4) English guide fits 320px with every card open", over <= 0, f"overflow={over}")
+        page.screenshot(path=str(OUT / "guide-320-en.png"), full_page=True)
+        page.click("[data-lang='ko']")
+        page.set_viewport_size({"width": 1280, "height": 900})
+        page.screenshot(path=str(OUT / "guide-1280.png"), full_page=False)
+        page.context.close()
+
         # (v) storage blocked
         page = new_page(browser, errors, init=BLOCK_STORAGE)
-        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "SOP 라이브러리", "SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers")):
+        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "SOP 라이브러리", "SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers"), ("guide/", "팀장 상황별 길잡이", "Team Lead Situation Guide")):
             page.goto(HUB + path)
             page.wait_for_selector("#app h1")
             check(f"(v) {path} opens in Korean with storage blocked", page.inner_text("#app h1") == ko)

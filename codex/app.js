@@ -4,7 +4,7 @@ import { loadLang, saveLang, t } from '../agent-lifecycle/js/engine/i18n.js';
 import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { CODEX_UI as UI } from './ui.js';
 import { renderCodexHome } from './render/home.js';
-import { renderPage, parseCodexRoute, newState } from './render/page.js';
+import { renderPage, parseCodexRoute, newState, openItem } from './render/page.js';
 
 function getStorage() {
   try {
@@ -32,10 +32,13 @@ function render() {
   });
   brand.textContent = t(UI.title, lang).text;
   const route = parseCodexRoute(location.hash);
+  // An item in the address (e.g. #teams-ta) opens once, when the page is reached.
+  if (route.item && shown !== `${route.view}-${route.item}`) openItem(state, route.view, route.item);
   if (route.view === 'home') renderCodexHome(app, lang);
   else renderPage(app, route.view, lang, state);
   document.title = route.view === 'home' ? t(UI.title, lang).text : `${app.querySelector('h1').textContent} · ${t(UI.title, lang).text}`;
-  if (shown !== route.view) {
+  const key = route.item ? `${route.view}-${route.item}` : route.view;
+  if (shown !== key) {
     window.scrollTo(0, 0);
     // After moving between pages, start keyboard and screen-reader users at the new title.
     if (shown !== null) {
@@ -43,7 +46,7 @@ function render() {
       title.setAttribute('tabindex', '-1');
       title.focus();
     }
-    shown = route.view;
+    shown = key;
   }
 }
 
