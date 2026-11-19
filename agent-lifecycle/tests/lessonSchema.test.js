@@ -176,3 +176,35 @@ test('at most two questions are visible on a track', () => {
   const errors = validateLesson(l);
   assert.ok(errors.some((e) => e.includes('checkpoint') && e.includes('general')));
 });
+
+// --- options for a second course ---
+test('a course can widen the figure rule', () => {
+  const figure = /\d\s*점/;
+  const l = makeLesson();
+  l.steps[1].caption.ko = '지민의 점수가 10점 낮습니다.';
+  assert.deepEqual(validateLesson(l), []);
+  assert.ok(has(validateLesson(l, { figure }), '예시'));
+  l.steps[1].caption.ko = '예시: 지민의 점수가 10점 낮습니다.';
+  assert.deepEqual(validateLesson(l, { figure }), []);
+});
+
+test('a lesson can name its own persona', () => {
+  const l = makeLesson({ personaName: { ko: '도윤', en: 'Doyun' } });
+  assert.ok(has(validateLesson(l), '도윤'));
+  l.steps[0].caption.ko = '도윤이 지원서를 냅니다.';
+  assert.deepEqual(validateLesson(l), []);
+  l.steps[0].caption.ko = '누군가 지원서를 냅니다.';
+  assert.ok(has(validateLesson(l), '도윤'));
+});
+
+test('a course can be shorter and end at the list instead of looping', () => {
+  const ids = ['a1', 'b2', 'c3', 'd4'];
+  const four = ids.map((id, i) => makeLesson({
+    id, order: i + 1, connection: { to: ids[i + 1] ?? 'home', text: { ko: '다음으로 이어집니다.' } },
+  }));
+  assert.deepEqual(validateCourse(four, { lessonCount: 4, loop: false }), []);
+  assert.ok(has(validateCourse(four), '6'));
+  assert.ok(has(validateCourse(four, { lessonCount: 4 }), 'connection'));
+  four[3].connection.to = 'a1';
+  assert.ok(has(validateCourse(four, { lessonCount: 4, loop: false }), 'home'));
+});

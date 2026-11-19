@@ -9,8 +9,15 @@ import { UI } from '../i18n/ui.js';
 
 // One lesson: step-through diagram, then the checkpoint questions, then the
 // card that links to the next stage.
-export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComplete, restore, track = 'general' }) {
-  const tr = (text) => t(text, lang).text;
+// A course other than the lifecycle one passes its own `lessonCount` and
+// `text` (entries that replace the shared interface strings).
+export function renderLesson(root, lesson, stepIndex, lang, {
+  onNavigate, onComplete, restore, track = 'general', lessonCount = 6, text = {},
+}) {
+  const tr = (entry) => t(entry, lang).text;
+  const ui = { ...UI, ...text };
+  // A lesson whose connection is 'home' ends its course: the card leads back to the list.
+  const toList = lesson.connection.to === 'home';
   // Only the common content plus the chosen track's own is on screen.
   const steps = visibleSteps(lesson, track);
   const checkpoint = visibleQuestions(lesson, track);
@@ -40,9 +47,13 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
 
   // --- checkpoint view ---
   const connection = h('div', { class: 'connection', 'data-connection': true, hidden: true }, [
-    h('h3', { text: tr(UI.connection) }),
+    h('h3', { text: tr(ui.connection) }),
     h('p', { text: tr(lesson.connection.text) }),
-    h('a', { class: 'btn primary', 'data-next-lesson': true, href: lessonHref(lesson.connection.to, 0), text: `${tr(UI.nextLesson)} →` }),
+    h('a', {
+      class: 'btn primary', 'data-next-lesson': true,
+      href: toList ? HOME_HREF : lessonHref(lesson.connection.to, 0),
+      text: `${tr(toList ? ui.toList ?? ui.home : ui.nextLesson)} →`,
+    }),
   ]);
   const questions = checkpoint.map((q) => {
     const explanation = h('div', { class: 'explanation', 'data-explanation': true, hidden: true, 'aria-live': 'polite' });
@@ -56,7 +67,7 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
       explanation,
     ]);
   });
-  const checkpointHeading = h('h2', { tabindex: '-1', text: tr(UI.checkpoint) });
+  const checkpointHeading = h('h2', { tabindex: '-1', text: tr(ui.checkpoint) });
   const checkpointView = h('section', { class: 'checkpoint', 'data-view': 'checkpoint', hidden: true }, [
     checkpointHeading,
     ...questions,
@@ -102,7 +113,7 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
 
   function drawStep() {
     const step = steps[player.index];
-    renderDiagram(svg, lesson.diagram, step, lang);
+    renderDiagram(svg, lesson.diagram, step, lang, lesson.personaName ? { personaName: lesson.personaName } : undefined);
     caption.textContent = tr(step.caption);
     counter.textContent = `${player.index + 1} / ${steps.length}`;
     badge.hidden = !step.track;
@@ -131,8 +142,8 @@ export function renderLesson(root, lesson, stepIndex, lang, { onNavigate, onComp
   const fallback = hasFallback({ ...lesson, steps, checkpoint }, lang);
   root.replaceChildren(
     h('header', { class: 'lesson-head' }, [
-      h('a', { class: 'home-link', 'data-home': true, href: HOME_HREF, text: `← ${tr(UI.home)}` }),
-      h('p', { class: 'eyebrow', text: `${lesson.order} / 6` }),
+      h('a', { class: 'home-link', 'data-home': true, href: HOME_HREF, text: `← ${tr(ui.home)}` }),
+      h('p', { class: 'eyebrow', text: `${lesson.order} / ${lessonCount}` }),
       h('h1', { text: tr(lesson.title) }),
       h('p', { class: 'subtitle', text: tr(lesson.subtitle) }),
       h('p', { class: 'translation-note', 'data-translation-note': true, hidden: !fallback, text: fallback ? tr(UI.translationComing) : '' }),

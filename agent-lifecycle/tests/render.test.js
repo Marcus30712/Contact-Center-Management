@@ -359,3 +359,47 @@ test('the translation note looks only at what the track shows', () => {
   renderLesson(root, l, 0, 'en', { onNavigate() {}, onComplete() {}, track: 'tech' }).destroy();
   assert.ok(!root.querySelector('[data-translation-note]').hidden);
 });
+
+// --- options for a second course ---
+test('diagram boxes can be wider and the badge can carry another name', () => {
+  const { document } = setupDom();
+  const make = () => document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const l = makeLesson();
+  const plain = make();
+  renderDiagram(plain, l.diagram, l.steps[2], 'ko');
+  assert.equal(plain.querySelector('[data-node="a"] rect').getAttribute('width'), '108');
+  assert.equal(plain.querySelector('[data-persona] text').textContent, '지민');
+  assert.equal(plain.querySelector('[data-edge="ab"]').getAttribute('x1'), '116');
+
+  const wide = make();
+  l.diagram.nodes[0].hw = 76;
+  renderDiagram(wide, l.diagram, l.steps[2], 'ko', { personaName: { ko: '도윤', en: 'Doyun' } });
+  const rect = wide.querySelector('[data-node="a"] rect');
+  assert.equal(rect.getAttribute('x'), '-76');
+  assert.equal(rect.getAttribute('width'), '152');
+  assert.equal(wide.querySelector('[data-edge="ab"]').getAttribute('x1'), '138');
+  assert.equal(wide.querySelector('[data-node="b"] rect').getAttribute('width'), '108');
+  assert.equal(wide.querySelector('[data-persona] text').textContent, '도윤');
+});
+
+test('a lesson can belong to a course of another size with its own wording', () => {
+  const { $ } = mountLesson();
+  assert.equal($('.eyebrow').textContent, '1 / 6');
+  assert.equal($('[data-home]').textContent, `← ${UI.home.ko}`);
+  assert.equal($('[data-next-lesson]').getAttribute('href'), '#onboarding-0');
+
+  const { root } = setupDom();
+  const lesson = makeLesson({ order: 4, connection: { to: 'home', text: { ko: '여기까지입니다.' } }, personaName: { ko: '도윤' } });
+  lesson.steps[0].caption.ko = '도윤이 지원서를 냅니다.';
+  renderLesson(root, lesson, 0, 'ko', {
+    onNavigate() {}, onComplete() {}, lessonCount: 4,
+    text: { home: { ko: '목록' }, toList: { ko: '목록으로' }, connection: { ko: '다음으로' } },
+  });
+  assert.equal(root.querySelector('.eyebrow').textContent, '4 / 4');
+  assert.equal(root.querySelector('[data-home]').textContent, '← 목록');
+  const next = root.querySelector('[data-next-lesson]');
+  assert.equal(next.getAttribute('href'), '#home');
+  assert.equal(next.textContent, '목록으로 →');
+  assert.equal(root.querySelector('[data-connection] h3').textContent, '다음으로');
+  assert.equal(root.querySelector('[data-persona] text').textContent, '도윤');
+});
