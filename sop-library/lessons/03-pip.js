@@ -12,6 +12,7 @@ const met = ['end', 'evaluate-end'];
 export default {
   id: 'pip',
   order: 3,
+  group: 'leader',
   title: tx('성과 개선 계획 (PIP)', 'Performance Improvement Plan (PIP)'),
   short: tx('PIP', 'PIP'),
   subtitle: tx('코칭만으로 부족할 때 쓰는 공식 절차.', 'The formal procedure for when coaching alone is not enough.'),

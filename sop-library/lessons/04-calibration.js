@@ -10,6 +10,7 @@ const branch = ['training', 'followup-training'];
 export default {
   id: 'calibration',
   order: 4,
+  group: 'leader',
   title: tx('캘리브레이션', 'Calibration'),
   short: tx('캘리브레이션', 'Calibration'),
   subtitle: tx('평가자끼리 기준의 눈높이를 맞춥니다.', 'Evaluators align on a shared standard.'),
@@ -77,5 +78,5 @@ export default {
       explanation: tx('합의한 점수와 그 근거가 기록으로 남아야 다음에 비슷한 케이스를 같은 눈높이로 평가할 수 있습니다.', 'Only when the agreed score and its reasoning are on record can similar cases be evaluated to the same standard next time.'),
     },
   ],
-  connection: { to: 'home', text: tx('여기까지가 팀장이 직접 하는 네 가지 절차입니다. 여러 팀이 함께 움직이는 절차(신규 입사자 온보딩, 대규모 이슈 대응, 신규 프로젝트 론칭)는 다음에 이어집니다.', 'These are the four procedures a team leader runs directly. The procedures that several teams run together (new-hire onboarding, large-scale issue response, and new project launch) will follow.') },
+  connection: { to: 'onboarding', text: tx('여기까지가 팀장이 직접 하는 네 가지 절차입니다. 다음부터는 여러 팀이 함께 움직이는 절차입니다. 첫 번째는 신규 입사자 온보딩입니다.', 'These are the four procedures a team leader runs directly. From here on, the procedures are ones several teams run together. The first is new hire onboarding.') },
 };

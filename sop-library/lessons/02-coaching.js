@@ -10,6 +10,7 @@ const grow = ['goal', 'reality', 'options', 'will', 'analyze-goal', 'goal-realit
 export default {
   id: 'coaching',
   order: 2,
+  group: 'leader',
   title: tx('1:1 코칭', 'One-on-One Coaching'),
   short: tx('1:1 코칭', 'Coaching'),
   subtitle: tx('지적 대신 질문으로 이끄는 다섯 단계.', 'Five steps that lead with questions instead of criticism.'),

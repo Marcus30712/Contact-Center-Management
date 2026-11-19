@@ -9,9 +9,12 @@ import { SOP_UI, SOP_PROGRESS_KEY, SOP_FIGURE } from '../../sop-library/ui.js';
 const byId = (id) => SOP_LESSONS.find((l) => l.id === id);
 const label = (lesson, nodeId) => lesson.diagram.nodes.find((n) => n.id === nodeId).label.ko;
 
-// The Korean copy the owner confirmed. The lessons must match it exactly.
-function parseCopy() {
-  const md = readFileSync(new URL('../../docs/superpowers/specs/2026-11-19-sop-library-copy-ko.md', import.meta.url), 'utf8');
+// The Korean copy files (the first confirmed by the owner, the second awaiting
+// their review). The lessons must match them exactly.
+const COPY_FILES = ['2026-11-19-sop-library-copy-ko.md', '2026-11-19-sop-library-2-copy-ko.md'];
+const parseCopy = () => COPY_FILES.flatMap(parseCopyFile);
+function parseCopyFile(name) {
+  const md = readFileSync(new URL(`../../docs/superpowers/specs/${name}`, import.meta.url), 'utf8');
   return md.split(/^## 레슨 \d+\. /m).slice(1).map((section) => {
     const lines = section.split('\n');
     const lesson = { title: lines[0].trim(), steps: [], questions: [] };
@@ -27,8 +30,8 @@ function parseCopy() {
         const q = lesson.questions.at(-1);
         q.options.push({ id: m[1], text: m[2] });
         if (m[3]) q.answer = m[1];
-      } else if ((m = line.match(/^- 해설: (.+)$/))) lesson.questions.at(-1).explanation = m[1];
-      else if ((m = line.match(/^\*\*다음으로:\*\* (.+)$/))) lesson.connection = m[1];
+      } else if ((m = line.match(/^- 해설: (.+)$/))) lesson.questions.at(-1).explanation = m[1].replaceAll('🟦 ', '');
+      else if ((m = line.match(/^\*\*다음으로:\*\* (.+)$/))) lesson.connection = m[1].replaceAll('🟦 ', '');
     }
     return lesson;
   });
@@ -40,21 +43,29 @@ const PROCEDURES = {
   coaching: ['데이터 준비', '분위기 조성', '원인 분석', '해결책 수립', '마무리 및 격려'],
   pip: ['데이터 기반 면담', '공동 목표 설정', '지원 약속 및 주간 점검', '결과 평가'],
   calibration: ['사전 준비', '독립 평가', '교정 세션', '합의 및 결정', '후속 조치 및 공유'],
+  onboarding: ['계약 및 서류 처리', '장비 지급 및 계정 생성', '비전·문화 교육', '버디 지정 및 팀 소개',
+    '제품·서비스 심화 교육', '시스템 실습 교육', '실전 투입 스케줄 배정', '첫 주 1:1 미팅'],
+  incident: ['감지 및 상황 공유', '원인 분석 및 자원 계획', '실행 및 모니터링', '결과 보고 및 후속 조치'],
+  launch: ['계획 및 설계', '인력 확보 및 교육', '시스템 및 환경 구축', '론칭 및 안정화'],
 };
 const EXTRAS = {
   escalation: ['종결'],
   coaching: ['목표', '현실', '대안', '실행 의지'],
   pip: ['PIP 종료', '추가 계획'],
   calibration: ['추가 교육·공지'],
+  onboarding: ['1주차', '2주차'],
+  incident: ['SOP 업데이트'],
+  launch: ['첫 비즈니스 리뷰'],
 };
 
 test('the SOP course passes the course rules in both languages', () => {
-  assert.deepEqual(validateCourse(SOP_LESSONS, { requireEnglish: true, lessonCount: 4, loop: false, figure: SOP_FIGURE }), []);
+  assert.deepEqual(validateCourse(SOP_LESSONS, { requireEnglish: true, lessonCount: 7, loop: false, figure: SOP_FIGURE }), []);
 });
 
-test('four lessons in order, common to every team type', () => {
-  assert.deepEqual(SOP_LESSONS.map((l) => l.id), ['escalation', 'coaching', 'pip', 'calibration']);
-  assert.deepEqual(SOP_LESSONS.map((l) => l.steps.length), [10, 11, 11, 11]);
+test('seven lessons in order, common to every team type', () => {
+  assert.deepEqual(SOP_LESSONS.map((l) => l.id), ['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch']);
+  assert.deepEqual(SOP_LESSONS.map((l) => l.steps.length), [10, 11, 11, 11, 11, 11, 10]);
+  assert.deepEqual(SOP_LESSONS.map((l) => l.group), ['leader', 'leader', 'leader', 'leader', 'cross', 'cross', 'cross']);
   for (const l of SOP_LESSONS) {
     assert.equal(l.checkpoint.length, 2, l.id);
     assert.ok([...l.steps, ...l.checkpoint].every((x) => x.track === undefined), l.id);
@@ -67,14 +78,17 @@ test('each procedure has the Codex steps in the Codex order', () => {
   for (const l of SOP_LESSONS) {
     assert.deepEqual(l.procedure.map((id) => label(l, id)), PROCEDURES[l.id], l.id);
     const edgeIds = l.diagram.edges.map((e) => e.id);
-    l.procedure.slice(1).forEach((id, i) => assert.ok(edgeIds.includes(`${l.procedure[i]}-${id}`), `${l.id}: ${id}`));
+    // A lesson laid out in columns lists where a new column starts; no arrow runs between columns.
+    l.procedure.slice(1).forEach((id, i) => {
+      if (!(l.columnStarts ?? []).includes(id)) assert.ok(edgeIds.includes(`${l.procedure[i]}-${id}`), `${l.id}: ${id}`);
+    });
     const extras = l.diagram.nodes.filter((n) => !l.procedure.includes(n.id)).map((n) => n.label.ko);
     assert.deepEqual(extras, EXTRAS[l.id], l.id);
   }
 });
 
 test('the Korean wording is the confirmed copy, word for word', () => {
-  assert.equal(COPY.length, 4);
+  assert.equal(COPY.length, 7);
   SOP_LESSONS.forEach((l, i) => {
     const c = COPY[i];
     assert.equal(l.title.ko, c.title, l.id);
@@ -98,8 +112,10 @@ test('each step lights up the stage it talks about', () => {
       const [main] = c.tag.split(/ → | · /);
       if (main === '전체') return;
       assert.ok(step.highlight.includes(idOf(main)), `${l.id} step ${n + 1}: ${main}`);
-      assert.equal(step.persona, idOf(main), `${l.id} step ${n + 1} persona`);
-      if (/→|·/.test(c.tag)) {
+      // The badge marks where the named person acts; it may be absent on other teams' steps.
+      assert.ok(step.persona === null || step.persona === idOf(main), `${l.id} step ${n + 1} persona`);
+      if (i < 4) assert.equal(step.persona, idOf(main), `${l.id} step ${n + 1} persona`);
+      if (/ → | · /.test(c.tag)) {
         assert.ok(step.highlight.some((id) => l.diagram.nodes.some((x) => x.id === id) && !l.procedure.includes(id)), `${l.id} step ${n + 1}: branch`);
       }
     });
@@ -117,6 +133,18 @@ test('every box sits inside the picture and none overlap', () => {
       assert.ok(apart, `${l.id}: ${a.id} overlaps ${b.id}`);
     }));
     for (const id of l.procedure) assert.equal(l.diagram.nodes.find((n) => n.id === id).hw, 76, `${l.id}: ${id}`);
+    // No arrow runs through a box it does not belong to.
+    const at = (id) => l.diagram.nodes.find((n) => n.id === id);
+    for (const e of l.diagram.edges) {
+      const [a, b] = [at(e.from), at(e.to)];
+      for (const box of boxes.filter((x) => x.id !== e.from && x.id !== e.to)) {
+        for (let k = 0; k <= 40; k += 1) {
+          const x = a.x + ((b.x - a.x) * k) / 40;
+          const y = a.y + ((b.y - a.y) * k) / 40;
+          assert.ok(!(x > box.l && x < box.r && y > box.t && y < box.b), `${l.id}: ${e.id} crosses ${box.id}`);
+        }
+      }
+    }
   }
 });
 
@@ -124,7 +152,9 @@ test('Doyun is the person in the PIP lesson and Jimin everywhere else', () => {
   assert.deepEqual(byId('pip').personaName, { ko: '도윤', en: 'Doyun' });
   assert.ok(!lessonText(byId('pip'), 'ko').includes('지민'));
   assert.ok(!lessonText(byId('pip'), 'en').includes('Jimin'));
-  for (const id of ['escalation', 'coaching', 'calibration']) assert.equal(byId(id).personaName, undefined, id);
+  for (const id of ['escalation', 'coaching', 'calibration', 'incident', 'launch']) assert.equal(byId(id).personaName, undefined, id);
+  assert.deepEqual(byId('onboarding').personaName, { ko: '서아', en: 'Seoa' });
+  assert.ok(!lessonText(byId('onboarding'), 'ko').includes('지민'));
 });
 
 test('the English is complete and uses the agreed terms', () => {
@@ -137,12 +167,14 @@ test('the English is complete and uses the agreed terms', () => {
 });
 
 test('the course strings are in both languages', () => {
-  for (const key of ['courseTitle', 'courseTagline', 'listNote', 'home', 'checkpoint', 'connection', 'nextLesson', 'toList', 'done', 'rolesLabel']) {
+  for (const key of ['courseTitle', 'courseTagline', 'listNote', 'home', 'checkpoint', 'connection', 'nextLesson', 'toList', 'done', 'rolesLabel', 'groupLeader', 'groupCross']) {
     assert.ok(SOP_UI[key]?.ko?.trim() && SOP_UI[key]?.en?.trim(), key);
     assert.ok(!/[가-힣]/.test(SOP_UI[key].en), key);
   }
   assert.equal(SOP_UI.courseTitle.ko, 'SOP 라이브러리');
-  assert.equal(SOP_UI.courseTagline.ko, '팀장이 직접 하는 일을 순서대로.');
+  assert.equal(SOP_UI.courseTagline.ko, '팀장이 알아야 할 절차를 순서대로.');
+  assert.equal(SOP_UI.groupLeader.ko, '팀장이 직접 하는 절차');
+  assert.equal(SOP_UI.groupCross.ko, '여러 팀이 함께 하는 절차');
   assert.equal(SOP_UI.listNote.ko, 'Codex의 표준 운영 절차(SOP)를 한 단계씩 따라가 봅니다. 숫자가 붙은 시간과 건수는 예시이며, 실제 값은 센터마다 정합니다.');
   assert.equal(SOP_PROGRESS_KEY, 'sop-library:v1');
   assert.ok(SOP_FIGURE.test('10점') && SOP_FIGURE.test('5 points') && SOP_FIGURE.test('5분') && !SOP_FIGURE.test('4주'));
@@ -161,12 +193,15 @@ function openLesson(id, stepIndex = 0, lang = 'ko') {
   return root;
 }
 
-test('the list shows the four SOPs in order with who runs each', () => {
+test('the list shows the seven SOPs in order with who runs each', () => {
   const { root } = setupDom();
   renderSopHome(root, SOP_LESSONS, { completed: ['pip'] }, 'ko');
   assert.equal(root.querySelector('h1').textContent, 'SOP 라이브러리');
   assert.equal(root.querySelector('[data-list-note]').textContent, SOP_UI.listNote.ko);
   const links = [...root.querySelectorAll('ol[data-sop-list] a[data-sop]')];
+  assert.deepEqual([...root.querySelectorAll('[data-group]')].map((x) => x.textContent), ['팀장이 직접 하는 절차', '여러 팀이 함께 하는 절차']);
+  assert.deepEqual([...root.querySelectorAll('ol[data-sop-list]')].map((ol) => [ol.getAttribute('start'), ol.querySelectorAll('a[data-sop]').length]), [['1', 4], ['5', 3]]);
+  assert.deepEqual(links.map((a) => a.querySelector('.stage-card-num').textContent), ['1', '2', '3', '4', '5', '6', '7']);
   assert.deepEqual(links.map((a) => a.getAttribute('href')), IDS.map((id) => `#${id}-0`));
   links.forEach((a, i) => {
     const l = SOP_LESSONS[i];
@@ -184,16 +219,18 @@ test('the English list has no Korean left in it', () => {
   assert.ok(!/[가-힣]/.test(root.textContent));
 });
 
-test('an SOP lesson counts out of four and leads back to the list at the end', () => {
+test('an SOP lesson counts out of seven and the last one leads back to the list', () => {
   const first = openLesson('escalation');
-  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 4');
+  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 7');
   assert.equal(first.querySelector('[data-home]').textContent, '← 목록');
   assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), '#coaching-0');
   assert.equal(first.querySelector('[data-next-lesson]').textContent, '다음 SOP →');
-  const last = openLesson('calibration');
+  assert.equal(openLesson('calibration').querySelector('[data-next-lesson]').getAttribute('href'), '#onboarding-0');
+  const last = openLesson('launch');
   assert.equal(last.querySelector('[data-next-lesson]').getAttribute('href'), '#home');
   assert.equal(last.querySelector('[data-next-lesson]').textContent, '목록으로 →');
-  assert.equal(openLesson('calibration', 0, 'en').querySelector('[data-next-lesson]').textContent, 'Back to the list →');
+  assert.equal(openLesson('launch', 0, 'en').querySelector('[data-next-lesson]').textContent, 'Back to the list →');
+  assert.equal(openLesson('onboarding', 2).querySelector('[data-persona] text').textContent, '서아');
 });
 
 test('the badge in the PIP lesson reads Doyun', () => {
@@ -232,4 +269,10 @@ test('when Doyun meets the goal only the closing branch lights up', () => {
   assert.ok(step.highlight.includes('end') && step.highlight.includes('evaluate-end'));
   assert.ok(!step.highlight.includes('more') && !step.highlight.includes('evaluate-more'));
   assert.ok(step.show.includes('more') && step.show.includes('evaluate-more'));
+});
+
+test('the new English keeps the Korean meaning', () => {
+  const launch = lessonText(byId('launch'), 'en');
+  assert.ok(!/intensive-care|refresher training|start it steadily|4 weeks from launch day/.test(launch));
+  assert.ok(byId('onboarding').checkpoint[0].options[0].text.en.includes('what was hard'));
 });

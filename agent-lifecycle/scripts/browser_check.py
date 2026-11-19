@@ -397,7 +397,8 @@ def main():
 
         # ---- SOP Library ----
         SOP = HUB + "sop-library/"
-        SOP_STEPS = {"escalation": 10, "coaching": 11, "pip": 11, "calibration": 11}
+        SOP_STEPS = {"escalation": 10, "coaching": 11, "pip": 11, "calibration": 11, "onboarding": 11, "incident": 11, "launch": 10}
+        SOP_ANSWERS = {"onboarding": "ac", "incident": "ca", "launch": "ac"}  # the first four are "bb"
         LABELS_FIT = """[...document.querySelectorAll('[data-node]:not(.is-hidden)')].every((g) => {
             const r = g.querySelector('rect').getBoundingClientRect();
             const t = g.querySelector('text').getBoundingClientRect();
@@ -406,14 +407,14 @@ def main():
         page = new_page(browser, errors)
         page.goto(SOP)
         page.wait_for_selector("[data-sop-list]")
-        check("(s1) list shows four SOPs", page.locator("[data-sop-list] a[data-sop]").count() == 4)
+        check("(s1) list shows seven SOPs in two groups", page.locator("[data-sop-list] a[data-sop]").count() == 7 and page.locator("[data-group]").count() == 2)
         page.screenshot(path=str(OUT / "sop-list-390.png"), full_page=True)
         ids = list(SOP_STEPS)
         for i, (sop, steps) in enumerate(SOP_STEPS.items()):
             page.goto(SOP + f"#{sop}-0")
             page.wait_for_selector("[data-counter]")
             check(f"(s1) {sop} starts at 1 / {steps}", page.inner_text("[data-counter]") == f"1 / {steps}", page.inner_text("[data-counter]"))
-            check(f"(s1) {sop} is {i + 1} of 4", page.inner_text(".eyebrow") == f"{i + 1} / 4")
+            check(f"(s1) {sop} is {i + 1} of 7", page.inner_text(".eyebrow") == f"{i + 1} / 7")
             for n in range(steps - 1):
                 if n % 2:
                     page.keyboard.press("ArrowRight")
@@ -433,20 +434,23 @@ def main():
             page.wait_for_selector("[data-lang='ko'][aria-pressed='true']")
             page.click("[data-next]")
             check(f"(s1) {sop} checkpoint opens", page.is_visible("[data-view='checkpoint']"))
-            page.click(f"[data-question='{sop}-q1'] [data-option='b']")
+            right1, right2 = SOP_ANSWERS.get(sop, "bb")
+            wrong2 = "a" if right2 != "a" else "b"
+            page.click(f"[data-question='{sop}-q1'] [data-option='{right1}']")
+            check(f"(s1) {sop} first answer is marked correct", page.locator(f"[data-question='{sop}-q1'] .explanation.is-correct").count() == 1)
             check(f"(s1) {sop} connection waits for both answers", not page.is_visible("[data-connection]"))
-            page.click(f"[data-question='{sop}-q2'] [data-option='a']")
+            page.click(f"[data-question='{sop}-q2'] [data-option='{wrong2}']")
             check(f"(s1) {sop} wrong answer is marked", page.locator(f"[data-question='{sop}-q2'] .explanation.is-wrong").count() == 1)
-            page.click(f"[data-question='{sop}-q2'] [data-option='b']")
+            page.click(f"[data-question='{sop}-q2'] [data-option='{right2}']")
             check(f"(s1) {sop} connection card shown", page.is_visible("[data-connection]"))
             page.click("[data-next-lesson]")
-            if i < 3:
+            if i < len(ids) - 1:
                 page.wait_for_function(f"location.hash === '#{ids[i + 1]}-0'")
             else:
                 page.wait_for_selector("[data-sop-list]")
                 check("(s4) the last SOP returns to the list", page.url.endswith("#home"), page.url)
         done = page.locator("[data-sop-list] a.is-done").count()
-        check("(s3) all four SOPs marked done", done == 4, str(done))
+        check("(s3) all seven SOPs marked done", done == 7, str(done))
         page.goto(HUB + "agent-lifecycle/")
         page.wait_for_selector("[data-stage-list]")
         check("(s3) SOP progress does not mark the lifecycle course", page.locator("[data-stage-list] a.is-done").count() == 0)
@@ -460,7 +464,7 @@ def main():
             page.wait_for_selector("#app > *")
             page.reload()
             page.wait_for_selector("#app > *")
-            check(f"(s5) {bad} opens the list", page.locator("[data-sop-list]").count() == 1)
+            check(f"(s5) {bad} opens the list", page.locator("[data-sop-list]").count() == 2)
         page.goto(SOP + "#coaching-99")
         page.reload()
         page.wait_for_selector("[data-counter]")
