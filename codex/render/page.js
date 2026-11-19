@@ -10,12 +10,35 @@ import { principlesBody } from './principles.js';
 import { teamsBody } from './teams.js';
 import { careerBody } from './career.js';
 import { dailyBody } from './daily.js';
+import { PRINCIPLES } from '../data/principles.js';
+import { TEAMS } from '../data/teams.js';
+import { DAILY } from '../data/daily.js';
 
 const BODIES = { principles: principlesBody, teams: teamsBody, career: careerBody, daily: dailyBody };
 
+// Items a page can open from its address, e.g. #teams-ta.
+const ITEMS = {
+  principles: PRINCIPLES.items.map((x) => x.id),
+  teams: TEAMS.items.map((x) => x.id),
+  daily: DAILY.roles.map((x) => x.id),
+};
+
 export function parseCodexRoute(hash) {
-  const id = String(hash || '').replace(/^#/, '');
-  return id in BODIES ? { view: id } : { view: 'home' };
+  const name = String(hash || '').replace(/^#/, '');
+  const cut = name.indexOf('-');
+  const view = cut === -1 ? name : name.slice(0, cut);
+  if (!(view in BODIES)) return { view: 'home' };
+  if (cut === -1) return { view };
+  const item = name.slice(cut + 1);
+  return ITEMS[view]?.includes(item) ? { view, item } : { view: 'home' };
+}
+
+// Put the item named in the address into the page state.
+export function openItem(state, view, item) {
+  if (view === 'teams') state.team = item;
+  if (view === 'principles') state.principles.add(item);
+  if (view === 'daily') { state.dailyRole = item; state.dailyPick = null; }
+  return state;
 }
 
 export function newState() {
