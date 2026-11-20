@@ -8,7 +8,7 @@ import { GUIDE_UI as UI, GROUPS } from './data.js';
 const MISO_ALT = { ko: '김미소, 생각하는 얼굴', en: 'Miso Kim, thinking' };
 
 export function newGuideState() {
-  return { group: 'all', open: new Set() };
+  return { group: 'all', open: new Set(), status: '', statusLang: null };
 }
 
 export function renderGuide(root, lang, state) {
@@ -26,6 +26,16 @@ export function renderGuide(root, lang, state) {
     ]),
   ]);
   let number = 0;
+  // One status line for screen readers, outside the redrawn area, so a new
+  // text is announced. It is filled only when a chip is chosen, and cleared
+  // when the language changes.
+  if (state.statusLang && state.statusLang !== lang) state.status = '';
+  let status = document.querySelector('[data-status]');
+  if (!status) {
+    status = h('p', { class: 'visually-hidden', role: 'status', 'data-status': true });
+    document.body.append(status);
+  }
+  if (status.textContent !== (state.status ?? '')) status.textContent = state.status ?? '';
 
   root.replaceChildren(
     h('header', { class: 'glossary-head gd-head' }, [
@@ -34,6 +44,10 @@ export function renderGuide(root, lang, state) {
     ]),
     tabs([{ id: 'all', label: tr(UI.all) }, ...GROUPS.map((g) => ({ id: g.id, label: tr(g.chip) }))], state.group, (id) => {
       state.group = id;
+      const chosen = GROUPS.find((g) => g.id === id);
+      const n = chosen ? chosen.situations.length : GROUPS.reduce((sum, g) => sum + g.situations.length, 0);
+      state.status = tr(UI.shown).replace('{group}', tr(chosen ? chosen.chip : UI.all)).replace('{n}', String(n));
+      state.statusLang = lang;
       redraw(`[data-tab="${id}"]`);
     }, tr(UI.chips)),
     ...GROUPS.map((g) => h('section', { class: 'gd-group', 'data-group': g.id, hidden: state.group !== 'all' && state.group !== g.id }, [
