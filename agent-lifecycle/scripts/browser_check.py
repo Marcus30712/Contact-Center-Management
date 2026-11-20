@@ -296,7 +296,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -322,6 +322,36 @@ def main():
         page.wait_for_selector("#app h1")
         check("(p6) home link opens the privacy policy with eight sections", page.inner_text("#app h1") == "개인정보처리방침" and page.locator("#app h2").count() == 8)
         page.screenshot(path=str(OUT / "privacy-390.png"), full_page=True)
+        # (s1) settings: five menu items fit at 320px, dark carries to other pages, light goes back
+        page.set_viewport_size({"width": 320, "height": 700})
+        page.goto(HUB + "settings/")
+        page.wait_for_selector("[data-theme-pick]")
+        check("(s1) the menu has five items with Settings current", page.locator("nav.appbar a").count() == 5 and page.get_attribute("nav.appbar a[aria-current='page']", "data-item") == "settings")
+        widths = page.evaluate("[...document.querySelectorAll('nav.appbar a span')].every((s) => s.scrollWidth <= s.parentElement.clientWidth)")
+        check("(s1) menu labels fit at 320px", widths)
+        page.set_viewport_size({"width": 390, "height": 780})
+        page.click("[data-theme-pick='dark']")
+        check("(s1) dark applies at once", page.evaluate("document.documentElement.dataset.theme") == "dark")
+        page.screenshot(path=str(OUT / "settings-390-dark.png"), full_page=True)
+        page.goto(HUB + "glossary/")
+        page.wait_for_selector("#app h1")
+        check("(s1) another page opens dark", page.evaluate("document.documentElement.dataset.theme") == "dark" and page.evaluate("getComputedStyle(document.body).backgroundColor") != "rgb(255, 255, 255)")
+        page.goto(HUB + "settings/")
+        page.wait_for_selector("[data-theme-pick]")
+        page.click("[data-theme-pick='system']")
+        check("(s1) system clears the choice", not page.evaluate("document.documentElement.hasAttribute('data-theme')") and page.evaluate("localStorage.getItem('queuecraft:theme')") == "system")
+        with page.expect_download() as dl:
+            page.click("[data-export]")
+        check("(s1) export downloads a dated file", dl.value.suggested_filename.startswith("queuecraft-backup-") and dl.value.suggested_filename.endswith(".json"))
+        page.screenshot(path=str(OUT / "settings-390.png"), full_page=True)
+        first = new_page(browser, errors)
+        first.goto(HUB + "settings/")
+        first.wait_for_selector("[data-offline]")
+        first.wait_for_function("document.querySelector('[data-offline]').textContent === '오프라인 준비 완료'", timeout=15000)
+        check("(s2) a first visit turns to ready without reopening", True)
+        first.wait_for_function("/v0\\.1\\.0 \\([0-9a-f]{8}\\)/.test(document.querySelector('[data-footer]').textContent)", timeout=8000)
+        check("(s2) the footer shows the build", True)
+        first.context.close()
 
         # (w) the language chosen in the course carries over
         page.goto(HUB + "agent-lifecycle/")
@@ -610,7 +640,7 @@ def main():
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
         PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "codex/#daily": "browse",
-                 "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse"}
+                 "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
             page.wait_for_selector("nav.appbar a[aria-current='page']")
@@ -667,7 +697,7 @@ def main():
         page.wait_for_function("navigator.serviceWorker.controller !== null")
         page.context.set_offline(True)
         for path, ready in (("", "[data-greeting]"), ("guide/", "[data-card]"), ("agent-lifecycle/#coaching-2", "[data-counter]"), ("sop-library/", "a[data-sop]"),
-                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1"), ("privacy/", "#app h1"), ("practice/", "#app h1"), ("excel/#lesson-1", "[data-start]")):
+                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1"), ("privacy/", "#app h1"), ("settings/", "[data-theme-pick]"), ("practice/", "#app h1"), ("excel/#lesson-1", "[data-start]")):
             page.goto(HUB + path)
             page.wait_for_selector(ready, timeout=8000)
             check(f"(a4) offline: {path or 'home'} opens", page.locator(ready).count() >= 1)

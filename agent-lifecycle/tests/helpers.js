@@ -4,6 +4,7 @@ export function fakeStorage(initial = {}) {
   return {
     getItem: (k) => (map.has(k) ? map.get(k) : null),
     setItem: (k, v) => { map.set(k, String(v)); },
+    removeItem: (k) => { map.delete(k); },
   };
 }
 export const throwingStorage = {

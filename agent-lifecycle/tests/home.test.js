@@ -74,7 +74,7 @@ test('the home screen greets with Miso and shows where to continue', () => {
   assert.equal(root.querySelector('a.card[href="./guide/"]').closest('section')?.id ?? '', '');
   assert.ok(root.querySelector('#learn') && root.querySelector('#browse'));
   assert.equal(root.querySelectorAll('a.card').length, 9, 'eight topics plus the practice card');
-  assert.ok(root.querySelector('[data-install]').textContent.includes('홈 화면'));
+  assert.equal(root.querySelector('[data-install]'), null, 'the install note moved to Settings');
 });
 
 test('a first visit suggests lesson 1, and a finished learner sees the done note', () => {

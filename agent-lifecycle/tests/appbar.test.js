@@ -16,27 +16,28 @@ test('the menu marks where you are', () => {
   assert.equal(current('https://x.test/kb/sop-library/'), 'learn');
   assert.equal(current('https://x.test/kb/practice/'), 'learn');
   assert.equal(current('https://x.test/kb/excel/'), 'learn');
-  for (const p of ['codex/#teams', 'staffing-calculator/', 'glossary/#aht', 'references/']) assert.equal(current(`https://x.test/kb/${p}`), 'browse', p);
+  for (const p of ['codex/#teams', 'staffing-calculator/', 'glossary/#aht', 'references/', 'privacy/']) assert.equal(current(`https://x.test/kb/${p}`), 'browse', p);
+  assert.equal(current('https://x.test/kb/settings/'), 'settings');
 });
 
 test('the menu links point at the site root wherever the page is', () => {
   const items = appBarItems(ROOT, 'https://x.test/kb/codex/#daily');
   assert.deepEqual(items.map((i) => [i.id, i.href]), [
     ['home', 'https://x.test/kb/'], ['learn', 'https://x.test/kb/#learn'],
-    ['guide', 'https://x.test/kb/guide/'], ['browse', 'https://x.test/kb/#browse'],
+    ['guide', 'https://x.test/kb/guide/'], ['browse', 'https://x.test/kb/#browse'], ['settings', 'https://x.test/kb/settings/'],
   ]);
 });
 
-test('the menu renders four labeled links and follows the page language', () => {
+test('the menu renders five labeled links and follows the page language', () => {
   const { document } = setupDom();
   const nav = renderAppBar(document, ROOT, 'https://x.test/kb/guide/', 'ko');
   assert.equal(nav.getAttribute('aria-label'), APPBAR_UI.label.ko);
   const links = [...nav.querySelectorAll('a')];
-  assert.deepEqual(links.map((a) => a.textContent.trim()), ['홈', '배우기', '길잡이', '찾아보기']);
+  assert.deepEqual(links.map((a) => a.textContent.trim()), ['홈', '배우기', '길잡이', '찾아보기', '설정']);
   assert.equal(nav.querySelector('a[aria-current="page"]').dataset.item, 'guide');
   assert.ok(links.every((a) => a.querySelector('svg[aria-hidden="true"]')));
   const en = renderAppBar(document, ROOT, 'https://x.test/kb/guide/', 'en');
-  assert.deepEqual([...en.querySelectorAll('a')].map((a) => a.textContent.trim()), ['Home', 'Learn', 'Guide', 'Browse']);
+  assert.deepEqual([...en.querySelectorAll('a')].map((a) => a.textContent.trim()), ['Home', 'Learn', 'Guide', 'Browse', 'Settings']);
 });
 
 test('on the home page the highlight follows where you have scrolled', async () => {
