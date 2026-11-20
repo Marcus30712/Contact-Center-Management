@@ -8,6 +8,7 @@ import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { TERMS } from '../glossary/terms.js';
 import { EXCEL_LESSONS } from '../excel/data.js';
 import { loadProgress as loadExcelProgress, displayOrder } from '../excel/engine.js';
+import { EXCEL_FEEDBACK } from '../excel/feedback.js';
 
 export const PRACTICE_KEY = 'kb-practice:v1';
 export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel'];
@@ -94,7 +95,7 @@ function excelQuestions(storage) {
       .map((q) => ({
         key: `excel:${q.id}`, course: 'excel', lessonId: l.id, lessonOrder: order,
         prompt: q.prompt,
-        options: displayOrder(q).map((i) => ({ id: String(i), text: (q.options ?? q.chips)[i] })),
+        options: displayOrder(q).map((i) => ({ id: String(i), text: (q.options ?? q.chips)[i], ...(EXCEL_FEEDBACK[q.id]?.[i] ? { feedback: EXCEL_FEEDBACK[q.id][i] } : {}) })),
         answer: String(q.answer),
         explanation: q.explanation,
         ...(q.type === 'blank' ? { template: q.template } : {}),

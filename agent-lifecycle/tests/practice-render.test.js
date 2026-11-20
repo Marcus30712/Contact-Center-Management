@@ -345,3 +345,15 @@ test('a wrong lifecycle answer in practice shows that option\'s feedback too', (
   click(root.querySelector(`[data-question] [data-option="${wrong.id}"]`));
   assert.equal(root.querySelector('[data-explanation] [data-feedback]').textContent, wrong.feedback.ko);
 });
+
+test('a wrong Excel answer in practice shows that option\'s feedback', async () => {
+  const { EXCEL_FEEDBACK } = await import('../../excel/feedback.js');
+  const s = store([]);
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1'], scores: {} }));
+  const { root } = page(s);
+  const q = current(root, s);
+  const wrong = q.options.find((o) => o.id !== q.answer);
+  click(root.querySelector(`[data-question] [data-option="${wrong.id}"]`));
+  const id = q.key.slice('excel:'.length);
+  assert.equal(root.querySelector('[data-explanation] [data-feedback]').textContent, EXCEL_FEEDBACK[id][Number(wrong.id)].ko);
+});
