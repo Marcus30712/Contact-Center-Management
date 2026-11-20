@@ -22,7 +22,7 @@ test('home wording is the approved wording', () => {
 });
 
 test('cards keep every topic and are split into learn and browse', () => {
-  assert.deepEqual(LEARN.map((c) => c.href), ['./agent-lifecycle/', './sop-library/']);
+  assert.deepEqual(LEARN.map((c) => c.href), ['./agent-lifecycle/', './sop-library/', './excel/']);
   assert.deepEqual(BROWSE.map((c) => c.href), ['./codex/', './staffing-calculator/', './glossary/', './references/']);
   assert.equal(GUIDE_CARD.href, './guide/');
   for (const c of [GUIDE_CARD, ...LEARN, ...BROWSE]) {
@@ -34,24 +34,26 @@ test('cards keep every topic and are split into learn and browse', () => {
 test('my learning: nothing started, part done, all done, storage blocked', () => {
   const s = fakeStorage();
   const fresh = myLearning(s);
-  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 7, 'escalation']]);
+  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 7, 'escalation'], ['excel', 0, 11, '1']]);
   assert.equal(fresh.started, false);
 
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'coaching'] }));
   s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation'] }));
   const mid = myLearning(s);
-  assert.deepEqual(mid.map((c) => [c.done, c.next.id, c.next.href]), [[3, 'nesting', './agent-lifecycle/#nesting-0'], [1, 'coaching', './sop-library/#coaching-0']]);
+  assert.deepEqual(mid.map((c) => [c.done, c.next.id, c.next.href]), [[3, 'nesting', './agent-lifecycle/#nesting-0'], [1, 'coaching', './sop-library/#coaching-0'], [0, '1', './excel/#lesson-1']]);
   assert.equal(mid.started, true);
 
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'] }));
   s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'] }));
+  assert.equal(myLearning(s).allDone, false, 'the Excel lessons are still to do');
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }));
   const all = myLearning(s);
-  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [7, null]]);
+  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [7, null], [11, null]]);
   assert.equal(all.allDone, true);
 
   const blocked = myLearning(throwingStorage);
-  assert.deepEqual(blocked.map((c) => c.done), [0, 0]);
-  assert.deepEqual(myLearning(null).map((c) => c.done), [0, 0]);
+  assert.deepEqual(blocked.map((c) => c.done), [0, 0, 0]);
+  assert.deepEqual(myLearning(null).map((c) => c.done), [0, 0, 0]);
 });
 
 test('the home screen greets with Miso and shows where to continue', () => {
@@ -64,14 +66,14 @@ test('the home screen greets with Miso and shows where to continue', () => {
   assert.ok(miso.getAttribute('alt').includes('김미소'));
   assert.ok(root.querySelector('[data-greeting]').textContent.includes(HOME_UI.greeting.ko));
   const rows = [...root.querySelectorAll('[data-course]')];
-  assert.equal(rows.length, 2);
+  assert.equal(rows.length, 3);
   assert.equal(rows[1].querySelector('progress').value, 1);
   assert.equal(rows[1].querySelector('progress').max, 7);
   assert.equal(rows[1].querySelector('a[data-next]').getAttribute('href'), './sop-library/#coaching-0');
   assert.ok(rows[1].textContent.includes('1/7'));
   assert.equal(root.querySelector('a.card[href="./guide/"]').closest('section')?.id ?? '', '');
   assert.ok(root.querySelector('#learn') && root.querySelector('#browse'));
-  assert.equal(root.querySelectorAll('a.card').length, 8, 'seven topics plus the practice card');
+  assert.equal(root.querySelectorAll('a.card').length, 9, 'eight topics plus the practice card');
   assert.ok(root.querySelector('[data-install]').textContent.includes('홈 화면'));
 });
 
@@ -85,12 +87,13 @@ test('a first visit suggests lesson 1, and a finished learner sees the done note
   const s = fakeStorage();
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'] }));
   s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'] }));
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }));
   const done = setupDom();
   renderHome(done.root, 'ko', s);
   assert.ok(done.root.querySelector('[data-all-done]').textContent.includes(HOME_UI.allDone.ko));
   assert.equal(HOME_UI.review.ko, '다시 보기');
   const reviews = [...done.root.querySelectorAll('a[data-review]')];
-  assert.deepEqual(reviews.map((a) => a.getAttribute('href')), ['./agent-lifecycle/', './sop-library/']);
+  assert.deepEqual(reviews.map((a) => a.getAttribute('href')), ['./agent-lifecycle/', './sop-library/', './excel/']);
   assert.ok(reviews.every((a) => a.textContent.includes('다시 보기')));
 });
 
@@ -139,4 +142,23 @@ test('the practice card sits under Miso and shows today', async () => {
   renderHome(done.root, 'en', s, FRI);
   const doneCard = done.root.querySelector('a[data-practice]');
   assert.ok(doneCard.textContent.includes(P.homeDone.en) && doneCard.textContent.includes('🔥 Day 1'));
+});
+
+test('the Excel practice is a third course in Learn and in my learning', async () => {
+  const { EXCEL_UI } = await import('../../excel/data.js');
+  const card = LEARN.find((c) => c.href === './excel/');
+  assert.deepEqual(card.title, EXCEL_UI.homeCard);
+  assert.deepEqual(card.text, EXCEL_UI.homeCardLine);
+  const s = fakeStorage();
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1'], scores: { 1: 5 } }));
+  const rows = myLearning(s);
+  const excel = rows.find((r) => r.id === 'excel');
+  assert.deepEqual([excel.done, excel.total], [1, 11]);
+  assert.equal(excel.next.href, './excel/#lesson-2');
+  assert.ok(rows.started);
+  const { root } = setupDom();
+  renderHome(root, 'ko', s, '2026-11-20');
+  const row = root.querySelector('[data-course="excel"]');
+  assert.ok(row.textContent.includes('미소의 엑셀 연습') && row.textContent.includes('1/11'));
+  assert.equal(row.querySelector('a[data-next]').getAttribute('href'), './excel/#lesson-2');
 });

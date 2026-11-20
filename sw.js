@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'ac282d989cbe';
+const VERSION = '73666eb13e55';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -66,6 +66,15 @@ const PRECACHE = [
   "codex/render/principles.js",
   "codex/render/teams.js",
   "codex/ui.js",
+  "excel/",
+  "excel/app.js",
+  "excel/data.js",
+  "excel/engine.js",
+  "excel/excel.css",
+  "excel/formula.js",
+  "excel/index.html",
+  "excel/render.js",
+  "excel/sheet.js",
   "glossary/",
   "glossary/filter.js",
   "glossary/glossary.css",

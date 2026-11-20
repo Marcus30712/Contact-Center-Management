@@ -28,6 +28,8 @@ export const HOME_UI = {
   lessonWord: { ko: '레슨', en: 'Lesson' },
 };
 
+import { EXCEL_UI } from '../excel/data.js';
+
 const card = (href, ko, en, textKo, textEn) => ({ href, title: { ko, en }, text: { ko: textKo, en: textEn } });
 
 export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · 팀장 상황별 길잡이', 'Where to start? · Team Lead Situation Guide',
@@ -39,6 +41,7 @@ export const LEARN = [
   card('./sop-library/', 'SOP 라이브러리', 'SOP Library',
     '팀장이 알아야 할 절차 7개를 순서대로 배웁니다: 에스컬레이션, 1:1 코칭, PIP, 캘리브레이션, 온보딩, 대규모 이슈 대응, 신규 프로젝트 론칭.',
     'Learn seven procedures a team leader needs to know, step by step: escalation, 1:1 coaching, PIP, calibration, onboarding, large-scale issue response, new project launch.'),
+  { href: './excel/', title: EXCEL_UI.homeCard, text: EXCEL_UI.homeCardLine },
 ];
 
 export const BROWSE = [

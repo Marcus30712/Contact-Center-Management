@@ -267,7 +267,7 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB)
         cards = page.locator("a.card")
-        check("(r) hub shows seven topic cards plus the practice card", cards.count() == 8, str(cards.count()))
+        check("(r) hub shows eight topic cards plus the practice card", cards.count() == 9, str(cards.count()))
         for href, title in (("./guide/", "팀장 상황별 길잡이"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("./codex/", "Codex 원페이저"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
             page.goto(HUB)
             page.click(f"a.card[href='{href}']")
@@ -659,7 +659,7 @@ def main():
         page.wait_for_function("navigator.serviceWorker.controller !== null")
         page.context.set_offline(True)
         for path, ready in (("", "[data-greeting]"), ("guide/", "[data-card]"), ("agent-lifecycle/#coaching-2", "[data-counter]"), ("sop-library/", "a[data-sop]"),
-                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1"), ("practice/", "#app h1")):
+                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1"), ("practice/", "#app h1"), ("excel/#lesson-1", "[data-start]")):
             page.goto(HUB + path)
             page.wait_for_selector(ready, timeout=8000)
             check(f"(a4) offline: {path or 'home'} opens", page.locator(ready).count() >= 1)
@@ -714,6 +714,73 @@ def main():
         page.goto(HUB + "practice/")
         page.wait_for_selector("[data-question]")
         check("(p4) 320px: no sideways scroll", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
+        page.context.close()
+
+        # ---- Miso's Excel practice ----
+        page = new_page(browser, errors)
+        page.goto(HUB + "excel/")
+        page.wait_for_selector("[data-lesson]")
+        check("(x1) the list shows 11 lessons", page.locator("[data-lesson]").count() == 11)
+        check("(x1) the menu marks Learn", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "learn")
+        page.screenshot(path=str(OUT / "excel-list-390.png"), full_page=True)
+        page.click("[data-lesson='1'] a")
+        page.wait_for_selector("[data-start]")
+        page.click("[data-start]")
+        page.wait_for_selector("[data-count]")
+        # 1-1, 1-2 choice; 1-3, 1-4 blanks; 1-5, 1-6 cells.
+        page.click("[data-option='0']"); page.click("[data-next]")
+        page.click("[data-option='0']"); page.click("[data-next]")
+        page.click("[data-chip='0']"); page.click("[data-next]")
+        page.click("[data-chip='0']"); page.click("[data-next]")
+        page.click("td[data-cell='E9']"); page.click("[data-check]")
+        check("(x2) tapping E9 answers 1-5", page.locator("img[data-miso='joy']").count() == 1)
+        page.click("[data-next]")
+        page.click("td[data-cell='C2']"); page.click("td[data-cell='C9']"); page.click("[data-check]")
+        check("(x2) tapping C2 then C9 answers 1-6", page.locator("img[data-miso='joy']").count() == 1)
+        page.click("[data-next]")
+        page.wait_for_selector("[data-done]")
+        check("(x2) lesson 1 ends with Miso proud and 6 of 6", "6개 중 6개" in page.inner_text("[data-score]") and page.locator("img[data-miso='proud']").count() == 1)
+        page.click("[data-next-lesson]")
+        page.wait_for_selector("[data-start]")
+        page.click("[data-start]")
+        for _ in range(4):
+            page.click("[data-option='0'], [data-chip='0']")
+            page.click("[data-next]")
+        page.wait_for_selector("[data-bank]")
+        for text in ("SUM(", "E2:E9", ")"):
+            page.click(f"[data-bank] [data-card]:text-is('{text}')")
+        page.click("[data-check]")
+        check("(x3) building SUM(E2:E9) shows 118770", "118770" in page.inner_text("[data-result]"))
+        check("(x3) the used cells are marked", page.locator("td.is-used").count() == 8)
+        gap = page.evaluate("document.querySelector('nav.appbar').getBoundingClientRect().top - document.querySelector('[data-next]').getBoundingClientRect().bottom")
+        page.evaluate("document.querySelector('[data-next]').scrollIntoView({block: 'end'})")
+        gap = page.evaluate("document.querySelector('nav.appbar').getBoundingClientRect().top - document.querySelector('[data-next]').getBoundingClientRect().bottom")
+        check(f"(x3) the next button can sit above the menu (gap {gap:.0f}px)", gap >= -1)
+        page.screenshot(path=str(OUT / "excel-build-390.png"), full_page=True)
+        page.context.close()
+        ALL9 = "try { localStorage.setItem('excel-practice:v1', JSON.stringify({completed: ['1','2','3','4','5','6','7','8','9'], scores: {}})); } catch (e) {}"
+        for width, scheme, shot in ((320, "light", None), (390, "dark", "excel-steps-390-dark.png")):
+            page = new_page(browser, errors, width=width, init=ALL9, scheme=scheme)
+            page.goto(HUB + "excel/#lesson-10")
+            page.wait_for_selector("[data-start]")
+            page.click("[data-start]")
+            for _ in range(4):
+                page.click("[data-option='0'], [data-chip='0']")
+                page.click("[data-next]")
+            page.wait_for_selector("[data-bank]")
+            check(f"(x4) {width}px {scheme}: steps question has no sideways scroll", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
+            if shot:
+                page.screenshot(path=str(OUT / shot), full_page=True)
+            page.context.close()
+        page = new_page(browser, errors, width=320, init=ALL9)
+        page.goto(HUB + "excel/#lesson-2")
+        page.wait_for_selector("[data-start]")
+        page.click("[data-start]")
+        for _ in range(4):
+            page.click("[data-option='0'], [data-chip='0']")
+            page.click("[data-next]")
+        page.wait_for_selector("[data-bank]")
+        check("(x4) 320px: build question has no sideways scroll", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
         page.context.close()
 
         # ---- Situation guide ----
