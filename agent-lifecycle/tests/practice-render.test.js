@@ -146,7 +146,8 @@ test('a track switch after picking still lets the day finish', () => {
   page(s);
   s.setItem('agent-lifecycle-course:track', 'tech');
   const { root } = page(s);
-  for (let i = 0; i < 2; i += 1) {
+  // The three general-track questions picked before the switch stay answerable.
+  for (let i = 0; i < 3; i += 1) {
     click(root.querySelector('[data-question] [data-option]'));
     click(root.querySelector('[data-next]'));
   }
@@ -157,7 +158,7 @@ test('a track switch after picking still lets the day finish', () => {
 });
 
 test('the status line stays one element and focus lands on something focusable', () => {
-  const s = store(['hiring']);
+  const s = store([], ['pip']);
   const { root } = page(s);
   const status = document.querySelector('[data-status]');
   assert.ok(!root.contains(status), 'the status line lives outside the redrawn area');
@@ -176,7 +177,7 @@ test('the status line stays one element and focus lands on something focusable',
 });
 
 test('finishing every Excel lesson earns its badge when practice opens', () => {
-  const s = store(['hiring']);
+  const s = store([], ['pip']);
   s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'], scores: {} }));
   const { root } = page(s);
   assert.ok(root.querySelector('[data-badge="excel"]').classList.contains('is-earned'));
@@ -268,7 +269,7 @@ test('an Excel blank keeps its formula line right above the options, and a right
 });
 
 test('the intro counts the questions actually picked today', () => {
-  const two = page(store(['hiring'])).root;
+  const two = page(store([], ['pip'])).root;
   assert.ok(two.querySelector('[data-count]').textContent.includes('문제 1 / 2'));
   assert.equal(two.querySelector('[data-intro]').textContent, '마친 레슨에서 문제 2개를 골랐어요. 틈틈이 풀어 보세요.');
   const three = page(store()).root;
@@ -276,7 +277,7 @@ test('the intro counts the questions actually picked today', () => {
 });
 
 test('the last question\'s button finishes the practice; earlier ones go to the next question', () => {
-  const s = store(['hiring']);
+  const s = store([], ['pip']);
   const { root } = page(s);
   click(root.querySelector('[data-question] [data-option]'));
   assert.equal(root.querySelector('[data-next]').textContent, UI.next.ko);
@@ -288,7 +289,7 @@ test('the last question\'s button finishes the practice; earlier ones go to the 
 });
 
 test('in English the last button says Finish practice', () => {
-  const s = store(['hiring']);
+  const s = store([], ['pip']);
   const { root } = page(s, FRI, 'en');
   click(root.querySelector('[data-question] [data-option]'));
   click(root.querySelector('[data-next]'));
@@ -297,7 +298,7 @@ test('in English the last button says Finish practice', () => {
 });
 
 test('on a one-question day the first button already finishes, and the intro says 1', () => {
-  const s = store(['hiring']);
+  const s = store([], ['pip']);
   const key = pool(s)[0].key;
   s.setItem('kb-practice:v1', JSON.stringify({ today: { date: FRI, ids: [key], answers: {} } }));
   for (const [lang, intro] of [['en', '1 for today'], ['ko', '문제 1개를']]) {
@@ -311,7 +312,7 @@ test('on a one-question day the first button already finishes, and the intro say
 });
 
 test('the done screen no longer promises three questions', () => {
-  const s = store(['hiring']);
+  const s = store([], ['pip']);
   const { root } = page(s);
   for (let i = 0; i < 2; i += 1) {
     click(root.querySelector('[data-question] [data-option]'));
@@ -321,7 +322,7 @@ test('the done screen no longer promises three questions', () => {
 });
 
 test('finishing after midnight opens the new day instead of yesterday\'s done screen', () => {
-  const s = store(['hiring']);
+  const s = store([], ['pip']);
   const { root } = setupDom();
   const view = newPracticeView();
   let now = FRI;

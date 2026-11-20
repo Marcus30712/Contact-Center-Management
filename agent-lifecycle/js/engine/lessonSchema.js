@@ -57,7 +57,8 @@ export function validateLesson(lesson, { requireEnglish = false, requireTracks =
       err(`steps on the ${track} track must number ${MIN_STEPS}-${MAX_STEPS}, found ${count}`);
     }
     const questions = visibleQuestions(view, track).length;
-    if (questions < 1 || questions > 2) err(`checkpoint on the ${track} track must show 1-2 questions, found ${questions}`);
+    // Common question plus up to two for the track (2026-11-20).
+    if (questions < 1 || questions > 3) err(`checkpoint on the ${track} track must show 1-3 questions, found ${questions}`);
     if (requireTracks) {
       if (!steps.some((st) => st.track === track)) err(`no ${track} track step`);
       if (!checkpoint.some((q) => q.track === track)) err(`no ${track} track question`);

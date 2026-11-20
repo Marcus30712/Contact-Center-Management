@@ -83,6 +83,26 @@ export default {
     ],
     answer: 'b',
     explanation: tx('빨리 닫힌 티켓이 해결된 티켓은 아닙니다. 지표 하나만 보지 말고 진단 과정이 맞았는지 함께 봐야 합니다. 건너뛴 단계를 구체적으로 짚어 주는 것이 코칭입니다.', 'A ticket closed quickly is not a ticket resolved. Do not look at one metric alone but check whether the diagnosis was sound. Naming the skipped step specifically is what makes it coaching.'),
+  }), trackQuestion('general', {
+    id: 'coaching-general-2',
+    prompt: tx('같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요?', 'On the same call, the team leader scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do?'),
+    options: [
+      option('a', tx('팀장 점수를 따른다.', 'Go with the team leader’s score.')),
+      option('b', tx('두 점수의 평균을 낸다.', 'Average the two scores.')),
+      option('c', tx('캘리브레이션에서 공감과 정책 안내를 각각 어떻게 볼지 기준을 맞춘다.', 'In calibration, agree how to score empathy and policy information separately.')),
+    ],
+    answer: 'c',
+    explanation: tx('평가자마다 기준이 다르면 상담사는 무엇을 고쳐야 할지 알 수 없습니다. 일반 고객지원은 정책 정확도와 공감을 함께 보므로, 두 항목의 채점 기준을 캘리브레이션으로 맞춥니다.', 'If each evaluator uses a different standard, agents cannot tell what to fix. General support looks at both policy accuracy and empathy, so calibration aligns how each is scored.'),
+  }), trackQuestion('tech', {
+    id: 'coaching-tech-2',
+    prompt: tx('지민의 에스컬레이션 비율이 팀에서 가장 높습니다. 코칭에서 무엇부터 할까요?', 'Jimin’s escalation rate is the highest on the team. What do you start with in coaching?'),
+    options: [
+      option('a', tx('비율을 낮추라고만 말한다.', 'Just tell her to bring the rate down.')),
+      option('b', tx('넘긴 티켓 몇 건을 함께 보며 진단 과정의 어디에서 멈췄는지 찾는다.', 'Go through a few of the tickets she passed on and find where her diagnosis stopped.')),
+      option('c', tx('다른 팀원과의 비율을 공개해 비교한다.', 'Publish everyone’s rate so she can compare.')),
+    ],
+    answer: 'b',
+    explanation: tx('숫자는 무엇이 문제인지가 아니라 어디를 봐야 하는지를 알려 줍니다. 실제 티켓으로 진단 과정을 짚어야 구체적인 개선 방법이 나옵니다.', 'A number tells you where to look, not what the problem is. Walking through real tickets is what turns up a specific way to improve.'),
   })],
   connection: {
     to: 'retention',

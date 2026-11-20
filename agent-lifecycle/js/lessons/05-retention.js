@@ -71,6 +71,26 @@ export default {
     ],
     answer: 'b',
     explanation: tx('모르는 제품의 티켓을 받는 것은 지민 같은 상담사에게 큰 부담입니다. 학습을 근무 밖으로 미루면 그 부담이 개인에게 넘어갑니다. 팀장이 일정 안에서 시간을 확보해 주는 것이 유지의 일부입니다.', 'Taking tickets for a product you do not know is a heavy burden for an agent like Jimin. Pushing learning outside working hours shifts that burden onto the individual. Securing the time within the schedule is part of retention.'),
+  }), trackQuestion('general', {
+    id: 'retention-general-2',
+    prompt: tx('악성 민원 콜이 이어진 날, 일반 고객지원 팀원 여럿이 지쳐 보입니다. 어떻게 할까요?', 'After a day of abusive calls, several people on the general support team look worn out. What do you do?'),
+    options: [
+      option('a', tx('근무 뒤 짧게 모여 힘들었던 콜을 이야기하고, 심리 상담 프로그램(EAP)을 안내한다.', 'Gather briefly after the shift to talk through the hard calls, and point people to the employee assistance program (EAP).')),
+      option('b', tx('다들 겪는 일이니 내일 다시 하자고 한다.', 'Everyone goes through it, so say you will start fresh tomorrow.')),
+      option('c', tx('가장 지친 사람만 따로 불러 실적 이야기를 한다.', 'Call in only the most exhausted person and talk about performance.')),
+    ],
+    answer: 'a',
+    explanation: tx('감정노동은 쌓이면 번아웃이 됩니다. 힘든 날을 함께 정리하는 자리를 만들고 회사의 케어 제도를 팀장이 직접 연결해 줄 때, 제도가 실제로 쓰입니다.', 'Emotional labor turns into burnout when it builds up. Care programs actually get used when the team leader makes room to process hard days together and connects people to them directly.'),
+  }), trackQuestion('tech', {
+    id: 'retention-tech-2',
+    prompt: tx('기술지원 상담사 한 명이 몇 주째 어려운 티켓만 맡아 지쳐 보입니다. 어떻게 할까요?', 'A tech support agent has handled only hard tickets for weeks and looks worn out. What do you do?'),
+    options: [
+      option('a', tx('실력이 좋으니 계속 어려운 티켓을 맡긴다.', 'They are skilled, so keep giving them the hard tickets.')),
+      option('b', tx('어려운 티켓과 쉬운 티켓을 섞어 배정하고, 해결한 사례를 팀 지식 자료로 정리할 기회를 준다.', 'Mix hard and easy tickets in their assignments, and give them a chance to write up solved cases for the team knowledge base.')),
+      option('c', tx('당분간 쉬운 티켓만 맡긴다.', 'Give them only easy tickets for a while.')),
+    ],
+    answer: 'b',
+    explanation: tx('어려운 티켓이 이어지면 인지 부담이 쌓입니다. 부담은 나누고 해결 경험을 지식 자료로 남기게 하면, 지친 경험이 기술적인 성장으로 이어집니다.', 'A run of hard tickets builds cognitive load. Spreading the load and having them record what they solved in the knowledge base turns a draining stretch into technical growth.'),
   })],
   connection: {
     to: 'career',

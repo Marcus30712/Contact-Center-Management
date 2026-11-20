@@ -81,6 +81,26 @@ export default {
     ],
     answer: 'b',
     explanation: tx('상위 단계로 가는 길은 필요한 역량이 분명할 때 열립니다. 기준을 알려 주고 실제 티켓으로 경험하게 하면 준비와 검증이 함께 됩니다. 지민에게 QA를 제안했던 것처럼, 길을 보여 주는 것이 팀장의 몫입니다.', 'The path to a higher tier opens when the required skills are clear. Explaining the standard and giving real tickets to try builds readiness and verifies it at once. Showing the path is the team leader’s part, as it was when you suggested QA to Jimin.'),
+  }), trackQuestion('general', {
+    id: 'career-general-2',
+    prompt: tx('일반 고객지원 퇴사 면담에서 "매일 같은 문의만 받아 성장하는 느낌이 없었다"는 말이 여러 번 나옵니다. 무엇을 할까요?', 'In general support exit interviews, several people say, “I handled the same inquiries every day and never felt I was growing.” What do you do?'),
+    options: [
+      option('a', tx('개인 성향 문제로 기록하고 넘긴다.', 'Record it as a matter of personal temperament and move on.')),
+      option('b', tx('그달에만 있었던 일로 본다.', 'Treat it as something that happened only that month.')),
+      option('c', tx('문의 유형 순환과 전문 상담 같은 경로를 남아 있는 팀원에게 먼저 보여 주도록 관리 방식을 고친다.', 'Change how you manage so the people still on the team are shown inquiry rotation and paths such as specialist support up front.')),
+    ],
+    answer: 'c',
+    explanation: tx('퇴사 면담에서 나온 개선점은 다음 관리에 반영해야 의미가 있습니다. 같은 이유가 반복된다면 남아 있는 팀원도 같은 이유로 떠날 수 있습니다.', 'Improvements from exit interviews only matter once they feed into how you manage next. If the same reason keeps coming up, the people still on the team may leave for the same reason.'),
+  }), trackQuestion('tech', {
+    id: 'career-tech-2',
+    prompt: tx('기술지원 상담사가 같은 문제를 고객마다 반복해 설명하는 것이 아깝다며 해결 방법을 문서로 정리해 두었습니다. 무엇을 할까요?', 'A tech support agent felt it was wasteful to explain the same problem to customer after customer, so they wrote the fix up as a document. What do you do?'),
+    options: [
+      option('a', tx('지식 자료를 만들고 고치는 역할을 맡겨 보고, 그 경로를 함께 이야기한다.', 'Try giving them the role of creating and updating knowledge base articles, and talk through that path together.')),
+      option('b', tx('업무 시간에는 문서를 쓰지 말라고 한다.', 'Tell them not to write documents during work hours.')),
+      option('c', tx('문서를 받아 팀장 이름으로 공유한다.', 'Take the document and share it under the team leader’s name.')),
+    ],
+    answer: 'a',
+    explanation: tx('기술지원에는 지식 자료를 만들고 고치는 길도 있습니다. 상담사가 스스로 보여 준 강점을 경로와 연결해 주는 것이 팀장의 몫입니다.', 'Tech support also has a path in creating and updating knowledge base articles. Connecting a strength the agent has shown on their own to a career path is the team leader’s part.'),
   })],
   connection: {
     to: 'hiring',
