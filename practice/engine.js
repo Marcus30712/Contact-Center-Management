@@ -7,7 +7,7 @@ import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { TERMS } from '../glossary/terms.js';
 import { EXCEL_LESSONS } from '../excel/data.js';
-import { loadProgress as loadExcelProgress } from '../excel/engine.js';
+import { loadProgress as loadExcelProgress, displayOrder } from '../excel/engine.js';
 
 export const PRACTICE_KEY = 'kb-practice:v1';
 export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel'];
@@ -77,7 +77,28 @@ export function pool(storage, { allTracks = false } = {}) {
   return [
     ...from('lifecycle', LESSONS, lifeDone, (l) => (allTracks ? l.checkpoint : visibleQuestions(l, track))),
     ...from('sop', SOP_LESSONS, sopDone, (l) => l.checkpoint),
+    ...excelQuestions(storage),
   ];
+}
+
+// Finished Excel lessons add their choice and blank questions. Options are
+// shown in the Excel lesson's shuffled order and keep their own index as id.
+function excelQuestions(storage) {
+  if (!storage) return [];
+  const done = loadExcelProgress(storage).completed;
+  return EXCEL_LESSONS
+    .map((l, i) => ({ l, order: i + 1 }))
+    .filter(({ l }) => done.includes(l.id))
+    .flatMap(({ l, order }) => l.questions
+      .filter((q) => q.type === 'choice' || q.type === 'blank')
+      .map((q) => ({
+        key: `excel:${q.id}`, course: 'excel', lessonId: l.id, lessonOrder: order,
+        prompt: q.prompt,
+        options: displayOrder(q).map((i) => ({ id: String(i), text: (q.options ?? q.chips)[i] })),
+        answer: String(q.answer),
+        explanation: q.explanation,
+        ...(q.type === 'blank' ? { template: q.template } : {}),
+      })));
 }
 
 // A small repeatable shuffle key: the same date and question give the same order.
@@ -185,7 +206,8 @@ export function streak(days, today) {
 
 export function openTerms(storage) {
   const lifeDone = finished(storage, LIFE_KEY);
-  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0;
+  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0
+    || (storage ? loadExcelProgress(storage).completed.length > 0 : false);
   if (!anyDone) return [];
   return TERMS.filter((t) => (t.seen.length ? t.seen.some((id) => lifeDone.includes(id)) : true));
 }

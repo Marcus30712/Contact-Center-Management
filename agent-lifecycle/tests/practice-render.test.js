@@ -222,3 +222,47 @@ test('after the midnight move the app learns the new day, and focus stays on a q
   assert.equal(told, '2026-11-23');
   assert.ok(document.activeElement?.matches('[data-option]'));
 });
+
+test('an Excel question shows the example table, the formula line and its lesson link', () => {
+  const s = store([]);
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['4'], scores: {} }));
+  for (const lang of ['ko', 'en']) {
+    const { root } = page(s, FRI, lang);
+    let guard = 0;
+    while (root.querySelector('[data-question]') && guard < 3) {
+      guard += 1;
+      const q = current(root, s);
+      assert.equal(q.course, 'excel');
+      assert.ok(root.querySelector('.ex-sheet td[data-cell="C2"]'), 'the table is shown');
+      if (q.template) assert.ok(root.querySelector('[data-template]').textContent.includes('___'));
+      choose(root, s, false);
+      assert.equal(root.querySelector('a[data-review]').getAttribute('href'), `../excel/#lesson-${q.lessonId}`);
+      if (lang === 'en') assert.ok(!/[가-힣]/.test(root.textContent), root.textContent.match(/[가-힣]+/)?.[0]);
+      click(root.querySelector('[data-next]'));
+    }
+    assert.equal(guard, 3);
+    s.setItem('kb-practice:v1', '{}');
+  }
+});
+
+test('an Excel blank keeps its formula line right above the options, and a right answer is marked right', () => {
+  const s = store([]);
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['4'], scores: {} }));
+  const { root } = page(s);
+  let seenBlank = false;
+  for (let i = 0; i < 3; i += 1) {
+    const q = current(root, s);
+    const box = root.querySelector('[data-question]');
+    if (q.template) {
+      seenBlank = true;
+      const kids = [...box.children];
+      const at = (sel) => kids.findIndex((k) => k.matches(sel));
+      assert.ok(at('.ex-sheet') < at('[data-template]') && at('[data-template]') + 1 === at('.options'), 'table, then formula, then options');
+    }
+    choose(root, s, true);
+    assert.ok(root.querySelector('[data-question] .is-correct'));
+    assert.equal(root.querySelector('a[data-review]'), null);
+    click(root.querySelector('[data-next]'));
+  }
+  assert.ok(seenBlank);
+});
