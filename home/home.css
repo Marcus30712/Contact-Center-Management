@@ -35,8 +35,7 @@
 .hm-cards a.card:hover, .hm-cards a.card:focus-visible { border-color: var(--accent); }
 .hm-cards a.card strong { display: block; font-size: 1.05rem; }
 .hm-cards a.card span { color: var(--muted); font-size: 0.9rem; }
-.hm-install { color: var(--muted); font-size: 0.82rem; margin: 22px 0 8px; }
-.hm-privacy { font-size: 0.82rem; margin: 0 0 28px; }
+.hm-privacy { font-size: 0.82rem; margin: 22px 0 28px; }
 /* Today's practice card, right under Miso. */
 .hm-practice { border-color: var(--accent); }
 .hm-practice span { display: block; }

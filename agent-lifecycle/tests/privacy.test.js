@@ -25,7 +25,7 @@ const table = () => {
 
 test('privacy wording is the confirmed table, in both languages', () => {
   const rows = table();
-  assert.equal(rows.length, 26);
+  assert.equal(rows.length, 27);
   assert.deepEqual(Object.keys(PRIVACY_TEXT), rows.map((r) => r[0]));
   for (const [key, ko, en] of rows) assert.deepEqual(PRIVACY_TEXT[key], { ko, en }, key);
   for (const v of Object.values(PRIVACY_TEXT)) assert.ok(!/[가-힣]/.test(v.en), v.en);
@@ -51,13 +51,14 @@ test('the stored items match the keys the app really keeps', () => {
   }
 });
 
-test('nothing new is stored without updating the policy: five setItem calls, no other storage', async () => {
+test('nothing new is stored without updating the policy: seven setItem calls, no other storage', async () => {
   const { execFileSync } = await import('node:child_process');
   const root = new URL('../../', import.meta.url).pathname;
-  const files = execFileSync('git', ['ls-files', '*.js'], { cwd: root, encoding: 'utf8' }).split('\n')
+  const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '*.js'], { cwd: root, encoding: 'utf8' }).split('\n')
     .filter((f) => f && !f.includes('tests/') && !f.includes('scripts/') && !f.startsWith('tools/') && !f.startsWith('docs/'));
   const all = files.map((f) => file(f)).join('\n');
-  assert.equal((all.match(/\.setItem\(/g) ?? []).length, 5, 'a new stored item needs a line in the privacy policy');
+  // 5 + the display theme + restoring a backup (Settings).
+  assert.equal((all.match(/\.setItem\(/g) ?? []).length, 7, 'a new stored item needs a line in the privacy policy');
   assert.ok(!/sessionStorage|indexedDB|document\.cookie|sendBeacon|XMLHttpRequest|WebSocket/.test(all));
 });
 
@@ -74,11 +75,12 @@ test('the page shows the title, the eight sections, the stored items and both li
     assert.equal(root.querySelector('a[data-issues]').getAttribute('href'), ISSUES_URL);
     assert.equal(root.querySelector('a[data-back]').getAttribute('href'), '../');
     assert.ok(root.textContent.includes(PRIVACY_TEXT.meta[lang]));
+    assert.equal(root.querySelector('[data-backup-note]').textContent, PRIVACY_TEXT['s2.backup'][lang]);
     if (lang === 'en') assert.ok(!/[가-힣]/.test(root.textContent));
   }
 });
 
-test('home links to the privacy policy under the install note', () => {
+test('home links to the privacy policy at the bottom', () => {
   const { root } = setupDom();
   renderHome(root, 'ko', fakeStorage(), '2026-11-20');
   const link = root.querySelector('a[data-privacy]');

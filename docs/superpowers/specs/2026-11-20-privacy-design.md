@@ -1,6 +1,6 @@
 # 개인정보처리방침 페이지 설계 (짧은 설계)
 
-작성일: 2026-11-20 · 한국어 문안 확정: 2026-11-20 (사용자 "확정"; 검토 뒤 s2.item3·s3·s5 수정 승인)
+작성일: 2026-11-20 · 한국어 문안 확정: 2026-11-20 (사용자 "확정"; 검토 뒤 s2.item3·s3·s5 수정 승인; 설정 추가로 s2.item1·s2.backup 수정 승인)
 
 ## 1. 목적과 범위
 - 구글 플레이·앱스토어에 무료 앱으로 내기 위해, 공개 주소가 있는 개인정보처리방침이 필요하다.
@@ -30,10 +30,11 @@
 | s1.body | 큐크래프트는 이름, 이메일, 전화번호, 위치 같은 개인정보를 받지 않습니다. 회원가입과 로그인이 없고, 광고나 이용 분석 도구도 쓰지 않습니다. | Queuecraft does not ask for personal information such as your name, email, phone number or location. There is no sign-up or login, and no advertising or usage analytics tools. |
 | s2.heading | 2. 기기에만 저장하는 정보 | 2. Information kept only on your device |
 | s2.body | 학습을 이어 갈 수 있도록 아래 내용을 사용하는 기기의 브라우저 저장공간에만 저장합니다. 이 정보는 어디로도 보내지 않으며 운영자도 볼 수 없습니다. | So you can pick up where you left off, the items below are stored only in your browser's storage on the device you use. They are never sent anywhere, and the operator cannot see them. |
-| s2.item1 | 고른 언어와 직군 | Your chosen language and job track |
+| s2.item1 | 고른 언어, 직군, 화면 모드(밝게·어둡게) | Your chosen language, job track and display mode (light or dark) |
 | s2.item2 | 레슨 진도 (라이프사이클, SOP, 엑셀) | Lesson progress (Lifecycle, SOP, Excel) |
 | s2.item3 | 오늘의 연습 기록(연습한 날짜, 푼 문제와 카드)과 배지 | Today's Practice records (days practised, questions and cards) and badges |
 | s2.item4 | 오프라인에서 보기 위한 화면 파일 | Page files for offline use |
+| s2.backup | 설정에서 기록을 내보내면 그 파일은 사용하는 기기에 저장되며, 이 역시 어디로도 보내지 않습니다. | If you export your progress in Settings, the file is saved on the device you use; it is not sent anywhere either. |
 | s3.heading | 3. 지우는 방법 | 3. How to delete it |
 | s3.body | 브라우저 설정에서 이 사이트의 데이터를 지우면 모두 지워집니다. 앱을 삭제할 때 함께 지워지는지는 기기와 브라우저에 따라 다릅니다. | Clearing this site's data in your browser settings removes all of it. Whether deleting the app also removes it depends on your device and browser. |
 | s4.heading | 4. 사이트 운영 | 4. Hosting |

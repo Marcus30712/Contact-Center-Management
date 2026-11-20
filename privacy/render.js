@@ -19,7 +19,10 @@ export function renderPrivacy(root, lang) {
       h('p', { class: 'pv-meta', text: tr('meta') }),
     ]),
     section(1),
-    section(2, [h('ul', { 'data-stored': true }, [1, 2, 3, 4].map((i) => h('li', { text: tr(`s2.item${i}`) })))]),
+    section(2, [
+      h('ul', { 'data-stored': true }, [1, 2, 3, 4].map((i) => h('li', { text: tr(`s2.item${i}`) }))),
+      h('p', { 'data-backup-note': true, text: tr('s2.backup') }),
+    ]),
     section(3),
     section(4, [out('data-github-privacy', GITHUB_PRIVACY_URL, 's4.link')]),
     section(5),

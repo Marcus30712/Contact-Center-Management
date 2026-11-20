@@ -16,8 +16,9 @@
 | 용어집 / Glossary | [`glossary/`](glossary/) | 운영 용어 46개를 검색·분류해 보는 페이지. 용어는 `glossary/terms.js`에 있습니다 |
 | 참고 자료 / References | [`references/`](references/) | 바탕 자료(BPO Contact Center Operation Codex 2.0)와 참고한 공개 자료 |
 | 개인정보처리방침 / Privacy Policy | [`privacy/`](privacy/) | 앱이 개인정보를 수집하지 않고 기록은 기기에만 둔다는 안내. 스토어 등록용 주소 (한국어/영어) |
+| 설정 / Settings | [`settings/`](settings/) | 언어, 화면(시스템·밝게·어둡게), 기록 백업(파일로 내보내기·가져오기), 오프라인 준비 상태, 홈 화면 추가 안내, 버전. 아래 메뉴 다섯 번째 칸 (한국어/영어) |
 
-- 첫 화면: `index.html` (김미소 인사, 내 학습, 배우기·찾아보기 카드). 모든 페이지 아래에 공통 메뉴(홈·배우기·길잡이·찾아보기)가 있습니다 (`shared/`)
+- 첫 화면: `index.html` (김미소 인사, 내 학습, 배우기·찾아보기 카드). 모든 페이지 아래에 공통 메뉴(홈·배우기·길잡이·찾아보기·설정)가 있습니다 (`shared/`)
 - 앱 설치·오프라인: `manifest.webmanifest`, `sw.js`. 화면 파일을 바꾸면 `python3 tools/sw_list.py`로 `sw.js`를 다시 만듭니다
 - 캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. CC BY-NC-ND 4.0을 따릅니다 (`assets/miso/`, 원본 `art/miso/`)
 - 설계 문서와 계획: `docs/superpowers/`

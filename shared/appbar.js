@@ -1,4 +1,4 @@
-// The bottom menu shared by every page (home, learn, guide, browse). Each
+// The bottom menu shared by every page (home, learn, guide, browse, settings). Each
 // page loads this file once; it draws the menu, keeps its labels in the
 // page's language, and registers the offline worker.
 export const APPBAR_UI = {
@@ -7,6 +7,7 @@ export const APPBAR_UI = {
   learn: { ko: '배우기', en: 'Learn' },
   guide: { ko: '길잡이', en: 'Guide' },
   browse: { ko: '찾아보기', en: 'Browse' },
+  settings: { ko: '설정', en: 'Settings' },
 };
 
 const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'practice/', 'excel/'];
@@ -18,6 +19,7 @@ const ICONS = {
   learn: 'M4 5h6a3 3 0 0 1 2 1 3 3 0 0 1 2-1h6v14h-6a2 2 0 0 0-2 1 2 2 0 0 0-2-1H4zM12 6v14',
   guide: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm3.5 5.5-2 5-5 2 2-5z',
   browse: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
+  settings: 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1',
 };
 
 // Which item is current, and where each item goes, for a page inside the site.
@@ -57,12 +59,14 @@ export function appBarItems(rootUrl, pageUrl, section) {
   if (onRoot) current = section ?? (page.hash === '#learn' ? 'learn' : page.hash === '#browse' ? 'browse' : 'home');
   else if (LEARN_PAGES.some((p) => inside.startsWith(p))) current = 'learn';
   else if (GUIDE_PAGES.some((p) => inside.startsWith(p))) current = 'guide';
+  else if (inside.startsWith('settings/')) current = 'settings';
   const href = (rest) => new URL(rest, root).href;
   return [
     { id: 'home', href: href('./'), current: current === 'home' },
     { id: 'learn', href: href('./#learn'), current: current === 'learn' },
     { id: 'guide', href: href('./guide/'), current: current === 'guide' },
     { id: 'browse', href: href('./#browse'), current: current === 'browse' },
+    { id: 'settings', href: href('./settings/'), current: current === 'settings' },
   ];
 }
 
