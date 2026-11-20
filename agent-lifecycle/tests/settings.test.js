@@ -90,6 +90,7 @@ test('a backup holds exactly the seven Queuecraft keys that are set', () => {
   assert.deepEqual(Object.keys(b.data), BACKUP_KEYS);
   assert.equal(b.data['other-site:key'], undefined);
   assert.deepEqual(makeBackup(fakeStorage(), '2026-11-20').data, {});
+  assert.ok(!BACKUP_KEYS.includes('queuecraft:tour'), 'the tutorial is not progress');
 });
 
 test('reading a backup accepts Queuecraft files only', () => {
@@ -279,4 +280,15 @@ test('choice rows work like radio groups: one Tab stop, arrows move and pick', (
 test('the footer shows the build next to the version when it is known', () => {
   assert.ok(page(fakeStorage(), 'ko', { build: '946492ed754b' }).root.querySelector('[data-footer]').textContent.includes(`Queuecraft v${APP_VERSION} (946492ed)`));
   assert.ok(page(fakeStorage(), 'ko', { build: null }).root.querySelector('[data-footer]').textContent.startsWith(`Queuecraft v${APP_VERSION} · `));
+});
+
+test('the settings page offers to replay the tutorial', async () => {
+  const { TOUR_UI } = await import('../../shared/tour-data.js');
+  for (const lang of ['ko', 'en']) {
+    const { root } = page(fakeStorage(), lang);
+    const a = root.querySelector('a[data-tour-replay]');
+    assert.ok(a);
+    assert.equal(a.getAttribute('href'), '../?tour=1');
+    assert.equal(a.textContent, TOUR_UI.replay[lang]);
+  }
 });

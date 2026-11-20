@@ -12,7 +12,7 @@ export const PRIVACY_TEXT = {
   "s1.body": { ko: "큐크래프트는 이름, 이메일, 전화번호, 위치 같은 개인정보를 받지 않습니다. 회원가입과 로그인이 없고, 광고나 이용 분석 도구도 쓰지 않습니다.", en: "Queuecraft does not ask for personal information such as your name, email, phone number or location. There is no sign-up or login, and no advertising or usage analytics tools." },
   "s2.heading": { ko: "2. 기기에만 저장하는 정보", en: "2. Information kept only on your device" },
   "s2.body": { ko: "학습을 이어 갈 수 있도록 아래 내용을 사용하는 기기의 브라우저 저장공간에만 저장합니다. 이 정보는 어디로도 보내지 않으며 운영자도 볼 수 없습니다.", en: "So you can pick up where you left off, the items below are stored only in your browser's storage on the device you use. They are never sent anywhere, and the operator cannot see them." },
-  "s2.item1": { ko: "고른 언어, 직군, 화면 모드(밝게·어둡게)", en: "Your chosen language, job track and display mode (light or dark)" },
+  "s2.item1": { ko: "고른 언어, 직군, 화면 모드(밝게·어둡게), 튜토리얼을 봤는지 여부", en: "Your chosen language, job track, display mode (light or dark), and whether you've seen the tutorial" },
   "s2.item2": { ko: "레슨 진도 (라이프사이클, SOP, 엑셀)", en: "Lesson progress (Lifecycle, SOP, Excel)" },
   "s2.item3": { ko: "오늘의 연습 기록(연습한 날짜, 푼 문제와 카드)과 배지", en: "Today's Practice records (days practised, questions and cards) and badges" },
   "s2.item4": { ko: "오프라인에서 보기 위한 화면 파일", en: "Page files for offline use" },

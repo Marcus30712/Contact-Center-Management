@@ -1,0 +1,32 @@
+/* First-run tour: the page dims, one bottom-menu item stays bright, and
+   Miso's bubble sits just above it. */
+.tour {
+  position: fixed; inset: 0; z-index: 30;
+  background: rgba(15, 23, 42, 0.55);
+}
+.appbar.tour-on { z-index: 40; pointer-events: none; }
+.appbar.tour-on a { opacity: 0.35; }
+.appbar.tour-on a.tour-lit {
+  opacity: 1; color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent) inset;
+  background: var(--surface);
+}
+.tour-bubble {
+  position: fixed; z-index: 50;
+  width: min(280px, calc(100vw - 24px)); box-sizing: border-box;
+  display: grid; grid-template-columns: 48px 1fr; gap: 8px 12px; align-items: start;
+  padding: 14px; border-radius: 14px;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: left 0.2s ease;
+}
+.tour-face { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: top; background: var(--line); }
+.tour-text { margin: 0; line-height: 1.5; }
+.tour-actions { grid-column: 1 / -1; display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.tour-count { margin-right: auto; color: var(--muted); font-size: 0.85rem; }
+.tour-tail {
+  position: absolute; bottom: -7px; width: 12px; height: 12px; margin-left: -6px;
+  background: var(--surface); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  transform: rotate(45deg);
+}
+@media (prefers-reduced-motion: reduce) { .tour-bubble { transition: none; } }

@@ -50,10 +50,14 @@ def serve():
     return server, HUB + "agent-lifecycle/index.html"
 
 
-def new_page(browser, errors, width=390, height=780, locale="ko-KR", init=None, scheme="light"):
+TOUR_DONE = "try { localStorage.setItem('queuecraft:tour', 'done'); } catch (e) {}"
+
+
+# tour=True: start as a first-time visitor, so the home page shows the tutorial.
+# Every other check starts with it seen, so the tutorial never covers the page.
+def new_page(browser, errors, width=390, height=780, locale="ko-KR", init=None, scheme="light", tour=False):
     ctx = browser.new_context(viewport={"width": width, "height": height}, locale=locale, color_scheme=scheme)
-    if init:
-        ctx.add_init_script(init)
+    ctx.add_init_script(("" if tour else TOUR_DONE + "\n") + (init or ""))
     page = ctx.new_page()
     page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
     page.on("pageerror", lambda e: errors.append(str(e)))
@@ -916,6 +920,77 @@ def main():
             check(f"(v) {path} opens in Korean with storage blocked", page.inner_text("#app h1") == ko)
             page.click("[data-lang='en']")
             page.wait_for_function(f"document.querySelector('#app h1')?.textContent === '{en}'")
+        page.context.close()
+
+        # (w) first-run tutorial on the bottom menu
+        BUBBLE = """() => { const b = document.querySelector('[data-tour] [role=dialog]').getBoundingClientRect();
+            const nav = document.querySelector('nav.appbar').getBoundingClientRect();
+            return { left: b.left, right: b.right, bottom: b.bottom, navTop: nav.top, w: innerWidth,
+                     lit: document.querySelector('nav.appbar a.tour-lit')?.dataset.item }; }"""
+        for width in (320, 390, 1280):
+            page = new_page(browser, errors, width=width, height=780, tour=True)
+            page.goto(HUB)
+            page.wait_for_selector("[data-tour] [role=dialog]")
+            page.wait_for_timeout(300)
+            check(f"(w) {width}: tutorial starts at 1/5", page.inner_text("[data-tour-count]") == "1/5")
+            box = page.evaluate(BUBBLE)
+            check(f"(w) {width}: bubble on screen", box["left"] >= 0 and box["right"] <= box["w"], str(box))
+            check(f"(w) {width}: bubble above the menu", box["bottom"] <= box["navTop"], str(box))
+            check(f"(w) {width}: Home is lit", box["lit"] == "home", str(box))
+            check(f"(w) {width}: the page stays at the top", page.evaluate("scrollY") == 0, str(page.evaluate("scrollY")))
+            if width == 390:
+                page.screenshot(path=str(OUT / "tour-390.png"))
+                order = ["home"]
+                for _ in range(4):
+                    page.click("[data-tour-next]")
+                    page.wait_for_timeout(250)
+                    b = page.evaluate(BUBBLE)
+                    order.append(b["lit"])
+                    check(f"(w) 390: bubble on screen and above the menu at {b['lit']}", b["left"] >= 0 and b["right"] <= b["w"] and b["bottom"] <= b["navTop"], str(b))
+                check("(w) the five items in order", order == ["home", "learn", "guide", "browse", "settings"], str(order))
+                check("(w) last button says 시작하기", page.inner_text("[data-tour-next]") == "시작하기")
+                page.click("[data-tour-next]")
+                check("(w) Get started closes it", page.locator("[data-tour]").count() == 0)
+                check("(w) seen is remembered", page.evaluate("localStorage.getItem('queuecraft:tour')") == "done")
+                page.reload()
+                page.wait_for_selector("#app > *")
+                page.wait_for_timeout(400)
+                check("(w) not shown again after reload", page.locator("[data-tour]").count() == 0)
+                # Replay from Settings: shown again, and the address loses ?tour=1.
+                page.goto(HUB + "settings/")
+                page.click("[data-tour-replay]")
+                page.wait_for_selector("[data-tour] [role=dialog]")
+                check("(w) replay starts at 1/5", page.inner_text("[data-tour-count]") == "1/5")
+                check("(w) replay clears tour= from the address", "tour=" not in page.url, page.url)
+                page.click("[data-tour-skip]")
+                page.reload()
+                page.wait_for_selector("#app > *")
+                page.wait_for_timeout(400)
+                check("(w) not shown again after replay and reload", page.locator("[data-tour]").count() == 0)
+            page.context.close()
+        page = new_page(browser, errors, tour=True)
+        page.goto(HUB)
+        page.wait_for_selector("[data-tour] [role=dialog]")
+        page.mouse.click(200, 100)
+        page.keyboard.press("Shift+Tab")
+        check("(w) after a tap on the dimmed page, Tab stays in the bubble", page.evaluate("document.querySelector('[role=dialog]').contains(document.activeElement)"))
+        page.keyboard.press("Escape")
+        check("(w) Esc closes the tutorial", page.locator("[data-tour]").count() == 0)
+        page.context.close()
+        page = new_page(browser, errors, tour=True, init=BLOCK_STORAGE)
+        page.goto(HUB)
+        page.wait_for_selector("#app > *")
+        page.wait_for_timeout(500)
+        check("(w) storage blocked: the tutorial is not forced on every visit", page.locator("[data-tour]").count() == 0)
+        page.goto(HUB + "?tour=1")
+        page.wait_for_selector("[data-tour] [role=dialog]")
+        page.click("[data-tour-skip]")
+        check("(w) storage blocked: replay still opens and closes", page.locator("[data-tour]").count() == 0)
+        page.context.close()
+        page = new_page(browser, errors, tour=True, locale="en-US", init="try { localStorage.setItem('agent-lifecycle-course:lang', 'en'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("[data-tour] [role=dialog]")
+        check("(w) English tutorial", page.inner_text("[data-tour-skip]") == "Skip" and page.inner_text("[data-tour-next]") == "Next")
         page.context.close()
 
         browser.close()
