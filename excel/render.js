@@ -1,5 +1,6 @@
 // Miso's Excel practice: the lesson list and one lesson (explanation cards,
 // six questions, summary). Everything is tapped; nothing is typed.
+import { EXCEL_FEEDBACK, EXCEL_FEEDBACK_UI } from './feedback.js';
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { EXCEL_UI as UI, EXCEL_LESSONS, SHEETS } from './data.js';
@@ -230,10 +231,24 @@ export function renderExcel(root, lang, storage, route, view) {
     after = h('div', { 'data-after': true }, [v.pivot ? renderPivot(v.pivot) : renderSheet(SHEETS[lang], { rows: v.rows, highlight: v.highlight })]);
   }
 
+  // Why this answer falls short: a line per wrong pick, the result of a wrong
+  // formula that still calculates, or the cell that was picked.
+  let miss = null;
+  if (g && !g.correct) {
+    if (q.type === 'choice' || q.type === 'blank') {
+      const fb = EXCEL_FEEDBACK[q.id]?.[view.input.picked];
+      if (fb) miss = tr(fb);
+    } else if (q.type === 'build' && g.value !== undefined) {
+      miss = fill(tr(EXCEL_FEEDBACK_UI.builtResult), { v: show(g.value) });
+    } else if (q.type === 'cell' && typeof view.input.picked === 'string') {
+      miss = fill(tr(EXCEL_FEEDBACK_UI.pickedCell), { c: view.input.picked });
+    }
+  }
   const feedback = g ? h('section', { class: `ex-feedback ${g.correct ? 'is-correct' : 'is-wrong'}` }, [
     miso(g.correct ? 'joy' : 'worry', 64),
     h('div', { class: `explanation ${g.correct ? 'is-correct' : 'is-wrong'}`, 'data-explanation': true }, [
       h('strong', { text: `${tr(g.correct ? UI.correct : UI.wrong)} ` }),
+      ...(miss ? [h('span', { 'data-feedback': true, text: miss }), ' '] : []),
       document.createTextNode(tr(q.explanation)),
       g.correct && 'value' in g ? h('p', { 'data-result': true, text: fill(tr(UI.result), { v: show(g.value) }) }) : null,
       g.correct && g.cells?.length ? h('p', { class: 'ex-note', text: tr(UI.usedCells) }) : null,

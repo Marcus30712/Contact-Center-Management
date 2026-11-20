@@ -806,6 +806,9 @@ def main():
         page.click("[data-next-lesson]")
         page.wait_for_selector("[data-start]")
         page.click("[data-start]")
+        page.click("[data-option='1']")
+        check("(x2) a wrong Excel pick shows its own feedback", page.locator("[data-feedback]").inner_text().startswith("AVERAGE는 평균이라"))
+        page.click("[data-retry]")
         for _ in range(4):
             page.click("[data-option='0'], [data-chip='0']")
             page.click("[data-next]")
