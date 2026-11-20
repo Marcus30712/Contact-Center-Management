@@ -1,4 +1,4 @@
-// References page: what Miso Academy is built on and what it credits.
+// References page: what Queuecraft is built on and what it credits.
 import { loadLang, saveLang, t } from '../agent-lifecycle/js/engine/i18n.js';
 import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { h } from '../agent-lifecycle/js/render/dom.js';

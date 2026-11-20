@@ -4,7 +4,7 @@
 
 export const STAFFING_TEXT = {
   title: { ko: '인력 산정 실험실', en: 'Staffing Lab' },
-  back: { ko: 'Miso Academy', en: 'Miso Academy' },
+  back: { ko: 'Queuecraft', en: 'Queuecraft' },
   intro: {
     ko: '문의량, 처리 시간, 인원, Shrinkage를 움직여 보며 필요한 인원이 어떻게 정해지는지 익히는 연습 화면입니다.',
     en: 'A practice screen: move volume, handle time, headcount and Shrinkage to see how the staff you need is worked out.',
