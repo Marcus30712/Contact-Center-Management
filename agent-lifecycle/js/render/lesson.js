@@ -93,10 +93,14 @@ export function renderLesson(root, lesson, stepIndex, lang, {
     }
     explanation.hidden = false;
     explanation.className = correct ? 'explanation is-correct' : 'explanation is-wrong';
-    explanation.replaceChildren(
+    // A wrong choice first hears why that choice falls short, then the shared explanation.
+    const feedback = correct ? null : q.options.find((o) => o.id === optionId)?.feedback;
+    explanation.replaceChildren(...[
       h('strong', { text: `${tr(correct ? UI.correct : UI.incorrect)} ` }),
+      feedback ? h('span', { 'data-feedback': true, text: tr(feedback) }) : null,
+      feedback ? ' ' : null,
       document.createTextNode(tr(q.explanation)),
-    );
+    ].filter(Boolean)); // replaceChildren would write an empty part as "null".
     answers.set(q.id, optionId);
     if (answers.size === checkpoint.length) {
       connection.hidden = false;
