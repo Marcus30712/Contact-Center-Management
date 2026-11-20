@@ -1,0 +1,42 @@
+// Words on the practice page. Korean confirmed 2026-11-20 (spec §6);
+// tests check these against docs/superpowers/specs/2026-11-20-daily-practice-design.md.
+export const PRACTICE_UI = {
+  title: { ko: '오늘의 연습', en: 'Today\'s practice' },
+  intro: { ko: '마친 레슨에서 문제 3개를 골랐어요. 틈틈이 풀어 보세요.', en: 'Three questions from lessons you\'ve finished. Try them when you have a moment.' },
+  streak: { ko: '🔥 {n}일째', en: '🔥 Day {n}' },
+  streakPending: { ko: '오늘 하면 {n}일째', en: 'Practice today for day {n}' },
+  weekend: { ko: '주말은 쉬는 날이에요. 풀어도 좋지만 연속 일수에는 넣지 않아요.', en: 'Weekends are days off. You can still practice, but it won\'t add to your streak.' },
+  questionCount: { ko: '문제 {i} / {n}', en: 'Question {i} of {n}' },
+  correct: { ko: '맞아요!', en: 'That\'s right!' },
+  wrong: { ko: '아쉬워요. 해설을 보고 다음에 다시 만나요.', en: 'Not quite. Read the explanation, and we\'ll meet this one again.' },
+  reviewLesson: { ko: '레슨 다시 보기 →', en: 'Review the lesson →' },
+  next: { ko: '다음 문제 →', en: 'Next question →' },
+  doneTitle: { ko: '오늘 연습 끝!', en: 'Done for today!' },
+  doneLine: { ko: '내일도 3문제만 같이 해요.', en: 'Just three questions again tomorrow.' },
+  locked: { ko: '레슨 하나를 마치면 연습이 열려요.', en: 'Practice opens once you finish a lesson.' },
+  lockedLink: { ko: '라이프사이클 레슨 1 시작하기 →', en: 'Start Lifecycle lesson 1 →' },
+  cardsTitle: { ko: '용어 카드', en: 'Term cards' },
+  cardsToday: { ko: '오늘 {n}장', en: '{n} today' },
+  cardFlip: { ko: '눌러서 뜻 보기', en: 'Tap to see the meaning' },
+  cardKnow: { ko: '알아요', en: 'I know it' },
+  cardAgain: { ko: '다시 볼래요', en: 'Show me again' },
+  cardsDone: { ko: '오늘 카드 끝!', en: 'That\'s all the cards for today!' },
+  badgesTitle: { ko: '배지', en: 'Badges' },
+  badgeNew: { ko: '새 배지: {name}', en: 'New badge: {name}' },
+  homeCard: { ko: '오늘의 연습', en: 'Today\'s practice' },
+  homeToday: { ko: '오늘 {x}/{n}', en: 'Today {x}/{n}' },
+  homeDone: { ko: '오늘 연습 완료', en: 'Today\'s practice done' },
+  homeLocked: { ko: '레슨 하나를 마치면 열려요', en: 'Opens once you finish a lesson' },
+};
+
+export const BADGES = [
+  { id: 'first', name: { ko: '첫걸음', en: 'First step' }, rule: { ko: '오늘의 문제를 처음 다 풂 (주말 포함)', en: 'Finish today\'s questions for the first time (weekends count)' } },
+  { id: 'streak3', name: { ko: '3일 연속', en: '3-day streak' }, rule: { ko: '평일 연속 3일', en: '3 weekdays in a row' } },
+  { id: 'week', name: { ko: '일주일 연속', en: 'Week streak' }, rule: { ko: '평일 연속 5일', en: '5 weekdays in a row' } },
+  { id: 'month', name: { ko: '한 달 연속', en: 'Month streak' }, rule: { ko: '평일 연속 20일', en: '20 weekdays in a row' } },
+  { id: 'perfect', name: { ko: '만점', en: 'Perfect score' }, rule: { ko: '그날 문제를 모두 맞힘 (문제가 3개 미만인 날은 제외)', en: 'Get all of a day\'s questions right (days with fewer than 3 questions don\'t count)' } },
+  { id: 'comeback', name: { ko: '다시 잡기', en: 'Comeback' }, rule: { ko: '전에 틀린 문제를 다시 맞힘', en: 'Get a question right that you missed before' } },
+  { id: 'terms', name: { ko: '용어 박사', en: 'Term expert' }, rule: { ko: '열린 용어 카드가 10장 이상이고 모두 "알아요"', en: '10 or more term cards open, all marked "I know it"' } },
+  { id: 'lifecycle', name: { ko: '라이프사이클 완주', en: 'Lifecycle finished' }, rule: { ko: '라이프사이클 6개 레슨을 모두 마침', en: 'Finish all 6 Lifecycle lessons' } },
+  { id: 'sop', name: { ko: 'SOP 완주', en: 'SOP Library finished' }, rule: { ko: 'SOP 7개 레슨을 모두 마침', en: 'Finish all 7 SOP lessons' } },
+];

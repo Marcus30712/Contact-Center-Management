@@ -71,7 +71,7 @@ test('the home screen greets with Miso and shows where to continue', () => {
   assert.ok(rows[1].textContent.includes('1/7'));
   assert.equal(root.querySelector('a.card[href="./guide/"]').closest('section')?.id ?? '', '');
   assert.ok(root.querySelector('#learn') && root.querySelector('#browse'));
-  assert.equal(root.querySelectorAll('a.card').length, 7);
+  assert.equal(root.querySelectorAll('a.card').length, 8, 'seven topics plus the practice card');
   assert.ok(root.querySelector('[data-install]').textContent.includes('홈 화면'));
 });
 
@@ -106,4 +106,37 @@ test('Miso images and app icons exist', () => {
   for (const f of ['icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png']) {
     assert.ok(existsSync(new URL(`../../icons/${f}`, import.meta.url)), f);
   }
+});
+
+test('the practice card sits under Miso and shows today', async () => {
+  const { PRACTICE_UI: P } = await import('../../practice/data.js');
+  const { loadState, saveState, pool, ensureToday, recordAnswer } = await import('../../practice/engine.js');
+  const FRI = '2026-11-20';
+  const locked = setupDom();
+  renderHome(locked.root, 'ko', fakeStorage(), FRI);
+  const card = locked.root.querySelector('a[data-practice]');
+  assert.equal(card.getAttribute('href'), './practice/');
+  assert.ok(card.textContent.includes(P.homeCard.ko) && card.textContent.includes(P.homeLocked.ko));
+  const kids = [...locked.root.children];
+  const at = (el) => kids.findIndex((k) => k === el || k.contains(el));
+  assert.ok(at(locked.root.querySelector('.hm-miso')) < at(card) && at(card) < at(locked.root.querySelector('a.card[href="./guide/"]')));
+
+  const s = fakeStorage();
+  s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding'] }));
+  let st = ensureToday(loadState(s), pool(s), FRI);
+  const k = st.today.ids[0];
+  st = recordAnswer(st, k, 'x', false, FRI).state;
+  saveState(s, st);
+  const mid = setupDom();
+  renderHome(mid.root, 'ko', s, FRI);
+  const midCard = mid.root.querySelector('a[data-practice]');
+  assert.ok(midCard.textContent.includes('오늘 1/3'));
+  assert.ok(midCard.textContent.includes('오늘 하면 1일째'));
+
+  for (const key of st.today.ids.slice(1)) st = recordAnswer(st, key, 'x', false, FRI).state;
+  saveState(s, st);
+  const done = setupDom();
+  renderHome(done.root, 'en', s, FRI);
+  const doneCard = done.root.querySelector('a[data-practice]');
+  assert.ok(doneCard.textContent.includes(P.homeDone.en) && doneCard.textContent.includes('🔥 Day 1'));
 });

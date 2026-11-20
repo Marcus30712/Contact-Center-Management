@@ -6,6 +6,8 @@ import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
 import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
+import { PRACTICE_UI as P } from '../practice/data.js';
+import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
 
 const COURSES = [
   { id: 'lifecycle', name: UI.lifecycle, lessons: LESSONS, key: 'agent-lifecycle-course:v1', path: './agent-lifecycle/' },
@@ -32,7 +34,27 @@ export function myLearning(storage) {
   return rows;
 }
 
-export function renderHome(root, lang, storage) {
+// The "today's practice" card: locked, today's progress, or done, with the streak.
+function practiceCard(tr, storage, today) {
+  const fill = (text, values) => text.replace(/\{(\w+)\}/g, (_, k) => values[k] ?? '');
+  const open = storage ? pool(storage) : [];
+  const parts = [h('strong', { text: tr(P.homeCard) })];
+  if (!open.length) {
+    parts.push(h('span', { text: tr(P.homeLocked) }));
+  } else {
+    const st = ensureToday(storage ? loadState(storage) : { days: [], today: null, questions: {}, cards: {}, badges: {} }, open, today, pool(storage, { allTracks: true }));
+    const run = streak(st.days, today);
+    const total = st.today?.date === today ? st.today.ids.length : Math.min(3, open.length);
+    const answered = st.today?.date === today ? Object.keys(st.today.answers).filter((k) => st.today.ids.includes(k)).length : 0;
+    const done = st.days.includes(today);
+    parts.push(h('span', { text: done ? tr(P.homeDone) : fill(tr(P.homeToday), { x: answered, n: total }) }));
+    const line = run.pending ? fill(tr(P.streakPending), { n: run.count + 1 }) : fill(tr(P.streak), { n: run.count });
+    parts.push(h('span', { class: 'hm-practice-streak', text: line }));
+  }
+  return h('a', { class: 'card hm-practice', href: './practice/', 'data-practice': true }, parts);
+}
+
+export function renderHome(root, lang, storage, today = localDate()) {
   const tr = (text) => t(text, lang).text;
   const learning = myLearning(storage);
   const cardEl = (c) => h('li', {}, [h('a', { class: 'card', href: c.href }, [h('strong', { text: tr(c.title) }), h('span', { text: tr(c.text) })])]);
@@ -75,6 +97,7 @@ export function renderHome(root, lang, storage) {
       learning.started ? h('ul', { class: 'hm-courses' }, learning.map(courseRow)) : null,
       note,
     ]),
+    h('div', { class: 'hm-cards' }, [practiceCard(tr, storage, today)]),
     h('ul', { class: 'hm-cards' }, [cardEl(GUIDE_CARD)]),
     h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, LEARN.map(cardEl))]),
     h('section', { id: 'browse' }, [h('h2', { text: tr(UI.browse) }), h('ul', { class: 'hm-cards' }, BROWSE.map(cardEl))]),

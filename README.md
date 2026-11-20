@@ -5,6 +5,7 @@
 | 주제 | 폴더 | 설명 |
 |---|---|---|
 | 팀장 상황별 길잡이 / Situation Guide | [`guide/`](guide/) | 상황 17개를 고르면 먼저 볼 강의·SOP·원페이저로 안내 (한국어/영어) |
+| 오늘의 연습 / Today's Practice | [`practice/`](practice/) | 마친 레슨에서 하루 3문제, 용어 카드, 평일 연속 학습과 배지 9개. 김미소가 표정으로 반응 (한국어/영어). 기록은 휴대폰에만 저장 |
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
 | SOP 라이브러리 / SOP Library | [`sop-library/`](sop-library/) | 팀장이 알아야 할 SOP 7개를 순서대로 배우는 강의 (한국어/영어) |
 | Codex 원페이저 / Codex One-Pagers | [`codex/`](codex/) | Codex의 네 장(운영 최적화 원칙, 5대 핵심팀, 커리어 매트릭스, 직무별 일일 업무)을 한 장씩, 누르면 자세히 (한국어/영어) |

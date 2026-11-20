@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'eabd86164653';
+const VERSION = 'ac282d989cbe';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -90,6 +90,13 @@ const PRECACHE = [
   "icons/icon-maskable-512.png",
   "index.html",
   "manifest.webmanifest",
+  "practice/",
+  "practice/app.js",
+  "practice/data.js",
+  "practice/engine.js",
+  "practice/index.html",
+  "practice/practice.css",
+  "practice/render.js",
   "references/",
   "references/index.html",
   "references/references.js",
