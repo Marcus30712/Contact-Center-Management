@@ -135,6 +135,11 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
       miso(right ? 'joy' : 'worry', 72),
       h('div', { class: `explanation ${right ? 'is-correct' : 'is-wrong'}`, 'data-explanation': true }, [
         h('strong', { text: `${tr(right ? UI.correct : UI.wrong)} ` }),
+        // A lifecycle option may say why that choice falls short.
+        ...(() => {
+          const fb = right ? null : q.options.find((o) => o.id === answers[shownKey])?.feedback;
+          return fb ? [h('span', { 'data-feedback': true, text: tr(fb) }), ' '] : [];
+        })(),
         document.createTextNode(tr(q.explanation)),
         right ? null : h('p', {}, [h('a', {
           'data-review': true, text: tr(UI.reviewLesson),

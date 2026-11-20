@@ -265,3 +265,19 @@ test('the new track questions are the approved wording, answers spread over a, b
   }
   assert.deepEqual([...answers].sort(), ['a', 'b', 'c']);
 });
+
+// ---------- 2026-11-20: feedback for each wrong option ----------
+test('every wrong option has its own approved one-sentence feedback; right answers have none', async () => {
+  const { readFileSync } = await import('node:fs');
+  const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-20-lifecycle-wrong-feedback.md', import.meta.url), 'utf8');
+  const rows = new Map([...doc.matchAll(/^\| ([a-z0-9-]+)\.([abc]) \| (.+?) \| (.+?) \|$/gm)].map(([, q, o, ko, en]) => [`${q}.${o}`, { ko, en }]));
+  assert.equal(rows.size, 60);
+  for (const q of LESSONS.flatMap((l) => l.checkpoint)) {
+    for (const o of q.options) {
+      if (o.id === q.answer) { assert.equal(o.feedback, undefined, `${q.id}.${o.id}`); continue; }
+      assert.deepEqual(o.feedback, rows.get(`${q.id}.${o.id}`), `${q.id}.${o.id}`);
+      assert.ok(!/[가-힣]/.test(o.feedback.en), `${q.id}.${o.id}`);
+      assert.equal((o.feedback.ko.match(/[.!?](\s|$)/g) ?? []).length, 1, `one sentence: ${q.id}.${o.id}`);
+    }
+  }
+});

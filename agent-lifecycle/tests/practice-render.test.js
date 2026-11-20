@@ -336,3 +336,12 @@ test('finishing after midnight opens the new day instead of yesterday\'s done sc
   assert.ok(root.querySelector('[data-count]').textContent.includes('문제 1 / 2'));
   assert.equal(loadState(s).today.date, '2026-11-23');
 });
+
+test('a wrong lifecycle answer in practice shows that option\'s feedback too', () => {
+  const s = store(['hiring']);
+  const { root } = page(s);
+  const q = current(root, s);
+  const wrong = q.options.find((o) => o.id !== q.answer);
+  click(root.querySelector(`[data-question] [data-option="${wrong.id}"]`));
+  assert.equal(root.querySelector('[data-explanation] [data-feedback]').textContent, wrong.feedback.ko);
+});

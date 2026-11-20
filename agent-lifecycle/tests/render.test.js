@@ -414,3 +414,21 @@ test('the completion card has Miso, proud, with one line of congratulations', ()
   assert.equal(card.querySelector('[data-miso-line]').textContent, '한 단계 마쳤어요. 오늘 배운 걸 팀에서 한 번 써 보세요.');
   assert.ok(UI.misoCheer.en && !/[가-힣]/.test(UI.misoCheer.en + UI.misoProudAlt.en));
 });
+
+test('a wrong answer shows that option\'s feedback before the shared explanation; a right one shows none', async () => {
+  const { LESSONS } = await import('../js/lessons/index.js');
+  const hiring = LESSONS.find((l) => l.id === 'hiring');
+  const { $ } = mountLesson(hiring, 99);
+  click($('[data-next]'));
+  const q = hiring.checkpoint[0];
+  click($(`[data-question="${q.id}"] [data-option="a"]`));
+  const box = $(`[data-question="${q.id}"] [data-explanation]`);
+  assert.equal(box.querySelector('[data-feedback]').textContent, q.options.find((o) => o.id === 'a').feedback.ko);
+  assert.ok(box.textContent.indexOf(q.options[0].feedback.ko) < box.textContent.indexOf(q.explanation.ko));
+  assert.ok(box.textContent.includes(q.explanation.ko));
+  click($(`[data-question="${q.id}"] [data-option="c"]`));
+  assert.equal(box.querySelector('[data-feedback]').textContent, q.options.find((o) => o.id === 'c').feedback.ko, 'switches with the choice');
+  click($(`[data-question="${q.id}"] [data-option="${q.answer}"]`));
+  assert.equal(box.querySelector('[data-feedback]'), null);
+  assert.ok(!/null/.test(box.textContent), 'no stray "null" when there is no feedback');
+});
