@@ -724,6 +724,17 @@ def main():
         check("(p4) 320px: no sideways scroll", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
         page.context.close()
 
+        EXCEL4 = "try { localStorage.setItem('excel-practice:v1', JSON.stringify({completed: ['4'], scores: {}})); } catch (e) {}"
+        for width in (320, 390):
+            page = new_page(browser, errors, width=width, init=EXCEL4)
+            page.goto(HUB + "practice/")
+            page.wait_for_selector("[data-question]")
+            check(f"(p5) {width}px: an Excel question shows the table", page.locator(".ex-sheet td[data-cell='C2']").count() == 1)
+            check(f"(p5) {width}px: no sideways scroll with the table", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
+            if width == 390:
+                page.screenshot(path=str(OUT / "practice-excel-390.png"), full_page=True)
+            page.context.close()
+
         # ---- Miso's Excel practice ----
         page = new_page(browser, errors)
         page.goto(HUB + "excel/")

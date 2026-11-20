@@ -225,3 +225,34 @@ test('course facts know when all 11 Excel lessons are done', async () => {
   s.setItem('excel-practice:v1', 'junk');
   assert.equal(courseFacts(s, empty(), []).excelDone, false);
 });
+
+test('finished Excel lessons add their choice and blank questions, shuffled and graded by id', async () => {
+  const { EXCEL_LESSONS } = await import('../../excel/data.js');
+  const s = store();
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '4'], scores: {} }));
+  const p = pool(s);
+  const keys = p.map((q) => q.key).sort();
+  assert.deepEqual(keys, ['excel:1-1', 'excel:1-2', 'excel:1-3', 'excel:1-4', 'excel:4-1', 'excel:4-2', 'excel:4-3', 'excel:4-4']);
+  const all = EXCEL_LESSONS.flatMap((l) => l.questions);
+  let answerFirst = 0;
+  for (const q of p) {
+    const src = all.find((x) => `excel:${x.id}` === q.key);
+    assert.equal(q.course, 'excel');
+    assert.equal(q.lessonId, src.id.split('-')[0]);
+    const right = q.options.find((o) => o.id === q.answer);
+    assert.deepEqual(right.text, (src.options ?? src.chips)[src.answer]);
+    if (q.options[0].id === q.answer) answerFirst += 1;
+    if (src.type === 'blank') assert.deepEqual(q.template, src.template);
+    else assert.equal(q.template, undefined);
+  }
+  assert.ok(answerFirst < p.length, 'the answer is not always shown first');
+  s.setItem('excel-practice:v1', 'junk');
+  assert.equal(pool(s).filter((q) => q.course === 'excel').length, 0);
+});
+
+test('finishing an Excel lesson also counts as "any lesson" for the unlinked terms', () => {
+  const s = store();
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1'], scores: {} }));
+  const terms = openTerms(s);
+  assert.ok(terms.length >= 17 && terms.every((t) => t.seen.length === 0));
+});

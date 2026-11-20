@@ -1,6 +1,8 @@
 // Today's practice page: up to three questions from finished lessons, term
 // cards, the weekday streak and the badge shelf, with Miso reacting.
 import { h } from '../agent-lifecycle/js/render/dom.js';
+import { renderSheet } from '../excel/sheet.js';
+import { SHEETS } from '../excel/data.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { PRACTICE_UI as UI, BADGES } from './data.js';
 import {
@@ -136,7 +138,7 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
         document.createTextNode(tr(q.explanation)),
         right ? null : h('p', {}, [h('a', {
           'data-review': true, text: tr(UI.reviewLesson),
-          href: `${q.course === 'sop' ? '../sop-library/' : '../agent-lifecycle/'}#${q.lessonId}-0`,
+          href: q.course === 'excel' ? `../excel/#lesson-${q.lessonId}` : `${q.course === 'sop' ? '../sop-library/' : '../agent-lifecycle/'}#${q.lessonId}-0`,
         })]),
       ]),
     ]) : null;
@@ -148,6 +150,10 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
       index === 0 && !answered ? h('p', { class: 'tagline', text: tr(UI.intro) }) : null,
       h('div', { class: 'question', 'data-question': shownKey }, [
         h('p', { class: 'prompt', id: 'pr-q', text: tr(q.prompt) }),
+        // Excel questions are read against Miso's example table; a blank's
+        // formula line sits right above its options, as in the Excel lesson.
+        q.course === 'excel' ? renderSheet(SHEETS[lang]) : null,
+        q.template ? h('p', { class: 'ex-template', 'data-template': true, text: tr(q.template) }) : null,
         h('div', { class: 'options' }, buttons),
       ]),
       feedback,
