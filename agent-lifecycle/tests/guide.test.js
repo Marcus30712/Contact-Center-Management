@@ -53,6 +53,7 @@ test('screen wording is the confirmed wording', () => {
   assert.equal(GUIDE_UI.intro.ko, field('안내'));
   assert.deepEqual([GUIDE_UI.all.ko, ...GROUPS.map((g) => g.chip.ko)].join(' / '), field('칩'));
   assert.equal(`${GUIDE_UI.first.ko} / ${GUIDE_UI.then.ko}`, field('링크 묶음 이름'));
+  assert.equal(GUIDE_UI.shown.ko, field('고른 묶음 알림'));
 });
 
 test('every link goes to a place that exists', () => {
@@ -165,4 +166,28 @@ test('each link reads its kind and its title as two parts', () => {
   const title = link.querySelector('strong').textContent;
   assert.equal(link.textContent, `${kind}: ${title}`);
   assert.ok(link.querySelector('.visually-hidden'), 'the colon is for screen readers only');
+});
+
+test('choosing a chip tells screen readers the group and how many situations it shows', () => {
+  const { $ } = mount();
+  const status = document.querySelector('[data-status]');
+  assert.ok(status, 'one status line exists');
+  assert.equal(status.getAttribute('role'), 'status');
+  assert.equal(status.textContent, '', 'nothing is read out when the page opens');
+  $('[data-tab="customer"]').click();
+  assert.equal(document.querySelector('[data-status]'), status, 'the same line is reused');
+  assert.equal(status.textContent, '고객·문의: 상황 3개');
+  $('[data-tab="all"]').click();
+  assert.equal(status.textContent, '전체: 상황 17개');
+});
+
+test('the read-out line is cleared when the language changes', () => {
+  const state = newGuideState();
+  const ko = mount('ko', state);
+  ko.$('[data-tab="member"]').click();
+  assert.equal(document.querySelector('[data-status]').textContent, '팀원 한 명: 상황 5개');
+  renderGuide(ko.root, 'en', state);
+  assert.equal(document.querySelector('[data-status]').textContent, '');
+  ko.root.querySelector('[data-tab="member"]').click();
+  assert.ok(!/[가-힣]/.test(document.querySelector('[data-status]').textContent));
 });

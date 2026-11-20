@@ -25,6 +25,10 @@ export const GUIDE_UI = {
   "chips": {
     "ko": "묶음 고르기",
     "en": "Choose a group"
+  },
+  "shown": {
+    "ko": "{group}: 상황 {n}개",
+    "en": "{group}: {n} situations"
   }
 };
 
