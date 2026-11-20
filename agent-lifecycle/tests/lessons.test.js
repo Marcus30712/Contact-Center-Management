@@ -135,8 +135,8 @@ test('Jimin ends in QA on both tracks', () => {
   }
 });
 
-test('every lesson shows two questions per track', () => {
-  for (const l of LESSONS) for (const track of ['general', 'tech']) assert.equal(visibleQuestions(l, track).length, 2, `${l.id} ${track}`);
+test('every lesson shows three questions per track (common + two)', () => {
+  for (const l of LESSONS) for (const track of ['general', 'tech']) assert.equal(visibleQuestions(l, track).length, 3, `${l.id} ${track}`);
 });
 
 // --- tracks and additions (English) ---
@@ -236,4 +236,32 @@ test('lesson 2 hands over to OJT and nesting; lesson 3 subtitle speaks of inquir
   assert.ok(byId('onboarding').connection.text.en.includes('OJT and nesting'));
   assert.equal(byId('nesting').subtitle.ko, '처음 실제 문의를 받는 적응기. 가장 많이 떠나는 시기입니다.');
   assert.ok(byId('nesting').subtitle.en.includes('real contacts'));
+});
+
+// ---------- 2026-11-20: a second track question per stage ----------
+test('every lifecycle stage shows the common question plus two questions for each track', async () => {
+  const { visibleQuestions } = await import('../js/engine/track.js');
+  for (const l of LESSONS) {
+    for (const track of ['general', 'tech']) {
+      const ids = visibleQuestions(l, track).map((q) => q.id);
+      assert.deepEqual(ids, [`${l.id}-q1`, `${l.id}-${track}`, `${l.id}-${track}-2`], `${l.id} ${track}`);
+    }
+  }
+});
+
+test('the new track questions are the approved wording, answers spread over a, b and c', async () => {
+  const { readFileSync } = await import('node:fs');
+  const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-20-lifecycle-track-questions.md', import.meta.url), 'utf8');
+  const rows = [...doc.matchAll(/^\| ([a-z]+-(?:general|tech)-2)\.(prompt|a|b|c|answer|explanation) \| (.+?) \| (.+?) \|$/gm)]
+    .map(([, id, field, ko, en]) => ({ id, field, ko: ko.replace(/\\\|/g, '|'), en: en.replace(/\\\|/g, '|') }));
+  assert.equal(rows.length, 12 * 6);
+  const answers = new Set();
+  for (const { id, field, ko, en } of rows) {
+    const q = LESSONS.flatMap((l) => l.checkpoint).find((x) => x.id === id);
+    assert.ok(q, id);
+    if (field === 'answer') { assert.equal(q.answer, ko, id); answers.add(ko); continue; }
+    const text = field === 'prompt' ? q.prompt : field === 'explanation' ? q.explanation : q.options.find((o) => o.id === field).text;
+    assert.deepEqual(text, { ko, en }, `${id}.${field}`);
+  }
+  assert.deepEqual([...answers].sort(), ['a', 'b', 'c']);
 });

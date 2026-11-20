@@ -80,6 +80,26 @@ export default {
     ],
     answer: 'b',
     explanation: tx('넘기는 것은 실패가 아니라 정해진 절차입니다. 기준 없이 붙잡고 있으면 고객이 기다리는 시간만 길어집니다. 확인한 내용을 티켓에 남겨 넘기면 상위 단계가 처음부터 다시 묻지 않아도 됩니다.', 'Escalating is not a failure but a defined procedure. Holding on without criteria only lengthens the customer’s wait. If she documents what she checked in the ticket, the higher tier does not have to start the questions over.'),
+  }), trackQuestion('general', {
+    id: 'nesting-general-2',
+    prompt: tx('네스팅 둘째 주, 지민은 단순 조회와 안내 문의를 실수 없이 처리합니다. 다음은 어떻게 할까요?', 'In the second week of nesting, Jimin handles simple lookups and information requests without mistakes. What next?'),
+    options: [
+      option('a', tx('바로 모든 유형의 문의를 맡긴다.', 'Give her every type of inquiry at once.')),
+      option('b', tx('변경 문의부터 범위를 넓히고, 멘토가 계속 들으며 지원한다.', 'Widen her range starting with change requests, with a mentor still listening in to support her.')),
+      option('c', tx('실수가 없으니 지금 유형만 계속 맡긴다.', 'She makes no mistakes, so keep her on the same types.')),
+    ],
+    answer: 'b',
+    explanation: tx('일반 고객지원은 쉬운 유형부터 차례로 넓힙니다. 한 번에 모든 유형을 맡기면 막히는 순간이 몰립니다. 범위를 넓힐 때도 플로어 워킹 지원은 이어 갑니다.', 'General support widens from easy types in order. Handing over every type at once piles up the moments she gets stuck. Floor walking support continues as the range widens.'),
+  }), trackQuestion('tech', {
+    id: 'nesting-tech-2',
+    prompt: tx('기술지원 네스팅 중인 지민이 원인을 찾아보기도 전에 티켓을 곧바로 상위 단계로 넘기는 일이 잦습니다. 어떻게 할까요?', 'During tech support nesting, Jimin often passes tickets straight to a higher tier before looking for the cause. What do you do?'),
+    options: [
+      option('a', tx('넘기기 전에 해 볼 확인 단계와 넘기는 기준을 함께 다시 짚어 준다.', 'Go over with her the checks to try before passing a ticket on, and the criteria for passing it.')),
+      option('b', tx('넘기는 것을 금지하고 혼자 해결하게 한다.', 'Ban passing tickets on and make her solve them alone.')),
+      option('c', tx('신입이니 그대로 둔다.', 'She is new, so leave it.')),
+    ],
+    answer: 'a',
+    explanation: tx('너무 늦게 넘기는 것도, 너무 빨리 넘기는 것도 문제입니다. 1차 지원에서 할 수 있는 확인을 마치고 정해진 기준에 따라 넘기는 습관을 네스팅에서 들여야 상위 단계의 부담이 줄어듭니다.', 'Passing too late and passing too early are both problems. Building the habit in nesting of finishing the Tier 1 checks and escalating by the agreed criteria eases the load on higher tiers.'),
   })],
   connection: {
     to: 'coaching',

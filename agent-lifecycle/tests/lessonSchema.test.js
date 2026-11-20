@@ -170,9 +170,11 @@ test('too few steps on one track is reported for that track', () => {
   assert.ok(!errors.some((e) => e.includes('steps') && e.includes('tech')));
 });
 
-test('at most two questions are visible on a track', () => {
+test('at most three questions are visible on a track (common + two)', () => {
   const l = makeTrackLesson();
   l.checkpoint.push({ ...structuredClone(l.checkpoint[1]), id: 'qg2' });
+  assert.ok(!validateLesson(l).some((e) => e.includes('checkpoint') && e.includes('general')), 'three is fine');
+  l.checkpoint.push({ ...structuredClone(l.checkpoint[1]), id: 'qg3' });
   const errors = validateLesson(l);
   assert.ok(errors.some((e) => e.includes('checkpoint') && e.includes('general')));
 });

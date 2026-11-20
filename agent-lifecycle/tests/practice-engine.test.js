@@ -35,17 +35,17 @@ const answerAll = (state, p, date, right = true) => {
 
 test('pool: only finished lessons, current track, keys prefixed by course', () => {
   const tech = pool(store({ life: ['hiring'], track: 'tech' }));
-  assert.deepEqual(tech.map((q) => q.key).sort(), ['lifecycle:hiring-q1', 'lifecycle:hiring-tech']);
+  assert.deepEqual(tech.map((q) => q.key).sort(), ['lifecycle:hiring-q1', 'lifecycle:hiring-tech', 'lifecycle:hiring-tech-2']);
   assert.ok(tech.every((q) => q.course === 'lifecycle' && q.lessonId === 'hiring' && q.lessonOrder === 1));
   const general = pool(store({ life: ['hiring'] }));
-  assert.deepEqual(general.map((q) => q.key).sort(), ['lifecycle:hiring-general', 'lifecycle:hiring-q1']);
+  assert.deepEqual(general.map((q) => q.key).sort(), ['lifecycle:hiring-general', 'lifecycle:hiring-general-2', 'lifecycle:hiring-q1']);
   const both = pool(store({ life: ['coaching'], sop: ['coaching'] }));
   const keys = both.map((q) => q.key);
   assert.equal(new Set(keys).size, keys.length);
   assert.ok(keys.includes('lifecycle:coaching-q1') && keys.includes('sop:coaching-q1') && keys.includes('sop:coaching-q2'));
   assert.equal(pool(store()).length, 0);
   assert.equal(pool(throwingStorage).length, 0);
-  assert.equal(pool(store({ life: ALL_LIFE, sop: ALL_SOP })).length, 26);
+  assert.equal(pool(store({ life: ALL_LIFE, sop: ALL_SOP })).length, 32, '6 lessons x 3 on one track + 7 SOP x 2');
 });
 
 test('ensureToday picks once a day: missed first, then unseen, then oldest', () => {
@@ -69,7 +69,8 @@ test('ensureToday picks once a day: missed first, then unseen, then oldest', () 
 });
 
 test('ensureToday with 2 open questions picks 2, and none when nothing is open', () => {
-  const p = pool(store({ life: ['hiring'] }));
+  // One SOP lesson has two questions.
+  const p = pool(store({ sop: ['pip'] }));
   assert.equal(ensureToday(empty(), p, '2026-11-20').today.ids.length, 2);
   assert.equal(ensureToday(empty(), [], '2026-11-20').today, null);
 });
@@ -138,7 +139,7 @@ test('badges: each of the ten, never twice', () => {
     assert.ok(!checkBadges(before, ctx(before.days)).includes(id), `${id} not early`);
   }
   // perfect needs three questions
-  const two = answerAll(empty(), pool(store({ life: ['hiring'] })), '2026-11-16');
+  const two = answerAll(empty(), pool(store({ sop: ['pip'] })), '2026-11-16');
   assert.ok(!two.badges.includes('perfect'));
   // terms, lifecycle, sop
   assert.ok(checkBadges(empty(), { today: '2026-11-20', openTermCount: 10, allTermsKnown: true }).includes('terms'));

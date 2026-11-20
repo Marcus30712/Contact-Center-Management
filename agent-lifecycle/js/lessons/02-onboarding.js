@@ -81,6 +81,26 @@ export default {
     ],
     answer: 'b',
     explanation: tx('기술지원의 티켓은 다른 채널이나 상위 단계로 넘어갈 수 있습니다. 기록이 부실하면 다음 담당자가 고객에게 같은 질문을 다시 하게 됩니다. 기록도 교육에서 익혀야 할 스킬입니다.', 'A tech support ticket can move to another channel or to a higher tier. With thin notes, the next owner has to ask the customer the same questions again. Documentation is a skill to learn in training too.'),
+  }), trackQuestion('general', {
+    id: 'onboarding-general-2',
+    prompt: tx('일반 고객지원 스킬 검증의 모의 콜에서 지민은 자주 들어오는 문의는 잘 처리했지만, 드문 정책 문의에서 틀리게 안내했습니다. 어떻게 할까요?', 'In the general support skills verification mock call, Jimin handles the common inquiries well but gives wrong information on a rarer policy question. What do you do?'),
+    options: [
+      option('a', tx('대부분 맞았으니 합격시키고 실전에서 배우게 한다.', 'Pass her since she got most of it right, and let her learn on the job.')),
+      option('b', tx('바로 탈락시킨다.', 'Fail her on the spot.')),
+      option('c', tx('틀린 부분을 보충 교육한 뒤 그 유형으로 다시 평가한다.', 'Give extra training on what was wrong, then reassess her on that type.')),
+    ],
+    answer: 'c',
+    explanation: tx('스킬 검증은 탈락시키려는 자리가 아니라, 실전에 나갈 준비가 됐는지 확인하는 자리입니다. 일반 고객지원은 정책 범위가 넓어서, 틀린 안내가 그대로 고객 불만으로 이어집니다.', 'Skills verification is not there to weed people out; it confirms readiness for real customers. General support covers a wide range of policy, so wrong information turns straight into customer complaints.'),
+  }), trackQuestion('tech', {
+    id: 'onboarding-tech-2',
+    prompt: tx('기술지원 교육 막바지에 제품 업데이트가 나와 교육 자료 일부가 맞지 않게 됐습니다. 어떻게 할까요?', 'Near the end of tech support training, a product update makes part of the training material out of date. What do you do?'),
+    options: [
+      option('a', tx('이미 배운 내용이니 실전에서 알아서 익히게 한다.', 'The trainees have learned it already, so let them pick it up on the job.')),
+      option('b', tx('바뀐 부분을 지식 자료에서 찾아 확인하는 법을 함께 익히게 한다.', 'Have the trainees practice finding and checking the changed parts in the knowledge base.')),
+      option('c', tx('업데이트가 안정될 때까지 교육을 멈춘다.', 'Pause training until the update settles.')),
+    ],
+    answer: 'b',
+    explanation: tx('기술지원은 제품이 바뀌면 알아야 할 내용도 바뀝니다. 모든 내용을 외우게 하기보다, 지식 자료를 찾아 확인하는 습관을 교육 단계에서 길러 줍니다.', 'In tech support, when the product changes, what agents need to know changes too. Rather than memorizing everything, build the habit of looking things up in the knowledge base during training.'),
   })],
   connection: {
     to: 'nesting',

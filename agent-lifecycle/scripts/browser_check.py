@@ -97,12 +97,14 @@ def main():
         for _ in range(STEPS["general"]["hiring"]):
             page.click("[data-next]")
         check("(i) checkpoint opens after last step", page.is_visible("[data-view='checkpoint']"))
-        check("(i) two questions on the general track", page.locator("[data-question]").count() == 2)
+        check("(i) three questions on the general track", page.locator("[data-question]").count() == 3)
         page.click("[data-question='hiring-q1'] [data-option='a']")
         page.click("[data-question='hiring-q1'] [data-option='b']")
         check("(i) one explanation per answered question", page.locator("[data-explanation]:visible").count() == 1)
         check("(i) connection waits for every question", not page.is_visible("[data-connection]"))
         page.click("[data-question='hiring-general'] [data-option='b']")
+        check("(i) connection still waits for the third question", not page.is_visible("[data-connection]"))
+        page.click("[data-question='hiring-general-2'] [data-option='c']")
         check("(i) connection card shown", page.is_visible("[data-connection]"))
         page.click("[data-lang='en']")
         page.wait_for_function("document.querySelector('[data-back]')?.textContent.includes('Back')")
@@ -175,6 +177,7 @@ def main():
         check("(n) checkpoint stays open after a track switch", page.is_visible("[data-view='checkpoint']"))
         check("(n) answers cleared after a track switch", page.locator(".option.is-correct").count() == 0)
         check("(n) old track question gone", page.locator("[data-question='nesting-general']").count() == 0)
+        check("(n) both old track questions gone, both new ones shown", page.locator("[data-question='nesting-general-2']").count() == 0 and page.locator("[data-question='nesting-tech']").count() == 1 and page.locator("[data-question='nesting-tech-2']").count() == 1)
         page.click("[data-track='general']")
         page.context.close()
 

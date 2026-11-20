@@ -75,6 +75,26 @@ export default {
     ],
     answer: 'b',
     explanation: tx('기술지원에서는 답을 아는지보다 원인을 좁혀 가는 과정이 중요합니다. 추측으로 건너뛰면 같은 티켓이 다시 열립니다. 지민이 고객이 알아들을 수 있는 말로 묻고 설명하는지도 함께 봅니다.', 'In tech support, the process of narrowing down the cause matters more than knowing the answer. Skip ahead on a guess and the same ticket gets reopened. You also watch whether Jimin asks and explains in words the customer can follow.'),
+  }), trackQuestion('general', {
+    id: 'hiring-general-2',
+    prompt: tx('일반 고객지원 면접에서 두 지원자가 남았습니다. A는 타자가 매우 빠르지만 질문에 짧게만 답하고, B는 타자는 보통이지만 고객의 말을 되짚으며 대화를 이어 갑니다. 누구를 더 높게 볼까요?', 'In a general support interview, two candidates are left. A types very fast but gives only short answers; B types at an ordinary pace but reflects back what the customer says and keeps the conversation going. Who do you rate higher?'),
+    options: [
+      option('a', tx('A — 빠른 입력이 처리 시간을 줄인다.', 'A — fast entry cuts handle time.')),
+      option('b', tx('둘 다 탈락시키고 다시 뽑는다.', 'Reject both and start again.')),
+      option('c', tx('B — 폭넓은 문의를 다루는 대화력과 공감은 가르치기 어렵다.', 'B — conversational range and empathy across many inquiries are hard to teach.')),
+    ],
+    answer: 'c',
+    explanation: tx('일반 고객지원 채용은 대화력과 공감을 더 봅니다. 입력 속도는 온보딩에서 훈련할 수 있지만, 성향은 교육으로 바꾸기 어렵습니다.', 'General support hiring pays closer attention to conversational range and empathy. Typing speed can be trained in onboarding, but temperament is hard to change through training.'),
+  }), trackQuestion('tech', {
+    id: 'hiring-tech-2',
+    prompt: tx('기술지원 채용에서 채팅·이메일 응대 능력을 확인하려 합니다. 어떤 평가를 넣을까요?', 'In tech support hiring, you want to check how candidates handle chat and email. What assessment do you add?'),
+    options: [
+      option('a', tx('전화 모의 상담만으로 충분하다고 본다.', 'Treat a phone mock call as enough.')),
+      option('b', tx('고객에게 보낼 해결 안내 메일을 직접 쓰게 하고, 따라 하기 쉬운 말로 단계를 설명했는지 본다.', 'Have them write the solution email they would send a customer, and check whether the steps are explained in words that are easy to follow.')),
+      option('c', tx('기술 용어 시험 점수만 본다.', 'Look only at a technical vocabulary test score.')),
+    ],
+    answer: 'b',
+    explanation: tx('기술지원 문의는 글로도 들어옵니다. 원인과 해결 단계를 고객이 따라 할 수 있게 글로 쓰는지가 채용에서 확인할 부분입니다.', 'Tech support inquiries also arrive in writing. Hiring should check whether a candidate can write the cause and the fix so the customer can follow along.'),
   })],
   connection: {
     to: 'onboarding',
