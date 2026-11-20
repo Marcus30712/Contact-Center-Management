@@ -5,6 +5,7 @@ import { t, LANG_KEY } from '../agent-lifecycle/js/engine/i18n.js';
 import { SETTINGS_UI as UI, APP_VERSION } from './data.js';
 import { THEMES, loadTheme, saveTheme, applyTheme, makeBackup, readBackup, restoreBackup } from './engine.js';
 import { HOME_UI } from '../home/data.js';
+import { TOUR_UI } from '../shared/tour-data.js';
 import { PRIVACY_TEXT } from '../privacy/text.js';
 import { REFERENCES_TEXT } from '../references/text.js';
 
@@ -100,7 +101,10 @@ export function renderSettings(root, lang, storage, view, opts) {
       confirm,
       h('p', { class: 'st-offline', 'data-offline': true, text: tr(opts.offline ? UI.offlineReady : UI.offlineWait) }),
     ]),
-    section(UI.installHeading, [h('p', { 'data-install': true, text: tr(HOME_UI.install) })]),
+    section(UI.installHeading, [
+      h('p', { 'data-install': true, text: tr(HOME_UI.install) }),
+      h('div', { class: 'st-actions' }, [h('a', { class: 'btn', href: '../?tour=1', 'data-tour-replay': true, text: tr(TOUR_UI.replay) })]),
+    ]),
     h('p', { class: 'st-footer', 'data-footer': true }, [
       `Queuecraft v${APP_VERSION}${opts.build ? ` (${opts.build.slice(0, 8)})` : ''} · `,
       h('a', { href: '../privacy/', 'data-privacy': true, text: tr(PRIVACY_TEXT.link) }),

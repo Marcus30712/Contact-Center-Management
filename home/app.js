@@ -4,6 +4,7 @@ import { loadLang, saveLang, t } from '../agent-lifecycle/js/engine/i18n.js';
 import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { HOME_UI as UI } from './data.js';
 import { renderHome } from './render.js';
+import { whenAppBar, shouldStartTour, startTour } from '../shared/tour.js';
 
 function getStorage() {
   try {
@@ -32,6 +33,16 @@ function draw() {
 
 let day = new Date().toDateString();
 draw();
+// First visit (or "Replay the tutorial" in Settings): walk the bottom menu once.
+whenAppBar(document).then(() => {
+  if (!shouldStartTour(storage, location.href)) return;
+  const url = new URL(location.href);
+  if (url.searchParams.has('tour')) {
+    url.searchParams.delete('tour');
+    history.replaceState(history.state, '', url.href);
+  }
+  startTour(document, lang, storage);
+});
 // A home screen left open past midnight shows the new day's practice.
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden && new Date().toDateString() !== day) { day = new Date().toDateString(); draw(); }

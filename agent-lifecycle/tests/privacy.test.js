@@ -45,20 +45,20 @@ test('no personal contact details and no named law', () => {
 
 test('the stored items match the keys the app really keeps', () => {
   const sources = ['agent-lifecycle/js/engine/i18n.js', 'agent-lifecycle/js/engine/track.js', 'agent-lifecycle/js/engine/progress.js',
-    'sop-library/app.js', 'excel/engine.js', 'practice/engine.js'].map((p) => { try { return file(p); } catch { return ''; } }).join('\n');
-  for (const key of ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1']) {
+    'sop-library/app.js', 'excel/engine.js', 'practice/engine.js', 'shared/tour-data.js'].map((p) => { try { return file(p); } catch { return ''; } }).join('\n');
+  for (const key of ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'queuecraft:tour']) {
     assert.ok(sources.includes(key), key);
   }
 });
 
-test('nothing new is stored without updating the policy: seven setItem calls, no other storage', async () => {
+test('nothing new is stored without updating the policy: eight setItem calls, no other storage', async () => {
   const { execFileSync } = await import('node:child_process');
   const root = new URL('../../', import.meta.url).pathname;
   const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '*.js'], { cwd: root, encoding: 'utf8' }).split('\n')
     .filter((f) => f && !f.includes('tests/') && !f.includes('scripts/') && !f.startsWith('tools/') && !f.startsWith('docs/'));
   const all = files.map((f) => file(f)).join('\n');
-  // 5 + the display theme + restoring a backup (Settings).
-  assert.equal((all.match(/\.setItem\(/g) ?? []).length, 7, 'a new stored item needs a line in the privacy policy');
+  // 5 + the display theme + restoring a backup (Settings) + the first-run tour.
+  assert.equal((all.match(/\.setItem\(/g) ?? []).length, 8, 'a new stored item needs a line in the privacy policy');
   assert.ok(!/sessionStorage|indexedDB|document\.cookie|sendBeacon|XMLHttpRequest|WebSocket/.test(all));
 });
 

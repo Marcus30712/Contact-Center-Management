@@ -1,6 +1,6 @@
 # 개인정보처리방침 페이지 설계 (짧은 설계)
 
-작성일: 2026-11-20 · 한국어 문안 확정: 2026-11-20 (사용자 "확정"; 검토 뒤 s2.item3·s3·s5 수정 승인; 설정 추가로 s2.item1·s2.backup 수정 승인)
+작성일: 2026-11-20 · 한국어 문안 확정: 2026-11-20 (사용자 "확정"; 검토 뒤 s2.item3·s3·s5 수정 승인; 설정 추가로 s2.item1·s2.backup 수정 승인; 2026-11-21 튜토리얼 추가로 s2.item1 수정 승인)
 
 ## 1. 목적과 범위
 - 구글 플레이·앱스토어에 무료 앱으로 내기 위해, 공개 주소가 있는 개인정보처리방침이 필요하다.
@@ -30,7 +30,7 @@
 | s1.body | 큐크래프트는 이름, 이메일, 전화번호, 위치 같은 개인정보를 받지 않습니다. 회원가입과 로그인이 없고, 광고나 이용 분석 도구도 쓰지 않습니다. | Queuecraft does not ask for personal information such as your name, email, phone number or location. There is no sign-up or login, and no advertising or usage analytics tools. |
 | s2.heading | 2. 기기에만 저장하는 정보 | 2. Information kept only on your device |
 | s2.body | 학습을 이어 갈 수 있도록 아래 내용을 사용하는 기기의 브라우저 저장공간에만 저장합니다. 이 정보는 어디로도 보내지 않으며 운영자도 볼 수 없습니다. | So you can pick up where you left off, the items below are stored only in your browser's storage on the device you use. They are never sent anywhere, and the operator cannot see them. |
-| s2.item1 | 고른 언어, 직군, 화면 모드(밝게·어둡게) | Your chosen language, job track and display mode (light or dark) |
+| s2.item1 | 고른 언어, 직군, 화면 모드(밝게·어둡게), 튜토리얼을 봤는지 여부 | Your chosen language, job track, display mode (light or dark), and whether you've seen the tutorial |
 | s2.item2 | 레슨 진도 (라이프사이클, SOP, 엑셀) | Lesson progress (Lifecycle, SOP, Excel) |
 | s2.item3 | 오늘의 연습 기록(연습한 날짜, 푼 문제와 카드)과 배지 | Today's Practice records (days practised, questions and cards) and badges |
 | s2.item4 | 오프라인에서 보기 위한 화면 파일 | Page files for offline use |
