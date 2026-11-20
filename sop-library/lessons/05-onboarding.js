@@ -69,8 +69,8 @@ export default {
       prompt: tx('서아의 첫 2주 동안 팀장인 당신이 직접 맡는 일은 무엇일까요?', 'During Seoa\'s first two weeks, which work is yours as the team leader?'),
       options: [
         option('a', tx('버디를 지정해 팀에 소개하고, 1:1 미팅으로 첫 주의 어려움을 듣는다.', 'Assign a buddy, introduce her to the team, and hear what was hard in her first week in a one-on-one.')),
-        option('b', tx('근로 계약서를 작성하고 장비를 지급한다.', 'Complete the employment contract and hand over equipment.')),
-        option('c', tx('실전 투입을 위한 근무 스케줄을 배정한다.', 'Assign the work schedule for her first live contacts.')),
+        option('b', tx('근로 계약서를 작성하고 장비를 지급한다.', 'Complete the employment contract and hand over equipment.'), tx('근로 계약과 장비 지급은 HR이 맡는 일이라, 팀장이 붙잡으면 팀장만 할 수 있는 일이 비게 됩니다.', 'Contracts and equipment are HR’s job; if the team leader takes them on, the work only the team leader can do is left undone.')),
+        option('c', tx('실전 투입을 위한 근무 스케줄을 배정한다.', 'Assign the work schedule for her first live contacts.'), tx('근무 스케줄은 WFM이 맡고, 첫 2주의 서아에게 먼저 필요한 것은 팀에 속해 있다는 느낌입니다.', 'Schedules belong to WFM, and what Seoa needs first in her first two weeks is a sense that she belongs on the team.')),
       ],
       answer: 'a',
       explanation: tx('계약과 장비는 HR이, 스케줄은 WFM이 맡습니다. 팀장은 신규 입사자가 팀에 속해 있다고 느끼게 하는 일을 맡습니다.', 'HR handles the contract and equipment, and WFM handles the schedule. The team leader\'s part is making the new hire feel they belong to the team.'),
@@ -79,8 +79,8 @@ export default {
       id: 'onboarding-q2',
       prompt: tx('RACI에서 R은 누구일까요?', 'In RACI, who is the R?'),
       options: [
-        option('a', tx('일이 끝난 뒤 결과를 공유받는 사람.', 'The person told the result once the work is done.')),
-        option('b', tx('일을 시작하기 전에 협의하는 사람.', 'The person consulted before the work starts.')),
+        option('a', tx('일이 끝난 뒤 결과를 공유받는 사람.', 'The person told the result once the work is done.'), tx('결과를 공유받는 사람은 I(Informed)이며, 그 일을 직접 하지는 않습니다.', 'The person told about the result afterward is I (Informed), who does not do the work.')),
+        option('b', tx('일을 시작하기 전에 협의하는 사람.', 'The person consulted before the work starts.'), tx('시작 전에 협의하는 사람은 C(Consulted)이며, 의견을 주지만 실무를 맡지는 않습니다.', 'The person consulted beforehand is C (Consulted), who gives input but does not do the work.')),
         option('c', tx('그 일을 실제로 하는 실무 담당자.', 'The person who actually does the work.')),
       ],
       answer: 'c',

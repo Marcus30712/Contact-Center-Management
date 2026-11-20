@@ -57,8 +57,8 @@ export default {
       prompt: tx('채용 규모를 정하려면 무엇이 먼저 있어야 할까요?', 'What has to be in place before you can decide how many people to hire?'),
       options: [
         option('a', tx('초기 인입량 예측과 필요한 인력(FTE) 규모 산정.', 'A forecast of the initial contact volume and the number of agents (FTE) needed.')),
-        option('b', tx('완성된 교육 커리큘럼.', 'A finished training curriculum.')),
-        option('c', tx('구축을 마친 상담 시스템.', 'A contact system that is fully built.')),
+        option('b', tx('완성된 교육 커리큘럼.', 'A finished training curriculum.'), tx('교육은 뽑은 사람을 가르치는 일이라, 몇 명이 필요한지 정해진 뒤에야 규모와 일정을 잡을 수 있습니다.', 'Training teaches the people you hire, so its size and schedule can only be set once you know how many people you need.')),
+        option('c', tx('구축을 마친 상담 시스템.', 'A contact system that is fully built.'), tx('상담 시스템을 다 갖춰도 필요한 인원을 모르면 몇 명을 뽑을지 정할 수 없습니다.', 'Even with the systems fully built, you cannot decide how many people to hire without knowing the staffing need.')),
       ],
       answer: 'a',
       explanation: tx('WFM이 인입량을 예측해 필요한 인력 규모를 산정해야, 그 숫자에 맞춰 채용 계획과 일정을 세울 수 있습니다.', 'WFM has to forecast the volume and work out the staff needed first. The hiring plan and timeline are then built to that number.'),
@@ -67,8 +67,8 @@ export default {
       id: 'launch-q2',
       prompt: tx('론칭 직후 팀장인 당신의 역할은 무엇일까요?', 'Right after go-live, what is your role as the team leader?'),
       options: [
-        option('a', tx('첫 달 성과 데이터가 나올 때까지 기다린다.', 'Wait until the first month\'s performance data comes in.')),
-        option('b', tx('클라이언트와의 비즈니스 리뷰 미팅을 주관한다.', 'Lead the business review meeting with the client.')),
+        option('a', tx('첫 달 성과 데이터가 나올 때까지 기다린다.', 'Wait until the first month\'s performance data comes in.'), tx('첫 달 데이터를 기다리는 동안, 현장에서 먼저 드러난 문제가 그대로 고객에게 전해집니다.', 'While you wait for first-month data, the problems that show up first on the floor go straight to customers.')),
+        option('b', tx('클라이언트와의 비즈니스 리뷰 미팅을 주관한다.', 'Lead the business review meeting with the client.'), tx('클라이언트 비즈니스 리뷰는 OM이 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다.', 'The client business review is the OM’s job; right after launch, the team leader belongs on the floor.')),
         option('c', tx('OM과 함께 초기 집중 관리 기간을 운영하며 현장을 밀착 지원한다.', 'Run the hyper-care period with the OM and support the floor closely.')),
       ],
       answer: 'c',

@@ -484,6 +484,7 @@ def main():
             check(f"(s1) {sop} connection waits for both answers", not page.is_visible("[data-connection]"))
             page.click(f"[data-question='{sop}-q2'] [data-option='{wrong2}']")
             check(f"(s1) {sop} wrong answer is marked", page.locator(f"[data-question='{sop}-q2'] .explanation.is-wrong").count() == 1)
+            check(f"(s1) {sop} wrong answer shows its own feedback", page.locator(f"[data-question='{sop}-q2'] [data-feedback]").count() == 1)
             page.click(f"[data-question='{sop}-q2'] [data-option='{right2}']")
             check(f"(s1) {sop} connection card shown", page.is_visible("[data-connection]"))
             page.click("[data-next-lesson]")

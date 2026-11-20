@@ -58,8 +58,8 @@ export default {
       id: 'incident-q1',
       prompt: tx('같은 불만이 반복되는 것을 알아차렸습니다. 당신이 가장 먼저 할 일은 무엇일까요?', 'You notice the same complaint coming back again and again. What do you do first?'),
       options: [
-        option('a', tx('원인을 직접 찾아낸 뒤에 보고한다.', 'Find the cause yourself, then report it.')),
-        option('b', tx('팀 상담사들에게 임시 답변을 만들어 나눠 준다.', 'Write a stopgap answer and hand it out to your agents.')),
+        option('a', tx('원인을 직접 찾아낸 뒤에 보고한다.', 'Find the cause yourself, then report it.'), tx('원인을 직접 찾는 동안 보고가 늦어지면, 그사이 같은 불만이 쌓이고 다른 팀은 움직이지 못합니다.', 'Delaying the report while you hunt for the cause lets the same complaints pile up while the other teams cannot move.')),
+        option('b', tx('팀 상담사들에게 임시 답변을 만들어 나눠 준다.', 'Write a stopgap answer and hand it out to your agents.'), tx('임시 답변은 원인 분석 뒤 T&D가 만드는 것이라, 지금 나눠 주면 팀마다 다른 안내가 나가 이슈가 커질 수 있습니다.', 'Interim answers are written by T&D after the cause is analyzed; handing out your own now sends different answers from different teams and can make the issue bigger.')),
         option('c', tx('즉시 AM이나 OM에게 구두와 메신저로 보고한다.', 'Report it to the AM or OM at once, verbally and by chat.')),
       ],
       answer: 'c',
@@ -70,8 +70,8 @@ export default {
       prompt: tx('이슈가 해결된 뒤 마지막으로 하는 일은 무엇일까요?', 'What is the last thing done after the issue is resolved?'),
       options: [
         option('a', tx('회고 미팅을 열고 SOP를 업데이트한다.', 'Hold a retrospective and update the SOP.')),
-        option('b', tx('대응에 참여한 인력을 원래대로 돌려보내고 마친다.', 'Send the people who helped back to their usual work and finish there.')),
-        option('c', tx('실수가 가장 많았던 팀을 찾는다.', 'Find the team that made the most mistakes.')),
+        option('b', tx('대응에 참여한 인력을 원래대로 돌려보내고 마친다.', 'Send the people who helped back to their usual work and finish there.'), tx('인력만 돌려보내고 마치면 이번에 배운 것이 남지 않아, 다음에도 같은 혼란을 겪습니다.', 'Just sending people back leaves nothing of what was learned, so the next incident brings the same confusion.')),
+        option('c', tx('실수가 가장 많았던 팀을 찾는다.', 'Find the team that made the most mistakes.'), tx('실수한 팀을 찾는 회고는 사람들이 문제를 숨기게 만들어, 다음 대응을 오히려 어렵게 합니다.', 'A review that hunts for the team at fault teaches people to hide problems, which makes the next response harder.')),
       ],
       answer: 'a',
       explanation: tx('잘된 점과 개선점을 함께 돌아보고 SOP에 반영해야 다음에 더 잘 대응할 수 있습니다.', 'Looking back together at what went well and what to improve, and writing it into the SOP, is what makes the next response better.'),
