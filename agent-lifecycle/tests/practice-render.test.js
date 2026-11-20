@@ -266,3 +266,72 @@ test('an Excel blank keeps its formula line right above the options, and a right
   }
   assert.ok(seenBlank);
 });
+
+test('the intro counts the questions actually picked today', () => {
+  const two = page(store(['hiring'])).root;
+  assert.ok(two.querySelector('[data-count]').textContent.includes('문제 1 / 2'));
+  assert.equal(two.querySelector('[data-intro]').textContent, '마친 레슨에서 문제 2개를 골랐어요. 틈틈이 풀어 보세요.');
+  const three = page(store()).root;
+  assert.equal(three.querySelector('[data-intro]').textContent, '마친 레슨에서 문제 3개를 골랐어요. 틈틈이 풀어 보세요.');
+});
+
+test('the last question\'s button finishes the practice; earlier ones go to the next question', () => {
+  const s = store(['hiring']);
+  const { root } = page(s);
+  click(root.querySelector('[data-question] [data-option]'));
+  assert.equal(root.querySelector('[data-next]').textContent, UI.next.ko);
+  click(root.querySelector('[data-next]'));
+  click(root.querySelector('[data-question] [data-option]'));
+  assert.equal(root.querySelector('[data-next]').textContent, UI.finish.ko);
+  click(root.querySelector('[data-next]'));
+  assert.ok(root.querySelector('[data-done]'));
+});
+
+test('in English the last button says Finish practice', () => {
+  const s = store(['hiring']);
+  const { root } = page(s, FRI, 'en');
+  click(root.querySelector('[data-question] [data-option]'));
+  click(root.querySelector('[data-next]'));
+  click(root.querySelector('[data-question] [data-option]'));
+  assert.equal(root.querySelector('[data-next]').textContent, 'Finish practice →');
+});
+
+test('on a one-question day the first button already finishes, and the intro says 1', () => {
+  const s = store(['hiring']);
+  const key = pool(s)[0].key;
+  s.setItem('kb-practice:v1', JSON.stringify({ today: { date: FRI, ids: [key], answers: {} } }));
+  for (const [lang, intro] of [['en', '1 for today'], ['ko', '문제 1개를']]) {
+    const { root } = page(s, FRI, lang);
+    assert.ok(root.querySelector('[data-intro]').textContent.includes(intro));
+    if (lang === 'ko') {
+      click(root.querySelector('[data-question] [data-option]'));
+      assert.equal(root.querySelector('[data-next]').textContent, '연습 마치기 →');
+    }
+  }
+});
+
+test('the done screen no longer promises three questions', () => {
+  const s = store(['hiring']);
+  const { root } = page(s);
+  for (let i = 0; i < 2; i += 1) {
+    click(root.querySelector('[data-question] [data-option]'));
+    click(root.querySelector('[data-next]'));
+  }
+  assert.ok(root.querySelector('[data-done]').textContent.includes('내일 또 같이 해요.'));
+});
+
+test('finishing after midnight opens the new day instead of yesterday\'s done screen', () => {
+  const s = store(['hiring']);
+  const { root } = setupDom();
+  const view = newPracticeView();
+  let now = FRI;
+  renderPractice(root, 'ko', s, FRI, view, { clock: () => now });
+  click(root.querySelector('[data-question] [data-option]'));
+  click(root.querySelector('[data-next]'));
+  click(root.querySelector('[data-question] [data-option]'));
+  now = '2026-11-23';
+  click(root.querySelector('[data-next]'));
+  assert.equal(root.querySelector('[data-done]'), null);
+  assert.ok(root.querySelector('[data-count]').textContent.includes('문제 1 / 2'));
+  assert.equal(loadState(s).today.date, '2026-11-23');
+});

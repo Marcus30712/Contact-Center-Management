@@ -2,7 +2,7 @@
 // tests check these against docs/superpowers/specs/2026-11-20-daily-practice-design.md.
 export const PRACTICE_UI = {
   title: { ko: '오늘의 연습', en: 'Today\'s practice' },
-  intro: { ko: '마친 레슨에서 문제 3개를 골랐어요. 틈틈이 풀어 보세요.', en: 'Three questions from lessons you\'ve finished. Try them when you have a moment.' },
+  intro: { ko: '마친 레슨에서 문제 {n}개를 골랐어요. 틈틈이 풀어 보세요.', en: '{n} for today from lessons you\'ve finished. Try them when you have a moment.' },
   streak: { ko: '🔥 {n}일째', en: '🔥 Day {n}' },
   streakPending: { ko: '오늘 하면 {n}일째', en: 'Practice today for day {n}' },
   weekend: { ko: '주말은 쉬는 날이에요. 풀어도 좋지만 연속 일수에는 넣지 않아요.', en: 'Weekends are days off. You can still practice, but it won\'t add to your streak.' },
@@ -11,8 +11,9 @@ export const PRACTICE_UI = {
   wrong: { ko: '아쉬워요. 해설을 보고 다음에 다시 만나요.', en: 'Not quite. Read the explanation, and we\'ll meet this one again.' },
   reviewLesson: { ko: '레슨 다시 보기 →', en: 'Review the lesson →' },
   next: { ko: '다음 문제 →', en: 'Next question →' },
+  finish: { ko: '연습 마치기 →', en: 'Finish practice →' },
   doneTitle: { ko: '오늘 연습 끝!', en: 'Done for today!' },
-  doneLine: { ko: '내일도 3문제만 같이 해요.', en: 'Just three questions again tomorrow.' },
+  doneLine: { ko: '내일 또 같이 해요.', en: 'See you again tomorrow.' },
   locked: { ko: '레슨 하나를 마치면 연습이 열려요.', en: 'Practice opens once you finish a lesson.' },
   lockedLink: { ko: '라이프사이클 레슨 1 시작하기 →', en: 'Start Lifecycle lesson 1 →' },
   cardsTitle: { ko: '용어 카드', en: 'Term cards' },

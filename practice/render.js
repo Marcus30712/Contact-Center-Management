@@ -147,7 +147,7 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
         answered ? null : miso('think', 56),
         h('p', { class: 'pr-count', 'data-count': true, text: fill(tr(UI.questionCount), { i: index + 1, n: ids.length }) }),
       ]),
-      index === 0 && !answered ? h('p', { class: 'tagline', text: tr(UI.intro) }) : null,
+      index === 0 && !answered ? h('p', { class: 'tagline', 'data-intro': true, text: fill(tr(UI.intro), { n: ids.length }) }) : null,
       h('div', { class: 'question', 'data-question': shownKey }, [
         h('p', { class: 'prompt', id: 'pr-q', text: tr(q.prompt) }),
         // Excel questions are read against Miso's example table; a blank's
@@ -157,7 +157,11 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
         h('div', { class: 'options' }, buttons),
       ]),
       feedback,
-      answered ? h('button', { type: 'button', class: 'btn primary', 'data-next': true, text: tr(UI.next), onclick: next }) : null,
+      // After the last open question the button leads to the done screen.
+      answered ? h('button', {
+        type: 'button', class: 'btn primary', 'data-next': true, onclick: next,
+        text: tr(ids.some((k) => !(k in answers)) ? UI.next : UI.finish),
+      }) : null,
     ]);
   }
 
@@ -174,6 +178,7 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
   }
 
   function next() {
+    if (dayMoved()) return;
     view.showing = null;
     view.status = '';
     redraw('[data-option], [data-done] h2');
