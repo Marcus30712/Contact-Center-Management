@@ -276,7 +276,7 @@
 - 오늘의 연습에서도 마친 레슨의 새 문제가 함께 나옵니다.
 - 문구는 2026-11-20 승인. 설계: `docs/superpowers/specs/2026-11-20-lifecycle-track-questions.md`.
 
-### 30. 참고 자료에서 Learning-SQL 표기 삭제 — 상태: 검토 중
+### 30. 참고 자료에서 Learning-SQL 표기 삭제 — 상태: 반영됨 (PR #43)
 
 - 참고 자료 "안내" 칸과 README에서 "Fullcharge13/Learning-SQL을 참고했다"는 문장을 지웠습니다. 그 저장소는 운영자(Marcus Shim)가 직접 만든 것이라 출처 표기가 필요하지 않습니다. 지난 설계 문서와 LOG 18의 기록은 그대로 둡니다.
 
