@@ -1,6 +1,6 @@
-# Contact Center Management Knowledge Base
+# Miso Academy (미소 아카데미)
 
-컨택센터 운영 관리를 주제별로 다루는 인터랙티브 학습 자료 모음입니다. 휴대폰 홈 화면에 추가하면 앱처럼 쓰고, 한 번 연 뒤에는 오프라인에서도 볼 수 있습니다. 선배 매니저 김미소가 첫 화면에서 내 학습을 이어 가도록 안내합니다.
+신입 팀장을 위한 컨택센터 운영 관리 학습 앱입니다. 컨택센터 운영 관리를 주제별로 다루는 인터랙티브 학습 자료 모음입니다. 휴대폰 홈 화면에 추가하면 앱처럼 쓰고, 한 번 연 뒤에는 오프라인에서도 볼 수 있습니다. 선배 매니저 김미소가 첫 화면에서 내 학습을 이어 가도록 안내합니다.
 
 | 주제 | 폴더 | 설명 |
 |---|---|---|
@@ -16,9 +16,19 @@
 
 - 첫 화면: `index.html` (김미소 인사, 내 학습, 배우기·찾아보기 카드). 모든 페이지 아래에 공통 메뉴(홈·배우기·길잡이·찾아보기)가 있습니다 (`shared/`)
 - 앱 설치·오프라인: `manifest.webmanifest`, `sw.js`. 화면 파일을 바꾸면 `python3 tools/sw_list.py`로 `sw.js`를 다시 만듭니다
-- 캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. 저장소의 MIT 라이선스를 따릅니다 (`assets/miso/`, 원본 `art/miso/`)
+- 캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. CC BY-NC-ND 4.0을 따릅니다 (`assets/miso/`, 원본 `art/miso/`)
 - 설계 문서와 계획: `docs/superpowers/`
 - 업데이트 내역: [`LOG.md`](LOG.md)
 - 새 주제는 폴더를 하나 추가하고 `home/data.js`의 목록에 카드 한 장을 더하면 됩니다.
 
 빌드가 필요 없는 정적 사이트입니다. GitHub Pages로 배포하려면 저장소 Settings → Pages에서 기본 브랜치의 루트 폴더(`/`)를 선택합니다.
+
+## 라이선스
+
+| 무엇 | 라이선스 | 파일 |
+|---|---|---|
+| 코드 (화면을 그리는 코드, 계산기, 테스트, 도구) | MIT | [`LICENSE`](LICENSE) |
+| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `practice/data.js`, `excel/data.js` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`), Codex PDF | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+
+- CC BY-NC-ND 4.0: 출처("Marcus Shim, Miso Academy")를 밝히고, 바꾸지 않고, 비상업적으로만 공유할 수 있습니다. 자세한 범위는 `LICENSE-CONTENT`에 있습니다.
+- 2026년 11월 20일 이전에 MIT로 공개된 판은 그대로 MIT입니다.

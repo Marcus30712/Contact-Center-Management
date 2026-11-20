@@ -5,10 +5,10 @@ export const CODEX_PDF = './BPO_Contact_Center_Operation_Codex_2.0.pdf';
 export const REFERENCES_TEXT = {
   title: { ko: '참고 자료', en: 'References' },
   intro: {
-    ko: '이 Knowledge Base가 무엇을 바탕으로 만들어졌는지 밝힙니다.',
-    en: 'What this Knowledge Base is built on.',
+    ko: '미소 아카데미가 무엇을 바탕으로 만들어졌는지 밝힙니다.',
+    en: 'What Miso Academy is built on.',
   },
-  back: { ko: 'Knowledge Base', en: 'Knowledge Base' },
+  back: { ko: 'Miso Academy', en: 'Miso Academy' },
   basisHeading: { ko: '바탕 자료', en: 'Foundation' },
   codex: {
     ko: 'BPO Contact Center Operation Codex 2.0 — BPO 고객센터 운영의 원칙, 관리 프로토콜, 성장 로드맵, 팀별 청사진, 표준 운영 절차(SOP)를 정리한 운영 지침서. 작성: Marcus Shim.',
@@ -24,19 +24,19 @@ export const REFERENCES_TEXT = {
   labLink: { ko: '인력 산정 실험실 열기', en: 'Open the Staffing Lab' },
   noteHeading: { ko: '안내', en: 'Note' },
   countryNote: {
-    ko: '법과 제도는 국가마다 다를 수 있습니다. 이 Knowledge Base의 내용은 일반적인 운영 원칙이며, 실제 적용 전에 해당 국가와 조직의 규정을 확인하세요.',
-    en: 'Laws and regulations differ from country to country. This Knowledge Base describes general operating principles; check the rules of your own country and organization before applying them.',
+    ko: '법과 제도는 국가마다 다를 수 있습니다. 미소 아카데미의 내용은 일반적인 운영 원칙이며, 실제 적용 전에 해당 국가와 조직의 규정을 확인하세요.',
+    en: 'Laws and regulations differ from country to country. Miso Academy describes general operating principles; check the rules of your own country and organization before applying them.',
   },
   licenseNote: {
-    ko: '이 저장소는 MIT 라이선스로 공개합니다.',
-    en: 'This repository is published under the MIT license.',
+    ko: '코드는 MIT 라이선스로, 강의 내용과 문안, 김미소 그림은 CC BY-NC-ND 4.0으로 공개합니다.',
+    en: 'The code is published under the MIT license; the lesson content, wording and Miso Kim images under CC BY-NC-ND 4.0.',
   },
   learningSqlNote: {
     ko: '미소의 엑셀 연습의 레슨 흐름과 카드 조립 방식은 Fullcharge13/Learning-SQL을 참고했습니다. 글, 그림, 이름은 가져오지 않았습니다.',
     en: "The lesson flow and card-building approach of Miso's Excel Practice follow Fullcharge13/Learning-SQL. No text, art or names were reused.",
   },
   misoCredit: {
-    ko: '캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. 저장소의 MIT 라이선스를 따릅니다.',
-    en: 'Character images of Miso Kim: created by Marcus Shim with Google Gemini. They follow the repository\'s MIT license.',
+    ko: '캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. CC BY-NC-ND 4.0을 따릅니다.',
+    en: 'Character images of Miso Kim: created by Marcus Shim with Google Gemini. They follow CC BY-NC-ND 4.0.',
   },
 };

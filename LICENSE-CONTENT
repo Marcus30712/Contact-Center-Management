@@ -1,0 +1,30 @@
+Miso Academy (미소 아카데미) — content licence
+
+Copyright (c) 2026 Marcus Shim
+
+The content of this repository is licensed under the Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International licence
+(CC BY-NC-ND 4.0):
+https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+You may copy and share the content, unchanged, for non-commercial purposes,
+as long as you credit "Marcus Shim, Miso Academy" and link to the licence.
+You may not use it commercially or share modified versions.
+The full legal code is at:
+https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+
+"Content" means:
+- lesson, procedure, guide, glossary, practice and Excel lesson text and data:
+  agent-lifecycle/js/lessons/, agent-lifecycle/js/i18n/, sop-library/lessons/,
+  sop-library/ui.js, codex/data/, glossary/terms.js, guide/data.js,
+  practice/data.js, excel/data.js, home/data.js, references/text.js,
+  staffing-calculator/text.js
+- design and wording documents: docs/
+- the Miso Kim character images: assets/miso/, art/miso/, icons/
+- the Codex PDF: references/BPO_Contact_Center_Operation_Codex_2.0.pdf
+
+Everything else (the code that draws the pages, the calculators, tests and
+tools) is licensed under the MIT licence in LICENSE.
+
+Versions of this repository published before 20 November 2026 were released
+under the MIT licence, and those copies remain under the MIT licence.

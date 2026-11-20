@@ -48,7 +48,7 @@ test('pyworkforce is tied to the staffing lab', () => {
 });
 
 test('the Miso image credit is the approved wording and is drawn under the note', async () => {
-  assert.equal(REFERENCES_TEXT.misoCredit.ko, '캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. 저장소의 MIT 라이선스를 따릅니다.');
+  assert.equal(REFERENCES_TEXT.misoCredit.ko, '캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. CC BY-NC-ND 4.0을 따릅니다.');
   assert.ok(REFERENCES_TEXT.misoCredit.en.includes('Google Gemini') && REFERENCES_TEXT.misoCredit.en.includes('Marcus Shim'));
   const src = (await import('node:fs')).readFileSync(new URL('../../references/references.js', import.meta.url), 'utf8');
   assert.ok(src.includes('T.misoCredit'));

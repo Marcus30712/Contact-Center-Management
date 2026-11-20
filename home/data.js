@@ -2,8 +2,8 @@
 // docs/superpowers/specs/2026-11-20-app-shell-design.md (§4.3); card texts
 // are the ones the hub already used.
 export const HOME_UI = {
-  brand: { ko: 'Contact Center KB', en: 'Contact Center KB' },
-  title: { ko: 'Contact Center Management Knowledge Base', en: 'Contact Center Management Knowledge Base' },
+  brand: { ko: 'Miso Academy', en: 'Miso Academy' },
+  title: { ko: '미소 아카데미', en: 'Miso Academy' },
   tagline: {
     ko: '컨택센터 운영 관리를 주제별로 배우는 인터랙티브 자료 모음입니다.',
     en: 'Interactive learning material on contact center management, one topic at a time.',
@@ -52,5 +52,5 @@ export const BROWSE = [
   card('./glossary/', '용어집', 'Glossary',
     'AHT, Shrinkage, SME 같은 운영 용어를 한국어와 영어로 찾아봅니다.', 'Look up operations terms in Korean and English.'),
   card('./references/', '참고 자료', 'References',
-    '이 Knowledge Base의 바탕 자료와 참고한 공개 자료.', 'What this Knowledge Base is built on.'),
+    '미소 아카데미의 바탕 자료와 참고한 공개 자료.', 'What Miso Academy is built on.'),
 ];
