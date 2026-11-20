@@ -108,5 +108,6 @@ export function renderHome(root, lang, storage, today = localDate()) {
     h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, LEARN.map(cardEl))]),
     h('section', { id: 'browse' }, [h('h2', { text: tr(UI.browse) }), h('ul', { class: 'hm-cards' }, BROWSE.map(cardEl))]),
     h('p', { class: 'hm-install', 'data-install': true, text: tr(UI.install) }),
+    h('p', { class: 'hm-privacy' }, [h('a', { href: './privacy/', 'data-privacy': true, text: tr(UI.privacy) })]),
   );
 }

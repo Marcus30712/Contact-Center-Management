@@ -33,6 +33,7 @@ export const REFERENCES_TEXT = {
     ko: '미소의 엑셀 연습의 레슨 흐름과 카드 조립 방식은 Fullcharge13/Learning-SQL을 참고했습니다. 글, 그림, 이름은 가져오지 않았습니다.',
     en: "The lesson flow and card-building approach of Miso's Excel Practice follow Fullcharge13/Learning-SQL. No text, art or names were reused.",
   },
+  privacyLink: { ko: '개인정보처리방침', en: 'Privacy Policy' },
   misoCredit: {
     ko: '캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. CC BY-NC-ND 4.0을 따릅니다.',
     en: 'Character images of Miso Kim: created by Marcus Shim with Google Gemini. They follow CC BY-NC-ND 4.0.',

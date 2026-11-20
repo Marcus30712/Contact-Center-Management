@@ -23,6 +23,7 @@ export const HOME_UI = {
     ko: '휴대폰 홈 화면에 추가하면 앱처럼 쓰고 오프라인에서도 볼 수 있어요. (아이폰: 공유 → 홈 화면에 추가)',
     en: 'Add this to your phone\'s home screen to use it like an app, even offline. (iPhone: Share → Add to Home Screen)',
   },
+  privacy: { ko: '개인정보처리방침', en: 'Privacy Policy' },
   lifecycle: { ko: '상담사 라이프사이클', en: 'The Agent Lifecycle' },
   sop: { ko: 'SOP 라이브러리', en: 'SOP Library' },
   lessonWord: { ko: '레슨', en: 'Lesson' },

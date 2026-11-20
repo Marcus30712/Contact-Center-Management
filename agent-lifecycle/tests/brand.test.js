@@ -7,7 +7,7 @@ import { HOME_UI, BROWSE } from '../../home/data.js';
 import { REFERENCES_TEXT as R } from '../../references/text.js';
 
 const file = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), 'utf8');
-const PAGES = ['', 'agent-lifecycle/', 'sop-library/', 'codex/', 'staffing-calculator/', 'glossary/', 'references/', 'guide/', 'practice/', 'excel/'];
+const PAGES = ['', 'agent-lifecycle/', 'sop-library/', 'codex/', 'staffing-calculator/', 'glossary/', 'references/', 'guide/', 'practice/', 'excel/', 'privacy/'];
 
 test('every page names Queuecraft and none says Knowledge Base or Contact Center KB', () => {
   for (const p of PAGES) {

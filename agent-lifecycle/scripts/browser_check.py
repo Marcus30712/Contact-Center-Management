@@ -296,7 +296,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -313,6 +313,15 @@ def main():
         page.wait_for_selector("#app h1")
         page.screenshot(path=str(OUT / "references-390.png"), full_page=True)
         check("(x) references show the Codex without a PDF link", "Codex 2.0" in page.inner_text("#app") and page.locator("a[href$='.pdf']").count() == 0)
+        page.click("a[data-privacy]")
+        page.wait_for_selector("#app h1")
+        check("(p6) references link opens the privacy policy", page.inner_text("#app h1") == "개인정보처리방침", page.inner_text("#app h1"))
+        page.goto(HUB)
+        page.wait_for_selector("a[data-privacy]")
+        page.click("a[data-privacy]")
+        page.wait_for_selector("#app h1")
+        check("(p6) home link opens the privacy policy with eight sections", page.inner_text("#app h1") == "개인정보처리방침" and page.locator("#app h2").count() == 8)
+        page.screenshot(path=str(OUT / "privacy-390.png"), full_page=True)
 
         # (w) the language chosen in the course carries over
         page.goto(HUB + "agent-lifecycle/")
@@ -601,7 +610,7 @@ def main():
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
         PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "codex/#daily": "browse",
-                 "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse"}
+                 "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
             page.wait_for_selector("nav.appbar a[aria-current='page']")
@@ -658,7 +667,7 @@ def main():
         page.wait_for_function("navigator.serviceWorker.controller !== null")
         page.context.set_offline(True)
         for path, ready in (("", "[data-greeting]"), ("guide/", "[data-card]"), ("agent-lifecycle/#coaching-2", "[data-counter]"), ("sop-library/", "a[data-sop]"),
-                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1"), ("practice/", "#app h1"), ("excel/#lesson-1", "[data-start]")):
+                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1"), ("privacy/", "#app h1"), ("practice/", "#app h1"), ("excel/#lesson-1", "[data-start]")):
             page.goto(HUB + path)
             page.wait_for_selector(ready, timeout=8000)
             check(f"(a4) offline: {path or 'home'} opens", page.locator(ready).count() >= 1)
