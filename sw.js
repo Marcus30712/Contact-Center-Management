@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'e4fbc0f62f67';
+const VERSION = '08ed03d5b15b';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -106,6 +106,11 @@ const PRECACHE = [
   "practice/index.html",
   "practice/practice.css",
   "practice/render.js",
+  "privacy/",
+  "privacy/app.js",
+  "privacy/index.html",
+  "privacy/render.js",
+  "privacy/text.js",
   "references/",
   "references/index.html",
   "references/references.js",

@@ -47,6 +47,7 @@ function draw() {
       h('p', { text: tr(T.licenseNote) }),
       h('p', { 'data-miso-credit': true, text: tr(T.misoCredit) }),
       h('p', { 'data-learning-sql': true, text: tr(T.learningSqlNote) }),
+      h('p', {}, [h('a', { 'data-privacy': true, href: '../privacy/', text: tr(T.privacyLink) })]),
     ]),
   );
 }
