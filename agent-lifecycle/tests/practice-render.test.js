@@ -112,10 +112,12 @@ test('term cards flip, then leave today\'s deck', () => {
   assert.ok(root.querySelector('[data-cards-done]').textContent.includes(UI.cardsDone.ko));
 });
 
-test('badge shelf shows all nine, unearned ones dimmed with their rule', () => {
+test('badge shelf shows all ten, unearned ones dimmed with their rule', () => {
   const { root } = page(store(['hiring']));
   const items = [...root.querySelectorAll('[data-badges] [data-badge]')];
-  assert.equal(items.length, 9);
+  assert.equal(items.length, 10);
+  assert.equal(items[9].getAttribute('data-badge'), 'excel');
+  assert.ok(items[9].textContent.includes('엑셀 완주'));
   assert.ok(items.every((li) => li.classList.contains('is-locked')));
   assert.ok(items[1].textContent.includes('평일 연속 3일'));
   const all = page(store()).root;
@@ -171,4 +173,13 @@ test('the status line stays one element and focus lands on something focusable',
     click(root.querySelector('[data-know]'));
   }
   assert.equal(document.activeElement, root.querySelector('[data-cards-done]'));
+});
+
+test('finishing every Excel lesson earns its badge when practice opens', () => {
+  const s = store(['hiring']);
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'], scores: {} }));
+  const { root } = page(s);
+  assert.ok(root.querySelector('[data-badge="excel"]').classList.contains('is-earned'));
+  assert.ok(root.querySelector('[data-badge-new]').textContent.includes('새 배지: 엑셀 완주'));
+  assert.ok(root.querySelector('[data-badge-new] img[data-miso="proud"]'));
 });

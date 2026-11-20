@@ -107,8 +107,8 @@ test('streak counts weekdays only', () => {
   assert.equal(streak([], '2026-11-20').count, 0);
 });
 
-test('badges: each of the nine, never twice', () => {
-  assert.deepEqual(BADGE_IDS, ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop']);
+test('badges: each of the ten, never twice', () => {
+  assert.deepEqual(BADGE_IDS, ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel']);
   const p = pool(store({ life: ALL_LIFE }));
   const r1 = answerAll(empty(), p, '2026-11-16');
   assert.deepEqual(r1.badges.sort(), ['first', 'perfect']);
@@ -144,6 +144,7 @@ test('badges: each of the nine, never twice', () => {
   assert.ok(checkBadges(empty(), { today: '2026-11-20', openTermCount: 10, allTermsKnown: true }).includes('terms'));
   assert.ok(!checkBadges(empty(), { today: '2026-11-20', openTermCount: 9, allTermsKnown: true }).includes('terms'));
   assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', lifecycleDone: true, sopDone: true }).sort(), ['lifecycle', 'sop']);
+  assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', excelDone: true }), ['excel']);
   const has = { ...empty(), badges: { lifecycle: '2026-11-01' } };
   assert.deepEqual(checkBadges(has, { today: '2026-11-20', lifecycleDone: true }), []);
 });
@@ -211,4 +212,16 @@ test('today\'s set survives a track switch and drops questions that are gone', (
   assert.ok(fresh.today.ids.length > 0 && !fresh.today.ids.includes('lifecycle:gone-q9'), 'nothing left: pick again');
   const blankSet = { ...st, today: { date: '2026-11-20', ids: [], answers: {} } };
   assert.ok(ensureToday(blankSet, pool(s), '2026-11-20').today.ids.length > 0, 'an empty saved set is no set');
+});
+
+test('course facts know when all 11 Excel lessons are done', async () => {
+  const { courseFacts } = await import('../../practice/engine.js');
+  const s = fakeStorage();
+  const ids = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ids.slice(0, 10), scores: {} }));
+  assert.equal(courseFacts(s, empty(), []).excelDone, false);
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: ids, scores: {} }));
+  assert.equal(courseFacts(s, empty(), []).excelDone, true);
+  s.setItem('excel-practice:v1', 'junk');
+  assert.equal(courseFacts(s, empty(), []).excelDone, false);
 });

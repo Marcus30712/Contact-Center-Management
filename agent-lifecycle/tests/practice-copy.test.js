@@ -23,7 +23,7 @@ test('practice wording is the confirmed table, in both languages', () => {
   for (const [key, ko, en] of table) assert.deepEqual(PRACTICE_UI[key], { ko, en }, key);
 });
 
-test('badges are the confirmed nine, in engine order', () => {
+test('badges are the confirmed ones, in engine order', () => {
   const table = rows('| id | 이름 | Name | 조건 | Condition |');
   assert.deepEqual(BADGES.map((b) => b.id), BADGE_IDS);
   assert.deepEqual(BADGES.map((b) => [b.id, b.name.ko, b.name.en, b.rule.ko, b.rule.en]), table);
