@@ -1,0 +1,31 @@
+/* Today's practice. Builds on the course styles (option buttons, explanation, btn). */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.pr-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 20px 0 12px; }
+.pr-head h1 { margin: 0; }
+.pr-streak { margin: 0; font-weight: 700; color: var(--accent); }
+.pr-miso { flex: none; height: auto; }
+.pr-weekend, .pr-locked, .pr-done, .pr-news, .pr-feedback, .pr-qhead { display: flex; align-items: center; gap: 12px; }
+.pr-weekend { margin: 0 0 12px; padding: 10px 14px; border-radius: 12px; background: var(--accent-soft); }
+.pr-weekend p, .pr-done p, .pr-news p, .pr-count { margin: 0; }
+.pr-card, .pr-locked, .pr-cards, .pr-shelf { margin: 0 0 16px; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.pr-card { display: flex; flex-direction: column; gap: 12px; }
+.pr-card.pr-done, .pr-card.pr-news { flex-direction: row; align-items: center; }
+.pr-done h2, .pr-shelf h2, .pr-cards h2 { margin: 0 0 4px; font-size: 1.05rem; }
+.pr-count { font-weight: 700; color: var(--muted); }
+.pr-feedback { align-items: flex-start; }
+.pr-feedback .explanation { margin: 0; flex: 1; }
+.option:disabled { cursor: default; opacity: 1; color: inherit; }
+.pr-cards-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; color: var(--muted); }
+.pr-cards-head h2 { color: var(--ink); }
+.pr-term { display: flex; flex-direction: column; gap: 8px; width: 100%; min-height: 120px; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.pr-term.is-flipped { border-color: var(--accent); }
+.pr-term-word { font-size: 1.4rem; }
+.pr-term-hint { color: var(--muted); font-size: 0.9rem; }
+.pr-term-back { line-height: 1.6; }
+.pr-term-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.pr-shelf ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.pr-shelf li { display: flex; flex-direction: column; gap: 2px; padding: 10px; border-radius: 10px; border: 1px solid var(--line); }
+.pr-shelf li span { font-size: 0.82rem; color: var(--muted); }
+.pr-shelf li.is-earned { border-color: var(--good); background: var(--good-soft); }
+.pr-shelf li.is-earned strong::before { content: '★ '; color: var(--good); }
+.pr-shelf li.is-locked { opacity: 0.6; }

@@ -9,7 +9,7 @@ export const APPBAR_UI = {
   browse: { ko: '찾아보기', en: 'Browse' },
 };
 
-const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/'];
+const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'practice/'];
 const GUIDE_PAGES = ['guide/'];
 
 // Simple line icons, drawn here so nothing else needs to load.

@@ -36,3 +36,7 @@
 .hm-cards a.card strong { display: block; font-size: 1.05rem; }
 .hm-cards a.card span { color: var(--muted); font-size: 0.9rem; }
 .hm-install { color: var(--muted); font-size: 0.82rem; margin: 22px 0 28px; }
+/* Today's practice card, right under Miso. */
+.hm-practice { border-color: var(--accent); }
+.hm-practice span { display: block; }
+.hm-practice .hm-practice-streak { color: var(--accent); font-weight: 700; }

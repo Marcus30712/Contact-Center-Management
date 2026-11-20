@@ -267,7 +267,7 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB)
         cards = page.locator("a.card")
-        check("(r) hub shows seven cards", cards.count() == 7, str(cards.count()))
+        check("(r) hub shows seven topic cards plus the practice card", cards.count() == 8, str(cards.count()))
         for href, title in (("./guide/", "팀장 상황별 길잡이"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("./codex/", "Codex 원페이저"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
             page.goto(HUB)
             page.click(f"a.card[href='{href}']")
@@ -659,7 +659,7 @@ def main():
         page.wait_for_function("navigator.serviceWorker.controller !== null")
         page.context.set_offline(True)
         for path, ready in (("", "[data-greeting]"), ("guide/", "[data-card]"), ("agent-lifecycle/#coaching-2", "[data-counter]"), ("sop-library/", "a[data-sop]"),
-                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1")):
+                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1"), ("practice/", "#app h1")):
             page.goto(HUB + path)
             page.wait_for_selector(ready, timeout=8000)
             check(f"(a4) offline: {path or 'home'} opens", page.locator(ready).count() >= 1)
@@ -678,11 +678,49 @@ def main():
         page.screenshot(path=str(OUT / "home-1280.png"), full_page=True)
         page.context.close()
 
+        # ---- Today's practice ----
+        DONE2 = "try { localStorage.setItem('agent-lifecycle-course:v1', JSON.stringify({completed: ['hiring', 'onboarding']})); } catch (e) {}"
+        for scheme in ("light", "dark"):
+            page = new_page(browser, errors, init=DONE2, scheme=scheme)
+            page.goto(HUB + "practice/")
+            page.wait_for_selector("[data-question]")
+            check(f"(p1) {scheme}: Miso thinks over the first question", page.evaluate("document.querySelector('img[data-miso=think]').complete && document.querySelector('img[data-miso=think]').naturalWidth > 0"))
+            check(f"(p1) {scheme}: the menu marks Learn", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "learn")
+            check(f"(p1) {scheme}: no stray 'null' text", "null" not in page.inner_text("#app"))
+            page.screenshot(path=str(OUT / f"practice-390{'-dark' if scheme == 'dark' else ''}.png"), full_page=True)
+            page.context.close()
+        page = new_page(browser, errors, init=DONE2)
+        page.goto(HUB + "practice/")
+        for _ in range(3):
+            page.wait_for_selector("[data-question] [data-option]:not([disabled])")
+            page.click("[data-question] [data-option] >> nth=0")
+            page.wait_for_selector("img[data-miso='joy'], img[data-miso='worry']")
+            page.click("[data-next]")
+        page.wait_for_selector("[data-done]")
+        check("(p2) three answers finish the day with Miso cheering", page.locator("img[data-miso='cheer']").count() == 1)
+        check("(p2) the first badge is announced", "첫걸음" in page.inner_text("[data-badge-new]"))
+        page.click("[data-card]")
+        page.click("[data-know]")
+        check("(p2) a known card leaves today's deck", "4" in page.inner_text("[data-cards-count]"))
+        page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
+        gap = page.evaluate("document.querySelector('nav.appbar').getBoundingClientRect().top - document.querySelector('[data-badges]').getBoundingClientRect().bottom")
+        check(f"(p2) the badge shelf ends above the menu (gap {gap:.0f}px)", gap >= 0)
+        page.screenshot(path=str(OUT / "practice-done-390.png"), full_page=True)
+        page.goto(HUB)
+        page.wait_for_selector("a[data-practice]")
+        check("(p3) the home card says today is done", "오늘 연습 완료" in page.inner_text("a[data-practice]"))
+        page.context.close()
+        page = new_page(browser, errors, width=320, init=DONE2)
+        page.goto(HUB + "practice/")
+        page.wait_for_selector("[data-question]")
+        check("(p4) 320px: no sideways scroll", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
+        page.context.close()
+
         # ---- Situation guide ----
         GD = HUB + "guide/"
         page = new_page(browser, errors)
         page.goto(HUB)
-        check("(g1) the guide is the first hub card", page.get_attribute("a.card >> nth=0", "href") == "./guide/")
+        check("(g1) the practice card, then the guide, lead the hub", page.get_attribute("a.card >> nth=0", "href") == "./practice/" and page.get_attribute("a.card >> nth=1", "href") == "./guide/")
         page.goto(GD)
         page.wait_for_selector("[data-card]")
         check("(g1) seventeen situations", page.locator("[data-card]").count() == 17)
