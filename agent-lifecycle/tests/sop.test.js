@@ -285,3 +285,31 @@ test('each group heading names its list for screen readers', () => {
     assert.ok(heading?.hasAttribute('data-group'));
   }
 });
+
+// ---------- 2026-11-21: feedback for each wrong option ----------
+test('every SOP wrong option has its own approved one-sentence feedback; right answers have none', async () => {
+  const { readFileSync } = await import('node:fs');
+  const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-21-sop-wrong-feedback.md', import.meta.url), 'utf8');
+  const rows = new Map([...doc.matchAll(/^\| ([a-z0-9-]+)\.([abc]) \| (.+?) \| (.+?) \|$/gm)].map(([, q, o, ko, en]) => [`${q}.${o}`, { ko, en }]));
+  assert.equal(rows.size, 28);
+  for (const q of SOP_LESSONS.flatMap((l) => l.checkpoint)) {
+    for (const o of q.options) {
+      if (o.id === q.answer) { assert.equal(o.feedback, undefined, `${q.id}.${o.id}`); continue; }
+      assert.deepEqual(o.feedback, rows.get(`${q.id}.${o.id}`), `${q.id}.${o.id}`);
+      assert.ok(!/[가-힣]/.test(o.feedback.en) && !/'/.test(o.feedback.en), `${q.id}.${o.id}`);
+    }
+  }
+});
+
+test('a wrong SOP answer shows that option\'s feedback before the shared explanation', async () => {
+  const { setupDom, click } = await import('./dom.js');
+  const { renderLesson } = await import('../js/render/lesson.js');
+  const { root } = setupDom();
+  const sop = SOP_LESSONS.find((l) => l.id === 'pip');
+  renderLesson(root, sop, 99, 'ko', { onNavigate() {}, onComplete() {} });
+  click(root.querySelector('[data-next]'));
+  click(root.querySelector('[data-question="pip-q1"] [data-option="a"]'));
+  const box = root.querySelector('[data-question="pip-q1"] [data-explanation]');
+  assert.equal(box.querySelector('[data-feedback]').textContent, sop.checkpoint[0].options[0].feedback.ko);
+  assert.ok(box.textContent.endsWith(sop.checkpoint[0].explanation.ko));
+});

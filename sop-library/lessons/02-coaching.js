@@ -62,9 +62,9 @@ export default {
       id: 'coaching-q1',
       prompt: tx('원인 분석 단계에서 지민에게 건넬 말로 알맞은 것은 무엇일까요?', 'Which is the right thing to say to Jimin in the find-the-cause step?'),
       options: [
-        option('a', tx('"통화가 긴 이유는 확인 절차가 느려서예요. 고치세요."', '"Your calls are long because your checks are slow. Fix that."')),
+        option('a', tx('"통화가 긴 이유는 확인 절차가 느려서예요. 고치세요."', '"Your calls are long because your checks are slow. Fix that."'), tx('원인을 먼저 정해 주면 지민은 이유를 스스로 생각해 볼 기회를 잃고, 해결책도 남의 것이 됩니다.', 'Naming the cause for her takes away Jimin’s chance to think it through, and the fix becomes someone else’s.')),
         option('b', tx('"데이터를 보니 이 부분에서 시간이 길어지는데, 왜 그렇다고 생각해요?"', '"Looking at the data, the time gets longer at this point, so why do you think that is?"')),
-        option('c', tx('"다른 팀원들은 이만큼 걸리지 않아요."', '"The rest of the team does not take this long."')),
+        option('c', tx('"다른 팀원들은 이만큼 걸리지 않아요."', '"The rest of the team does not take this long."'), tx('다른 팀원과 비교하면 방어적으로 되기 쉽고, 시간이 길어지는 진짜 이유는 이야기되지 않습니다.', 'Comparing her with teammates tends to make her defensive, and the real reason the time runs long never comes up.')),
       ],
       answer: 'b',
       explanation: tx('원인 분석은 직접 지적하는 대신 질문으로 스스로 답을 찾게 돕는 단계입니다. 스스로 찾은 원인이어야 해결책도 자기 것이 됩니다.', 'Finding the cause means helping her reach the answer through questions instead of pointing it out directly. A cause she finds herself makes the solution her own.'),
@@ -73,9 +73,9 @@ export default {
       id: 'coaching-q2',
       prompt: tx('행동 계획은 어떻게 정하는 것이 좋을까요?', 'How should you set the action plan?'),
       options: [
-        option('a', tx('고칠 점을 빠짐없이 모두 적는다.', 'Write down every single thing that needs fixing.')),
+        option('a', tx('고칠 점을 빠짐없이 모두 적는다.', 'Write down every single thing that needs fixing.'), tx('고칠 점을 모두 적으면 무엇부터 할지 흐려지고, 다음 코칭 때 지켰는지 확인하기도 어렵습니다.', 'Listing every point to fix blurs what comes first, and makes it hard to check at the next session whether it was done.')),
         option('b', tx('다음 주까지 실천할 수 있는 구체적인 것으로 한두 가지를 함께 정한다.', 'Agree together on one or two specific actions she can carry out by next week.')),
-        option('c', tx('따로 정하지 않고 다음 달 숫자를 지켜본다.', 'Set nothing and watch next month\'s numbers.')),
+        option('c', tx('따로 정하지 않고 다음 달 숫자를 지켜본다.', 'Set nothing and watch next month\'s numbers.'), tx('계획 없이 숫자만 지켜보면 지민은 무엇을 해야 할지 모른 채 한 달을 보냅니다.', 'Watching the numbers without a plan leaves Jimin spending a month not knowing what to do.')),
       ],
       answer: 'b',
       explanation: tx('행동 계획은 다음 코칭 때 지켰는지 확인할 수 있을 만큼 구체적이어야 합니다. 팀원이 직접 제시한 것일수록 좋습니다.', 'An action plan has to be specific enough that you can check at the next session whether it was kept. The more it comes from the team member, the better.'),

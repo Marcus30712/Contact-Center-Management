@@ -59,9 +59,9 @@ export default {
       id: 'calibration-q1',
       prompt: tx('왜 모이기 전에 각자 따로 채점할까요?', 'Why does everyone score separately before meeting?'),
       options: [
-        option('a', tx('세션 시간을 줄이기 위해서.', 'To make the session shorter.')),
+        option('a', tx('세션 시간을 줄이기 위해서.', 'To make the session shorter.'), tx('시간을 줄이려고 함께 채점하면 점수가 서로 닮아 가, 정작 맞춰야 할 기준의 차이가 가려집니다.', 'Scoring together to save time makes the scores drift toward each other and hides the very differences in standards you need to align.')),
         option('b', tx('다른 사람의 점수에 영향받지 않은 각자의 기준이 드러나야 차이를 이야기할 수 있어서.', 'Because the gaps can only be discussed once each person\'s own standard shows, unaffected by anyone else\'s score.')),
-        option('c', tx('평가자들의 순위를 매기기 위해서.', 'To rank the evaluators.')),
+        option('c', tx('평가자들의 순위를 매기기 위해서.', 'To rank the evaluators.'), tx('평가자를 줄 세우는 자리가 되면 솔직한 점수가 나오지 않아, 기준을 맞출 수 없습니다.', 'If the session ranks the evaluators, people stop giving honest scores, and the standards cannot be aligned.')),
       ],
       answer: 'b',
       explanation: tx('함께 들으며 채점하면 점수가 서로 비슷해져 기준의 차이가 보이지 않습니다. 따로 매긴 점수의 차이가 토론의 재료입니다.', 'When people score while listening together, the scores drift toward each other and the differences in standard cannot be seen. The gaps between separate scores are the material for the discussion.'),
@@ -70,9 +70,9 @@ export default {
       id: 'calibration-q2',
       prompt: tx('세션에서 합의한 점수는 어떻게 쓰일까요?', 'What happens to the score agreed in the session?'),
       options: [
-        option('a', tx('참고용으로만 남긴다.', 'It is kept for reference only.')),
+        option('a', tx('참고용으로만 남긴다.', 'It is kept for reference only.'), tx('참고용으로만 남기면 다음 평가에서 각자 원래 기준으로 돌아가 같은 차이가 다시 생깁니다.', 'Keeping it only for reference sends everyone back to their own standard at the next evaluation, and the same gap returns.')),
         option('b', tx('그 케이스의 공식 점수가 되고, 합의한 근거는 기록해 다음 평가의 기준으로 삼는다.', 'It becomes the official score for the case, and the reasoning is recorded as the reference for later evaluations.')),
-        option('c', tx('직급이 가장 높은 참석자의 점수로 바꾼다.', 'It is replaced by the score of the most senior person present.')),
+        option('c', tx('직급이 가장 높은 참석자의 점수로 바꾼다.', 'It is replaced by the score of the most senior person present.'), tx('직급으로 점수를 정하면 토론한 근거가 사라지고, 다음 세션에서 아무도 의견을 내지 않게 됩니다.', 'Settling the score by rank throws away the reasons discussed, and at the next session nobody speaks up.')),
       ],
       answer: 'b',
       explanation: tx('합의한 점수와 그 근거가 기록으로 남아야 다음에 비슷한 케이스를 같은 눈높이로 평가할 수 있습니다.', 'Only when the agreed score and its reasoning are on record can similar cases be evaluated to the same standard next time.'),

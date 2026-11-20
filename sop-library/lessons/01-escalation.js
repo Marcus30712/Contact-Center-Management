@@ -57,9 +57,9 @@ export default {
       id: 'escalation-q1',
       prompt: tx('지민이 1차 해결이 어렵다고 판단했습니다. 다음으로 할 일은 무엇일까요?', 'Jimin decides she cannot resolve this at the first attempt. What should she do next?'),
       options: [
-        option('a', tx('규정을 근거로 고객의 요구가 왜 안 되는지 끝까지 설명한다.', 'Keep explaining, rule by rule, why the customer cannot have what they ask for.')),
+        option('a', tx('규정을 근거로 고객의 요구가 왜 안 되는지 끝까지 설명한다.', 'Keep explaining, rule by rule, why the customer cannot have what they ask for.'), tx('권한 밖의 요구를 두고 규정만 설명하면, 고객은 해결이 아니라 논쟁을 하고 있다고 느껴 감정이 더 올라갑니다.', 'Explaining the rules about a request beyond her authority makes the customer feel they are in an argument, not getting help, and emotions rise.')),
         option('b', tx('상급자에게 전달하겠다고 정중하게 안내한다.', 'Politely tell the customer she will pass the case to someone senior.')),
-        option('c', tx('나중에 다시 연락해 달라고 하고 상담을 마친다.', 'Ask the customer to get in touch again later and end the contact.')),
+        option('c', tx('나중에 다시 연락해 달라고 하고 상담을 마친다.', 'Ask the customer to get in touch again later and end the contact.'), tx('다음 처리 없이 상담을 마치면 고객은 같은 불만을 처음부터 다시 말해야 하고, 불만은 더 커집니다.', 'Ending the call with no next step means the customer must repeat the whole complaint from the start, and the complaint grows.')),
       ],
       answer: 'b',
       explanation: tx('권한 밖의 문제를 두고 고객과 논쟁하면 감정만 올라갑니다. 정중하게 안내하고 바로 상급자에게 알리는 것이 순서입니다.', 'Arguing over something outside her authority only raises the temperature. The order is to inform the customer politely and notify someone senior right away.'),
@@ -68,9 +68,9 @@ export default {
       id: 'escalation-q2',
       prompt: tx('넘기는 티켓에는 무엇을 기록해야 할까요?', 'What should go into the ticket that is handed over?'),
       options: [
-        option('a', tx('문제가 해결된 뒤에 결과만 적는다.', 'Only the outcome, written once the problem is solved.')),
+        option('a', tx('문제가 해결된 뒤에 결과만 적는다.', 'Only the outcome, written once the problem is solved.'), tx('결과만 적으면 넘겨받는 사람이 그동안 무슨 일이 있었는지 몰라, 고객에게 같은 질문을 다시 하게 됩니다.', 'Recording only the outcome leaves the next person unaware of what happened, so they ask the customer the same questions again.')),
         option('b', tx('고객의 감정 표현을 포함해 모든 과정을 사실대로 적는다.', 'The whole exchange as fact, including how the customer expressed their feelings.')),
-        option('c', tx('지민이 느낀 점과 추측을 중심으로 적는다.', 'Mostly Jimin\'s own impressions and guesses.')),
+        option('c', tx('지민이 느낀 점과 추측을 중심으로 적는다.', 'Mostly Jimin\'s own impressions and guesses.'), tx('느낌과 추측은 다음 담당자의 판단을 흐리고, 사실과 섞이면 실제로 무슨 일이 있었는지 알 수 없게 됩니다.', 'Feelings and guesses cloud the next person’s judgment, and mixed with facts they hide what actually happened.')),
       ],
       answer: 'b',
       explanation: tx('넘겨받는 사람은 기록만 보고 이어서 처리합니다. 사실에 기반한 자세한 기록이 있어야 고객이 같은 말을 반복하지 않습니다.', 'Whoever takes over works from the record alone. A detailed, factual record means the customer does not have to say everything twice.'),
