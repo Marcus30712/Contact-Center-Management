@@ -6,9 +6,11 @@ import { loadTrack, visibleQuestions } from '../agent-lifecycle/js/engine/track.
 import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { TERMS } from '../glossary/terms.js';
+import { EXCEL_LESSONS } from '../excel/data.js';
+import { loadProgress as loadExcelProgress } from '../excel/engine.js';
 
 export const PRACTICE_KEY = 'kb-practice:v1';
-export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop'];
+export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel'];
 const LIFE_KEY = 'agent-lifecycle-course:v1';
 const SOP_KEY = 'sop-library:v1';
 const PER_DAY = 3;
@@ -236,6 +238,7 @@ export function checkBadges(state, ctx = {}) {
   add('terms', ctx.openTermCount >= 10 && ctx.allTermsKnown);
   add('lifecycle', ctx.lifecycleDone);
   add('sop', ctx.sopDone);
+  add('excel', ctx.excelDone);
   return earned;
 }
 
@@ -246,6 +249,11 @@ export function courseFacts(storage, state, terms) {
   return {
     lifecycleDone: LESSONS.every((l) => lifeDone.includes(l.id)),
     sopDone: SOP_LESSONS.every((l) => sopDone.includes(l.id)),
+    excelDone: (() => {
+      if (!storage) return false;
+      const done = loadExcelProgress(storage).completed;
+      return EXCEL_LESSONS.every((l) => done.includes(l.id));
+    })(),
     openTermCount: terms.length,
     allTermsKnown: terms.length > 0 && terms.every((t) => state.cards[t.id]?.known),
   };

@@ -39,4 +39,5 @@ export const BADGES = [
   { id: 'terms', name: { ko: '용어 박사', en: 'Term expert' }, rule: { ko: '열린 용어 카드가 10장 이상이고 모두 "알아요"', en: '10 or more term cards open, all marked "I know it"' } },
   { id: 'lifecycle', name: { ko: '라이프사이클 완주', en: 'Lifecycle finished' }, rule: { ko: '라이프사이클 6개 레슨을 모두 마침', en: 'Finish all 6 Lifecycle lessons' } },
   { id: 'sop', name: { ko: 'SOP 완주', en: 'SOP Library finished' }, rule: { ko: 'SOP 7개 레슨을 모두 마침', en: 'Finish all 7 SOP lessons' } },
+  { id: 'excel', name: { ko: '엑셀 완주', en: 'Excel finished' }, rule: { ko: '미소의 엑셀 연습 11개 레슨을 모두 마침', en: 'Finish all 11 lessons of Miso\'s Excel Practice' } },
 ];
