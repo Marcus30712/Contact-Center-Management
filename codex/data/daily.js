@@ -3,13 +3,13 @@
 // checks the Korean against the copy file.
 export const DAILY = {
   "intro": {
-    "ko": "BPO 운영팀의 각 포지션별 핵심 업무를 우선순위, 빈도, 권장 시간 배분, 그리고 핵심 결과물을 기준으로 안내합니다. 이를 통해 자신의 역할을 명확히 이해하고 시간 관리를 최적화할 수 있습니다.",
-    "en": "This guide sets out the core tasks of each position in a BPO operations team by priority, frequency, recommended share of time, and key outputs. It helps you understand your role clearly and manage your time well."
+    "ko": "BPO 운영팀의 각 포지션별 핵심 업무를 우선순위, 빈도, 권장 시간 배분, 핵심 결과물로 정리한 예시입니다. 실제 일일 업무는 고객사의 요구와 BPO 회사의 운영 방식에 따라 다를 수 있으니, 내 센터의 기준과 함께 보세요.",
+    "en": "This is an example of the core tasks of each position in a BPO operations team, set out by priority, frequency, recommended share of time, and key outputs. Actual daily work can differ with the client's requirements and the BPO company's way of operating, so read it alongside your own center's standards."
   },
   "notes": [
     {
-      "ko": "시각과 시간 비중은 예시이며, 센터마다 다를 수 있습니다.",
-      "en": "Times of day and time shares are examples and may differ from center to center."
+      "ko": "시각, 시간 비중, 업무 내용은 예시이며, 고객사와 BPO 회사마다 다를 수 있습니다.",
+      "en": "Times of day, time shares and tasks are examples and may differ by client and BPO company."
     },
     {
       "ko": "시간 비중은 한 주 전체 기준이라 하루 일정과 다를 수 있습니다.",

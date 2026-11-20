@@ -81,8 +81,8 @@ export const PAGES = [
       "en": "Daily Guide by Role"
     },
     "blurb": {
-      "ko": "직무마다 무엇에 시간을 쓰는지, 하루 일정으로.",
-      "en": "What each role spends its time on, shown as a day's schedule."
+      "ko": "직무마다 무엇에 시간을 쓰는지, 하루 일정 예시로.",
+      "en": "What each role spends its time on, shown as an example day."
     }
   }
 ];
