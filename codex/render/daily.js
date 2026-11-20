@@ -62,7 +62,14 @@ export function dailyBody(lang, state, redraw) {
       h('span', { class: 'cx-card-text' }, [
         h('span', { class: 'cx-card-tags' }, [chip(tr(task.tag), tagKind(task.tag))]),
         h('strong', { text: tr(task.name) }),
-        h('span', { class: 'cx-share' }, [h('span', { class: 'cx-share-bar', style: `width: ${task.share.ko.match(/\d+/)[0]}%` }), h('span', { text: tr(task.share) })]),
+        // One fixed-width track for every task, filled to the share, so the
+        // same share draws the same length whatever the task title.
+        h('span', { class: 'cx-share' }, [
+          h('span', { class: 'cx-share-track', 'aria-hidden': 'true' }, [
+            h('span', { class: 'cx-share-fill', style: `width: ${task.share.ko.match(/\d+/)[0]}%` }),
+          ]),
+          h('span', { class: 'cx-share-label', text: tr(task.share) }),
+        ]),
       ]),
     ]),
   ])));

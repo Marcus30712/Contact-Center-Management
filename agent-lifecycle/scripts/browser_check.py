@@ -327,6 +327,17 @@ def main():
         page.wait_for_selector("#app h1")
         check("(p6) home link opens the privacy policy with eight sections", page.inner_text("#app h1") == "개인정보처리방침" and page.locator("#app h2").count() == 8)
         page.screenshot(path=str(OUT / "privacy-390.png"), full_page=True)
+        # (c9) time-share bars: the same share draws the same length, whatever the task title
+        for role in ("agent", "sme", "tl", "am", "om"):
+            page.goto(HUB + f"codex/#daily-{role}")
+            page.wait_for_selector(".cx-share-fill")
+            got = page.evaluate("""[...document.querySelectorAll('.cx-task')].map((t) => ({
+                pct: Number(t.querySelector('.cx-share-label').textContent.match(/\\d+/)[0]),
+                px: t.querySelector('.cx-share-fill').getBoundingClientRect().width,
+                track: t.querySelector('.cx-share-track').getBoundingClientRect().width }))""")
+            tracks = {round(g["track"]) for g in got}
+            ok = len(tracks) == 1 and all(abs(g["px"] - g["track"] * g["pct"] / 100) <= 1 for g in got)
+            check(f"(c9) {role} share bars are proportional on one scale", ok, str(got))
         # (s1) settings: five menu items fit at 320px, dark carries to other pages, light goes back
         page.set_viewport_size({"width": 320, "height": 700})
         page.goto(HUB + "settings/")

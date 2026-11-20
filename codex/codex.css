@@ -141,7 +141,8 @@
 }
 .cx-task[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
 .cx-share { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); }
-.cx-share-bar { display: block; height: 6px; border-radius: 3px; background: var(--accent); min-width: 6px; max-width: 60%; }
+.cx-share-track { display: block; flex: none; width: 8rem; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.cx-share-fill { display: block; height: 100%; border-radius: 3px; background: var(--accent); }
 .cx-notes { margin: 14px 0; display: grid; gap: 4px; }
 
 /* Before / after links */
