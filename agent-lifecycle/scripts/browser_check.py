@@ -312,8 +312,7 @@ def main():
         page.goto(HUB + "references/")
         page.wait_for_selector("#app h1")
         page.screenshot(path=str(OUT / "references-390.png"), full_page=True)
-        pdf = page.request.get(HUB + "references/" + page.get_attribute("a[data-codex-pdf]", "href").lstrip("./"))
-        check("(x) Codex PDF is served", pdf.status == 200 and pdf.headers.get("content-type", "").startswith("application/pdf"), str(pdf.status))
+        check("(x) references show the Codex without a PDF link", "Codex 2.0" in page.inner_text("#app") and page.locator("a[href$='.pdf']").count() == 0)
 
         # (w) the language chosen in the course carries over
         page.goto(HUB + "agent-lifecycle/")

@@ -1,6 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { REFERENCES_TEXT, PYWORKFORCE_URL, CODEX_PDF } from '../../references/text.js';
+import { REFERENCES_TEXT, PYWORKFORCE_URL } from '../../references/text.js';
+import * as TEXT from '../../references/text.js';
+import { readFileSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 
 const all = (lang) => Object.values(REFERENCES_TEXT).map((v) => v[lang]).join('\n');
 
@@ -15,7 +18,6 @@ test('the Codex line is the approved wording and names the author', () => {
   assert.equal(REFERENCES_TEXT.codex.ko,
     'BPO Contact Center Operation Codex 2.0 — BPO 고객센터 운영의 원칙, 관리 프로토콜, 성장 로드맵, 팀별 청사진, 표준 운영 절차(SOP)를 정리한 운영 지침서. 작성: Marcus Shim.');
   assert.ok(REFERENCES_TEXT.codex.en.includes('Marcus Shim'));
-  assert.equal(CODEX_PDF, './BPO_Contact_Center_Operation_Codex_2.0.pdf');
 });
 
 test('pyworkforce is credited with its licence and link', () => {
@@ -59,4 +61,14 @@ test('the Learning-SQL approach is credited, ideas only', async () => {
   assert.ok(!/[가-힣]/.test(REFERENCES_TEXT.learningSqlNote.en));
   const src = (await import('node:fs')).readFileSync(new URL('../../references/references.js', import.meta.url), 'utf8');
   assert.ok(src.includes('T.learningSqlNote'));
+});
+
+test('the Codex is described but no PDF is published anywhere in the service', () => {
+  assert.equal(TEXT.CODEX_PDF, undefined);
+  assert.equal(REFERENCES_TEXT.codexLink, undefined);
+  assert.ok(!/pdf/i.test(readFileSync(new URL('../../references/references.js', import.meta.url), 'utf8')));
+  assert.ok(!existsSync(new URL('../../references/BPO_Contact_Center_Operation_Codex_2.0.pdf', import.meta.url)));
+  const root = new URL('../../', import.meta.url).pathname;
+  const tracked = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' }).split('\n');
+  assert.deepEqual(tracked.filter((f) => /\.pdf$/i.test(f)), []);
 });
