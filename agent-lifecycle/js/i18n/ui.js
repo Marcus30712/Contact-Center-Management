@@ -11,6 +11,8 @@ export const UI = {
   stepCounter: { ko: '스텝', en: 'Step' },
   checkpoint: { ko: '팀장 체크포인트', en: 'Team leader checkpoint' },
   connection: { ko: '다음 단계와의 연결', en: 'How this connects' },
+  misoCheer: { ko: '한 단계 마쳤어요. 오늘 배운 걸 팀에서 한 번 써 보세요.', en: 'One more step done. Try what you learned with your team today.' },
+  misoProudAlt: { ko: '김미소, 뿌듯한 얼굴', en: 'Miso Kim, looking proud' },
   nextLesson: { ko: '다음 레슨', en: 'Next lesson' },
   done: { ko: '완료', en: 'Done' },
   correct: { ko: '맞습니다.', en: 'Correct.' },

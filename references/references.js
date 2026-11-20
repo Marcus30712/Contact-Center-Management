@@ -46,6 +46,7 @@ function draw() {
     section(T.noteHeading, [
       h('p', { text: tr(T.countryNote) }),
       h('p', { text: tr(T.licenseNote) }),
+      h('p', { 'data-miso-credit': true, text: tr(T.misoCredit) }),
     ]),
   );
 }

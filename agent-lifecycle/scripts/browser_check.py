@@ -589,11 +589,100 @@ def main():
         page.screenshot(path=str(OUT / "codex-teams-390-dark.png"), full_page=True)
         page.context.close()
 
+        # ---- App shell: home, bottom menu, Miso, offline ----
+        page = new_page(browser, errors)
+        page.goto(HUB)
+        page.wait_for_selector("img[data-miso='grin']")
+        check("(a1) Miso greets on the home screen", page.evaluate("document.querySelector('img[data-miso=grin]').naturalWidth") > 0)
+        check("(a1) a first visit suggests lesson 1", page.is_visible("[data-start]"))
+        check("(a1) the start note stands in for my learning on a first visit", page.locator("[data-course]").count() == 0)
+        page.screenshot(path=str(OUT / "home-390.png"), full_page=True)
+        page.evaluate("localStorage.setItem('agent-lifecycle-course:v1', JSON.stringify({completed: ['hiring']}))")
+        page.reload()
+        page.wait_for_selector("[data-course='lifecycle']")
+        check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
+        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "codex/#daily": "browse",
+                 "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse"}
+        for path, item in PAGES.items():
+            page.goto(HUB + path)
+            page.wait_for_selector("nav.appbar a[aria-current='page']")
+            check(f"(a2) {path or 'home'} shows the menu with {item} current", page.get_attribute("nav.appbar a[aria-current='page']", "data-item") == item)
+            page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
+            gap = page.evaluate("""(() => {
+                const bar = document.querySelector('nav.appbar').getBoundingClientRect().top;
+                const items = [...document.querySelectorAll('#app *')].filter((el) => el.offsetParent && el.getClientRects().length);
+                return bar - Math.max(...items.map((el) => el.getBoundingClientRect().bottom));
+            })()""")
+            check(f"(a2) {path or 'home'} content ends above the menu", gap >= 0, f"gap={gap}")
+        page.goto(HUB + "guide/")
+        page.wait_for_selector("nav.appbar")
+        page.click("[data-lang='en']")
+        page.wait_for_function("document.querySelector('nav.appbar a[data-item=guide] span').textContent === 'Guide'")
+        check("(a2) the menu follows the language", True)
+        page.click("[data-lang='ko']")
+        page.click("nav.appbar a[data-item='learn']")
+        page.wait_for_selector("#learn")
+        check("(a2) Learn goes to the home screen's learn section", page.url.endswith("/kb/#learn"))
+        page.goto(HUB + "agent-lifecycle/#hiring-0")
+        page.wait_for_selector("[data-counter]")
+        for _ in range(12):
+            if page.locator("[data-view='checkpoint']").is_visible():
+                break
+            page.click("[data-next]")
+        for q in page.evaluate("[...document.querySelectorAll('[data-question]')].filter((q) => q.offsetParent).map((q) => q.dataset.question)"):
+            answer = page.evaluate(f"document.querySelector('[data-question=\"{q}\"]').dataset.answer || ''")
+            for opt in ("a", "b", "c", "d"):
+                if page.locator(f"[data-question='{q}'] .explanation.is-correct").count():
+                    break
+                if page.locator(f"[data-question='{q}'] [data-option='{opt}']").count():
+                    page.click(f"[data-question='{q}'] [data-option='{opt}']")
+        page.wait_for_selector("[data-connection]:not([hidden]) img[data-miso='proud']")
+        check("(a3) Miso congratulates at the end of a lesson", page.evaluate("document.querySelector('img[data-miso=proud]').naturalWidth") > 0)
+        page.screenshot(path=str(OUT / "lesson-done-390.png"), full_page=True)
+        # Tabbing down a long page never leaves the focused control behind the bottom menu.
+        page.goto(HUB + "guide/")
+        page.wait_for_selector("[data-card]")
+        worst = 999
+        for _ in range(40):
+            page.keyboard.press("Tab")
+            worst = min(worst, page.evaluate("""(() => { const e = document.activeElement;
+              if (!e || e.closest('nav.appbar')) return 999;
+              return document.querySelector('nav.appbar').getBoundingClientRect().top - e.getBoundingClientRect().bottom; })()"""))
+        check(f"(a3) a control reached with Tab stays above the menu (worst gap {worst:.0f}px)", worst >= 0)
+        page.context.close()
+
+        page = new_page(browser, errors)
+        page.goto(HUB)
+        page.wait_for_selector("[data-greeting]")
+        page.evaluate("navigator.serviceWorker.ready.then(() => true)")
+        page.reload()
+        page.wait_for_function("navigator.serviceWorker.controller !== null")
+        page.context.set_offline(True)
+        for path, ready in (("", "[data-greeting]"), ("guide/", "[data-card]"), ("agent-lifecycle/#coaching-2", "[data-counter]"), ("sop-library/", "a[data-sop]"),
+                            ("codex/#teams-ta", "[data-card='ta']"), ("staffing-calculator/", "[data-results]"), ("glossary/#aht", "[data-term='aht']"), ("references/", "#app h1")):
+            page.goto(HUB + path)
+            page.wait_for_selector(ready, timeout=8000)
+            check(f"(a4) offline: {path or 'home'} opens", page.locator(ready).count() >= 1)
+        check("(a4) offline: Miso still shows", page.goto(HUB) is not None and page.wait_for_selector("img[data-miso='grin']") is not None and page.evaluate("document.querySelector('img[data-miso=grin]').complete && document.querySelector('img[data-miso=grin]').naturalWidth > 0"))
+        page.context.set_offline(False)
+        page.context.close()
+
+        page = new_page(browser, errors, scheme="dark")
+        page.goto(HUB)
+        page.wait_for_selector("img[data-miso='grin']")
+        page.screenshot(path=str(OUT / "home-390-dark.png"), full_page=True)
+        page.context.close()
+        page = new_page(browser, errors, width=1280, height=900)
+        page.goto(HUB)
+        page.wait_for_selector("img[data-miso='grin']")
+        page.screenshot(path=str(OUT / "home-1280.png"), full_page=True)
+        page.context.close()
+
         # ---- Situation guide ----
         GD = HUB + "guide/"
         page = new_page(browser, errors)
         page.goto(HUB)
-        check("(g1) the guide is the first hub card", page.get_attribute("main ul li:first-child a.card", "href") == "./guide/")
+        check("(g1) the guide is the first hub card", page.get_attribute("a.card >> nth=0", "href") == "./guide/")
         page.goto(GD)
         page.wait_for_selector("[data-card]")
         check("(g1) seventeen situations", page.locator("[data-card]").count() == 17)

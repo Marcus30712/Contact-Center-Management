@@ -47,6 +47,11 @@ export function renderLesson(root, lesson, stepIndex, lang, {
 
   // --- checkpoint view ---
   const connection = h('div', { class: 'connection', 'data-connection': true, hidden: true }, [
+    // Miso congratulates once the checkpoint is done. Both courses sit one folder below the root.
+    h('div', { class: 'miso-cheer' }, [
+      h('img', { src: '../assets/miso/proud.webp', alt: tr(ui.misoProudAlt), width: 157, height: 227, 'data-miso': 'proud' }),
+      h('p', { 'data-miso-line': true, text: tr(ui.misoCheer) }),
+    ]),
     h('h3', { text: tr(ui.connection) }),
     h('p', { text: tr(lesson.connection.text) }),
     h('a', {
