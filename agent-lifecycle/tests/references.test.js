@@ -53,3 +53,10 @@ test('the Miso image credit is the approved wording and is drawn under the note'
   const src = (await import('node:fs')).readFileSync(new URL('../../references/references.js', import.meta.url), 'utf8');
   assert.ok(src.includes('T.misoCredit'));
 });
+
+test('the Learning-SQL approach is credited, ideas only', async () => {
+  assert.equal(REFERENCES_TEXT.learningSqlNote.ko, '미소의 엑셀 연습의 레슨 흐름과 카드 조립 방식은 Fullcharge13/Learning-SQL을 참고했습니다. 글, 그림, 이름은 가져오지 않았습니다.');
+  assert.ok(!/[가-힣]/.test(REFERENCES_TEXT.learningSqlNote.en));
+  const src = (await import('node:fs')).readFileSync(new URL('../../references/references.js', import.meta.url), 'utf8');
+  assert.ok(src.includes('T.learningSqlNote'));
+});

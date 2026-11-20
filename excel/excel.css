@@ -1,0 +1,62 @@
+/* Miso's Excel practice. Builds on the course styles (option, explanation, btn). */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.ex-head { margin: 16px 0 12px; }
+.ex-head h1 { margin: 4px 0 0; font-size: 1.35rem; }
+.ex-back { font-size: 0.9rem; }
+.ex-of, .ex-count { margin: 0; color: var(--muted); font-weight: 700; font-size: 0.9rem; }
+.ex-miso { flex: none; height: auto; }
+.ex-intro, .ex-cards, .ex-done, .ex-feedback, .ex-qhead { display: flex; align-items: center; gap: 12px; }
+.ex-cards { align-items: flex-start; }
+.ex-card-list { display: flex; flex-direction: column; gap: 8px; }
+.ex-explain { margin: 0; padding: 12px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); line-height: 1.6; }
+.ex-list { list-style: none; margin: 16px 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ex-item { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.ex-item a { font-weight: 700; }
+.ex-item.is-locked { opacity: 0.6; }
+.ex-item.is-done { border-color: var(--good); }
+.ex-item.is-next { border: 2px solid var(--accent); }
+.ex-go { width: 100%; text-align: center; }
+.ex-chip.is-correct { border-color: var(--good); background: var(--good-soft); }
+.ex-chip.is-wrong { border-color: var(--bad); background: var(--bad-soft); }
+.ex-score { color: var(--good); font-weight: 700; font-size: 0.9rem; }
+.ex-locked { color: var(--muted); font-size: 0.85rem; }
+
+/* The sheet: fits 7 columns on a phone; only the table scrolls if it must. */
+.ex-sheet { margin: 12px 0; }
+.ex-sheet figcaption { font-size: 0.8rem; color: var(--muted); margin-bottom: 4px; }
+.ex-sheet-scroll { overflow-x: auto; max-width: 100%; }
+.ex-sheet table { border-collapse: collapse; font-size: 0.72rem; font-variant-numeric: tabular-nums; width: 100%; }
+.ex-sheet th, .ex-sheet td { border: 1px solid var(--line); padding: 3px 4px; text-align: left; line-height: 1.25; }
+.ex-sheet thead th, .ex-sheet tbody th { background: var(--bg); color: var(--muted); font-weight: 600; text-align: center; }
+.ex-sheet td.is-head { font-weight: 700; background: var(--bg); }
+.ex-sheet td[role='button'] { cursor: pointer; }
+.ex-sheet td.is-selected { outline: 2px solid var(--accent); outline-offset: -2px; background: var(--accent-soft); }
+.ex-sheet td.is-used { background: var(--accent-soft); font-weight: 700; }
+.ex-sheet td.is-marked { background: #f8d7d5; color: #7a1712; font-weight: 700; }
+.ex-pivot table { width: auto; font-size: 0.85rem; }
+.ex-pivot tr.is-total th, .ex-pivot tr.is-total td { font-weight: 700; }
+
+.ex-hint { margin: 8px 0; color: var(--muted); font-size: 0.85rem; }
+.ex-template { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1rem; padding: 8px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow-wrap: anywhere; }
+.ex-chips, .ex-bank { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.ex-chip, .ex-card { min-height: 44px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; }
+.ex-build:not(.is-steps) .ex-card { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.ex-card:disabled, .ex-chip:disabled { opacity: 0.45; cursor: default; }
+.ex-card.is-placed { border-color: var(--accent); }
+.ex-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 56px; margin: 8px 0; padding: 8px; border: 2px dashed var(--line); border-radius: 12px; list-style: none; }
+.ex-build.is-steps .ex-line { flex-direction: column; align-items: stretch; list-style: decimal inside; }
+.ex-build.is-steps .ex-card { text-align: left; }
+.ex-eq { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 700; padding: 0 4px; }
+.ex-selection { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.1rem; font-weight: 700; margin: 8px 0; }
+.ex-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.ex-feedback { align-items: flex-start; margin: 12px 0; }
+.ex-feedback .explanation { margin: 0; flex: 1; }
+.ex-note { margin: 6px 0 0; font-size: 0.85rem; color: var(--muted); }
+.ex-summary { margin: 12px 0; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.ex-summary h2 { margin: 0 0 6px; font-size: 1.05rem; }
+.ex-done h2 { margin: 0; }
+.option:disabled { cursor: default; opacity: 1; color: inherit; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ex-sheet td.is-marked { background: #5a1e1b; color: #ffd9d6; }
+}
+:root[data-theme="dark"] .ex-sheet td.is-marked { background: #5a1e1b; color: #ffd9d6; }

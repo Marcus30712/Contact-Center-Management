@@ -5,6 +5,7 @@ import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
 import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
+import { EXCEL_LESSONS, EXCEL_UI } from '../excel/data.js';
 import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
@@ -12,9 +13,14 @@ import { loadState, pool, streak, localDate, ensureToday } from '../practice/eng
 const COURSES = [
   { id: 'lifecycle', name: UI.lifecycle, lessons: LESSONS, key: 'agent-lifecycle-course:v1', path: './agent-lifecycle/' },
   { id: 'sop', name: UI.sop, lessons: SOP_LESSONS, key: 'sop-library:v1', path: './sop-library/' },
+  {
+    id: 'excel', name: EXCEL_UI.homeCard, key: 'excel-practice:v1', path: './excel/',
+    lessons: EXCEL_LESSONS.map((l, i) => ({ id: l.id, order: i + 1, title: l.title })),
+    href: (lesson) => `./excel/#lesson-${lesson.id}`,
+  },
 ];
 
-// Progress for both courses, read from the keys each course already uses.
+// Progress for the three courses, read from the keys each course already uses.
 // The next lesson is the first one, in course order, not yet finished.
 export function myLearning(storage) {
   const rows = COURSES.map((course) => {
@@ -26,7 +32,7 @@ export function myLearning(storage) {
       name: course.name,
       done: ordered.filter((l) => done.has(l.id)).length,
       total: ordered.length,
-      next: next ? { id: next.id, order: next.order, title: next.title, href: `${course.path}#${next.id}-0` } : null,
+      next: next ? { id: next.id, order: next.order, title: next.title, href: course.href ? course.href(next) : `${course.path}#${next.id}-0` } : null,
     };
   });
   rows.started = rows.some((r) => r.done > 0);
