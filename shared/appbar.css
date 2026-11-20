@@ -1,0 +1,24 @@
+/* Bottom menu. Sits above the iPhone home bar and leaves room under the page. */
+/* When focus or a link scrolls the page, stop short of the menu. */
+html { scroll-padding-bottom: calc(64px + 8px + env(safe-area-inset-bottom, 0px)); }
+
+/* Pages keep html and body at full height, so the room goes under the page wrapper. */
+.page { padding-bottom: calc(40px + 64px + env(safe-area-inset-bottom, 0px)); }
+.appbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  padding: 4px 8px calc(4px + env(safe-area-inset-bottom, 0px));
+  background: var(--surface); border-top: 1px solid var(--line);
+}
+.appbar a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: 52px; border-radius: 10px; color: var(--muted); text-decoration: none; font-size: 0.74rem; font-weight: 600;
+}
+.appbar svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.appbar a[aria-current="page"] { color: var(--accent); }
+.appbar a[aria-current="page"] svg { stroke-width: 2.4; }
+.appbar a:focus-visible { outline: 3px solid var(--signal); outline-offset: -3px; }
+@media (min-width: 760px) {
+  .appbar { left: 50%; right: auto; transform: translateX(-50%); width: min(560px, 100%); border: 1px solid var(--line); border-bottom: 0; border-radius: 16px 16px 0 0; }
+}
+@media print { .appbar { display: none; } .page { padding-bottom: 40px; } }

@@ -1,0 +1,53 @@
+// Wording for the home screen. Korean is the approved copy in
+// docs/superpowers/specs/2026-11-20-app-shell-design.md (§4.3); card texts
+// are the ones the hub already used.
+export const HOME_UI = {
+  brand: { ko: 'Contact Center KB', en: 'Contact Center KB' },
+  title: { ko: 'Contact Center Management Knowledge Base', en: 'Contact Center Management Knowledge Base' },
+  tagline: {
+    ko: '컨택센터 운영 관리를 주제별로 배우는 인터랙티브 자료 모음입니다.',
+    en: 'Interactive learning material on contact center management, one topic at a time.',
+  },
+  greeting: { ko: '안녕하세요, 김미소예요. 오늘도 조금씩 같이 가 봐요.', en: "Hi, I'm Miso Kim. Let's take another small step together today." },
+  misoRole: { ko: '신입 팀장을 돕는 선배 매니저', en: 'A senior manager who helps new team leads' },
+  misoAlt: { ko: '김미소, 활짝 웃는 얼굴', en: 'Miso Kim, smiling broadly' },
+  myLearning: { ko: '내 학습', en: 'My learning' },
+  continue: { ko: '이어서:', en: 'Next:' },
+  start: { ko: '처음이라면 라이프사이클 레슨 1부터 시작해 보세요.', en: "New here? Start with lifecycle lesson 1." },
+  allDone: { ko: '다 마쳤어요. 필요한 레슨은 언제든 다시 볼 수 있어요.', en: "You've finished everything. Come back to any lesson whenever you need it." },
+  courseDone: { ko: '다 마침', en: 'Done' },
+  review: { ko: '다시 보기', en: 'Review' },
+  learn: { ko: '배우기', en: 'Learn' },
+  browse: { ko: '찾아보기', en: 'Browse' },
+  install: {
+    ko: '휴대폰 홈 화면에 추가하면 앱처럼 쓰고 오프라인에서도 볼 수 있어요. (아이폰: 공유 → 홈 화면에 추가)',
+    en: 'Add this to your phone\'s home screen to use it like an app, even offline. (iPhone: Share → Add to Home Screen)',
+  },
+  lifecycle: { ko: '상담사 라이프사이클', en: 'The Agent Lifecycle' },
+  sop: { ko: 'SOP 라이브러리', en: 'SOP Library' },
+  lessonWord: { ko: '레슨', en: 'Lesson' },
+};
+
+const card = (href, ko, en, textKo, textEn) => ({ href, title: { ko, en }, text: { ko: textKo, en: textEn } });
+
+export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · 팀장 상황별 길잡이', 'Where to start? · Team Lead Situation Guide',
+  '지금 겪는 상황을 고르면 먼저 볼 곳을 알려 드립니다.', "Pick the situation you're in and see where to look first.");
+
+export const LEARN = [
+  card('./agent-lifecycle/', '상담사 라이프사이클', 'The Agent Lifecycle',
+    '신입 팀장을 위한 6단계 강의: 채용부터 경력 개발까지.', 'A six-stage course for new team leaders, from hiring to career growth.'),
+  card('./sop-library/', 'SOP 라이브러리', 'SOP Library',
+    '팀장이 알아야 할 절차 7개를 순서대로 배웁니다: 에스컬레이션, 1:1 코칭, PIP, 캘리브레이션, 온보딩, 대규모 이슈 대응, 신규 프로젝트 론칭.',
+    'Learn seven procedures a team leader needs to know, step by step: escalation, 1:1 coaching, PIP, calibration, onboarding, large-scale issue response, new project launch.'),
+];
+
+export const BROWSE = [
+  card('./codex/', 'Codex 원페이저', 'Codex One-Pagers',
+    '운영 최적화 원칙, 5대 핵심팀, 커리어 매트릭스, 직무별 하루를 한 장씩 봅니다.', 'The optimization principles, five core teams, career matrix and a day in each role, one page each.'),
+  card('./staffing-calculator/', '인력 산정 실험실', 'Staffing Lab',
+    '문의량, 처리 시간, 인원, Shrinkage를 움직여 보며 필요한 인원을 익힙니다.', 'Move volume, handle time, headcount and Shrinkage to see how required staff is worked out.'),
+  card('./glossary/', '용어집', 'Glossary',
+    'AHT, Shrinkage, SME 같은 운영 용어를 한국어와 영어로 찾아봅니다.', 'Look up operations terms in Korean and English.'),
+  card('./references/', '참고 자료', 'References',
+    '이 Knowledge Base의 바탕 자료와 참고한 공개 자료.', 'What this Knowledge Base is built on.'),
+];

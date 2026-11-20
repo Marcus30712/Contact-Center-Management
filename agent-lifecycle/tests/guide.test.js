@@ -147,3 +147,12 @@ test('a language switch keeps the chosen group and the open card', () => {
   assert.ok(isOpen(en.$('[data-card="s13"]')));
   assert.ok(!/[가-힣]/.test(en.root.textContent));
 });
+
+test('Miso, thinking, opens the guide', () => {
+  for (const [lang, word] of [['ko', '김미소'], ['en', 'Miso Kim']]) {
+    const { $ } = mount(lang);
+    const img = $('header img[data-miso="think"]');
+    assert.equal(img.getAttribute('src'), '../assets/miso/think.webp');
+    assert.ok(img.getAttribute('alt').includes(word));
+  }
+});

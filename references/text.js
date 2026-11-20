@@ -31,4 +31,8 @@ export const REFERENCES_TEXT = {
     ko: '이 저장소는 MIT 라이선스로 공개합니다.',
     en: 'This repository is published under the MIT license.',
   },
+  misoCredit: {
+    ko: '캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. 저장소의 MIT 라이선스를 따릅니다.',
+    en: 'Character images of Miso Kim: created by Marcus Shim with Google Gemini. They follow the repository\'s MIT license.',
+  },
 };

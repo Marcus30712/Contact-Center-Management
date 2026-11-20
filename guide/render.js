@@ -5,6 +5,8 @@ import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { tabs, expandCard } from '../codex/render/parts.js';
 import { GUIDE_UI as UI, GROUPS } from './data.js';
 
+const MISO_ALT = { ko: '김미소, 생각하는 얼굴', en: 'Miso Kim, thinking' };
+
 export function newGuideState() {
   return { group: 'all', open: new Set() };
 }
@@ -21,7 +23,10 @@ export function renderGuide(root, lang, state) {
   let number = 0;
 
   root.replaceChildren(
-    h('header', { class: 'glossary-head' }, [h('h1', { text: tr(UI.title) }), h('p', { class: 'tagline', text: tr(UI.intro) })]),
+    h('header', { class: 'glossary-head gd-head' }, [
+      h('img', { src: '../assets/miso/think.webp', alt: tr(MISO_ALT), width: 157, height: 227, 'data-miso': 'think' }),
+      h('div', {}, [h('h1', { text: tr(UI.title) }), h('p', { class: 'tagline', text: tr(UI.intro) })]),
+    ]),
     tabs([{ id: 'all', label: tr(UI.all) }, ...GROUPS.map((g) => ({ id: g.id, label: tr(g.chip) }))], state.group, (id) => {
       state.group = id;
       redraw(`[data-tab="${id}"]`);

@@ -247,3 +247,8 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* Miso on the completion card (app shell). */
+.miso-cheer { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.miso-cheer img { width: 64px; height: auto; flex: none; }
+.miso-cheer p { margin: 0; font-weight: 600; }

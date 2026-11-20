@@ -1,0 +1,38 @@
+/* Home screen. Tokens come from the course stylesheet. */
+#app { max-width: 44rem; }
+.hm-head { padding: 20px 0 12px; display: grid; gap: 6px; }
+.hm-head h1 { font-size: clamp(1.4rem, 5.5vw, 2rem); line-height: 1.25; letter-spacing: -0.02em; }
+.hm-tagline { color: var(--muted); }
+#app h2 { font-size: 1rem; color: var(--accent); margin: 22px 0 8px; }
+
+.hm-miso { padding: 14px 16px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.hm-miso h2 { margin-top: 12px !important; }
+.hm-hello { display: flex; gap: 12px; align-items: flex-end; }
+.hm-hello img { width: 86px; height: auto; flex: none; }
+.hm-bubble { position: relative; padding: 10px 14px; border-radius: 14px; background: var(--accent-soft); margin-bottom: 18px; }
+.hm-bubble p { margin: 0; }
+.hm-role { font-size: 0.8rem; color: var(--muted); margin-top: 2px !important; }
+
+.hm-courses { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.hm-course { display: grid; gap: 4px; }
+.hm-course-head { display: flex; justify-content: space-between; gap: 8px; }
+.hm-count { color: var(--muted); font-variant-numeric: tabular-nums; }
+.hm-course progress { width: 100%; height: 8px; appearance: none; border: 0; border-radius: 4px; background: var(--line); overflow: hidden; accent-color: var(--accent); }
+.hm-course progress::-webkit-progress-bar { background: var(--line); border-radius: 4px; }
+.hm-course progress::-webkit-progress-value { background: var(--accent); border-radius: 4px; }
+.hm-course progress::-moz-progress-bar { background: var(--accent); border-radius: 4px; }
+.hm-next { color: var(--accent); font-size: 0.92rem; text-decoration: none; }
+.hm-next span { color: var(--muted); }
+.hm-next:hover, .hm-next:focus-visible { text-decoration: underline; }
+.hm-done { margin: 0; color: var(--good); font-size: 0.9rem; font-weight: 700; }
+.hm-note { margin: 12px 0 0; font-size: 0.92rem; }
+
+.hm-cards { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+.hm-cards a.card {
+  display: block; padding: 14px 16px; border-radius: var(--radius); background: var(--surface);
+  border: 1px solid var(--line); text-decoration: none; color: inherit;
+}
+.hm-cards a.card:hover, .hm-cards a.card:focus-visible { border-color: var(--accent); }
+.hm-cards a.card strong { display: block; font-size: 1.05rem; }
+.hm-cards a.card span { color: var(--muted); font-size: 0.9rem; }
+.hm-install { color: var(--muted); font-size: 0.82rem; margin: 22px 0 28px; }

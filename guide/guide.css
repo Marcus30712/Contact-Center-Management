@@ -11,3 +11,5 @@
 .gd-go a:hover, .gd-go a:focus-visible { border-color: var(--accent); background: var(--accent-soft); }
 .gd-kind { font-size: 0.78rem; font-weight: 700; color: var(--accent); }
 .gd-go strong { overflow-wrap: anywhere; }
+.gd-head { display: flex; flex-direction: row; align-items: flex-end; gap: 12px; }
+.gd-head img { width: 72px; height: auto; flex: none; }
