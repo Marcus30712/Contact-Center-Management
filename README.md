@@ -30,7 +30,7 @@
 | 무엇 | 라이선스 | 파일 |
 |---|---|---|
 | 코드 (화면을 그리는 코드, 계산기, 테스트, 도구) | MIT | [`LICENSE`](LICENSE) |
-| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `practice/data.js`, `excel/data.js` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`), Codex PDF | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `practice/data.js`, `excel/data.js` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
 
 - CC BY-NC-ND 4.0: 출처("Marcus Shim, Miso Academy")를 밝히고, 바꾸지 않고, 비상업적으로만 공유할 수 있습니다. 자세한 범위는 `LICENSE-CONTENT`에 있습니다.
 - 2026년 11월 20일 이전에 MIT로 공개된 판은 그대로 MIT입니다.

@@ -1,6 +1,5 @@
 // Wording for the references page, in both languages.
 export const PYWORKFORCE_URL = 'https://github.com/rodrigo-arenas/pyworkforce';
-export const CODEX_PDF = './BPO_Contact_Center_Operation_Codex_2.0.pdf';
 
 export const REFERENCES_TEXT = {
   title: { ko: '참고 자료', en: 'References' },
@@ -14,7 +13,6 @@ export const REFERENCES_TEXT = {
     ko: 'BPO Contact Center Operation Codex 2.0 — BPO 고객센터 운영의 원칙, 관리 프로토콜, 성장 로드맵, 팀별 청사진, 표준 운영 절차(SOP)를 정리한 운영 지침서. 작성: Marcus Shim.',
     en: 'BPO Contact Center Operation Codex 2.0 — an operations guide covering the principles, management protocols, growth roadmap, team blueprints, and standard operating procedures (SOPs) of BPO contact center operations. Author: Marcus Shim.',
   },
-  codexLink: { ko: 'PDF 열기 (한국어)', en: 'Open the PDF (Korean)' },
   openHeading: { ko: '참고한 공개 자료', en: 'Open resources we draw on' },
   pyworkforce: {
     ko: 'pyworkforce — 인력 산정과 스케줄링을 위한 오픈소스 도구(MIT 라이선스). 인력 산정 실험실의 계산 방식을 여기서 참고했고 결과를 대조했습니다.',

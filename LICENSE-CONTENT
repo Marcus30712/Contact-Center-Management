@@ -21,7 +21,6 @@ https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
   staffing-calculator/text.js
 - design and wording documents: docs/
 - the Miso Kim character images: assets/miso/, art/miso/, icons/
-- the Codex PDF: references/BPO_Contact_Center_Operation_Codex_2.0.pdf
 
 Everything else (the code that draws the pages, the calculators, tests and
 tools) is licensed under the MIT licence in LICENSE.

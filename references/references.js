@@ -2,7 +2,7 @@
 import { loadLang, saveLang, t } from '../agent-lifecycle/js/engine/i18n.js';
 import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { h } from '../agent-lifecycle/js/render/dom.js';
-import { REFERENCES_TEXT as T, PYWORKFORCE_URL, CODEX_PDF } from './text.js';
+import { REFERENCES_TEXT as T, PYWORKFORCE_URL } from './text.js';
 
 function getStorage() {
   try {
@@ -36,7 +36,6 @@ function draw() {
     ]),
     section(T.basisHeading, [
       h('p', { text: tr(T.codex) }),
-      h('p', {}, [h('a', { 'data-codex-pdf': true, href: CODEX_PDF, text: tr(T.codexLink) })]),
     ]),
     section(T.openHeading, [
       h('p', { text: tr(T.pyworkforce) }),

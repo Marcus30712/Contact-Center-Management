@@ -238,6 +238,12 @@
 - 문구는 2026-11-20 확정, 설계 문서(`docs/superpowers/specs/2026-11-19-situation-guide-design.md`)에 반영했습니다.
 - 홈이 엑셀 데이터를 불러오는 점은 점검 결과 그대로 둡니다. 홈의 학습 카드가 엑셀 레슨 제목과 진도를 보여 주고, "오늘의 연습" 카드가 오늘 문제 수를 셀 때 엑셀 문제도 함께 세므로 어차피 필요합니다.
 
+### 25. Codex PDF 내리기 — 상태: 검토 중
+
+- 참고 자료 페이지에서 "PDF 열기" 링크를 없애고, 저장소에서 PDF 파일(`references/BPO_Contact_Center_Operation_Codex_2.0.pdf`)을 지웠습니다. 서비스 어디에도 PDF는 남아 있지 않습니다.
+- 바탕 자료 소개(BPO Contact Center Operation Codex 2.0, 작성: Marcus Shim)는 그대로 둡니다. Codex의 내용은 강의·SOP·원페이저·용어집에 이미 담겨 있습니다.
+- README와 `LICENSE-CONTENT`의 PDF 항목도 지웠습니다.
+
 ---
 
 ## 알려진 한계
