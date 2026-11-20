@@ -38,3 +38,48 @@ test('the menu renders four labeled links and follows the page language', () => 
   const en = renderAppBar(document, ROOT, 'https://x.test/kb/guide/', 'en');
   assert.deepEqual([...en.querySelectorAll('a')].map((a) => a.textContent.trim()), ['Home', 'Learn', 'Guide', 'Browse']);
 });
+
+test('on the home page the highlight follows where you have scrolled', async () => {
+  const { homeSection, appBarItems } = await import('../../shared/appbar.js');
+  assert.equal(homeSection(0, 900, 1600), 'home');
+  assert.equal(homeSection(950, 900, 1600), 'learn');
+  assert.equal(homeSection(1700, 900, 1600), 'browse');
+  const root = 'https://x.test/kb/';
+  const current = (section) => appBarItems(root, `${root}#learn`, section).find((i) => i.current).id;
+  assert.equal(current('home'), 'home', 'scrolled back up after tapping Learn');
+  assert.equal(current(undefined), 'learn');
+});
+
+test('landscape phones keep content and the menu clear of the notch', async () => {
+  const css = (await import('node:fs')).readFileSync(new URL('../../shared/appbar.css', import.meta.url), 'utf8');
+  assert.ok(/\.page \{[^}]*safe-area-inset-left[^}]*safe-area-inset-right/.test(css));
+  assert.ok(/\.appbar \{[^}]*safe-area-inset-left/.test(css));
+});
+
+test('wide screens keep their wider side margins', async () => {
+  const css = (await import('node:fs')).readFileSync(new URL('../../shared/appbar.css', import.meta.url), 'utf8');
+  assert.ok(/@media \(min-width: 900px\) \{\s*\.page \{[^}]*max\(32px, env\(safe-area-inset-left/.test(css));
+});
+
+test('scrolled to the bottom of home counts as Browse; index.html and ?query count as home', async () => {
+  const { homeSection, isRootPage } = await import('../../shared/appbar.js');
+  assert.equal(homeSection(715, 400, 946, true), 'browse', 'the short last section can never reach the top');
+  assert.equal(homeSection(500, 400, 946, false), 'learn');
+  const root = 'https://x.test/kb/';
+  assert.ok(isRootPage(root, `${root}`));
+  assert.ok(isRootPage(root, `${root}index.html`));
+  assert.ok(isRootPage(root, `${root}?utm=a#learn`));
+  assert.ok(!isRootPage(root, `${root}guide/`));
+});
+
+test('changing the highlight keeps the same links, so focus stays put', async () => {
+  const { renderAppBar, setCurrent } = await import('../../shared/appbar.js');
+  const { setupDom } = await import('./dom.js');
+  setupDom();
+  const nav = renderAppBar(document, 'https://x.test/kb/', 'https://x.test/kb/', 'ko');
+  const learn = nav.querySelector('[data-item="learn"]');
+  setCurrent(nav, 'learn');
+  assert.equal(nav.querySelector('[data-item="learn"]'), learn);
+  assert.equal(learn.getAttribute('aria-current'), 'page');
+  assert.equal(nav.querySelectorAll('[aria-current]').length, 1);
+});

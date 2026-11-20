@@ -109,3 +109,12 @@ test('comparing different kinds follows Excel: numbers < text < TRUE/FALSE', () 
   assert.equal(val('=TRUE>"z"'), true);
   assert.equal(val('="a"="A"'), true);
 });
+
+test('Excel edges: numbers stored as text, fractional ROUND digits, VLOOKUP ignores case', () => {
+  const s2 = { cells: { ...sheet.cells, H2: '52', H3: 52, H4: 'x' } };
+  const v2 = (f) => { const r = evaluate(f, s2); assert.ok(r.ok, `${f}: ${r.error}`); return r.value; };
+  assert.equal(v2('=COUNTIF(H2:H4, "52")'), 2, 'text "52" and number 52 both match "52"');
+  assert.equal(v2('=COUNTIF(H2:H4, ">50")'), 1, 'a comparison only counts real numbers');
+  assert.equal(val('=ROUND(1.5, 0.5)'), 2, 'digits are truncated to whole numbers');
+  assert.equal(val('=VLOOKUP("s02", A2:G9, 2, FALSE)'), '이도윤');
+});

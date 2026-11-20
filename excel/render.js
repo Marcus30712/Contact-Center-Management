@@ -44,6 +44,8 @@ export function renderExcel(root, lang, storage, route, view) {
     if (focus) root.querySelector(focus)?.focus();
   };
 
+  // The read-out line and a text result belong to the language they were made in.
+  if (view.statusLang && view.statusLang !== lang) view.status = '';
   // One status line outside the redrawn area, so screen readers hear changes.
   let status = document.querySelector('[data-status]');
   if (!status) {
@@ -103,6 +105,14 @@ export function renderExcel(root, lang, storage, route, view) {
   // ---- one question ----------------------------------------------------------
   const q = lesson.questions[view.qi];
   if (!view.input) startQuestion();
+  if (view.graded && view.gradedLang !== lang) {
+    // Cards are kept by id, so rebuild the picked line in the new language.
+    const placed = view.input.build
+      ? view.input.build.line.map((id) => (q.type === 'steps' ? [...q.steps[lang], ...q.decoys[lang]] : [...q.cards[lang], ...q.decoys[lang]])[id])
+      : view.input.picked;
+    view.graded = grade(q, placed, lang);
+    view.gradedLang = lang;
+  }
   const g = view.graded;
 
   function startQuestion() {
@@ -113,6 +123,8 @@ export function renderExcel(root, lang, storage, route, view) {
   function check(answer) {
     view.input.picked = answer;
     const result = grade(q, answer, lang);
+    view.gradedLang = lang;
+    view.statusLang = lang;
     if (!(q.id in view.firstTry)) view.firstTry[q.id] = result.correct;
     view.graded = result;
     view.status = tr(result.correct ? UI.correct : UI.wrong);
@@ -202,8 +214,11 @@ export function renderExcel(root, lang, storage, route, view) {
       selected: cellsOf(text),
     };
     input = h('div', { class: 'ex-pick' }, [
-      h('p', { class: 'ex-selection', 'data-selection': true, text: text || '—' }),
-      answered ? null : h('button', { type: 'button', class: 'btn primary', 'data-check': true, text: tr(UI.check), onclick: () => check(text) }),
+      h('p', { class: 'ex-selection', 'data-selection': true, 'aria-live': 'polite', text: text || '—' }),
+      answered ? null : h('div', { class: 'ex-actions' }, [
+        h('button', { type: 'button', class: 'btn ghost', 'data-clear': true, text: tr(UI.clear), onclick: () => { view.input.sel = null; redraw('td[data-cell]'); } }),
+        h('button', { type: 'button', class: 'btn primary', 'data-check': true, text: tr(UI.check), onclick: () => check(text) }),
+      ]),
     ]);
   }
 

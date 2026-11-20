@@ -9,6 +9,7 @@ const SCOPE = 'https://x.test/kb/';
 
 function boot({ fetchImpl, existing = [] } = {}) {
   const stores = new Map(existing.map((k) => [k, new Map()]));
+  let slowPut = false;
   const deleted = [];
   const fetched = [];
   const cacheFor = (name) => {
@@ -16,7 +17,7 @@ function boot({ fetchImpl, existing = [] } = {}) {
     const m = stores.get(name);
     const key = (r) => new URL(typeof r === 'string' ? r : r.url, SCOPE).href;
     return {
-      put: async (r, res) => { m.set(key(r), res); },
+      put: (r, res) => (slowPut ? new Promise(() => {}) : Promise.resolve(m.set(key(r), res))),
       match: async (r) => m.get(key(r)),
       addAll: async () => { throw new Error('addAll must not be used'); },
     };
@@ -47,7 +48,12 @@ function boot({ fetchImpl, existing = [] } = {}) {
     await Promise.all(waits);
     return responded && (await responded);
   };
-  return { fire, stores, deleted, fetched };
+  const fireRespond = async (type, extra = {}) => {
+    let responded;
+    listeners[type]({ ...extra, waitUntil: () => {}, respondWith: (p) => { responded = p; } });
+    return responded;
+  };
+  return { fire, fireRespond, stores, deleted, fetched, slow: () => { slowPut = true; } };
 }
 
 const ok = (r) => new Response(`body of ${r.url}`, { status: 200 });
@@ -72,4 +78,44 @@ test('activate removes only this site\'s old copies, not other projects on the s
   await w.fire('install');
   await w.fire('activate');
   assert.deepEqual(w.deleted, ['cckb-old']);
+});
+
+test('offline, an address never seen goes to the home page instead of a blank page', async () => {
+  const w = boot({ fetchImpl: ok });
+  await w.fire('install');
+  const offline = boot({ fetchImpl: () => { throw new TypeError('offline'); }, existing: [] });
+  // carry the installed cache over to the offline worker
+  for (const [name, m] of w.stores) offline.stores.set(name, m);
+  const res = await offline.fire('fetch', { request: { url: `${SCOPE}old-bookmark/`, method: 'GET', mode: 'navigate' } });
+  assert.equal(res.status, 302);
+  assert.equal(res.headers.get('location'), SCOPE);
+});
+
+test('a partial (206) answer is not stored and does not break the page', async () => {
+  const w = boot({ fetchImpl: (r) => (String(r.url ?? r).endsWith('.pdf') ? new Response('part', { status: 206 }) : ok(typeof r === 'string' ? { url: r } : r)) });
+  await w.fire('install');
+  const res = await w.fire('fetch', { request: { url: `${SCOPE}references/codex.pdf`, method: 'GET', mode: 'no-cors' } });
+  assert.equal(res.status, 206);
+  const [store] = [...w.stores.values()];
+  assert.ok(!store.has(`${SCOPE}references/codex.pdf`));
+});
+
+test('offline with no saved home page: an error, never a redirect loop', async () => {
+  const w = boot({ fetchImpl: () => { throw new TypeError('offline'); } });
+  for (const url of [`${SCOPE}old/`, SCOPE]) {
+    const res = await w.fire('fetch', { request: { url, method: 'GET', mode: 'navigate' } });
+    assert.equal(res.type, 'error', url);
+  }
+});
+
+test('a file not saved yet is handed over without waiting for it to be stored', async () => {
+  const w = boot({ fetchImpl: ok });
+  await w.fire('install');
+  w.slow();
+  // A cache whose put never finishes: the page must still get its answer.
+  const res = await Promise.race([
+    w.fireRespond('fetch', { request: { url: `${SCOPE}references/big.pdf`, method: 'GET', mode: 'no-cors' } }),
+    new Promise((r) => setTimeout(() => r('timeout'), 300)),
+  ]);
+  assert.notEqual(res, 'timeout');
 });

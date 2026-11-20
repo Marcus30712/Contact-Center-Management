@@ -1,5 +1,5 @@
 // Team Lead Situation Guide: chips pick a group; each situation opens to two
-// links into the rest of the Knowledge Base.
+// links into the rest of Miso Academy.
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { tabs, expandCard } from '../codex/render/parts.js';
@@ -18,7 +18,12 @@ export function renderGuide(root, lang, state) {
     if (focus) root.querySelector(focus)?.focus();
   };
   const go = (kind, link) => h('li', {}, [
-    h('a', { href: link.href, 'data-go': kind }, [h('span', { class: 'gd-kind', text: tr(UI[kind]) }), h('strong', { text: tr(link.title) })]),
+    h('a', { href: link.href, 'data-go': kind }, [
+      h('span', { class: 'gd-kind', text: tr(UI[kind]) }),
+      // Screen readers would otherwise run the two parts together.
+      h('span', { class: 'visually-hidden', text: ': ' }),
+      h('strong', { text: tr(link.title) }),
+    ]),
   ]);
   let number = 0;
 

@@ -237,3 +237,45 @@ test('the list marks the next lesson to take', () => {
   assert.ok(next.textContent.includes(UI.continue.ko));
   assert.equal(p.root.querySelectorAll('[data-lesson].is-next').length, 1);
 });
+
+test('switching language after answering shows the result and read-out in the new language', () => {
+  const p = page();
+  toQuestions(p, 6);
+  const qs = EXCEL_LESSONS[5].questions;
+  for (let i = 0; i < 4; i += 1) { answerRight(p, qs[i]); click(p.root.querySelector('[data-next]')); }
+  answerRight(p, qs[4]);
+  assert.ok(text(p.root, '[data-result]').includes('달성'));
+  p.draw('lesson-6', 'en');
+  assert.ok(text(p.root, '[data-result]').includes('Result: Met'));
+  assert.ok(!/[가-힣]/.test(document.querySelector('[data-status]').textContent));
+});
+
+test('cell picking can be cleared, and the selection is read out', () => {
+  const p = page();
+  toQuestions(p, 1);
+  const qs = EXCEL_LESSONS[0].questions;
+  for (let i = 0; i < 4; i += 1) { answerRight(p, qs[i]); click(p.root.querySelector('[data-next]')); }
+  click(p.root.querySelector('td[data-cell="C2"]'));
+  click(p.root.querySelector('td[data-cell="D4"]'));
+  assert.ok(text(p.root, '[data-selection]').includes('C2:D4'));
+  assert.equal(p.root.querySelector('[data-selection]').getAttribute('aria-live'), 'polite');
+  click(p.root.querySelector('[data-clear]'));
+  assert.ok(!text(p.root, '[data-selection]').includes('C2'));
+  click(p.root.querySelector('td[data-cell="E9"]'));
+  click(p.root.querySelector('[data-check]'));
+  assert.ok(p.root.querySelector('img[data-miso="joy"]'));
+});
+
+test('switching language after a steps question re-grades it in the new language', () => {
+  const s = fakeStorage();
+  saveProgress(s, { completed: ['1', '2', '3', '4', '5', '6', '7', '8'], scores: {} });
+  const p = page(s);
+  toQuestions(p, 9);
+  const qs = EXCEL_LESSONS[8].questions;
+  for (let i = 0; i < 4; i += 1) { answerRight(p, qs[i]); click(p.root.querySelector('[data-next]')); }
+  answerRight(p, qs[4]);
+  assert.ok(p.root.querySelector('img[data-miso="joy"]'));
+  p.draw('lesson-9', 'en');
+  assert.ok(p.root.querySelector('img[data-miso="joy"]'), 'still right in English');
+  assert.ok(p.root.querySelector('[data-after]'));
+});

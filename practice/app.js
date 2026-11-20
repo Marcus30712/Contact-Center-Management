@@ -36,7 +36,7 @@ function draw() {
     draw();
     langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
   });
-  renderPractice(app, lang, storage, day, view);
+  renderPractice(app, lang, storage, day, view, { clock: localDate, onDay: (d) => { day = d; } });
 }
 
 draw();

@@ -7,6 +7,9 @@ import { visibleSteps, visibleQuestions } from '../engine/track.js';
 import { renderDiagram } from './diagram.js';
 import { UI } from '../i18n/ui.js';
 
+// Found from this file's place, so any page that shows a lesson finds the image.
+const MISO_PROUD = new URL('../../../assets/miso/proud.webp', import.meta.url).href;
+
 // One lesson: step-through diagram, then the checkpoint questions, then the
 // card that links to the next stage.
 // A course other than the lifecycle one passes its own `lessonCount` and
@@ -49,7 +52,7 @@ export function renderLesson(root, lesson, stepIndex, lang, {
   const connection = h('div', { class: 'connection', 'data-connection': true, hidden: true }, [
     // Miso congratulates once the checkpoint is done. Both courses sit one folder below the root.
     h('div', { class: 'miso-cheer' }, [
-      h('img', { src: '../assets/miso/proud.webp', alt: tr(ui.misoProudAlt), width: 157, height: 227, 'data-miso': 'proud' }),
+      h('img', { src: MISO_PROUD, alt: tr(ui.misoProudAlt), width: 157, height: 227, 'data-miso': 'proud' }),
       h('p', { 'data-miso-line': true, text: tr(ui.misoCheer) }),
     ]),
     h('h3', { text: tr(ui.connection) }),

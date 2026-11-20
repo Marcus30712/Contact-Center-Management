@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = '89827315cc83';
+const VERSION = 'bf96843474ab';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -164,20 +164,20 @@ self.addEventListener('fetch', (event) => {
   event.respondWith((async () => {
     const cache = await caches.open(CACHE);
     const cached = await cache.match(request, { ignoreSearch: true });
-    const fresh = fetch(request)
-      .then((response) => {
-        if (response.ok) cache.put(request, response.clone());
-        return response;
-      })
-      .catch(() => null);
-    if (cached) {
-      event.waitUntil(fresh);
-      return cached;
-    }
+    // Hand the answer over at once; store a copy in the background.
+    // A partial (206) answer can't be stored, so it is skipped.
+    const fresh = fetch(request).catch(() => null);
+    event.waitUntil(fresh.then((response) => {
+      if (response && response.ok && response.status !== 206) return cache.put(request, response.clone()).catch(() => {});
+      return null;
+    }));
+    if (cached) return cached;
     const response = await fresh;
     if (response) return response;
-    // Offline and never seen: show the home page for page visits.
-    if (request.mode === 'navigate') return (await cache.match('./')) ?? Response.error();
+    // Offline and never seen: send page visits to the saved home page, so its
+    // own relative links work. No saved home page (or this is it): plain error.
+    const home = new URL('./', self.registration.scope).href;
+    if (request.mode === 'navigate' && request.url !== home && (await cache.match(home))) return Response.redirect(home, 302);
     return Response.error();
   })());
 });

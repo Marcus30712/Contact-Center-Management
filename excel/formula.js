@@ -122,6 +122,8 @@ function criterion(raw) {
     if (n !== null && isNum(v)) {
       return { '=': v === n, '<>': v !== n, '<': v < n, '<=': v <= n, '>': v > n, '>=': v >= n }[op];
     }
+    // A number stored as text matches an equality condition, as in Excel.
+    if (n !== null && typeof v === 'string' && v.trim() !== '' && Number(v) === n && (op === '=' || op === '<>')) return op === '=';
     if (n !== null) return op === '<>';
     const eq = String(v).toLowerCase() === rhs.toLowerCase();
     if (op === '=') return eq;
@@ -178,7 +180,7 @@ export function evaluate(formula, sheet) {
     MIN: (a) => { const n = numbers(a); if (!n.length) fail('no numbers'); return Math.min(...n); },
     MAX: (a) => { const n = numbers(a); if (!n.length) fail('no numbers'); return Math.max(...n); },
     COUNT: (a) => numbers(a).length,
-    ROUND: (a) => { arity(a, 2); const d = num(ev(a[1])); const f = 10 ** d; const x = num(ev(a[0])); return Math.sign(x) * Math.round(Math.abs(x) * f + 1e-9) / f; },
+    ROUND: (a) => { arity(a, 2); const d = Math.trunc(num(ev(a[1]))); const f = 10 ** d; const x = num(ev(a[0])); return Math.sign(x) * Math.round(Math.abs(x) * f + 1e-9) / f; },
     INT: (a) => { arity(a, 1); return Math.floor(num(ev(a[0]))); },
     MOD: (a) => { arity(a, 2); const d = num(ev(a[1])); if (d === 0) fail('divide by zero'); const x = num(ev(a[0])); return x - d * Math.floor(x / d); },
     COUNTIF: (a) => { arity(a, 2); const c = pairs(a, 0); return matching(c[0].cells.length, c).length; },
@@ -220,7 +222,7 @@ export function evaluate(formula, sheet) {
       if (a.length === 4 && ev(a[3]) !== false) fail('only exact match is covered');
       if (a.length === 3) fail('only exact match is covered');
       if (col < 1 || col > rows[0].length || !Number.isInteger(col)) fail('column out of range');
-      const row = rows.find((r) => r[0].v === key);
+      const row = rows.find((r) => (typeof r[0].v === 'string' && typeof key === 'string' ? r[0].v.toLowerCase() === key.toLowerCase() : r[0].v === key));
       if (!row) fail('not found');
       return row[col - 1].v;
     },

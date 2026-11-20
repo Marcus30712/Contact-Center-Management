@@ -25,7 +25,9 @@ export function newPracticeView() {
   return { showing: null, flipped: null, newBadges: [], status: '' };
 }
 
-export function renderPractice(root, lang, storage, today, view = newPracticeView()) {
+// opts.clock: today's date now; when it has moved on, a tap first moves the
+// page to the new day instead of saving to yesterday's set.
+export function renderPractice(root, lang, storage, today, view = newPracticeView(), opts = {}) {
   const tr = (text) => t(text, lang).text;
   const miso = (name, size = 96) => h('img', {
     class: 'pr-miso', src: `../assets/miso/${name}.webp`, alt: tr(MISO[name]),
@@ -48,8 +50,19 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
 
   // replaceChildren would write an empty part out as the text "null".
   const show = (...parts) => root.replaceChildren(...parts.filter(Boolean));
+  const dayMoved = () => {
+    const now = opts.clock?.();
+    if (!now || now === today) return false;
+    Object.assign(view, newPracticeView());
+    opts.onDay?.(now);
+    renderPractice(root, lang, storage, now, view, opts);
+    root.querySelector('[data-option], [data-card], [data-done] h2')?.focus();
+    return true;
+  };
+  // The read-out line belongs to the language it was written in.
+  if (view.statusLang && view.statusLang !== lang) view.status = '';
   const redraw = (focus) => {
-    renderPractice(root, lang, storage, today, view);
+    renderPractice(root, lang, storage, today, view, opts);
     if (focus) root.querySelector(focus)?.focus();
   };
 
@@ -143,12 +156,14 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
   }
 
   function choose(q, optionId) {
+    if (dayMoved()) return;
     const correct = optionId === q.answer;
     const result = recordAnswer(state, q.key, optionId, correct, today);
     saveState(storage, result.state);
     view.showing = q.key;
     view.newBadges = [...view.newBadges, ...result.newBadges];
     view.status = tr(correct ? UI.correct : UI.wrong);
+    view.statusLang = lang;
     redraw('[data-next]');
   }
 
@@ -205,6 +220,7 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
         : h('span', { class: 'pr-term-hint', text: tr(UI.cardFlip) }),
     ]);
     const mark = (known) => () => {
+      if (dayMoved()) return;
       const result = markCard(state, term.id, known, today, courseFacts(storage, {
         ...state, cards: { ...state.cards, [term.id]: { known, last: today } },
       }, terms));
