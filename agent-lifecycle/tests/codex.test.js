@@ -458,3 +458,18 @@ test('opening a page with an item shows that item open', () => {
   const daily = mountPage('daily', 'ko', openItem(newState(), 'daily', 'am'));
   assert.equal(daily.$('[data-tab="am"]').getAttribute('aria-pressed'), 'true');
 });
+
+test('each task share is a fill inside one fixed-width track, N% of it, with its label', () => {
+  const { $$ } = mountPage('daily');
+  const items = $$('.cx-task');
+  assert.ok(items.length > 0);
+  for (const t of items) {
+    const label = t.querySelector('.cx-share-label').textContent;
+    const fill = t.querySelector('.cx-share-track > .cx-share-fill');
+    assert.ok(fill, 'the fill sits inside a track');
+    assert.equal(fill.getAttribute('style'), `width: ${label.match(/\d+/)[0]}%`);
+  }
+  const css = readFileSync(new URL('../../codex/codex.css', import.meta.url), 'utf8');
+  assert.match(css, /\.cx-share-track \{[^}]*width: \d+(\.\d+)?rem/, 'the track has one fixed width for every task');
+  assert.ok(!/\.cx-share-bar|max-width: 60%/.test(css), 'the old relative bar is gone');
+});
