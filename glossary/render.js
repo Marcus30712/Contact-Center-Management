@@ -11,7 +11,7 @@ export const GLOSSARY_UI = {
     ko: '강의와 운영 지침서에 나오는 용어를 찾아보세요.',
     en: 'Look up the terms used in the course and the operations guide.',
   },
-  back: { ko: 'Miso Academy', en: 'Miso Academy' },
+  back: { ko: 'Queuecraft', en: 'Queuecraft' },
   searchLabel: { ko: '용어 검색', en: 'Search terms' },
   categoryLabel: { ko: '분류', en: 'Category' },
   all: { ko: '전체', en: 'All' },

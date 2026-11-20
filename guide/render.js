@@ -1,5 +1,5 @@
 // Team Lead Situation Guide: chips pick a group; each situation opens to two
-// links into the rest of Miso Academy.
+// links into the rest of Queuecraft.
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { tabs, expandCard } from '../codex/render/parts.js';
