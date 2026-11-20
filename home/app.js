@@ -30,6 +30,11 @@ function draw() {
   renderHome(app, lang, storage);
 }
 
+let day = new Date().toDateString();
 draw();
+// A home screen left open past midnight shows the new day's practice.
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && new Date().toDateString() !== day) { day = new Date().toDateString(); draw(); }
+});
 // Coming back with the browser's back button can show a cached page; refresh the numbers.
 window.addEventListener('pageshow', (event) => { if (event.persisted) draw(); });

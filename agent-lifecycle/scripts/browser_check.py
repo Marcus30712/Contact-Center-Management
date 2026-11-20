@@ -676,6 +676,14 @@ def main():
         page.goto(HUB)
         page.wait_for_selector("img[data-miso='grin']")
         page.screenshot(path=str(OUT / "home-1280.png"), full_page=True)
+        pad = page.evaluate("getComputedStyle(document.querySelector('.page')).paddingLeft")
+        check(f"(a5) wide screens keep 32px side margins ({pad})", pad == "32px")
+        page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
+        page.wait_for_timeout(200)
+        check("(a5) scrolled to the bottom of home, the menu marks Browse", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "browse")
+        page.evaluate("window.scrollTo(0, 0)")
+        page.wait_for_timeout(200)
+        check("(a5) back at the top, the menu marks Home", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "home")
         page.context.close()
 
         # ---- Today's practice ----

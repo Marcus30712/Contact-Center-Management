@@ -32,3 +32,7 @@ function draw() {
 }
 
 draw();
+// Coming back with the browser's back button: pick up a language changed elsewhere.
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) { lang = loadLang(storage); draw(); }
+});

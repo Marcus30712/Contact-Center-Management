@@ -156,3 +156,13 @@ test('Miso, thinking, opens the guide', () => {
     assert.ok(img.getAttribute('alt').includes(word));
   }
 });
+
+test('each link reads its kind and its title as two parts', () => {
+  const { $ } = mount();
+  $('[data-card="s9"] button').click();
+  const link = $('[data-card="s9"]').querySelector('a[data-go="first"]');
+  const kind = link.querySelector('.gd-kind').textContent;
+  const title = link.querySelector('strong').textContent;
+  assert.equal(link.textContent, `${kind}: ${title}`);
+  assert.ok(link.querySelector('.visually-hidden'), 'the colon is for screen readers only');
+});

@@ -409,7 +409,7 @@ test('the completion card has Miso, proud, with one line of congratulations', ()
   const { $ } = mountLesson();
   const card = $('[data-connection]');
   const img = card.querySelector('img[data-miso="proud"]');
-  assert.equal(img.getAttribute('src'), '../assets/miso/proud.webp');
+  assert.ok(img.getAttribute('src').endsWith('/assets/miso/proud.webp') && !img.getAttribute('src').startsWith('../'), 'resolved from the module, so any page depth works');
   assert.ok(img.getAttribute('alt').includes('김미소'));
   assert.equal(card.querySelector('[data-miso-line]').textContent, '한 단계 마쳤어요. 오늘 배운 걸 팀에서 한 번 써 보세요.');
   assert.ok(UI.misoCheer.en && !/[가-힣]/.test(UI.misoCheer.en + UI.misoProudAlt.en));

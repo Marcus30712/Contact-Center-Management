@@ -183,3 +183,42 @@ test('finishing every Excel lesson earns its badge when practice opens', () => {
   assert.ok(root.querySelector('[data-badge-new]').textContent.includes('새 배지: 엑셀 완주'));
   assert.ok(root.querySelector('[data-badge-new] img[data-miso="proud"]'));
 });
+
+test('a page left open past midnight moves to the new day before saving an answer', () => {
+  const s = store();
+  const { root } = setupDom();
+  const view = newPracticeView();
+  let now = FRI;
+  renderPractice(root, 'ko', s, FRI, view, { clock: () => now });
+  now = '2026-11-23';
+  click(root.querySelector('[data-question] [data-option]'));
+  const st = loadState(s);
+  assert.equal(st.today.date, '2026-11-23', 'the new day has its own set');
+  assert.deepEqual(st.today.answers, {}, 'the tap only moved the page to the new day');
+  assert.ok(root.querySelector('[data-count]').textContent.includes('문제 1 / 3'));
+});
+
+test('switching language clears the read-out line from the other language', () => {
+  const s = store();
+  const { root } = setupDom();
+  const view = newPracticeView();
+  renderPractice(root, 'ko', s, FRI, view);
+  click(root.querySelector('[data-question] [data-option]'));
+  assert.ok(/[가-힣]/.test(document.querySelector('[data-status]').textContent));
+  renderPractice(root, 'en', s, FRI, view);
+  assert.ok(!/[가-힣]/.test(document.querySelector('[data-status]').textContent));
+});
+
+test('after the midnight move the app learns the new day, and focus stays on a question', () => {
+  const s = store();
+  const { root } = setupDom();
+  const view = newPracticeView();
+  let now = FRI;
+  let told = null;
+  renderPractice(root, 'ko', s, FRI, view, { clock: () => now, onDay: (d) => { told = d; } });
+  now = '2026-11-23';
+  root.querySelector('[data-question] [data-option]').focus();
+  click(root.querySelector('[data-question] [data-option]'));
+  assert.equal(told, '2026-11-23');
+  assert.ok(document.activeElement?.matches('[data-option]'));
+});

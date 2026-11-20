@@ -21,13 +21,40 @@ const ICONS = {
 };
 
 // Which item is current, and where each item goes, for a page inside the site.
-export function appBarItems(rootUrl, pageUrl) {
+// On the home page: which part is in view, from the scroll position and where
+// the Learn and Browse sections start.
+// atBottom: Browse is short and can never reach the top, so the bottom counts.
+export function homeSection(scrollY, learnTop, browseTop, atBottom = false) {
+  if (atBottom || scrollY >= browseTop) return 'browse';
+  if (scrollY >= learnTop) return 'learn';
+  return 'home';
+}
+
+// Is this address the home page? (…/, …/index.html, with any ?query or #hash)
+export function isRootPage(rootUrl, href) {
+  const root = new URL(rootUrl);
+  const page = new URL(href);
+  if (page.origin !== root.origin || !page.pathname.startsWith(root.pathname)) return false;
+  const inside = page.pathname.slice(root.pathname.length);
+  return inside === '' || inside === 'index.html';
+}
+
+// Move the highlight without rebuilding the menu, so focus stays where it is.
+export function setCurrent(nav, id) {
+  for (const a of nav.querySelectorAll('a[data-item]')) {
+    if (a.dataset.item === id) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  }
+}
+
+// section: on the home page, the part in view (overrides the address).
+export function appBarItems(rootUrl, pageUrl, section) {
   const root = new URL(rootUrl);
   const page = new URL(pageUrl);
   const inside = page.pathname.startsWith(root.pathname) ? page.pathname.slice(root.pathname.length) : '';
   const onRoot = inside === '' || inside === 'index.html';
   let current = 'browse';
-  if (onRoot) current = page.hash === '#learn' ? 'learn' : page.hash === '#browse' ? 'browse' : 'home';
+  if (onRoot) current = section ?? (page.hash === '#learn' ? 'learn' : page.hash === '#browse' ? 'browse' : 'home');
   else if (LEARN_PAGES.some((p) => inside.startsWith(p))) current = 'learn';
   else if (GUIDE_PAGES.some((p) => inside.startsWith(p))) current = 'guide';
   const href = (rest) => new URL(rest, root).href;
@@ -39,13 +66,13 @@ export function appBarItems(rootUrl, pageUrl) {
   ];
 }
 
-export function renderAppBar(doc, rootUrl, pageUrl, lang) {
+export function renderAppBar(doc, rootUrl, pageUrl, lang, section) {
   const say = (entry) => entry[lang] ?? entry.ko;
   const svgNs = 'http://www.w3.org/2000/svg';
   const nav = doc.createElement('nav');
   nav.className = 'appbar';
   nav.setAttribute('aria-label', say(APPBAR_UI.label));
-  for (const item of appBarItems(rootUrl, pageUrl)) {
+  for (const item of appBarItems(rootUrl, pageUrl, section)) {
     const a = doc.createElement('a');
     a.href = item.href;
     a.dataset.item = item.id;
@@ -66,9 +93,11 @@ export function renderAppBar(doc, rootUrl, pageUrl, lang) {
 
 function mount() {
   const rootUrl = new URL('../', import.meta.url).href;
+  const onRoot = isRootPage(rootUrl, location.href);
+  let section;
   const draw = () => {
     const lang = document.documentElement.lang === 'en' ? 'en' : 'ko';
-    const nav = renderAppBar(document, rootUrl, location.href, lang);
+    const nav = renderAppBar(document, rootUrl, location.href, lang, section);
     const old = document.querySelector('nav.appbar');
     if (old) old.replaceWith(nav);
     else document.body.append(nav);
@@ -76,7 +105,23 @@ function mount() {
   draw();
   // Pages switch language by changing <html lang>; hash changes can move "current".
   new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-  window.addEventListener('hashchange', draw);
+  window.addEventListener('hashchange', () => { section = undefined; draw(); });
+  // On the home page, follow the part in view once the reader scrolls.
+  if (onRoot) {
+    const top = (id) => {
+      const el = document.getElementById(id);
+      return el ? el.getBoundingClientRect().top + window.scrollY - 120 : Infinity;
+    };
+    window.addEventListener('scroll', () => {
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      const next = homeSection(window.scrollY, top('learn'), top('browse'), atBottom);
+      if (next === section) return;
+      section = next;
+      const nav = document.querySelector('nav.appbar');
+      if (nav) setCurrent(nav, next);
+      else draw();
+    }, { passive: true });
+  }
   if (!document.querySelector('link[data-appbar-css]')) {
     const css = document.createElement('link');
     css.rel = 'stylesheet';
