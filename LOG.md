@@ -244,7 +244,7 @@
 - 바탕 자료 소개(BPO Contact Center Operation Codex 2.0, 작성: Marcus Shim)는 그대로 둡니다. Codex의 내용은 강의·SOP·원페이저·용어집에 이미 담겨 있습니다.
 - README와 `LICENSE-CONTENT`의 PDF 항목도 지웠습니다.
 
-### 26. 이름을 Queuecraft (큐크래프트)로 — 상태: 검토 중
+### 26. 이름을 Queuecraft (큐크래프트)로 — 상태: 반영됨 (PR #35)
 
 - 서비스 이름을 **Queuecraft (큐크래프트)**로 바꿨습니다. 휴대폰 앱 이름, 브라우저 탭 제목, 모든 페이지 왼쪽 위 이름과 돌아가기 링크는 "Queuecraft", 첫 화면 큰 제목은 한국어 "큐크래프트" / 영어 "Queuecraft"입니다.
 - 이유: "미소/Miso"는 같은 분야(고객 경험)에 이름이 겹치는 국내 회사가 있어 피했습니다. 2026-11-20 KIPRIS(Queuecraft, 큐크래프트)와 USPTO(Queuecraft) 상표 검색에서 같은 이름은 0건이었습니다.
