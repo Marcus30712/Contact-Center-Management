@@ -864,6 +864,22 @@ def main():
         check("(x4) 320px: build question has no sideways scroll", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
         page.context.close()
 
+        # (fr) a title that gets focus only so screen readers start there draws no ring;
+        # things you can press still do
+        page = new_page(browser, errors)
+        page.goto(HUB + "codex/")
+        page.wait_for_selector("a[data-page]")
+        page.focus("a[data-page='principles']")
+        page.keyboard.press("Enter")
+        page.wait_for_function("document.activeElement && document.activeElement.tagName === 'H1'")
+        check("(fr) the focused title draws no ring", page.evaluate("getComputedStyle(document.activeElement).outlineStyle") == "none",
+              page.evaluate("getComputedStyle(document.activeElement).outline"))
+        page.keyboard.press("Tab")
+        page.wait_for_timeout(100)
+        check("(fr) a button reached by Tab still shows its ring", page.evaluate("document.activeElement.tagName !== 'H1' && getComputedStyle(document.activeElement).outlineStyle !== 'none'"),
+              page.evaluate("document.activeElement.outerHTML.slice(0, 80)"))
+        page.context.close()
+
         # ---- Situation guide ----
         GD = HUB + "guide/"
         page = new_page(browser, errors)

@@ -73,6 +73,9 @@ body {
 [hidden] { display: none !important; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; border-radius: 6px; }
+/* Titles and notes that get focus only from a script (so screen readers start
+   there) are not something to press, so they draw no ring. */
+[tabindex="-1"]:focus { outline: none; }
 
 .page { max-width: 1080px; margin: 0 auto; padding: 0 16px 40px; }
 .topbar {
