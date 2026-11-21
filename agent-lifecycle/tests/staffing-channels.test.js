@@ -174,3 +174,140 @@ test('channel glossary links point at real terms', () => {
     assert.ok(CHANNEL_TEXT.row[key], key);
   }
 });
+
+// ---- Task 3: the channel tab ----
+import { setupDom } from './dom.js';
+import { renderChannels } from '../../staffing-calculator/channels-render.js';
+
+function mountChannels(lang = 'ko', state = initialChannels(), statusDelay = 0) {
+  const { root } = setupDom();
+  const calls = [];
+  const view = renderChannels(root, state, lang, {
+    onCommon: (id, v) => calls.push(['common', id, v]),
+    onChannel: (kind, id, v) => calls.push(['channel', kind, id, v]),
+    onToggle: (kind, on) => calls.push(['toggle', kind, on]),
+    onEdit: (kind) => calls.push(['edit', kind]),
+    statusDelay,
+  });
+  const $ = (sel) => root.querySelector(sel);
+  const $$ = (sel) => [...root.querySelectorAll(sel)];
+  const cell = (row, col) => $(`[data-cell="${row}.${col}"]`)?.textContent;
+  return { root, view, calls, $, $$, cell };
+}
+
+test('the channel tab shows the example results', () => {
+  const { cell, $$ } = mountChannels();
+  assert.deepEqual($$('th[data-col]').map((th) => th.getAttribute('data-col')), ['phone', 'chat', 'email', 'total']);
+  const expect = {
+    seats: ['18명', '11명', '6명', '35명'],
+    needed: ['39명', '24명', '9명', '72명'],
+    current: ['36명', '22명', '10명', '68명'],
+    diff: ['3명 부족', '2명 부족', '1명 여유', '부족 5명 · 여유 1명'],
+    weekly: ['1,543시간', '943시간', '336시간', '2,822시간'],
+    monthly: ['6,686시간', '4,086시간', '1,456시간', '12,228시간'],
+    otWeekly: ['103시간', '63시간', '0시간', '166시간'],
+    otMonthly: ['446시간', '273시간', '0시간', '719시간'],
+    otPerPerson: ['2.9시간', '2.9시간', '0시간', '–'],
+  };
+  for (const [row, cols] of Object.entries(expect)) {
+    ['phone', 'chat', 'email', 'total'].forEach((col, i) => assert.equal(cell(row, col), cols[i], `${row}.${col}`));
+  }
+});
+
+test('the sliders show every input of the edited channel, the others stay hidden', () => {
+  const { $, $$ } = mountChannels();
+  assert.equal($$('input[data-common-input]').length, 3);
+  assert.equal($('[data-ch-fields="phone"]').hidden, false);
+  assert.equal($('[data-ch-fields="chat"]').hidden, true);
+  assert.equal($$('[data-ch-fields="chat"] input[type="range"]').length, 7);
+  assert.equal($('[data-ch-edit="phone"]').getAttribute('aria-pressed'), 'true');
+  assert.equal($('input[data-ch-input="phone.dailyVolume"]').value, '1600');
+  assert.equal($('[data-ch-value="phone.dailyVolume"]').textContent, '1600건');
+  assert.equal($('[data-ch-value="chat.concurrency"]').textContent, '2건');
+});
+
+test('moving a slider, a toggle or an edit chip reports to the page', () => {
+  const { $, calls } = mountChannels();
+  const fire = (el, type) => el.dispatchEvent(new el.ownerDocument.defaultView.Event(type, { bubbles: true }));
+  const vol = $('input[data-ch-input="phone.dailyVolume"]');
+  vol.value = '2000'; fire(vol, 'input');
+  const wh = $('input[data-common-input="weeklyHours"]');
+  wh.value = '38'; fire(wh, 'input');
+  const email = $('input[data-ch-toggle="email"]');
+  email.checked = false; fire(email, 'change');
+  $('[data-ch-edit="chat"]').click();
+  assert.deepEqual(calls, [['channel', 'phone', 'dailyVolume', 2000], ['common', 'weeklyHours', 38], ['toggle', 'email', false], ['edit', 'chat']]);
+});
+
+test('the last channel on cannot be turned off', () => {
+  const s = initialChannels();
+  const { view, $ } = mountChannels('ko', s);
+  assert.equal($('input[data-ch-toggle="phone"]').disabled, false);
+  s.on.chat = false; s.on.email = false;
+  view.update(s);
+  assert.equal($('input[data-ch-toggle="phone"]').disabled, true);
+  assert.equal($('input[data-ch-toggle="chat"]').disabled, false);
+});
+
+test('turning off the edited channel moves editing to one still on', () => {
+  const s = initialChannels();
+  const { view, $ } = mountChannels('ko', s);
+  s.edit = 'chat'; view.update(s);
+  assert.equal($('[data-ch-fields="chat"]').hidden, false);
+  s.on.chat = false; view.update(s);
+  assert.equal($('[data-ch-fields="chat"]').hidden, true);
+  assert.equal($('[data-ch-fields="phone"]').hidden, false);
+  assert.equal($('[data-ch-edit="phone"]').getAttribute('aria-pressed'), 'true');
+  assert.equal($('[data-ch-edit="chat"]').hidden, true, 'an off channel has no edit chip');
+});
+
+test('totals follow the visible columns', () => {
+  const s = initialChannels();
+  const { view, cell, $$ } = mountChannels('ko', s);
+  s.on.email = false; view.update(s);
+  assert.deepEqual($$('th[data-col]').map((th) => th.getAttribute('data-col')), ['phone', 'chat', 'total']);
+  assert.equal(cell('needed', 'total'), '63명');
+  assert.equal(cell('diff', 'total'), '부족 5명');
+  assert.equal(cell('needed', 'email'), undefined);
+});
+
+test('zero staff shows noStaff and an all-even total reads exactly enough', () => {
+  const s = initialChannels();
+  s.phone.current = 0;
+  const { view, cell } = mountChannels('ko', s);
+  assert.equal(cell('otPerPerson', 'phone'), CHANNEL_TEXT.noStaff.ko);
+  assert.equal(cell('diff', 'phone'), '39명 부족');
+  s.phone.current = 39; s.chat.current = 24; s.email.current = 9; view.update(s);
+  assert.equal(cell('diff', 'total'), STAFFING_TEXT.gapExact.ko);
+  s.email.current = 12; view.update(s);
+  assert.equal(cell('diff', 'total'), '여유 3명');
+});
+
+test('the English channel tab has no Korean', () => {
+  const { root, cell } = mountChannels('en');
+  assert.ok(!/[가-힣]/.test(root.textContent), root.textContent.match(/[^\n]*[가-힣][^\n]*/)?.[0]);
+  assert.equal(cell('weekly', 'phone'), '1,543 h');
+  assert.equal(cell('diff', 'total'), '5 short · 1 to spare');
+});
+
+test('channel sliders speak their value with a unit', () => {
+  const { $ } = mountChannels();
+  assert.equal($('input[data-ch-input="email.hoursOpen"]').getAttribute('aria-valuetext'), '8시간');
+  assert.equal($('input[data-common-input="planned"]').getAttribute('aria-valuetext'), '20%');
+});
+
+test('one status sentence after the sliders settle', async () => {
+  const s = initialChannels();
+  const { view, $ } = mountChannels('ko', s, 5);
+  assert.equal($('[data-ch-status]').textContent, '', 'nothing for the first draw');
+  s.on.email = false; view.update(s);
+  await new Promise((r) => setTimeout(r, 20));
+  assert.equal($('[data-ch-status]').textContent, '켠 채널 2개 합계: 필요 인원 63명, 주간 2,486시간, 주간 추가근무 166시간입니다.');
+});
+
+test('row hints and glossary links sit under the table', () => {
+  const { $ } = mountChannels();
+  assert.equal($('[data-row-hint="needed"] a').getAttribute('href'), '../glossary/#fte');
+  assert.ok($('[data-ch-note]').textContent === CHANNEL_TEXT.otNote.ko);
+  assert.ok($('[data-ch-limits]').textContent.includes(CHANNEL_TEXT.channelsLimits.ko));
+});
