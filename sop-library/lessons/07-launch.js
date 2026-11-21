@@ -9,7 +9,7 @@ const branch = ['review', 'golive-review'];
 
 export default {
   id: 'launch',
-  order: 8,
+  order: 9,
   group: 'cross',
   title: tx('신규 프로젝트 론칭', 'New Project Launch'),
   short: tx('론칭', 'Launch'),
@@ -75,5 +75,5 @@ export default {
       explanation: tx('론칭 초기에는 예상하지 못한 문제가 현장에서 먼저 드러납니다. 그래서 팀장이 현장 가까이에서 지원합니다.', 'In the first days after launch, unexpected problems show up on the floor first. That is why the team leader supports the floor at close range.'),
     },
   ],
-  connection: { to: 'home', text: tx('여기까지가 SOP 여덟 가지입니다. 절차는 한 번 정하면 끝나는 것이 아니라, 회고할 때마다 고쳐 가는 문서입니다.', 'These are the eight SOPs. A procedure is not finished once it is written; it is a document you revise at every retrospective.') },
+  connection: { to: 'home', text: tx('여기까지가 SOP 아홉 가지입니다. 절차는 한 번 정하면 끝나는 것이 아니라, 회고할 때마다 고쳐 가는 문서입니다.', 'These are the nine SOPs. A procedure is not finished once it is written; it is a document you revise at every retrospective.') },
 };

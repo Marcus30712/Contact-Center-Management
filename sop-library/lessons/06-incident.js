@@ -77,5 +77,5 @@ export default {
       explanation: tx('잘된 점과 개선점을 함께 돌아보고 SOP에 반영해야 다음에 더 잘 대응할 수 있습니다.', 'Looking back together at what went well and what to improve, and writing it into the SOP, is what makes the next response better.'),
     },
   ],
-  connection: { to: 'launch', text: tx('지금까지는 운영 중인 프로젝트의 절차였습니다. 마지막은 프로젝트가 시작되기 전의 절차, 신규 프로젝트 론칭입니다.', 'Everything so far has been a procedure for a project that is already running. The last one comes before a project begins: new project launch.') },
+  connection: { to: 'nurture', text: tx('이슈는 지나가도 사람은 남습니다. 다음은 지금 함께 일하는 상담사를 키우는 절차, 기존 상담사 육성입니다.', 'An issue passes, but the people stay. Next is the procedure for growing the agents who work with you now: developing existing agents.') },
 };
