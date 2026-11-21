@@ -6,8 +6,8 @@ import { tx, node, edge, step, option } from '../../agent-lifecycle/js/lessons/b
 const wide = (n) => ({ ...n, hw: 76 });
 const side = (n, hw) => ({ ...n, hw });
 
-const procedure = ['pick', 'classify', 'rca', 'discuss', 'report'];
-const flow = [...procedure, 'pick-classify', 'classify-rca', 'rca-discuss', 'discuss-report'];
+const procedure = ['pick', 'rca', 'classify', 'discuss', 'report'];
+const flow = [...procedure, 'pick-rca', 'rca-classify', 'classify-discuss', 'discuss-report'];
 const branches = ['improve', 'insight', 'resolve', 'report-improve', 'report-insight', 'report-resolve'];
 
 export default {
@@ -22,8 +22,8 @@ export default {
   diagram: {
     nodes: [
       wide(node('pick', '대상 고르기', 84, 24, 'Choose the tickets')),
-      wide(node('classify', 'L1·L2 분류', 84, 72, 'Classify L1 and L2')),
-      wide(node('rca', '원인 분석(RCA)', 84, 120, 'Root cause analysis')),
+      wide(node('rca', '원인 분석(RCA)', 84, 72, 'Root cause analysis')),
+      wide(node('classify', 'L1·L2 분류', 84, 120, 'Classify L1 and L2')),
       wide(node('discuss', '내부 토의', 84, 168, 'Internal discussion')),
       wide(node('report', '보고 및 건의', 84, 216, 'Report and propose')),
       side(node('improve', '개선점 보고', 300, 136, 'Improvements'), 52),
@@ -31,7 +31,7 @@ export default {
       side(node('resolve', '해결 또는 건의', 292, 216, 'Fix or propose'), 56),
     ],
     edges: [
-      edge('pick', 'classify'), edge('classify', 'rca'), edge('rca', 'discuss'), edge('discuss', 'report'),
+      edge('pick', 'rca'), edge('rca', 'classify'), edge('classify', 'discuss'), edge('discuss', 'report'),
       edge('report', 'improve'), edge('report', 'insight'), edge('report', 'resolve'),
     ],
   },
@@ -45,15 +45,15 @@ export default {
     step(tx("DSAT가 먼저인 이유는 불만을 그대로 두면 재문의와 고객 이탈로 이어지기 때문입니다. 오늘 고른 첫 티켓은 지민이 처리한 DSAT 건입니다.",
       "DSAT comes first because a complaint left alone turns into repeat contacts and lost customers. The first ticket you pick today is a DSAT case Jimin handled."),
       flow, ['pick'], 'pick'),
-    step(tx("둘째 단계는 L1·L2 분류입니다. L1은 원인이 어디에 있는지로 나누며 제품(Product), 절차(Process), 지원(Support), 고객(Customer), 기타(Others)가 있고, 지원은 상담사의 응대 태도(Soft Skill)나 제품·절차 지식의 차이를 가리킵니다. L2는 BPO가 통제할 수 있는 원인인지, 통제할 수 없는 원인인지로 나눕니다.",
-      "The second step is the L1 and L2 classification. L1 sorts by where the cause lies: Product, Process, Support, Customer and Others, where Support means a gap in an agent's soft skills or product and process knowledge. L2 sorts by whether the BPO can control the cause or not."),
-      flow, ['classify'], 'classify'),
-    step(tx("이 DSAT는 상담사들이 반품 절차를 서로 다르게 알고 안내해서 생긴 불만입니다. 상담사의 절차 지식 차이이므로 L1은 Support, L2는 통제 가능입니다. 비고(Remark)에는 어느 안내가 어떻게 달랐는지 적습니다.",
-      "This DSAT came from agents knowing the returns process differently and explaining it differently. It is a gap in the agents' process knowledge, so L1 is Support and L2 is controllable. In the Remark, you note which explanation differed and how."),
-      flow, ['classify'], 'classify'),
-    step(tx("셋째 단계는 원인 분석(RCA, Root Cause Analysis)입니다. 같은 분류의 티켓을 모아, 겉으로 보인 문제 뒤의 진짜 원인을 찾습니다. 이번에는 지난달 바뀐 반품 절차가 일부 상담사에게 전달되지 않았습니다.",
-      "The third step is root cause analysis (RCA). You gather tickets with the same classification and look for the real cause behind the visible problem. This time, last month's change to the returns process had not reached some agents."),
+    step(tx("둘째 단계는 원인 분석(RCA, Root Cause Analysis)입니다. 팀장과 SME가 티켓을 자세히 조사해 겉으로 보인 문제 뒤의 진짜 원인을 찾고, 그 원인을 한두 문장으로 요약합니다. 이 DSAT는 상담사들이 반품 절차를 서로 다르게 알고 안내해서 생긴 불만이었고, 지난달 바뀐 절차가 일부 상담사에게 전달되지 않은 것이 원인이었습니다.",
+      "The second step is root cause analysis (RCA). The team leader and the SME look into the tickets closely, find the real cause behind the visible problem, and sum it up in a sentence or two. This DSAT came from agents knowing the returns process differently and explaining it differently, and the cause was that last month's change to the process had not reached some agents."),
       flow, ['rca'], 'rca'),
+    step(tx("셋째 단계는 L1·L2 분류입니다. 요약한 원인을 정해진 분류로 나눠 두면, 나중에 데이터를 추적하거나 필터로 필요한 티켓을 빨리 찾을 수 있습니다. L1은 원인이 어디에 있는지로 나누며 제품(Product), 절차(Process), 지원(Support), 고객(Customer), 기타(Others)가 있고, L2는 BPO가 통제할 수 있는 원인인지, 통제할 수 없는 원인인지로 나눕니다.",
+      "The third step is the L1 and L2 classification. Sorting the summarized cause into set categories lets you track the data later and filter quickly for the tickets you need. L1 sorts by where the cause lies, with Product, Process, Support, Customer and Others, and L2 sorts by whether the BPO can control the cause or not."),
+      flow, ['classify'], 'classify'),
+    step(tx("지원(Support)은 상담사의 응대 태도(Soft Skill)나 제품·절차 지식의 차이를 가리킵니다. 이번 원인은 상담사의 절차 지식 차이이므로 L1은 Support, L2는 통제 가능입니다. 비고(Remark)에는 어느 안내가 어떻게 달랐는지 적습니다.",
+      "Support means a gap in an agent's soft skills or product and process knowledge. This cause is a gap in the agents' process knowledge, so L1 is Support and L2 is controllable. In the Remark, you note which explanation differed and how."),
+      flow, ['classify'], 'classify'),
     step(tx("넷째 단계는 내부 토의입니다. 팀장, SME, QA, OM이 모여 원인과 개선안을 이야기합니다. 통제 가능한 원인은 BPO가 무엇을 바꿀지, 통제 불가한 원인은 고객사에 무엇을 요청할지 정합니다.",
       "The fourth step is the internal discussion. The team leader, SME, QA and OM meet to talk through the causes and the improvements. For controllable causes they decide what the BPO will change; for uncontrollable ones, what to ask of the client."),
       flow, ['discuss'], 'discuss'),
