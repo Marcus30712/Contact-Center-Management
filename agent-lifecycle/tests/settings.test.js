@@ -6,6 +6,7 @@ import { readFileSync } from 'node:fs';
 import { setupDom, click } from './dom.js';
 import { fakeStorage } from './helpers.js';
 import { SETTINGS_UI, APP_VERSION } from '../../settings/data.js';
+import { INSTALL_UI } from '../../settings/install-data.js';
 import { THEME_KEY, loadTheme, saveTheme, applyTheme, BACKUP_KEYS, makeBackup, readBackup, restoreBackup } from '../../settings/engine.js';
 import { renderSettings, newSettingsView } from '../../settings/render.js';
 import { HOME_UI } from '../../home/data.js';
@@ -133,8 +134,9 @@ test('the page shows its sections in order with the confirmed words', () => {
     const tr = (k) => SETTINGS_UI[k][lang];
     assert.equal(root.querySelector('h1').textContent, tr('title'));
     assert.deepEqual([...root.querySelectorAll('h2')].map((x) => x.textContent),
-      [tr('langHeading'), tr('themeHeading'), tr('backupHeading'), tr('installHeading')]);
-    assert.ok(root.querySelector('[data-install]').textContent === HOME_UI.install[lang]);
+      [tr('langHeading'), INSTALL_UI.tutorialHeading[lang], tr('themeHeading'), tr('backupHeading'), tr('installHeading')]);
+    assert.equal(root.querySelector('[data-install]').textContent, INSTALL_UI.installNote[lang]);
+    assert.equal(root.querySelector('button[data-install-open]').textContent, INSTALL_UI.installButton[lang]);
     const foot = root.querySelector('[data-footer]');
     assert.ok(foot.textContent.includes(`Queuecraft v${APP_VERSION}`));
     assert.equal(foot.querySelector('a[data-privacy]').getAttribute('href'), '../privacy/');
@@ -282,13 +284,17 @@ test('the footer shows the build next to the version when it is known', () => {
   assert.ok(page(fakeStorage(), 'ko', { build: null }).root.querySelector('[data-footer]').textContent.startsWith(`Queuecraft v${APP_VERSION} · `));
 });
 
-test('the settings page offers to replay the tutorial', async () => {
-  const { TOUR_UI } = await import('../../shared/tour-data.js');
+test('the tutorial has its own section with a View link', () => {
   for (const lang of ['ko', 'en']) {
     const { root } = page(fakeStorage(), lang);
-    const a = root.querySelector('a[data-tour-replay]');
-    assert.ok(a);
+    const sec = root.querySelector('[data-tutorial]');
+    assert.equal(sec.querySelector('h2').textContent, INSTALL_UI.tutorialHeading[lang]);
+    assert.ok(sec.textContent.includes(INSTALL_UI.tutorialRow[lang]));
+    assert.ok(sec.textContent.includes(INSTALL_UI.tutorialNote[lang]));
+    const a = sec.querySelector('a[data-tour-replay]');
     assert.equal(a.getAttribute('href'), '../?tour=1');
-    assert.equal(a.textContent, TOUR_UI.replay[lang]);
+    assert.equal(a.textContent, INSTALL_UI.tutorialButton[lang]);
+    const ids = a.getAttribute('aria-labelledby').split(' ');
+    assert.deepEqual(ids.map((id) => root.ownerDocument.getElementById(id)?.textContent), [INSTALL_UI.tutorialRow[lang], INSTALL_UI.tutorialButton[lang]]);
   }
 });

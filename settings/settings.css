@@ -14,3 +14,46 @@
 .st-offline { color: var(--muted); font-size: 0.88rem; margin-top: 12px; }
 .st-footer { color: var(--muted); font-size: 0.82rem; margin: 28px 0; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.st-row { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.st-row-label { flex: 1; margin: 0; display: grid; gap: 4px; }
+.st-row-label small { font-size: 0.88rem; line-height: 1.5; }
+.st-row .btn { flex: none; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+.st-wide { width: 100%; margin-top: 8px; min-height: 48px; }
+.st-row .btn:focus-visible, .st-wide:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+
+/* "Add to Home Screen" sheet (modelled on Learning-Python's install sheet). */
+.ins-back {
+  position: fixed; inset: 0; z-index: 60; display: grid; place-items: end center;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  background: rgba(15, 23, 42, 0.5);
+}
+.ins-sheet {
+  width: 100%; max-width: 448px; max-height: 85dvh; overflow-y: auto; box-sizing: border-box;
+  padding: 20px 20px 0; border-radius: 22px; border: 1.5px solid var(--line);
+  background: var(--surface); color: var(--ink); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: ins-up 0.22s ease;
+}
+@keyframes ins-up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.ins-miso { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.ins-miso img { width: 72px; height: auto; flex: none; }
+.ins-bubble { margin: 0; flex: 1; padding: 12px 14px; border: 1.5px solid var(--ink); border-radius: 16px; line-height: 1.5; font-weight: 600; }
+.ins-sheet h2 { margin: 0 0 12px; font-size: 1.15rem; }
+.ins-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.ins-tab {
+  flex: 1 1 0; min-height: 44px; padding: 6px 8px; border-radius: 999px; font: inherit; font-weight: 700; font-size: 0.9rem;
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer;
+}
+.ins-tab[aria-selected="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.ins-tab:focus-visible, .ins-ok:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.ins-steps { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 10px; }
+.ins-steps li { display: grid; grid-template-columns: 26px 48px 1fr; align-items: center; gap: 10px; font-weight: 700; }
+.ins-no { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--surface); display: grid; place-items: center; font-size: 0.85rem; }
+.ins-pic { display: block; width: 48px; height: 48px; }
+.ins-after { margin: 0 0 10px; padding: 10px 12px; border-radius: 12px; font-weight: 700; background: var(--accent-soft); color: var(--accent); }
+.ins-why { margin: 0 0 12px; padding: 10px 12px; border-radius: 12px; font-size: 0.9rem; color: var(--ink); background: color-mix(in srgb, var(--signal) 18%, var(--surface)); }
+.ins-ok {
+  position: sticky; bottom: 0; width: 100%; min-height: 48px; margin: 4px 0 0;
+  box-shadow: 0 -12px 12px 4px var(--surface);
+}
+.ins-sheet::after { content: ""; display: block; height: 16px; }
+@media (prefers-reduced-motion: reduce) { .ins-sheet { animation: none; } }

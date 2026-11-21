@@ -922,6 +922,42 @@ def main():
             page.wait_for_function(f"document.querySelector('#app h1')?.textContent === '{en}'")
         page.context.close()
 
+        # (x) Settings: the "Add to Home Screen" sheet and the tutorial section
+        for width, height, scheme in ((320, 568, "light"), (390, 780, "light"), (390, 780, "dark")):
+            page = new_page(browser, errors, width=width, height=height, scheme=scheme)
+            page.goto(HUB + "settings/")
+            page.wait_for_selector("[data-install-open]")
+            heads = page.eval_on_selector_all("#app h2", "els => els.map(e => e.textContent)")
+            check(f"(x) {width}: tutorial is its own section after Language", heads[:2] == ["언어", "튜토리얼"], str(heads))
+            page.click("[data-install-open]")
+            page.wait_for_selector("[data-install-sheet] [role=dialog]")
+            page.wait_for_timeout(350)
+            box = page.evaluate("""() => { const d = document.querySelector('[data-install-sheet] [role=dialog]').getBoundingClientRect();
+                const ok = document.querySelector('[data-install-ok]').getBoundingClientRect();
+                return { l: d.left, r: d.right, t: d.top, b: d.bottom, okT: ok.top, okB: ok.bottom, w: innerWidth, h: innerHeight }; }""")
+            check(f"(x) {width}x{height} {scheme}: sheet on screen", box["l"] >= 0 and box["r"] <= box["w"] and box["t"] >= 0 and box["b"] <= box["h"], str(box))
+            check(f"(x) {width}x{height} {scheme}: Got it is visible", box["okT"] >= box["t"] and box["okB"] <= box["b"], str(box))
+            if scheme == "dark":
+                page.screenshot(path=str(OUT / "install-sheet-dark.png"))
+            elif width == 390:
+                page.screenshot(path=str(OUT / "install-sheet-390.png"))
+                page.click("[role=tab][data-p=android]")
+                check("(x) Android tab shows the Android steps", page.is_visible("#ins-android") and not page.is_visible("#ins-ios"))
+                page.screenshot(path=str(OUT / "install-sheet-android-390.png"))
+                page.focus("[data-install-ok]")
+                inside = True
+                for _ in range(6):
+                    page.keyboard.press("Tab")
+                    inside = inside and page.evaluate("!document.activeElement || document.activeElement === document.body || !!document.activeElement.closest('[data-install-sheet]')")
+                check("(x) Tab never reaches the page behind the sheet", inside)
+                page.keyboard.press("Escape")
+                check("(x) Esc closes the sheet", page.locator("[data-install-sheet]").count() == 0)
+                check("(x) focus returns to the button", page.evaluate("document.activeElement?.hasAttribute('data-install-open')"))
+                page.click("[data-tour-replay]")
+                page.wait_for_selector("[data-tour] [role=dialog]")
+                check("(x) tutorial View opens the tour at 1/5", page.inner_text("[data-tour-count]") == "1/5")
+            page.context.close()
+
         # (w) first-run tutorial on the bottom menu
         BUBBLE = """() => { const b = document.querySelector('[data-tour] [role=dialog]').getBoundingClientRect();
             const nav = document.querySelector('nav.appbar').getBoundingClientRect();
