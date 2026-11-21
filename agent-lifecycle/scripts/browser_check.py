@@ -922,6 +922,25 @@ def main():
             page.wait_for_function(f"document.querySelector('#app h1')?.textContent === '{en}'")
         page.context.close()
 
+        # (y) Settings: Reset learning
+        # Seed once per tab: an init script runs on every page load.
+        page = new_page(browser, errors, init="try { if (!sessionStorage.getItem('seeded')) { sessionStorage.setItem('seeded', '1'); localStorage.setItem('sop-library:v1', '{\"completed\":[\"escalation\"]}'); localStorage.setItem('queuecraft:theme', 'dark'); } } catch (e) {}")
+        page.goto(HUB + "settings/")
+        page.wait_for_selector("[data-reset]")
+        page.click("[data-reset]")
+        page.wait_for_selector("[data-reset-confirm]")
+        check("(y) Reset asks first with the focus on Cancel", page.evaluate("document.activeElement?.hasAttribute('data-reset-cancel')"))
+        page.screenshot(path=str(OUT / "settings-reset-dark.png"))
+        page.keyboard.press("Enter")
+        check("(y) Cancel keeps the records", page.evaluate("localStorage.getItem('sop-library:v1')") is not None and page.locator("[data-reset-confirm]").count() == 0)
+        page.click("[data-reset]")
+        page.click("[data-reset-go]")
+        check("(y) Erase clears the learning records only", page.evaluate("localStorage.getItem('sop-library:v1') === null && localStorage.getItem('queuecraft:theme') === 'dark'"))
+        page.goto(HUB)
+        page.wait_for_selector("[data-start]")
+        check("(y) home starts over after a reset", page.locator("[data-course]").count() == 0)
+        page.context.close()
+
         # (x) Settings: the "Add to Home Screen" sheet and the tutorial section
         for width, height, scheme in ((320, 568, "light"), (390, 780, "light"), (390, 780, "dark")):
             page = new_page(browser, errors, width=width, height=height, scheme=scheme)

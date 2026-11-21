@@ -3,14 +3,14 @@
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t, LANG_KEY } from '../agent-lifecycle/js/engine/i18n.js';
 import { SETTINGS_UI as UI, APP_VERSION } from './data.js';
-import { THEMES, loadTheme, saveTheme, applyTheme, makeBackup, readBackup, restoreBackup } from './engine.js';
+import { THEMES, loadTheme, saveTheme, applyTheme, makeBackup, readBackup, restoreBackup, RESET_KEYS, resetLearning } from './engine.js';
 import { INSTALL_UI } from './install-data.js';
 import { openInstallSheet, installPlatform } from './install-sheet.js';
 import { PRIVACY_TEXT } from '../privacy/text.js';
 import { REFERENCES_TEXT } from '../references/text.js';
 
 export function newSettingsView() {
-  return { status: '', statusLang: null, pending: null, pick: async () => {} };
+  return { status: '', statusLang: null, pending: null, resetAsk: false, pick: async () => {} };
 }
 
 // opts: onLang(lang) to switch language, download(name, text) to save a file,
@@ -70,6 +70,16 @@ export function renderSettings(root, lang, storage, view, opts) {
     ]),
   ]) : null;
 
+  // "Reset learning" asks first; the focus lands on Cancel so Enter erases nothing.
+  const resetAsk = view.resetAsk ? h('div', { class: 'st-confirm st-confirm-danger', 'data-reset-confirm': true, role: 'group', 'aria-labelledby': 'st-reset-ask' }, [
+    h('p', { id: 'st-reset-ask' }, [h('strong', { text: tr(UI.resetAsk) })]),
+    h('p', { text: tr(UI.resetAskNote) }),
+    h('div', { class: 'st-actions' }, [
+      h('button', { type: 'button', class: 'btn', 'data-reset-cancel': true, text: tr(UI.cancel), onclick: () => { view.resetAsk = false; redraw('[data-reset]'); } }),
+      h('button', { type: 'button', class: 'btn st-danger-fill', 'data-reset-go': true, text: tr(UI.resetConfirm), onclick: eraseLearning }),
+    ]),
+  ]) : null;
+
   const fileInput = h('input', { type: 'file', accept: '.json,application/json', id: 'st-file', class: 'visually-hidden', 'data-import-file': true });
   fileInput.addEventListener('change', async () => {
     const f = fileInput.files?.[0];
@@ -108,6 +118,10 @@ export function renderSettings(root, lang, storage, view, opts) {
         h('label', { class: 'btn', for: 'st-file', 'data-import': true, text: tr(UI.import) }),
       ]),
       confirm,
+      h('div', { class: 'st-actions' }, [
+        h('button', { type: 'button', class: 'btn st-danger', 'data-reset': true, text: tr(UI.reset), onclick: askReset }),
+      ]),
+      resetAsk,
       h('p', { class: 'st-offline', 'data-offline': true, text: tr(opts.offline ? UI.offlineReady : UI.offlineWait) }),
     ]),
     section(UI.installHeading, [
@@ -121,6 +135,24 @@ export function renderSettings(root, lang, storage, view, opts) {
       h('a', { href: '../references/', 'data-references': true, text: tr(REFERENCES_TEXT.title) }),
     ]),
   );
+
+  function askReset() {
+    view.pending = null;
+    if (!RESET_KEYS.some((key) => { try { return storage?.getItem(key) != null; } catch { return false; } })) {
+      say(UI.resetNone);
+      redraw('[data-reset]');
+      return;
+    }
+    view.resetAsk = true;
+    view.status = '';
+    redraw('[data-reset-cancel]');
+  }
+
+  function eraseLearning() {
+    view.resetAsk = false;
+    say(resetLearning(storage) ? UI.resetDone : UI.resetNone);
+    redraw('[data-reset]');
+  }
 
   function exportFile() {
     const text = JSON.stringify(makeBackup(storage, opts.today), null, 2);
