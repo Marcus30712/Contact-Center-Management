@@ -28,7 +28,7 @@ export function mountLab(app, langRoot, storage, loc) {
       class: 'lab-tab', 'data-tab': id, href, 'aria-current': id === tab ? 'page' : null, text: tr(label),
     });
     return h('nav', { class: 'lab-tabs', 'data-tabs': true, 'aria-label': tr(C.tabsLabel) }, [
-      link('practice', '#', C.tabPractice),
+      link('practice', '#practice', C.tabPractice),
       link('channels', '#channels', C.tabChannels),
     ]);
   }

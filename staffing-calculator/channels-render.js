@@ -95,17 +95,24 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
     statusTimer = setTimeout(() => { status.textContent = text; }, statusDelay);
   };
 
-  const gapText = (gap) => (gap === 0 ? tr(T.gapExact) : fill(tr(gap < 0 ? T.gapShort : T.gapSpare), { n: Math.abs(gap) }));
+  const n = (value) => value.toLocaleString(locale);
+  const gapText = (gap) => (gap === 0 ? tr(T.gapExact) : fill(tr(gap < 0 ? T.gapShort : T.gapSpare), { n: n(Math.abs(gap)) }));
   const totalGap = ({ short, spare }) => {
-    if (short && spare) return fill(tr(C.totalBoth), { short, spare });
-    if (short) return fill(tr(C.totalShort), { n: short });
-    if (spare) return fill(tr(C.totalSpare), { n: spare });
+    if (short && spare) return fill(tr(C.totalBoth), { short: n(short), spare: n(spare) });
+    if (short) return fill(tr(C.totalShort), { n: n(short) });
+    if (spare) return fill(tr(C.totalSpare), { n: n(spare) });
     return tr(T.gapExact);
   };
   // Number rows name their unit once, in the row heading, so all columns fit a phone.
   const plain = (value) => value.toLocaleString(locale);
-  const rowName = (row) => (row === 'diff' ? tr(C.row[row])
-    : `${tr(C.row[row])} (${unitText(HOURS_ROWS.has(row) ? 'hours' : 'people').trim()})`);
+  // A name that already says hours gets no unit; one ending in brackets takes it inside.
+  const rowName = (row) => {
+    const name = tr(C.row[row]);
+    if (row === 'diff') return name;
+    const unit = unitText(HOURS_ROWS.has(row) ? 'hours' : 'people').trim();
+    if (HOURS_ROWS.has(row) && /시간|hours/.test(name.replace(/\(.*\)/, ''))) return name;
+    return name.endsWith(')') ? `${name.slice(0, -1)}, ${unit})` : `${name} (${unit})`;
+  };
   const cellText = (row, r) => {
     if (row === 'diff') return gapText(r.gap);
     if (row === 'otPerPerson') return r.otPerPerson === null ? tr(C.noStaff) : plain(r.otPerPerson);
@@ -132,6 +139,11 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
       ]))),
     ]);
     tableWrap.replaceChildren(table);
+    // Only a table wider than its box needs to be a tab stop, so keyboards can scroll it.
+    const over = tableWrap.scrollWidth > tableWrap.clientWidth;
+    for (const [k, v] of Object.entries({ tabindex: '0', role: 'region', 'aria-labelledby': 'ch-results-heading' })) {
+      if (over) tableWrap.setAttribute(k, v); else tableWrap.removeAttribute(k);
+    }
   }
 
   function update(st) {
@@ -152,7 +164,7 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
     }
     const result = computeChannels(st);
     drawTable(result);
-    scheduleStatus(fill(tr(C.summary), {
+    scheduleStatus(fill(tr(onCount === 1 ? C.summaryOne : C.summary), {
       n: onCount,
       needed: result.total.needed.toLocaleString(locale),
       weekly: result.total.weekly.toLocaleString(locale),

@@ -74,7 +74,8 @@ export function computeChannel(kind, v, common) {
   const keep = 1 - (common.planned + common.unplanned) / 100;
   const { seats, hours } = deskDay(kind, v);
   const exactWeekly = (hours * v.daysOpen) / keep;
-  const weekly = Math.round(exactWeekly);
+  // Any work at all shows as at least one hour, never as 0 beside a needed person.
+  const weekly = exactWeekly > 0 ? Math.max(1, Math.round(exactWeekly)) : 0;
   // A channel open only a few hours or days still needs enough people to fill
   // its seats at once: never fewer than seats ÷ (1 − Shrinkage).
   const needed = Math.max(

@@ -218,10 +218,16 @@ test('each number row names its unit once, so the table stays narrow', () => {
   const { $ } = mountChannels();
   const head = (row) => $(`tr[data-row="${row}"] th`).textContent;
   assert.equal(head('needed'), '필요 인원 (명)');
-  assert.equal(head('weekly'), '주간 근무 시간 (시간)');
+  assert.equal(head('weekly'), '주간 근무 시간', 'the name already says hours');
+  assert.equal(head('monthly'), '월간 근무 시간');
+  assert.equal(head('otWeekly'), '추가근무 예상 (주간, 시간)', 'the unit joins the bracket');
+  assert.equal(head('otPerPerson'), '1인당 추가근무 (주간, 시간)');
+  assert.equal(head('seats'), '동시 자리 인원 (명)');
   assert.equal(head('diff'), '차이', 'the difference row says its unit in words');
   const en = mountChannels('en');
-  assert.equal(en.$('tr[data-row="weekly"] th').textContent, 'Weekly working hours (h)');
+  assert.equal(en.$('tr[data-row="weekly"] th').textContent, 'Weekly working hours');
+  assert.equal(en.$('tr[data-row="otPerPerson"] th').textContent, 'Overtime per agent (weekly, h)');
+  assert.equal(en.$('tr[data-row="otMonthly"] th').textContent, 'Expected overtime (monthly, h)');
   assert.equal(en.$('tr[data-row="needed"] th').textContent, 'Staff needed (people)');
 });
 
@@ -345,6 +351,7 @@ test('the practice tab is the default and keeps its own screen', () => {
   assert.equal($('a[data-tab="practice"]').getAttribute('aria-current'), 'page');
   assert.equal($('a[data-tab="channels"]').getAttribute('aria-current'), null);
   assert.equal($('a[data-tab="channels"]').getAttribute('href'), '#channels');
+  assert.equal($('a[data-tab="practice"]').getAttribute('href'), '#practice', 'no bare # in the address');
   assert.ok($('[data-result="required"]'), 'the 30-minute practice is shown');
   assert.equal($('[data-ch-table]'), null);
   assert.equal(document.title, STAFFING_TEXT.title.ko);
@@ -420,4 +427,41 @@ test('needed staff never falls below the seats a part-time channel must fill at 
   assert.ok(email.needed >= Math.ceil(email.seats / 0.7), `${email.needed} < seats ${email.seats}`);
   // The example values are not changed by this floor.
   assert.deepEqual(Object.values(computeChannels(initialChannels()).rows).map((r) => r.needed), [39, 24, 9]);
+});
+
+// ---- Deferred minors ----
+test('the difference row groups thousands like the other cells', () => {
+  const s = initialChannels();
+  Object.assign(s.phone, { dailyVolume: 5000, aht: 15, hoursOpen: 1, current: 0 });
+  s.on.chat = false; s.on.email = false;
+  const ko = mountChannels('ko', s);
+  assert.match(ko.cell('diff', 'phone'), /^\d{1,3}(,\d{3})+명 부족$/, ko.cell('diff', 'phone'));
+  assert.match(ko.cell('diff', 'total'), /^부족 \d{1,3}(,\d{3})+명$/, ko.cell('diff', 'total'));
+  const en = mountChannels('en', s);
+  assert.match(en.cell('diff', 'phone'), /^\d{1,3}(,\d{3})+ short$/, en.cell('diff', 'phone'));
+});
+
+test('one channel on reads in the singular in English', async () => {
+  const s = initialChannels();
+  const { view, $ } = mountChannels('en', s, 5);
+  s.on.chat = false; s.on.email = false; view.update(s);
+  await new Promise((r) => setTimeout(r, 20));
+  assert.match($('[data-ch-status]').textContent, /^Total for 1 channel on: /);
+  const ko = mountChannels('ko', initialChannels(), 5);
+  const k = initialChannels(); k.on.chat = false; k.on.email = false; ko.view.update(k);
+  await new Promise((r) => setTimeout(r, 20));
+  assert.match(ko.$('[data-ch-status]').textContent, /^켠 채널 1개 합계: /);
+});
+
+test('a little email work never shows as zero weekly hours', () => {
+  const s = initialChannels();
+  Object.assign(s.email, { dailyVolume: 10, aht: 1 });
+  const e = computeChannels(s).rows.email;
+  assert.ok(e.needed >= 1);
+  assert.equal(e.weekly, 1, 'at least one hour beside a needed person');
+});
+
+test('the table box is a tab stop only when it overflows', () => {
+  const { $ } = mountChannels();
+  assert.equal($('.ch-table-wrap').getAttribute('tabindex'), null, 'jsdom never overflows');
 });

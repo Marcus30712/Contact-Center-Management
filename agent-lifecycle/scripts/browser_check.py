@@ -887,12 +887,25 @@ def main():
                     check("(ch) a slider keeps focus while results change", page.evaluate("document.activeElement.dataset.chInput") == "phone.current" and page.inner_text("[data-cell='current.phone']") == "37")
                     page.click("a[data-tab='practice']")
                     page.wait_for_selector("[data-results]")
-                    check("(ch) the practice tab opens from the tab bar", page.evaluate("location.hash") in ("", "#") and page.evaluate("document.activeElement.dataset.tab") == "practice")
+                    check("(ch) the practice tab opens from the tab bar", page.evaluate("location.hash") == "#practice" and page.evaluate("document.activeElement.dataset.tab") == "practice")
                     page.keyboard.press("Tab")
                     page.keyboard.press("Enter")
                     page.wait_for_selector("[data-ch-table]")
                     check("(ch) the keyboard reaches the channel tab", page.evaluate("document.activeElement.dataset.tab") == "channels")
                     check("(ch) values survive switching tabs", page.inner_text("[data-cell='current.phone']") == "37" and not page.locator("th[data-col='email']").count())
+                if lang == "ko" and width == 320:
+                    check("(ch) a table that fits is not a tab stop", page.get_attribute(".ch-table-wrap", "tabindex") is None)
+                    page.evaluate("""(() => {
+                      const set = (key, v) => { const el = document.querySelector(`[data-ch-input='${key}']`); el.value = v; el.dispatchEvent(new Event('input', { bubbles: true })); };
+                      for (const [k, v] of Object.entries({ 'phone.hoursOpen': 1, 'phone.dailyVolume': 5000, 'phone.aht': 15, 'phone.current': 0,
+                        'chat.hoursOpen': 1, 'chat.dailyVolume': 3000, 'chat.aht': 30, 'chat.concurrency': 1, 'chat.current': 0,
+                        'email.hoursOpen': 1, 'email.dailyVolume': 2000, 'email.aht': 30, 'email.current': 0 })) set(k, v);
+                    })()""")
+                    page.wait_for_timeout(100)
+                    wide = page.evaluate("(() => { const w = document.querySelector('.ch-table-wrap'); return w.scrollWidth > w.clientWidth; })()")
+                    check("(ch) a table that overflows becomes a labelled tab stop", (not wide) or (page.get_attribute(".ch-table-wrap", "tabindex") == "0" and page.get_attribute(".ch-table-wrap", "role") == "region"), f"wide={wide}")
+                    check("(ch) the extreme case really overflows (so the check above means something)", wide)
+                    check("(ch) the page itself still does not overflow", page.evaluate("document.documentElement.scrollWidth - window.innerWidth") <= 0)
                 if lang == "en" and width == 320:
                     check("(ch) English channel tab has no Korean", not page.evaluate("/[가-힣]/.test(document.querySelector('#app').textContent)"))
                     page.screenshot(path=str(OUT / "staffing-channels-320-en.png"), full_page=True)

@@ -71,6 +71,7 @@ Units: hours → " h", days → " days", concurrent chats → " chats". The rest
 | noStaff | No staff rostered |
 | otNote | If overtime per agent is high, think about adding staff before adding overtime. |
 | summary | Total for {n} channels on: {needed} staff needed, {weekly} hours a week, {ot} hours of overtime a week. |
+| summaryOne | Total for 1 channel on: {needed} staff needed, {weekly} hours a week, {ot} hours of overtime a week. |
 
 ## Try this
 
