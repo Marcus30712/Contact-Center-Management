@@ -29,6 +29,14 @@ export const GUIDE_UI = {
   "shown": {
     "ko": "{group}: 상황 {n}개",
     "en": "{group}: {n} situations"
+  },
+  "fromGuide": {
+    "ko": "길잡이에서 고른 상황",
+    "en": "The situation you picked in the guide"
+  },
+  "thenButton": {
+    "ko": "이어서 볼 곳: {title} →",
+    "en": "Then go here: {title} →"
   }
 };
 

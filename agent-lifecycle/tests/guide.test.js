@@ -134,7 +134,7 @@ test('a situation opens to where to look first and next', () => {
   const { $ } = mount();
   $('[data-card="s9"] button').click();
   const links = [...$('[data-card="s9"]').querySelectorAll('a[data-go]')];
-  assert.deepEqual(links.map((a) => [a.getAttribute('data-go'), a.getAttribute('href')]), [['first', '../sop-library/#escalation-0'], ['then', '../sop-library/#coaching-0']]);
+  assert.deepEqual(links.map((a) => [a.getAttribute('data-go'), a.getAttribute('href')]), [['first', '../sop-library/?guide=s9#escalation-0'], ['then', '../sop-library/#coaching-0']]);
   assert.ok(links[0].textContent.includes('먼저 볼 곳') && links[0].textContent.includes('SOP · 고객 불만 에스컬레이션'));
 });
 
@@ -190,4 +190,54 @@ test('the read-out line is cleared when the language changes', () => {
   assert.equal(document.querySelector('[data-status]').textContent, '');
   ko.root.querySelector('[data-tab="member"]').click();
   assert.ok(!/[가-힣]/.test(document.querySelector('[data-status]').textContent));
+});
+
+// ---------- 2026-11-21: a lesson opened from the guide leads on to "then" ----------
+test('the guide\'s "look here first" link carries the situation; "then" does not', async () => {
+  const { setupDom } = await import('./dom.js');
+  const { renderGuide, newGuideState } = await import('../../guide/render.js');
+  const { root } = setupDom();
+  renderGuide(root, 'ko', newGuideState());
+  const s1 = GROUPS[0].situations[0];
+  const first = root.querySelector('a[data-go="first"]');
+  assert.equal(first.getAttribute('href'), '../sop-library/?guide=s1#coaching-0');
+  assert.equal(root.querySelector('a[data-go="then"]').getAttribute('href'), s1.then.href);
+});
+
+test('guideFor finds the situation only on the lesson it pointed to', async () => {
+  const { guideFor } = await import('../../guide/link.js');
+  assert.equal(guideFor('?guide=s1', 'sop-library', 'coaching').id, 's1');
+  assert.equal(guideFor('?guide=s1', 'sop-library', 'pip'), null, 'moved on to another lesson');
+  assert.equal(guideFor('?guide=s1', 'agent-lifecycle', 'coaching'), null, 'same id, other course');
+  assert.equal(guideFor('', 'sop-library', 'coaching'), null);
+  assert.equal(guideFor('?guide=zz', 'sop-library', 'coaching'), null);
+  assert.equal(guideFor('?guide=s3', 'agent-lifecycle', 'retention').then.href, '../sop-library/#coaching-0');
+});
+
+test('the wording for the lesson end is the approved one', () => {
+  assert.equal(GUIDE_UI.fromGuide.ko, field('길잡이에서 온 레슨 안내'));
+  assert.equal(GUIDE_UI.thenButton.ko, field('이어서 볼 곳 버튼'));
+  assert.ok(GUIDE_UI.fromGuide.en && !/[가-힣]/.test(GUIDE_UI.fromGuide.en + GUIDE_UI.thenButton.en));
+});
+
+test('a lesson from the guide ends with "then" first and the usual next lesson second', async () => {
+  const { setupDom, click } = await import('./dom.js');
+  const { renderLesson } = await import('../js/render/lesson.js');
+  const { SOP_LESSONS } = await import('../../sop-library/lessons/index.js');
+  const { SOP_UI } = await import('../../sop-library/ui.js');
+  const { guideFor } = await import('../../guide/link.js');
+  const { root } = setupDom();
+  const lesson = SOP_LESSONS.find((l) => l.id === 'coaching');
+  renderLesson(root, lesson, 99, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: SOP_LESSONS.length, text: SOP_UI, guide: guideFor('?guide=s1', 'sop-library', 'coaching') });
+  click(root.querySelector('[data-next]'));
+  for (const q of lesson.checkpoint) click(root.querySelector(`[data-question="${q.id}"] [data-option="${q.answer}"]`));
+  const card = root.querySelector('[data-connection]');
+  const go = card.querySelector('a[data-guide-then]');
+  assert.equal(go.getAttribute('href'), '../agent-lifecycle/#coaching-0');
+  assert.equal(go.textContent, '이어서 볼 곳: 라이프사이클 레슨 4 · 성과 관리 및 코칭 →');
+  assert.ok(go.classList.contains('primary'));
+  assert.ok(card.textContent.includes(`${GUIDE_UI.fromGuide.ko} · ${GROUPS[0].situations[0].text.ko}`));
+  const next = card.querySelector('a[data-next-lesson]');
+  assert.ok(next && !next.classList.contains('primary'), 'the usual next lesson stays, as a second button');
+  assert.ok(go.compareDocumentPosition(next) & 4, '"then" comes first');
 });

@@ -910,6 +910,33 @@ def main():
         page.click("[data-lang='ko']")
         page.set_viewport_size({"width": 1280, "height": 900})
         page.screenshot(path=str(OUT / "guide-1280.png"), full_page=False)
+        # (g5) the lesson a guide situation opened ends with that situation's "then go here"
+        page.set_viewport_size({"width": 390, "height": 780})
+        page.goto(GD)
+        page.wait_for_selector("[data-card]")
+        page.click("[data-card='s1'] button")
+        page.click("[data-card='s1'] a[data-go='first']")
+        page.wait_for_selector("[data-counter]")
+        check("(g5) the first link carries the situation", "?guide=s1#coaching-0" in page.url, page.url)
+        for _ in range(20):
+            if page.is_visible("[data-view='checkpoint']"):
+                break
+            page.click("[data-next]")
+        r1, r2 = SOP_ANSWERS.get("coaching", "bb")
+        page.click(f"[data-question='coaching-q1'] [data-option='{r1}']")
+        page.click(f"[data-question='coaching-q2'] [data-option='{r2}']")
+        page.wait_for_selector("[data-connection]:not([hidden]) a[data-guide-then]")
+        check("(g5) the end card names the situation", "길잡이에서 고른 상황 ·" in page.inner_text("[data-connection]"))
+        check("(g5) 'then go here' is the primary button, the next SOP comes after it",
+              page.evaluate("(() => { const t = document.querySelector('a[data-guide-then]'), n = document.querySelector('[data-next-lesson]'); return t.classList.contains('primary') && !n.classList.contains('primary') && !!(t.compareDocumentPosition(n) & 4); })()"))
+        page.locator("[data-connection]").scroll_into_view_if_needed()
+        page.screenshot(path=str(OUT / "guide-then-390.png"), full_page=False)
+        page.click("a[data-guide-then]")
+        page.wait_for_selector("[data-counter]")
+        check("(g5) it opens the guide's next place", page.url.endswith("agent-lifecycle/#coaching-0"), page.url)
+        page.goto(HUB + "sop-library/#coaching-0")
+        page.wait_for_selector("[data-counter]")
+        check("(g5) a lesson opened without the guide has no guide button", page.locator("a[data-guide-then]").count() == 0)
         page.context.close()
 
         # (v) storage blocked

@@ -10,6 +10,7 @@ import { renderHome } from './render/home.js';
 import { renderLesson } from './render/lesson.js';
 import { renderLangToggle } from './render/langToggle.js';
 import { renderTrackToggle } from './render/trackToggle.js';
+import { guideFor } from '../../guide/link.js';
 import { UI } from './i18n/ui.js';
 
 // Browser storage can be missing or blocked; then everything stays in memory.
@@ -91,6 +92,7 @@ function render() {
   const view = renderLesson(app, lesson, route.step, lang, {
     restore,
     track,
+    guide: guideFor(location.search, 'agent-lifecycle', route.id),
     onNavigate: (href) => { location.hash = href; },
     onComplete: (id) => {
       completed.add(id);
