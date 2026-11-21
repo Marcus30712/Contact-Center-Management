@@ -200,16 +200,16 @@ import { lessonText } from './helpers.js';
 
 const lessonIds = LESSONS.map((l) => l.id);
 const term = (id) => TERMS.find((x) => x.id === id);
-const ORDER = ['aht', 'fcr', 'csat', 'dsat', 'quality-score', 'sla', 'service-level', 'asa', 'kpi', 'shrinkage', 'planned-shrinkage', 'unplanned-shrinkage',
+const ORDER = ['aht', 'fcr', 'csat', 'dsat', 'backlog', 'quality-score', 'sla', 'service-level', 'asa', 'kpi', 'shrinkage', 'planned-shrinkage', 'unplanned-shrinkage',
   'occupancy', 'schedule-adherence', 'forecast-accuracy', 'attrition',
   'agent', 'sme', 'team-lead', 'assistant-manager', 'operation-manager', 'qa', 'trainer', 'wfm', 'rta', 'fte', 'buddy',
-  'rjp', 'ojt', 'nesting', 'floor-walking', 'calibration', 'escalation', 'one-on-one-coaching', 'grow', 'pip', 'sop', 'voc', 'eap',
+  'rjp', 'ojt', 'nesting', 'floor-walking', 'calibration', 'escalation', 'scrubbing', 'rca', 'one-on-one-coaching', 'grow', 'pip', 'sop', 'voc', 'eap',
   'crm', 'cti', 'ticket', 'knowledge-base', 'call-recording', 'chat-log', 'email-log'];
 
-test('the glossary has the 46 agreed terms in order', () => {
+test('the glossary has the 49 agreed terms in order', () => {
   assert.deepEqual(TERMS.map((x) => x.id), ORDER);
   const count = (c) => TERMS.filter((x) => x.category === c).length;
-  assert.deepEqual([count('metric'), count('role'), count('process'), count('tool')], [16, 11, 12, 7]);
+  assert.deepEqual([count('metric'), count('role'), count('process'), count('tool')], [17, 11, 14, 7]);
 });
 
 test('the terms are valid', () => {
@@ -324,10 +324,10 @@ test('the staffing lab terms carry the approved definitions', () => {
 // --- links to the SOP Library ---
 import { SOP_LESSONS } from '../../sop-library/lessons/index.js';
 
-test('five terms point to their SOP lesson and no others do', () => {
+test('six terms point to their SOP lesson and no others do', () => {
   const withSop = Object.fromEntries(TERMS.filter((x) => x.sop).map((x) => [x.id, x.sop]));
   assert.deepEqual(withSop, {
-    calibration: 'calibration', escalation: 'escalation', 'one-on-one-coaching': 'coaching', grow: 'coaching', pip: 'pip',
+    calibration: 'calibration', escalation: 'escalation', scrubbing: 'scrubbing', 'one-on-one-coaching': 'coaching', grow: 'coaching', pip: 'pip',
   });
   const sopIds = SOP_LESSONS.map((l) => l.id);
   assert.deepEqual(validateTerms(TERMS, { requireEnglish: true, lessonIds: LESSONS.map((l) => l.id), sopIds }), []);
@@ -348,8 +348,23 @@ test('the card links to the SOP Library next to the course link', () => {
     assert.equal(link.getAttribute('href'), '../sop-library/#coaching-0');
     assert.equal(link.textContent, label);
     assert.equal($('[data-term="pip"] a[data-sop-link]').getAttribute('href'), '../sop-library/#pip-0');
-    assert.equal($$('a[data-sop-link]').length, 5);
+    assert.equal($$('a[data-sop-link]').length, 6);
     assert.ok($('[data-term="calibration"] a[data-seen]'), 'course link stays');
     assert.equal($('[data-term="aht"] a[data-sop-link]'), null);
   }
+});
+
+test('scrubbing, RCA and backlog are the approved wording, and scrubbing links to its SOP', async () => {
+  const { readFileSync } = await import('node:fs');
+  const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-21-sop-scrubbing-design.md', import.meta.url), 'utf8');
+  const rows = Object.fromEntries(doc.split('## 용어집')[1].split('\n').filter((l) => /^\| (Scrubbing|RCA|Backlog) \|/.test(l))
+    .map((l) => l.slice(2, -2).split(' | ')).map(([label, name, def]) => [label, { name, def }]));
+  for (const [id, label] of [['scrubbing', 'Scrubbing'], ['rca', 'RCA'], ['backlog', 'Backlog']]) {
+    const t = term(id);
+    assert.equal(t.term, label);
+    assert.equal(rows[label].name.startsWith(t.name.ko), true, id);
+    assert.equal(t.definition.ko, rows[label].def, id);
+    assert.ok(t.name.en && t.definition.en && !/[가-힣]/.test(t.definition.en), id);
+  }
+  assert.equal(term('scrubbing').sop, 'scrubbing');
 });

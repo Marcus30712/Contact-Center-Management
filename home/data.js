@@ -40,8 +40,8 @@ export const LEARN = [
   card('./agent-lifecycle/', '상담사 라이프사이클', 'The Agent Lifecycle',
     '신입 팀장을 위한 6단계 강의: 채용부터 경력 개발까지.', 'A six-stage course for new team leaders, from hiring to career growth.'),
   card('./sop-library/', 'SOP 라이브러리', 'SOP Library',
-    '팀장이 알아야 할 절차 7개를 순서대로 배웁니다: 에스컬레이션, 1:1 코칭, PIP, 캘리브레이션, 온보딩, 대규모 이슈 대응, 신규 프로젝트 론칭.',
-    'Learn seven procedures a team leader needs to know, step by step: escalation, 1:1 coaching, PIP, calibration, onboarding, large-scale issue response, new project launch.'),
+    '팀장이 알아야 할 절차 8개를 순서대로 배웁니다: 에스컬레이션, 스크러빙, 1:1 코칭, PIP, 캘리브레이션, 온보딩, 대규모 이슈 대응, 신규 프로젝트 론칭.',
+    'Learn eight procedures a team leader needs to know, step by step: escalation, scrubbing, 1:1 coaching, PIP, calibration, onboarding, large-scale issue response, new project launch.'),
   { href: './excel/', title: EXCEL_UI.homeCard, text: EXCEL_UI.homeCardLine },
 ];
 

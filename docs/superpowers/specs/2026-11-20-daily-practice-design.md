@@ -77,7 +77,7 @@
 | comeback | 다시 잡기 | 전에 틀린 문제를 다시 맞힘 |
 | terms | 용어 박사 | 열린 용어 카드가 10장 이상이고 모두 "알아요" |
 | lifecycle | 라이프사이클 완주 | 라이프사이클 6개 레슨 마침 |
-| sop | SOP 완주 | SOP 7개 레슨 마침 |
+| sop | SOP 완주 | SOP 레슨 모두 마침 |
 | excel | 엑셀 완주 | 미소의 엑셀 연습 11개 레슨 마침 (2026-11-20 추가) |
 
 - 새 배지를 받으면 미소(자랑스러움)가 축하한다. 연습 화면 맨 아래에 9개 모두 보이고, 못 받은 것은 흐리게 + 조건.
@@ -171,7 +171,7 @@
 | comeback | 다시 잡기 | Comeback | 전에 틀린 문제를 다시 맞힘 | Get a question right that you missed before |
 | terms | 용어 박사 | Term expert | 열린 용어 카드가 10장 이상이고 모두 "알아요" | 10 or more term cards open, all marked "I know it" |
 | lifecycle | 라이프사이클 완주 | Lifecycle finished | 라이프사이클 6개 레슨을 모두 마침 | Finish all 6 Lifecycle lessons |
-| sop | SOP 완주 | SOP Library finished | SOP 7개 레슨을 모두 마침 | Finish all 7 SOP lessons |
+| sop | SOP 완주 | SOP Library finished | SOP 레슨을 모두 마침 | Finish all the SOP lessons |
 | excel | 엑셀 완주 | Excel finished | 미소의 엑셀 연습 11개 레슨을 모두 마침 | Finish all 11 lessons of Miso's Excel Practice |
 
 ## 7. 제작자에게 맡기는 것

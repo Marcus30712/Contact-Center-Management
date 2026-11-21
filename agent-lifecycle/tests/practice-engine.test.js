@@ -10,7 +10,7 @@ const LIFE = 'agent-lifecycle-course:v1';
 const SOP = 'sop-library:v1';
 const TRACK = 'agent-lifecycle-course:track';
 const ALL_LIFE = ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'];
-const ALL_SOP = ['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'];
+const ALL_SOP = ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'];
 
 function store({ life = [], sop = [], track } = {}) {
   const s = fakeStorage();
@@ -45,7 +45,8 @@ test('pool: only finished lessons, current track, keys prefixed by course', () =
   assert.ok(keys.includes('lifecycle:coaching-q1') && keys.includes('sop:coaching-q1') && keys.includes('sop:coaching-q2'));
   assert.equal(pool(store()).length, 0);
   assert.equal(pool(throwingStorage).length, 0);
-  assert.equal(pool(store({ life: ALL_LIFE, sop: ALL_SOP })).length, 32, '6 lessons x 3 on one track + 7 SOP x 2');
+  assert.equal(pool(store({ life: ALL_LIFE, sop: ALL_SOP })).length, 34, '6 lessons x 3 on one track + 8 SOP x 2');
+  assert.ok(pool(store({ sop: ['scrubbing'] })).map((q) => q.key ?? q.id).join(' ').includes('scrubbing-q2'));
 });
 
 test('ensureToday picks once a day: missed first, then unseen, then oldest', () => {
@@ -158,7 +159,7 @@ test('cards: open by lesson, unlinked terms after any lesson, deck order, max 5'
   assert.ok(hiring.some((t) => t.seen.includes('hiring')));
   assert.ok(!hiring.some((t) => t.seen.length && !t.seen.includes('hiring')));
   const terms = openTerms(store({ life: ALL_LIFE }));
-  assert.equal(terms.length, 46);
+  assert.equal(terms.length, 49);
   let st = empty();
   st.cards[terms[0].id] = { known: true, last: '2026-11-01' };
   st.cards[terms[1].id] = { known: false, last: '2026-11-19' };

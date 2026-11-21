@@ -12,7 +12,7 @@ const flow = [...procedure, 'week1', 'week2', 'week1-contract', 'contract-equipm
 
 export default {
   id: 'onboarding',
-  order: 5,
+  order: 6,
   group: 'cross',
   title: tx('신규 입사자 온보딩', 'New Hire Onboarding'),
   short: tx('온보딩', 'Onboarding'),

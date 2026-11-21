@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'fe3d08de4054';
+const VERSION = '90f18fc0b4ca';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -142,6 +142,7 @@ const PRECACHE = [
   "sop-library/lessons/05-onboarding.js",
   "sop-library/lessons/06-incident.js",
   "sop-library/lessons/07-launch.js",
+  "sop-library/lessons/08-scrubbing.js",
   "sop-library/lessons/index.js",
   "sop-library/sop.css",
   "sop-library/ui.js",
