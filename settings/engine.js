@@ -37,6 +37,23 @@ export const BACKUP_KEYS = [LANG_KEY, TRACK_KEY, THEME_KEY, PROGRESS_KEY, SOP_PR
 // (exported on a fresh or blocked browser) would wipe a learner's records.
 const PROGRESS_KEYS = [PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY];
 
+// "Reset learning" clears these and nothing else: language, job track,
+// display mode and the tutorial flag stay.
+export const RESET_KEYS = PROGRESS_KEYS;
+
+// Erases the learning records. True when there was something to erase.
+export function resetLearning(storage) {
+  let had = false;
+  for (const key of RESET_KEYS) {
+    try {
+      if (storage?.getItem(key) == null) continue;
+      had = true;
+      storage.removeItem(key);
+    } catch { /* blocked storage: nothing stored to erase */ }
+  }
+  return had;
+}
+
 export function makeBackup(storage, today) {
   const data = {};
   for (const key of BACKUP_KEYS) {

@@ -45,6 +45,12 @@
 | exported | 기록 파일을 내보냈어요. | Progress file exported. |
 | imported | 기록을 가져왔어요. | Progress imported. |
 | importBad | 기록 파일을 읽지 못했어요. 큐크래프트에서 내보낸 파일인지 확인해 주세요. | Couldn't read the progress file. Check that it was exported from Queuecraft. |
+| reset | 학습 초기화 | Reset learning |
+| resetAsk | 학습 기록을 모두 지울까요? | Erase all your learning records? |
+| resetAskNote | 레슨 진도와 오늘의 연습 기록, 배지가 지워지고 되돌릴 수 없어요. 먼저 '기록 내보내기'로 백업해 두면 나중에 다시 가져올 수 있어요. | Lesson progress, Today’s Practice records and badges will be erased, and this can’t be undone. Back up first with “Export progress” and you can bring them back later. |
+| resetConfirm | 지우기 | Erase |
+| resetDone | 학습 기록을 지웠어요. | Learning records erased. |
+| resetNone | 지울 학습 기록이 없어요. | There are no learning records to erase. |
 | offlineReady | 오프라인 준비 완료 | Ready for offline use |
 | offlineWait | 오프라인 준비 중이에요. 인터넷이 될 때 앱을 한 번 다시 열어 주세요. | Getting ready for offline use. Open the app again once you're online. |
 | installHeading | 홈 화면에 추가 | Add to home screen |
@@ -58,3 +64,9 @@
 ## 6. 확인
 - 테스트: 문안 = 표, 메뉴 다섯 칸과 현재 칸, 화면 값 저장·적용·잘못된 값, 모든 페이지 머리의 화면 스크립트, 백업 만들기·읽기(다른 앱 파일·깨진 파일 거절)·되돌리기, 가져오기 확인·취소, 첫 화면에 설치 안내 없음, 개인정보처리방침 문안, 저장 호출 수.
 - 브라우저 점검: 320·390px 넘침 없음, 어둡게를 고르면 다른 페이지도 어둡게 열림, 메뉴 다섯 칸, 오프라인에서 설정 열림.
+
+## 2026-11-21 추가: 학습 초기화 (승인)
+
+- 기록 백업 구역에 [학습 초기화]. 학습 기록 4개(라이프사이클·SOP·엑셀 진도, 오늘의 연습 기록과 배지)만 지우고 언어·직군·화면 모드·튜토리얼 여부는 남긴다.
+- 누르면 확인 질문(초점은 [그만두기])을 거쳐 [지우기]로 지운다. 지울 기록이 없으면 "지울 학습 기록이 없어요."만 알린다.
+- 지우기는 저장이 아니라 삭제라서 개인정보처리방침은 바뀌지 않는다. 문구는 위 표의 reset… 6줄.

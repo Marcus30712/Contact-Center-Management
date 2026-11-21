@@ -4,10 +4,10 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { setupDom, click } from './dom.js';
-import { fakeStorage } from './helpers.js';
+import { fakeStorage, throwingStorage } from './helpers.js';
 import { SETTINGS_UI, APP_VERSION } from '../../settings/data.js';
 import { INSTALL_UI } from '../../settings/install-data.js';
-import { THEME_KEY, loadTheme, saveTheme, applyTheme, BACKUP_KEYS, makeBackup, readBackup, restoreBackup } from '../../settings/engine.js';
+import { THEME_KEY, loadTheme, saveTheme, applyTheme, BACKUP_KEYS, makeBackup, readBackup, restoreBackup, RESET_KEYS, resetLearning } from '../../settings/engine.js';
 import { renderSettings, newSettingsView } from '../../settings/render.js';
 import { HOME_UI } from '../../home/data.js';
 import { PRIVACY_TEXT } from '../../privacy/text.js';
@@ -27,7 +27,7 @@ const rows = () => {
 
 test('settings wording is the confirmed table, in both languages', () => {
   const table = rows();
-  assert.equal(table.length, 22);
+  assert.equal(table.length, 28);
   assert.deepEqual(Object.keys(SETTINGS_UI), table.map((r) => r[0]));
   for (const [key, ko, en] of table) assert.deepEqual(SETTINGS_UI[key], { ko, en }, key);
   for (const v of Object.values(SETTINGS_UI)) assert.ok(!/[가-힣]/.test(v.en), v.en);
@@ -297,4 +297,48 @@ test('the tutorial has its own section with a View link', () => {
     const ids = a.getAttribute('aria-labelledby').split(' ');
     assert.deepEqual(ids.map((id) => root.ownerDocument.getElementById(id)?.textContent), [INSTALL_UI.tutorialRow[lang], INSTALL_UI.tutorialButton[lang]]);
   }
+});
+
+// ---------- 2026-11-21: reset learning ----------
+test('reset clears only the four learning records and reports whether anything was there', () => {
+  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1']);
+  const s = filled();
+  s.setItem('queuecraft:tour', 'done');
+  assert.equal(resetLearning(s), true);
+  for (const k of RESET_KEYS) assert.equal(s.getItem(k), null, k);
+  for (const k of ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'queuecraft:theme', 'queuecraft:tour', 'other-site:key']) assert.notEqual(s.getItem(k), null, k);
+  assert.equal(resetLearning(s), false, 'nothing left to erase');
+  assert.equal(resetLearning(throwingStorage), false);
+  assert.equal(resetLearning(null), false);
+});
+
+test('Reset learning asks first with the focus on Cancel; Cancel keeps, Erase clears and says so', () => {
+  const s = filled();
+  const { root } = page(s, 'ko');
+  const btn = root.querySelector('button[data-reset]');
+  assert.equal(btn.textContent, SETTINGS_UI.reset.ko);
+  btn.click();
+  const ask = root.querySelector('[data-reset-confirm]');
+  assert.ok(ask.textContent.includes(SETTINGS_UI.resetAsk.ko) && ask.textContent.includes(SETTINGS_UI.resetAskNote.ko));
+  assert.equal(root.ownerDocument.activeElement, ask.querySelector('[data-reset-cancel]'));
+  ask.querySelector('[data-reset-cancel]').click();
+  assert.equal(root.querySelector('[data-reset-confirm]'), null);
+  assert.notEqual(s.getItem('sop-library:v1'), null);
+  assert.equal(root.ownerDocument.activeElement, root.querySelector('button[data-reset]'));
+  root.querySelector('button[data-reset]').click();
+  const erase = root.querySelector('[data-reset-confirm] [data-reset-go]');
+  assert.equal(erase.textContent, SETTINGS_UI.resetConfirm.ko);
+  erase.click();
+  assert.equal(s.getItem('sop-library:v1'), null);
+  assert.notEqual(s.getItem('agent-lifecycle-course:lang'), null);
+  assert.equal(root.querySelector('[data-reset-confirm]'), null);
+  assert.equal(root.ownerDocument.querySelector('[data-status]').textContent, SETTINGS_UI.resetDone.ko);
+});
+
+test('with nothing to erase, Reset learning only says so', () => {
+  const s = fakeStorage({ 'agent-lifecycle-course:lang': 'ko' });
+  const { root } = page(s, 'ko');
+  root.querySelector('button[data-reset]').click();
+  assert.equal(root.querySelector('[data-reset-confirm]'), null);
+  assert.equal(root.ownerDocument.querySelector('[data-status]').textContent, SETTINGS_UI.resetNone.ko);
 });

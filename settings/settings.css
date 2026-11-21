@@ -57,3 +57,8 @@
 }
 .ins-sheet::after { content: ""; display: block; height: 16px; }
 @media (prefers-reduced-motion: reduce) { .ins-sheet { animation: none; } }
+/* Reset learning: set apart from the backup buttons because it cannot be undone. */
+.st-danger { color: var(--bad); border-color: var(--bad); }
+.st-danger-fill { background: var(--bad); border-color: var(--bad); color: var(--surface); }
+.st-confirm-danger { border-color: var(--bad); background: var(--bad-soft); }
+.st-danger:focus-visible, .st-danger-fill:focus-visible, .st-confirm-danger .btn:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
