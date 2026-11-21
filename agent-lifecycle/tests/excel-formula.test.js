@@ -118,3 +118,32 @@ test('Excel edges: numbers stored as text, fractional ROUND digits, VLOOKUP igno
   assert.equal(val('=ROUND(1.5, 0.5)'), 2, 'digits are truncated to whole numbers');
   assert.equal(val('=VLOOKUP("s02", A2:G9, 2, FALSE)'), '이도윤');
 });
+
+// ---------- 2026-11-21: functions for the advanced lessons ----------
+test('AND, OR and IFERROR', () => {
+  assert.equal(val('=AND(1>0, 2>3)'), false);
+  assert.equal(val('=AND(D4>=G4, F4/D4>=0.85)'), true);
+  assert.equal(val('=OR(1>0, 2>3)'), true);
+  assert.equal(val('=OR(D2>=G2, F2/D2>=0.85)'), false);
+  assert.equal(val('=IF(OR(D2<G2, F2/D2<0.8), "점검", "")'), '점검');
+  assert.equal(evaluate('=AND()', sheet).ok, false);
+  assert.equal(val('=IFERROR(XLOOKUP("S99", A2:A9, D2:D9), "없음")'), '없음');
+  assert.equal(val('=IFERROR(XLOOKUP("S03", A2:A9, D2:D9), "없음")'), 61);
+  assert.equal(val('=IFERROR(1/0, 0)'), 0);
+  assert.equal(val('=IFERROR(5, 0)'), 5);
+  assert.equal(evaluate('=IFERROR(1/0)', sheet).ok, false, 'two values are needed');
+  assert.equal(evaluate('=IF(XLOOKUP("S09", A2:A9, D2:D9), "없음")', sheet).ok, false, 'IF does not catch errors');
+});
+
+test('AND/OR work out every condition and take ranges; IFERROR catches only errors Excel also gives', () => {
+  assert.equal(evaluate('=AND(1>2, 1/0)', sheet).ok, false, 'Excel gives #DIV/0! here too');
+  assert.equal(evaluate('=OR(1>0, 1/0)', sheet).ok, false);
+  assert.equal(val('=AND(D2:D3)'), true, 'numbers in a range count; nonzero is TRUE');
+  assert.equal(val('=OR(B2:B3, 0)'), false, 'text in a range is skipped');
+  assert.equal(evaluate('=AND(B2:B3)', sheet).ok, false, 'a range with no numbers or TRUE/FALSE is an error');
+  assert.equal(val('=IFERROR(1/0, "x")'), 'x');
+  assert.equal(val('=IFERROR(XLOOKUP("S99", A2:A9, D2:D9), "x")'), 'x');
+  assert.equal(val('=IFERROR(AVERAGEIFS(D2:D9, C2:C9, "C팀"), "x")'), 'x');
+  assert.equal(evaluate('=IFERROR(VLOOKUP("S02", A2:G9, 3, TRUE), "x")', sheet).ok, false, 'a limit of this calculator is not hidden');
+  assert.equal(evaluate('=IFERROR(ROUND(1), "x")', sheet).ok, false, 'Excel refuses a wrong number of values outright');
+});

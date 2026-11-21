@@ -6,6 +6,8 @@ export const EXCEL_FEEDBACK_UI = {
   pickedCell: { ko: "고른 칸은 {c}이에요.", en: "You picked {c}." },
 };
 
+import { ADVANCED_FEEDBACK } from './advanced.js';
+
 export const EXCEL_FEEDBACK = {
   "1-1": {
     1: { ko: "S03은 상담사 번호라 A열, A4 칸에 있어요. B열은 이름이에요.", en: "S03 is the agent ID, so it's in column A, cell A4. Column B is the name." },
@@ -183,4 +185,6 @@ export const EXCEL_FEEDBACK = {
     1: { ko: ">는 목표보다 많은 칸을 칠해요. 미달은 목표보다 작은 <예요.", en: "> colors cells above the target. Missing the target means below it, which is <." },
     2: { ko: "=는 목표와 딱 같은 칸만 칠해서, 못 미친 칸은 칠해지지 않아요.", en: "= colors only cells exactly equal to the target, so cells below it stay uncolored." },
   },
+  // The advanced lessons' feedback, kept with their copy in excel/advanced.js.
+  ...ADVANCED_FEEDBACK,
 };

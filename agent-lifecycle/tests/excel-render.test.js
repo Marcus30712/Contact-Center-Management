@@ -53,7 +53,7 @@ function answerRight(p, q, lang = 'ko') {
 test('the list shows 11 lessons, opened in order, with scores', () => {
   const s = fakeStorage();
   let p = page(s);
-  const items = [...p.root.querySelectorAll('[data-lesson]')];
+  const items = [...p.root.querySelectorAll('ol.ex-list:not(.ex-advanced ol) > [data-lesson]')];
   assert.equal(items.length, 11);
   assert.ok(p.root.querySelector('img[data-miso="smile"]'));
   assert.ok(items[0].querySelector('a[href="#lesson-1"]'));
@@ -61,7 +61,7 @@ test('the list shows 11 lessons, opened in order, with scores', () => {
   assert.ok(items[1].textContent.includes(UI.locked.ko));
   saveProgress(s, { completed: ['1'], scores: { 1: 5 } });
   p = page(s);
-  const again = [...p.root.querySelectorAll('[data-lesson]')];
+  const again = [...p.root.querySelectorAll('ol.ex-list:not(.ex-advanced ol) > [data-lesson]')];
   assert.ok(again[0].textContent.includes('6개 중 5개'));
   assert.ok(again[1].querySelector('a[href="#lesson-2"]'));
 });
@@ -190,9 +190,9 @@ test('switching language mid-build keeps the question and shows English cards', 
 test('locked lessons and unknown routes go to the list; no stray text; English has no Hangul', () => {
   const p = page();
   p.draw('lesson-5');
-  assert.equal(p.root.querySelectorAll('[data-lesson]').length, 11);
+  assert.equal(p.root.querySelectorAll('ol.ex-list:not(.ex-advanced ol) > [data-lesson]').length, 11);
   p.draw('lesson-99');
-  assert.equal(p.root.querySelectorAll('[data-lesson]').length, 11);
+  assert.equal(p.root.querySelectorAll('ol.ex-list:not(.ex-advanced ol) > [data-lesson]').length, 11);
   assert.ok(!/\bnull\b|\bundefined\b/.test(p.root.textContent));
   const en = page(fakeStorage(), 'lesson-1', 'en');
   click(en.root.querySelector('[data-start]'));
@@ -204,7 +204,7 @@ test('locked lessons and unknown routes go to the list; no stray text; English h
 
 test('junk progress still shows the list', () => {
   const s = fakeStorage({ [PROGRESS_KEY]: '{"completed":"x"}' });
-  assert.equal(page(s).root.querySelectorAll('[data-lesson]').length, 11);
+  assert.equal(page(s).root.querySelectorAll('ol.ex-list:not(.ex-advanced ol) > [data-lesson]').length, 11);
 });
 
 test('options are drawn shuffled, keep their own index, and the pick is marked', () => {

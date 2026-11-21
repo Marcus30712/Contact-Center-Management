@@ -798,7 +798,7 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB + "excel/")
         page.wait_for_selector("[data-lesson]")
-        check("(x1) the list shows 11 lessons", page.locator("[data-lesson]").count() == 11)
+        check("(x1) the list shows 11 lessons", page.locator("ol.ex-list:not(.ex-advanced ol) > [data-lesson]").count() == 11 and page.locator("[data-advanced] [data-lesson]").count() == 5)
         check("(x1) the menu marks Learn", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "learn")
         page.screenshot(path=str(OUT / "excel-list-390.png"), full_page=True)
         page.click("[data-lesson='1'] a")
@@ -921,6 +921,41 @@ def main():
             page.click("[data-lang='en']")
             page.wait_for_function(f"document.querySelector('#app h1')?.textContent === '{en}'")
         page.context.close()
+
+        # (z) Excel advanced lessons: the section, and a 22-card build on small screens
+        BASIC11 = '["1","2","3","4","5","6","7","8","9","10","11"]'
+        for width in (320, 390):
+            page = new_page(browser, errors, width=width, init="try { localStorage.setItem('excel-practice:v1', '{\"completed\":" + BASIC11.replace('"', '\\"') + ",\"scores\":{}}'); } catch (e) {}")
+            page.goto(HUB + "excel/")
+            page.wait_for_selector("[data-advanced]")
+            check(f"(z) {width}: five advanced lessons, all open", page.locator("[data-advanced] [data-lesson] a:not(.ex-go)").count() == 5)
+            check(f"(z) {width}: Continue points at lesson 12", page.get_attribute("[data-advanced] .ex-go", "href") == "#lesson-12")
+            page.goto(HUB + "excel/#lesson-16")
+            page.wait_for_selector("[data-start]")
+            page.click("[data-start]")
+            qs = page.evaluate("import('../excel/advanced.js').then((m) => m.EXCEL_ADVANCED[4].questions.map((q) => ({ t: q.type, a: q.answer, c: q.cards ? q.cards.ko : null })))")
+            for q in qs[:5]:
+                if q["t"] == "choice":
+                    page.click(f"[data-option='{q['a']}']")
+                elif q["t"] == "blank":
+                    page.click(f"[data-chip='{q['a']}']")
+                elif q["t"] == "build":
+                    for card in q["c"]:
+                        page.evaluate("(w) => [...document.querySelectorAll('[data-bank] [data-card]')].find((b) => b.textContent === w && !b.disabled).click()", card)
+                    page.click("[data-check]")
+                page.click("[data-next]")
+            box = page.evaluate("""() => { const r = [...document.querySelectorAll('[data-bank] [data-card]')].map((b) => b.getBoundingClientRect());
+                return { n: r.length, out: r.filter((x) => x.left < 0 || x.right > innerWidth).length, w: document.documentElement.scrollWidth, iw: innerWidth }; }""")
+            check(f"(z) {width}: all 22 cards on screen", box["n"] == 22 and box["out"] == 0 and box["w"] <= box["iw"], str(box))
+            # Place every answer card, scroll to the bottom: the formula line stays in view.
+            for card in qs[5]["c"]:
+                page.evaluate("(w) => [...document.querySelectorAll('[data-bank] [data-card]')].find((b) => b.textContent === w && !b.disabled).click()", card)
+            page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
+            page.wait_for_timeout(200)
+            line = page.evaluate("(() => { const r = document.querySelector('[data-line]').getBoundingClientRect(); return { t: r.top, b: r.bottom, h: innerHeight }; })()")
+            check(f"(z) {width}: the formula line stays in view while scrolling", line["t"] >= 0 and line["t"] < line["h"] / 2, str(line))
+            page.screenshot(path=str(OUT / f"excel-advanced-16-6-{width}.png"))
+            page.context.close()
 
         # (y) Settings: Reset learning
         # Seed once per tab: an init script runs on every page load.
