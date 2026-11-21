@@ -11,7 +11,7 @@ const label = (lesson, nodeId) => lesson.diagram.nodes.find((n) => n.id === node
 
 // The Korean copy files (the first confirmed by the owner, the second awaiting
 // their review). The lessons must match them exactly.
-const COPY_FILES = ['2026-11-19-sop-library-copy-ko.md', '2026-11-19-sop-library-2-copy-ko.md', '2026-11-21-sop-scrubbing-design.md'];
+const COPY_FILES = ['2026-11-19-sop-library-copy-ko.md', '2026-11-19-sop-library-2-copy-ko.md', '2026-11-21-sop-scrubbing-design.md', '2026-11-21-sop-nurture-design.md'];
 const parseCopy = () => COPY_FILES.flatMap(parseCopyFile);
 function parseCopyFile(name) {
   const md = readFileSync(new URL(`../../docs/superpowers/specs/${name}`, import.meta.url), 'utf8');
@@ -48,6 +48,7 @@ const PROCEDURES = {
   pip: ['데이터 기반 면담', '공동 목표 설정', '지원 약속 및 주간 점검', '결과 평가'],
   calibration: ['사전 준비', '독립 평가', '교정 세션', '합의 및 결정', '후속 조치 및 공유'],
   scrubbing: ['대상 고르기', '원인 분석(RCA)', 'L1·L2 분류', '내부 토의', '보고 및 건의'],
+  nurture: ['강점 데이터 진단', '강점 자리 배치', '육성 계획 수립', '지식 공유·멘토링', '성장 리뷰 및 추천'],
   onboarding: ['계약 및 서류 처리', '장비 지급 및 계정 생성', '비전·문화 교육', '버디 지정 및 팀 소개',
     '제품·서비스 심화 교육', '시스템 실습 교육', '실전 투입 스케줄 배정', '첫 주 1:1 미팅'],
   incident: ['감지 및 상황 공유', '원인 분석 및 자원 계획', '실행 및 모니터링', '결과 보고 및 후속 조치'],
@@ -59,19 +60,20 @@ const EXTRAS = {
   pip: ['PIP 종료', '추가 계획'],
   calibration: ['추가 교육·공지'],
   scrubbing: ['개선점 보고', '인사이트 공유', '해결 또는 건의'],
+  nurture: ['관리자 트랙', '전문가 트랙'],
   onboarding: ['1주차', '2주차'],
   incident: ['SOP 업데이트'],
   launch: ['첫 비즈니스 리뷰'],
 };
 
 test('the SOP course passes the course rules in both languages', () => {
-  assert.deepEqual(validateCourse(SOP_LESSONS, { requireEnglish: true, lessonCount: 8, loop: false, figure: SOP_FIGURE }), []);
+  assert.deepEqual(validateCourse(SOP_LESSONS, { requireEnglish: true, lessonCount: 9, loop: false, figure: SOP_FIGURE }), []);
 });
 
-test('eight lessons in order, common to every team type', () => {
-  assert.deepEqual(SOP_LESSONS.map((l) => l.id), ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch']);
-  assert.deepEqual(SOP_LESSONS.map((l) => l.steps.length), [10, 11, 11, 11, 11, 11, 11, 10]);
-  assert.deepEqual(SOP_LESSONS.map((l) => l.group), ['leader', 'leader', 'leader', 'leader', 'leader', 'cross', 'cross', 'cross']);
+test('nine lessons in order, common to every team type', () => {
+  assert.deepEqual(SOP_LESSONS.map((l) => l.id), ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'nurture', 'launch']);
+  assert.deepEqual(SOP_LESSONS.map((l) => l.steps.length), [10, 11, 11, 11, 11, 11, 11, 11, 10]);
+  assert.deepEqual(SOP_LESSONS.map((l) => l.group), ['leader', 'leader', 'leader', 'leader', 'leader', 'cross', 'cross', 'cross', 'cross']);
   for (const l of SOP_LESSONS) {
     assert.equal(l.checkpoint.length, 2, l.id);
     assert.ok([...l.steps, ...l.checkpoint].every((x) => x.track === undefined), l.id);
@@ -94,7 +96,7 @@ test('each procedure has the Codex steps in the Codex order', () => {
 });
 
 test('the Korean wording is the confirmed copy, word for word', () => {
-  assert.equal(COPY.length, 8);
+  assert.equal(COPY.length, 9);
   assert.ok(COPY.every(Boolean), 'every lesson has its copy');
   SOP_LESSONS.forEach((l, i) => {
     const c = COPY[i];
@@ -159,7 +161,7 @@ test('Doyun is the person in the PIP lesson and Jimin everywhere else', () => {
   assert.deepEqual(byId('pip').personaName, { ko: '도윤', en: 'Doyun' });
   assert.ok(!lessonText(byId('pip'), 'ko').includes('지민'));
   assert.ok(!lessonText(byId('pip'), 'en').includes('Jimin'));
-  for (const id of ['escalation', 'scrubbing', 'coaching', 'calibration', 'incident', 'launch']) assert.equal(byId(id).personaName, undefined, id);
+  for (const id of ['escalation', 'scrubbing', 'coaching', 'calibration', 'incident', 'nurture', 'launch']) assert.equal(byId(id).personaName, undefined, id);
   assert.deepEqual(byId('onboarding').personaName, { ko: '서아', en: 'Seoa' });
   assert.ok(!lessonText(byId('onboarding'), 'ko').includes('지민'));
 });
@@ -203,15 +205,15 @@ function openLesson(id, stepIndex = 0, lang = 'ko') {
   return root;
 }
 
-test('the list shows the eight SOPs in order with who runs each', () => {
+test('the list shows the nine SOPs in order with who runs each', () => {
   const { root } = setupDom();
   renderSopHome(root, SOP_LESSONS, { completed: ['pip'] }, 'ko');
   assert.equal(root.querySelector('h1').textContent, 'SOP 라이브러리');
   assert.equal(root.querySelector('[data-list-note]').textContent, SOP_UI.listNote.ko);
   const links = [...root.querySelectorAll('ol[data-sop-list] a[data-sop]')];
   assert.deepEqual([...root.querySelectorAll('[data-group]')].map((x) => x.textContent), ['팀장이 직접 하는 절차', '여러 팀이 함께 하는 절차']);
-  assert.deepEqual([...root.querySelectorAll('ol[data-sop-list]')].map((ol) => [ol.getAttribute('start'), ol.querySelectorAll('a[data-sop]').length]), [['1', 5], ['6', 3]]);
-  assert.deepEqual(links.map((a) => a.querySelector('.stage-card-num').textContent), ['1', '2', '3', '4', '5', '6', '7', '8']);
+  assert.deepEqual([...root.querySelectorAll('ol[data-sop-list]')].map((ol) => [ol.getAttribute('start'), ol.querySelectorAll('a[data-sop]').length]), [['1', 5], ['6', 4]]);
+  assert.deepEqual(links.map((a) => a.querySelector('.stage-card-num').textContent), ['1', '2', '3', '4', '5', '6', '7', '8', '9']);
   assert.deepEqual(links.map((a) => a.getAttribute('href')), IDS.map((id) => `#${id}-0`));
   links.forEach((a, i) => {
     const l = SOP_LESSONS[i];
@@ -229,9 +231,9 @@ test('the English list has no Korean left in it', () => {
   assert.ok(!/[가-힣]/.test(root.textContent));
 });
 
-test('an SOP lesson counts out of eight and the last one leads back to the list', () => {
+test('an SOP lesson counts out of nine and the last one leads back to the list', () => {
   const first = openLesson('escalation');
-  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 8');
+  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 9');
   assert.equal(first.querySelector('[data-home]').textContent, '← 목록');
   assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), '#scrubbing-0');
   assert.equal(openLesson('scrubbing').querySelector('[data-next-lesson]').getAttribute('href'), '#coaching-0');
@@ -301,9 +303,9 @@ test('each group heading names its list for screen readers', () => {
 test('every SOP wrong option has its own approved one-sentence feedback; right answers have none', async () => {
   const { readFileSync } = await import('node:fs');
   const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-21-sop-wrong-feedback.md', import.meta.url), 'utf8');
-  const both = doc + readFileSync(new URL('../../docs/superpowers/specs/2026-11-21-sop-scrubbing-design.md', import.meta.url), 'utf8');
+  const both = doc + ['2026-11-21-sop-scrubbing-design.md', '2026-11-21-sop-nurture-design.md'].map((f) => readFileSync(new URL(`../../docs/superpowers/specs/${f}`, import.meta.url), 'utf8')).join('\n');
   const rows = new Map([...both.matchAll(/^\| ([a-z0-9-]+)\.([abc]) \| (.+?) \| (.+?) \|$/gm)].map(([, q, o, ko, en]) => [`${q}.${o}`, { ko, en }]));
-  assert.equal(rows.size, 32);
+  assert.equal(rows.size, 36);
   for (const q of SOP_LESSONS.flatMap((l) => l.checkpoint)) {
     for (const o of q.options) {
       if (o.id === q.answer) { assert.equal(o.feedback, undefined, `${q.id}.${o.id}`); continue; }
@@ -333,7 +335,7 @@ test('the connections changed for scrubbing are the approved wording', () => {
   assert.equal(byId('escalation').connection.text.ko, row('에스컬레이션 · 다음으로')[2]);
   assert.equal(byId('scrubbing').connection.to, 'coaching');
   assert.ok(byId('calibration').connection.text.ko.startsWith('여기까지가 팀장이 직접 하는 다섯 가지 절차입니다.'));
-  assert.ok(byId('launch').connection.text.ko.startsWith('여기까지가 SOP 여덟 가지입니다.'));
+  assert.ok(byId('launch').connection.text.ko.startsWith('여기까지가 SOP 아홉 가지입니다.'));
   for (const id of ['calibration', 'launch']) assert.ok(!/[가-힣]/.test(byId(id).connection.text.en), id);
 });
 
@@ -346,4 +348,14 @@ test('arrows between procedure steps in one column have room to show (rows at le
       if (a.x === b.x) assert.ok(Math.abs(b.y - a.y) >= 48, `${l.id}: ${a.id} → ${b.id}`);
     });
   }
+});
+
+// ---------- 2026-11-21: existing-agent development added before launch ----------
+test('the connections changed for nurture are the approved wording', () => {
+  const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-21-sop-nurture-design.md', import.meta.url), 'utf8');
+  const row = (place) => doc.split('\n').find((line) => line.startsWith(`| ${place} |`)).split(' | ').map((c) => c.replace(/^\| |\s*\|$/g, '').trim());
+  assert.equal(byId('incident').connection.to, 'nurture');
+  assert.equal(byId('incident').connection.text.ko, row('대규모 이슈 대응 · 다음으로')[2]);
+  assert.equal(byId('nurture').connection.to, 'launch');
+  assert.ok(!/[가-힣]/.test(byId('incident').connection.text.en + byId('nurture').connection.text.en));
 });

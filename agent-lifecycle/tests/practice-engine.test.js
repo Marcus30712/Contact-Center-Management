@@ -10,7 +10,7 @@ const LIFE = 'agent-lifecycle-course:v1';
 const SOP = 'sop-library:v1';
 const TRACK = 'agent-lifecycle-course:track';
 const ALL_LIFE = ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'];
-const ALL_SOP = ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'];
+const ALL_SOP = ['escalation', 'scrubbing', 'nurture', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'];
 
 function store({ life = [], sop = [], track } = {}) {
   const s = fakeStorage();
@@ -45,7 +45,7 @@ test('pool: only finished lessons, current track, keys prefixed by course', () =
   assert.ok(keys.includes('lifecycle:coaching-q1') && keys.includes('sop:coaching-q1') && keys.includes('sop:coaching-q2'));
   assert.equal(pool(store()).length, 0);
   assert.equal(pool(throwingStorage).length, 0);
-  assert.equal(pool(store({ life: ALL_LIFE, sop: ALL_SOP })).length, 34, '6 lessons x 3 on one track + 8 SOP x 2');
+  assert.equal(pool(store({ life: ALL_LIFE, sop: ALL_SOP })).length, 36, '6 lessons x 3 on one track + 9 SOP x 2');
   assert.ok(pool(store({ sop: ['scrubbing'] })).map((q) => q.key ?? q.id).join(' ').includes('scrubbing-q2'));
 });
 

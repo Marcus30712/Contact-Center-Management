@@ -455,7 +455,7 @@ def main():
 
         # ---- SOP Library ----
         SOP = HUB + "sop-library/"
-        SOP_STEPS = {"escalation": 10, "scrubbing": 11, "coaching": 11, "pip": 11, "calibration": 11, "onboarding": 11, "incident": 11, "launch": 10}
+        SOP_STEPS = {"escalation": 10, "scrubbing": 11, "coaching": 11, "pip": 11, "calibration": 11, "onboarding": 11, "incident": 11, "nurture": 11, "launch": 10}
         SOP_ANSWERS = {"scrubbing": "bc", "onboarding": "ac", "incident": "ca", "launch": "ac"}  # the rest are "bb"
         LABELS_FIT = """[...document.querySelectorAll('[data-node]:not(.is-hidden)')].every((g) => {
             const r = g.querySelector('rect').getBoundingClientRect();
@@ -465,14 +465,14 @@ def main():
         page = new_page(browser, errors)
         page.goto(SOP)
         page.wait_for_selector("[data-sop-list]")
-        check("(s1) list shows eight SOPs in two groups", page.locator("[data-sop-list] a[data-sop]").count() == 8 and page.locator("[data-group]").count() == 2)
+        check("(s1) list shows nine SOPs in two groups", page.locator("[data-sop-list] a[data-sop]").count() == 9 and page.locator("[data-group]").count() == 2)
         page.screenshot(path=str(OUT / "sop-list-390.png"), full_page=True)
         ids = list(SOP_STEPS)
         for i, (sop, steps) in enumerate(SOP_STEPS.items()):
             page.goto(SOP + f"#{sop}-0")
             page.wait_for_selector("[data-counter]")
             check(f"(s1) {sop} starts at 1 / {steps}", page.inner_text("[data-counter]") == f"1 / {steps}", page.inner_text("[data-counter]"))
-            check(f"(s1) {sop} is {i + 1} of 8", page.inner_text(".eyebrow") == f"{i + 1} / 8")
+            check(f"(s1) {sop} is {i + 1} of 9", page.inner_text(".eyebrow") == f"{i + 1} / 9")
             for n in range(steps - 1):
                 if n % 2:
                     page.keyboard.press("ArrowRight")
@@ -509,7 +509,7 @@ def main():
                 page.wait_for_selector("[data-sop-list]")
                 check("(s4) the last SOP returns to the list", page.url.endswith("#home"), page.url)
         done = page.locator("[data-sop-list] a.is-done").count()
-        check("(s3) all eight SOPs marked done", done == 8, str(done))
+        check("(s3) all nine SOPs marked done", done == 9, str(done))
         page.goto(HUB + "agent-lifecycle/")
         page.wait_for_selector("[data-stage-list]")
         check("(s3) SOP progress does not mark the lifecycle course", page.locator("[data-stage-list] a.is-done").count() == 0)
