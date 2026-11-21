@@ -93,3 +93,84 @@ test('the phone column uses the same Erlang C as the 30-minute practice', () => 
   const seats = requiredPositions(trafficIntensity(1600 / 20, 5, 30), 5, 20 / 60, { serviceLevel: TARGET_SERVICE_LEVEL }).raw;
   assert.equal(computeChannels(initialChannels()).rows.phone.seats, seats);
 });
+
+// ---- Task 2: wording ----
+import { readFileSync } from 'node:fs';
+import { CHANNEL_TEXT, CHANNEL_GLOSSARY, STAFFING_TEXT } from '../../staffing-calculator/text.js';
+import { TERMS } from '../../glossary/terms.js';
+
+const DOCS = { ko: '2026-11-21-staffing-channels-copy.md', en: '2026-11-21-staffing-channels-copy.en.md' };
+const REUSED = { ko: '(다시 씀)', en: '(reused)' };
+const SPECIAL = { 'aht (채팅)': 'ahtChat', 'aht (이메일)': 'ahtEmail', 'target (채팅)': 'targetChat', 'aht (chat)': 'ahtChat', 'aht (email)': 'ahtEmail', 'target (chat)': 'targetChat' };
+
+// Every wording row of a copy doc as [path, text]; rows marked as reused are skipped.
+function docRows(lang) {
+  const doc = readFileSync(new URL(`../../docs/superpowers/specs/${DOCS[lang]}`, import.meta.url), 'utf8');
+  const out = [];
+  let section = '';
+  for (const line of doc.split('\n')) {
+    if (line.startsWith('## ')) section = line;
+    if (!line.startsWith('|') || line.startsWith('|---') || /^\| (키|Key) \|/.test(line)) continue;
+    const cells = line.slice(1, -1).split(' | ').map((c) => c.trim());
+    const [key, a, b] = cells;
+    const fresh = (text) => text && !text.startsWith(REUSED[lang]);
+    const inputs = /입력값|Inputs/.test(section);
+    const results = /결과 표|Results table/.test(section);
+    if (cells.length === 3 && inputs) {
+      if (fresh(a)) out.push([`label.${key}`, a]);
+      if (fresh(b)) out.push([`hint.${SPECIAL[key] ?? key}`, b]);
+    } else if (cells.length === 3 && results) {
+      const row = key === 'currentRow' ? 'current' : key;
+      if (key === 'resultsHeading' || key === 'total') out.push([key, a]);
+      else {
+        out.push([`row.${row}`, a]);
+        if (fresh(b)) out.push([`rowHint.${row}`, b]);
+      }
+    } else if (fresh(a)) {
+      out.push([['phone', 'chat', 'email'].includes(key) ? `channel.${key}` : key, a]);
+    }
+  }
+  return out;
+}
+const at = (path) => path.split('.').reduce((o, k) => o?.[k], CHANNEL_TEXT);
+const leaves = (o, p = '') => Object.entries(o).flatMap(([k, v]) => (v && typeof v.ko === 'string' ? [[p + k, v]] : leaves(v, `${p}${k}.`)));
+
+for (const lang of ['ko', 'en']) {
+  test(`the channel ${lang} wording is the approved copy doc`, () => {
+    const rows = docRows(lang);
+    assert.ok(rows.length >= 50, `parsed ${rows.length} rows`);
+    for (const [path, text] of rows) assert.equal(at(path)?.[lang], text, path);
+    // Nothing on screen that the doc does not have (units are checked below).
+    const inDoc = new Set(rows.map(([p]) => p));
+    for (const [path] of leaves(CHANNEL_TEXT)) if (!path.startsWith('unit.')) assert.ok(inDoc.has(path), `${path} is not in the doc`);
+  });
+}
+
+test('the new units read as the copy docs say', () => {
+  assert.deepEqual(CHANNEL_TEXT.unit, {
+    hours: { ko: '시간', en: ' h' }, days: { ko: '일', en: ' days' }, chats: { ko: '건', en: ' chats' },
+  });
+});
+
+test('channel wording follows the content rules', () => {
+  const FIGURE = /\d\s*(%|초|분|명|sec|min|people)/;
+  const sentences = (s) => (s.match(/[.?!](?=\s|$)/g) || []).length;
+  for (const [key, v] of leaves(CHANNEL_TEXT)) {
+    for (const lang of ['ko', 'en']) {
+      assert.ok(v[lang] !== undefined && !v[lang].includes('진상'), key);
+      assert.ok(sentences(v[lang]) <= 3, `${key}.${lang} is too long`);
+      // Slider instructions and the fixed half-hour interval are not claims about a center.
+      if (!/^tryC\d$/.test(key) && key !== 'tabPractice' && FIGURE.test(v[lang])) assert.ok(/예시|[Ee]xample/.test(v[lang]), `${key}.${lang} has an unlabelled figure`);
+    }
+    assert.ok(!/[가-힣]/.test(v.en), `${key}.en has Korean`);
+  }
+  assert.ok(STAFFING_TEXT.countryNote.ko, 'the country note is reused, not copied');
+});
+
+test('channel glossary links point at real terms', () => {
+  const ids = new Set(TERMS.map((x) => x.id));
+  for (const [key, id] of Object.entries(CHANNEL_GLOSSARY)) {
+    assert.ok(ids.has(id), `${key} → ${id}`);
+    assert.ok(CHANNEL_TEXT.row[key], key);
+  }
+});

@@ -126,6 +126,83 @@ export const GLOSSARY_LINKS = {
   limits: 'wfm',
 };
 
+// Channel comparison wording. Korean is the approved copy
+// (docs/superpowers/specs/2026-11-21-staffing-channels-copy.md), English follows
+// the .en.md doc; tests compare both. Wording shared with the 30-minute practice
+// (Shrinkage, AHT, target, gaps, notes) is read from STAFFING_TEXT, not copied.
+export const CHANNEL_TEXT = {
+  tabsLabel: { ko: "실험실 화면", en: "Lab screens" },
+  tabPractice: { ko: "30분 연습", en: "30-minute practice" },
+  tabChannels: { ko: "채널 비교", en: "Channel comparison" },
+  channelsIntro: { ko: "전화·채팅·이메일을 나란히 놓고, 센터 전체로 필요한 인원과 근무 시간, 추가근무를 계산해 보는 연습 화면입니다.", en: "A practice screen: set phone, chat and email side by side and work out the staff, working hours and overtime the whole center needs." },
+  commonHeading: { ko: "센터 공통 값", en: "Center-wide values" },
+  pickHeading: { ko: "비교할 채널", en: "Channels to compare" },
+  pickNote: { ko: "센터에서 운영하는 채널만 켜세요. 한 채널은 남겨 두어야 합니다.", en: "Turn on only the channels your center runs. At least one channel stays on." },
+  editHeading: { ko: "값을 고칠 채널", en: "Channel to edit" },
+  channel: {
+    phone: { ko: "전화", en: "Phone" },
+    chat: { ko: "채팅", en: "Chat" },
+    email: { ko: "이메일", en: "Email" },
+  },
+  label: {
+    weeklyHours: { ko: "1인 주간 근무 시간", en: "Weekly hours per agent" },
+    dailyVolume: { ko: "하루 문의량", en: "Daily contact volume" },
+    concurrency: { ko: "동시 처리 수", en: "Concurrent chats" },
+    hoursOpen: { ko: "하루 운영 시간", en: "Hours open per day" },
+    daysOpen: { ko: "주 운영 일수", en: "Days open per week" },
+    current: { ko: "지금 편성 인원", en: "Current rostered staff" },
+  },
+  hint: {
+    weeklyHours: { ko: "상담사 한 명이 일주일에 근무하는 계약 시간입니다.", en: "The contracted hours one agent works in a week." },
+    dailyVolume: { ko: "하루 동안 들어오는 문의 수입니다.", en: "Contacts arriving in one day." },
+    ahtChat: { ko: "대화 한 건이 시작부터 끝날 때까지 걸리는 평균 시간입니다.", en: "The average time one chat takes from start to finish." },
+    ahtEmail: { ko: "이메일 한 건을 읽고 답장하는 데 걸리는 평균 시간입니다.", en: "The average time it takes to read and answer one email." },
+    concurrency: { ko: "상담사 한 명이 한 번에 맡는 채팅 수입니다.", en: "The number of chats one agent handles at once." },
+    targetChat: { ko: "고객의 첫 메시지에 이 시간 안에 응답하는 것을 목표로 합니다.", en: "The aim is to answer the customer's first message within this time." },
+    hoursOpen: { ko: "이 채널에서 문의를 받는 하루 시간입니다.", en: "The hours each day this channel takes contacts." },
+    daysOpen: { ko: "일주일에 이 채널을 운영하는 날 수입니다.", en: "The days each week this channel runs." },
+    current: { ko: "이 채널을 맡은 상담사 수입니다.", en: "Agents assigned to this channel." },
+  },
+  resultsHeading: { ko: "채널별 결과 (예시)", en: "Results by channel (example)" },
+  total: { ko: "합계", en: "Total" },
+  row: {
+    seats: { ko: "동시 자리 인원", en: "Agents at desks at once" },
+    needed: { ko: "필요 인원", en: "Staff needed" },
+    current: { ko: "지금 인원", en: "Current staff" },
+    diff: { ko: "차이", en: "Difference" },
+    weekly: { ko: "주간 근무 시간", en: "Weekly working hours" },
+    monthly: { ko: "월간 근무 시간", en: "Monthly working hours" },
+    otWeekly: { ko: "추가근무 예상 (주간)", en: "Expected overtime (weekly)" },
+    otMonthly: { ko: "추가근무 예상 (월간)", en: "Expected overtime (monthly)" },
+    otPerPerson: { ko: "1인당 추가근무 (주간)", en: "Overtime per agent (weekly)" },
+  },
+  rowHint: {
+    seats: { ko: "운영 시간 동안 동시에 자리에 있어야 하는 인원입니다.", en: "The agents who need to be at their desks at the same time while the channel is open." },
+    needed: { ko: "Shrinkage를 반영한 근무 시간을 1인 주간 근무 시간으로 나눈 편성 인원입니다.", en: "Working hours with Shrinkage allowed for, divided by the weekly hours per agent." },
+    weekly: { ko: "자리에 필요한 시간에 Shrinkage를 더한 일주일 근무 시간입니다.", en: "Desk hours plus Shrinkage, over one week." },
+    monthly: { ko: "주간 근무 시간 × 52 ÷ 12로 계산합니다.", en: "Weekly working hours × 52 ÷ 12." },
+    otWeekly: { ko: "필요한 근무 시간 가운데 지금 인원으로 채우지 못하는 시간입니다.", en: "The hours needed that current staff cannot cover." },
+  },
+  totalBoth: { ko: "부족 {short}명 · 여유 {spare}명", en: "{short} short · {spare} to spare" },
+  totalShort: { ko: "부족 {n}명", en: "{n} short" },
+  totalSpare: { ko: "여유 {n}명", en: "{n} to spare" },
+  noStaff: { ko: "편성 인원 없음", en: "No staff rostered" },
+  otNote: { ko: "1인당 추가근무가 많다면 추가근무보다 인원 보강을 먼저 생각해 보세요.", en: "If overtime per agent is high, think about adding staff before adding overtime." },
+  summary: { ko: "켠 채널 {n}개 합계: 필요 인원 {needed}명, 주간 {weekly}시간, 주간 추가근무 {ot}시간입니다.", en: "Total for {n} channels on: {needed} staff needed, {weekly} hours a week, {ot} hours of overtime a week." },
+  tryC1: { ko: "채팅의 동시 처리 수를 1로 내려 보세요. 필요한 인원이 얼마나 늘어나나요?", en: "Lower chat's concurrent chats to 1. How many more staff do you need?" },
+  tryC2: { ko: "계획되지 않은 Shrinkage를 5%p 올려 보세요. 어느 채널의 추가근무가 가장 크게 늘어나나요?", en: "Raise unplanned Shrinkage by 5 points. Which channel's overtime grows the most?" },
+  tryC3: { ko: "이메일 채널을 꺼 보세요. 합계는 줄어도 전화·채팅의 부족이 그대로인 이유는 무엇일까요?", en: "Turn email off. The total drops, so why are phone and chat still short?" },
+  channelsLimits: { ko: "하루 문의량을 운영 시간에 고르게 나누므로 바쁜 시간대의 부족은 드러나지 않습니다. 채팅은 처리 시간을 동시 처리 수로 나눈 근사이고, 이메일은 점유율 85%(예시)로 계산합니다. 채널마다 전담 인원으로 보는 연습용 계산이니, 실제 인원 계획은 WFM 담당자와 확인하세요.", en: "Daily volume is spread evenly over opening hours, so shortfalls at busy times do not show. Chat divides handle time by concurrent chats as an approximation, and email uses an occupancy of 85% (example). Each channel is treated as having its own staff; this is for practice, so check real staffing plans with your WFM team." },
+  unit: {
+    hours: { ko: "시간", en: " h" },
+    days: { ko: "일", en: " days" },
+    chats: { ko: "건", en: " chats" },
+  },
+};
+
+// Which glossary card each result row links to.
+export const CHANNEL_GLOSSARY = { seats: 'occupancy', needed: 'fte', weekly: 'shrinkage' };
+
 export function fill(template, values) {
   return template.replace(/\{(\w+)\}/g, (match, name) => (name in values ? String(values[name]) : match));
 }
