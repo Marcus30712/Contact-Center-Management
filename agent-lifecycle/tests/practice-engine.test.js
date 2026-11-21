@@ -258,3 +258,18 @@ test('finishing an Excel lesson also counts as "any lesson" for the unlinked ter
   const terms = openTerms(s);
   assert.ok(terms.length >= 17 && terms.every((t) => t.seen.length === 0));
 });
+
+test('finished advanced Excel lessons (12-16) add their choice and blank questions too', async () => {
+  const { EXCEL_ADVANCED } = await import('../../excel/advanced.js');
+  const s = store();
+  const basic = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
+  s.setItem('excel-practice:v1', JSON.stringify({ completed: [...basic, '12'], scores: {} }));
+  const adv = pool(s).filter((q) => q.lessonId === '12');
+  assert.deepEqual(adv.map((q) => q.key).sort(), ['excel:12-1', 'excel:12-2', 'excel:12-3', 'excel:12-4']);
+  for (const q of adv) {
+    const src = EXCEL_ADVANCED[0].questions.find((x) => `excel:${x.id}` === q.key);
+    assert.equal(q.lessonOrder, 12);
+    assert.deepEqual(q.options.find((o) => o.id === q.answer).text, (src.options ?? src.chips)[src.answer]);
+  }
+  assert.equal(pool(s).filter((q) => q.lessonId === '13').length, 0, 'not yet finished');
+});

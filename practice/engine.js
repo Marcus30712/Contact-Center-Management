@@ -7,6 +7,7 @@ import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { TERMS } from '../glossary/terms.js';
 import { EXCEL_LESSONS } from '../excel/data.js';
+import { EXCEL_ADVANCED } from '../excel/advanced.js';
 import { loadProgress as loadExcelProgress, displayOrder } from '../excel/engine.js';
 import { EXCEL_FEEDBACK } from '../excel/feedback.js';
 
@@ -82,12 +83,12 @@ export function pool(storage, { allTracks = false } = {}) {
   ];
 }
 
-// Finished Excel lessons add their choice and blank questions. Options are
+// Finished Excel lessons, basic and advanced, add their choice and blank questions. Options are
 // shown in the Excel lesson's shuffled order and keep their own index as id.
 function excelQuestions(storage) {
   if (!storage) return [];
   const done = loadExcelProgress(storage).completed;
-  return EXCEL_LESSONS
+  return [...EXCEL_LESSONS, ...EXCEL_ADVANCED]
     .map((l, i) => ({ l, order: i + 1 }))
     .filter(({ l }) => done.includes(l.id))
     .flatMap(({ l, order }) => l.questions

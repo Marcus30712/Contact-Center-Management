@@ -8,12 +8,12 @@
 |---|---|---|
 | 팀장 상황별 길잡이 / Situation Guide | [`guide/`](guide/) | 상황 17개를 고르면 먼저 볼 강의·SOP·원페이저로 안내 (한국어/영어) |
 | 오늘의 연습 / Today's Practice | [`practice/`](practice/) | 마친 레슨(라이프사이클·SOP·엑셀)에서 하루 3문제, 용어 카드, 평일 연속 학습과 배지 10개. 김미소가 표정으로 반응 (한국어/영어). 기록은 휴대폰에만 저장 |
-| 미소의 엑셀 연습 / Miso's Excel Practice | [`excel/`](excel/) | 팀장이 꼭 쓰는 엑셀 11가지(셀 주소부터 SUMIFS·XLOOKUP·피벗·조건부 서식까지). 타자 없이 카드와 칸을 눌러 수식을 만들고, 미소 팀 콜 기록(예시)으로 실제 계산해 채점 (한국어/영어) |
+| 미소의 엑셀 연습 / Miso's Excel Practice | [`excel/`](excel/) | 팀장이 꼭 쓰는 엑셀 11가지(셀 주소부터 SUMIFS·XLOOKUP·피벗·조건부 서식까지)와, 배운 함수를 섞어 쓰는 심화 5개. 타자 없이 카드와 칸을 눌러 수식을 만들고, 미소 팀 콜 기록(예시)으로 실제 계산해 채점 (한국어/영어) |
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
 | SOP 라이브러리 / SOP Library | [`sop-library/`](sop-library/) | 팀장이 알아야 할 SOP를 순서대로 배우는 강의 (한국어/영어) |
 | Codex 원페이저 / Codex One-Pagers | [`codex/`](codex/) | Codex의 네 장(운영 최적화 원칙, 5대 핵심팀, 커리어 매트릭스, 직무별 일일 업무)을 한 장씩, 누르면 자세히 (한국어/영어) |
 | 인력 산정 실험실 / Staffing Lab | [`staffing-calculator/`](staffing-calculator/) | 슬라이더로 필요한 인원을 익히는 연습 화면. 계산은 `staffing-calculator/erlang.js`에 있습니다 |
-| 용어집 / Glossary | [`glossary/`](glossary/) | 운영 용어 46개를 검색·분류해 보는 페이지. 용어는 `glossary/terms.js`에 있습니다 |
+| 용어집 / Glossary | [`glossary/`](glossary/) | 운영 용어 49개를 검색·분류해 보는 페이지. 용어는 `glossary/terms.js`에 있습니다 |
 | 참고 자료 / References | [`references/`](references/) | 바탕 자료(BPO Contact Center Operation Codex 2.0)와 참고한 공개 자료 |
 | 개인정보처리방침 / Privacy Policy | [`privacy/`](privacy/) | 앱이 개인정보를 수집하지 않고 기록은 기기에만 둔다는 안내. 스토어 등록용 주소 (한국어/영어) |
 | 설정 / Settings | [`settings/`](settings/) | 언어, 화면(시스템·밝게·어둡게), 기록 백업(파일로 내보내기·가져오기), 오프라인 준비 상태, 홈 화면 추가 안내, 버전. 아래 메뉴 다섯 번째 칸 (한국어/영어) |

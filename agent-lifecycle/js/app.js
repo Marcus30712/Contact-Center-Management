@@ -10,7 +10,7 @@ import { renderHome } from './render/home.js';
 import { renderLesson } from './render/lesson.js';
 import { renderLangToggle } from './render/langToggle.js';
 import { renderTrackToggle } from './render/trackToggle.js';
-import { guideFor } from '../../guide/link.js';
+import { settleGuide } from '../../guide/link.js';
 import { UI } from './i18n/ui.js';
 
 // Browser storage can be missing or blocked; then everything stays in memory.
@@ -72,6 +72,8 @@ function render() {
   document.title = lang === 'ko' ? '상담사 라이프사이클 강의' : 'The Agent Lifecycle';
 
   const route = parseRoute(location.hash, lessonIds);
+  // Run on every draw, list included, so ?guide only lives on its own lesson.
+  const guide = settleGuide(location, history, 'agent-lifecycle', route.view === 'home' ? undefined : route.id);
   if (route.view === 'home') {
     leaveLesson();
     renderHome(app, LESSONS, { completed: [...completed] }, lang);
@@ -92,7 +94,7 @@ function render() {
   const view = renderLesson(app, lesson, route.step, lang, {
     restore,
     track,
-    guide: guideFor(location.search, 'agent-lifecycle', route.id),
+    guide,
     onNavigate: (href) => { location.hash = href; },
     onComplete: (id) => {
       completed.add(id);

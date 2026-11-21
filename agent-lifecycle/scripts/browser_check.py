@@ -937,6 +937,24 @@ def main():
         page.goto(HUB + "sop-library/#coaching-0")
         page.wait_for_selector("[data-counter]")
         check("(g5) a lesson opened without the guide has no guide button", page.locator("a[data-guide-then]").count() == 0)
+        # (g6) the usual "up next" text gives way to the guide; ?guide stays only on its own lesson
+        page.goto(HUB + "sop-library/?guide=s1#coaching-0")
+        page.wait_for_selector("[data-counter]")
+        for _ in range(20):
+            if page.is_visible("[data-view='checkpoint']"):
+                break
+            page.click("[data-next]")
+        page.click(f"[data-question='coaching-q1'] [data-option='{r1}']")
+        page.click(f"[data-question='coaching-q2'] [data-option='{r2}']")
+        page.wait_for_selector("[data-connection]:not([hidden]) a[data-guide-then]")
+        check("(g6) the usual next-lesson text is hidden", "성과 개선 계획(PIP)" not in page.inner_text("[data-connection]"))
+        check("(g6) the arrow stays with the last word", page.inner_text("a[data-guide-then]").endswith("\u00a0→") or page.evaluate("document.querySelector('a[data-guide-then]').textContent.endsWith('\\u00a0→')"))
+        page.click("[data-next-lesson]")
+        page.wait_for_function("location.hash === '#pip-0'")
+        check("(g6) moving on drops ?guide from the address", "guide=" not in page.url, page.url)
+        page.goto(HUB + "sop-library/?guide=s1#home")
+        page.wait_for_selector("a[data-sop]")
+        check("(g6) the list drops ?guide too", "guide=" not in page.url, page.url)
         page.context.close()
 
         # (v) storage blocked
