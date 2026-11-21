@@ -159,7 +159,9 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
 
   const section = (cls, heading, children, id) => h('section', { class: cls }, [h('h2', { id, text: tr(heading) }), ...children]);
   root.replaceChildren(
-    h('div', { class: 'ch-head' }, [
+    h('header', { class: 'glossary-head' }, [
+      h('a', { class: 'home-link', 'data-back': true, href: '../', text: `← ${tr(T.back)}` }),
+      h('h1', { text: tr(T.title) }),
       h('p', { class: 'tagline', text: tr(C.channelsIntro) }),
       h('p', { class: 'example-note', 'data-example-note': true, text: tr(T.exampleNote) }),
     ]),

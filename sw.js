@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'b7a7fbd114c6';
+const VERSION = 'ea002cde1dd8';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -156,6 +156,7 @@ const PRECACHE = [
   "staffing-calculator/channels.js",
   "staffing-calculator/erlang.js",
   "staffing-calculator/index.html",
+  "staffing-calculator/lab.js",
   "staffing-calculator/model.js",
   "staffing-calculator/render.js",
   "staffing-calculator/text.js"

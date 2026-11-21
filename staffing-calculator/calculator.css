@@ -103,3 +103,10 @@ html { scroll-padding-top: 72px; }
 .ch-row-hints { margin: 0; display: grid; gap: 2px 0; font-size: 0.85rem; color: var(--muted); }
 .ch-row-hints dt { font-weight: 700; color: var(--ink); margin-top: 6px; }
 .ch-row-hints dd { margin: 0; }
+.lab-tabs { display: flex; gap: 6px; margin: 0 0 16px; border-bottom: 1px solid var(--line); }
+.lab-tab {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; margin-bottom: -1px;
+  border-bottom: 3px solid transparent; color: var(--muted); font-weight: 700; text-decoration: none;
+}
+.lab-tab[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+.lab-tab:focus-visible { outline: 3px solid var(--signal); outline-offset: -3px; border-radius: 6px; }

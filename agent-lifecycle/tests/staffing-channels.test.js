@@ -311,3 +311,86 @@ test('row hints and glossary links sit under the table', () => {
   assert.ok($('[data-ch-note]').textContent === CHANNEL_TEXT.otNote.ko);
   assert.ok($('[data-ch-limits]').textContent.includes(CHANNEL_TEXT.channelsLimits.ko));
 });
+
+// ---- Task 4: tabs and one shared Shrinkage ----
+import { mountLab } from '../../staffing-calculator/lab.js';
+import { fakeStorage } from './helpers.js';
+
+function lab(hash = '', lang = 'ko') {
+  const { root, document } = setupDom();
+  const langRoot = document.createElement('div');
+  document.body.append(langRoot);
+  const loc = { hash };
+  const storage = fakeStorage({ 'agent-lifecycle-course:lang': lang });
+  const page = mountLab(root, langRoot, storage, loc);
+  const $ = (sel) => root.querySelector(sel);
+  const fire = (el, value) => { el.value = String(value); el.dispatchEvent(new window.Event('input', { bubbles: true })); };
+  const go = (h) => { loc.hash = h; page.draw(); };
+  return { root, document, $, fire, go };
+}
+
+test('the practice tab is the default and keeps its own screen', () => {
+  const { $, document } = lab();
+  assert.equal($('a[data-tab="practice"]').getAttribute('aria-current'), 'page');
+  assert.equal($('a[data-tab="channels"]').getAttribute('aria-current'), null);
+  assert.equal($('a[data-tab="channels"]').getAttribute('href'), '#channels');
+  assert.ok($('[data-result="required"]'), 'the 30-minute practice is shown');
+  assert.equal($('[data-ch-table]'), null);
+  assert.equal(document.title, STAFFING_TEXT.title.ko);
+  assert.equal($('nav[data-tabs]').getAttribute('aria-label'), CHANNEL_TEXT.tabsLabel.ko);
+});
+
+test('#channels opens the channel tab', () => {
+  const { $, document } = lab('#channels');
+  assert.equal($('a[data-tab="channels"]').getAttribute('aria-current'), 'page');
+  assert.ok($('[data-ch-table]'));
+  assert.equal($('[data-result="required"]'), null);
+  assert.equal($('h1').textContent, STAFFING_TEXT.title.ko);
+  assert.equal(document.title, `${CHANNEL_TEXT.tabChannels.ko} · ${STAFFING_TEXT.title.ko}`);
+});
+
+test('moving Shrinkage in one tab moves it in the other', () => {
+  const t = lab();
+  t.fire(t.$('input[data-input="unplanned"]'), 15);
+  t.go('#channels');
+  assert.equal(t.$('input[data-common-input="unplanned"]').value, '15');
+  t.fire(t.$('input[data-common-input="planned"]'), 25);
+  t.go('');
+  assert.equal(t.$('input[data-input="planned"]').value, '25');
+  assert.equal(t.$('input[data-input="unplanned"]').value, '15');
+});
+
+test('switching tabs keeps every value', () => {
+  const t = lab('#channels');
+  t.fire(t.$('input[data-ch-input="phone.current"]'), 40);
+  t.$('input[data-ch-toggle="email"]').checked = false;
+  t.$('input[data-ch-toggle="email"]').dispatchEvent(new window.Event('change', { bubbles: true }));
+  t.$('[data-ch-edit="chat"]').click();
+  t.go('');
+  t.fire(t.$('input[data-input="volume"]'), 150);
+  t.go('#channels');
+  assert.equal(t.$('input[data-ch-input="phone.current"]').value, '40');
+  assert.equal(t.$('input[data-ch-toggle="email"]').checked, false);
+  assert.equal(t.$('[data-ch-fields="chat"]').hidden, false);
+  t.go('');
+  assert.equal(t.$('input[data-input="volume"]').value, '150');
+});
+
+test('turning the edited channel off moves the edit to one still on, and the last stays on', () => {
+  const t = lab('#channels');
+  t.$('[data-ch-edit="email"]').click();
+  const off = (k) => { const el = t.$(`input[data-ch-toggle="${k}"]`); el.checked = false; el.dispatchEvent(new window.Event('change', { bubbles: true })); };
+  off('email');
+  assert.equal(t.$('[data-ch-edit="phone"]').getAttribute('aria-pressed'), 'true');
+  off('phone');
+  assert.equal(t.$('[data-ch-edit="chat"]').getAttribute('aria-pressed'), 'true');
+  off('chat'); // the last one: ignored
+  assert.equal(t.$('input[data-ch-toggle="chat"]').checked, true);
+  assert.ok(t.$('th[data-col="chat"]'));
+});
+
+test('the English lab shows English tabs', () => {
+  const { $, root } = lab('#channels', 'en');
+  assert.equal($('a[data-tab="practice"]').textContent, CHANNEL_TEXT.tabPractice.en);
+  assert.ok(!/[가-힣]/.test(root.textContent));
+});
