@@ -30,6 +30,9 @@ export const TERMS = [
   term('dsat', 'metric', 'DSAT', ['고객 불만족도', 'Customer Dissatisfaction'],
     ['응대에 불만족했다고 답한 고객의 비율입니다. 원인을 분석해 같은 일이 되풀이되지 않게 하는 데 씁니다.',
      'The share of customers who say they were dissatisfied with the contact. It is used to find the causes and stop the same thing from happening again.']),
+  term('backlog', 'metric', 'Backlog', ['백로그', 'Backlog'],
+    ['해결되지 않고 쌓여 있는 케이스입니다. 오래 방치되면 응답이 늦어지고, SLA와 평균 해결 시간 같은 지표가 왜곡됩니다.',
+     'Cases that are still unresolved and piling up. Left for long, they slow down responses and distort metrics such as SLA and average resolution time.']),
   term('quality-score', 'metric', 'Quality Score', ['품질 점수', 'Quality Score'],
     ['QA 평가에서 상담 한 건이 받은 점수입니다. 절차를 지켰는지, 응대 태도가 어땠는지, 문제를 정확히 해결했는지를 평가 기준표에 따라 매깁니다.',
      'The score one contact receives in a QA evaluation. It is marked against a scorecard: whether the process was followed, how the customer was treated, and whether the problem was solved correctly.']),
@@ -139,6 +142,12 @@ export const TERMS = [
     ['자기 권한이나 지식으로 해결하기 어려운 문의를 상급자나 상위 단계로 넘기는 절차입니다. 고객에게 정중히 안내하고, 있었던 일을 사실대로 기록해 넘깁니다.',
      'The procedure for passing an inquiry that is beyond your authority or knowledge to a senior colleague or a higher tier. The customer is told politely, and what happened is recorded factually before the handover.'],
     ['nesting']),
+  term('scrubbing', 'process', 'Scrubbing', ['스크러빙', 'Scrubbing'],
+    ['처리된 티켓과 미해결 티켓을 다시 읽고 L1·L2로 분류해 원인을 찾는 점검입니다. 우선순위는 DSAT, CSAT, 미해결·방치 케이스 순이며, 결과는 고객사 보고와 팀 코칭에 쓰입니다.',
+     'A review that rereads handled and unresolved tickets, classifies them as L1 and L2, and finds the causes. The priority is DSAT, then CSAT, then unresolved and neglected cases, and the results go into reports to the client and team coaching.']),
+  term('rca', 'process', 'RCA', ['원인 분석', 'Root Cause Analysis'],
+    ['겉으로 드러난 문제 뒤의 진짜 원인을 찾는 분석입니다. 같은 문제가 되풀이되지 않게 하려면 증상이 아니라 원인을 고쳐야 합니다.',
+     'Analysis that finds the real cause behind a visible problem. To stop the same problem from coming back, you fix the cause, not the symptom.']),
   term('one-on-one-coaching', 'process', '1:1 Coaching', ['1:1 코칭', 'One-on-One Coaching'],
     ['팀장이 팀원 한 사람과 따로 만나 성과 데이터와 실제 응대를 근거로 이야기하는 시간입니다. 잘한 점을 짚고, 개선할 행동을 함께 정합니다.',
      'Time a team lead spends with one team member, based on performance data and real contacts. They name what went well and agree on the behavior to improve.'],
@@ -198,6 +207,7 @@ const SOP_LESSON = {
   grow: 'coaching',
   pip: 'pip',
   calibration: 'calibration',
+  scrubbing: 'scrubbing',
 };
 for (const t of TERMS) {
   if (SOP_LESSON[t.id]) t.sop = SOP_LESSON[t.id];

@@ -8,6 +8,7 @@ import calibration from './04-calibration.js';
 import onboarding from './05-onboarding.js';
 import incident from './06-incident.js';
 import launch from './07-launch.js';
+import scrubbing from './08-scrubbing.js';
 
 // group: 'leader' = the team leader runs it; 'cross' = several teams run it together.
-export const SOP_LESSONS = [escalation, coaching, pip, calibration, onboarding, incident, launch];
+export const SOP_LESSONS = [escalation, scrubbing, coaching, pip, calibration, onboarding, incident, launch];

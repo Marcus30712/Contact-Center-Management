@@ -76,5 +76,5 @@ export default {
       explanation: tx('넘겨받는 사람은 기록만 보고 이어서 처리합니다. 사실에 기반한 자세한 기록이 있어야 고객이 같은 말을 반복하지 않습니다.', 'Whoever takes over works from the record alone. A detailed, factual record means the customer does not have to say everything twice.'),
     },
   ],
-  connection: { to: 'coaching', text: tx('넘겨받은 케이스를 처리하고 나면, 팀원과 마주 앉아 돌아볼 차례입니다. 다음은 1:1 코칭입니다.', 'Once you have dealt with the case you took over, it is time to sit down with your team member and look back. Next comes one-on-one coaching.') },
+  connection: { to: 'scrubbing', text: tx('넘겨받은 케이스 하나를 처리했다면, 이제 팀의 티켓 전체를 돌아볼 차례입니다. 다음은 스크러빙입니다.', 'Once you have dealt with the one case you took over, it is time to look back over all of the team’s tickets. Next comes scrubbing.') },
 };

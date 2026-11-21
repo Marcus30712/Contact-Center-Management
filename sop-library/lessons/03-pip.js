@@ -11,7 +11,7 @@ const met = ['end', 'evaluate-end'];
 
 export default {
   id: 'pip',
-  order: 3,
+  order: 4,
   group: 'leader',
   title: tx('성과 개선 계획 (PIP)', 'Performance Improvement Plan (PIP)'),
   short: tx('PIP', 'PIP'),
