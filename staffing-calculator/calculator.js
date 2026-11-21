@@ -1,10 +1,5 @@
-// Staffing Lab page: holds the slider values, follows the language choice
-// shared with the course, and redraws the results on every move.
-import { loadLang, saveLang, t } from '../agent-lifecycle/js/engine/i18n.js';
-import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
-import { initialValues } from './model.js';
-import { STAFFING_TEXT as T } from './text.js';
-import { renderCalculator } from './render.js';
+// Staffing Lab page entry: mounts the lab and follows the address between tabs.
+import { mountLab } from './lab.js';
 
 function getStorage() {
   try {
@@ -14,29 +9,5 @@ function getStorage() {
   }
 }
 
-const storage = getStorage();
-const app = document.getElementById('app');
-const langRoot = document.getElementById('lang');
-
-let lang = loadLang(storage);
-let values = initialValues();
-let view;
-
-function draw() {
-  document.documentElement.lang = lang;
-  document.title = t(T.title, lang).text;
-  renderLangToggle(langRoot, lang, (next) => {
-    lang = next;
-    saveLang(storage, lang);
-    draw();
-    langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
-  });
-  view = renderCalculator(app, values, lang, {
-    onInput: (id, value) => {
-      values = { ...values, [id]: value };
-      view.update(values);
-    },
-  });
-}
-
-draw();
+const page = mountLab(document.getElementById('app'), document.getElementById('lang'), getStorage(), window.location);
+window.addEventListener('hashchange', () => { window.scrollTo(0, 0); page.draw({ focusTab: true }); });
