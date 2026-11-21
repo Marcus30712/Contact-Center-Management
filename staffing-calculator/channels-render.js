@@ -17,7 +17,6 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
   const locale = lang === 'ko' ? 'ko-KR' : 'en-US';
   const unitText = (unit) => tr(T.unit[unit] ?? C.unit[unit]);
   const withUnit = (value, unit) => `${value}${unitText(unit)}`;
-  const num = (value, unit) => `${value.toLocaleString(locale)}${unitText(unit)}`;
   const glossaryLink = (id, name) => h('a', {
     class: 'glossary-link', 'data-glossary': id, href: `../glossary/#${id}`,
     'aria-label': `${tr(T.glossaryLink)}: ${name}`, text: tr(T.glossaryLink),
@@ -103,15 +102,19 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
     if (spare) return fill(tr(C.totalSpare), { n: spare });
     return tr(T.gapExact);
   };
+  // Number rows name their unit once, in the row heading, so all columns fit a phone.
+  const plain = (value) => value.toLocaleString(locale);
+  const rowName = (row) => (row === 'diff' ? tr(C.row[row])
+    : `${tr(C.row[row])} (${unitText(HOURS_ROWS.has(row) ? 'hours' : 'people').trim()})`);
   const cellText = (row, r) => {
     if (row === 'diff') return gapText(r.gap);
-    if (row === 'otPerPerson') return r.otPerPerson === null ? tr(C.noStaff) : num(r.otPerPerson, 'hours');
-    return num(r[row], HOURS_ROWS.has(row) ? 'hours' : 'people');
+    if (row === 'otPerPerson') return r.otPerPerson === null ? tr(C.noStaff) : plain(r.otPerPerson);
+    return plain(r[row]);
   };
   const totalText = (row, total) => {
     if (row === 'diff') return totalGap(total);
     if (row === 'otPerPerson') return DASH;
-    return num(total[row], HOURS_ROWS.has(row) ? 'hours' : 'people');
+    return plain(total[row]);
   };
 
   function drawTable(result) {
@@ -120,7 +123,7 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
     const table = h('table', { class: 'ch-table', 'data-ch-table': true, 'aria-labelledby': 'ch-results-heading' }, [
       h('thead', {}, [h('tr', {}, [h('td', {}), ...cols.map((col) => h('th', { scope: 'col', 'data-col': col, text: name(col) }))])]),
       h('tbody', {}, ROWS.map((row) => h('tr', { 'data-row': row }, [
-        h('th', { scope: 'row', text: tr(C.row[row]) }),
+        h('th', { scope: 'row', text: rowName(row) }),
         ...cols.map((col) => {
           const text = col === 'total' ? totalText(row, result.total) : cellText(row, result.rows[col]);
           const gap = row === 'diff' ? (col === 'total' ? (result.total.short ? 'short' : 'ok') : result.rows[col].gap < 0 ? 'short' : 'ok') : null;

@@ -12,7 +12,7 @@
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
 | SOP 라이브러리 / SOP Library | [`sop-library/`](sop-library/) | 팀장이 알아야 할 SOP를 순서대로 배우는 강의 (한국어/영어) |
 | Codex 원페이저 / Codex One-Pagers | [`codex/`](codex/) | Codex의 네 장(운영 최적화 원칙, 5대 핵심팀, 커리어 매트릭스, 직무별 일일 업무)을 한 장씩, 누르면 자세히 (한국어/영어) |
-| 인력 산정 실험실 / Staffing Lab | [`staffing-calculator/`](staffing-calculator/) | 슬라이더로 필요한 인원을 익히는 연습 화면. 계산은 `staffing-calculator/erlang.js`에 있습니다 |
+| 인력 산정 실험실 / Staffing Lab | [`staffing-calculator/`](staffing-calculator/) | 슬라이더로 필요한 인원을 익히는 연습 화면(30분 연습)과, 전화·채팅·이메일의 필요 인원·주간/월간 근무 시간·추가근무를 나란히 비교하는 채널 비교 탭. 계산은 `staffing-calculator/erlang.js`, `channels.js`에 있습니다 |
 | 용어집 / Glossary | [`glossary/`](glossary/) | 운영 용어 49개를 검색·분류해 보는 페이지. 용어는 `glossary/terms.js`에 있습니다 |
 | 참고 자료 / References | [`references/`](references/) | 바탕 자료(BPO Contact Center Operation Codex 2.0)와 참고한 공개 자료 |
 | 개인정보처리방침 / Privacy Policy | [`privacy/`](privacy/) | 앱이 개인정보를 수집하지 않고 기록은 기기에만 둔다는 안내. 스토어 등록용 주소 (한국어/영어) |

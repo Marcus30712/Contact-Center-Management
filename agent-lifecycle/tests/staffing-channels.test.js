@@ -199,19 +199,30 @@ test('the channel tab shows the example results', () => {
   const { cell, $$ } = mountChannels();
   assert.deepEqual($$('th[data-col]').map((th) => th.getAttribute('data-col')), ['phone', 'chat', 'email', 'total']);
   const expect = {
-    seats: ['18명', '11명', '6명', '35명'],
-    needed: ['39명', '24명', '9명', '72명'],
-    current: ['36명', '22명', '10명', '68명'],
+    seats: ['18', '11', '6', '35'],
+    needed: ['39', '24', '9', '72'],
+    current: ['36', '22', '10', '68'],
     diff: ['3명 부족', '2명 부족', '1명 여유', '부족 5명 · 여유 1명'],
-    weekly: ['1,543시간', '943시간', '336시간', '2,822시간'],
-    monthly: ['6,686시간', '4,086시간', '1,456시간', '12,228시간'],
-    otWeekly: ['103시간', '63시간', '0시간', '166시간'],
-    otMonthly: ['446시간', '273시간', '0시간', '719시간'],
-    otPerPerson: ['2.9시간', '2.9시간', '0시간', '–'],
+    weekly: ['1,543', '943', '336', '2,822'],
+    monthly: ['6,686', '4,086', '1,456', '12,228'],
+    otWeekly: ['103', '63', '0', '166'],
+    otMonthly: ['446', '273', '0', '719'],
+    otPerPerson: ['2.9', '2.9', '0', '–'],
   };
   for (const [row, cols] of Object.entries(expect)) {
     ['phone', 'chat', 'email', 'total'].forEach((col, i) => assert.equal(cell(row, col), cols[i], `${row}.${col}`));
   }
+});
+
+test('each number row names its unit once, so the table stays narrow', () => {
+  const { $ } = mountChannels();
+  const head = (row) => $(`tr[data-row="${row}"] th`).textContent;
+  assert.equal(head('needed'), '필요 인원 (명)');
+  assert.equal(head('weekly'), '주간 근무 시간 (시간)');
+  assert.equal(head('diff'), '차이', 'the difference row says its unit in words');
+  const en = mountChannels('en');
+  assert.equal(en.$('tr[data-row="weekly"] th').textContent, 'Weekly working hours (h)');
+  assert.equal(en.$('tr[data-row="needed"] th').textContent, 'Staff needed (people)');
 });
 
 test('the sliders show every input of the edited channel, the others stay hidden', () => {
@@ -266,7 +277,7 @@ test('totals follow the visible columns', () => {
   const { view, cell, $$ } = mountChannels('ko', s);
   s.on.email = false; view.update(s);
   assert.deepEqual($$('th[data-col]').map((th) => th.getAttribute('data-col')), ['phone', 'chat', 'total']);
-  assert.equal(cell('needed', 'total'), '63명');
+  assert.equal(cell('needed', 'total'), '63');
   assert.equal(cell('diff', 'total'), '부족 5명');
   assert.equal(cell('needed', 'email'), undefined);
 });
@@ -286,7 +297,7 @@ test('zero staff shows noStaff and an all-even total reads exactly enough', () =
 test('the English channel tab has no Korean', () => {
   const { root, cell } = mountChannels('en');
   assert.ok(!/[가-힣]/.test(root.textContent), root.textContent.match(/[^\n]*[가-힣][^\n]*/)?.[0]);
-  assert.equal(cell('weekly', 'phone'), '1,543 h');
+  assert.equal(cell('weekly', 'phone'), '1,543');
   assert.equal(cell('diff', 'total'), '5 short · 1 to spare');
 });
 

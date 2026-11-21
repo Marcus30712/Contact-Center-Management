@@ -92,9 +92,12 @@ html { scroll-padding-top: 72px; }
 .ch-fields { display: flex; flex-direction: column; gap: 14px; }
 .ch-table-wrap { overflow-x: auto; max-width: 100%; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); }
 .ch-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; font-variant-numeric: tabular-nums; }
-.ch-table th, .ch-table td { padding: 8px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ch-table th, .ch-table td { padding: 8px 6px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ch-table th:first-child, .ch-table td:first-child { padding-left: 10px; }
+.ch-table th:last-child, .ch-table td:last-child { padding-right: 10px; }
 .ch-table thead th { color: var(--accent); }
-.ch-table tbody th { text-align: left; font-weight: 600; white-space: normal; min-width: 6.5em; }
+.ch-table tbody th { text-align: left; font-weight: 600; white-space: normal; min-width: 5.5em; overflow-wrap: normal; word-break: keep-all; }
+@media (max-width: 380px) { .ch-table { font-size: 0.78rem; } }
 .ch-table tr:last-child th, .ch-table tr:last-child td { border-bottom: 0; }
 .ch-table .is-total { font-weight: 800; background: var(--accent-soft); }
 .ch-table td[data-gap-state="short"] { color: var(--bad); font-weight: 700; }
