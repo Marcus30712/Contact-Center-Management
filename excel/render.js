@@ -4,9 +4,10 @@ import { EXCEL_FEEDBACK, EXCEL_FEEDBACK_UI } from './feedback.js';
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { EXCEL_UI as UI, EXCEL_LESSONS, SHEETS } from './data.js';
+import { EXCEL_ADVANCED, ADVANCED_UI } from './advanced.js';
 import {
   grade, newBuild, displayOrder, tapBank, tapLine, lineTexts, pickCell, selectionText,
-  applyAfter, loadProgress, saveProgress, finishLesson, isOpen,
+  applyAfter, loadProgress, saveProgress, finishLesson, isOpen, nextLessonAfter,
 } from './engine.js';
 import { renderSheet, renderPivot } from './sheet.js';
 
@@ -56,7 +57,8 @@ export function renderExcel(root, lang, storage, route, view) {
   if (status.textContent !== view.status) status.textContent = view.status;
 
   const m = /^lesson-(\d+)$/.exec(route || '');
-  const lesson = m && EXCEL_LESSONS.find((l) => l.id === m[1]);
+  const lesson = m && [...EXCEL_LESSONS, ...EXCEL_ADVANCED].find((l) => l.id === m[1]);
+  const advanced = Boolean(lesson && EXCEL_ADVANCED.includes(lesson));
   if (!lesson || !isOpen(progress, lesson.id)) {
     view.lessonId = null;
     list();
@@ -67,7 +69,8 @@ export function renderExcel(root, lang, storage, route, view) {
 
   const head = h('header', { class: 'ex-head' }, [
     h('a', { class: 'ex-back', href: '#', text: `← ${tr(UI.backToList)}` }),
-    h('p', { class: 'ex-of', text: fill(tr(UI.lessonOf), { i: index + 1, n: EXCEL_LESSONS.length }) }),
+    // An advanced lesson is named by its section, not "lesson 12 of 11".
+    h('p', { class: 'ex-of', text: advanced ? tr(ADVANCED_UI.advancedHeading) : fill(tr(UI.lessonOf), { i: index + 1, n: EXCEL_LESSONS.length }) }),
     h('h1', { tabindex: '-1', text: `${lesson.id}. ${tr(lesson.title)}` }),
   ]);
 
@@ -84,20 +87,21 @@ export function renderExcel(root, lang, storage, route, view) {
 
   if (view.stage === 'summary') {
     const right = lesson.questions.filter((q) => view.firstTry[q.id]).length;
-    const next = EXCEL_LESSONS[index + 1];
+    const nextId = nextLessonAfter(progress, lesson.id);
     const allDone = EXCEL_LESSONS.every((l) => progress.completed.includes(l.id));
+    const advancedDone = allDone && EXCEL_ADVANCED.every((l) => progress.completed.includes(l.id));
     show_(head, h('section', { class: 'ex-done', 'data-done': true }, [
       miso('proud'),
       h('div', {}, [
         h('h2', { tabindex: '-1', text: fill(tr(UI.lessonDone), { i: lesson.id }) }),
         h('p', { 'data-score': true, text: fill(tr(UI.score), { n: right }) }),
-        allDone ? h('p', { text: tr(UI.allDone) }) : null,
+        advancedDone ? h('p', { text: tr(ADVANCED_UI.advancedDone) }) : allDone ? h('p', { text: tr(UI.allDone) }) : null,
       ]),
     ]), h('section', { class: 'ex-summary', 'data-summary': true }, [
       h('h2', { text: tr(UI.summaryTitle) }),
       h('ul', {}, lesson.summary.map((s) => h('li', { text: tr(s) }))),
     ]), h('div', { class: 'ex-actions' }, [
-      next ? h('a', { class: 'btn primary', href: `#lesson-${next.id}`, 'data-next-lesson': true, text: tr(UI.nextLesson) }) : null,
+      nextId ? h('a', { class: 'btn primary', href: `#lesson-${nextId}`, 'data-next-lesson': true, text: tr(UI.nextLesson) }) : null,
       h('a', { class: 'btn ghost', href: '#', text: tr(UI.backToList) }),
     ]));
     return;
@@ -189,7 +193,8 @@ export function renderExcel(root, lang, storage, route, view) {
     const st = buildState();
     const isSteps = q.type === 'steps';
     hint = tr(isSteps ? UI.stepsHint : UI.buildHint);
-    input = h('div', { class: `ex-build${isSteps ? ' is-steps' : ''}` }, [
+    // Advanced builds have up to 22 cards: smaller cards, and the line stays in view.
+    input = h('div', { class: `ex-build${isSteps ? ' is-steps' : ''}${q.exact ? ' is-advanced' : ''}` }, [
       h(isSteps ? 'ol' : 'div', { class: 'ex-line', 'data-line': true }, [
         isSteps ? null : h('span', { class: 'ex-eq', text: '=' }),
         ...st.line.map((id, pos) => h(isSteps ? 'li' : 'span', {}, [h('button', {
@@ -239,7 +244,10 @@ export function renderExcel(root, lang, storage, route, view) {
       const fb = EXCEL_FEEDBACK[q.id]?.[view.input.picked];
       if (fb) miss = tr(fb);
     } else if (q.type === 'build' && g.value !== undefined) {
-      miss = fill(tr(EXCEL_FEEDBACK_UI.builtResult), { v: show(g.value) });
+      // Right value, wrong shape (advanced builds grade by order): say so, rather
+      // than show a result that looks right.
+      const sameValue = q.exact && show(g.value) === show(q.result[lang]);
+      miss = sameValue ? tr(ADVANCED_UI.orderHint) : fill(tr(EXCEL_FEEDBACK_UI.builtResult), { v: show(g.value) });
     } else if (q.type === 'cell' && typeof view.input.picked === 'string') {
       miss = fill(tr(EXCEL_FEEDBACK_UI.pickedCell), { c: view.input.picked });
     }
@@ -276,11 +284,16 @@ export function renderExcel(root, lang, storage, route, view) {
   function list() {
     const allDone = EXCEL_LESSONS.every((l) => progress.completed.includes(l.id));
     const nextId = EXCEL_LESSONS.find((l) => !progress.completed.includes(l.id))?.id;
+    const advancedDone = allDone && EXCEL_ADVANCED.every((l) => progress.completed.includes(l.id));
+    // Once the basic lessons are done, Continue points at the first open advanced lesson left.
+    const nextAdvanced = allDone ? EXCEL_ADVANCED.find((l) => !progress.completed.includes(l.id) && isOpen(progress, l.id))?.id : undefined;
+    // "4·6" in Korean; "lessons 4 and 6" / "lesson 7" in English.
+    const needs = (l) => (lang === 'en' ? `${l.requires.length > 1 ? 'lessons' : 'lesson'} ${l.requires.join(' and ')}` : l.requires.join('·'));
     show_(
       h('header', { class: 'ex-head' }, [
         h('h1', { tabindex: '-1', text: tr(UI.title) }),
       ]),
-      h('section', { class: 'ex-intro' }, [miso('smile', 72), h('p', { text: tr(allDone ? UI.allDone : UI.intro) })]),
+      h('section', { class: 'ex-intro' }, [miso('smile', 72), h('p', { text: tr(advancedDone ? ADVANCED_UI.advancedDone : allDone ? ADVANCED_UI.advancedNext : UI.intro) })]),
       h('ol', { class: 'ex-list' }, EXCEL_LESSONS.map((l) => {
         const open = isOpen(progress, l.id);
         const done = progress.completed.includes(l.id);
@@ -293,6 +306,22 @@ export function renderExcel(root, lang, storage, route, view) {
           open ? null : h('span', { class: 'ex-locked', text: tr(UI.locked) }),
         ]);
       })),
+      h('section', { class: 'ex-advanced', 'data-advanced': true }, [
+        h('h2', { text: tr(ADVANCED_UI.advancedHeading) }),
+        h('p', { class: 'muted', text: tr(ADVANCED_UI.advancedNote) }),
+        h('ol', { class: 'ex-list', start: '12' }, EXCEL_ADVANCED.map((l) => {
+          const open = isOpen(progress, l.id);
+          const done = progress.completed.includes(l.id);
+          const name = `${l.id}. ${tr(l.title)}`;
+          const isNext = l.id === nextAdvanced;
+          return h('li', { class: `ex-item${done ? ' is-done' : ''}${open ? '' : ' is-locked'}${isNext ? ' is-next' : ''}`, 'data-lesson': l.id }, [
+            open ? h('a', { href: `#lesson-${l.id}`, text: name }) : h('span', { class: 'ex-name', text: name }),
+            isNext ? h('a', { class: 'btn primary ex-go', href: `#lesson-${l.id}`, text: tr(UI.continue), 'aria-hidden': 'true', tabindex: '-1' }) : null,
+            done ? h('span', { class: 'ex-score', text: `✓ ${fill(tr(UI.score), { n: progress.scores[l.id] ?? 0 })}` }) : null,
+            open ? null : h('span', { class: 'ex-locked', text: fill(tr(ADVANCED_UI.lockedAfter), { list: needs(l) }) }),
+          ]);
+        })),
+      ]),
     );
   }
 }

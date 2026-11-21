@@ -3,6 +3,7 @@
 // No DOM here.
 import { evaluate } from './formula.js';
 import { SHEETS, EXCEL_LESSONS } from './data.js';
+import { EXCEL_ADVANCED } from './advanced.js';
 
 export const PROGRESS_KEY = 'excel-practice:v1';
 const isObj = (v) => v !== null && typeof v === 'object' && !Array.isArray(v);
@@ -73,6 +74,14 @@ export function grade(q, answer, lang) {
       const want = run(q.cards[lang], lang);
       // The value alone isn't enough: an IF's result is one of its own cards.
       // Every answer card must be used; their order may differ.
+      // Advanced builds (nested functions) grade by order: the example table
+      // can't tell every misplaced card apart, so only the answer and its listed
+      // true rewrites count.
+      if (q.exact) {
+        const key = (cards) => cards.join('\u0001');
+        const okOrders = [q.cards[lang], ...(q.alternatives?.[lang] ?? [])].map(key);
+        return r.ok ? { correct: okOrders.includes(key(answer)), value: r.value, cells: r.cells } : { correct: false };
+      }
       const correct = r.ok && want.ok && same(r.value, want.value) && sameCards(answer, q.cards[lang])
         && agreesEverywhere(answer, q.cards[lang], lang);
       return r.ok ? { correct, value: r.value, cells: r.cells } : { correct: false };
@@ -189,7 +198,10 @@ export function applyAfter(sheet, after, lang) {
 
 // ---- progress -----------------------------------------------------------------------
 
-const LESSON_IDS = EXCEL_LESSONS.map((l) => l.id);
+// The basic lessons open one after another; an advanced lesson opens once
+// the basic lessons it mixes are finished.
+const BASIC_IDS = EXCEL_LESSONS.map((l) => l.id);
+const LESSON_IDS = [...BASIC_IDS, ...EXCEL_ADVANCED.map((l) => l.id)];
 
 export function loadProgress(storage) {
   const empty = { completed: [], scores: {} };
@@ -223,6 +235,20 @@ export function finishLesson(progress, id, firstTryRight) {
 }
 
 export function isOpen(progress, id) {
-  const i = LESSON_IDS.indexOf(id);
-  return i === 0 || (i > 0 && progress.completed.includes(LESSON_IDS[i - 1]));
+  const advanced = EXCEL_ADVANCED.find((l) => l.id === id);
+  if (advanced) return advanced.requires.every((need) => progress.completed.includes(need));
+  const i = BASIC_IDS.indexOf(id);
+  return i === 0 || (i > 0 && progress.completed.includes(BASIC_IDS[i - 1]));
+}
+
+// Where "next lesson" goes after finishing one: the next basic lesson; after
+// the last basic one or an advanced one, the next advanced lesson that is open
+// and not yet done, going round to the start of the advanced list if needed.
+export function nextLessonAfter(progress, id) {
+  const basic = BASIC_IDS.indexOf(id);
+  if (basic >= 0 && basic < BASIC_IDS.length - 1) return BASIC_IDS[basic + 1];
+  const adv = EXCEL_ADVANCED.map((l) => l.id);
+  const at = adv.indexOf(id);
+  const order = at < 0 ? adv : [...adv.slice(at + 1), ...adv.slice(0, at)];
+  return order.find((a) => !progress.completed.includes(a) && isOpen(progress, a)) ?? null;
 }

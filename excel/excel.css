@@ -60,3 +60,12 @@
   :root:not([data-theme="light"]) .ex-sheet td.is-marked { background: #5a1e1b; color: #ffd9d6; }
 }
 :root[data-theme="dark"] .ex-sheet td.is-marked { background: #5a1e1b; color: #ffd9d6; }
+/* Advanced lessons: a section of their own below the 11. */
+.ex-advanced { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); }
+.ex-advanced h2 { margin: 0 0 4px; font-size: 1.1rem; }
+.ex-advanced > .muted { margin: 0 0 12px; color: var(--muted); }
+/* Advanced builds (up to 22 cards): the formula line stays at the top while the
+   cards scroll, and the cards are a little smaller (still at least 44px to tap). */
+.ex-build.is-advanced .ex-line { position: sticky; top: 0; z-index: 5; background: var(--bg); }
+.ex-build.is-advanced .ex-bank { gap: 6px; }
+.ex-build.is-advanced .ex-card { padding: 6px 9px; font-size: 0.9rem; min-width: 44px; }
