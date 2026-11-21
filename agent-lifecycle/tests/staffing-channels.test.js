@@ -405,3 +405,19 @@ test('the English lab shows English tabs', () => {
   assert.equal($('a[data-tab="practice"]').textContent, CHANNEL_TEXT.tabPractice.en);
   assert.ok(!/[가-힣]/.test(root.textContent));
 });
+
+// ---- Final review fix ----
+test('needed staff never falls below the seats a part-time channel must fill at once', () => {
+  const s = initialChannels();
+  s.chat.daysOpen = 2; s.chat.current = 9;
+  const chat = computeChannels(s).rows.chat;
+  assert.equal(chat.seats, 11);
+  assert.equal(chat.needed, Math.ceil(11 / 0.7), 'seats ÷ (1 − Shrinkage)');
+  assert.ok(chat.gap < 0, 'a part-time channel short of seats is not "spare"');
+  const e = initialChannels();
+  e.email.hoursOpen = 4;
+  const email = computeChannels(e).rows.email;
+  assert.ok(email.needed >= Math.ceil(email.seats / 0.7), `${email.needed} < seats ${email.seats}`);
+  // The example values are not changed by this floor.
+  assert.deepEqual(Object.values(computeChannels(initialChannels()).rows).map((r) => r.needed), [39, 24, 9]);
+});
