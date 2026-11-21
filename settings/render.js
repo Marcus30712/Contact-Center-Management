@@ -4,8 +4,8 @@ import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t, LANG_KEY } from '../agent-lifecycle/js/engine/i18n.js';
 import { SETTINGS_UI as UI, APP_VERSION } from './data.js';
 import { THEMES, loadTheme, saveTheme, applyTheme, makeBackup, readBackup, restoreBackup } from './engine.js';
-import { HOME_UI } from '../home/data.js';
-import { TOUR_UI } from '../shared/tour-data.js';
+import { INSTALL_UI } from './install-data.js';
+import { openInstallSheet, installPlatform } from './install-sheet.js';
 import { PRIVACY_TEXT } from '../privacy/text.js';
 import { REFERENCES_TEXT } from '../references/text.js';
 
@@ -58,7 +58,7 @@ export function renderSettings(root, lang, storage, view, opts) {
     type: 'button', role: 'radio', [attr]: value, 'aria-checked': String(value === current), tabindex: value === current ? '0' : '-1', text,
     onclick: () => onPick(value),
   })));
-  const section = (heading, children) => h('section', { class: 'ref-section st-section' }, [h('h2', { text: tr(heading) }), ...children]);
+  const section = (heading, children, attrs = {}) => h('section', { class: 'ref-section st-section', ...attrs }, [h('h2', { text: tr(heading) }), ...children]);
   const theme = loadTheme(storage);
 
   const confirm = view.pending ? h('div', { class: 'st-confirm', 'data-confirm': true, role: 'group', 'aria-labelledby': 'st-ask', tabindex: '-1' }, [
@@ -82,6 +82,15 @@ export function renderSettings(root, lang, storage, view, opts) {
   root.replaceChildren(
     h('header', { class: 'glossary-head' }, [h('h1', { text: tr(UI.title) })]),
     section(UI.langHeading, [radios('data-set-lang', [['ko', '한국어'], ['en', 'English']], lang, tr(UI.langHeading), (l) => { if (l !== lang) opts.onLang(l); })]),
+    section(INSTALL_UI.tutorialHeading, [
+      h('div', { class: 'st-row' }, [
+        h('p', { class: 'st-row-label' }, [
+          h('strong', { id: 'st-tut-label', text: tr(INSTALL_UI.tutorialRow) }),
+          h('small', { class: 'muted', text: tr(INSTALL_UI.tutorialNote) }),
+        ]),
+        h('a', { class: 'btn', id: 'st-tut-view', href: '../?tour=1', 'data-tour-replay': true, 'aria-labelledby': 'st-tut-label st-tut-view', text: tr(INSTALL_UI.tutorialButton) }),
+      ]),
+    ], { 'data-tutorial': true }),
     section(UI.themeHeading, [
       h('p', { class: 'muted', text: tr(UI.themeNote) }),
       radios('data-theme-pick', THEMES.map((v) => [v, tr({ system: UI.themeSystem, light: UI.themeLight, dark: UI.themeDark }[v])]), theme, tr(UI.themeHeading), (v) => {
@@ -102,8 +111,8 @@ export function renderSettings(root, lang, storage, view, opts) {
       h('p', { class: 'st-offline', 'data-offline': true, text: tr(opts.offline ? UI.offlineReady : UI.offlineWait) }),
     ]),
     section(UI.installHeading, [
-      h('p', { 'data-install': true, text: tr(HOME_UI.install) }),
-      h('div', { class: 'st-actions' }, [h('a', { class: 'btn', href: '../?tour=1', 'data-tour-replay': true, text: tr(TOUR_UI.replay) })]),
+      h('p', { class: 'muted', 'data-install': true, text: tr(INSTALL_UI.installNote) }),
+      h('button', { type: 'button', class: 'btn st-wide', 'data-install-open': true, text: tr(INSTALL_UI.installButton), onclick: () => openInstallSheet(document, lang, { platform: installPlatform(navigator.userAgent), focusBack: () => root.querySelector('[data-install-open]')?.focus({ preventScroll: true }) }) }),
     ]),
     h('p', { class: 'st-footer', 'data-footer': true }, [
       `Queuecraft v${APP_VERSION}${opts.build ? ` (${opts.build.slice(0, 8)})` : ''} · `,
