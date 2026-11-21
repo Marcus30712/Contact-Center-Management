@@ -234,10 +234,58 @@ test('a lesson from the guide ends with "then" first and the usual next lesson s
   const card = root.querySelector('[data-connection]');
   const go = card.querySelector('a[data-guide-then]');
   assert.equal(go.getAttribute('href'), '../agent-lifecycle/#coaching-0');
-  assert.equal(go.textContent, '이어서 볼 곳: 라이프사이클 레슨 4 · 성과 관리 및 코칭 →');
+  assert.equal(go.textContent, '이어서 볼 곳: 라이프사이클 레슨 4 · 성과 관리 및 코칭\u00a0→', 'the arrow stays with the last word');
   assert.ok(go.classList.contains('primary'));
   assert.ok(card.textContent.includes(`${GUIDE_UI.fromGuide.ko} · ${GROUPS[0].situations[0].text.ko}`));
   const next = card.querySelector('a[data-next-lesson]');
   assert.ok(next && !next.classList.contains('primary'), 'the usual next lesson stays, as a second button');
   assert.ok(go.compareDocumentPosition(next) & 4, '"then" comes first');
+});
+
+test('a lesson from the guide hides the usual "up next" text; without the guide it stays', async () => {
+  const { setupDom, click } = await import('./dom.js');
+  const { renderLesson } = await import('../js/render/lesson.js');
+  const { SOP_UI } = await import('../../sop-library/ui.js');
+  const { guideFor } = await import('../../guide/link.js');
+  const lesson = SOP_LESSONS.find((l) => l.id === 'coaching');
+  const end = (guide) => {
+    const { root } = setupDom();
+    renderLesson(root, lesson, 99, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: SOP_LESSONS.length, text: SOP_UI, guide });
+    click(root.querySelector('[data-next]'));
+    for (const q of lesson.checkpoint) click(root.querySelector(`[data-question="${q.id}"] [data-option="${q.answer}"]`));
+    return root.querySelector('[data-connection]').textContent;
+  };
+  assert.ok(!end(guideFor('?guide=s1', 'sop-library', 'coaching')).includes(lesson.connection.text.ko));
+  assert.ok(end(null).includes(lesson.connection.text.ko));
+});
+
+test('settleGuide keeps ?guide on its lesson and drops it everywhere else', async () => {
+  const { settleGuide } = await import('../../guide/link.js');
+  const at = (search, hash) => {
+    const calls = [];
+    const loc = { pathname: '/kb/sop-library/', search, hash };
+    return { loc, calls, hist: { replaceState: (_s, _t, url) => calls.push(url) } };
+  };
+  let w = at('?guide=s1', '#coaching-6');
+  assert.equal(settleGuide(w.loc, w.hist, 'sop-library', 'coaching').id, 's1');
+  assert.deepEqual(w.calls, []);
+  w = at('?guide=s1', '#pip-0');
+  assert.equal(settleGuide(w.loc, w.hist, 'sop-library', 'pip'), null);
+  assert.deepEqual(w.calls, ['/kb/sop-library/#pip-0'], 'moved on: the address forgets the guide');
+  w = at('?guide=s1', '#home');
+  assert.equal(settleGuide(w.loc, w.hist, 'sop-library', undefined), null);
+  assert.deepEqual(w.calls, ['/kb/sop-library/#home'], 'the list too');
+  w = at('', '#pip-0');
+  settleGuide(w.loc, w.hist, 'sop-library', 'pip');
+  assert.deepEqual(w.calls, [], 'nothing to drop');
+  w = at('?guide=s1', '#pip-0');
+  assert.equal(settleGuide(w.loc, { replaceState() { throw new Error('blocked'); } }, 'sop-library', 'pip'), null, 'a blocked history is not an error');
+});
+
+test('both lesson apps settle the guide on every draw', () => {
+  for (const f of ['sop-library/app.js', 'agent-lifecycle/js/app.js']) {
+    const src = readFileSync(new URL(`../../${f}`, import.meta.url), 'utf8');
+    assert.ok(/settleGuide\(location, history,/.test(src), f);
+    assert.ok(!/guideFor\(location/.test(src), f);
+  }
 });

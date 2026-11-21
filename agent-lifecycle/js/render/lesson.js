@@ -57,12 +57,14 @@ export function renderLesson(root, lesson, stepIndex, lang, {
       h('p', { 'data-miso-line': true, text: tr(ui.misoCheer) }),
     ]),
     h('h3', { text: tr(ui.connection) }),
-    h('p', { text: tr(lesson.connection.text) }),
-    // Opened from the guide: its "then go here" comes first, the usual next lesson second.
+    // Opened from the guide: the usual "up next" text gives way to the guide's
+    // "then go here", which comes first; the usual next lesson stays second.
+    guide ? null : h('p', { text: tr(lesson.connection.text) }),
     guide ? h('p', { class: 'guide-from', 'data-guide-from': true, text: `${tr(GUIDE_UI.fromGuide)} · ${tr(guide.text)}` }) : null,
     guide ? h('a', {
       class: 'btn primary', 'data-guide-then': true, href: guide.then.href,
-      text: tr(GUIDE_UI.thenButton).replace('{title}', tr(guide.then.title)),
+      // The arrow never wraps onto a line of its own.
+      text: tr(GUIDE_UI.thenButton).replace('{title}', tr(guide.then.title)).replace(/ →$/, '\u00a0→'),
     }) : null,
     h('a', {
       class: guide ? 'btn' : 'btn primary', 'data-next-lesson': true,

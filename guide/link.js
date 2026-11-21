@@ -18,3 +18,14 @@ export function guideFor(search, course, lessonId) {
   if (!s) return null;
   return s.first.href === `../${course}/#${lessonId}-0` ? s : null;
 }
+
+// The situation for this lesson, if the guide sent the reader here. Anywhere
+// else the address forgets ?guide (without a new history entry), so coming
+// back to the lesson later does not bring the guide's card back.
+export function settleGuide(loc, hist, course, lessonId) {
+  const s = lessonId ? guideFor(loc.search, course, lessonId) : null;
+  if (!s && new URLSearchParams(loc.search || '').has('guide')) {
+    try { hist.replaceState(null, '', `${loc.pathname}${loc.hash}`); } catch { /* blocked: keep the address */ }
+  }
+  return s;
+}
