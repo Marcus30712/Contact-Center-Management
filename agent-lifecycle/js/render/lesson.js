@@ -6,6 +6,7 @@ import { gradeAnswer } from '../engine/quiz.js';
 import { visibleSteps, visibleQuestions } from '../engine/track.js';
 import { renderDiagram } from './diagram.js';
 import { UI } from '../i18n/ui.js';
+import { GUIDE_UI } from '../../../guide/data.js';
 
 // Found from this file's place, so any page that shows a lesson finds the image.
 const MISO_PROUD = new URL('../../../assets/miso/proud.webp', import.meta.url).href;
@@ -15,7 +16,7 @@ const MISO_PROUD = new URL('../../../assets/miso/proud.webp', import.meta.url).h
 // A course other than the lifecycle one passes its own `lessonCount` and
 // `text` (entries that replace the shared interface strings).
 export function renderLesson(root, lesson, stepIndex, lang, {
-  onNavigate, onComplete, restore, track = 'general', lessonCount = 6, text = {},
+  onNavigate, onComplete, restore, track = 'general', lessonCount = 6, text = {}, guide = null,
 }) {
   const tr = (entry) => t(entry, lang).text;
   const ui = { ...UI, ...text };
@@ -57,8 +58,14 @@ export function renderLesson(root, lesson, stepIndex, lang, {
     ]),
     h('h3', { text: tr(ui.connection) }),
     h('p', { text: tr(lesson.connection.text) }),
+    // Opened from the guide: its "then go here" comes first, the usual next lesson second.
+    guide ? h('p', { class: 'guide-from', 'data-guide-from': true, text: `${tr(GUIDE_UI.fromGuide)} · ${tr(guide.text)}` }) : null,
+    guide ? h('a', {
+      class: 'btn primary', 'data-guide-then': true, href: guide.then.href,
+      text: tr(GUIDE_UI.thenButton).replace('{title}', tr(guide.then.title)),
+    }) : null,
     h('a', {
-      class: 'btn primary', 'data-next-lesson': true,
+      class: guide ? 'btn' : 'btn primary', 'data-next-lesson': true,
       href: toList ? HOME_HREF : lessonHref(lesson.connection.to, 0),
       text: `${tr(toList ? ui.toList ?? ui.home : ui.nextLesson)} →`,
     }),

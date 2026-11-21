@@ -8,6 +8,7 @@ import { renderLesson } from '../agent-lifecycle/js/render/lesson.js';
 import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { SOP_LESSONS } from './lessons/index.js';
 import { SOP_UI, SOP_PROGRESS_KEY } from './ui.js';
+import { guideFor } from '../guide/link.js';
 import { renderSopHome } from './home.js';
 
 // Browser storage can be missing or blocked; then everything stays in memory.
@@ -68,6 +69,7 @@ function render() {
     track: 'general', // SOPs are common to every team type
     lessonCount: SOP_LESSONS.length,
     text: SOP_UI,
+    guide: guideFor(location.search, 'sop-library', route.id),
     onNavigate: (href) => { location.hash = href; },
     onComplete: (id) => {
       completed.add(id);

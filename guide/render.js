@@ -4,6 +4,7 @@ import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { tabs, expandCard } from '../codex/render/parts.js';
 import { GUIDE_UI as UI, GROUPS } from './data.js';
+import { withGuide } from './link.js';
 
 const MISO_ALT = { ko: '김미소, 생각하는 얼굴', en: 'Miso Kim, thinking' };
 
@@ -17,8 +18,9 @@ export function renderGuide(root, lang, state) {
     renderGuide(root, lang, state);
     if (focus) root.querySelector(focus)?.focus();
   };
-  const go = (kind, link) => h('li', {}, [
-    h('a', { href: link.href, 'data-go': kind }, [
+  // "Look here first" tells the lesson which situation it came from (see guide/link.js).
+  const go = (kind, link, id) => h('li', {}, [
+    h('a', { href: kind === 'first' ? withGuide(link.href, id) : link.href, 'data-go': kind }, [
       h('span', { class: 'gd-kind', text: tr(UI[kind]) }),
       // Screen readers would otherwise run the two parts together.
       h('span', { class: 'visually-hidden', text: ': ' }),
@@ -57,7 +59,7 @@ export function renderGuide(root, lang, state) {
         return expandCard({
           id: s.id, number, title: tr(s.text), open: state.open.has(s.id),
           onToggle: (open) => (open ? state.open.add(s.id) : state.open.delete(s.id)),
-          body: [h('ul', { class: 'gd-go' }, [go('first', s.first), go('then', s.then)])],
+          body: [h('ul', { class: 'gd-go' }, [go('first', s.first, s.id), go('then', s.then)])],
         });
       })),
     ])),
