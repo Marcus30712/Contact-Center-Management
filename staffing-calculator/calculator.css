@@ -113,3 +113,5 @@ html { scroll-padding-top: 72px; }
 }
 .lab-tab[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
 .lab-tab:focus-visible { outline: 3px solid var(--signal); outline-offset: -3px; border-radius: 6px; }
+.ch-seat-notes { display: flex; flex-direction: column; gap: 6px; }
+.ch-seat-note { padding: 8px 12px; border-left: 3px solid var(--signal); background: var(--surface); border-radius: 6px; }

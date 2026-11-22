@@ -70,6 +70,7 @@ Units: hours → " h", days → " days", concurrent chats → " chats". The rest
 | totalSpare | {n} to spare |
 | noStaff | No staff rostered |
 | otNote | If overtime per agent is high, think about adding staff before adding overtime. |
+| seatNote | This channel opens for so few hours that the seats it must fill at once set the staff needed. Overtime can hardly fill seats that are empty at the same time. |
 | summary | Total for {n} channels on: {needed} staff needed, {weekly} hours a week, {ot} hours of overtime a week. |
 | summaryOne | Total for 1 channel on: {needed} staff needed, {weekly} hours a week, {ot} hours of overtime a week. |
 

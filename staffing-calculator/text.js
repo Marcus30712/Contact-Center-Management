@@ -188,6 +188,7 @@ export const CHANNEL_TEXT = {
   totalSpare: { ko: "여유 {n}명", en: "{n} to spare" },
   noStaff: { ko: "편성 인원 없음", en: "No staff rostered" },
   otNote: { ko: "1인당 추가근무가 많다면 추가근무보다 인원 보강을 먼저 생각해 보세요.", en: "If overtime per agent is high, think about adding staff before adding overtime." },
+  seatNote: { ko: "이 채널은 운영 시간이 짧아 동시 자리 수가 필요 인원을 정합니다. 추가근무로는 같은 시간에 비는 자리를 채우기 어렵습니다.", en: "This channel opens for so few hours that the seats it must fill at once set the staff needed. Overtime can hardly fill seats that are empty at the same time." },
   summaryOne: { ko: "켠 채널 {n}개 합계: 필요 인원 {needed}명, 주간 {weekly}시간, 주간 추가근무 {ot}시간입니다.", en: "Total for 1 channel on: {needed} staff needed, {weekly} hours a week, {ot} hours of overtime a week." },
   summary: { ko: "켠 채널 {n}개 합계: 필요 인원 {needed}명, 주간 {weekly}시간, 주간 추가근무 {ot}시간입니다.", en: "Total for {n} channels on: {needed} staff needed, {weekly} hours a week, {ot} hours of overtime a week." },
   tryC1: { ko: "채팅의 동시 처리 수를 1로 내려 보세요. 필요한 인원이 얼마나 늘어나나요?", en: "Lower chat's concurrent chats to 1. How many more staff do you need?" },
