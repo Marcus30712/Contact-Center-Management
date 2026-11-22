@@ -893,6 +893,13 @@ def main():
                     page.wait_for_selector("[data-ch-table]")
                     check("(ch) the keyboard reaches the channel tab", page.evaluate("document.activeElement.dataset.tab") == "channels")
                     check("(ch) values survive switching tabs", page.inner_text("[data-cell='current.phone']") == "37" and not page.locator("th[data-col='email']").count())
+                if lang == "en" and width == 390:
+                    check("(ch) no seat note for the example values", page.locator("[data-seat-note]").count() == 0)
+                    page.evaluate("(() => { const el = document.querySelector(\"[data-ch-input='email.hoursOpen']\"); el.value = 4; el.dispatchEvent(new Event('input', { bubbles: true })); })()")
+                    page.wait_for_selector("[data-seat-note='email']")
+                    check("(ch) a short-hours channel shows the seat note", page.inner_text("[data-seat-note='email']").startswith("Email: "))
+                    check("(ch) the seat note page still fits", page.evaluate("document.documentElement.scrollWidth - window.innerWidth") <= 0)
+                    page.locator(".lab-results").screenshot(path=str(OUT / "staffing-seat-note-390-en.png"))
                 if lang == "ko" and width == 320:
                     check("(ch) a table that fits is not a tab stop", page.get_attribute(".ch-table-wrap", "tabindex") is None)
                     page.evaluate("""(() => {

@@ -78,10 +78,9 @@ export function computeChannel(kind, v, common) {
   const weekly = exactWeekly > 0 ? Math.max(1, Math.round(exactWeekly)) : 0;
   // A channel open only a few hours or days still needs enough people to fill
   // its seats at once: never fewer than seats ÷ (1 − Shrinkage).
-  const needed = Math.max(
-    Math.ceil(exactWeekly / common.weeklyHours - 1e-9),
-    Math.ceil(seats / keep - 1e-9),
-  );
+  const byHours = Math.ceil(exactWeekly / common.weeklyHours - 1e-9);
+  const bySeats = Math.ceil(seats / keep - 1e-9);
+  const needed = Math.max(byHours, bySeats);
   const otWeekly = Math.max(0, weekly - v.current * common.weeklyHours);
   return {
     seats,
@@ -93,6 +92,8 @@ export function computeChannel(kind, v, common) {
     otWeekly,
     otMonthly: Math.round(otWeekly * WEEKS_PER_MONTH),
     otPerPerson: v.current === 0 ? null : Math.round((otWeekly / v.current) * 10) / 10,
+    // The seats, not the hours, set the staff needed: hours and overtime understate it.
+    seatBound: bySeats > byHours,
   };
 }
 

@@ -465,3 +465,31 @@ test('the table box is a tab stop only when it overflows', () => {
   const { $ } = mountChannels();
   assert.equal($('.ch-table-wrap').getAttribute('tabindex'), null, 'jsdom never overflows');
 });
+
+// ---- Seat note (2026-11-22) ----
+test('a channel whose seats set the staff needed is marked seatBound', () => {
+  const r = computeChannels(initialChannels()).rows;
+  assert.deepEqual(Object.values(r).map((x) => x.seatBound), [false, false, false], 'the example values are set by hours');
+  const s = initialChannels();
+  s.email.hoursOpen = 4; s.chat.daysOpen = 2;
+  const b = computeChannels(s).rows;
+  assert.equal(b.email.seatBound, true);
+  assert.equal(b.chat.seatBound, true);
+  assert.equal(b.phone.seatBound, false);
+  assert.equal(b.email.needed, Math.ceil(b.email.seats / 0.7));
+});
+
+test('the seat note names each seat-bound channel, and only those', () => {
+  const s = initialChannels();
+  const { view, $, $$ } = mountChannels('ko', s);
+  assert.equal($$('[data-seat-note]').length, 0, 'no note for the example values');
+  s.email.hoursOpen = 4; view.update(s);
+  assert.deepEqual($$('[data-seat-note]').map((p) => p.textContent), [`이메일: ${CHANNEL_TEXT.seatNote.ko}`]);
+  s.chat.daysOpen = 2; view.update(s);
+  assert.deepEqual($$('[data-seat-note]').map((p) => p.getAttribute('data-seat-note')), ['chat', 'email']);
+  s.on.email = false; view.update(s);
+  assert.deepEqual($$('[data-seat-note]').map((p) => p.getAttribute('data-seat-note')), ['chat'], 'an off channel has no note');
+  const en = initialChannels(); en.email.hoursOpen = 4;
+  const e = mountChannels('en', en);
+  assert.equal(e.$('[data-seat-note]').textContent, `Email: ${CHANNEL_TEXT.seatNote.en}`);
+});

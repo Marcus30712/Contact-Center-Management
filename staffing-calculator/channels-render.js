@@ -78,6 +78,7 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
 
   // --- results ---
   const tableWrap = h('div', { class: 'ch-table-wrap' });
+  const seatNotes = h('div', { class: 'ch-seat-notes' });
   const rowHints = h('dl', { class: 'ch-row-hints' }, Object.keys(C.rowHint).flatMap((row) => {
     const name = tr(C.row[row]);
     const id = CHANNEL_GLOSSARY[row];
@@ -164,6 +165,9 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
     }
     const result = computeChannels(st);
     drawTable(result);
+    // A channel whose seats set the staff needed: its hours and overtime understate it.
+    seatNotes.replaceChildren(...Object.entries(result.rows).filter(([, r]) => r.seatBound).map(([kind]) =>
+      h('p', { class: 'ch-note ch-seat-note', 'data-seat-note': kind, text: `${tr(C.channel[kind])}: ${tr(C.seatNote)}` })));
     scheduleStatus(fill(tr(onCount === 1 ? C.summaryOne : C.summary), {
       n: onCount,
       needed: result.total.needed.toLocaleString(locale),
@@ -188,6 +192,7 @@ export function renderChannels(root, state, lang, { onCommon, onChannel, onToggl
       ]),
       section('lab-results', C.resultsHeading, [
         tableWrap,
+        seatNotes,
         h('p', { class: 'ch-note', 'data-ch-note': true, text: tr(C.otNote) }),
         rowHints,
         status,
