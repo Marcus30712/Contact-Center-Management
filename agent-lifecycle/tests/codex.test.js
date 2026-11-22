@@ -473,3 +473,53 @@ test('each task share is a fill inside one fixed-width track, N% of it, with its
   assert.match(css, /\.cx-share-track \{[^}]*width: \d+(\.\d+)?rem/, 'the track has one fixed width for every task');
   assert.ok(!/\.cx-share-bar|max-width: 60%/.test(css), 'the old relative bar is gone');
 });
+
+// ---------- 2026-11-22: "내 한 주 돌아보기" under the team leader's daily tasks (not Codex content) ----------
+const WEEK_DOC = (f) => readFileSync(new URL(`../../docs/superpowers/specs/${f}`, import.meta.url), 'utf8')
+  .split('## ②')[1].split('## ③')[0];
+const weekCell = (md, key) => md.split('\n').find((l) => l.startsWith(`| ${key} |`)).split(' | ')[1].replace(/\s*\|$/, '').trim();
+
+test('the week check matches the approved copy', async () => {
+  const { WEEK_CHECK } = await import('../../codex/data/week-check.js');
+  const ko = WEEK_DOC('2026-11-22-team-leader-self-copy.md');
+  const en = WEEK_DOC('2026-11-22-team-leader-self-copy.en.md');
+  assert.deepEqual(WEEK_CHECK.title, { ko: weekCell(ko, '제목'), en: weekCell(en, 'Title') });
+  assert.deepEqual(WEEK_CHECK.note, { ko: weekCell(ko, '안내'), en: weekCell(en, 'Note') });
+  assert.deepEqual(WEEK_CHECK.source, { ko: weekCell(ko, '출처 표시'), en: weekCell(en, 'Source note') });
+  assert.deepEqual(WEEK_CHECK.items, [1, 2, 3, 4, 5].map((n) => ({ ko: weekCell(ko, String(n)), en: weekCell(en, String(n)) })));
+});
+
+test('only the team-leader view shows the week check', () => {
+  const tl = mountPage('daily', 'ko', openItem(newState(), 'daily', 'tl'));
+  assert.ok(tl.$('[data-week-check]'));
+  assert.equal(tl.$$('[data-week-check] input[type="checkbox"][data-week-item]').length, 5);
+  assert.ok(tl.$('[data-week-source]').textContent.includes('Codex'));
+  const agent = mountPage('daily', 'ko', openItem(newState(), 'daily', 'agent'));
+  assert.equal(agent.$('[data-week-check]'), null);
+});
+
+test('ticks are kept on the page and never stored', () => {
+  const writes = [];
+  const had = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
+  const spy = { getItem: () => null, setItem: (k) => writes.push(k), removeItem: (k) => writes.push(k) };
+  Object.defineProperty(globalThis, 'localStorage', { value: spy, configurable: true });
+  const t = mountPage('daily', 'ko', openItem(newState(), 'daily', 'tl'));
+  const realSet = spy.setItem;
+  const box = t.$('[data-week-item="2"]');
+  box.checked = true;
+  box.dispatchEvent(new t.root.ownerDocument.defaultView.Event('change', { bubbles: true }));
+  t.$('[data-tab="agent"]').click();
+  t.$('[data-tab="tl"]').click();
+  assert.equal(t.$('[data-week-item="2"]').checked, true, 'still ticked after switching roles');
+  assert.equal(t.$('[data-week-item="1"]').checked, false);
+  assert.deepEqual(writes, [], 'nothing written to storage');
+  assert.equal(realSet, globalThis.localStorage.setItem);
+  if (had) Object.defineProperty(globalThis, 'localStorage', had); else delete globalThis.localStorage;
+  const fresh = mountPage('daily', 'ko', openItem(newState(), 'daily', 'tl'));
+  assert.equal(fresh.$('[data-week-item="2"]').checked, false, 'a new page starts empty');
+});
+
+test('the English week check has no Korean', () => {
+  const { $ } = mountPage('daily', 'en', openItem(newState(), 'daily', 'tl'));
+  assert.ok(!/[가-힣]/.test($('[data-week-check]').textContent));
+});

@@ -368,3 +368,13 @@ test('scrubbing, RCA and backlog are the approved wording, and scrubbing links t
   }
   assert.equal(term('scrubbing').sop, 'scrubbing');
 });
+
+// 2026-11-22: one sentence tells coaching apart from feedback and compliance checks.
+test('1:1 coaching is told apart from feedback and compliance checks (approved 2026-11-22)', async () => {
+  const { readFileSync } = await import('node:fs');
+  const cell = (f, place) => readFileSync(new URL(`../../docs/superpowers/specs/${f}`, import.meta.url), 'utf8')
+    .split('\n').find((l) => l.startsWith(`| ${place} |`)).split(' | ')[1].replace(/\s*\|$/, '').trim();
+  const t = TERMS.find((x) => x.id === 'one-on-one-coaching');
+  assert.equal(t.definition.ko, cell('2026-11-22-team-leader-self-copy.md', '바뀐 뒤'));
+  assert.equal(t.definition.en, cell('2026-11-22-team-leader-self-copy.en.md', 'After'));
+});

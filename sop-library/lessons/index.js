@@ -10,6 +10,7 @@ import incident from './06-incident.js';
 import launch from './07-launch.js';
 import scrubbing from './08-scrubbing.js';
 import nurture from './09-nurture.js';
+import transition from './10-transition.js';
 
 // group: 'leader' = the team leader runs it; 'cross' = several teams run it together.
-export const SOP_LESSONS = [escalation, scrubbing, coaching, pip, calibration, onboarding, incident, nurture, launch];
+export const SOP_LESSONS = [escalation, scrubbing, coaching, pip, calibration, transition, onboarding, incident, nurture, launch];

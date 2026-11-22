@@ -460,6 +460,27 @@ export const GROUPS = [
           },
           "href": "../sop-library/#home"
         }
+      },
+      {
+        "id": "s18",
+        "text": {
+          "ko": "함께 일하던 동료들의 팀장이 됐다",
+          "en": "You now lead the colleagues you used to work beside"
+        },
+        "first": {
+          "title": {
+            "ko": "SOP · 동료에서 팀장으로",
+            "en": "SOP · From Colleague to Team Leader"
+          },
+          "href": "../sop-library/#transition-0"
+        },
+        "then": {
+          "title": {
+            "ko": "Codex 원페이저 ④ 팀장의 하루",
+            "en": "Codex one-pager \u2463 A team lead's day"
+          },
+          "href": "../codex/#daily-tl"
+        }
       }
     ]
   }

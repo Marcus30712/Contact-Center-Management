@@ -78,5 +78,5 @@ export default {
       explanation: tx('합의한 점수와 그 근거가 기록으로 남아야 다음에 비슷한 케이스를 같은 눈높이로 평가할 수 있습니다.', 'Only when the agreed score and its reasoning are on record can similar cases be evaluated to the same standard next time.'),
     },
   ],
-  connection: { to: 'onboarding', text: tx('여기까지가 팀장이 직접 하는 다섯 가지 절차입니다. 다음부터는 여러 팀이 함께 움직이는 절차입니다. 첫 번째는 신규 입사자 온보딩입니다.', 'These are the five procedures a team leader runs directly. From here on, the procedures are ones several teams run together. The first is new hire onboarding.') },
+  connection: { to: 'transition', text: tx("팀장이 직접 하는 절차가 하나 더 있습니다. 동료들의 팀장이 된 첫 90일을 다루는 다음 레슨, 동료에서 팀장으로입니다.", "There is one more procedure a team leader runs directly. The next lesson, From Colleague to Team Leader, covers your first 90 days leading the colleagues you worked beside.") },
 };

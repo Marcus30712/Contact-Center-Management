@@ -6,7 +6,7 @@
 
 | 주제 | 폴더 | 설명 |
 |---|---|---|
-| 팀장 상황별 길잡이 / Situation Guide | [`guide/`](guide/) | 상황 17개를 고르면 먼저 볼 강의·SOP·원페이저로 안내 (한국어/영어) |
+| 팀장 상황별 길잡이 / Situation Guide | [`guide/`](guide/) | 상황 18개를 고르면 먼저 볼 강의·SOP·원페이저로 안내 (한국어/영어) |
 | 오늘의 연습 / Today's Practice | [`practice/`](practice/) | 마친 레슨(라이프사이클·SOP·엑셀)에서 하루 3문제, 용어 카드, 평일 연속 학습과 배지 10개. 김미소가 표정으로 반응 (한국어/영어). 기록은 휴대폰에만 저장 |
 | 미소의 엑셀 연습 / Miso's Excel Practice | [`excel/`](excel/) | 팀장이 꼭 쓰는 엑셀 11가지(셀 주소부터 SUMIFS·XLOOKUP·피벗·조건부 서식까지)와, 배운 함수를 섞어 쓰는 심화 5개. 타자 없이 카드와 칸을 눌러 수식을 만들고, 미소 팀 콜 기록(예시)으로 실제 계산해 채점 (한국어/영어) |
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |

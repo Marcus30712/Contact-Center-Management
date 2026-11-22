@@ -4,6 +4,7 @@ import { h } from '../../agent-lifecycle/js/render/dom.js';
 import { t } from '../../agent-lifecycle/js/engine/i18n.js';
 import { CODEX_UI as UI } from '../ui.js';
 import { DAILY } from '../data/daily.js';
+import { WEEK_CHECK } from '../data/week-check.js';
 import { tabs, chip, announce } from './parts.js';
 
 const minutes = (time) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3));
@@ -113,5 +114,26 @@ export function dailyBody(lang, state, redraw) {
       h('div', { class: 'cx-day-tasks' }, [h('h2', { class: 'cx-sub', text: tr(UI.tasksHeading) }), list]),
     ]),
     h('div', { class: 'cx-notes', 'data-notes': true }, DAILY.notes.map((n) => h('p', { class: 'cx-note', text: tr(n) }))),
+    role.id === 'tl' ? weekCheck(tr, state) : null,
   ];
+}
+
+// The team leader's own week, ticked on the page only: kept in the page state
+// while the page is open, never written to storage.
+function weekCheck(tr, state) {
+  const ticks = state.weekChecks ?? (state.weekChecks = new Set());
+  return h('section', { class: 'cx-week', 'data-week-check': true, 'aria-labelledby': 'cx-week-title' }, [
+    h('h2', { class: 'cx-sub', id: 'cx-week-title', text: tr(WEEK_CHECK.title) }),
+    h('p', { class: 'cx-note', text: tr(WEEK_CHECK.note) }),
+    h('ul', { class: 'cx-week-list' }, WEEK_CHECK.items.map((item, i) => {
+      const n = i + 1;
+      const box = h('input', {
+        type: 'checkbox', id: `cx-week-${n}`, 'data-week-item': n,
+        onchange: (event) => { if (event.target.checked) ticks.add(n); else ticks.delete(n); },
+      });
+      box.checked = ticks.has(n);
+      return h('li', {}, [h('label', { for: `cx-week-${n}` }, [box, h('span', { text: tr(item) })])]);
+    })),
+    h('p', { class: 'cx-week-source', 'data-week-source': true, text: tr(WEEK_CHECK.source) }),
+  ]);
 }

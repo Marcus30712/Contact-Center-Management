@@ -9,7 +9,7 @@ const branch = ['update', 'report-update'];
 
 export default {
   id: 'incident',
-  order: 7,
+  order: 8,
   group: 'cross',
   title: tx('대규모 이슈 대응', 'Large-Scale Issue Response'),
   short: tx('이슈 대응', 'Issue response'),

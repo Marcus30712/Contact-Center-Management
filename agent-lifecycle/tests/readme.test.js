@@ -14,3 +14,9 @@ test('the README names the advanced Excel lessons', () => {
   const row = README.split('\n').find((l) => l.includes('(excel/)'));
   assert.ok(row.includes(`심화 ${EXCEL_ADVANCED.length}개`), row);
 });
+
+test('the README counts the guide situations there are', async () => {
+  const { GROUPS } = await import('../../guide/data.js');
+  const n = GROUPS.reduce((sum, g) => sum + g.situations.length, 0);
+  assert.ok(README.includes(`상황 ${n}개`), `expected 상황 ${n}개`);
+});
