@@ -55,9 +55,14 @@ TOUR_DONE = "try { localStorage.setItem('queuecraft:tour', 'done'); } catch (e) 
 
 # tour=True: start as a first-time visitor, so the home page shows the tutorial.
 # Every other check starts with it seen, so the tutorial never covers the page.
-def new_page(browser, errors, width=390, height=780, locale="ko-KR", init=None, scheme="light", tour=False):
+# Pages open as if reached from inside the app, so the start screen (shown only
+# when the app is opened at home) stays out of the way; start=True opens fresh.
+IN_APP = "Object.defineProperty(Document.prototype, 'referrer', { get() { return location.origin + '/'; } });"
+
+
+def new_page(browser, errors, width=390, height=780, locale="ko-KR", init=None, scheme="light", tour=False, start=False):
     ctx = browser.new_context(viewport={"width": width, "height": height}, locale=locale, color_scheme=scheme)
-    ctx.add_init_script(("" if tour else TOUR_DONE + "\n") + (init or ""))
+    ctx.add_init_script(("" if tour else TOUR_DONE + "\n") + ("" if start else IN_APP + "\n") + (init or ""))
     page = ctx.new_page()
     page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
     page.on("pageerror", lambda e: errors.append(str(e)))
@@ -954,6 +959,64 @@ def main():
         page.wait_for_selector("[data-week-check]")
         check("(g7) then opens the team leader's day with the week check", page.url.endswith("codex/#daily-tl"), page.url)
         page.context.close()
+
+        # (st) 2026-11-22: the start screen when the app is opened at home
+        CLOCK = "(() => { const R = Date; const fixed = new R(2026, 10, 23, 8, 30).getTime(); globalThis.Date = class extends R { constructor(...a) { if (a.length) super(...a); else super(fixed); } static now() { return fixed; } }; })();"
+        page = new_page(browser, errors, start=True, tour=True, init=CLOCK)
+        page.goto(HUB)
+        page.wait_for_selector("[data-start-screen]")
+        check("(st) a fresh open at home shows the start screen", page.is_visible("[data-start-screen]"))
+        check("(st) Monday 08:30 greets with a Monday line", page.inner_text("[data-start-greeting]") in ("한 주의 시작이에요! 이번 주에 코칭할 팀원부터 떠올려 볼까요?", "월요일 아침은 문의가 몰리기 쉬워요. 출근 전에 마음의 준비를 해 둬요."), page.inner_text("[data-start-greeting]"))
+        check("(st) the dialog has focus and draws no ring", page.evaluate("document.activeElement.hasAttribute('data-start-screen') && getComputedStyle(document.activeElement).outlineStyle === 'none'"))
+        check("(st) the page behind is inert", page.evaluate("Boolean(document.getElementById('app').closest('[inert]')) && Boolean(document.querySelector('nav.appbar').closest('[inert]'))"))
+        check("(st) no tour while the start screen is up", page.locator("[data-tour]").count() == 0)
+        page.screenshot(path=str(OUT / "start-390.png"))
+        page.keyboard.press("Enter")
+        page.wait_for_selector("[data-start-screen]", state="detached")
+        check("(st) Enter closes it", page.locator("[data-start-screen]").count() == 0)
+        page.wait_for_selector("[data-tour]")
+        check("(st) a first visit then shows the tour", page.locator("[data-tour]").count() == 1)
+        check("(st) Enter does not skip the tour's first step", page.inner_text("[data-tour-count]").startswith("1"), page.inner_text("[data-tour-count]"))
+        page.reload()
+        page.wait_for_selector("#app > *")
+        page.wait_for_timeout(300)
+        check("(st) a reload in the same visit does not show it again", page.locator("[data-start-screen]").count() == 0)
+        page.context.close()
+        page = new_page(browser, errors, start=True)
+        page.goto(HUB + "#learn")
+        page.wait_for_selector("#app > *")
+        page.wait_for_timeout(300)
+        check("(st) #learn opens home without the start screen", page.locator("[data-start-screen]").count() == 0)
+        page.goto(HUB + "sop-library/")
+        page.wait_for_selector("[data-sop-list]")
+        page.click("nav.appbar a >> nth=0")
+        page.wait_for_selector("#app > *")
+        page.wait_for_timeout(300)
+        check("(st) coming back home from another page does not show it", page.locator("[data-start-screen]").count() == 0, page.url)
+        page.context.close()
+        for lang in ("ko", "en"):
+            page = new_page(browser, errors, width=320, height=460, start=True,
+                            init=f"try {{ localStorage.setItem('agent-lifecycle-course:lang', '{lang}'); }} catch (e) {{}}")
+            page.goto(HUB)
+            page.wait_for_selector("[data-start-screen]")
+            page.wait_for_timeout(400)
+            bottom = page.evaluate("document.querySelector('[data-start-go]').getBoundingClientRect().bottom")
+            check(f"(st) Start is on screen at 320x460 without scrolling ({lang})", bottom <= 460, f"bottom={bottom}")
+            page.context.close()
+        for lang, width, scheme in (("ko", 320, "light"), ("en", 320, "light"), ("ko", 390, "dark"), ("en", 1280, "light")):
+            page = new_page(browser, errors, width=width, scheme=scheme, start=True,
+                            init=f"try {{ localStorage.setItem('agent-lifecycle-course:lang', '{lang}'); }} catch (e) {{}}")
+            page.goto(HUB)
+            page.wait_for_selector("[data-start-screen]")
+            over = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
+            check(f"(st) fits {width}px {lang} {scheme}", over <= 0, f"overflow={over}")
+            if lang == "en":
+                check(f"(st) English start screen has no Korean ({width})", not page.evaluate("/[가-힣]/.test(document.querySelector('[data-start-screen]').textContent.replace('한국어', ''))"))
+            if (lang, width) == ("en", 320):
+                page.screenshot(path=str(OUT / "start-320-en.png"))
+            if scheme == "dark":
+                page.screenshot(path=str(OUT / "start-390-dark.png"))
+            page.context.close()
 
         # (fr) a title that gets focus only so screen readers start there draws no ring;
         # things you can press still do
