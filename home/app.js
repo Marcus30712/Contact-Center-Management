@@ -5,6 +5,8 @@ import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { HOME_UI as UI } from './data.js';
 import { renderHome } from './render.js';
 import { whenAppBar, shouldStartTour, startTour } from '../shared/tour.js';
+import { pickGreeting, shouldShowStart, watchOffline } from './start.js';
+import { renderStart } from './start-render.js';
 
 function getStorage() {
   try {
@@ -33,8 +35,27 @@ function draw() {
 
 let day = new Date().toDateString();
 draw();
-// First visit (or "Replay the tutorial" in Settings): walk the bottom menu once.
-whenAppBar(document).then(() => {
+
+// The start screen when the app is opened at home: Miso greets by time and weekday.
+let start = null;
+const navType = performance.getEntriesByType?.('navigation')?.[0]?.type;
+if (shouldShowStart({ href: location.href, referrer: document.referrer, navType })) {
+  start = renderStart(document, lang, {
+    greeting: pickGreeting(new Date()),
+    offline: null,
+    onLang: (next) => {
+      lang = next;
+      saveLang(storage, lang);
+      draw();
+      start.setLang(lang);
+    },
+  });
+  watchOffline(navigator.serviceWorker, (state) => start.setOffline(state));
+}
+
+// First visit (or "Replay the tutorial" in Settings): walk the bottom menu once,
+// after the start screen (if any) has closed.
+whenAppBar(document).then(() => start?.closed).then(() => {
   if (!shouldStartTour(storage, location.href)) return;
   const url = new URL(location.href);
   if (url.searchParams.has('tour')) {
