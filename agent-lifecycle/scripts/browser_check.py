@@ -455,7 +455,7 @@ def main():
 
         # ---- SOP Library ----
         SOP = HUB + "sop-library/"
-        SOP_STEPS = {"escalation": 10, "scrubbing": 11, "coaching": 11, "pip": 11, "calibration": 11, "onboarding": 11, "incident": 11, "nurture": 11, "launch": 10}
+        SOP_STEPS = {"escalation": 10, "scrubbing": 11, "coaching": 12, "pip": 11, "calibration": 11, "transition": 10, "onboarding": 11, "incident": 11, "nurture": 11, "launch": 10}
         SOP_ANSWERS = {"scrubbing": "bc", "onboarding": "ac", "incident": "ca", "launch": "ac"}  # the rest are "bb"
         LABELS_FIT = """[...document.querySelectorAll('[data-node]:not(.is-hidden)')].every((g) => {
             const r = g.querySelector('rect').getBoundingClientRect();
@@ -465,14 +465,14 @@ def main():
         page = new_page(browser, errors)
         page.goto(SOP)
         page.wait_for_selector("[data-sop-list]")
-        check("(s1) list shows nine SOPs in two groups", page.locator("[data-sop-list] a[data-sop]").count() == 9 and page.locator("[data-group]").count() == 2)
+        check("(s1) list shows ten SOPs in two groups", page.locator("[data-sop-list] a[data-sop]").count() == 10 and page.locator("[data-group]").count() == 2)
         page.screenshot(path=str(OUT / "sop-list-390.png"), full_page=True)
         ids = list(SOP_STEPS)
         for i, (sop, steps) in enumerate(SOP_STEPS.items()):
             page.goto(SOP + f"#{sop}-0")
             page.wait_for_selector("[data-counter]")
             check(f"(s1) {sop} starts at 1 / {steps}", page.inner_text("[data-counter]") == f"1 / {steps}", page.inner_text("[data-counter]"))
-            check(f"(s1) {sop} is {i + 1} of 9", page.inner_text(".eyebrow") == f"{i + 1} / 9")
+            check(f"(s1) {sop} is {i + 1} of 10", page.inner_text(".eyebrow") == f"{i + 1} / 10")
             for n in range(steps - 1):
                 if n % 2:
                     page.keyboard.press("ArrowRight")
@@ -501,6 +501,9 @@ def main():
             check(f"(s1) {sop} wrong answer is marked", page.locator(f"[data-question='{sop}-q2'] .explanation.is-wrong").count() == 1)
             check(f"(s1) {sop} wrong answer shows its own feedback", page.locator(f"[data-question='{sop}-q2'] [data-feedback]").count() == 1)
             page.click(f"[data-question='{sop}-q2'] [data-option='{right2}']")
+            if page.locator(f"[data-question='{sop}-q3']").count():
+                check(f"(s1) {sop} waits for the third answer", not page.is_visible("[data-connection]"))
+                page.click(f"[data-question='{sop}-q3'] [data-option='b']")
             check(f"(s1) {sop} connection card shown", page.is_visible("[data-connection]"))
             page.click("[data-next-lesson]")
             if i < len(ids) - 1:
@@ -509,7 +512,7 @@ def main():
                 page.wait_for_selector("[data-sop-list]")
                 check("(s4) the last SOP returns to the list", page.url.endswith("#home"), page.url)
         done = page.locator("[data-sop-list] a.is-done").count()
-        check("(s3) all nine SOPs marked done", done == 9, str(done))
+        check("(s3) all ten SOPs marked done", done == 10, str(done))
         page.goto(HUB + "agent-lifecycle/")
         page.wait_for_selector("[data-stage-list]")
         check("(s3) SOP progress does not mark the lifecycle course", page.locator("[data-stage-list] a.is-done").count() == 0)
@@ -527,7 +530,7 @@ def main():
         page.goto(SOP + "#coaching-99")
         page.reload()
         page.wait_for_selector("[data-counter]")
-        check("(s5) a step past the end opens the last step", page.inner_text("[data-counter]") == "11 / 11", page.inner_text("[data-counter]"))
+        check("(s5) a step past the end opens the last step", page.inner_text("[data-counter]") == "12 / 12", page.inner_text("[data-counter]"))
         page.goto(SOP + "#pip-3")
         page.reload()
         page.wait_for_selector("[data-persona]")
@@ -918,6 +921,40 @@ def main():
                     page.screenshot(path=str(OUT / "staffing-channels-320-en.png"), full_page=True)
                 page.context.close()
 
+        # (tl) 2026-11-22: the week check on the team leader's day, and guide s18
+        for lang, width in (("ko", 320), ("en", 320), ("ko", 1280)):
+            page = new_page(browser, errors, width=width, init=f"try {{ localStorage.setItem('agent-lifecycle-course:lang', '{lang}'); }} catch (e) {{}}")
+            page.goto(HUB + "codex/#daily-tl")
+            page.wait_for_selector("[data-week-check]")
+            check(f"(tl) week check fits {width}px {lang}", page.evaluate("document.documentElement.scrollWidth - window.innerWidth") <= 0)
+            if lang == "en":
+                check("(tl) English week check has no Korean", not page.evaluate("/[가-힣]/.test(document.querySelector('[data-week-check]').textContent)"))
+            if lang == "ko" and width == 320:
+                page.click("label[for='cx-week-3']")
+                check("(tl) a tick toggles by tapping its label", page.is_checked("#cx-week-3"))
+                keys = page.evaluate("Object.keys(localStorage).join(',')")
+                check("(tl) ticks are not stored", "week" not in keys, keys)
+                page.locator("[data-week-check]").screenshot(path=str(OUT / "codex-week-check-320.png"))
+            page.context.close()
+        page = new_page(browser, errors)
+        page.goto(HUB + "guide/")
+        page.wait_for_selector("[data-card]")
+        page.click("[data-card='s18'] button")
+        page.click("[data-card='s18'] a[data-go='first']")
+        page.wait_for_selector("[data-counter]")
+        check("(g7) s18 opens the colleague-to-team-leader SOP", "#transition-0" in page.url and "guide=s18" in page.url, page.url)
+        for _ in range(20):
+            if page.is_visible("[data-view='checkpoint']"):
+                break
+            page.click("[data-next]")
+        page.click("[data-question='transition-q1'] [data-option='b']")
+        page.click("[data-question='transition-q2'] [data-option='b']")
+        page.wait_for_selector("[data-connection]:not([hidden]) a[data-guide-then]")
+        page.click("a[data-guide-then]")
+        page.wait_for_selector("[data-week-check]")
+        check("(g7) then opens the team leader's day with the week check", page.url.endswith("codex/#daily-tl"), page.url)
+        page.context.close()
+
         # (fr) a title that gets focus only so screen readers start there draws no ring;
         # things you can press still do
         page = new_page(browser, errors)
@@ -941,7 +978,7 @@ def main():
         check("(g1) the practice card, then the guide, lead the hub", page.get_attribute("a.card >> nth=0", "href") == "./practice/" and page.get_attribute("a.card >> nth=1", "href") == "./guide/")
         page.goto(GD)
         page.wait_for_selector("[data-card]")
-        check("(g1) seventeen situations", page.locator("[data-card]").count() == 17)
+        check("(g1) eighteen situations", page.locator("[data-card]").count() == 18)
         page.focus("[data-tab='all']")
         page.keyboard.press("ArrowRight")
         page.keyboard.press("ArrowRight")
@@ -952,7 +989,7 @@ def main():
         page.screenshot(path=str(OUT / "guide-390.png"), full_page=True)
         page.click("[data-tab='all']")
         links = page.evaluate("(() => { document.querySelectorAll('[data-card] button[aria-expanded=false]').forEach((b) => b.click()); return [...document.querySelectorAll('a[data-go]')].map((a) => a.getAttribute('href')); })()")
-        check("(g3) thirty-four links", len(links) == 34, str(len(links)))
+        check("(g3) thirty-six links", len(links) == 36, str(len(links)))
         DEEP = {"#teams-ta": "[data-card='ta'] [aria-expanded='true']", "#teams-td": "[data-card='td'] [aria-expanded='true']",
                 "#teams-wfm": "[data-card='wfm'] [aria-expanded='true']", "#principles-p1": "[data-card='p1'] [aria-expanded='true']",
                 "#principles-p3": "[data-card='p3'] [aria-expanded='true']", "#daily-tl": "[data-tab='tl'][aria-pressed='true']"}
@@ -995,6 +1032,7 @@ def main():
         r1, r2 = SOP_ANSWERS.get("coaching", "bb")
         page.click(f"[data-question='coaching-q1'] [data-option='{r1}']")
         page.click(f"[data-question='coaching-q2'] [data-option='{r2}']")
+        page.click("[data-question='coaching-q3'] [data-option='b']")
         page.wait_for_selector("[data-connection]:not([hidden]) a[data-guide-then]")
         check("(g5) the end card names the situation", "길잡이에서 고른 상황 ·" in page.inner_text("[data-connection]"))
         check("(g5) 'then go here' is the primary button, the next SOP comes after it",
@@ -1016,12 +1054,18 @@ def main():
             page.click("[data-next]")
         page.click(f"[data-question='coaching-q1'] [data-option='{r1}']")
         page.click(f"[data-question='coaching-q2'] [data-option='{r2}']")
+        page.click("[data-question='coaching-q3'] [data-option='b']")
         page.wait_for_selector("[data-connection]:not([hidden]) a[data-guide-then]")
         check("(g6) the usual next-lesson text is hidden", "성과 개선 계획(PIP)" not in page.inner_text("[data-connection]"))
         check("(g6) the arrow stays with the last word", page.inner_text("a[data-guide-then]").endswith("\u00a0→") or page.evaluate("document.querySelector('a[data-guide-then]').textContent.endsWith('\\u00a0→')"))
         page.click("[data-next-lesson]")
         page.wait_for_function("location.hash === '#pip-0'")
-        check("(g6) moving on drops ?guide from the address", "guide=" not in page.url, page.url)
+        # The hash changes first; the page drops ?guide when it redraws on hashchange, a moment later.
+        try:
+            page.wait_for_function("!location.search.includes('guide=')", timeout=3000)
+        except Exception:
+            pass
+        check("(g6) moving on drops ?guide from the address", "guide=" not in page.evaluate("location.href"), page.evaluate("location.href"))
         page.goto(HUB + "sop-library/?guide=s1#home")
         page.wait_for_selector("a[data-sop]")
         check("(g6) the list drops ?guide too", "guide=" not in page.url, page.url)

@@ -6,6 +6,8 @@ const wide = (n) => ({ ...n, hw: 76 });
 const procedure = ['prepare', 'rapport', 'analyze', 'plan', 'close'];
 const flow = [...procedure, 'prepare-rapport', 'rapport-analyze', 'analyze-plan', 'plan-close'];
 const grow = ['goal', 'reality', 'options', 'will', 'analyze-goal', 'goal-reality', 'reality-options', 'options-will'];
+// After the session: someone watches the coach (added 2026-11-22, not from the Codex).
+const observe = ['observe', 'close-observe'];
 
 export default {
   id: 'coaching',
@@ -27,10 +29,12 @@ export default {
       { ...node('reality', '현실', 310, 96, 'Reality'), hw: 42 },
       { ...node('options', '대안', 310, 144, 'Options'), hw: 42 },
       { ...node('will', '실행 의지', 214, 144, 'Will'), hw: 42 },
+      { ...node('observe', '코치 관찰', 270, 216, 'Coach observation'), hw: 60 },
     ],
     edges: [
       edge('prepare', 'rapport'), edge('rapport', 'analyze'), edge('analyze', 'plan'), edge('plan', 'close'),
       edge('analyze', 'goal'), edge('goal', 'reality'), edge('reality', 'options'), edge('options', 'will'),
+      edge('close', 'observe'),
     ],
   },
   steps: [
@@ -56,6 +60,8 @@ export default {
       [...flow, ...grow], ['plan'], 'plan'),
     step(tx('다섯째 단계는 마무리 및 격려입니다(예시: 5분). 합의한 내용을 다시 요약하고, 할 수 있다는 믿음과 지지를 표현하며 끝냅니다. "제가 지켜보고 도울게요. 잘할 수 있을 거예요."', 'The fifth step is wrapping up and encouraging (Example: 5 min). Summarize what you agreed once more, and close by showing that you believe in her and will back her. "I will be right here to help. You can do this."'),
       [...flow, ...grow], ['close'], 'close'),
+    step(tx("세션이 끝난 뒤에도 할 일이 있습니다(예시: 한 달에 한 번). 부매니저나 선배 팀장이 당신의 코칭을 지켜보고, 질문으로 이끌었는지와 행동 계획이 구체적이었는지 피드백합니다. 코치도 코칭을 받아야 늡니다.", "There is still work after the session (Example: once a month). Your assistant manager or a senior team leader watches you coach and tells you whether you led with questions and whether the action plan was specific. Coaches get better by being coached too."),
+      [...flow, ...grow, ...observe], ['close', ...observe], 'close'),
   ],
   checkpoint: [
     {
@@ -79,6 +85,17 @@ export default {
       ],
       answer: 'b',
       explanation: tx('행동 계획은 다음 코칭 때 지켰는지 확인할 수 있을 만큼 구체적이어야 합니다. 팀원이 직접 제시한 것일수록 좋습니다.', 'An action plan has to be specific enough that you can check at the next session whether it was kept. The more it comes from the team member, the better.'),
+    },
+    {
+      id: 'coaching-q3',
+      prompt: tx("지민의 AHT가 팀 평균보다 깁니다. 코칭을 준비할 때 알맞은 것은 무엇일까요?", "Jimin's AHT is longer than the team average. What is the right way to prepare for coaching?"),
+      options: [
+        option('a', tx("AHT를 팀 평균까지 줄이는 것을 목표로 정해 둔다.", "Set the goal of cutting her AHT to the team average."), tx("시간만 겨냥하면 지민이 잘하고 있는 한 번에 해결하는 비율까지 흔들릴 수 있습니다.", "Aiming only at time can shake what Jimin already does well: resolving contacts the first time.")),
+        option('b', tx("AHT와 한 번에 해결하는 비율, 녹취 몇 건을 함께 본다.", "Look at her AHT, her first-time resolution and a few recordings together.")),
+        option('c', tx("팀원별 AHT 순위표를 준비해 보여 준다.", "Prepare a ranking of AHT by team member and show it to her."), tx("순위표는 비교로 읽혀 방어적으로 만들기 쉽고, 시간이 길어지는 이유는 알려 주지 않습니다.", "A ranking reads as a comparison and tends to make her defensive, and it says nothing about why her time runs long.")),
+      ],
+      answer: 'b',
+      explanation: tx("한 지표만 보면 다른 지표를 희생시키는 코칭이 되기 쉽습니다. 여러 지표와 실제 상담을 함께 봐야 진짜 원인에 닿습니다.", "Looking at one metric alone easily turns coaching into trading one metric for another. Several metrics and real contacts together lead to the real cause."),
     },
   ],
   connection: { to: 'pip', text: tx('코칭을 거듭해도 나아지지 않는 경우가 있습니다. 그때 쓰는 공식 절차가 다음 레슨의 성과 개선 계획(PIP)입니다.', 'Sometimes repeated coaching does not bring improvement. The formal procedure for that case is the Performance Improvement Plan (PIP) in the next lesson.') },

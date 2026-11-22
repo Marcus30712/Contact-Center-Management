@@ -11,7 +11,7 @@ const tracks = ['manager', 'specialist', 'review-manager', 'review-specialist'];
 
 export default {
   id: 'nurture',
-  order: 8,
+  order: 9,
   group: 'cross',
   title: tx('기존 상담사 육성', 'Developing Existing Agents'),
   short: tx('기존 상담사 육성', 'Developing agents'),

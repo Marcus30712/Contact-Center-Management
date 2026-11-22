@@ -34,7 +34,7 @@ test('cards keep every topic and are split into learn and browse', () => {
 test('my learning: nothing started, part done, all done, storage blocked', () => {
   const s = fakeStorage();
   const fresh = myLearning(s);
-  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 9, 'escalation'], ['excel', 0, 11, '1']]);
+  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 10, 'escalation'], ['excel', 0, 11, '1']]);
   assert.equal(fresh.started, false);
 
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'coaching'] }));
@@ -47,12 +47,12 @@ test('my learning: nothing started, part done, all done, storage blocked', () =>
   s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'] }));
   // Someone who finished all seven SOPs before scrubbing was added has one more to do.
   const before = myLearning(s);
-  assert.deepEqual([before[1].done, before[1].total, before[1].next.id], [7, 9, 'scrubbing']);
-  s.setItem('sop-library:v1', JSON.stringify({ completed: [...['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'], 'scrubbing', 'nurture'] }));
+  assert.deepEqual([before[1].done, before[1].total, before[1].next.id], [7, 10, 'scrubbing']);
+  s.setItem('sop-library:v1', JSON.stringify({ completed: [...['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'], 'scrubbing', 'nurture', 'transition'] }));
   assert.equal(myLearning(s).allDone, false, 'the Excel lessons are still to do');
   s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }));
   const all = myLearning(s);
-  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [9, null], [11, null]]);
+  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [10, null], [11, null]]);
   assert.equal(all.allDone, true);
 
   const blocked = myLearning(throwingStorage);
@@ -72,9 +72,9 @@ test('the home screen greets with Miso and shows where to continue', () => {
   const rows = [...root.querySelectorAll('[data-course]')];
   assert.equal(rows.length, 3);
   assert.equal(rows[1].querySelector('progress').value, 1);
-  assert.equal(rows[1].querySelector('progress').max, 9);
+  assert.equal(rows[1].querySelector('progress').max, 10);
   assert.equal(rows[1].querySelector('a[data-next]').getAttribute('href'), './sop-library/#scrubbing-0');
-  assert.ok(rows[1].textContent.includes('1/9'));
+  assert.ok(rows[1].textContent.includes('1/10'));
   assert.equal(root.querySelector('a.card[href="./guide/"]').closest('section')?.id ?? '', '');
   assert.ok(root.querySelector('#learn') && root.querySelector('#browse'));
   assert.equal(root.querySelectorAll('a.card').length, 9, 'eight topics plus the practice card');
@@ -90,7 +90,7 @@ test('a first visit suggests lesson 1, and a finished learner sees the done note
 
   const s = fakeStorage();
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'] }));
-  s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'nurture', 'launch'] }));
+  s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'transition', 'onboarding', 'incident', 'nurture', 'launch'] }));
   s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }));
   const done = setupDom();
   renderHome(done.root, 'ko', s);
@@ -167,11 +167,11 @@ test('the Excel practice is a third course in Learn and in my learning', async (
   assert.equal(row.querySelector('a[data-next]').getAttribute('href'), './excel/#lesson-2');
 });
 
-test('the SOP Library card lists the nine procedures (approved 2026-11-21)', async () => {
+test('the SOP Library card lists the ten procedures (approved 2026-11-22)', async () => {
   const { readFileSync } = await import('node:fs');
-  const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-21-sop-nurture-design.md', import.meta.url), 'utf8');
-  const row = doc.split('\n').find((l) => l.startsWith('| 홈 카드 · SOP 라이브러리 |')).split(' | ');
+  const cell = (f, place) => readFileSync(new URL(`../../docs/superpowers/specs/${f}`, import.meta.url), 'utf8')
+    .split('\n').find((l) => l.startsWith(`| ${place} |`)).split(' | ')[1].replace(/\s*\|$/, '').trim();
   const card = LEARN.find((c) => c.href === './sop-library/');
-  assert.equal(card.text.ko, row[2].replace(/\s*\|$/, '').trim());
-  assert.ok(card.text.en.includes('nine') && card.text.en.includes('developing existing agents'));
+  assert.equal(card.text.ko, cell('2026-11-22-team-leader-self-copy.md', '홈 카드 설명'));
+  assert.equal(card.text.en, cell('2026-11-22-team-leader-self-copy.en.md', 'Home card description'));
 });

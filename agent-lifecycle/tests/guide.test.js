@@ -35,9 +35,9 @@ function parseTable() {
 const ROWS = parseTable();
 const flat = GROUPS.flatMap((g) => g.situations.map((s) => ({ g, s })));
 
-test('seventeen situations in five groups, as confirmed', () => {
-  assert.equal(ROWS.length, 17);
-  assert.deepEqual(GROUPS.map((g) => [g.id, g.situations.length]), [['member', 5], ['newcomer', 3], ['customer', 3], ['staffing', 3], ['org', 3]]);
+test('eighteen situations in five groups, as confirmed', () => {
+  assert.equal(ROWS.length, 18);
+  assert.deepEqual(GROUPS.map((g) => [g.id, g.situations.length]), [['member', 5], ['newcomer', 3], ['customer', 3], ['staffing', 3], ['org', 4]]);
   flat.forEach(({ g, s }, i) => {
     const row = ROWS[i];
     assert.equal(s.id, `s${row.n}`);
@@ -110,12 +110,12 @@ function mount(lang = 'ko', state = newGuideState()) {
 }
 const isOpen = (card) => card.querySelector('[aria-expanded]').getAttribute('aria-expanded') === 'true';
 
-test('the screen shows six chips and seventeen closed situations', () => {
+test('the screen shows six chips and eighteen closed situations', () => {
   const { $, $$ } = mount();
   assert.equal($('h1').textContent, '팀장 상황별 길잡이');
   assert.deepEqual($$('[data-tab]').map((b) => b.getAttribute('data-tab')), ['all', 'member', 'newcomer', 'customer', 'staffing', 'org']);
   assert.equal($('[data-tab="all"]').getAttribute('aria-pressed'), 'true');
-  assert.equal($$('[data-card]').length, 17);
+  assert.equal($$('[data-card]').length, 18);
   assert.ok($$('[data-card]').every((c) => !isOpen(c)));
   assert.equal($$('[data-group]:not([hidden])').length, 5);
 });
@@ -178,7 +178,7 @@ test('choosing a chip tells screen readers the group and how many situations it 
   assert.equal(document.querySelector('[data-status]'), status, 'the same line is reused');
   assert.equal(status.textContent, '고객·문의: 상황 3개');
   $('[data-tab="all"]').click();
-  assert.equal(status.textContent, '전체: 상황 17개');
+  assert.equal(status.textContent, '전체: 상황 18개');
 });
 
 test('the read-out line is cleared when the language changes', () => {
@@ -288,4 +288,26 @@ test('both lesson apps settle the guide on every draw', () => {
     assert.ok(/settleGuide\(location, history,/.test(src), f);
     assert.ok(!/guideFor\(location/.test(src), f);
   }
+});
+
+// ---------- 2026-11-22: s18, a new team leader among former colleagues ----------
+test('s18 leads to the colleague-to-team-leader SOP, then the team leader\'s day', () => {
+  const s18 = flat.find(({ s }) => s.id === 's18');
+  assert.ok(s18, 's18 exists');
+  assert.equal(s18.g.id, 'org');
+  assert.equal(s18.s.first.href, '../sop-library/#transition-0');
+  assert.equal(s18.s.then.href, '../codex/#daily-tl');
+  const en = readFileSync(new URL('../../docs/superpowers/specs/2026-11-22-team-leader-self-copy.en.md', import.meta.url), 'utf8');
+  assert.equal(s18.s.text.en, en.split('\n').find((l) => l.startsWith('| s18 |')).split(' | ')[1].replace(/\s*\|$/, ''));
+  assert.ok(!/[가-힣]/.test(s18.s.text.en + s18.s.first.title.en + s18.s.then.title.en));
+});
+
+test('s18 link titles are the ones in the approved copy docs', () => {
+  const s18 = flat.find(({ s }) => s.id === 's18').s;
+  const cell = (f, key) => readFileSync(new URL(`../../docs/superpowers/specs/${f}`, import.meta.url), 'utf8')
+    .split('\n').find((l) => l.startsWith(`| ${key} |`)).split(' | ')[1].replace(/\s*\|$/, '');
+  assert.equal(s18.first.title.ko, cell('2026-11-22-team-leader-self-copy.md', '먼저 볼 곳'));
+  assert.equal(s18.then.title.ko, cell('2026-11-22-team-leader-self-copy.md', '이어서 볼 곳'));
+  assert.equal(s18.first.title.en, cell('2026-11-22-team-leader-self-copy.en.md', 'Look here first'));
+  assert.equal(s18.then.title.en, cell('2026-11-22-team-leader-self-copy.en.md', 'Then go here'));
 });

@@ -42,7 +42,7 @@ export function openItem(state, view, item) {
 }
 
 export function newState() {
-  return { principles: new Set(), team: null, careerTeam: null, careerLevel: null, dailyRole: null, dailyPick: null, focus: null };
+  return { principles: new Set(), team: null, careerTeam: null, careerLevel: null, dailyRole: null, dailyPick: null, weekChecks: new Set(), focus: null };
 }
 
 export function renderPage(root, id, lang, state) {
