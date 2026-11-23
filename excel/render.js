@@ -33,7 +33,27 @@ export function newExcelView() {
   return { lessonId: null, stage: 'cards', qi: 0, input: null, graded: null, firstTry: {}, status: '' };
 }
 
+// Every tap redraws at once, so the second click of a double tap would land on
+// whatever was just drawn under the finger (and answer the next question). The
+// browser marks that click with detail 2. It is dropped only within a moment of
+// the screen moving on (start, next, grading, retry, another lesson), so quick
+// taps on cards and slow double-click settings still work. Keys give detail 0.
+const DOUBLE_TAP_MS = 500;
+const guarded = new WeakMap();
+function dropSecondTap(root, view) {
+  const known = guarded.has(root);
+  guarded.set(root, view);
+  if (known) return;
+  root.addEventListener('click', (e) => {
+    const v = guarded.get(root);
+    if (e.detail > 1 && Date.now() - (v.movedAt ?? 0) < DOUBLE_TAP_MS) { e.stopPropagation(); e.preventDefault(); }
+  }, true);
+}
+
 export function renderExcel(root, lang, storage, route, view) {
+  dropSecondTap(root, view);
+  const screen = [route, view.lessonId, view.stage, view.qi, Boolean(view.graded)].join('|');
+  if (view.screen !== screen) { view.screen = screen; view.movedAt = Date.now(); }
   const tr = (text) => t(text, lang).text;
   const miso = (name, size = 88) => h('img', {
     class: 'ex-miso', src: `../assets/miso/${name}.webp`, alt: tr(MISO[name]),

@@ -872,6 +872,50 @@ def main():
         check("(x4) 320px: build question has no sideways scroll", page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
         page.context.close()
 
+        # (dt) a double tap on Start / Next must not answer the question drawn under the finger
+        LOG_CLICKS = "window.__clicks = []; addEventListener('click', (e) => { const t = e.target.closest('[data-start],[data-next],[data-option],[data-chip]'); window.__clicks.push([t ? Object.keys(t.dataset)[0] : e.target.tagName, e.detail]); }, true);"
+        for touch in (False, True):
+            ctx = browser.new_context(viewport={"width": 390, "height": 780}, has_touch=touch, is_mobile=touch)
+            ctx.add_init_script(TOUR_DONE + "\n" + IN_APP + "\n" + LOG_CLICKS)
+            page = ctx.new_page()
+            page.on("pageerror", lambda e: errors.append(str(e)))
+            page.goto(HUB + "excel/#lesson-1")
+            page.wait_for_selector("[data-start]")
+            how = "touch" if touch else "mouse"
+
+            def double(sel):
+                page.wait_for_timeout(600)  # apart from earlier taps, so these two count as one double tap
+                page.evaluate("window.__clicks = []")
+                loc = page.locator(sel)
+                loc.scroll_into_view_if_needed()
+                if touch:
+                    box = loc.bounding_box()
+                    x, y = box["x"] + box["width"] / 2, box["y"] + box["height"] / 2
+                    page.touchscreen.tap(x, y)
+                    page.wait_for_timeout(60)
+                    page.touchscreen.tap(x, y)
+                else:
+                    loc.dblclick()
+                page.wait_for_timeout(150)
+                return page.evaluate("window.__clicks")
+
+            clicks = double("[data-start]")
+            check(f"(dt) {how}: Start took the first tap, the second hit a fresh option", [c[1] for c in clicks] == [1, 2] and clicks[0][0] == "start", clicks)
+            check(f"(dt) {how}: double tap on Start leaves question 1 unanswered", page.locator("[data-explanation]").count() == 0)
+            answer = page.evaluate("import('../excel/data.js').then((d) => d.EXCEL_LESSONS[0].questions[0].answer)")
+            if page.locator("[data-explanation]").count() == 0:
+                page.click(f"[data-option='{answer}']")
+            clicks = double("[data-next]")
+            check(f"(dt) {how}: Next took the first tap, the second hit a fresh option", [c[1] for c in clicks] == [1, 2] and clicks[0][0] == "next" and clicks[1][0] in ("option", "chip"), clicks)
+            count = page.locator("[data-count]").inner_text()
+            check(f"(dt) {how}: double tap on Next goes to question 2, unanswered", "2" in count and page.locator("[data-explanation]").count() == 0, count)
+            page.wait_for_timeout(600)
+            q2 = page.evaluate("import('../excel/data.js').then((d) => d.EXCEL_LESSONS[0].questions[1].answer)")
+            if page.locator("[data-explanation]").count() == 0:
+                page.click(f"[data-option='{q2}']")
+            check(f"(dt) {how}: a normal tap still answers afterwards", page.locator(".explanation.is-correct").count() == 1)
+            ctx.close()
+
         # (ch) Staffing Lab channel comparison tab
         for lang in ("ko", "en"):
             for width in (320, 390, 1280):

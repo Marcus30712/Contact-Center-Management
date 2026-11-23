@@ -279,3 +279,66 @@ test('switching language after a steps question re-grades it in the new language
   assert.ok(p.root.querySelector('img[data-miso="joy"]'), 'still right in English');
   assert.ok(p.root.querySelector('[data-after]'));
 });
+
+// ---------- 2026-11-23: a double tap must not answer the next question ----------
+// The second click of a double tap lands on whatever was just drawn under the
+// finger; the browser marks it with detail 2.
+const secondTap = (el) => el.dispatchEvent(new window.MouseEvent('click', { bubbles: true, detail: 2 }));
+
+test('a double tap on Start does not answer question 1', () => {
+  const p = page(fakeStorage(), 'lesson-1');
+  click(p.root.querySelector('[data-start]'));
+  const q = Q('1-1');
+  secondTap(p.root.querySelector(`[data-option="${(q.answer + 1) % q.options.length}"]`));
+  assert.equal(p.root.querySelector('[data-explanation]'), null, 'not graded');
+  assert.equal('1-1' in p.view.firstTry, false, 'no first try recorded');
+  click(p.root.querySelector(`[data-option="${q.answer}"]`));
+  assert.ok(p.root.querySelector('.explanation.is-correct'), 'a real tap still answers');
+});
+
+test('a double tap on Next does not touch the next question (options, chips, cards or cells)', () => {
+  // [lesson, questions answered first, the control the stray tap lands on]
+  for (const [n, k, sel] of [[1, 1, '[data-option]'], [1, 2, '[data-chip]'], [2, 4, '[data-bank] [data-card]'], [1, 4, 'td[data-cell]'], [9, 4, '[data-bank] [data-card]']]) {
+    const p = page();
+    toQuestions(p, n);
+    const lesson = EXCEL_LESSONS[n - 1];
+    for (let i = 0; i < k; i += 1) { answerRight(p, lesson.questions[i]); click(p.root.querySelector('[data-next]')); }
+    const el = p.root.querySelector(sel);
+    assert.ok(el, `lesson ${n} question ${k + 1} has ${sel}`);
+    const before = p.root.innerHTML;
+    secondTap(el);
+    assert.equal(p.root.innerHTML, before, `lesson ${n} question ${k + 1} unchanged`);
+    assert.equal(lesson.questions[k].id in p.view.firstTry, false);
+  }
+});
+
+test('after a double tap on Next, question 2 is unanswered and a normal tap answers it', () => {
+  const p = page();
+  toQuestions(p, 1);
+  answerRight(p, Q('1-1'));
+  click(p.root.querySelector('[data-next]'));
+  secondTap(p.root.querySelector('[data-option]'));
+  assert.match(text(p.root, '[data-count]'), /2/);
+  assert.equal(p.root.querySelector('[data-explanation]'), null);
+  click(p.root.querySelector(`[data-option="${Q('1-2').answer}"]`));
+  assert.ok(p.root.querySelector('.explanation.is-correct'));
+});
+
+test('only taps right after the screen moves on are dropped: slow double-clickers and fast card removal still work', () => {
+  // A long system double-click setting: the click on an option comes well after Next.
+  const p = page();
+  toQuestions(p, 1);
+  p.view.movedAt -= 1000;
+  secondTap(p.root.querySelector(`[data-option="${Q('1-1').answer}"]`));
+  assert.ok(p.root.querySelector('.explanation.is-correct'), 'a later click with detail 2 answers');
+  // Taking cards off the line fast: the next card slides under the finger.
+  const b = page();
+  toQuestions(b, 2);
+  for (let i = 0; i < 4; i += 1) { answerRight(b, EXCEL_LESSONS[1].questions[i]); click(b.root.querySelector('[data-next]')); }
+  b.view.movedAt -= 1000;
+  for (const c of [...b.root.querySelectorAll('[data-bank] [data-card]')].slice(0, 3)) click(c);
+  assert.equal(b.root.querySelectorAll('[data-line-card]').length, 3);
+  click(b.root.querySelector('[data-line-card="0"]'));
+  secondTap(b.root.querySelector('[data-line-card="0"]'));
+  assert.equal(b.root.querySelectorAll('[data-line-card]').length, 1, 'both quick taps removed a card');
+});
