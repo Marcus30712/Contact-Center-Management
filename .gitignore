@@ -2,3 +2,5 @@ node_modules/
 .worktrees/
 .superpowers/
 **/scripts/out/
+__pycache__/
+*.pyc
