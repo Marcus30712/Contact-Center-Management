@@ -255,7 +255,7 @@ test('OJT sits between training and nesting (user wording)', () => {
   const ojt = term('ojt');
   assert.equal(ojt.category, 'process');
   assert.equal(ojt.name.en, 'On-the-Job Training');
-  for (const w of ['Basic Training', 'Trainer', 'SME', '채널별']) assert.ok(ojt.definition.ko.includes(w), w);
+  for (const w of ['Basic Training', 'Trainer', '직무전문가', '채널별']) assert.ok(ojt.definition.ko.includes(w), w);
   assert.ok(term('nesting').definition.ko.startsWith('OJT를 마친 신입이'));
 });
 
@@ -344,7 +344,7 @@ test('an unknown SOP lesson is rejected', () => {
 });
 
 test('the card links to the SOP Library next to the course link', () => {
-  for (const [lang, label] of [['ko', 'TL SOP 라이브러리에서 보기'], ['en', 'See it in the TL SOP Library']]) {
+  for (const [lang, label] of [['ko', '팀장 SOP 라이브러리에서 보기'], ['en', 'See it in the TL SOP Library']]) {
     const { $, $$ } = mount({}, lang, TERMS);
     const link = $('[data-term="grow"] a[data-sop-link]');
     assert.equal(link.getAttribute('href'), '../sop-library/#coaching-0');

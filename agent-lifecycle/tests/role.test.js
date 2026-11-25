@@ -113,7 +113,7 @@ test('role names follow the copy', () => {
     const [, ko, en] = row(label);
     assert.deepEqual(ROLE_NAMES[role], { ko: clean(ko), en: clean(en) }, role);
   }
-  assert.deepEqual(ROLE_SHORT, { agent: { ko: '상담사', en: 'Agent' }, sme: { ko: 'SME', en: 'SME' }, tl: { ko: 'TL', en: 'TL' }, am: { ko: 'AM', en: 'AM' }, om: { ko: 'OM', en: 'OM' } });
+  assert.deepEqual(ROLE_SHORT, { agent: { ko: '상담사', en: 'Agent' }, sme: { ko: '직무전문가', en: 'SME' }, tl: { ko: '팀장', en: 'TL' }, am: { ko: '부매니저', en: 'AM' }, om: { ko: '매니저', en: 'OM' } });
 });
 
 test('saving a role tells the page, so the menu can follow', async () => {

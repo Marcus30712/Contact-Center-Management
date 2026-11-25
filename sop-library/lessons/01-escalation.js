@@ -31,7 +31,7 @@ export default {
     ],
   },
   steps: [
-    step(tx('이 절차의 목적은 고객 불만을 빠르고 정확하게 상급자(SME나 팀장)에게 전달해 문제를 일찍 해결하는 것입니다. 고객을 응대하는 모든 상담사가 따릅니다. 팀장인 당신은 이 순서를 알아야 넘겨받을 준비를 할 수 있습니다.', 'This procedure exists to get a customer complaint to someone senior (an SME or the team leader) quickly and accurately, so the problem is solved early. Every agent who handles customers follows it. As the team leader, you need to know the order so you are ready to take the case over.'),
+    step(tx('이 절차의 목적은 고객 불만을 빠르고 정확하게 상급자(직무전문가나 팀장)에게 전달해 문제를 일찍 해결하는 것입니다. 고객을 응대하는 모든 상담사가 따릅니다. 팀장인 당신은 이 순서를 알아야 넘겨받을 준비를 할 수 있습니다.', 'This procedure exists to get a customer complaint to someone senior (an SME or the team leader) quickly and accurately, so the problem is solved early. Every agent who handles customers follows it. As the team leader, you need to know the order so you are ready to take the case over.'),
       flow, procedure, null),
     step(tx('지민이 화가 난 고객의 전화를 받습니다. 첫 단계는 불만 접수입니다. 고객의 말을 중간에 끊지 않고 끝까지 듣습니다.', 'Jimin takes a call from an angry customer. The first step is receiving the complaint. She listens to the end without cutting the customer off.'),
       flow, ['received'], 'received'),

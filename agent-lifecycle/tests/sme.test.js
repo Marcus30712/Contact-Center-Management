@@ -1,4 +1,4 @@
-// The SME course "SME 첫걸음" (2026-11-25). The Korean must be the approved
+// The SME course "직무전문가 첫걸음" (2026-11-25). The Korean must be the approved
 // copy, word for word: docs/superpowers/specs/2026-11-25-sme-course-copy-ko.md.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

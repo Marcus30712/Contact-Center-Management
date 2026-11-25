@@ -25,15 +25,15 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 매일 하는 스크러빙과 VOC, 캘리브레이션으로 팀의 트렌드를 파악하고, 알게 된 것을 팀 전체에 돌려주는 것입니다.", "This lesson is about using daily scrubbing, VOC and calibration to see the team's trends, and giving what you learn back to the whole team."), flow, procedure, null),
-    step(tx("스크러빙은 SME의 주된 일입니다. 처리된 티켓과 쌓여 있는 티켓을 다시 읽고 진짜 원인을 찾습니다. 매일 몇 건씩(예시: 하루 3~4건) 꾸준히 합니다.", "Scrubbing is one of the SME's main jobs. You reread handled tickets and tickets that have piled up and find the real causes. You do a few every day (Example: 3 to 4 a day)."), flow, ["scrub"], null),
+    step(tx("스크러빙은 직무전문가의 주된 일입니다. 처리된 티켓과 쌓여 있는 티켓을 다시 읽고 진짜 원인을 찾습니다. 매일 몇 건씩(예시: 하루 3~4건) 꾸준히 합니다.", "Scrubbing is one of the SME's main jobs. You reread handled tickets and tickets that have piled up and find the real causes. You do a few every day (Example: 3 to 4 a day)."), flow, ["scrub"], null),
     step(tx("첫 단계는 매일 스크러빙하기입니다. DSAT, CSAT, 미해결 순서로 티켓을 고르고, 원인을 한두 문장으로 요약해 정해진 분류로 나눕니다. 절차는 SOP 스크러빙에 있습니다.", "The first stage is scrubbing every day. Pick tickets in the order DSAT, CSAT, then unresolved, sum up each cause in a sentence or two, and sort it into the set categories. The procedure is in the Scrubbing SOP."), flow, ["scrub"], null),
     step(tx("매일 조금씩 하는 이유는 트렌드가 쌓여야 보이기 때문입니다. 한 번에 몰아서 보면 원인이 겹치는 것을 놓치기 쉽고, 돌려주는 것도 늦어집니다.", "A little each day works because trends show only as they build up. Looking at many at once makes it easy to miss shared causes, and slows giving them back."), flow, ["scrub"], null),
     step(tx("둘째 단계는 VOC 정리입니다. 고객이 반복해서 하는 말, 곧 불만과 요청과 제품에 대한 의견을 모아 정리합니다. 상담사가 바꿀 수 없는 원인은 고객사에 전할 내용이 됩니다.", "The second stage is the VOC write-up. Collect what customers keep saying: complaints, requests and views on the product. Causes agents cannot change become something to pass to the client."), flow, ["voc"], null),
-    step(tx("셋째 단계는 캘리브레이션입니다. QA, 팀장과 함께 같은 상담을 각자 평가하고 점수 차이를 맞춥니다. SME는 상담사가 현장에서 실제로 겪는 상황을 알려 주는 역할을 합니다.", "The third stage is calibration. With QA and the team leader, each person scores the same contact and you align the differences. The SME brings what agents really face on the floor."), flow, ["calibrate"], null),
-    step(tx("캘리브레이션에서 기준이 바뀌면 상담사들에게 먼저 전하는 사람도 SME입니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다.", "When calibration changes a standard, the SME is also the one who tells the agents first. No agent should be scored on a standard they did not know had changed."), flow, ["calibrate"], null),
+    step(tx("셋째 단계는 캘리브레이션입니다. QA, 팀장과 함께 같은 상담을 각자 평가하고 점수 차이를 맞춥니다. 직무전문가는 상담사가 현장에서 실제로 겪는 상황을 알려 주는 역할을 합니다.", "The third stage is calibration. With QA and the team leader, each person scores the same contact and you align the differences. The SME brings what agents really face on the floor."), flow, ["calibrate"], null),
+    step(tx("캘리브레이션에서 기준이 바뀌면 상담사들에게 먼저 전하는 사람도 직무전문가입니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다.", "When calibration changes a standard, the SME is also the one who tells the agents first. No agent should be scored on a standard they did not know had changed."), flow, ["calibrate"], null),
     step(tx("넷째 단계는 팀에 돌려주기입니다. 찾은 것을 허들, 팀 채팅방, 지식 베이스 업데이트로 나눠 전합니다.", "The fourth stage is giving it back. Pass what you found to the team through huddles, the team chat and knowledge base updates."), flow, ["give"], null),
     step(tx("한 사람의 실수가 원인이면 팀 앞이 아니라 팀장에게 건네는 요약(레슨 5)으로 보냅니다. 팀에는 누구의 건인지 밝히지 않고 배울 점만 나눕니다.", "If one person's mistake is the cause, send it in the summary for the team leader (lesson 5), not to the whole team. With the team, share only the lesson, without saying whose contact it was."), flow, ["give"], null),
-    step(tx("돌려준 지식이 쌓이면 같은 질문이 줄고, 당신에게 오는 요청도 줄어듭니다. 이것이 SME가 팀을 키우는 방식입니다.", "As the knowledge you give back builds up, the same questions drop, and so do the requests that come to you. That is how an SME grows a team."), flow, ["give"], null),
+    step(tx("돌려준 지식이 쌓이면 같은 질문이 줄고, 당신에게 오는 요청도 줄어듭니다. 이것이 직무전문가가 팀을 키우는 방식입니다.", "As the knowledge you give back builds up, the same questions drop, and so do the requests that come to you. That is how an SME grows a team."), flow, ["give"], null),
   ],
   checkpoint: [
     {
@@ -59,5 +59,5 @@ export default {
       explanation: tx("매일 조금씩 봐야 트렌드가 보이고, 지식을 제때 돌려줄 수 있습니다.", "Looking a little each day shows the trends and lets you give knowledge back in time."),
     },
   ],
-  connection: { to: "home", text: tx("SME 첫걸음을 마쳤습니다. 더 깊이 보고 싶다면 TL SOP 라이브러리의 스크러빙, 캘리브레이션, 기존 상담사 육성을 이어서 보세요.", "You have finished SME First Steps. To go deeper, continue with Scrubbing, Calibration and Developing Existing Agents in the TL SOP Library.") },
+  connection: { to: "home", text: tx("직무전문가 첫걸음을 마쳤습니다. 더 깊이 보고 싶다면 팀장 SOP 라이브러리의 스크러빙, 캘리브레이션, 기존 상담사 육성을 이어서 보세요.", "You have finished SME First Steps. To go deeper, continue with Scrubbing, Calibration and Developing Existing Agents in the TL SOP Library.") },
 };

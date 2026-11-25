@@ -41,8 +41,8 @@ const ROLE_IDS = ['agent', 'sme', 'tl', 'am', 'om'];
 const PAGE_IDS = ['principles', 'teams', 'career', 'daily'];
 const LINK_TARGETS = {
   '① 운영 최적화 4대 원칙': '#principles', '② 5대 핵심팀 청사진': '#teams', '③ 커리어 매트릭스': '#career',
-  '④ 직무별 일일 업무 가이드': '#daily', 'TL SOP 라이브러리': '../sop-library/#home',
-  'TL SOP 라이브러리 · 1:1 코칭': '../sop-library/#coaching-0', '인력 산정 실험실': '../staffing-calculator/',
+  '④ 직무별 일일 업무 가이드': '#daily', '팀장 SOP 라이브러리': '../sop-library/#home',
+  '팀장 SOP 라이브러리 · 1:1 코칭': '../sop-library/#coaching-0', '인력 산정 실험실': '../staffing-calculator/',
   '라이프사이클 레슨 6 · 경력 개발 및 전환·퇴사': '../agent-lifecycle/#career-0',
 };
 

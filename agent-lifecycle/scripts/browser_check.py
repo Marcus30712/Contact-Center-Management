@@ -284,7 +284,7 @@ def main():
         page.goto(HUB)
         cards = page.locator("a.card")
         check("(r) a team lead's home shows practice, guide and five Learn cards", cards.count() == 7, str(cards.count()))
-        for href, title in (("./guide/", "TL 상황별 길잡이"), ("./tl/", "TL 첫걸음"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./tl-support/", "TL 서포트 라이프사이클"), ("./sop-library/", "TL SOP 라이브러리"), ("../codex/", "Codex 원페이저"), ("../staffing-calculator/", "인력 산정 실험실"), ("../glossary/", "용어집"), ("../references/", "참고 자료")):
+        for href, title in (("./guide/", "팀장 상황별 길잡이"), ("./tl/", "팀장 첫걸음"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./tl-support/", "팀장 서포트 라이프사이클"), ("./sop-library/", "팀장 SOP 라이브러리"), ("../codex/", "Codex 원페이저"), ("../staffing-calculator/", "인력 산정 실험실"), ("../glossary/", "용어집"), ("../references/", "참고 자료")):
             page.goto(HUB if href.startswith("./") else HUB + "browse/")
             page.click(f"a.card[href='{href}']")
             page.wait_for_selector("#app h1")
@@ -1182,7 +1182,7 @@ def main():
 
         # (v) storage blocked
         page = new_page(browser, errors, init=BLOCK_STORAGE)
-        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "TL SOP 라이브러리", "TL SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers"), ("guide/", "TL 상황별 길잡이", "TL Situation Guide")):
+        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "팀장 SOP 라이브러리", "TL SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers"), ("guide/", "팀장 상황별 길잡이", "TL Situation Guide")):
             page.goto(HUB + path)
             page.wait_for_selector("#app h1")
             check(f"(v) {path} opens in Korean with storage blocked", page.inner_text("#app h1") == ko)
@@ -1369,7 +1369,7 @@ def main():
         check("(r4) the career matrix opens on SME", page.get_attribute("[data-level='sme']", "aria-pressed") == "true")
         page.goto(HUB + "sme/#firstday-0")
         page.wait_for_selector("[data-counter]")
-        check("(r5) the SME lesson opens", page.inner_text("#app h1") == "SME가 된 첫날")
+        check("(r5) the SME lesson opens", page.inner_text("#app h1") == "직무전문가가 된 첫날")
         page.goto(HUB + "settings/")
         page.wait_for_timeout(1500)  # let the page's own late redraws (offline status) finish first
         page.click("[data-set-role='am']")
@@ -1587,7 +1587,7 @@ def main():
             check(f"(rs3) {path} has the picker", page.input_value(".topbar select.role-switch") == "tl")
         page.goto(HUB + "tl/")
         page.wait_for_selector("#brand")
-        check("(rs4) a course page keeps its name at the top left", page.locator(".topbar select.role-switch").count() == 0 and page.inner_text("#brand") == "TL 첫걸음")
+        check("(rs4) a course page keeps its name at the top left", page.locator(".topbar select.role-switch").count() == 0 and page.inner_text("#brand") == "팀장 첫걸음")
         page.goto(HUB + "glossary/")
         page.wait_for_selector(".topbar select.role-switch")
         page.select_option(".topbar select.role-switch", "sme")
@@ -1598,7 +1598,7 @@ def main():
         page.click("[data-lang='en']")
         page.wait_for_timeout(200)
         names = page.evaluate("[...document.querySelectorAll('.topbar select.role-switch option')].map(o => o.textContent)")
-        check("(rs6) the picker follows the page into English", names[2] == "TL · Team Lead" and page.get_attribute(".topbar select.role-switch", "aria-label") == "My role", str(names))
+        check("(rs6) the picker follows the page into English", names[2] == "Team Lead / TL" and page.get_attribute(".topbar select.role-switch", "aria-label") == "My role", str(names))
         page.click("[data-lang='ko']")
         page.goto(HUB + "sme-guide/")
         page.wait_for_selector("[data-card]")

@@ -184,7 +184,7 @@ test('the course strings are in both languages', () => {
     assert.ok(SOP_UI[key]?.ko?.trim() && SOP_UI[key]?.en?.trim(), key);
     assert.ok(!/[가-힣]/.test(SOP_UI[key].en), key);
   }
-  assert.equal(SOP_UI.courseTitle.ko, 'TL SOP 라이브러리');
+  assert.equal(SOP_UI.courseTitle.ko, '팀장 SOP 라이브러리');
   assert.equal(SOP_UI.courseTagline.ko, '팀장이 알아야 할 절차를 순서대로.');
   assert.equal(SOP_UI.groupLeader.ko, '팀장이 직접 하는 절차');
   assert.equal(SOP_UI.groupCross.ko, '여러 팀이 함께 하는 절차');
@@ -212,7 +212,7 @@ function openLesson(id, stepIndex = 0, lang = 'ko') {
 test('the list shows the ten SOPs in order with who runs each', () => {
   const { root } = setupDom();
   renderSopHome(root, SOP_LESSONS, { completed: ['pip'] }, 'ko');
-  assert.equal(root.querySelector('h1').textContent, 'TL SOP 라이브러리');
+  assert.equal(root.querySelector('h1').textContent, '팀장 SOP 라이브러리');
   assert.equal(root.querySelector('[data-list-note]').textContent, SOP_UI.listNote.ko);
   const links = [...root.querySelectorAll('ol[data-sop-list] a[data-sop]')];
   assert.deepEqual([...root.querySelectorAll('[data-group]')].map((x) => x.textContent), ['팀장이 직접 하는 절차', '여러 팀이 함께 하는 절차']);

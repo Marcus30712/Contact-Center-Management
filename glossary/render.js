@@ -23,7 +23,7 @@ export const GLOSSARY_UI = {
   },
   empty: { ko: '찾는 용어가 없습니다.', en: 'No matching terms.' },
   seen: { ko: '강의에서 보기', en: 'See it in the course' },
-  sop: { ko: 'TL SOP 라이브러리에서 보기', en: 'See it in the TL SOP Library' },
+  sop: { ko: '팀장 SOP 라이브러리에서 보기', en: 'See it in the TL SOP Library' },
   count: { ko: '개', en: 'terms' },
   translationComing: { ko: '영어 번역 준비 중', en: 'Translation coming soon' },
 };

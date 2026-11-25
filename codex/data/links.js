@@ -19,7 +19,7 @@ export const LINKS = {
       "dir": "after",
       "href": "../sop-library/#home",
       "title": {
-        "ko": "TL SOP 라이브러리",
+        "ko": "팀장 SOP 라이브러리",
         "en": "TL SOP Library"
       },
       "why": {
@@ -121,7 +121,7 @@ export const LINKS = {
       "dir": "after",
       "href": "../sop-library/#coaching-0",
       "title": {
-        "ko": "TL SOP 라이브러리 · 1:1 코칭",
+        "ko": "팀장 SOP 라이브러리 · 1:1 코칭",
         "en": "TL SOP Library · 1:1 Coaching"
       },
       "why": {

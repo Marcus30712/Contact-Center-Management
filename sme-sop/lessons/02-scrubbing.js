@@ -13,7 +13,7 @@ export default {
   title: tx("스크러빙", "Scrubbing"),
   short: tx("스크러빙", "Scrubbing"),
   subtitle: tx("매일 몇 건씩 다시 읽고, 원인을 찾아 분류해 보냅니다.", "Reread a few tickets every day, find the cause, classify it and send it on."),
-  roles: tx("SME → 팀장 · 고객사", "SME → Team leader · Client"),
+  roles: tx("직무전문가 → 팀장 · 고객사", "SME → Team leader · Client"),
   personaName: tx("서준", "Seojun"),
   procedure,
   diagram: {
@@ -26,7 +26,7 @@ export default {
     edges: [edge("pick", "rca"), edge("rca", "classify"), edge("classify", "log")],
   },
   steps: [
-    step(tx("이 절차의 목적은 처리된 티켓과 쌓인 티켓을 다시 읽어 진짜 원인을 찾고, 고칠 수 있는 곳으로 보내는 것입니다. 팀장 SOP의 스크러빙 가운데 SME가 매일 맡는 부분입니다.", "This procedure exists to reread closed and backlogged tickets, find the real cause, and send it where it can be fixed. It is the part of the team leader's scrubbing SOP that the SME does every day."), flow, procedure, null),
+    step(tx("이 절차의 목적은 처리된 티켓과 쌓인 티켓을 다시 읽어 진짜 원인을 찾고, 고칠 수 있는 곳으로 보내는 것입니다. 팀장 SOP의 스크러빙 가운데 직무전문가가 매일 맡는 부분입니다.", "This procedure exists to reread closed and backlogged tickets, find the real cause, and send it where it can be fixed. It is the part of the team leader's scrubbing SOP that the SME does every day."), flow, procedure, null),
     step(tx("첫 단계는 대상 고르기입니다. DSAT, CSAT, 미해결 순서로 티켓을 고릅니다. 매일 3~4건(예시)씩 꾸준히 봅니다.", "The first step is picking tickets. Pick them in the order DSAT, CSAT, then unresolved. Review 3 to 4 a day (Example), steadily."), flow, ["pick"], null),
     step(tx("둘째 단계는 원인 분석입니다. 고객이 처음 원한 것, 상담사가 한 것, 결과가 어긋난 지점을 찾아 한두 문장으로 요약합니다.", "The second step is root cause analysis. Find what the customer first wanted, what the agent did, and where the result went wrong, and sum it up in a sentence or two."), flow, ["rca"], null),
     step(tx("원인은 \"왜\"를 몇 번 물어 끝까지 갑니다. \"안내가 틀렸다\"에서 멈추지 않고, 왜 틀렸는지, 문서가 없었는지, 문서가 오래됐는지까지 봅니다.", "Follow the cause to the end by asking \"why\" a few times. Don't stop at \"the explanation was wrong\"; check why it was wrong, whether there was no document, or whether the document was out of date."), flow, ["rca"], null),

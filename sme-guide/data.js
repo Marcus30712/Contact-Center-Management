@@ -6,7 +6,7 @@ import { GUIDE_UI } from '../guide/data.js';
 
 export const SME_GUIDE_UI = { ...GUIDE_UI, ...{
   "title": {
-    "ko": "SME 상황별 길잡이",
+    "ko": "직무전문가 상황별 길잡이",
     "en": "SME Situation Guide"
   },
   "intro": {
@@ -19,30 +19,30 @@ export const SME_GROUPS = [
   {
     "id": "week",
     "chip": {
-      "ko": "SME 첫 주",
+      "ko": "직무전문가 첫 주",
       "en": "First week"
     },
     "heading": {
-      "ko": "SME가 된 첫 주",
+      "ko": "직무전문가가 된 첫 주",
       "en": "Your first week as an SME"
     },
     "situations": [
       {
         "id": "m1",
         "text": {
-          "ko": "SME가 된 첫날이다",
+          "ko": "직무전문가가 된 첫날이다",
           "en": "It's your first day as an SME"
         },
         "first": {
           "title": {
-            "ko": "SME 첫걸음 레슨 1 · SME가 된 첫날",
+            "ko": "직무전문가 첫걸음 레슨 1 · 직무전문가가 된 첫날",
             "en": "SME First Steps lesson 1 · Your First Day as an SME"
           },
           "href": "../sme/#firstday-0"
         },
         "then": {
           "title": {
-            "ko": "Codex 원페이저 ④ SME의 하루",
+            "ko": "Codex 원페이저 ④ 직무전문가의 하루",
             "en": "Codex one-pager ④ An SME's day"
           },
           "href": "../codex/#daily-sme"
@@ -56,14 +56,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME 첫걸음 레슨 4 · 동료였던 선임 서포트",
+            "ko": "직무전문가 첫걸음 레슨 4 · 동료였던 선임 서포트",
             "en": "SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers"
           },
           "href": "../sme/#peer-0"
         },
         "then": {
           "title": {
-            "ko": "SME SOP · 에스컬레이션 승인",
+            "ko": "직무전문가 SOP · 에스컬레이션 승인",
             "en": "SME SOP · Escalation Approval"
           },
           "href": "../sme-sop/#approval-0"
@@ -90,14 +90,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원",
             "en": "SME Support Lifecycle lesson 1 · Supporting Agents in Training"
           },
           "href": "../sme-lifecycle/#trainee-0"
         },
         "then": {
           "title": {
-            "ko": "TL SOP · 신규 입사자 온보딩",
+            "ko": "팀장 SOP · 신규 입사자 온보딩",
             "en": "TL SOP · New Hire Onboarding"
           },
           "href": "../sop-library/#onboarding-0"
@@ -111,14 +111,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
             "en": "SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
           },
           "href": "../sme-lifecycle/#graduate-0"
         },
         "then": {
           "title": {
-            "ko": "SME 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트",
+            "ko": "직무전문가 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트",
             "en": "SME First Steps lesson 2 · Supporting Agents in Training or Just Trained"
           },
           "href": "../sme/#newcomer-0"
@@ -132,14 +132,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트",
+            "ko": "직무전문가 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트",
             "en": "SME First Steps lesson 2 · Supporting Agents in Training or Just Trained"
           },
           "href": "../sme/#newcomer-0"
         },
         "then": {
           "title": {
-            "ko": "SME 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
             "en": "SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
           },
           "href": "../sme-lifecycle/#graduate-0"
@@ -166,14 +166,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME SOP · 에스컬레이션 승인",
+            "ko": "직무전문가 SOP · 에스컬레이션 승인",
             "en": "SME SOP · Escalation Approval"
           },
           "href": "../sme-sop/#approval-0"
         },
         "then": {
           "title": {
-            "ko": "SME 첫걸음 레슨 3 · 기존 상담사 서포트",
+            "ko": "직무전문가 첫걸음 레슨 3 · 기존 상담사 서포트",
             "en": "SME First Steps lesson 3 · Supporting Existing Agents"
           },
           "href": "../sme/#escalation-0"
@@ -187,14 +187,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME 서포트 라이프사이클 레슨 3 · 정식 상담사 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 3 · 정식 상담사 지원",
             "en": "SME Support Lifecycle lesson 3 · Supporting Regular Agents"
           },
           "href": "../sme-lifecycle/#regular-0"
         },
         "then": {
           "title": {
-            "ko": "SME SOP · 상담 트렌드 요약 보고",
+            "ko": "직무전문가 SOP · 상담 트렌드 요약 보고",
             "en": "SME SOP · Contact Trend Summary Report"
           },
           "href": "../sme-sop/#trend-0"
@@ -203,12 +203,12 @@ export const SME_GROUPS = [
       {
         "id": "m8",
         "text": {
-          "ko": "선임이 SME나 팀장이 되고 싶어 한다",
+          "ko": "선임이 직무전문가나 팀장이 되고 싶어 한다",
           "en": "A senior agent wants to become an SME or team leader"
         },
         "first": {
           "title": {
-            "ko": "SME 서포트 라이프사이클 레슨 4 · 선임 상담사 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 4 · 선임 상담사 지원",
             "en": "SME Support Lifecycle lesson 4 · Supporting Senior Agents"
           },
           "href": "../sme-lifecycle/#senior-0"
@@ -242,14 +242,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME 첫걸음 레슨 6 · 요청이 동시에 몰릴 때",
+            "ko": "직무전문가 첫걸음 레슨 6 · 요청이 동시에 몰릴 때",
             "en": "SME First Steps lesson 6 · When Requests Pile Up at Once"
           },
           "href": "../sme/#priority-0"
         },
         "then": {
           "title": {
-            "ko": "SME SOP · 에스컬레이션 승인",
+            "ko": "직무전문가 SOP · 에스컬레이션 승인",
             "en": "SME SOP · Escalation Approval"
           },
           "href": "../sme-sop/#approval-0"
@@ -263,14 +263,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME SOP · 지식 베이스 업데이트 요청",
+            "ko": "직무전문가 SOP · 지식 베이스 업데이트 요청",
             "en": "SME SOP · Knowledge Base Update Requests"
           },
           "href": "../sme-sop/#kbrequest-0"
         },
         "then": {
           "title": {
-            "ko": "SME 첫걸음 레슨 7 · 팀에 지식 돌려주기",
+            "ko": "직무전문가 첫걸음 레슨 7 · 팀에 지식 돌려주기",
             "en": "SME First Steps lesson 7 · Giving Knowledge Back to the Team"
           },
           "href": "../sme/#knowledge-0"
@@ -297,14 +297,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME SOP · 출석 관리 대행",
+            "ko": "직무전문가 SOP · 출석 관리 대행",
             "en": "SME SOP · Covering Attendance"
           },
           "href": "../sme-sop/#attendance-0"
         },
         "then": {
           "title": {
-            "ko": "SME 첫걸음 레슨 5 · 팀장 서포트",
+            "ko": "직무전문가 첫걸음 레슨 5 · 팀장 서포트",
             "en": "SME First Steps lesson 5 · Supporting the Team Leader"
           },
           "href": "../sme/#lead-0"
@@ -318,14 +318,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME SOP · 상담 트렌드 요약 보고",
+            "ko": "직무전문가 SOP · 상담 트렌드 요약 보고",
             "en": "SME SOP · Contact Trend Summary Report"
           },
           "href": "../sme-sop/#trend-0"
         },
         "then": {
           "title": {
-            "ko": "SME SOP · 스크러빙",
+            "ko": "직무전문가 SOP · 스크러빙",
             "en": "SME SOP · Scrubbing"
           },
           "href": "../sme-sop/#scrubbing-0"
@@ -339,14 +339,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME 서포트 라이프사이클 레슨 5 · 팀장 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 5 · 팀장 지원",
             "en": "SME Support Lifecycle lesson 5 · Supporting the Team Leader"
           },
           "href": "../sme-lifecycle/#leadsupport-0"
         },
         "then": {
           "title": {
-            "ko": "SME SOP · 상담 트렌드 요약 보고",
+            "ko": "직무전문가 SOP · 상담 트렌드 요약 보고",
             "en": "SME SOP · Contact Trend Summary Report"
           },
           "href": "../sme-sop/#trend-0"
@@ -360,14 +360,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME SOP · 고객사 업데이트 허들",
+            "ko": "직무전문가 SOP · 고객사 업데이트 허들",
             "en": "SME SOP · Client Update Huddle"
           },
           "href": "../sme-sop/#huddle-0"
         },
         "then": {
           "title": {
-            "ko": "SME SOP · 지식 베이스 업데이트 요청",
+            "ko": "직무전문가 SOP · 지식 베이스 업데이트 요청",
             "en": "SME SOP · Knowledge Base Update Requests"
           },
           "href": "../sme-sop/#kbrequest-0"
@@ -381,14 +381,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME SOP · 캘리브레이션 참여와 기준 전달",
+            "ko": "직무전문가 SOP · 캘리브레이션 참여와 기준 전달",
             "en": "SME SOP · Joining Calibration and Passing On Standards"
           },
           "href": "../sme-sop/#calibration-0"
         },
         "then": {
           "title": {
-            "ko": "TL SOP · 캘리브레이션",
+            "ko": "팀장 SOP · 캘리브레이션",
             "en": "TL SOP · Calibration"
           },
           "href": "../sop-library/#calibration-0"
@@ -402,14 +402,14 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SME SOP · VOC 리포팅",
+            "ko": "직무전문가 SOP · VOC 리포팅",
             "en": "SME SOP · VOC Reporting"
           },
           "href": "../sme-sop/#voc-0"
         },
         "then": {
           "title": {
-            "ko": "SME SOP · 스크러빙",
+            "ko": "직무전문가 SOP · 스크러빙",
             "en": "SME SOP · Scrubbing"
           },
           "href": "../sme-sop/#scrubbing-0"

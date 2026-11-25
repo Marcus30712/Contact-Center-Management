@@ -9,7 +9,7 @@ import { ROLE_UI, ROLE_NAMES } from '../../shared/role-data.js';
 import { SME_UI } from '../../sme/ui.js';
 import { TL_UI } from '../../tl/ui.js';
 
-const HOME_COPY_SOP = 'SME가 따르는 표준 절차 8개를 순서대로 배웁니다.';
+const HOME_COPY_SOP = '직무전문가가 따르는 표준 절차 8개를 순서대로 배웁니다.';
 const SME_DOC = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-sme-course-copy-ko.md', import.meta.url), 'utf8');
 const SME_EN = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-sme-course-copy.en.md', import.meta.url), 'utf8');
 const afterRow = (doc, place) => doc.split('\n').find((l) => l.startsWith(`| ${place} |`)).slice(1, -1).split(' | ').map((c) => c.trim())[2];
@@ -338,7 +338,7 @@ const RH = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-role-ho
 const rhRows = (section) => RH.split(new RegExp(`^## ${section}\\. `, 'm'))[1].split(/^## /m)[0].split('\n')
   .filter((l) => l.startsWith('| ') && !/^\| (위치|직급|단계) /.test(l)).map((l) => l.slice(1, -1).split(' | ').map((c) => c.trim()));
 const rhRow = (section, first) => rhRows(section).find((r) => r[0] === first);
-const SHORT = { agent: ['상담사', 'Agent'], sme: ['SME', 'SME'], tl: ['TL', 'TL'], am: ['AM', 'AM'], om: ['OM', 'OM'] };
+const SHORT = { agent: ['상담사', 'Agent'], sme: ['직무전문가', 'SME'], tl: ['팀장', 'TL'], am: ['부매니저', 'AM'], om: ['매니저', 'OM'] };
 const fillRole = (text, role, lang) => text.replace(lang === 'ko' ? '{직급}' : '{role}', SHORT[role][lang === 'ko' ? 0 : 1]);
 const homeOf = (role, lang = 'ko', storage = fakeStorage()) => { const { root } = setupDom(); renderHome(root, lang, storage, '2026-11-25', role); return root; };
 const learnTitles = (root) => [...root.querySelectorAll('#learn li')].map((li) => li.querySelector('strong').textContent);
@@ -354,10 +354,10 @@ test('each role\'s home has the same sections in the same order', () => {
 test('Learn shows only the role\'s cards', () => {
   const hrefs = (root) => [...root.querySelectorAll('#learn li')].map((li) => li.querySelector('a.card')?.getAttribute('href') ?? 'soon');
   assert.deepEqual(hrefs(homeOf('tl')), ['./tl/', './agent-lifecycle/', './tl-support/', './sop-library/', './excel/']);
-  assert.deepEqual(learnTitles(homeOf('tl')), ['TL 첫걸음', '상담사 라이프사이클', 'TL 서포트 라이프사이클', 'TL SOP 라이브러리', '미소의 엑셀 연습']);
+  assert.deepEqual(learnTitles(homeOf('tl')), ['팀장 첫걸음', '상담사 라이프사이클', '팀장 서포트 라이프사이클', '팀장 SOP 라이브러리', '미소의 엑셀 연습']);
   assert.deepEqual(learnTitles(homeOf('tl', 'en')), ['TL First Steps', 'The Agent Lifecycle', 'TL Support Lifecycle', 'TL SOP Library', "Miso's Excel Practice"]);
   assert.deepEqual(hrefs(homeOf('sme')), ['./sme/', './sme-lifecycle/', './sme-sop/', './excel/']);
-  assert.deepEqual(learnTitles(homeOf('sme')), ['SME 첫걸음', 'SME 서포트 라이프사이클', 'SME SOP 라이브러리', '미소의 엑셀 연습']);
+  assert.deepEqual(learnTitles(homeOf('sme')), ['직무전문가 첫걸음', '직무전문가 서포트 라이프사이클', '직무전문가 SOP 라이브러리', '미소의 엑셀 연습']);
   assert.deepEqual(learnTitles(homeOf('sme', 'en')), ['SME First Steps', 'SME Support Lifecycle', 'SME SOP Library', "Miso's Excel Practice"]);
   for (const role of ['agent', 'am', 'om']) {
     assert.deepEqual(hrefs(homeOf(role)), ['soon', 'soon', './excel/'], role);
@@ -409,7 +409,7 @@ test('coming-soon cards are not links and say so', () => {
   // Support Lifecycle is built (2026-11-25): a link with the approved line; SME SOP is still coming.
   const sme = homeOf('sme');
   assert.equal(sme.querySelector('[data-soon="sme-lifecycle"]'), null);
-  assert.equal(sme.querySelector('a.card[href="./sme-lifecycle/"] span').textContent, rhRows(3).find((r) => r[1] === 'SME 서포트 라이프사이클')[3]);
+  assert.equal(sme.querySelector('a.card[href="./sme-lifecycle/"] span').textContent, rhRows(3).find((r) => r[1] === '직무전문가 서포트 라이프사이클')[3]);
   assert.deepEqual([...sme.querySelectorAll('#learn [data-soon]')].map((c) => c.dataset.soon), []);
 });
 
