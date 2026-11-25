@@ -6,6 +6,7 @@ import { PROGRESS_KEY } from '../agent-lifecycle/js/engine/progress.js';
 import { PROGRESS_KEY as EXCEL_KEY } from '../excel/engine.js';
 import { PRACTICE_KEY } from '../practice/engine.js';
 import { SOP_PROGRESS_KEY } from '../sop-library/ui.js';
+import { ROLE_KEY, ROLE_ASKED_KEY } from '../shared/role.js';
 
 // shared/theme-boot.js reads the same key before each page draws.
 export const THEME_KEY = 'queuecraft:theme';
@@ -32,7 +33,7 @@ export function applyTheme(doc, theme) {
 }
 
 // Everything a learner would lose when changing phones. Order is the file's order.
-export const BACKUP_KEYS = [LANG_KEY, TRACK_KEY, THEME_KEY, PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY];
+export const BACKUP_KEYS = [LANG_KEY, TRACK_KEY, THEME_KEY, ROLE_KEY, ROLE_ASKED_KEY, PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY];
 // A file must carry some progress: replacing everything with an empty file
 // (exported on a fresh or blocked browser) would wipe a learner's records.
 const PROGRESS_KEYS = [PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY];
@@ -80,13 +81,17 @@ export function readBackup(text) {
   return data;
 }
 
+// The role is kept when a file lacks it: files made before roles existed
+// (2026-11-25) should not make the app ask again.
+const KEEP_WHEN_MISSING = [ROLE_KEY, ROLE_ASKED_KEY];
+
 // Put the file's values in place; our keys the file lacks are cleared.
 // Returns false if the browser refused to store something.
 export function restoreBackup(storage, data) {
   for (const key of BACKUP_KEYS) {
     try {
       if (key in data) storage.setItem(key, data[key]);
-      else storage.removeItem?.(key);
+      else if (!KEEP_WHEN_MISSING.includes(key)) storage.removeItem?.(key);
     } catch {
       if (key in data) return false;
     }

@@ -16,6 +16,9 @@ export function newSettingsView() {
 // opts: onLang(lang) to switch language, download(name, text) to save a file,
 // today 'YYYY-MM-DD', offline true when the offline worker is ready, build the
 // offline store's version (null when unknown).
+import { ROLES, loadRole, saveRole } from '../shared/role.js';
+import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
+
 export function renderSettings(root, lang, storage, view, opts) {
   const tr = (text) => t(text, lang).text;
   const redraw = (focus) => {
@@ -92,6 +95,13 @@ export function renderSettings(root, lang, storage, view, opts) {
   root.replaceChildren(
     h('header', { class: 'glossary-head' }, [h('h1', { text: tr(UI.title) })]),
     section(UI.langHeading, [radios('data-set-lang', [['ko', '한국어'], ['en', 'English']], lang, tr(UI.langHeading), (l) => { if (l !== lang) opts.onLang(l); })]),
+    section(ROLE_UI.settingsHeading, [
+      h('p', { class: 'muted', text: tr(ROLE_UI.settingsNote) }),
+      radios('data-set-role', ROLES.map((r) => [r, tr(ROLE_NAMES[r])]), loadRole(storage), tr(ROLE_UI.settingsHeading), (r) => {
+        saveRole(storage, r);
+        redraw(`[data-set-role="${r}"]`);
+      }),
+    ], { 'data-role-section': true }),
     section(INSTALL_UI.tutorialHeading, [
       h('div', { class: 'st-row' }, [
         h('p', { class: 'st-row-label' }, [
