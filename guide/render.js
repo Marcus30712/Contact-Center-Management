@@ -1,9 +1,10 @@
-// Team Lead Situation Guide: chips pick a group; each situation opens to two
-// links into the rest of Queuecraft.
+// Situation Guide: chips pick a group; each situation opens to two links into
+// the rest of Queuecraft. The team-lead guide is the default; another role's
+// guide passes its own { ui, groups } (2026-11-25).
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { tabs, expandCard } from '../codex/render/parts.js';
-import { GUIDE_UI as UI, GROUPS } from './data.js';
+import { GUIDE_UI, GROUPS } from './data.js';
 import { withGuide } from './link.js';
 
 const MISO_ALT = { ko: '김미소, 생각하는 얼굴', en: 'Miso Kim, thinking' };
@@ -12,10 +13,11 @@ export function newGuideState() {
   return { group: 'all', open: new Set(), status: '', statusLang: null };
 }
 
-export function renderGuide(root, lang, state) {
+export function renderGuide(root, lang, state, data = { ui: GUIDE_UI, groups: GROUPS }) {
+  const { ui: UI, groups: GROUPS } = data;
   const tr = (text) => t(text, lang).text;
   const redraw = (focus) => {
-    renderGuide(root, lang, state);
+    renderGuide(root, lang, state, data);
     if (focus) root.querySelector(focus)?.focus();
   };
   // "Look here first" tells the lesson which situation it came from (see guide/link.js).
