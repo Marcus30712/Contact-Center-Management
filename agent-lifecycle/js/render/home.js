@@ -17,8 +17,12 @@ function arc(fromDeg, toDeg) {
   return `M${a.x.toFixed(1)} ${a.y.toFixed(1)} A${R} ${R} 0 0 1 ${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
 }
 
-export function renderHome(root, lessons, progress, lang) {
-  const tr = (text) => t(text, lang).text;
+// `text` holds the course's own strings (another course passes its own; keys it
+// lacks fall back to the lifecycle course's). Only the lifecycle course has tracks.
+export function renderHome(root, lessons, progress, lang, text = UI) {
+  const T = { ...UI, ...text };
+  const hasTracks = text === UI;
+  const tr = (value) => t(value, lang).text;
   const done = new Set(progress.completed);
   const step = 360 / lessons.length;
   document.documentElement.lang = lang;
@@ -43,7 +47,7 @@ export function renderHome(root, lessons, progress, lang) {
     }),
     s('g', { class: 'ring-center' }, [
       s('circle', { cx: CX, cy: CY - 12, r: 13 }),
-      s('text', { x: CX, y: CY + 20, 'text-anchor': 'middle', text: tr(UI.personaName) }),
+      s('text', { x: CX, y: CY + 20, 'text-anchor': 'middle', text: tr(T.personaName) }),
     ]),
     ...lessons.map((l, i) => {
       const p = onRing(-90 + i * step);
@@ -67,15 +71,15 @@ export function renderHome(root, lessons, progress, lang) {
   const fallback = hasFallback(lessons, lang);
   root.replaceChildren(
     h('header', { class: 'home-head' }, [
-      h('h1', { text: tr(UI.courseTitle) }),
-      h('p', { class: 'tagline', text: tr(UI.courseTagline) }),
-      h('p', { class: 'track-hint', 'data-track-hint': true, text: tr(UI.trackHint) }),
-      h('p', { class: 'translation-note', 'data-translation-note': true, hidden: !fallback, text: fallback ? tr(UI.translationComing) : '' }),
+      h('h1', { text: tr(T.courseTitle) }),
+      h('p', { class: 'tagline', text: tr(T.courseTagline) }),
+      hasTracks ? h('p', { class: 'track-hint', 'data-track-hint': true, text: tr(T.trackHint) }) : null,
+      h('p', { class: 'translation-note', 'data-translation-note': true, hidden: !fallback, text: fallback ? tr(T.translationComing) : '' }),
     ]),
     h('div', { class: 'home-body' }, [
       h('figure', { class: 'ring-wrap' }, [
         ring,
-        h('figcaption', { class: 'loop-note', text: `↺ ${tr(UI.loop)}` }),
+        h('figcaption', { class: 'loop-note', text: `↺ ${tr(T.loop)}` }),
       ]),
       h('ol', { class: 'stage-list', 'data-stage-list': true }, lessons.map((l) => h('li', {}, [
         h('a', { href: lessonHref(l.id, 0), 'data-stage': l.id, class: done.has(l.id) ? 'stage-card is-done' : 'stage-card' }, [
@@ -84,7 +88,7 @@ export function renderHome(root, lessons, progress, lang) {
             h('strong', { text: tr(l.title) }),
             h('span', { text: tr(l.subtitle) }),
           ]),
-          h('span', { class: 'stage-card-done', text: done.has(l.id) ? `✓ ${tr(UI.done)}` : '' }),
+          h('span', { class: 'stage-card-done', text: done.has(l.id) ? `✓ ${tr(T.done)}` : '' }),
         ]),
       ]))),
     ]),

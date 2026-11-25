@@ -53,7 +53,7 @@ test('the app manifest has what phones need to install it', () => {
 
 test('every page links the manifest and loads the shared menu', () => {
   const pages = runtimeFiles().filter((f) => f.endsWith('index.html'));
-  assert.equal(pages.length, 15);
+  assert.equal(pages.length, 16);
   for (const p of pages) {
     const html = readFileSync(join(ROOT, p), 'utf8');
     const up = p === 'index.html' ? './' : '../';

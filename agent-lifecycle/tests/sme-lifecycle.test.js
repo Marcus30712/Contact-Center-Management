@@ -123,3 +123,61 @@ test('the course words are the approved copy', () => {
   assert.equal(SL_UI.loop.ko, row(COPY, '순환 안내 (원 아래)'));
   assert.deepEqual(SL_LESSONS.map((l) => l.short.ko), row(COPY, '원 안 짧은 이름').split(' · '));
 });
+
+// ---------- the course page (Task 2) ----------
+import { setupDom } from './dom.js';
+import { renderHome } from '../js/render/home.js';
+import { renderLesson } from '../js/render/lesson.js';
+import { parseRoute, lessonHref } from '../js/engine/router.js';
+import { LESSONS } from '../js/lessons/index.js';
+
+function openLesson(id, stepIndex = 0, lang = 'ko') {
+  const { root } = setupDom();
+  renderLesson(root, SL_LESSONS.find((l) => l.id === id), stepIndex, lang, { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: SL_LESSONS.length, text: SL_UI });
+  return root;
+}
+
+test('the ring shows five stages with Seojun in the middle', () => {
+  const { root } = setupDom();
+  renderHome(root, SL_LESSONS, { completed: ['trainee'] }, 'ko', SL_UI);
+  assert.equal(root.querySelector('h1').textContent, SL_UI.courseTitle.ko);
+  assert.equal(root.querySelector('.tagline').textContent, SL_UI.courseTagline.ko);
+  const cards = [...root.querySelectorAll('.stage-card')];
+  assert.deepEqual(cards.map((a) => a.getAttribute('href')), IDS.map((id) => `#${id}-0`));
+  assert.ok(cards[0].classList.contains('is-done'));
+  assert.ok(!cards[1].classList.contains('is-done'));
+  assert.deepEqual([...root.querySelectorAll('svg .stage-name')].map((t) => t.textContent), row(COPY, '원 안 짧은 이름').split(' · '));
+  assert.equal(root.querySelector('.ring-center text').textContent, '서준');
+  assert.equal(root.querySelector('.loop-note').textContent, `↺ ${SL_UI.loop.ko}`);
+  assert.equal(root.querySelector('[data-track-hint]'), null);
+});
+
+test('the team-lead ring is unchanged', () => {
+  const { root } = setupDom();
+  renderHome(root, LESSONS, { completed: [] }, 'ko');
+  assert.ok(root.querySelector('[data-track-hint]'));
+  assert.equal(root.querySelector('.ring-center text').textContent, '지민');
+  assert.equal(root.querySelector('h1').textContent, '상담사 라이프사이클');
+});
+
+test('a lesson counts out of five, says SME checkpoint, and the last one leads to the list', () => {
+  const first = openLesson('trainee');
+  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 5');
+  assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), '#graduate-0');
+  assert.ok(first.textContent.includes(SL_UI.checkpoint.ko));
+  assert.equal(openLesson('leadsupport').querySelector('[data-next-lesson]').getAttribute('href'), '#home');
+  assert.equal(openLesson('senior', 3).querySelector('[data-persona] text').textContent, '준호');
+});
+
+test('stale addresses open the list', () => {
+  for (const hash of ['#home', '#nesting-2', '#lead-0', '', '#nope']) assert.deepEqual(parseRoute(hash, IDS), { view: 'home' }, hash);
+  const route = parseRoute('#trainee-99', IDS);
+  assert.equal(route.id, 'trainee');
+  const { root } = setupDom();
+  renderLesson(root, SL_LESSONS[0], route.step, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 5, text: SL_UI });
+  assert.ok(root.querySelector('.eyebrow'));
+});
+
+test('every lesson address opens that lesson', () => {
+  for (const id of IDS) assert.deepEqual(parseRoute(lessonHref(id, 3), IDS), { view: 'lesson', id, step: 3 }, id);
+});
