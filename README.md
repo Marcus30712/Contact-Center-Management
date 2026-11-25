@@ -8,7 +8,7 @@
 
 | 주제 | 폴더 | 설명 |
 |---|---|---|
-| 팀장 상황별 길잡이 / Situation Guide | [`guide/`](guide/) | 상황 18개를 고르면 먼저 볼 강의·SOP·원페이저로 안내 (한국어/영어) |
+| TL 상황별 길잡이 / Situation Guide | [`guide/`](guide/) | 상황 18개를 고르면 먼저 볼 강의·SOP·원페이저로 안내 (한국어/영어) |
 | 오늘의 연습 / Today's Practice | [`practice/`](practice/) | 마친 레슨(라이프사이클·SOP·SME·엑셀)에서 하루 3문제, 용어 카드, 평일 연속 학습과 배지 12개. 김미소가 표정으로 반응 (한국어/영어). 기록은 휴대폰에만 저장 |
 | 미소의 엑셀 연습 / Miso's Excel Practice | [`excel/`](excel/) | 팀장이 꼭 쓰는 엑셀 11가지(셀 주소부터 SUMIFS·XLOOKUP·피벗·조건부 서식까지)와, 배운 함수를 섞어 쓰는 심화 5개. 타자 없이 카드와 칸을 눌러 수식을 만들고, 미소 팀 콜 기록(예시)으로 실제 계산해 채점 (한국어/영어) |
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
@@ -22,7 +22,7 @@
 | 개인정보처리방침 / Privacy Policy | [`privacy/`](privacy/) | 앱이 개인정보를 수집하지 않고 기록은 기기에만 둔다는 안내. 스토어 등록용 주소 (한국어/영어) |
 | 설정 / Settings | [`settings/`](settings/) | 언어, 내 직급, 화면(시스템·밝게·어둡게), 기록 백업(파일로 내보내기·가져오기), 오프라인 준비 상태, 홈 화면 추가 안내, 버전. 아래 메뉴 다섯 번째 칸 (한국어/영어) |
 
-- 첫 화면: `index.html` (김미소 인사, 내 학습, 배우기·찾아보기 카드). 모든 페이지 아래에 공통 메뉴(홈·배우기·길잡이·찾아보기·설정)가 있습니다 (`shared/`)
+- 첫 화면: `index.html` (김미소 인사, 내 학습, 오늘의 연습, 상황별 길잡이, 배우기). 모든 직급이 같은 틀이고, 길잡이와 배우기 카드만 직급(`home/role-home.js`)에 따라 바뀝니다. 아직 없는 강의는 "준비 중" 카드로 보입니다. 찾아보기 카드는 별도 페이지 `browse/`에 있습니다. 모든 페이지 아래에 공통 메뉴(홈·배우기·길잡이·찾아보기·설정)가 있습니다 (`shared/`)
 - 앱 설치·오프라인: `manifest.webmanifest`, `sw.js`. 화면 파일을 바꾸면 `python3 tools/sw_list.py`로 `sw.js`를 다시 만듭니다
 - 캐릭터 김미소 이미지: Marcus Shim이 Google Gemini로 생성. CC BY-NC-ND 4.0을 따릅니다 (`assets/miso/`, 원본 `art/miso/`)
 - 설계 문서와 계획: `docs/superpowers/`
