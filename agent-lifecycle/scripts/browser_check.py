@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "review/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -1375,6 +1375,26 @@ def main():
         page.goto(HUB)
         page.wait_for_selector("[data-role-preparing]")
         check("(r6) a role without a course shows the preparing note", page.locator("[data-role-preparing] a").count() == 2)
+        page.context.close()
+
+        # (q) review quiz (2026-11-25): an SME who finished the course takes the quiz and gets the badge
+        seed = "try { localStorage.setItem('queuecraft:role', 'sme'); localStorage.setItem('sme-course:v1', JSON.stringify({ completed: ['firstday','newcomer','escalation','peer','lead','priority','knowledge'] })); } catch (e) {}"
+        page = new_page(browser, errors, init=seed)
+        page.goto(HUB)
+        page.wait_for_selector("a[data-review-quiz]")
+        check("(q1) the home quiz card leads to the SME quiz", page.get_attribute("a[data-review-quiz]", "href") == "./review/#sme")
+        page.click("a[data-review-quiz]")
+        page.wait_for_selector("[data-question]")
+        from_data = page.evaluate("async () => (await import(new URL('./data.js', location.href).href)).QUIZZES.sme.questions.map((q) => q.answer)")
+        for a in from_data:
+            page.click(f"[data-option='{a}']")
+            page.click("[data-next]")
+        page.wait_for_selector("[data-score]")
+        check("(q1) a full run scores 6 of 6", "6" in page.inner_text("[data-score]") and page.locator("[data-new-badge]").count() == 1)
+        page.goto(HUB + "practice/")
+        page.wait_for_selector("#app > *")
+        got = page.evaluate("JSON.parse(localStorage.getItem('kb-practice:v1') || '{}').badges || {}")
+        check("(q2) the badge is kept for the practice page", "review-sme" in got, str(got))
         page.context.close()
 
         browser.close()
