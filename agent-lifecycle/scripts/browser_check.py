@@ -289,7 +289,7 @@ def main():
             page.click(f"a.card[href='{href}']")
             page.wait_for_selector("#app h1")
             check(f"(r) card opens {href}", page.inner_text("#app h1") == title, page.inner_text("#app h1"))
-        for path, link in (("glossary/", "[data-back]"), ("references/", "[data-back]"), ("staffing-calculator/", "[data-back]"), ("agent-lifecycle/", "[data-kb-link]"), ("sop-library/", "[data-kb-link]"), ("codex/", "[data-kb-link]"), ("guide/", "a.brand")):
+        for path, link in (("glossary/", "[data-back]"), ("references/", "[data-back]"), ("staffing-calculator/", "[data-back]"), ("agent-lifecycle/", "[data-kb-link]"), ("sop-library/", "[data-kb-link]"), ("codex/", "[data-kb-link]")):
             page.goto(HUB + path)
             page.wait_for_selector("#app > *")
             page.click(link)
@@ -1371,8 +1371,9 @@ def main():
         page.wait_for_selector("[data-counter]")
         check("(r5) the SME lesson opens", page.inner_text("#app h1") == "SME가 된 첫날")
         page.goto(HUB + "settings/")
+        page.wait_for_timeout(1500)  # let the page's own late redraws (offline status) finish first
         page.click("[data-set-role='am']")
-        page.goto(HUB)
+        page.wait_for_url(HUB)  # a new role in Settings opens that role's home (2026-11-26)
         page.wait_for_selector("[data-soon='first-steps']")
         check("(r6) a role without a course sees coming-soon cards", page.locator("[data-soon] a").count() >= 2 and page.locator("#learn a.card[href='./excel/']").count() == 1)
         box = page.evaluate("""() => {
@@ -1551,18 +1552,54 @@ def main():
         check("(g2) the lesson ends with the guide's next place", page.get_attribute("[data-connection] a[data-guide-then]", "href") == "../sop-library/#onboarding-0")
         page.screenshot(path=str(OUT / "sme-guide-then-390.png"), full_page=False)
         page.context.close()
-        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'tl'); } catch (e) {}")
+        # Seed the role once: an init script runs on every page, and these checks change the role and move on.
+        once_tl = "try { if (!localStorage.getItem('queuecraft:role')) localStorage.setItem('queuecraft:role', 'tl'); } catch (e) {}"
+        page = new_page(browser, errors, init=once_tl)
         page.goto(HUB)
         page.wait_for_selector("nav.appbar a[data-item='guide']")
         check("(g1) a team lead's menu Guide still opens the TL guide", page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/kb/guide/"))
         page.goto(HUB + "settings/")
         page.wait_for_selector("[data-set-role='sme']")
         page.wait_for_timeout(1500)  # let the page's own late redraws (offline status) finish first
-        page.evaluate("window.__samePage = true")  # a reload would hide a menu that never updated
         page.click("[data-set-role='sme']")
-        page.wait_for_timeout(300)
-        check("(g1) after picking SME in Settings, the menu Guide opens the SME guide at once",
-              page.evaluate("window.__samePage === true") and page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/sme-guide/"))
+        page.wait_for_url(HUB)
+        page.wait_for_selector("#learn a.card[href='./sme/']")
+        check("(g1) after picking SME in Settings, home opens with the SME courses and the SME guide",
+              page.locator("#learn a.card[href='./tl/']").count() == 0 and page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/sme-guide/"))
+        page.context.close()
+
+        # (rs) the role picker in the top bar (2026-11-26)
+        page = new_page(browser, errors, init=once_tl)
+        page.goto(HUB)
+        page.wait_for_selector(".topbar select.role-switch")
+        check("(rs1) home shows the role picker with the saved role, not the Queuecraft word",
+              page.input_value(".topbar select.role-switch") == "tl" and page.locator(".topbar a.brand").count() == 0)
+        boxes = page.evaluate("""() => {
+          const r = (el) => el.getBoundingClientRect();
+          const a = r(document.querySelector('.topbar select.role-switch')), b = r(document.querySelector('#lang'));
+          return { overlap: !(a.right <= b.left || b.right <= a.left || a.bottom <= b.top || b.bottom <= a.top), inside: a.left >= 0 && a.right <= window.innerWidth, h: a.height };
+        }""")
+        check("(rs2) on a phone the picker sits beside the language buttons without overlapping", not boxes["overlap"] and boxes["inside"] and boxes["h"] >= 32, str(boxes))
+        page.screenshot(path=str(OUT / "role-switch-390.png"), clip={"x": 0, "y": 0, "width": 390, "height": 80})
+        for path in ("settings/", "guide/", "glossary/", "practice/", "excel/", "privacy/"):
+            page.goto(HUB + path)
+            page.wait_for_selector(".topbar select.role-switch")
+            check(f"(rs3) {path} has the picker", page.input_value(".topbar select.role-switch") == "tl")
+        page.goto(HUB + "tl/")
+        page.wait_for_selector("#brand")
+        check("(rs4) a course page keeps its name at the top left", page.locator(".topbar select.role-switch").count() == 0 and page.inner_text("#brand") == "TL 첫걸음")
+        page.goto(HUB + "glossary/")
+        page.wait_for_selector(".topbar select.role-switch")
+        page.select_option(".topbar select.role-switch", "sme")
+        page.wait_for_url(HUB)
+        page.wait_for_selector("#learn a.card[href='./sme/']")
+        check("(rs5) picking SME in the top bar opens home with the SME courses and guide",
+              page.input_value(".topbar select.role-switch") == "sme" and page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/sme-guide/"))
+        page.click("[data-lang='en']")
+        page.wait_for_timeout(200)
+        names = page.evaluate("[...document.querySelectorAll('.topbar select.role-switch option')].map(o => o.textContent)")
+        check("(rs6) the picker follows the page into English", names[2] == "TL · Team Lead" and page.get_attribute(".topbar select.role-switch", "aria-label") == "My role", str(names))
+        page.click("[data-lang='ko']")
         page.goto(HUB + "sme-guide/")
         page.wait_for_selector("[data-card]")
         page.screenshot(path=str(OUT / "sme-guide-390.png"), full_page=True)

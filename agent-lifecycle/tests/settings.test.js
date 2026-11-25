@@ -220,6 +220,19 @@ test('the role section sits after language and saves the pick', () => {
   }
 });
 
+// 2026-11-26: a new role in Settings takes the learner to that role's home.
+test('picking a role saves it first, then hands it on so the page can go home', () => {
+  const s = fakeStorage({ [ROLE_KEY]: 'tl' });
+  const seen = [];
+  const { root } = page(s, 'ko', { onRole: (r) => seen.push([r, loadRole(s)]) });
+  click(root.querySelector('[data-set-role="sme"]'));
+  assert.deepEqual(seen, [['sme', 'sme']]);
+});
+
+test('the settings page sends a new role home', () => {
+  assert.match(file('settings/app.js'), /onRole: \(\) => location\.assign\('\.\.\/'\)/);
+});
+
 test('language buttons show the current one and report a change', () => {
   const { root, calls } = page(fakeStorage(), 'ko');
   assert.equal(root.querySelector('[data-set-lang="ko"]').getAttribute('aria-checked'), 'true');
@@ -284,7 +297,7 @@ test('offline status reads ready or waiting', () => {
 
 test('the settings page is a real page and home no longer shows the install note', async () => {
   const html = file('settings/index.html');
-  assert.ok(html.includes('<a class="brand" href="../">Queuecraft</a>') && html.includes('../shared/appbar.js'));
+  assert.ok(html.includes('<span class="role-slot" data-role-slot></span>') && html.includes('../shared/appbar.js'));
   assert.ok(file('sw.js').includes('"settings/index.html"'));
   const { renderHome } = await import('../../home/render.js');
   const { root } = setupDom();

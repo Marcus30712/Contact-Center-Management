@@ -2,6 +2,7 @@
 // page loads this file once; it draws the menu, keeps its labels in the
 // page's language, and registers the offline worker.
 import { loadRole, ROLE_EVENT } from './role.js';
+import { renderRoleSwitch, pickRole } from './role-switch.js';
 
 export const APPBAR_UI = {
   label: { ko: '주 메뉴', en: 'Main menu' },
@@ -115,6 +116,13 @@ function mount() {
     const old = document.querySelector('nav.appbar');
     if (old) old.replaceWith(nav);
     else document.body.append(nav);
+    // The role picker in the top bar (2026-11-26), on pages that keep a place for it.
+    const slot = document.querySelector('[data-role-slot]');
+    if (slot) {
+      let storage = null;
+      try { storage = window.localStorage; } catch { /* blocked */ }
+      slot.replaceChildren(renderRoleSwitch(document, lang, pageRole(), (role) => pickRole(storage, role, rootUrl, (url) => location.assign(url))));
+    }
   };
   draw();
   // Pages switch language by changing <html lang>; hash changes can move "current".

@@ -99,7 +99,9 @@ export function renderSettings(root, lang, storage, view, opts) {
       h('p', { class: 'muted', text: tr(ROLE_UI.settingsNote) }),
       radios('data-set-role', ROLES.map((r) => [r, tr(ROLE_NAMES[r])]), loadRole(storage), tr(ROLE_UI.settingsHeading), (r) => {
         saveRole(storage, r);
-        redraw(`[data-set-role="${r}"]`);
+        // The page goes to the new role's home (2026-11-26); without that, stay here.
+        if (opts.onRole) opts.onRole(r);
+        else redraw(`[data-set-role="${r}"]`);
       }),
     ], { 'data-role-section': true }),
     section(INSTALL_UI.tutorialHeading, [
