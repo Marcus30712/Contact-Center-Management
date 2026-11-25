@@ -181,3 +181,19 @@ test('stale addresses open the list', () => {
 test('every lesson address opens that lesson', () => {
   for (const id of IDS) assert.deepEqual(parseRoute(lessonHref(id, 3), IDS), { view: 'lesson', id, step: 3 }, id);
 });
+
+// ---------- connected to practice (Task 3) ----------
+import { fakeStorage } from './helpers.js';
+import { pool } from '../../practice/engine.js';
+import { renderPractice, newPracticeView } from '../../practice/render.js';
+import { COURSE_INFO } from '../../shared/courses.js';
+
+test('support lifecycle questions link to their own course', () => {
+  assert.deepEqual(COURSE_INFO['sme-lifecycle'], { key: SL_PROGRESS_KEY, lessons: SL_LESSONS, dir: 'sme-lifecycle/' });
+  const s = fakeStorage({ 'sme-lifecycle:v1': JSON.stringify({ completed: ['trainee'] }) });
+  assert.deepEqual(pool(s).map((q) => q.key), ['sme-lifecycle:trainee-q1', 'sme-lifecycle:trainee-q2']);
+  const { root } = setupDom();
+  renderPractice(root, 'ko', s, '2026-11-25', newPracticeView());
+  root.querySelector('[data-question] [data-option]').dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+  assert.equal(root.querySelector('a[data-review]').getAttribute('href'), '../sme-lifecycle/#trainee-0');
+});

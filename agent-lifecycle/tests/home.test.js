@@ -30,7 +30,7 @@ test('home wording is the approved wording', () => {
 });
 
 test('cards keep every topic and are split into learn and browse', () => {
-  assert.deepEqual(LEARN.map((c) => c.href), ['./agent-lifecycle/', './sop-library/', './excel/', './sme/']);
+  assert.deepEqual(LEARN.map((c) => c.href), ['./agent-lifecycle/', './sop-library/', './excel/', './sme/', './sme-lifecycle/']);
   assert.deepEqual(BROWSE.map((c) => c.href), ['./codex/', './staffing-calculator/', './glossary/', './references/']);
   assert.equal(GUIDE_CARD.href, './guide/');
   for (const c of [GUIDE_CARD, ...LEARN, ...BROWSE]) {
@@ -207,9 +207,10 @@ test('an SME learner sees the SME course first in Learn and in my learning', () 
   const s = fakeStorage({ 'sme-course:v1': '{"completed":["firstday"]}' });
   const { root } = setupDom();
   renderHome(root, 'ko', s, '2026-11-25', 'sme');
-  assert.deepEqual([...root.querySelectorAll('#learn a.card')].map((a) => a.getAttribute('href')), ['./sme/', './excel/']);
+  assert.deepEqual([...root.querySelectorAll('#learn a.card')].map((a) => a.getAttribute('href')), ['./sme/', './sme-lifecycle/', './excel/']);
   assert.equal(root.querySelector('#learn a').querySelector('span').textContent, SME_UI.homeCard.ko);
-  assert.deepEqual(myLearning(s, 'sme').map((r) => r.id), ['sme', 'excel']);
+  assert.deepEqual(myLearning(s, 'sme').map((r) => r.id), ['sme', 'sme-lifecycle', 'excel']);
+  assert.equal(root.querySelector('[data-next="sme-lifecycle"]').getAttribute('href'), './sme-lifecycle/#trainee-0');
   assert.equal(root.querySelector('[data-next="sme"]').getAttribute('href'), './sme/#newcomer-0');
   assert.deepEqual(myLearning(s).map((r) => r.id), ['lifecycle', 'sop', 'excel']);
 });
@@ -249,7 +250,18 @@ test('team lead home hides SME progress and can be all done', () => {
 });
 
 test('an SME sees only SME and Excel progress', () => {
-  assert.deepEqual(myLearning(fakeStorage(ALL), 'sme').map((r) => r.id), ['sme', 'excel']);
+  assert.deepEqual(myLearning(fakeStorage(ALL), 'sme').map((r) => r.id), ['sme', 'sme-lifecycle', 'excel']);
+});
+
+test('team leads do not see support lifecycle but its progress counts', () => {
+  const s = fakeStorage({ 'sme-lifecycle:v1': JSON.stringify({ completed: ['trainee'] }) });
+  const rows = myLearning(s, 'tl');
+  assert.ok(!rows.some((r) => r.id === 'sme-lifecycle'));
+  assert.equal(rows.started, true);
+  const { root } = setupDom();
+  renderHome(root, 'ko', s, '2026-11-25', 'tl');
+  assert.equal(root.querySelector('#learn a[href="./sme-lifecycle/"]'), null);
+  assert.equal(root.querySelector('[data-course="sme-lifecycle"]'), null);
 });
 
 test('roles without a course see Excel only', () => {
@@ -313,7 +325,7 @@ test('Learn shows only the role\'s cards', () => {
   const hrefs = (root) => [...root.querySelectorAll('#learn li')].map((li) => li.querySelector('a.card')?.getAttribute('href') ?? 'soon');
   assert.deepEqual(hrefs(homeOf('tl')), ['./agent-lifecycle/', './sop-library/', './excel/']);
   assert.deepEqual(learnTitles(homeOf('tl')), ['상담사 라이프사이클', 'SOP 라이브러리', '미소의 엑셀 연습']);
-  assert.deepEqual(hrefs(homeOf('sme')), ['./sme/', 'soon', 'soon', './excel/']);
+  assert.deepEqual(hrefs(homeOf('sme')), ['./sme/', './sme-lifecycle/', 'soon', './excel/']);
   assert.deepEqual(learnTitles(homeOf('sme')), ['SME 첫걸음', '서포트 라이프사이클', 'SME SOP 라이브러리', '미소의 엑셀 연습']);
   assert.deepEqual(learnTitles(homeOf('sme', 'en')), ['SME First Steps', 'Support Lifecycle', 'SME SOP Library', "Miso's Excel Practice"]);
   for (const role of ['agent', 'am', 'om']) {
@@ -352,9 +364,11 @@ test('coming-soon cards are not links and say so', () => {
     assert.equal(card.querySelector('[data-soon-text]').textContent, fillRole(lang === 'ko' ? text[1] : text[2], role, lang));
     assert.deepEqual([...card.querySelectorAll('a')].map((a) => a.getAttribute('href')), ['./codex/#career', `./codex/#daily-${role}`]);
   }
-  const support = homeOf('sme').querySelector('[data-soon="sme-lifecycle"]');
-  assert.equal(support.querySelector('[data-soon-text]').textContent, rhRows(3).find((r) => r[1] === '서포트 라이프사이클')[3]);
-  assert.ok(support.querySelector('[data-soon-mark]'));
+  // Support Lifecycle is built (2026-11-25): a link with the approved line; SME SOP is still coming.
+  const sme = homeOf('sme');
+  assert.equal(sme.querySelector('[data-soon="sme-lifecycle"]'), null);
+  assert.equal(sme.querySelector('a.card[href="./sme-lifecycle/"] span').textContent, rhRows(3).find((r) => r[1] === '서포트 라이프사이클')[3]);
+  assert.deepEqual([...sme.querySelectorAll('#learn [data-soon]')].map((c) => c.dataset.soon), ['sme-sop']);
 });
 
 test('working links inside a coming-soon card are not announced as unavailable', () => {

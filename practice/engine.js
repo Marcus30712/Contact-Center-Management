@@ -7,6 +7,8 @@ import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { SME_LESSONS } from '../sme/lessons/index.js';
 import { SME_PROGRESS_KEY as SME_KEY } from '../sme/ui.js';
+import { SL_LESSONS } from '../sme-lifecycle/lessons/index.js';
+import { SL_PROGRESS_KEY as SL_KEY } from '../sme-lifecycle/ui.js';
 import { loadReview } from '../review/engine.js';
 import { loadRole, showsAdvancedExcel } from '../shared/role.js';
 import { TERMS } from '../glossary/terms.js';
@@ -84,6 +86,7 @@ export function pool(storage, { allTracks = false } = {}) {
     ...from('lifecycle', LESSONS, lifeDone, (l) => (allTracks ? l.checkpoint : visibleQuestions(l, track))),
     ...from('sop', SOP_LESSONS, sopDone, (l) => l.checkpoint),
     ...from('sme', SME_LESSONS, finished(storage, SME_KEY), (l) => l.checkpoint),
+    ...from('sme-lifecycle', SL_LESSONS, finished(storage, SL_KEY), (l) => l.checkpoint),
     ...excelQuestions(storage),
   ];
 }
@@ -214,7 +217,7 @@ export function streak(days, today) {
 
 export function openTerms(storage) {
   const lifeDone = finished(storage, LIFE_KEY);
-  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0 || finished(storage, SME_KEY).length > 0
+  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0 || finished(storage, SME_KEY).length > 0 || finished(storage, SL_KEY).length > 0
     || (storage ? loadExcelProgress(storage).completed.length > 0 : false);
   if (!anyDone) return [];
   return TERMS.filter((t) => (t.seen.length ? t.seen.some((id) => lifeDone.includes(id)) : true));
