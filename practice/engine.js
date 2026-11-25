@@ -5,6 +5,9 @@ import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
 import { loadTrack, visibleQuestions } from '../agent-lifecycle/js/engine/track.js';
 import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
+import { SME_LESSONS } from '../sme/lessons/index.js';
+import { SME_PROGRESS_KEY as SME_KEY } from '../sme/ui.js';
+import { loadReview } from '../review/engine.js';
 import { TERMS } from '../glossary/terms.js';
 import { EXCEL_LESSONS } from '../excel/data.js';
 import { EXCEL_ADVANCED } from '../excel/advanced.js';
@@ -12,7 +15,7 @@ import { loadProgress as loadExcelProgress, displayOrder } from '../excel/engine
 import { EXCEL_FEEDBACK } from '../excel/feedback.js';
 
 export const PRACTICE_KEY = 'kb-practice:v1';
-export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel'];
+export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel', 'review-tl', 'review-sme'];
 const LIFE_KEY = 'agent-lifecycle-course:v1';
 const SOP_KEY = 'sop-library:v1';
 const PER_DAY = 3;
@@ -79,6 +82,7 @@ export function pool(storage, { allTracks = false } = {}) {
   return [
     ...from('lifecycle', LESSONS, lifeDone, (l) => (allTracks ? l.checkpoint : visibleQuestions(l, track))),
     ...from('sop', SOP_LESSONS, sopDone, (l) => l.checkpoint),
+    ...from('sme', SME_LESSONS, finished(storage, SME_KEY), (l) => l.checkpoint),
     ...excelQuestions(storage),
   ];
 }
@@ -208,7 +212,7 @@ export function streak(days, today) {
 
 export function openTerms(storage) {
   const lifeDone = finished(storage, LIFE_KEY);
-  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0
+  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0 || finished(storage, SME_KEY).length > 0
     || (storage ? loadExcelProgress(storage).completed.length > 0 : false);
   if (!anyDone) return [];
   return TERMS.filter((t) => (t.seen.length ? t.seen.some((id) => lifeDone.includes(id)) : true));
@@ -263,6 +267,8 @@ export function checkBadges(state, ctx = {}) {
   add('lifecycle', ctx.lifecycleDone);
   add('sop', ctx.sopDone);
   add('excel', ctx.excelDone);
+  add('review-tl', ctx.reviewTl);
+  add('review-sme', ctx.reviewSme);
   return earned;
 }
 
@@ -278,6 +284,8 @@ export function courseFacts(storage, state, terms) {
       const done = loadExcelProgress(storage).completed;
       return EXCEL_LESSONS.every((l) => done.includes(l.id));
     })(),
+    reviewTl: Boolean(storage && loadReview(storage).tl?.passed),
+    reviewSme: Boolean(storage && loadReview(storage).sme?.passed),
     openTermCount: terms.length,
     allTermsKnown: terms.length > 0 && terms.every((t) => state.cards[t.id]?.known),
   };

@@ -110,7 +110,7 @@ test('streak counts weekdays only', () => {
 });
 
 test('badges: each of the ten, never twice', () => {
-  assert.deepEqual(BADGE_IDS, ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel']);
+  assert.deepEqual(BADGE_IDS, ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel', 'review-tl', 'review-sme']);
   const p = pool(store({ life: ALL_LIFE }));
   const r1 = answerAll(empty(), p, '2026-11-16');
   assert.deepEqual(r1.badges.sort(), ['first', 'perfect']);
@@ -147,6 +147,8 @@ test('badges: each of the ten, never twice', () => {
   assert.ok(!checkBadges(empty(), { today: '2026-11-20', openTermCount: 9, allTermsKnown: true }).includes('terms'));
   assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', lifecycleDone: true, sopDone: true }).sort(), ['lifecycle', 'sop']);
   assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', excelDone: true }), ['excel']);
+  assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', reviewTl: true }), ['review-tl']);
+  assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', reviewSme: true }), ['review-sme']);
   const has = { ...empty(), badges: { lifecycle: '2026-11-01' } };
   assert.deepEqual(checkBadges(has, { today: '2026-11-20', lifecycleDone: true }), []);
 });
@@ -272,4 +274,12 @@ test('finished advanced Excel lessons (12-16) add their choice and blank questio
     assert.deepEqual(q.options.find((o) => o.id === q.answer).text, (src.options ?? src.chips)[src.answer]);
   }
   assert.equal(pool(s).filter((q) => q.lessonId === '13').length, 0, 'not yet finished');
+});
+
+test('passing a review quiz is a course fact', async () => {
+  const { courseFacts } = await import('../../practice/engine.js');
+  const s = fakeStorage({ 'queuecraft:review:v1': JSON.stringify({ sme: { best: 6, total: 6, passed: true } }) });
+  const f = courseFacts(s, empty(), []);
+  assert.equal(f.reviewSme, true);
+  assert.equal(f.reviewTl, false);
 });

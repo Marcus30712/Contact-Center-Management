@@ -3,27 +3,46 @@
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
-import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
-import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { EXCEL_LESSONS, EXCEL_UI } from '../excel/data.js';
+import { SME_UI } from '../sme/ui.js';
 import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
+import { COURSE_ROLES, DEFAULT_ROLE, coursesFor, roleOf } from '../shared/role.js';
+import { COURSE_INFO } from '../shared/courses.js';
+import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
+import { REVIEW_UI } from '../review/data.js';
+import { loadReview, unlocked } from '../review/engine.js';
+
+// The learner's own role first, everything else in its usual order (2026-11-25).
+export function orderByRole(items, role) {
+  return [...items.filter((x) => x.role === role), ...items.filter((x) => x.role !== role)];
+}
+
+// A role's course, from the shared course list.
+const course = (id, name) => {
+  const c = COURSE_INFO[id];
+  return { id, role: roleOf(id), name, lessons: c.lessons, key: c.key, path: `./${c.dir}` };
+};
 
 const COURSES = [
-  { id: 'lifecycle', name: UI.lifecycle, lessons: LESSONS, key: 'agent-lifecycle-course:v1', path: './agent-lifecycle/' },
-  { id: 'sop', name: UI.sop, lessons: SOP_LESSONS, key: 'sop-library:v1', path: './sop-library/' },
+  course('lifecycle', UI.lifecycle),
+  course('sop', UI.sop),
   {
     id: 'excel', name: EXCEL_UI.homeCard, key: 'excel-practice:v1', path: './excel/',
     lessons: EXCEL_LESSONS.map((l, i) => ({ id: l.id, order: i + 1, title: l.title })),
     href: (lesson) => `./excel/#lesson-${lesson.id}`,
   },
+  course('sme', SME_UI.courseTitle),
 ];
 
 // Progress for the three courses, read from the keys each course already uses.
 // The next lesson is the first one, in course order, not yet finished.
-export function myLearning(storage) {
-  const rows = COURSES.map((course) => {
+// Only the role's own courses and the shared ones (Excel) are shown (2026-11-25).
+const shownFor = (role) => COURSES.filter((c) => !c.role || coursesFor(role).includes(c.id));
+
+export function myLearning(storage, role = DEFAULT_ROLE) {
+  const rows = orderByRole(shownFor(role), role).map((course) => {
     const done = new Set(storage ? loadProgress(storage, course.key).completed : []);
     const ordered = [...course.lessons].sort((a, b) => a.order - b.order);
     const next = ordered.find((l) => !done.has(l.id));
@@ -35,7 +54,9 @@ export function myLearning(storage) {
       next: next ? { id: next.id, order: next.order, title: next.title, href: course.href ? course.href(next) : `${course.path}#${next.id}-0` } : null,
     };
   });
-  rows.started = rows.some((r) => r.done > 0);
+  // Progress in any course counts, even one not shown for this role.
+  rows.started = rows.some((r) => r.done > 0)
+    || (storage ? COURSES.some((c) => loadProgress(storage, c.key).completed.length > 0) : false);
   rows.allDone = rows.every((r) => r.next === null);
   return rows;
 }
@@ -60,9 +81,9 @@ function practiceCard(tr, storage, today) {
   return h('a', { class: 'card hm-practice', href: './practice/', 'data-practice': true }, parts);
 }
 
-export function renderHome(root, lang, storage, today = localDate()) {
+export function renderHome(root, lang, storage, today = localDate(), role = DEFAULT_ROLE) {
   const tr = (text) => t(text, lang).text;
-  const learning = myLearning(storage);
+  const learning = myLearning(storage, role);
   const cardEl = (c) => h('li', {}, [h('a', { class: 'card', href: c.href }, [h('strong', { text: tr(c.title) }), h('span', { text: tr(c.text) })])]);
 
   const reviewHref = (row) => COURSES.find((c) => c.id === row.id).path;
@@ -81,9 +102,22 @@ export function renderHome(root, lang, storage, today = localDate()) {
 
   let note = null;
   if (!learning.started) {
-    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: learning[0].next.href, text: tr(UI.start) })]);
+    // A new SME starts on their own course; everyone else on lifecycle lesson 1, as the wording says.
+    // The start course may not be among the rows shown (roles without a course), so look it up in all courses.
+    const [startId, startText] = role === 'sme' ? ['sme', SME_UI.startNote] : ['lifecycle', UI.start];
+    const startCourse = COURSES.find((c) => c.id === startId);
+    const first = [...startCourse.lessons].sort((a, b) => a.order - b.order)[0];
+    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: `${startCourse.path}#${first.id}-0`, text: tr(startText) })]);
   } else if (learning.allDone) {
     note = h('p', { class: 'hm-note', 'data-all-done': true, text: tr(UI.allDone) });
+  }
+
+  // Once the role's courses are all done, its review quiz is offered here.
+  function quizCard() {
+    if (!storage || !unlocked(storage, role).open) return null;
+    const rec = loadReview(storage)[role];
+    const text = rec?.passed ? tr(REVIEW_UI.homeDone).replace('{x}', rec.best).replace('{n}', rec.total) : tr(REVIEW_UI.homeStart);
+    return h('p', { class: 'hm-note' }, [h('a', { href: `./review/#${role}`, 'data-review-quiz': true, text })]);
   }
 
   root.replaceChildren(
@@ -102,10 +136,19 @@ export function renderHome(root, lang, storage, today = localDate()) {
       h('h2', { text: tr(UI.myLearning) }),
       learning.started ? h('ul', { class: 'hm-courses' }, learning.map(courseRow)) : null,
       note,
+      quizCard(),
+      COURSE_ROLES.includes(role) ? null : h('div', { class: 'hm-note', 'data-role-preparing': true }, [
+        h('p', { text: tr(ROLE_UI.preparing).replace('{role}', tr(ROLE_NAMES[role])) }),
+        h('p', {}, [
+          h('a', { href: './codex/#career', text: tr(ROLE_UI.preparingCareer) }),
+          ' ',
+          h('a', { href: `./codex/#daily-${role}`, text: tr(ROLE_UI.preparingDaily) }),
+        ]),
+      ]),
     ]),
     h('div', { class: 'hm-cards' }, [practiceCard(tr, storage, today)]),
     h('ul', { class: 'hm-cards' }, [cardEl(GUIDE_CARD)]),
-    h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, LEARN.map(cardEl))]),
+    h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, orderByRole(LEARN, role).map(cardEl))]),
     h('section', { id: 'browse' }, [h('h2', { text: tr(UI.browse) }), h('ul', { class: 'hm-cards' }, BROWSE.map(cardEl))]),
     h('p', { class: 'hm-privacy' }, [h('a', { href: './privacy/', 'data-privacy': true, text: tr(UI.privacy) })]),
   );

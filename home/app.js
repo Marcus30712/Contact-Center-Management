@@ -7,6 +7,8 @@ import { renderHome } from './render.js';
 import { whenAppBar, shouldStartTour, startTour } from '../shared/tour.js';
 import { pickGreeting, shouldShowStart, watchOffline } from './start.js';
 import { renderStart } from './start-render.js';
+import { saveRole, markRoleAsked, loadRole } from '../shared/role.js';
+import { openRoleSheet, askRoleHere, runFirstOpen } from '../shared/role-sheet.js';
 
 function getStorage() {
   try {
@@ -30,7 +32,7 @@ function draw() {
     draw();
     langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
   });
-  renderHome(app, lang, storage);
+  renderHome(app, lang, storage, undefined, loadRole(storage));
 }
 
 let day = new Date().toDateString();
@@ -54,15 +56,31 @@ if (shouldShowStart({ href: location.href, referrer: document.referrer, navType 
 }
 
 // First visit (or "Replay the tutorial" in Settings): walk the bottom menu once,
-// after the start screen (if any) has closed.
-whenAppBar(document).then(() => start?.closed).then(() => {
-  if (!shouldStartTour(storage, location.href)) return;
-  const url = new URL(location.href);
-  if (url.searchParams.has('tour')) {
-    url.searchParams.delete('tour');
-    history.replaceState(history.state, '', url.href);
-  }
-  startTour(document, lang, storage);
+// after the start screen (if any) and the role question have closed.
+// Before the tour, ask once which role the learner is preparing for.
+const askRole = askRoleHere({ storage, href: location.href });
+runFirstOpen({
+  startClosed: whenAppBar(document).then(() => start?.closed),
+  askRole,
+  openSheet: () => openRoleSheet(document, lang, {
+    onPick: (role) => { saveRole(storage, role); draw(); },
+    onLater: () => markRoleAsked(storage),
+    // Like the start screen: keyboard and screen-reader users start again at the page title.
+    focusBack: () => {
+      const title = app.querySelector('h1');
+      title?.setAttribute('tabindex', '-1');
+      title?.focus({ preventScroll: true });
+    },
+  }),
+  startTour: () => {
+    if (!shouldStartTour(storage, location.href)) return;
+    const url = new URL(location.href);
+    if (url.searchParams.has('tour')) {
+      url.searchParams.delete('tour');
+      history.replaceState(history.state, '', url.href);
+    }
+    startTour(document, lang, storage);
+  },
 });
 // A home screen left open past midnight shows the new day's practice.
 document.addEventListener('visibilitychange', () => {

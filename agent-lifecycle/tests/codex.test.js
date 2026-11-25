@@ -523,3 +523,24 @@ test('the English week check has no Korean', () => {
   const { $ } = mountPage('daily', 'en', openItem(newState(), 'daily', 'tl'));
   assert.ok(!/[가-힣]/.test($('[data-week-check]').textContent));
 });
+
+// ---------- opening on the learner's role (2026-11-25) ----------
+test('the career ladder starts on the saved role', () => {
+  const { $ } = mountPage('career', 'ko', newState('sme'));
+  assert.equal($('[data-tab="operation"]').getAttribute('aria-pressed'), 'true');
+  assert.equal($('[data-level="sme"]').getAttribute('aria-pressed'), 'true');
+  assert.ok($('[data-level="sme"]').textContent.includes('지금 당신'));
+  assert.ok(!$('[data-level="tl"]').textContent.includes('지금 당신'));
+  assert.ok($('[data-level-detail]').textContent.includes(CAREER.teams[0].levels[1].next.ko));
+});
+
+test('the daily page starts on the saved role', () => {
+  const om = mountPage('daily', 'ko', newState('om'));
+  assert.equal(om.$('[data-tab="om"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(om.$('[data-week-check]'), null);
+  const tl = mountPage('daily', 'ko', newState('tl'));
+  assert.ok(tl.$('[data-week-check]'));
+  // An item in the address still wins over the saved role.
+  const agent = mountPage('daily', 'ko', openItem(newState('om'), 'daily', 'agent'));
+  assert.equal(agent.$('[data-tab="agent"]').getAttribute('aria-pressed'), 'true');
+});

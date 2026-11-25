@@ -5,6 +5,7 @@ import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { CODEX_UI as UI } from './ui.js';
 import { renderCodexHome } from './render/home.js';
 import { renderPage, parseCodexRoute, newState, openItem } from './render/page.js';
+import { loadRole } from '../shared/role.js';
 
 function getStorage() {
   try {
@@ -19,7 +20,7 @@ const app = document.getElementById('app');
 const langRoot = document.getElementById('lang');
 const brand = document.getElementById('brand');
 let lang = loadLang(storage);
-const state = newState(); // kept while the page is open, so a language switch keeps open cards
+const state = newState(loadRole(storage)); // kept while the page is open, so a language switch keeps open cards
 let shown = null;
 
 function render() {

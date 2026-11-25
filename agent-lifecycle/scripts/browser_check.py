@@ -51,6 +51,8 @@ def serve():
 
 
 TOUR_DONE = "try { localStorage.setItem('queuecraft:tour', 'done'); } catch (e) {}"
+# The role question (2026-11-25) is answered unless a check asks for it.
+ROLE_ASKED = "try { if (!localStorage.getItem('queuecraft:role')) localStorage.setItem('queuecraft:role-asked', '1'); } catch (e) {}"
 
 
 # tour=True: start as a first-time visitor, so the home page shows the tutorial.
@@ -60,9 +62,9 @@ TOUR_DONE = "try { localStorage.setItem('queuecraft:tour', 'done'); } catch (e) 
 IN_APP = "Object.defineProperty(Document.prototype, 'referrer', { get() { return location.origin + '/'; } });"
 
 
-def new_page(browser, errors, width=390, height=780, locale="ko-KR", init=None, scheme="light", tour=False, start=False):
+def new_page(browser, errors, width=390, height=780, locale="ko-KR", init=None, scheme="light", tour=False, start=False, role=False):
     ctx = browser.new_context(viewport={"width": width, "height": height}, locale=locale, color_scheme=scheme)
-    ctx.add_init_script(("" if tour else TOUR_DONE + "\n") + ("" if start else IN_APP + "\n") + (init or ""))
+    ctx.add_init_script(("" if tour else TOUR_DONE + "\n") + ("" if start else IN_APP + "\n") + ("" if role else ROLE_ASKED + "\n") + (init or ""))
     page = ctx.new_page()
     page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
     page.on("pageerror", lambda e: errors.append(str(e)))
@@ -281,7 +283,7 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB)
         cards = page.locator("a.card")
-        check("(r) hub shows eight topic cards plus the practice card", cards.count() == 9, str(cards.count()))
+        check("(r) hub shows nine topic cards plus the practice card", cards.count() == 10, str(cards.count()))
         for href, title in (("./guide/", "팀장 상황별 길잡이"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("./codex/", "Codex 원페이저"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
             page.goto(HUB)
             page.click(f"a.card[href='{href}']")
@@ -310,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "review/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -1010,7 +1012,7 @@ def main():
         page.goto(HUB)
         page.wait_for_selector("[data-start-screen]")
         check("(st) a fresh open at home shows the start screen", page.is_visible("[data-start-screen]"))
-        check("(st) Monday 08:30 greets with a Monday line", page.inner_text("[data-start-greeting]") in ("한 주의 시작이에요! 이번 주에 코칭할 팀원부터 떠올려 볼까요?", "월요일 아침은 문의가 몰리기 쉬워요. 출근 전에 마음의 준비를 해 둬요."), page.inner_text("[data-start-greeting]"))
+        check("(st) Monday 08:30 greets with a Monday line", page.inner_text("[data-start-greeting]") in ("한 주의 시작이에요! 이번 주에 먼저 챙길 팀원부터 떠올려 볼까요?", "월요일 아침은 문의가 몰리기 쉬워요. 출근 전에 마음의 준비를 해 둬요."), page.inner_text("[data-start-greeting]"))
         check("(st) the dialog has focus and draws no ring", page.evaluate("document.activeElement.hasAttribute('data-start-screen') && getComputedStyle(document.activeElement).outlineStyle === 'none'"))
         check("(st) the page behind is inert", page.evaluate("Boolean(document.getElementById('app').closest('[inert]')) && Boolean(document.querySelector('nav.appbar').closest('[inert]'))"))
         check("(st) no tour while the start screen is up", page.locator("[data-tour]").count() == 0)
@@ -1248,7 +1250,7 @@ def main():
             page.goto(HUB + "settings/")
             page.wait_for_selector("[data-install-open]")
             heads = page.eval_on_selector_all("#app h2", "els => els.map(e => e.textContent)")
-            check(f"(x) {width}: tutorial is its own section after Language", heads[:2] == ["언어", "튜토리얼"], str(heads))
+            check(f"(x) {width}: my role, then the tutorial, follow Language", heads[:3] == ["언어", "내 직급", "튜토리얼"], str(heads))
             page.click("[data-install-open]")
             page.wait_for_selector("[data-install-sheet] [role=dialog]")
             page.wait_for_timeout(350)
@@ -1347,6 +1349,63 @@ def main():
         page.goto(HUB)
         page.wait_for_selector("[data-tour] [role=dialog]")
         check("(w) English tutorial", page.inner_text("[data-tour-skip]") == "Skip" and page.inner_text("[data-tour-next]") == "Next")
+        page.context.close()
+
+        # (r) the role question (2026-11-25): asked once on home, then home follows the pick
+        page = new_page(browser, errors, role=True)
+        page.goto(HUB)
+        page.wait_for_selector("[data-role-sheet] [role=dialog]")
+        check("(r1) a first visit asks for the role", page.locator("[data-pick-role]").count() == 5)
+        fits = page.evaluate("(() => { const r = document.querySelector('.rs-sheet').getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth; })()")
+        check("(r1) the role sheet fits the phone", fits)
+        page.click("[data-pick-role='sme']")
+        page.wait_for_selector("[data-role-sheet]", state="detached")
+        check("(r2) picking SME puts the SME course first", page.get_attribute("#learn a", "href") == "./sme/")
+        page.reload()
+        page.wait_for_selector("#app > *")
+        check("(r3) the question is not asked again", page.locator("[data-role-sheet]").count() == 0)
+        page.goto(HUB + "codex/#career")
+        page.wait_for_selector("[data-level]")
+        check("(r4) the career matrix opens on SME", page.get_attribute("[data-level='sme']", "aria-pressed") == "true")
+        page.goto(HUB + "sme/#firstday-0")
+        page.wait_for_selector("[data-counter]")
+        check("(r5) the SME lesson opens", page.inner_text("#app h1") == "SME가 된 첫날")
+        page.goto(HUB + "settings/")
+        page.click("[data-set-role='am']")
+        page.goto(HUB)
+        page.wait_for_selector("[data-role-preparing]")
+        check("(r6) a role without a course shows the preparing note", page.locator("[data-role-preparing] a").count() == 2)
+        page.context.close()
+
+        # (q) review quiz (2026-11-25): an SME who finished the course takes the quiz and gets the badge
+        seed = "try { localStorage.setItem('queuecraft:role', 'sme'); localStorage.setItem('sme-course:v1', JSON.stringify({ completed: ['firstday','newcomer','escalation','peer','lead','priority','knowledge'] })); } catch (e) {}"
+        page = new_page(browser, errors, init=seed)
+        page.goto(HUB)
+        page.wait_for_selector("a[data-review-quiz]")
+        check("(q1) the home quiz card leads to the SME quiz", page.get_attribute("a[data-review-quiz]", "href") == "./review/#sme")
+        page.click("a[data-review-quiz]")
+        page.wait_for_selector("[data-question]")
+        from_data = page.evaluate("async () => (await import(new URL('./data.js', location.href).href)).QUIZZES.sme.questions.map((q) => q.answer)")
+        for a in from_data:
+            page.click(f"[data-option='{a}']")
+            page.click("[data-next]")
+        page.wait_for_selector("[data-score]")
+        check("(q1) a full run scores 6 of 6", "6" in page.inner_text("[data-score]") and page.locator("[data-new-badge]").count() == 1)
+        page.goto(HUB + "practice/")
+        page.wait_for_selector("#app > *")
+        got = page.evaluate("JSON.parse(localStorage.getItem('kb-practice:v1') || '{}').badges || {}")
+        check("(q2) the badge is kept for the practice page", "review-sme" in got, str(got))
+        page.goto(HUB + "review/")
+        page.wait_for_selector("[data-start-quiz='sme']")
+        page.click("[data-start-quiz='sme']")
+        page.wait_for_selector("[data-question]")
+        check("(q3) starting from the list puts the quiz in the address", page.url.endswith("review/#sme"), page.url)
+        page.reload()
+        page.wait_for_selector("#app > *")
+        check("(q3) a reload reopens that quiz at question 1", page.locator("[data-question='sme-q1']").count() == 1)
+        page.go_back()
+        page.wait_for_selector("[data-quiz]")
+        check("(q3) Back returns to the list", page.locator("[data-start-quiz]").count() >= 1)
         page.context.close()
 
         browser.close()

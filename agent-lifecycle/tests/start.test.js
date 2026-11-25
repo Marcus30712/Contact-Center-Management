@@ -8,6 +8,12 @@ import { greetingGroup, pickGreeting, shouldShowStart, watchOffline } from '../.
 const spec = (f) => readFileSync(new URL(`../../docs/superpowers/specs/${f}`, import.meta.url), 'utf8');
 const KO = spec('2026-11-22-start-screen-design.md');
 const EN = spec('2026-11-22-start-screen-copy.en.md');
+// Lines reworded for every role (2026-11-25): "before" → "after" in both languages.
+const swaps = (doc) => new Map(doc.split(/^## 1\. /m)[1].split('\n').filter((l) => l.startsWith('| ') && !/^\| (위치|Place|---)/.test(l))
+  .map((l) => l.slice(1, -1).split(' | ').map((c) => c.trim())).filter((r) => r[1] !== r[2] && r[2] !== '그대로 (허들은 모든 직급이 참여)').map((r) => [r[1], r[2]]));
+const KO_SWAP = swaps(spec('2026-11-25-sme-course-copy-ko.md'));
+const EN_SWAP = swaps(spec('2026-11-25-sme-course-copy.en.md'));
+const swapped = (map, text) => map.get(text) ?? text;
 
 // Rows of the first markdown table after `header`.
 function table(doc, header) {
@@ -47,7 +53,7 @@ test('screen words are the approved copy in both languages', () => {
     dialog: ['대화상자 이름 (화면 낭독기)', 'Dialog name (screen readers)'], misoAlt: ['미소 그림 설명', 'Miso picture'],
   };
   assert.deepEqual(Object.keys(START_UI).sort(), Object.keys(pairs).sort());
-  for (const [key, [k, e]] of Object.entries(pairs)) assert.deepEqual(START_UI[key], { ko: ko[k], en: en[e] }, key);
+  for (const [key, [k, e]] of Object.entries(pairs)) assert.deepEqual(START_UI[key], { ko: swapped(KO_SWAP, ko[k]), en: swapped(EN_SWAP, en[e]) }, key);
 });
 
 test('greetings are the approved copy, with one Miso face per group', () => {
@@ -57,7 +63,7 @@ test('greetings are the approved copy, with one Miso face per group', () => {
   for (const [id, g] of Object.entries(GREETINGS)) {
     assert.equal(g.face, ko[id].face, id);
     assert.equal(g.face, en[id].face, id);
-    assert.deepEqual(g.lines, ko[id].lines.map((k, i) => ({ ko: k, en: en[id].lines[i] })), id);
+    assert.deepEqual(g.lines, ko[id].lines.map((k, i) => ({ ko: swapped(KO_SWAP, k), en: swapped(EN_SWAP, en[id].lines[i]) })), id);
     assert.ok(existsSync(new URL(`../../assets/miso/${g.face}.webp`, import.meta.url)), g.face);
   }
 });

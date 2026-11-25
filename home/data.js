@@ -9,7 +9,7 @@ export const HOME_UI = {
     en: 'Interactive learning material on contact center management, one topic at a time.',
   },
   greeting: { ko: '안녕하세요, 김미소예요. 오늘도 조금씩 같이 가 봐요.', en: "Hi, I'm Miso Kim. Let's take another small step together today." },
-  misoRole: { ko: '신입 팀장을 돕는 선배 매니저', en: 'A senior manager who helps new team leads' },
+  misoRole: { ko: '새 자리를 준비하는 사람을 돕는 선배 매니저', en: 'A senior manager who helps people get ready for a new role' },
   misoAlt: { ko: '김미소, 활짝 웃는 얼굴', en: 'Miso Kim, smiling broadly' },
   myLearning: { ko: '내 학습', en: 'My learning' },
   continue: { ko: '이어서:', en: 'Next:' },
@@ -30,19 +30,24 @@ export const HOME_UI = {
 };
 
 import { EXCEL_UI } from '../excel/data.js';
+import { SME_UI } from '../sme/ui.js';
+import { roleOf } from '../shared/role.js';
 
+// A course card can name the role it is written for; home puts that role's cards first.
+const forRole = (role, c) => ({ ...c, role });
 const card = (href, ko, en, textKo, textEn) => ({ href, title: { ko, en }, text: { ko: textKo, en: textEn } });
 
 export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · 팀장 상황별 길잡이', 'Where to start? · Team Lead Situation Guide',
   '지금 겪는 상황을 고르면 먼저 볼 곳을 알려 드립니다.', "Pick the situation you're in and see where to look first.");
 
 export const LEARN = [
-  card('./agent-lifecycle/', '상담사 라이프사이클', 'The Agent Lifecycle',
-    '신입 팀장을 위한 6단계 강의: 채용부터 경력 개발까지.', 'A six-stage course for new team leaders, from hiring to career growth.'),
-  card('./sop-library/', 'SOP 라이브러리', 'SOP Library',
+  forRole(roleOf('lifecycle'), card('./agent-lifecycle/', '상담사 라이프사이클', 'The Agent Lifecycle',
+    '신입 팀장을 위한 6단계 강의: 채용부터 경력 개발까지.', 'A six-stage course for new team leaders, from hiring to career growth.')),
+  forRole(roleOf('sop'), card('./sop-library/', 'SOP 라이브러리', 'SOP Library',
     "팀장이 알아야 할 절차 10개를 순서대로 배웁니다: 에스컬레이션, 스크러빙, 1:1 코칭, PIP, 캘리브레이션, 동료에서 팀장으로, 온보딩, 대규모 이슈 대응, 기존 상담사 육성, 신규 프로젝트 론칭.",
-    "Learn ten procedures a team leader needs to know, step by step: escalation, scrubbing, 1:1 coaching, PIP, calibration, from colleague to team leader, onboarding, large-scale issue response, developing existing agents, new project launch."),
+    "Learn ten procedures a team leader needs to know, step by step: escalation, scrubbing, 1:1 coaching, PIP, calibration, from colleague to team leader, onboarding, large-scale issue response, developing existing agents, new project launch.")),
   { href: './excel/', title: EXCEL_UI.homeCard, text: EXCEL_UI.homeCardLine },
+  forRole(roleOf('sme'), { href: './sme/', title: SME_UI.courseTitle, text: SME_UI.homeCard }),
 ];
 
 export const BROWSE = [

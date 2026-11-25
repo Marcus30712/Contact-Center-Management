@@ -143,7 +143,7 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
         document.createTextNode(tr(q.explanation)),
         right ? null : h('p', {}, [h('a', {
           'data-review': true, text: tr(UI.reviewLesson),
-          href: q.course === 'excel' ? `../excel/#lesson-${q.lessonId}` : `${q.course === 'sop' ? '../sop-library/' : '../agent-lifecycle/'}#${q.lessonId}-0`,
+          href: q.course === 'excel' ? `../excel/#lesson-${q.lessonId}` : `${{ sop: '../sop-library/', sme: '../sme/' }[q.course] ?? '../agent-lifecycle/'}#${q.lessonId}-0`,
         })]),
       ]),
     ]) : null;
