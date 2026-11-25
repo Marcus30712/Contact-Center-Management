@@ -8,7 +8,7 @@ const procedure = ["role", "day", "approve", "share"];
 const flow = [...procedure, "role-day", "day-approve", "approve-share"];
 
 export default {
-  id: "first-day",
+  id: "firstday",
   order: 1,
   title: tx("SME가 된 첫날"),
   short: tx("첫날"),
@@ -37,7 +37,7 @@ export default {
   ],
   checkpoint: [
     {
-      id: "first-day-q1",
+      id: "firstday-q1",
       prompt: tx("첫날, 상담사가 고객에게 정책에 없는 큰 보상을 해 주자며 승인을 요청합니다. 어떻게 할까요?"),
       options: [
         option("a", tx("고객이 화가 많이 났으니 일단 승인한다."), tx("승인 범위 밖의 결정은 되돌리기 어렵고, 다른 고객에게도 같은 기준을 요구받게 됩니다.")),
@@ -48,7 +48,7 @@ export default {
       explanation: tx("승인 범위 안은 내가 정하고, 범위 밖은 팀장에게 넘깁니다. 첫날 범위를 맞춰 두는 이유입니다."),
     },
     {
-      id: "first-day-q2",
+      id: "firstday-q2",
       prompt: tx("지민의 응대 태도가 요즘 걱정됩니다. SME로서 알맞은 것은 무엇일까요?"),
       options: [
         option("a", tx("지민의 품질 점수를 직접 낮춰 기록한다."), tx("평가는 QA와 팀장이 맡습니다. SME가 점수를 매기면 역할이 섞여 지민도 누구에게 도움을 청할지 헷갈립니다.")),

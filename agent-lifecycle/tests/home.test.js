@@ -6,6 +6,7 @@ import { fakeStorage, throwingStorage } from './helpers.js';
 import { HOME_UI, LEARN, BROWSE, GUIDE_CARD } from '../../home/data.js';
 import { myLearning, renderHome, orderByRole } from '../../home/render.js';
 import { ROLE_UI, ROLE_NAMES } from '../../shared/role-data.js';
+import { SME_UI } from '../../sme/ui.js';
 
 const SME_DOC = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-sme-course-copy-ko.md', import.meta.url), 'utf8');
 const SME_EN = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-sme-course-copy.en.md', import.meta.url), 'utf8');
@@ -29,7 +30,7 @@ test('home wording is the approved wording', () => {
 });
 
 test('cards keep every topic and are split into learn and browse', () => {
-  assert.deepEqual(LEARN.map((c) => c.href), ['./agent-lifecycle/', './sop-library/', './excel/']);
+  assert.deepEqual(LEARN.map((c) => c.href), ['./agent-lifecycle/', './sop-library/', './excel/', './sme/']);
   assert.deepEqual(BROWSE.map((c) => c.href), ['./codex/', './staffing-calculator/', './glossary/', './references/']);
   assert.equal(GUIDE_CARD.href, './guide/');
   for (const c of [GUIDE_CARD, ...LEARN, ...BROWSE]) {
@@ -41,13 +42,13 @@ test('cards keep every topic and are split into learn and browse', () => {
 test('my learning: nothing started, part done, all done, storage blocked', () => {
   const s = fakeStorage();
   const fresh = myLearning(s);
-  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 10, 'escalation'], ['excel', 0, 11, '1']]);
+  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 10, 'escalation'], ['excel', 0, 11, '1'], ['sme', 0, 7, 'firstday']]);
   assert.equal(fresh.started, false);
 
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'coaching'] }));
   s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation'] }));
   const mid = myLearning(s);
-  assert.deepEqual(mid.map((c) => [c.done, c.next.id, c.next.href]), [[3, 'nesting', './agent-lifecycle/#nesting-0'], [1, 'scrubbing', './sop-library/#scrubbing-0'], [0, '1', './excel/#lesson-1']]);
+  assert.deepEqual(mid.map((c) => [c.done, c.next.id, c.next.href]), [[3, 'nesting', './agent-lifecycle/#nesting-0'], [1, 'scrubbing', './sop-library/#scrubbing-0'], [0, '1', './excel/#lesson-1'], [0, 'firstday', './sme/#firstday-0']]);
   assert.equal(mid.started, true);
 
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'] }));
@@ -58,13 +59,15 @@ test('my learning: nothing started, part done, all done, storage blocked', () =>
   s.setItem('sop-library:v1', JSON.stringify({ completed: [...['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'], 'scrubbing', 'nurture', 'transition'] }));
   assert.equal(myLearning(s).allDone, false, 'the Excel lessons are still to do');
   s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }));
+  assert.equal(myLearning(s).allDone, false, 'the SME lessons are still to do');
+  s.setItem('sme-course:v1', JSON.stringify({ completed: ['firstday', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge'] }));
   const all = myLearning(s);
-  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [10, null], [11, null]]);
+  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [10, null], [11, null], [7, null]]);
   assert.equal(all.allDone, true);
 
   const blocked = myLearning(throwingStorage);
-  assert.deepEqual(blocked.map((c) => c.done), [0, 0, 0]);
-  assert.deepEqual(myLearning(null).map((c) => c.done), [0, 0, 0]);
+  assert.deepEqual(blocked.map((c) => c.done), [0, 0, 0, 0]);
+  assert.deepEqual(myLearning(null).map((c) => c.done), [0, 0, 0, 0]);
 });
 
 test('the home screen greets with Miso and shows where to continue', () => {
@@ -77,14 +80,14 @@ test('the home screen greets with Miso and shows where to continue', () => {
   assert.ok(miso.getAttribute('alt').includes('김미소'));
   assert.ok(root.querySelector('[data-greeting]').textContent.includes(HOME_UI.greeting.ko));
   const rows = [...root.querySelectorAll('[data-course]')];
-  assert.equal(rows.length, 3);
+  assert.equal(rows.length, 4);
   assert.equal(rows[1].querySelector('progress').value, 1);
   assert.equal(rows[1].querySelector('progress').max, 10);
   assert.equal(rows[1].querySelector('a[data-next]').getAttribute('href'), './sop-library/#scrubbing-0');
   assert.ok(rows[1].textContent.includes('1/10'));
   assert.equal(root.querySelector('a.card[href="./guide/"]').closest('section')?.id ?? '', '');
   assert.ok(root.querySelector('#learn') && root.querySelector('#browse'));
-  assert.equal(root.querySelectorAll('a.card').length, 9, 'eight topics plus the practice card');
+  assert.equal(root.querySelectorAll('a.card').length, 10, 'nine topics plus the practice card');
   assert.equal(root.querySelector('[data-install]'), null, 'the install note moved to Settings');
 });
 
@@ -99,12 +102,13 @@ test('a first visit suggests lesson 1, and a finished learner sees the done note
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'] }));
   s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'transition', 'onboarding', 'incident', 'nurture', 'launch'] }));
   s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }));
+  s.setItem('sme-course:v1', JSON.stringify({ completed: ['firstday', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge'] }));
   const done = setupDom();
   renderHome(done.root, 'ko', s);
   assert.ok(done.root.querySelector('[data-all-done]').textContent.includes(HOME_UI.allDone.ko));
   assert.equal(HOME_UI.review.ko, '다시 보기');
   const reviews = [...done.root.querySelectorAll('a[data-review]')];
-  assert.deepEqual(reviews.map((a) => a.getAttribute('href')), ['./agent-lifecycle/', './sop-library/', './excel/']);
+  assert.deepEqual(reviews.map((a) => a.getAttribute('href')), ['./agent-lifecycle/', './sop-library/', './excel/', './sme/']);
   assert.ok(reviews.every((a) => a.textContent.includes('다시 보기')));
 });
 
@@ -217,4 +221,15 @@ test('without a role, home is the team-lead home', () => {
   renderHome(root, 'ko', fakeStorage(), '2026-11-25');
   assert.equal(root.querySelector('[data-role-preparing]'), null);
   assert.deepEqual([...root.querySelectorAll('#learn a')].map((a) => a.getAttribute('href')), LEARN.map((c) => c.href));
+});
+
+test('an SME learner sees the SME course first in Learn and in my learning', () => {
+  const s = fakeStorage({ 'sme-course:v1': '{"completed":["firstday"]}' });
+  const { root } = setupDom();
+  renderHome(root, 'ko', s, '2026-11-25', 'sme');
+  assert.deepEqual([...root.querySelectorAll('#learn a')].map((a) => a.getAttribute('href')), ['./sme/', './agent-lifecycle/', './sop-library/', './excel/']);
+  assert.equal(root.querySelector('#learn a').querySelector('span').textContent, SME_UI.homeCard.ko);
+  assert.deepEqual(myLearning(s, 'sme').map((r) => r.id), ['sme', 'lifecycle', 'sop', 'excel']);
+  assert.equal(root.querySelector('[data-next="sme"]').getAttribute('href'), './sme/#newcomer-0');
+  assert.deepEqual(myLearning(s).map((r) => r.id), ['lifecycle', 'sop', 'excel', 'sme']);
 });

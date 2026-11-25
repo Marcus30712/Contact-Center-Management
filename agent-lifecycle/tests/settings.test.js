@@ -82,13 +82,14 @@ const filled = () => fakeStorage({
   'sop-library:v1': '{"completed":["pip"]}',
   'excel-practice:v1': '{"completed":["1"],"scores":{}}',
   'kb-practice:v1': '{"days":["2026-11-20"]}',
+  'sme-course:v1': '{"completed":["peer"]}',
   'other-site:key': 'not ours',
 });
 
-test('a backup holds exactly the nine Queuecraft keys that are set', () => {
+test('a backup holds exactly the ten Queuecraft keys that are set', () => {
   assert.deepEqual(BACKUP_KEYS, ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'queuecraft:theme',
     'queuecraft:role', 'queuecraft:role-asked',
-    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1']);
+    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1']);
   const b = makeBackup(filled(), '2026-11-20');
   assert.equal(b.app, 'queuecraft');
   assert.equal(b.format, 1);
@@ -131,9 +132,10 @@ test('restoring an older backup keeps the role', () => {
   assert.equal(loadRole(s), 'om');
 });
 
-test('reset keeps the role', () => {
-  const s = fakeStorage({ [ROLE_KEY]: 'sme', [ROLE_ASKED_KEY]: '1', 'agent-lifecycle-course:v1': '{"completed":["hiring"]}' });
+test('reset keeps the role and erases SME progress', () => {
+  const s = fakeStorage({ [ROLE_KEY]: 'sme', [ROLE_ASKED_KEY]: '1', 'sme-course:v1': '{"completed":["peer"]}' });
   assert.equal(resetLearning(s), true);
+  assert.equal(s.getItem('sme-course:v1'), null);
   assert.equal(loadRole(s), 'sme');
   assert.equal(s.getItem(ROLE_ASKED_KEY), '1');
   assert.ok(!RESET_KEYS.includes(ROLE_KEY) && !RESET_KEYS.includes(ROLE_ASKED_KEY));
@@ -341,13 +343,13 @@ test('the tutorial has its own section with a View link', () => {
 });
 
 // ---------- 2026-11-21: reset learning ----------
-test('reset clears only the four learning records and reports whether anything was there', () => {
-  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1']);
+test('reset clears only the five learning records and reports whether anything was there', () => {
+  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1']);
   const s = filled();
   s.setItem('queuecraft:tour', 'done');
   assert.equal(resetLearning(s), true);
   for (const k of RESET_KEYS) assert.equal(s.getItem(k), null, k);
-  for (const k of ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'queuecraft:theme', 'queuecraft:tour', 'other-site:key']) assert.notEqual(s.getItem(k), null, k);
+  for (const k of ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'queuecraft:theme', 'queuecraft:role', 'queuecraft:tour', 'other-site:key']) assert.notEqual(s.getItem(k), null, k);
   assert.equal(resetLearning(s), false, 'nothing left to erase');
   assert.equal(resetLearning(throwingStorage), false);
   assert.equal(resetLearning(null), false);

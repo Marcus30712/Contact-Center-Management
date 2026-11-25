@@ -30,6 +30,7 @@ export const HOME_UI = {
 };
 
 import { EXCEL_UI } from '../excel/data.js';
+import { SME_UI } from '../sme/ui.js';
 
 // A course card can name the role it is written for; home puts that role's cards first.
 const forRole = (role, c) => ({ ...c, role });
@@ -45,6 +46,7 @@ export const LEARN = [
     "팀장이 알아야 할 절차 10개를 순서대로 배웁니다: 에스컬레이션, 스크러빙, 1:1 코칭, PIP, 캘리브레이션, 동료에서 팀장으로, 온보딩, 대규모 이슈 대응, 기존 상담사 육성, 신규 프로젝트 론칭.",
     "Learn ten procedures a team leader needs to know, step by step: escalation, scrubbing, 1:1 coaching, PIP, calibration, from colleague to team leader, onboarding, large-scale issue response, developing existing agents, new project launch.")),
   { href: './excel/', title: EXCEL_UI.homeCard, text: EXCEL_UI.homeCardLine },
+  { href: './sme/', role: 'sme', title: SME_UI.courseTitle, text: SME_UI.homeCard },
 ];
 
 export const BROWSE = [

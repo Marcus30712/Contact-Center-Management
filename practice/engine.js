@@ -5,6 +5,8 @@ import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
 import { loadTrack, visibleQuestions } from '../agent-lifecycle/js/engine/track.js';
 import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
+import { SME_LESSONS } from '../sme/lessons/index.js';
+import { SME_PROGRESS_KEY as SME_KEY } from '../sme/ui.js';
 import { TERMS } from '../glossary/terms.js';
 import { EXCEL_LESSONS } from '../excel/data.js';
 import { EXCEL_ADVANCED } from '../excel/advanced.js';
@@ -79,6 +81,7 @@ export function pool(storage, { allTracks = false } = {}) {
   return [
     ...from('lifecycle', LESSONS, lifeDone, (l) => (allTracks ? l.checkpoint : visibleQuestions(l, track))),
     ...from('sop', SOP_LESSONS, sopDone, (l) => l.checkpoint),
+    ...from('sme', SME_LESSONS, finished(storage, SME_KEY), (l) => l.checkpoint),
     ...excelQuestions(storage),
   ];
 }
@@ -208,7 +211,7 @@ export function streak(days, today) {
 
 export function openTerms(storage) {
   const lifeDone = finished(storage, LIFE_KEY);
-  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0
+  const anyDone = lifeDone.length > 0 || finished(storage, SOP_KEY).length > 0 || finished(storage, SME_KEY).length > 0
     || (storage ? loadExcelProgress(storage).completed.length > 0 : false);
   if (!anyDone) return [];
   return TERMS.filter((t) => (t.seen.length ? t.seen.some((id) => lifeDone.includes(id)) : true));

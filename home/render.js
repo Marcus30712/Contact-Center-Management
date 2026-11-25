@@ -6,6 +6,8 @@ import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
 import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
 import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { EXCEL_LESSONS, EXCEL_UI } from '../excel/data.js';
+import { SME_LESSONS } from '../sme/lessons/index.js';
+import { SME_UI, SME_PROGRESS_KEY } from '../sme/ui.js';
 import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
@@ -25,6 +27,7 @@ const COURSES = [
     lessons: EXCEL_LESSONS.map((l, i) => ({ id: l.id, order: i + 1, title: l.title })),
     href: (lesson) => `./excel/#lesson-${lesson.id}`,
   },
+  { id: 'sme', role: 'sme', name: SME_UI.courseTitle, lessons: SME_LESSONS, key: SME_PROGRESS_KEY, path: './sme/' },
 ];
 
 // Progress for the three courses, read from the keys each course already uses.

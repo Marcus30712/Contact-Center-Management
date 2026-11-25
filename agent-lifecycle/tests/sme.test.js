@@ -51,7 +51,7 @@ test('the SME course passes the course rules', () => {
 
 test('seven lessons in the approved order', () => {
   assert.equal(PARSED.length, 7);
-  assert.deepEqual(SME_LESSONS.map((l) => l.id), ['first-day', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge']);
+  assert.deepEqual(SME_LESSONS.map((l) => l.id), ['firstday', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge']);
   assert.deepEqual(SME_LESSONS.map((l) => l.order), [1, 2, 3, 4, 5, 6, 7]);
 });
 
@@ -96,7 +96,7 @@ test('Seojun in lesson 2, Junho in lesson 4, Jimin everywhere else', () => {
   const by = (id) => SME_LESSONS.find((l) => l.id === id);
   assert.deepEqual(by('newcomer').personaName?.ko, '서준');
   assert.deepEqual(by('peer').personaName?.ko, '준호');
-  for (const id of ['first-day', 'escalation', 'lead', 'priority', 'knowledge']) {
+  for (const id of ['firstday', 'escalation', 'lead', 'priority', 'knowledge']) {
     assert.equal(by(id).personaName, undefined, id);
     assert.ok(lessonText(by(id), 'ko').includes('지민'), id);
   }
@@ -121,4 +121,68 @@ test('the course words are the approved copy', () => {
   assert.equal(SME_UI.courseTagline.ko, row('강의 소개'));
   assert.equal(SME_UI.listNote.ko, row('숫자 안내'));
   assert.equal(SME_UI.homeCard.ko, row('홈 카드'));
+});
+
+// ---------- the course page (Task 7) ----------
+import { setupDom } from './dom.js';
+import { fakeStorage } from './helpers.js';
+import { renderSmeHome } from '../../sme/home.js';
+import { renderLesson } from '../js/render/lesson.js';
+import { parseRoute } from '../js/engine/router.js';
+import { pool, openTerms } from '../../practice/engine.js';
+import { renderPractice, newPracticeView } from '../../practice/render.js';
+
+const IDS = SME_LESSONS.map((l) => l.id);
+function openLesson(id, stepIndex = 0, lang = 'ko') {
+  const { root } = setupDom();
+  renderLesson(root, SME_LESSONS.find((l) => l.id === id), stepIndex, lang, { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: SME_LESSONS.length, text: SME_UI });
+  return root;
+}
+
+test('the list shows the seven lessons in order with done marks', () => {
+  const { root } = setupDom();
+  renderSmeHome(root, SME_LESSONS, { completed: ['peer'] }, 'ko');
+  assert.equal(root.querySelector('h1').textContent, SME_UI.courseTitle.ko);
+  assert.equal(root.querySelector('.tagline').textContent, SME_UI.courseTagline.ko);
+  assert.equal(root.querySelector('[data-list-note]').textContent, SME_UI.listNote.ko);
+  const links = [...root.querySelectorAll('ol[data-sme-list] a[data-sme]')];
+  assert.deepEqual(links.map((a) => a.getAttribute('href')), IDS.map((id) => `#${id}-0`));
+  assert.deepEqual(links.map((a) => a.querySelector('.stage-card-num').textContent), ['1', '2', '3', '4', '5', '6', '7']);
+  links.forEach((a, i) => {
+    const l = SME_LESSONS[i];
+    assert.ok(a.textContent.includes(l.title.ko) && a.textContent.includes(l.subtitle.ko), l.id);
+    assert.equal(a.classList.contains('is-done'), l.id === 'peer');
+  });
+});
+
+test('a lesson counts out of seven, says SME checkpoint, and the last one leads to the list', () => {
+  const first = openLesson('firstday');
+  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 7');
+  assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), '#newcomer-0');
+  assert.ok(first.textContent.includes(SME_UI.checkpoint.ko));
+  assert.ok(!first.textContent.includes('팀장 체크포인트'));
+  assert.equal(openLesson('knowledge').querySelector('[data-next-lesson]').getAttribute('href'), '#home');
+  assert.equal(openLesson('newcomer', 3).querySelector('[data-persona] text').textContent, '서준');
+});
+
+test('stale addresses open the list', () => {
+  assert.deepEqual(parseRoute('#pip-0', IDS), { view: 'home' });
+  assert.deepEqual(parseRoute('#nope', IDS), { view: 'home' });
+  assert.equal(parseRoute('#peer-99', IDS).id, 'peer');
+});
+
+test('finished SME lessons feed today\'s practice and open term cards', () => {
+  const s = fakeStorage({ 'sme-course:v1': JSON.stringify({ completed: ['firstday'] }) });
+  assert.deepEqual(pool(s).map((q) => q.key), ['sme:firstday-q1', 'sme:firstday-q2']);
+  assert.ok(openTerms(s).length > 0);
+  const { root } = setupDom();
+  renderPractice(root, 'ko', s, '2026-11-25', newPracticeView());
+  const option = root.querySelector('[data-question] [data-option]');
+  option.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+  assert.match(root.querySelector('a[data-review]').getAttribute('href'), /^\.\.\/sme\/#firstday-0$/);
+});
+
+test('every lesson address opens that lesson', async () => {
+  const { lessonHref } = await import('../js/engine/router.js');
+  for (const id of IDS) assert.deepEqual(parseRoute(lessonHref(id, 3), IDS), { view: 'lesson', id, step: 3 }, id);
 });
