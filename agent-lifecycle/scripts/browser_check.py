@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -670,7 +670,7 @@ def main():
         page.reload()
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
-        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "codex/#daily": "browse", "browse/": "browse",
+        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "codex/#daily": "browse", "browse/": "browse",
                  "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
@@ -1437,6 +1437,32 @@ def main():
         page.goto(HUB + "#browse")
         page.wait_for_url("**/browse/")
         check("(h2) the old home Browse address opens the Browse page", page.url.endswith("/browse/"), page.url)
+        page.context.close()
+
+        # (s) Support Lifecycle (2026-11-25): an SME opens it from Learn, finishes lesson 1, and home counts it
+        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'sme'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("#learn a.card[href='./sme-lifecycle/']")
+        page.click("#learn a.card[href='./sme-lifecycle/']")
+        page.wait_for_selector("[data-stage-list]")
+        check("(s1) Learn opens Support Lifecycle with five stages on the ring", page.url.endswith("/sme-lifecycle/") and page.locator("svg a[data-stage]").count() == 5 and page.locator("[data-stage-list] a").count() == 5)
+        page.click("[data-stage-list] a[data-stage='trainee']")
+        page.wait_for_selector("[data-counter]")
+        steps = int(page.inner_text("[data-counter]").split("/")[1])
+        for _ in range(steps):
+            page.click("[data-next]")
+        page.wait_for_selector("[data-view='checkpoint']")
+        page.click("[data-question='trainee-q1'] [data-option='b']")
+        page.click("[data-question='trainee-q2'] [data-option='b']")
+        page.wait_for_selector("[data-connection]")
+        check("(s2) the next lesson is nesting", page.get_attribute("[data-next-lesson]", "href") == "#graduate-0")
+        page.goto(HUB)
+        page.wait_for_selector("[data-course='sme-lifecycle']")
+        check("(s2) home my learning counts the finished lesson", "1/5" in page.inner_text("[data-course='sme-lifecycle']") and page.get_attribute("a[data-next='sme-lifecycle']", "href") == "./sme-lifecycle/#graduate-0")
+        page.goto(HUB + "sme-lifecycle/")
+        page.wait_for_selector("[data-stage-list]")
+        check("(s3) the finished stage is marked on the list", page.locator("[data-stage-list] a.is-done").count() == 1)
+        page.screenshot(path=str(OUT / "sme-lifecycle-390.png"), full_page=True)
         page.context.close()
 
         browser.close()

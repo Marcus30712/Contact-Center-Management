@@ -74,6 +74,8 @@ export function renderHome(root, lessons, progress, lang, text = UI) {
       h('h1', { text: tr(T.courseTitle) }),
       h('p', { class: 'tagline', text: tr(T.courseTagline) }),
       hasTracks ? h('p', { class: 'track-hint', 'data-track-hint': true, text: tr(T.trackHint) }) : null,
+      // Another course's note on its example figures, in the track hint's place.
+      !hasTracks && text.listNote ? h('p', { class: 'track-hint', 'data-list-note': true, text: tr(text.listNote) }) : null,
       h('p', { class: 'translation-note', 'data-translation-note': true, hidden: !fallback, text: fallback ? tr(T.translationComing) : '' }),
     ]),
     h('div', { class: 'home-body' }, [

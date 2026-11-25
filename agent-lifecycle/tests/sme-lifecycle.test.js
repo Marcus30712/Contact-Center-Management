@@ -256,3 +256,14 @@ test('the English ring and lessons have no Korean left', () => {
   assert.equal(root.querySelector('[data-translation-note]').hidden, true);
   for (const l of SL_LESSONS) assert.ok(!/[가-힣]/.test(lessonText(l, 'en')), l.id);
 });
+
+test('the ring screen says the figures are examples', () => {
+  for (const lang of ['ko', 'en']) {
+    const { root } = setupDom();
+    renderHome(root, SL_LESSONS, { completed: [] }, lang, SL_UI);
+    assert.equal(root.querySelector('[data-list-note]')?.textContent, SL_UI.listNote[lang], lang);
+  }
+  const { root } = setupDom();
+  renderHome(root, LESSONS, { completed: [] }, 'ko');
+  assert.equal(root.querySelector('[data-list-note]'), null);
+});
