@@ -460,7 +460,7 @@
 - 개인정보처리방침의 레슨 진도 문구에 "SME 첫걸음, 서포트 라이프사이클"을 적었습니다.
 - 설계 `docs/superpowers/specs/2026-11-25-sme-learn-set-design.md` §4.2, 문안 `…-sme-lifecycle-copy-ko.md`(승인)·`…-sme-lifecycle-copy.en.md`, 계획 `docs/superpowers/plans/2026-11-25-sme-lifecycle.md`.
 
-### 56. SME SOP 라이브러리 — 상태: Pull Request 검토 중 (브랜치 `sme-sop`)
+### 56. SME SOP 라이브러리 — 상태: 반영됨 (PR #92)
 
 - SME의 세 번째 강의 `sme-sop/`입니다. SME가 맡는 표준 절차 8개(에스컬레이션 승인, 스크러빙, 상담 트렌드 요약 보고, 출석 관리 대행, 고객사 업데이트 허들, 캘리브레이션 참여와 기준 전달, VOC 리포팅, 지식 베이스 업데이트 요청)를 번호 목록으로 배우고, 절차마다 "누가"와 확인 문제 2개가 있습니다.
 - 팀장 SOP와 같은 절차는 SME가 맡는 부분만 다루고, 스크러빙의 L1·L2 분류는 팀장 SOP와 같은 기준입니다. 스크러빙 결과는 트렌드 요약, VOC, 지식 베이스 요청으로 이어집니다.
