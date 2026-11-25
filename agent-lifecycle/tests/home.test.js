@@ -366,12 +366,23 @@ test('the Excel card line depends on the role', () => {
   for (const r of ['agent', 'am', 'om']) assert.equal(excelText(r), shared[3], r);
 });
 
+test('the SME home links to the SME guide', () => {
+  const sme = homeOf('sme');
+  const card = sme.querySelector('a.card[href="./sme-guide/"]');
+  assert.ok(card);
+  assert.equal(card.querySelector('strong').textContent, rhRow(2, 'SME')[1]);
+  assert.equal(card.querySelector('span').textContent, GUIDE_CARD.text.ko);
+  assert.equal(homeOf('sme', 'en').querySelector('a.card[href="./sme-guide/"] strong').textContent, rhRow(2, 'SME')[2]);
+  assert.equal(sme.querySelector('[data-soon="guide"]'), null);
+  for (const role of ['agent', 'am', 'om']) assert.ok(homeOf(role).querySelector('[data-soon="guide"]'), role);
+  assert.ok(homeOf('tl').querySelector('a.card[href="./guide/"]'));
+});
+
 test('the guide card is TL\'s guide or coming soon', () => {
   const tl = homeOf('tl').querySelector('a.card[href="./guide/"]');
   assert.equal(tl.querySelector('strong').textContent, rhRow(2, 'TL')[1]);
   const sme = homeOf('sme');
   assert.equal(sme.querySelector('a.card[href="./guide/"]'), null);
-  assert.equal(sme.querySelector('[data-soon="guide"] strong').textContent, rhRow(2, 'SME')[1]);
   assert.equal(homeOf('am', 'en').querySelector('[data-soon="guide"] strong').textContent, rhRow(2, 'AM')[2]);
 });
 

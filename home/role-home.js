@@ -45,8 +45,10 @@ export function homeFor(role) {
   }
   const guide = soon('guide', withRole(HOME_COPY.guideTitle, role));
   if (role === 'sme') {
+    // The SME guide is built (2026-11-25): same card line as TL's.
+    const smeGuide = { id: 'guide', href: './sme-guide/', title: withRole(HOME_COPY.guideTitle, role), text: GUIDE_CARD.text };
     return {
-      guide,
+      guide: smeGuide,
       learn: [
         { id: 'sme', ...byHref('./sme/') },
         { id: 'sme-lifecycle', ...byHref('./sme-lifecycle/') },

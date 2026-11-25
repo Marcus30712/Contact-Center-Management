@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { setupDom } from './dom.js';
@@ -88,4 +89,17 @@ test('changing the highlight keeps the same links, so focus stays put', async ()
   assert.equal(nav.querySelector('[data-item="learn"]'), learn);
   assert.equal(learn.getAttribute('aria-current'), 'page');
   assert.equal(nav.querySelectorAll('[aria-current]').length, 1);
+});
+
+test('the menu\'s Guide follows the role', () => {
+  const guide = (role, page = 'https://x.test/kb/') => appBarItems(ROOT, page, undefined, role).find((i) => i.id === 'guide');
+  assert.equal(guide('sme').href, 'https://x.test/kb/sme-guide/');
+  for (const role of ['tl', 'agent', 'am', 'om', undefined]) assert.equal(guide(role).href, 'https://x.test/kb/guide/', String(role));
+  assert.equal(current('https://x.test/kb/sme-guide/'), 'guide');
+  assert.equal(current('https://x.test/kb/guide/'), 'guide');
+  assert.equal(guide('sme', 'https://x.test/kb/sme-guide/').current, true);
+  const nav = renderAppBar(document, ROOT, 'https://x.test/kb/', 'ko', undefined, 'sme');
+  assert.equal(nav.querySelector('a[data-item="guide"]').getAttribute('href'), 'https://x.test/kb/sme-guide/');
+  const src = readFileSync(new URL('../../shared/appbar.js', import.meta.url), 'utf8');
+  assert.match(src, /loadRole\(/, 'the page menu reads the saved role');
 });

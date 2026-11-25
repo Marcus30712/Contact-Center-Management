@@ -6,6 +6,7 @@ import { loadProgress, markComplete } from '../agent-lifecycle/js/engine/progres
 import { loadLang, saveLang, t } from '../agent-lifecycle/js/engine/i18n.js';
 import { renderLesson } from '../agent-lifecycle/js/render/lesson.js';
 import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
+import { settleGuide } from '../guide/link.js';
 import { SS_LESSONS } from './lessons/index.js';
 import { SS_UI, SS_PROGRESS_KEY } from './ui.js';
 import { renderSmeSopHome } from './home.js';
@@ -47,6 +48,8 @@ function render() {
   document.title = t(SS_UI.courseTitle, lang).text;
 
   const route = parseRoute(location.hash, lessonIds);
+  // Run on every draw, list included, so ?guide only lives on its own lesson.
+  const guide = settleGuide(location, history, 'sme-sop', route.view === 'home' ? undefined : route.id);
   if (route.view === 'home') {
     leaveLesson();
     renderSmeSopHome(app, SS_LESSONS, { completed: [...completed] }, lang);
@@ -68,6 +71,7 @@ function render() {
     track: 'general', // one course for every team type
     lessonCount: SS_LESSONS.length,
     text: SS_UI,
+    guide,
     onNavigate: (href) => { location.hash = href; },
     onComplete: (id) => {
       completed.add(id);
