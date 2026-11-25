@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'cbc57c89e10f';
+const VERSION = '7dc2fd9f480f';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -165,6 +165,16 @@ const PRECACHE = [
   "sme-lifecycle/lessons/05-leadsupport.js",
   "sme-lifecycle/lessons/index.js",
   "sme-lifecycle/ui.js",
+  "sme-sop/lessons/01-approval.js",
+  "sme-sop/lessons/02-scrubbing.js",
+  "sme-sop/lessons/03-trend.js",
+  "sme-sop/lessons/04-attendance.js",
+  "sme-sop/lessons/05-huddle.js",
+  "sme-sop/lessons/06-calibration.js",
+  "sme-sop/lessons/07-voc.js",
+  "sme-sop/lessons/08-kbrequest.js",
+  "sme-sop/lessons/index.js",
+  "sme-sop/ui.js",
   "sme/",
   "sme/app.js",
   "sme/home.js",
