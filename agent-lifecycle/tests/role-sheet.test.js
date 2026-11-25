@@ -93,3 +93,20 @@ test('the sheet waits for the start screen and comes before the tour', async () 
   await runFirstOpen({ startClosed: Promise.resolve(), askRole: false, openSheet: () => order2.push('sheet'), startTour: () => order2.push('tour') });
   assert.deepEqual(order2, ['tour']);
 });
+
+test('closing the sheet hands focus back after the page redraws', async () => {
+  for (const how of ['pick', 'later', 'escape']) {
+    const { document } = setupDom();
+    const order = [];
+    const s = openRoleSheet(document, 'ko', {
+      onPick: () => order.push('pick'),
+      onLater: () => order.push('later'),
+      focusBack: () => order.push('focus'),
+    });
+    if (how === 'pick') click(sheet(document).querySelector('[data-pick-role="sme"]'));
+    else if (how === 'later') click(sheet(document).querySelector('[data-role-later]'));
+    else key('Escape');
+    await s.closed;
+    assert.deepEqual(order, [how === 'pick' ? 'pick' : 'later', 'focus'], how);
+  }
+});

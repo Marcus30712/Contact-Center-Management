@@ -48,6 +48,8 @@ export function openRoleSheet(doc, lang, opts = {}) {
     doc.removeEventListener('keydown', onKey);
     open = null;
     then?.();
+    // The page may have redrawn in `then`; let it put the focus somewhere sensible.
+    opts.focusBack?.();
     done();
   };
   const stops = [...buttons, later];

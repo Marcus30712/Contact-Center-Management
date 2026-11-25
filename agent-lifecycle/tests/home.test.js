@@ -233,3 +233,20 @@ test('an SME learner sees the SME course first in Learn and in my learning', () 
   assert.equal(root.querySelector('[data-next="sme"]').getAttribute('href'), './sme/#newcomer-0');
   assert.deepEqual(myLearning(s).map((r) => r.id), ['lifecycle', 'sop', 'excel', 'sme']);
 });
+
+test('a new SME is pointed at SME lesson 1, everyone else at lifecycle lesson 1', () => {
+  const row = SME_DOC.split('\n').find((l) => l.startsWith('| 처음 안내 (SME) |')).slice(1, -1).split(' | ').map((c) => c.trim());
+  assert.deepEqual(SME_UI.startNote, { ko: row[1], en: row[2] });
+  for (const lang of ['ko', 'en']) {
+    const sme = setupDom();
+    renderHome(sme.root, lang, fakeStorage(), '2026-11-25', 'sme');
+    assert.equal(sme.root.querySelector('[data-start] a').getAttribute('href'), './sme/#firstday-0');
+    assert.equal(sme.root.querySelector('[data-start]').textContent, SME_UI.startNote[lang]);
+    for (const role of ['tl', 'agent', 'am', 'om']) {
+      const other = setupDom();
+      renderHome(other.root, lang, fakeStorage(), '2026-11-25', role);
+      assert.equal(other.root.querySelector('[data-start] a').getAttribute('href'), './agent-lifecycle/#hiring-0', role);
+      assert.equal(other.root.querySelector('[data-start]').textContent, HOME_UI.start[lang], role);
+    }
+  }
+});

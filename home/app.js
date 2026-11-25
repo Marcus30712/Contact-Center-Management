@@ -65,6 +65,12 @@ runFirstOpen({
   openSheet: () => openRoleSheet(document, lang, {
     onPick: (role) => { saveRole(storage, role); draw(); },
     onLater: () => markRoleAsked(storage),
+    // Like the start screen: keyboard and screen-reader users start again at the page title.
+    focusBack: () => {
+      const title = app.querySelector('h1');
+      title?.setAttribute('tabindex', '-1');
+      title?.focus({ preventScroll: true });
+    },
   }),
   startTour: () => {
     if (!shouldStartTour(storage, location.href)) return;

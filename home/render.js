@@ -91,8 +91,9 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
 
   let note = null;
   if (!learning.started) {
-    // The approved wording names lifecycle lesson 1, so the link goes there whatever the order.
-    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: learning.find((r) => r.id === 'lifecycle').next.href, text: tr(UI.start) })]);
+    // A new SME starts on their own course; everyone else on lifecycle lesson 1, as the wording says.
+    const [startRow, startText] = role === 'sme' ? ['sme', SME_UI.startNote] : ['lifecycle', UI.start];
+    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: learning.find((r) => r.id === startRow).next.href, text: tr(startText) })]);
   } else if (learning.allDone) {
     note = h('p', { class: 'hm-note', 'data-all-done': true, text: tr(UI.allDone) });
   }
