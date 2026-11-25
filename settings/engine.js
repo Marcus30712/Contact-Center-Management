@@ -8,6 +8,7 @@ import { PRACTICE_KEY } from '../practice/engine.js';
 import { SOP_PROGRESS_KEY } from '../sop-library/ui.js';
 import { ROLE_KEY, ROLE_ASKED_KEY } from '../shared/role.js';
 import { SME_PROGRESS_KEY } from '../sme/ui.js';
+import { REVIEW_KEY } from '../review/engine.js';
 
 // shared/theme-boot.js reads the same key before each page draws.
 export const THEME_KEY = 'queuecraft:theme';
@@ -34,10 +35,10 @@ export function applyTheme(doc, theme) {
 }
 
 // Everything a learner would lose when changing phones. Order is the file's order.
-export const BACKUP_KEYS = [LANG_KEY, TRACK_KEY, THEME_KEY, ROLE_KEY, ROLE_ASKED_KEY, PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY];
+export const BACKUP_KEYS = [LANG_KEY, TRACK_KEY, THEME_KEY, ROLE_KEY, ROLE_ASKED_KEY, PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY, REVIEW_KEY];
 // A file must carry some progress: replacing everything with an empty file
 // (exported on a fresh or blocked browser) would wipe a learner's records.
-const PROGRESS_KEYS = [PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY];
+const PROGRESS_KEYS = [PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY, REVIEW_KEY];
 
 // "Reset learning" clears these and nothing else: language, job track,
 // display mode and the tutorial flag stay.

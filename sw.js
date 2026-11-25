@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'e5b72de23ef1';
+const VERSION = '2e49e75f9dbf';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -123,6 +123,8 @@ const PRECACHE = [
   "references/index.html",
   "references/references.js",
   "references/text.js",
+  "review/data.js",
+  "review/engine.js",
   "settings/",
   "settings/app.js",
   "settings/data.js",

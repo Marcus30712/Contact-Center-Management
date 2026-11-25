@@ -1,0 +1,225 @@
+// Review quizzes per role (2026-11-25). Korean: docs/superpowers/specs/2026-11-25-review-quiz-copy-ko.md;
+// English: …-review-quiz-copy.en.md. agent-lifecycle/tests/review.test.js keeps them identical.
+import { tx, option } from '../agent-lifecycle/js/lessons/build.js';
+
+export const REVIEW_UI = {
+  title: tx("복습 퀴즈"),
+  intro: tx("직급 강의를 모두 마쳤다면, 여러 레슨을 함께 떠올려야 풀리는 상황 문제로 복습해 보세요. 복습용 퀴즈이며 공식 평가가 아닙니다."),
+  nameTl: tx("팀장 복습 퀴즈"),
+  scopeTl: tx("상담사 라이프사이클 6개 + SOP 라이브러리 10개"),
+  nameSme: tx("SME 복습 퀴즈"),
+  scopeSme: tx("SME 첫걸음 7개"),
+  locked: tx("레슨을 모두 마치면 열려요. 남은 레슨 {n}개."),
+  lockedLink: tx("이어서 볼 레슨 →"),
+  start: tx("퀴즈 시작하기"),
+  count: tx("문제 {i} / {n}"),
+  correct: tx("맞아요!"),
+  wrong: tx("아쉬워요. 해설을 보고 관련 레슨을 다시 봐요."),
+  related: tx("관련 레슨 다시 보기"),
+  next: tx("다음 문제 →"),
+  finish: tx("결과 보기 →"),
+  score: tx("{n}문제 중 {x}개를 맞혔어요."),
+  passed: tx("통과했어요! 이 직급 강의의 핵심을 잘 기억하고 있어요."),
+  failed: tx("{need}개 이상 맞히면 통과예요. 아래 레슨을 다시 보고 도전해 보세요."),
+  missedTitle: tx("다시 볼 레슨"),
+  retry: tx("다시 풀기"),
+  best: tx("최고 기록 {x}/{n}"),
+  passMark: tx("✓ 통과"),
+  homeStart: tx("복습 퀴즈 풀기 →"),
+  homeDone: tx("복습 퀴즈 · 최고 기록 {x}/{n} · 다시 풀기 →"),
+};
+
+export const QUIZZES = {
+  tl: {
+    name: REVIEW_UI.nameTl,
+    scope: REVIEW_UI.scopeTl,
+    questions: [
+      {
+        id: "tl-q1",
+        prompt: tx("정식 팀에 온 지민의 평균 처리 시간(AHT)이 팀 평균보다 깁니다. FCR과 QA 정확도는 높습니다. 부매니저가 AHT를 줄이라고 합니다. 먼저 할 일은 무엇일까요?"),
+        options: [
+          option("a", tx("AHT를 팀 평균까지 줄이는 목표로 바로 성과 개선 계획(PIP)을 시작한다."), tx("PIP는 코칭으로 부족할 때 쓰는 공식 절차입니다. 숫자 하나로 시작하면 지민이 잘하는 한 번에 해결하는 힘까지 흔들립니다.")),
+          option("b", tx("녹취 몇 건과 지표를 함께 보고, 1:1 코칭에서 잘한 점과 줄일 수 있는 구간을 함께 찾는다.")),
+          option("c", tx("팀 허들에서 통화를 더 빨리 끝내자고 공지한다."), tx("시간만 강조하면 상담사는 정확히 안내하는 법보다 빨리 끊는 법을 배웁니다.")),
+        ],
+        answer: "b",
+        explanation: tx("한 지표만 보면 다른 지표를 희생시키는 코칭이 됩니다. 여러 지표와 실제 상담을 함께 보고, 1:1 코칭에서 행동을 정합니다."),
+        lessons: [
+          { title: tx("라이프사이클 레슨 4 · 성과 관리 및 코칭"), href: "../agent-lifecycle/#coaching-0" },
+          { title: tx("SOP · 1:1 코칭"), href: "../sop-library/#coaching-0" },
+        ],
+      },
+      {
+        id: "tl-q2",
+        prompt: tx("1:1 코칭을 세 번 했지만 지민의 같은 확인 단계 누락이 계속됩니다. 다음으로 할 일은 무엇일까요?"),
+        options: [
+          option("a", tx("같은 내용으로 한 번 더 코칭한다."), tx("같은 방식이 세 번 통하지 않았다면, 목표와 지원을 공식적으로 정할 때입니다.")),
+          option("b", tx("나아질 기미가 없으니 퇴사를 권한다."), tx("기회와 지원 없이 끝내면 팀원들은 도움을 청해도 소용없다고 느낍니다.")),
+          option("c", tx("데이터를 근거로 면담하고, 목표와 지원 약속을 함께 정해 주간으로 점검하는 PIP로 넘어간다.")),
+        ],
+        answer: "c",
+        explanation: tx("코칭만으로 부족하면 PIP로 넘어갑니다. PIP는 벌이 아니라, 목표와 지원과 점검을 분명히 하는 절차입니다."),
+        lessons: [
+          { title: tx("SOP · 성과 개선 계획 (PIP)"), href: "../sop-library/#pip-0" },
+          { title: tx("SOP · 1:1 코칭"), href: "../sop-library/#coaching-0" },
+        ],
+      },
+      {
+        id: "tl-q3",
+        prompt: tx("프로모션 오류로 같은 불만 전화가 쏟아지고, 폭언 콜을 끊은 상담사가 자리에서 굳어 있습니다. 먼저 할 일로 알맞은 것은 무엇일까요?"),
+        options: [
+          option("a", tx("그 상담사를 잠시 쉬게 하고, 같은 불만이 몰린다는 사실을 OM·QA·WFM에 바로 공유한다.")),
+          option("b", tx("대기 고객이 많으니 상담사를 바로 다음 콜로 돌려보낸다."), tx("충격이 그대로 다음 고객에게 이어지고, 상담사는 보호받지 못했다고 느낍니다.")),
+          option("c", tx("불만이 가라앉을 때까지 팀 안에서만 처리한다."), tx("대규모 이슈의 첫 단계는 감지하고 공유하는 것입니다. 혼자 막으면 원인 분석과 인력 계획이 늦어집니다.")),
+        ],
+        answer: "a",
+        explanation: tx("사람을 먼저 보호하고, 몰리는 불만은 여러 팀이 함께 움직이도록 바로 알립니다."),
+        lessons: [
+          { title: tx("라이프사이클 레슨 5 · 동기부여 및 유지"), href: "../agent-lifecycle/#retention-0" },
+          { title: tx("SOP · 대규모 이슈 대응"), href: "../sop-library/#incident-0" },
+        ],
+      },
+      {
+        id: "tl-q4",
+        prompt: tx("퇴사 면담에서 \"교대 근무가 이렇게 잦은 줄 몰랐다\"는 말이 두 번째 나왔습니다. 다음 주에는 채용 면접관으로 들어갑니다. 어떻게 할까요?"),
+        options: [
+          option("a", tx("지원자가 줄지 않도록, 교대 근무는 묻는 사람에게만 설명한다."), tx("좋은 점만 듣고 들어온 사람은 근무표를 처음 받는 날 퇴사를 고민합니다.")),
+          option("b", tx("면담 내용을 채용 담당과 나누고, 면접에서 교대 근무를 솔직하게 안내한다.")),
+          option("c", tx("퇴사자 개인의 사정으로 보고 면담 기록만 남긴다."), tx("같은 말이 반복된다면 개인 사정이 아니라 직무 안내를 고칠 신호입니다.")),
+        ],
+        answer: "b",
+        explanation: tx("퇴사 면담에서 나온 개선점은 다음 채용으로 돌아갑니다. 현실적 직무 안내(RJP)가 조기 퇴사를 줄입니다."),
+        lessons: [
+          { title: tx("라이프사이클 레슨 6 · 경력 개발 및 전환·퇴사"), href: "../agent-lifecycle/#career-0" },
+          { title: tx("라이프사이클 레슨 1 · 채용 및 선발"), href: "../agent-lifecycle/#hiring-0" },
+        ],
+      },
+      {
+        id: "tl-q5",
+        prompt: tx("팀장이 된 지 2주째(예시), 가장 친했던 하은이 QA 점수가 평가자마다 다르다고 불만을 말합니다. 알맞은 것은 무엇일까요?"),
+        options: [
+          option("a", tx("친한 사이니 하은의 점수만 다시 봐 달라고 QA에 부탁한다."), tx("한 사람만 챙기면 팀은 기준이 친분에 따라 다르다고 느낍니다.")),
+          option("b", tx("평가는 QA의 일이니 관여하지 않는다."), tx("팀장도 캘리브레이션에 참여합니다. 기준이 흔들리면 코칭의 근거도 흔들립니다.")),
+          option("c", tx("평가 기준의 문제로 보고 QA와 캘리브레이션 세션을 열어 기준을 맞춘 뒤, 결과를 팀 전체에 알린다.")),
+        ],
+        answer: "c",
+        explanation: tx("개인의 불만에서 팀 전체의 기준 문제를 찾고, 모두에게 같은 방식으로 풀어 줍니다."),
+        lessons: [
+          { title: tx("SOP · 캘리브레이션"), href: "../sop-library/#calibration-0" },
+          { title: tx("SOP · 동료에서 팀장으로"), href: "../sop-library/#transition-0" },
+        ],
+      },
+      {
+        id: "tl-q6",
+        prompt: tx("첫 주를 보내는 신입 서아가 질문을 거의 하지 않습니다. 스크러빙에서 서아의 티켓에 같은 안내 누락이 두 번 보입니다. 알맞은 것은 무엇일까요?"),
+        options: [
+          option("a", tx("버디와 함께 서아에게 먼저 다가가 막히는 곳을 묻고, 빠진 안내를 1:1로 짚어 준다.")),
+          option("b", tx("팀 허들에서 서아의 티켓을 사례로 보여 준다."), tx("신입의 실수를 팀 앞에서 다루면 서아는 더 묻지 않게 됩니다.")),
+          option("c", tx("아직 첫 주이니 한 달 동안은 지켜만 본다."), tx("첫 주는 가장 많이 떠나는 시기입니다. 막힌 곳을 오래 두면 버티기 어렵습니다.")),
+        ],
+        answer: "a",
+        explanation: tx("신입은 기다리지 말고 먼저 챙기고, 실수는 1:1로 짚습니다. 버디가 그 거리를 좁혀 줍니다."),
+        lessons: [
+          { title: tx("SOP · 신규 입사자 온보딩"), href: "../sop-library/#onboarding-0" },
+          { title: tx("SOP · 스크러빙"), href: "../sop-library/#scrubbing-0" },
+        ],
+      },
+    ],
+  },
+  sme: {
+    name: REVIEW_UI.nameSme,
+    scope: REVIEW_UI.scopeSme,
+    questions: [
+      {
+        id: "sme-q1",
+        prompt: tx("통화 중 고객을 보류해 둔 서준이 손을 들었고, 동기 준호는 보상 승인을 요청했고, 미팅 중인 수진 팀장은 오후 출석을 맡아 달라고 메신저를 보냈습니다. 먼저 할 일은 무엇일까요?"),
+        options: [
+          option("a", tx("서준에게 먼저 가고, 준호와 팀장에게는 언제 처리할지 짧게 알린다.")),
+          option("b", tx("동기인 준호의 승인부터 처리한다."), tx("순서는 친분이 아니라 고객이 지금 기다리느냐로 정합니다.")),
+          option("c", tx("팀장의 요청이니 출석 확인부터 한다."), tx("출석은 잠시 뒤에도 할 수 있지만, 보류된 고객은 기다릴 수 없습니다.")),
+        ],
+        answer: "a",
+        explanation: tx("실시간으로 기다리는 고객이 먼저이고, 기다리게 되는 사람에게는 언제 갈지 알립니다."),
+        lessons: [
+          { title: tx("SME 레슨 6 · 요청이 동시에 몰릴 때"), href: "../sme/#priority-0" },
+          { title: tx("SME 레슨 2 · 신입 상담사 서포트"), href: "../sme/#newcomer-0" },
+        ],
+      },
+      {
+        id: "sme-q2",
+        prompt: tx("스크러빙에서 준호가 승인 없이 처리한 보상 건이 이번 주에만 세 번(예시) 나왔습니다. 어떻게 할까요?"),
+        options: [
+          option("a", tx("팀 채팅방에 준호의 건이라고 밝히고 절차를 다시 안내한다."), tx("이름을 밝히면 준호는 창피를 당하고, 팀은 실수를 숨기기 시작합니다.")),
+          option("b", tx("동기 사이니 이번에도 모른 척 넘어간다."), tx("한 사람에게만 느슨하면 승인 기준이 친분에 따라 달라집니다.")),
+          option("c", tx("준호와 1:1로 누구에게나 같은 기준이라고 말하고, 반복된 사례는 팀장에게 건네는 요약에 담는다.")),
+        ],
+        answer: "c",
+        explanation: tx("같은 기준을 존중하는 방식으로 지키고, 반복되는 문제는 팀장과 함께 다룹니다."),
+        lessons: [
+          { title: tx("SME 레슨 4 · 동료였던 선임 서포트"), href: "../sme/#peer-0" },
+          { title: tx("SME 레슨 5 · 팀장 서포트"), href: "../sme/#lead-0" },
+        ],
+      },
+      {
+        id: "sme-q3",
+        prompt: tx("아침 허들에서 고객사의 환불 정책 변경을 전했는데, 오후에 서준과 기존 상담사 세 명이 같은 질문을 합니다. 알맞은 것은 무엇일까요?"),
+        options: [
+          option("a", tx("허들에서 이미 말했으니 다시 설명하지 않는다."), tx("네 명이 같은 것을 묻는다면 전달이 충분하지 않았다는 신호입니다.")),
+          option("b", tx("답을 정리해 팀 채팅방에 올리고 지식 베이스 업데이트를 요청하며, 서준에게는 그 문서 위치를 보여 준다.")),
+          option("c", tx("물어볼 때마다 한 사람씩 답한다."), tx("같은 질문이 계속 오고, 그동안 더 급한 요청을 놓칩니다.")),
+        ],
+        answer: "b",
+        explanation: tx("반복되는 질문은 팀 전체에 한 번에 돌려주고, 신입에게는 찾는 법을 보여 줍니다."),
+        lessons: [
+          { title: tx("SME 레슨 3 · 기존 상담사 서포트"), href: "../sme/#escalation-0" },
+          { title: tx("SME 레슨 7 · 팀에 지식 돌려주기"), href: "../sme/#knowledge-0" },
+        ],
+      },
+      {
+        id: "sme-q4",
+        prompt: tx("팀장이 자리에 없는 오전, 결근 연락이 두 건 들어오고 대기 고객이 늘기 시작합니다. 어떻게 할까요?"),
+        options: [
+          option("a", tx("결근 사유를 들어 보고 병가로 처리해 준다."), tx("사유를 판단하고 근태를 정하는 것은 팀장의 몫입니다.")),
+          option("b", tx("결근 연락을 기록하고, 인원이 부족하다는 것을 팀장과 RTA에 바로 알린다.")),
+          option("c", tx("서포트를 멈추고 혼자 콜을 더 받아 빈자리를 메운다."), tx("혼자 메우는 동안 팀의 요청은 쌓이고, 인원을 조정할 수 있는 사람은 상황을 모릅니다.")),
+        ],
+        answer: "b",
+        explanation: tx("출석 대행은 기록하고 알리는 데까지입니다. 인원 조정은 팀장과 RTA가 할 수 있습니다."),
+        lessons: [
+          { title: tx("SME 레슨 5 · 팀장 서포트"), href: "../sme/#lead-0" },
+          { title: tx("SME 레슨 6 · 요청이 동시에 몰릴 때"), href: "../sme/#priority-0" },
+        ],
+      },
+      {
+        id: "sme-q5",
+        prompt: tx("캘리브레이션에서 확인 단계의 기준이 바뀌었습니다. 다음 날 지민이 바뀐 기준을 몰라 QA 점수가 낮게 나왔다며 찾아옵니다. 알맞은 것은 무엇일까요?"),
+        options: [
+          option("a", tx("지민에게 바뀐 기준을 설명하고, 아직 모르는 상담사가 없도록 허들과 팀 채팅방으로 바로 전한다.")),
+          option("b", tx("점수는 QA의 일이니 QA에게 물어보라고 한다."), tx("바뀐 기준을 상담사에게 먼저 전하는 것은 SME의 일입니다.")),
+          option("c", tx("QA에게 지민의 점수를 고쳐 달라고 요청한다."), tx("점수를 고치는 것은 평가의 일입니다. 같은 일이 다시 생기지 않게 기준을 전하는 것이 먼저입니다.")),
+        ],
+        answer: "a",
+        explanation: tx("기준이 바뀌면 SME가 먼저 팀에 전합니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다."),
+        lessons: [
+          { title: tx("SME 레슨 7 · 팀에 지식 돌려주기"), href: "../sme/#knowledge-0" },
+          { title: tx("SME 레슨 1 · SME가 된 첫날"), href: "../sme/#firstday-0" },
+        ],
+      },
+      {
+        id: "sme-q6",
+        prompt: tx("SME가 된 첫 주, 동기 준호가 정책에 없는 큰 보상을 승인해 달라고 합니다. 고객은 통화 중에 기다리고 있습니다. 어떻게 할까요?"),
+        options: [
+          option("a", tx("준호의 경험을 믿고 승인한다."), tx("승인 범위 밖의 결정은 되돌리기 어렵고, 경험이 기준을 대신하지 않습니다.")),
+          option("b", tx("정책에 없으니 거절하고 준호에게 그대로 응대하게 한다."), tx("거절로 끝내면 고객의 문제가 남습니다. 내가 정할 수 없는 건은 정할 수 있는 사람에게 넘깁니다.")),
+          option("c", tx("승인 범위 밖이므로 준호에게 고객 대기 안내를 부탁하고, 팀장에게 바로 넘긴다.")),
+        ],
+        answer: "c",
+        explanation: tx("범위 안은 내가 정하고, 범위 밖은 팀장에게 넘깁니다. 동기의 요청도 같은 기준입니다."),
+        lessons: [
+          { title: tx("SME 레슨 1 · SME가 된 첫날"), href: "../sme/#firstday-0" },
+          { title: tx("SME 레슨 4 · 동료였던 선임 서포트"), href: "../sme/#peer-0" },
+        ],
+      },
+    ],
+  },
+};

@@ -83,13 +83,14 @@ const filled = () => fakeStorage({
   'excel-practice:v1': '{"completed":["1"],"scores":{}}',
   'kb-practice:v1': '{"days":["2026-11-20"]}',
   'sme-course:v1': '{"completed":["peer"]}',
+  'queuecraft:review:v1': '{"sme":{"best":6,"total":6,"passed":true}}',
   'other-site:key': 'not ours',
 });
 
-test('a backup holds exactly the ten Queuecraft keys that are set', () => {
+test('a backup holds exactly the eleven Queuecraft keys that are set', () => {
   assert.deepEqual(BACKUP_KEYS, ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'queuecraft:theme',
     'queuecraft:role', 'queuecraft:role-asked',
-    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1']);
+    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1']);
   const b = makeBackup(filled(), '2026-11-20');
   assert.equal(b.app, 'queuecraft');
   assert.equal(b.format, 1);
@@ -343,8 +344,8 @@ test('the tutorial has its own section with a View link', () => {
 });
 
 // ---------- 2026-11-21: reset learning ----------
-test('reset clears only the five learning records and reports whether anything was there', () => {
-  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1']);
+test('reset clears only the six learning records and reports whether anything was there', () => {
+  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1']);
   const s = filled();
   s.setItem('queuecraft:tour', 'done');
   assert.equal(resetLearning(s), true);

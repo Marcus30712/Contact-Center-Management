@@ -25,8 +25,11 @@ const table = () => {
 
 // Rows changed for the role and the SME course (approved 2026-11-25).
 const SME_DOC = file('docs/superpowers/specs/2026-11-25-sme-course-copy-ko.md');
-const changed = new Map(SME_DOC.split('## 4. ')[1].split('\n').filter((l) => /^\| s\d/.test(l))
-  .map((l) => l.slice(1, -1).split(' | ').map((c) => c.trim())).map(([k, ko, en]) => [k, [k, ko, en]]));
+// …and for the review quizzes (approved 2026-11-25).
+const QUIZ_DOC = file('docs/superpowers/specs/2026-11-25-review-quiz-copy-ko.md');
+const policyRows = (text) => text.split('\n').filter((l) => /^\| s\d/.test(l))
+  .map((l) => l.slice(1, -1).split(' | ').map((c) => c.trim())).map(([k, ko, en]) => [k, [k, ko, en]]);
+const changed = new Map([...policyRows(SME_DOC.split('## 4. ')[1]), ...policyRows(QUIZ_DOC.split('## 3. ')[1].split(/^## /m)[0])]);
 
 test('privacy wording is the confirmed table, in both languages', () => {
   const rows = table().map((r) => changed.get(r[0]) ?? r);
@@ -56,14 +59,14 @@ test('the stored items match the keys the app really keeps', () => {
   }
 });
 
-test('nothing new is stored without updating the policy: nine setItem calls, no other storage', async () => {
+test('nothing new is stored without updating the policy: ten setItem calls, no other storage', async () => {
   const { execFileSync } = await import('node:child_process');
   const root = new URL('../../', import.meta.url).pathname;
   const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '*.js'], { cwd: root, encoding: 'utf8' }).split('\n')
     .filter((f) => f && !f.includes('tests/') && !f.includes('scripts/') && !f.startsWith('tools/') && !f.startsWith('docs/'));
   const all = files.map((f) => file(f)).join('\n');
-  // 5 + the display theme + restoring a backup (Settings) + the first-run tour + the role.
-  assert.equal((all.match(/\.setItem\(/g) ?? []).length, 9, 'a new stored item needs a line in the privacy policy');
+  // 5 + the display theme + restoring a backup (Settings) + the first-run tour + the role + review quiz results.
+  assert.equal((all.match(/\.setItem\(/g) ?? []).length, 10, 'a new stored item needs a line in the privacy policy');
   assert.ok(!/sessionStorage|indexedDB|document\.cookie|sendBeacon|XMLHttpRequest|WebSocket/.test(all));
 });
 
