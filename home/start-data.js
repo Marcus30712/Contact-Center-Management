@@ -3,7 +3,7 @@
 // …-start-screen-copy.en.md. Tests compare both, row for row.
 export const START_UI = {
   logo: { ko: "큐크래프트", en: "Queuecraft" },
-  tagline: { ko: "신입 팀장을 위한 컨택센터 운영 배우기", en: "Learning contact center operations, for new team leaders" },
+  tagline: { ko: "상담사부터 매니저까지, 컨택센터의 새 자리를 미리 배우기", en: "From agent to manager: learn your next contact center role ahead of time" },
   start: { ko: "시작하기", en: "Start" },
   offlineWait: { ko: "오프라인 준비 중…", en: "Getting ready for offline use…" },
   offlineReady: { ko: "오프라인에서도 볼 수 있어요", en: "You can use it offline too" },
@@ -39,7 +39,7 @@ export const GREETINGS = {
     face: 'cheer',
     lines: [
       { ko: "오후에 졸릴 때쯤이죠. 퀴즈 하나로 머리를 깨워 볼까요?", en: "Feeling the afternoon slump? How about a quiz to wake your mind up?" },
-      { ko: "오후도 힘내요! 오늘 코칭할 팀원이 있다면 SOP를 먼저 훑어봐요.", en: "Keep going this afternoon! If you are coaching someone today, skim the SOP first." },
+      { ko: "오후도 힘내요! 오늘 도울 팀원이 있다면 관련 레슨을 먼저 훑어봐요.", en: "Keep going this afternoon! If you are helping someone today, skim the lesson for it first." },
     ],
   },
   evening: {
@@ -59,14 +59,14 @@ export const GREETINGS = {
   monday: {
     face: 'cheer',
     lines: [
-      { ko: "한 주의 시작이에요! 이번 주에 코칭할 팀원부터 떠올려 볼까요?", en: "It's the start of the week! Why not think first of whom you will coach this week?" },
+      { ko: "한 주의 시작이에요! 이번 주에 먼저 챙길 팀원부터 떠올려 볼까요?", en: "It's the start of the week! Why not think first of whom to look after this week?" },
       { ko: "월요일 아침은 문의가 몰리기 쉬워요. 출근 전에 마음의 준비를 해 둬요.", en: "Contacts tend to pile up on Monday mornings. Get ready before you start." },
     ],
   },
   friday: {
     face: 'proud',
     lines: [
-      { ko: "한 주 마무리 잘하고 있죠? 이번 주에 잘한 팀원에게 칭찬 한마디 어때요?", en: "Wrapping up the week well? How about a word of praise for someone who did well this week?" },
+      { ko: "한 주 마무리 잘하고 있죠? 이번 주에 잘한 동료에게 칭찬 한마디 어때요?", en: "Wrapping up the week well? How about a word of praise for a colleague who did well this week?" },
       { ko: "금요일이에요! 이번 주에 배운 것 하나만 돌아보고 가벼운 마음으로 주말 맞아요.", en: "It's Friday! Look back on one thing you learned this week and head into the weekend lighter." },
     ],
   },

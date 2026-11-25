@@ -7,7 +7,7 @@ import { renderHome } from './render.js';
 import { whenAppBar, shouldStartTour, startTour } from '../shared/tour.js';
 import { pickGreeting, shouldShowStart, watchOffline } from './start.js';
 import { renderStart } from './start-render.js';
-import { saveRole, markRoleAsked } from '../shared/role.js';
+import { saveRole, markRoleAsked, loadRole } from '../shared/role.js';
 import { openRoleSheet, askRoleHere, runFirstOpen } from '../shared/role-sheet.js';
 
 function getStorage() {
@@ -32,7 +32,7 @@ function draw() {
     draw();
     langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
   });
-  renderHome(app, lang, storage);
+  renderHome(app, lang, storage, undefined, loadRole(storage));
 }
 
 let day = new Date().toDateString();

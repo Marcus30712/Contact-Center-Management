@@ -9,10 +9,17 @@ import { EXCEL_LESSONS, EXCEL_UI } from '../excel/data.js';
 import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
+import { COURSE_ROLES, DEFAULT_ROLE } from '../shared/role.js';
+import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
+
+// The learner's own role first, everything else in its usual order (2026-11-25).
+export function orderByRole(items, role) {
+  return [...items.filter((x) => x.role === role), ...items.filter((x) => x.role !== role)];
+}
 
 const COURSES = [
-  { id: 'lifecycle', name: UI.lifecycle, lessons: LESSONS, key: 'agent-lifecycle-course:v1', path: './agent-lifecycle/' },
-  { id: 'sop', name: UI.sop, lessons: SOP_LESSONS, key: 'sop-library:v1', path: './sop-library/' },
+  { id: 'lifecycle', role: 'tl', name: UI.lifecycle, lessons: LESSONS, key: 'agent-lifecycle-course:v1', path: './agent-lifecycle/' },
+  { id: 'sop', role: 'tl', name: UI.sop, lessons: SOP_LESSONS, key: 'sop-library:v1', path: './sop-library/' },
   {
     id: 'excel', name: EXCEL_UI.homeCard, key: 'excel-practice:v1', path: './excel/',
     lessons: EXCEL_LESSONS.map((l, i) => ({ id: l.id, order: i + 1, title: l.title })),
@@ -22,8 +29,8 @@ const COURSES = [
 
 // Progress for the three courses, read from the keys each course already uses.
 // The next lesson is the first one, in course order, not yet finished.
-export function myLearning(storage) {
-  const rows = COURSES.map((course) => {
+export function myLearning(storage, role = DEFAULT_ROLE) {
+  const rows = orderByRole(COURSES, role).map((course) => {
     const done = new Set(storage ? loadProgress(storage, course.key).completed : []);
     const ordered = [...course.lessons].sort((a, b) => a.order - b.order);
     const next = ordered.find((l) => !done.has(l.id));
@@ -60,9 +67,9 @@ function practiceCard(tr, storage, today) {
   return h('a', { class: 'card hm-practice', href: './practice/', 'data-practice': true }, parts);
 }
 
-export function renderHome(root, lang, storage, today = localDate()) {
+export function renderHome(root, lang, storage, today = localDate(), role = DEFAULT_ROLE) {
   const tr = (text) => t(text, lang).text;
-  const learning = myLearning(storage);
+  const learning = myLearning(storage, role);
   const cardEl = (c) => h('li', {}, [h('a', { class: 'card', href: c.href }, [h('strong', { text: tr(c.title) }), h('span', { text: tr(c.text) })])]);
 
   const reviewHref = (row) => COURSES.find((c) => c.id === row.id).path;
@@ -81,7 +88,8 @@ export function renderHome(root, lang, storage, today = localDate()) {
 
   let note = null;
   if (!learning.started) {
-    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: learning[0].next.href, text: tr(UI.start) })]);
+    // The approved wording names lifecycle lesson 1, so the link goes there whatever the order.
+    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: learning.find((r) => r.id === 'lifecycle').next.href, text: tr(UI.start) })]);
   } else if (learning.allDone) {
     note = h('p', { class: 'hm-note', 'data-all-done': true, text: tr(UI.allDone) });
   }
@@ -102,10 +110,18 @@ export function renderHome(root, lang, storage, today = localDate()) {
       h('h2', { text: tr(UI.myLearning) }),
       learning.started ? h('ul', { class: 'hm-courses' }, learning.map(courseRow)) : null,
       note,
+      COURSE_ROLES.includes(role) ? null : h('div', { class: 'hm-note', 'data-role-preparing': true }, [
+        h('p', { text: tr(ROLE_UI.preparing).replace('{role}', tr(ROLE_NAMES[role])) }),
+        h('p', {}, [
+          h('a', { href: './codex/#career', text: tr(ROLE_UI.preparingCareer) }),
+          ' ',
+          h('a', { href: `./codex/#daily-${role}`, text: tr(ROLE_UI.preparingDaily) }),
+        ]),
+      ]),
     ]),
     h('div', { class: 'hm-cards' }, [practiceCard(tr, storage, today)]),
     h('ul', { class: 'hm-cards' }, [cardEl(GUIDE_CARD)]),
-    h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, LEARN.map(cardEl))]),
+    h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, orderByRole(LEARN, role).map(cardEl))]),
     h('section', { id: 'browse' }, [h('h2', { text: tr(UI.browse) }), h('ul', { class: 'hm-cards' }, BROWSE.map(cardEl))]),
     h('p', { class: 'hm-privacy' }, [h('a', { href: './privacy/', 'data-privacy': true, text: tr(UI.privacy) })]),
   );
