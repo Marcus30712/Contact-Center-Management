@@ -1,4 +1,4 @@
-// The SME course "SME SOP 라이브러리" (2026-11-25). The Korean must be the approved
+// The SME course "직무전문가 SOP 라이브러리" (2026-11-25). The Korean must be the approved
 // copy, word for word: docs/superpowers/specs/2026-11-25-sme-sop-copy-ko.md.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

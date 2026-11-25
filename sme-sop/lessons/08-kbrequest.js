@@ -13,7 +13,7 @@ export default {
   title: tx("지식 베이스 업데이트 요청", "Knowledge Base Update Requests"),
   short: tx("지식 베이스", "Knowledge base"),
   subtitle: tx("틀리거나 빠진 문서를 찾으면, 고칠 사람이 바로 고칠 수 있게 요청합니다.", "When you find a wrong or missing article, ask so the owner can fix it right away."),
-  roles: tx("SME → 지식 베이스 담당", "SME → Knowledge base owner"),
+  roles: tx("직무전문가 → 지식 베이스 담당", "SME → Knowledge base owner"),
   procedure,
   diagram: {
     nodes: [
@@ -57,5 +57,5 @@ export default {
       explanation: tx("고쳐지기 전까지는 임시 안내로 빈틈을 막고, 반영되면 알립니다.", "Until it's fixed, cover the gap with an interim note, and say so once it's fixed."),
     },
   ],
-  connection: { to: "home", text: tx("SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 SME 서포트 라이프사이클에서 다시 볼 수 있습니다.", "You have finished the SME SOP Library. To review which procedure fits each stage, go back to SME Support Lifecycle.") },
+  connection: { to: "home", text: tx("직무전문가 SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 직무전문가 서포트 라이프사이클에서 다시 볼 수 있습니다.", "You have finished the SME SOP Library. To review which procedure fits each stage, go back to SME Support Lifecycle.") },
 };

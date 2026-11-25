@@ -32,7 +32,7 @@ export default {
     step(tx("답을 바로 주기보다 어디서 찾는지 보여 줍니다. 지식 베이스의 어느 문서에 있는지 알려 주면 다음에는 혼자 찾을 수 있습니다.", "Rather than giving the answer, show where to find it. When you point to the right knowledge base article, he can find it alone next time."), flow, ["beside"], null),
     step(tx("셋째 단계는 먼저 확인하기입니다. 신입은 질문하는 것 자체를 망설입니다. 손을 들 때까지 기다리지 말고, 정해진 간격(예시: 1시간에 한 번)으로 먼저 다가가 묻습니다.", "The third stage is checking in first. New hires hesitate to ask at all. Don't wait for a raised hand; go to him at set intervals (Example: once an hour) and ask."), flow, ["check"], null),
     step(tx("실수는 그 자리에서 짧게 고쳐 주고, 잘한 것도 바로 말해 줍니다. 이 시기에는 칭찬 한마디가 버티는 힘이 됩니다.", "Fix mistakes briefly on the spot, and say what he did well right away too. At this stage, one word of praise helps people hold on."), flow, ["check"], null),
-    step(tx("교육 중인 상담사(OJT)와 막 교육을 마친 상담사는 붙어 있는 거리가 다릅니다. OJT 기간에는 트레이너와 함께 보고, 네스팅부터는 SME가 더 가까이 붙습니다.", "You stay at a different distance from an agent in OJT and one just out of training. During OJT you watch alongside the trainer; from nesting on, the SME stays closer."), flow, ["beside"], null),
+    step(tx("교육 중인 상담사(OJT)와 막 교육을 마친 상담사는 붙어 있는 거리가 다릅니다. OJT 기간에는 트레이너와 함께 보고, 네스팅부터는 직무전문가가 더 가까이 붙습니다.", "You stay at a different distance from an agent in OJT and one just out of training. During OJT you watch alongside the trainer; from nesting on, the SME stays closer."), flow, ["beside"], null),
     step(tx("넷째 단계는 팀장에게 공유하기입니다. 하루가 끝나면 서준이 무엇을 잘했고 어디서 막혔는지 팀장과 트레이너에게 짧게 전합니다. 평가가 아니라 다음 날 도울 곳을 정하기 위해서입니다.", "The fourth stage is sharing with the team leader. At the end of the day, tell the team leader and the trainer briefly what Seojun did well and where he got stuck. The point is not to evaluate, but to decide where to help tomorrow."), flow, ["report"], null),
     step(tx("같은 곳에서 계속 막히면 추가 교육이 필요할 수 있습니다. 결정은 팀장과 트레이너가 하고, 당신은 근거가 될 사례를 모읍니다.", "If he keeps getting stuck in the same place, he may need more training. The team leader and the trainer decide; you gather the examples they decide on."), flow, ["report"], null),
   ],
@@ -60,5 +60,5 @@ export default {
       explanation: tx("찾는 방법을 보여 주고, 반복되는 어려움은 추가 교육의 근거로 전합니다.", "Show how to find answers, and pass on repeated difficulties as grounds for more training."),
     },
   ],
-  connection: { to: "escalation", text: tx("신입만 SME를 찾는 것은 아닙니다. 일이 익숙한 기존 상담사도 권한 밖의 문의를 들고 옵니다.", "New hires are not the only ones who come to the SME. Experienced agents bring contacts beyond their authority too.") },
+  connection: { to: "escalation", text: tx("신입만 직무전문가를 찾는 것은 아닙니다. 일이 익숙한 기존 상담사도 권한 밖의 문의를 들고 옵니다.", "New hires are not the only ones who come to the SME. Experienced agents bring contacts beyond their authority too.") },
 };

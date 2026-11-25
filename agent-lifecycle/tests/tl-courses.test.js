@@ -1,5 +1,5 @@
-// The two new team-lead courses (2026-11-25): "TL 첫걸음" (tl/) and
-// "TL 서포트 라이프사이클" (tl-support/). Korean and English must be the copy
+// The two new team-lead courses (2026-11-25): "팀장 첫걸음" (tl/) and
+// "팀장 서포트 라이프사이클" (tl-support/). Korean and English must be the copy
 // docs word for word: docs/superpowers/specs/2026-11-25-tl-course-copy-*.md and
 // 2026-11-25-tl-support-copy-*.md.
 import { test } from 'node:test';
@@ -198,7 +198,7 @@ for (const c of COURSES) {
 test('TL First Steps: the list shows seven lessons with done marks, in both languages', () => {
   const { root } = setupDom();
   renderTlHome(root, TL_LESSONS, { completed: ['roster'] }, 'ko');
-  assert.equal(root.querySelector('h1').textContent, 'TL 첫걸음');
+  assert.equal(root.querySelector('h1').textContent, '팀장 첫걸음');
   assert.equal(root.querySelector('[data-list-note]').textContent, TL_UI.listNote.ko);
   const links = [...root.querySelectorAll('ol[data-tl-list] a[data-tl]')];
   assert.deepEqual(links.map((a) => a.getAttribute('href')), TL_LESSONS.map((l) => `#${l.id}-0`));
@@ -212,7 +212,7 @@ test('TL Support Lifecycle: the ring shows five roles with the team leader in th
   const copy = doc('2026-11-25-tl-support-copy-ko.md');
   const { root } = setupDom();
   renderHome(root, TS_LESSONS, { completed: ['agents'] }, 'ko', TS_UI);
-  assert.equal(root.querySelector('h1').textContent, 'TL 서포트 라이프사이클');
+  assert.equal(root.querySelector('h1').textContent, '팀장 서포트 라이프사이클');
   assert.deepEqual([...root.querySelectorAll('svg .stage-name')].map((t) => t.textContent), row(copy, '원 안 짧은 이름').split(' · '));
   assert.equal(root.querySelector('.ring-center text').textContent, row(copy, '원 가운데 이름'));
   assert.equal(root.querySelector('.loop-note').textContent, `↺ ${row(copy, '순환 안내 (원 아래)')}`);
@@ -255,7 +255,7 @@ test('the course rename never doubles a prefix in the docs or the app', async ()
 test('the SOP badge rule names the TL SOP lessons', async () => {
   const { BADGES } = await import('../../practice/data.js');
   const sop = BADGES.find((b) => b.id === 'sop');
-  assert.deepEqual([sop.rule.ko, sop.rule.en], ['TL SOP 레슨을 모두 마침', 'Finish all the TL SOP lessons']);
+  assert.deepEqual([sop.rule.ko, sop.rule.en], ['팀장 SOP 레슨을 모두 마침', 'Finish all the TL SOP lessons']);
 });
 
 // Every course's lesson text is content under CC BY-NC-ND, as the README says.

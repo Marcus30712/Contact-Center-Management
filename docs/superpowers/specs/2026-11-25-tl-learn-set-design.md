@@ -53,7 +53,7 @@ SME 배우기와 같은 틀로 TL 배우기를 맞춘다. 새로 팀장이 된 �
 
 | 키 | 한국어 | English |
 |---|---|---|
-| s2.item2 | 레슨 진도 (TL 첫걸음, 상담사 라이프사이클, TL 서포트 라이프사이클, TL SOP, SME 첫걸음, SME 서포트 라이프사이클, SME SOP, 엑셀) | Lesson progress (TL First Steps, The Agent Lifecycle, TL Support Lifecycle, TL SOP, SME First Steps, SME Support Lifecycle, SME SOP, Excel) |
+| s2.item2 | 레슨 진도 (팀장 첫걸음, 상담사 라이프사이클, 팀장 서포트 라이프사이클, 팀장 SOP, 직무전문가 첫걸음, 직무전문가 서포트 라이프사이클, 직무전문가 SOP, 엑셀) | Lesson progress (TL First Steps, The Agent Lifecycle, TL Support Lifecycle, TL SOP, SME First Steps, SME Support Lifecycle, SME SOP, Excel) |
 
 ## 7. 성공 확인
 

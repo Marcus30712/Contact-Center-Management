@@ -13,7 +13,7 @@ export default {
   title: tx("상담 트렌드 요약 보고", "Contact Trend Summary Report"),
   short: tx("트렌드 요약", "Trend summary"),
   subtitle: tx("스크러빙에서 본 것을 팀장이 코칭에 바로 쓸 수 있게 정리합니다.", "Turn what you saw in scrubbing into something the team leader can use for coaching right away."),
-  roles: tx("SME → 팀장", "SME → Team leader"),
+  roles: tx("직무전문가 → 팀장", "SME → Team leader"),
   procedure,
   diagram: {
     nodes: [

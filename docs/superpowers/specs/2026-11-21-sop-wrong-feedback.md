@@ -5,7 +5,7 @@
 ## 결정
 - 상담사 라이프사이클과 같은 방식(`2026-11-20-lifecycle-wrong-feedback.md`의 방법 A)을 SOP 라이브러리 14문제의 오답 28개에 적용한다.
 - 화면 코드는 같은 레슨 화면(`agent-lifecycle/js/render/lesson.js`)을 쓰므로 바꾸지 않는다. 오늘의 연습에도 그대로 나온다.
-- 각 SOP 본문의 역할 분담(HR·WFM·T&D·OM)에 맞춰 쓴다.
+- 각 SOP 본문의 역할 분담(HR·WFM·T&D·매니저)에 맞춰 쓴다.
 
 ## 문안 (테스트가 레슨 파일과 이 표가 같은지 확인한다)
 
@@ -38,4 +38,4 @@
 | launch-q1.b | 교육은 뽑은 사람을 가르치는 일이라, 몇 명이 필요한지 정해진 뒤에야 규모와 일정을 잡을 수 있습니다. | Training teaches the people you hire, so its size and schedule can only be set once you know how many people you need. |
 | launch-q1.c | 상담 시스템을 다 갖춰도 필요한 인원을 모르면 몇 명을 뽑을지 정할 수 없습니다. | Even with the systems fully built, you cannot decide how many people to hire without knowing the staffing need. |
 | launch-q2.a | 첫 달 데이터를 기다리는 동안, 현장에서 먼저 드러난 문제가 그대로 고객에게 전해집니다. | While you wait for first-month data, the problems that show up first on the floor go straight to customers. |
-| launch-q2.b | 클라이언트 비즈니스 리뷰는 OM이 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다. | The client business review is the OM’s job; right after launch, the team leader belongs on the floor. |
+| launch-q2.b | 클라이언트 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다. | The client business review is the OM’s job; right after launch, the team leader belongs on the floor. |

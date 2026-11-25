@@ -6,9 +6,9 @@ export const REVIEW_UI = {
   title: tx("복습 퀴즈", "Review quiz"),
   intro: tx("직급 강의를 모두 마쳤다면, 여러 레슨을 함께 떠올려야 풀리는 상황 문제로 복습해 보세요. 복습용 퀴즈이며 공식 평가가 아닙니다.", "Finished your role's courses? Review with scenario questions that make you recall several lessons at once. This quiz is for review, not an official assessment."),
   nameTl: tx("팀장 복습 퀴즈", "Team lead review quiz"),
-  scopeTl: tx("상담사 라이프사이클 6개 + TL SOP 라이브러리 10개", "The Agent Lifecycle (6) + TL SOP Library (10)"),
-  nameSme: tx("SME 복습 퀴즈", "SME review quiz"),
-  scopeSme: tx("SME 첫걸음 7개", "SME First Steps (7)"),
+  scopeTl: tx("상담사 라이프사이클 6개 + 팀장 SOP 라이브러리 10개", "The Agent Lifecycle (6) + TL SOP Library (10)"),
+  nameSme: tx("직무전문가 복습 퀴즈", "SME review quiz"),
+  scopeSme: tx("직무전문가 첫걸음 7개", "SME First Steps (7)"),
   locked: tx("레슨을 모두 마치면 열려요. 남은 레슨 {n}개.", "Opens when you finish all the lessons. {n} lessons left."),
   lockedLink: tx("이어서 볼 레슨 →", "Next lesson to take →"),
   start: tx("퀴즈 시작하기", "Start the quiz"),
@@ -46,7 +46,7 @@ export const QUIZZES = {
         explanation: tx("한 지표만 보면 다른 지표를 희생시키는 코칭이 됩니다. 여러 지표와 실제 상담을 함께 보고, 1:1 코칭에서 행동을 정합니다.", "Looking at one metric leads to coaching that sacrifices the others. Look at several metrics and real contacts together, and agree on behavior in a one-on-one."),
         lessons: [
           { title: tx("라이프사이클 레슨 4 · 성과 관리 및 코칭", "Lifecycle lesson 4 · Performance Management and Coaching"), href: "../agent-lifecycle/#coaching-0" },
-          { title: tx("TL SOP · 1:1 코칭", "TL SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
+          { title: tx("팀장 SOP · 1:1 코칭", "TL SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
         ],
       },
       {
@@ -60,15 +60,15 @@ export const QUIZZES = {
         answer: "c",
         explanation: tx("코칭만으로 부족하면 PIP로 넘어갑니다. PIP는 벌이 아니라, 목표와 지원과 점검을 분명히 하는 절차입니다.", "When coaching alone is not enough, move to a PIP. A PIP is not a punishment but a procedure that makes goals, support and check-ins clear."),
         lessons: [
-          { title: tx("TL SOP · 성과 개선 계획 (PIP)", "TL SOP · Performance Improvement Plan (PIP)"), href: "../sop-library/#pip-0" },
-          { title: tx("TL SOP · 1:1 코칭", "TL SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
+          { title: tx("팀장 SOP · 성과 개선 계획 (PIP)", "TL SOP · Performance Improvement Plan (PIP)"), href: "../sop-library/#pip-0" },
+          { title: tx("팀장 SOP · 1:1 코칭", "TL SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
         ],
       },
       {
         id: "tl-q3",
         prompt: tx("프로모션 오류로 같은 불만 전화가 쏟아지고, 폭언 콜을 끊은 상담사가 자리에서 굳어 있습니다. 먼저 할 일로 알맞은 것은 무엇일까요?", "A promotion error sets off a flood of identical complaint calls, and an agent who just ended an abusive call sits frozen at the desk. What fits best as the first thing to do?"),
         options: [
-          option("a", tx("그 상담사를 잠시 쉬게 하고, 같은 불만이 몰린다는 사실을 OM·QA·WFM에 바로 공유한다.", "Let that agent take a short break, and tell the OM, QA and WFM right away that the same complaint is piling up.")),
+          option("a", tx("그 상담사를 잠시 쉬게 하고, 같은 불만이 몰린다는 사실을 매니저·QA·WFM에 바로 공유한다.", "Let that agent take a short break, and tell the OM, QA and WFM right away that the same complaint is piling up.")),
           option("b", tx("대기 고객이 많으니 상담사를 바로 다음 콜로 돌려보낸다.", "Send the agent straight back to the next call, since many customers are waiting."), tx("충격이 그대로 다음 고객에게 이어지고, 상담사는 보호받지 못했다고 느낍니다.", "The shock carries straight into the next customer, and the agent feels unprotected.")),
           option("c", tx("불만이 가라앉을 때까지 팀 안에서만 처리한다.", "Handle it inside the team until the complaints calm down."), tx("대규모 이슈의 첫 단계는 감지하고 공유하는 것입니다. 혼자 막으면 원인 분석과 인력 계획이 늦어집니다.", "The first step in a large-scale issue is spotting and sharing it. Holding it alone delays cause analysis and staffing plans.")),
         ],
@@ -76,7 +76,7 @@ export const QUIZZES = {
         explanation: tx("사람을 먼저 보호하고, 몰리는 불만은 여러 팀이 함께 움직이도록 바로 알립니다.", "Protect the person first, and raise the surge right away so several teams can move together."),
         lessons: [
           { title: tx("라이프사이클 레슨 5 · 동기부여 및 유지", "Lifecycle lesson 5 · Engagement and Retention"), href: "../agent-lifecycle/#retention-0" },
-          { title: tx("TL SOP · 대규모 이슈 대응", "TL SOP · Large-Scale Issue Response"), href: "../sop-library/#incident-0" },
+          { title: tx("팀장 SOP · 대규모 이슈 대응", "TL SOP · Large-Scale Issue Response"), href: "../sop-library/#incident-0" },
         ],
       },
       {
@@ -105,8 +105,8 @@ export const QUIZZES = {
         answer: "c",
         explanation: tx("개인의 불만에서 팀 전체의 기준 문제를 찾고, 모두에게 같은 방식으로 풀어 줍니다.", "Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone."),
         lessons: [
-          { title: tx("TL SOP · 캘리브레이션", "TL SOP · Calibration"), href: "../sop-library/#calibration-0" },
-          { title: tx("TL SOP · 동료에서 팀장으로", "TL SOP · From Colleague to Team Leader"), href: "../sop-library/#transition-0" },
+          { title: tx("팀장 SOP · 캘리브레이션", "TL SOP · Calibration"), href: "../sop-library/#calibration-0" },
+          { title: tx("팀장 SOP · 동료에서 팀장으로", "TL SOP · From Colleague to Team Leader"), href: "../sop-library/#transition-0" },
         ],
       },
       {
@@ -120,8 +120,8 @@ export const QUIZZES = {
         answer: "a",
         explanation: tx("신입은 기다리지 말고 먼저 챙기고, 실수는 1:1로 짚습니다. 버디가 그 거리를 좁혀 줍니다.", "Don't wait for new hires; reach out first, and go over mistakes one on one. A buddy closes that distance."),
         lessons: [
-          { title: tx("TL SOP · 신규 입사자 온보딩", "TL SOP · New Hire Onboarding"), href: "../sop-library/#onboarding-0" },
-          { title: tx("TL SOP · 스크러빙", "TL SOP · Scrubbing"), href: "../sop-library/#scrubbing-0" },
+          { title: tx("팀장 SOP · 신규 입사자 온보딩", "TL SOP · New Hire Onboarding"), href: "../sop-library/#onboarding-0" },
+          { title: tx("팀장 SOP · 스크러빙", "TL SOP · Scrubbing"), href: "../sop-library/#scrubbing-0" },
         ],
       },
     ],
@@ -141,8 +141,8 @@ export const QUIZZES = {
         answer: "a",
         explanation: tx("실시간으로 기다리는 고객이 먼저이고, 기다리게 되는 사람에게는 언제 갈지 알립니다.", "Customers waiting live come first, and whoever has to wait hears when you will come."),
         lessons: [
-          { title: tx("SME 레슨 6 · 요청이 동시에 몰릴 때", "SME lesson 6 · When Requests Pile Up at Once"), href: "../sme/#priority-0" },
-          { title: tx("SME 레슨 2 · 신입 상담사 서포트", "SME lesson 2 · Supporting New Hires"), href: "../sme/#newcomer-0" },
+          { title: tx("직무전문가 레슨 6 · 요청이 동시에 몰릴 때", "SME lesson 6 · When Requests Pile Up at Once"), href: "../sme/#priority-0" },
+          { title: tx("직무전문가 레슨 2 · 신입 상담사 서포트", "SME lesson 2 · Supporting New Hires"), href: "../sme/#newcomer-0" },
         ],
       },
       {
@@ -156,8 +156,8 @@ export const QUIZZES = {
         answer: "c",
         explanation: tx("같은 기준을 존중하는 방식으로 지키고, 반복되는 문제는 팀장과 함께 다룹니다.", "Keep the same standard in a respectful way, and handle repeated problems together with the team leader."),
         lessons: [
-          { title: tx("SME 레슨 4 · 동료였던 선임 서포트", "SME lesson 4 · Supporting Former Peers"), href: "../sme/#peer-0" },
-          { title: tx("SME 레슨 5 · 팀장 서포트", "SME lesson 5 · Supporting the Team Leader"), href: "../sme/#lead-0" },
+          { title: tx("직무전문가 레슨 4 · 동료였던 선임 서포트", "SME lesson 4 · Supporting Former Peers"), href: "../sme/#peer-0" },
+          { title: tx("직무전문가 레슨 5 · 팀장 서포트", "SME lesson 5 · Supporting the Team Leader"), href: "../sme/#lead-0" },
         ],
       },
       {
@@ -171,8 +171,8 @@ export const QUIZZES = {
         answer: "b",
         explanation: tx("반복되는 질문은 팀 전체에 한 번에 돌려주고, 신입에게는 찾는 법을 보여 줍니다.", "Give repeated questions back to the whole team at once, and show new hires how to find answers."),
         lessons: [
-          { title: tx("SME 레슨 3 · 기존 상담사 서포트", "SME lesson 3 · Supporting Existing Agents"), href: "../sme/#escalation-0" },
-          { title: tx("SME 레슨 7 · 팀에 지식 돌려주기", "SME lesson 7 · Giving Knowledge Back"), href: "../sme/#knowledge-0" },
+          { title: tx("직무전문가 레슨 3 · 기존 상담사 서포트", "SME lesson 3 · Supporting Existing Agents"), href: "../sme/#escalation-0" },
+          { title: tx("직무전문가 레슨 7 · 팀에 지식 돌려주기", "SME lesson 7 · Giving Knowledge Back"), href: "../sme/#knowledge-0" },
         ],
       },
       {
@@ -186,8 +186,8 @@ export const QUIZZES = {
         answer: "b",
         explanation: tx("출석 대행은 기록하고 알리는 데까지입니다. 인원 조정은 팀장과 RTA가 할 수 있습니다.", "Covering attendance means recording and reporting, nothing more. The team leader and the RTA can adjust staffing."),
         lessons: [
-          { title: tx("SME 레슨 5 · 팀장 서포트", "SME lesson 5 · Supporting the Team Leader"), href: "../sme/#lead-0" },
-          { title: tx("SME 레슨 6 · 요청이 동시에 몰릴 때", "SME lesson 6 · When Requests Pile Up at Once"), href: "../sme/#priority-0" },
+          { title: tx("직무전문가 레슨 5 · 팀장 서포트", "SME lesson 5 · Supporting the Team Leader"), href: "../sme/#lead-0" },
+          { title: tx("직무전문가 레슨 6 · 요청이 동시에 몰릴 때", "SME lesson 6 · When Requests Pile Up at Once"), href: "../sme/#priority-0" },
         ],
       },
       {
@@ -195,19 +195,19 @@ export const QUIZZES = {
         prompt: tx("캘리브레이션에서 확인 단계의 기준이 바뀌었습니다. 다음 날 지민이 바뀐 기준을 몰라 QA 점수가 낮게 나왔다며 찾아옵니다. 알맞은 것은 무엇일까요?", "Calibration changed the standard for the check step. The next day, Jimin comes to you saying his QA score was low because he did not know about the change. What fits best?"),
         options: [
           option("a", tx("지민에게 바뀐 기준을 설명하고, 아직 모르는 상담사가 없도록 허들과 팀 채팅방으로 바로 전한다.", "Explain the new standard to Jimin, and pass it on right away through the huddle and team chat so no agent is left unaware.")),
-          option("b", tx("점수는 QA의 일이니 QA에게 물어보라고 한다.", "Tell him to ask QA, since scores are QA's job."), tx("바뀐 기준을 상담사에게 먼저 전하는 것은 SME의 일입니다.", "Passing changed standards to agents first is the SME's job.")),
+          option("b", tx("점수는 QA의 일이니 QA에게 물어보라고 한다.", "Tell him to ask QA, since scores are QA's job."), tx("바뀐 기준을 상담사에게 먼저 전하는 것은 직무전문가의 일입니다.", "Passing changed standards to agents first is the SME's job.")),
           option("c", tx("QA에게 지민의 점수를 고쳐 달라고 요청한다.", "Ask QA to correct Jimin's score."), tx("점수를 고치는 것은 평가의 일입니다. 같은 일이 다시 생기지 않게 기준을 전하는 것이 먼저입니다.", "Correcting scores is part of evaluation. Passing on the standard so it doesn't happen again comes first.")),
         ],
         answer: "a",
-        explanation: tx("기준이 바뀌면 SME가 먼저 팀에 전합니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다.", "When a standard changes, the SME tells the team first. No agent should be scored on a standard they did not know had changed."),
+        explanation: tx("기준이 바뀌면 직무전문가가 먼저 팀에 전합니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다.", "When a standard changes, the SME tells the team first. No agent should be scored on a standard they did not know had changed."),
         lessons: [
-          { title: tx("SME 레슨 7 · 팀에 지식 돌려주기", "SME lesson 7 · Giving Knowledge Back"), href: "../sme/#knowledge-0" },
-          { title: tx("SME 레슨 1 · SME가 된 첫날", "SME lesson 1 · Your First Day as an SME"), href: "../sme/#firstday-0" },
+          { title: tx("직무전문가 레슨 7 · 팀에 지식 돌려주기", "SME lesson 7 · Giving Knowledge Back"), href: "../sme/#knowledge-0" },
+          { title: tx("직무전문가 레슨 1 · 직무전문가가 된 첫날", "SME lesson 1 · Your First Day as an SME"), href: "../sme/#firstday-0" },
         ],
       },
       {
         id: "sme-q6",
-        prompt: tx("SME가 된 첫 주, 동기 준호가 정책에 없는 큰 보상을 승인해 달라고 합니다. 고객은 통화 중에 기다리고 있습니다. 어떻게 할까요?", "In your first week as SME, your peer Junho asks you to approve a large compensation that policy does not cover. The customer is waiting on the call. What do you do?"),
+        prompt: tx("직무전문가가 된 첫 주, 동기 준호가 정책에 없는 큰 보상을 승인해 달라고 합니다. 고객은 통화 중에 기다리고 있습니다. 어떻게 할까요?", "In your first week as SME, your peer Junho asks you to approve a large compensation that policy does not cover. The customer is waiting on the call. What do you do?"),
         options: [
           option("a", tx("준호의 경험을 믿고 승인한다.", "Trust Junho's experience and approve it."), tx("승인 범위 밖의 결정은 되돌리기 어렵고, 경험이 기준을 대신하지 않습니다.", "A decision beyond your limits is hard to undo, and experience does not replace the standard.")),
           option("b", tx("정책에 없으니 거절하고 준호에게 그대로 응대하게 한다.", "Turn it down because policy does not cover it, and let Junho carry on."), tx("거절로 끝내면 고객의 문제가 남습니다. 내가 정할 수 없는 건은 정할 수 있는 사람에게 넘깁니다.", "Turning it down leaves the customer's problem where it was. What you cannot decide goes to someone who can.")),
@@ -216,8 +216,8 @@ export const QUIZZES = {
         answer: "c",
         explanation: tx("범위 안은 내가 정하고, 범위 밖은 팀장에게 넘깁니다. 동기의 요청도 같은 기준입니다.", "You decide within your limits and pass on what is outside them. A peer's request follows the same standard."),
         lessons: [
-          { title: tx("SME 레슨 1 · SME가 된 첫날", "SME lesson 1 · Your First Day as an SME"), href: "../sme/#firstday-0" },
-          { title: tx("SME 레슨 4 · 동료였던 선임 서포트", "SME lesson 4 · Supporting Former Peers"), href: "../sme/#peer-0" },
+          { title: tx("직무전문가 레슨 1 · 직무전문가가 된 첫날", "SME lesson 1 · Your First Day as an SME"), href: "../sme/#firstday-0" },
+          { title: tx("직무전문가 레슨 4 · 동료였던 선임 서포트", "SME lesson 4 · Supporting Former Peers"), href: "../sme/#peer-0" },
         ],
       },
     ],

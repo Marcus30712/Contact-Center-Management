@@ -82,7 +82,7 @@ export const CAREER = {
         {
           "id": "sme",
           "name": {
-            "ko": "SME (Subject Matter Expert)",
+            "ko": "직무전문가 (SME)",
             "en": "SME (Subject Matter Expert)"
           },
           "role": {
@@ -100,7 +100,7 @@ export const CAREER = {
             }
           },
           "next": {
-            "ko": "1년 이상 SME 경험, 팀장 백업 역할 수행, 리더십 교육 이수",
+            "ko": "1년 이상 직무전문가 경험, 팀장 백업 역할 수행, 리더십 교육 이수",
             "en": "1 year or more as an SME, served as team lead backup, leadership training completed"
           }
         },

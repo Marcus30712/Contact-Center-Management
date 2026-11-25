@@ -14,14 +14,14 @@ export const HOME_COPY = {
   firstSteps: { ko: '{직급} 첫걸음', en: '{role} First Steps' },
   sopLibrary: { ko: '{직급} SOP 라이브러리', en: '{role} SOP Library' },
   supportLifecycle: {
-    title: { ko: 'SME 서포트 라이프사이클', en: 'SME Support Lifecycle' },
-    text: { ko: '교육 중인 상담사부터 선임, 팀장까지, 단계마다 SME가 따르는 지원 절차.', en: 'The support procedure an SME follows at each stage, from agents in training to seniors and the team leader.' },
+    title: { ko: '직무전문가 서포트 라이프사이클', en: 'SME Support Lifecycle' },
+    text: { ko: '교육 중인 상담사부터 선임, 팀장까지, 단계마다 직무전문가가 따르는 지원 절차.', en: 'The support procedure an SME follows at each stage, from agents in training to seniors and the team leader.' },
   },
   smeSop: {
-    title: { ko: 'SME SOP 라이브러리', en: 'SME SOP Library' },
-    text: { ko: 'SME가 따르는 표준 절차 8개를 순서대로 배웁니다.', en: 'Learn the eight standard procedures an SME follows, in order.' },
+    title: { ko: '직무전문가 SOP 라이브러리', en: 'SME SOP Library' },
+    text: { ko: '직무전문가가 따르는 표준 절차 8개를 순서대로 배웁니다.', en: 'Learn the eight standard procedures an SME follows, in order.' },
   },
-  excelSme: { ko: 'SME가 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.', en: 'The 11 Excel skills SMEs use most, learned by tapping.' },
+  excelSme: { ko: '직무전문가가 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.', en: 'The 11 Excel skills SMEs use most, learned by tapping.' },
   excelShared: { ko: '컨택센터에서 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.', en: 'The 11 Excel skills used most in a contact center, learned by tapping.' },
   startExcel: { ko: '처음이라면 미소의 엑셀 연습 레슨 1부터 시작해 보세요.', en: "New here? Start with lesson 1 of Miso's Excel Practice." },
 };

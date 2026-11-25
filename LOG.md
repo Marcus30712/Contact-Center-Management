@@ -495,6 +495,13 @@
 - `shared/role-switch.js`를 새로 만들었고, `shared/appbar.js`가 각 페이지의 빈 자리(`data-role-slot`)에 그립니다. 브랜드 테스트는 "홈이 Queuecraft를 이름으로 쓴다"로 바꿨습니다.
 - 설계 `docs/superpowers/specs/2026-11-26-role-switch-design.md`.
 
+### 60. 한국어 직급 이름 통일 — 상태: 합침 (브랜치 `korean-role-names`)
+
+- 직급 이름을 "한국어 / 약칭"으로 통일했습니다: 상담사 / Agent · 직무전문가 / SME · 팀장 / TL · 부매니저 / AM · 매니저 / OM. 영어 모드는 Agent · Subject Matter Expert / SME · Team Lead / TL · Assistant Manager / AM · Operation Manager / OM입니다.
+- 한국어 문구의 약칭은 제목과 본문 모두 한글로 바꿨습니다: SME → 직무전문가, TL → 팀장, AM → 부매니저, OM → 매니저. 예: 팀장 첫걸음, 직무전문가 SOP 라이브러리, "팀장 SOP · …". 영어 문구는 그대로입니다.
+- 받침이 바뀌는 부매니저·매니저는 조사를 맞췄습니다. 한국어 문구에 약칭이 다시 들어오지 않게 테스트로 막습니다(`korean-role-names.test.js`).
+- 문안 문서는 테스트가 읽는 것만 같은 규칙으로 고쳤습니다. 설계 `docs/superpowers/specs/2026-11-26-korean-role-names-design.md`.
+
 ## 알려진 한계
 
 - 같은 주소라도 받는 사람이 고른 직군에 따라 한 스텝 정도 다른 화면이 열릴 수 있습니다.

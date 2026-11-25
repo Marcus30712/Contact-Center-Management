@@ -32,7 +32,7 @@ const quizSection = (n) => COPY.split(/^## 퀴즈 \d+\. /m)[n].split(/^## /m)[0]
 const PARSED = { tl: quizSection(1).split(/^### 문제 \d+/m).slice(1).map(parseQuestion), sme: quizSection(2).split(/^### 문제 \d+/m).slice(1).map(parseQuestion) };
 
 const UI_ROWS = {
-  title: '페이지 제목', intro: '페이지 소개', nameTl: '팀장 퀴즈 이름', scopeTl: '팀장 퀴즈 범위', nameSme: 'SME 퀴즈 이름', scopeSme: 'SME 퀴즈 범위',
+  title: '페이지 제목', intro: '페이지 소개', nameTl: '팀장 퀴즈 이름', scopeTl: '팀장 퀴즈 범위', nameSme: '직무전문가 퀴즈 이름', scopeSme: '직무전문가 퀴즈 범위',
   locked: '잠김 안내', lockedLink: '잠김 링크', start: '시작 버튼', count: '문제 번호', correct: '정답', wrong: '오답', related: '관련 레슨',
   next: '다음 버튼', finish: '마지막 버튼', score: '결과 점수', passed: '통과', failed: '미통과', missedTitle: '다시 볼 레슨 제목', retry: '다시 풀기',
   best: '최고 기록', passMark: '통과 표시', homeStart: '홈 카드 (통과 전)', homeDone: '홈 카드 (통과 뒤)',
@@ -60,8 +60,8 @@ test('the Korean is the approved copy, word for word', () => {
   const badge = (id) => BADGES.find((b) => b.id === id);
   assert.equal(badge('review-tl').name.ko, rowIn(section2, '팀장 배지 이름')[1]);
   assert.equal(badge('review-tl').rule.ko, rowIn(section2, '팀장 배지 조건')[1]);
-  assert.equal(badge('review-sme').name.ko, rowIn(section2, 'SME 배지 이름')[1]);
-  assert.equal(badge('review-sme').rule.ko, rowIn(section2, 'SME 배지 조건')[1]);
+  assert.equal(badge('review-sme').name.ko, rowIn(section2, '직무전문가 배지 이름')[1]);
+  assert.equal(badge('review-sme').rule.ko, rowIn(section2, '직무전문가 배지 조건')[1]);
 });
 
 test('six questions each, answers spread over a, b and c', () => {
@@ -279,7 +279,7 @@ test('the English is the English copy, word for word', () => {
   const s2 = EN.split(/^## 2\. /m)[1].split(/^## /m)[0];
   const badge = (id) => BADGES.find((b) => b.id === id);
   assert.deepEqual([badge('review-tl').name.en, badge('review-tl').rule.en], [rowIn(s2, '팀장 배지 이름')[1], rowIn(s2, '팀장 배지 조건')[1]]);
-  assert.deepEqual([badge('review-sme').name.en, badge('review-sme').rule.en], [rowIn(s2, 'SME 배지 이름')[1], rowIn(s2, 'SME 배지 조건')[1]]);
+  assert.deepEqual([badge('review-sme').name.en, badge('review-sme').rule.en], [rowIn(s2, '직무전문가 배지 이름')[1], rowIn(s2, '직무전문가 배지 조건')[1]]);
 });
 
 test('the English never runs to more sentences than the Korean', () => {

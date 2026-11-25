@@ -59,5 +59,5 @@ export default {
       explanation: tx("혼자 감당할 수 없는 양이면 팀장에게 알립니다. 인원 조정은 팀장과 RTA가 할 수 있습니다.", "When it is more than you can handle alone, tell the team leader. The team leader and the RTA can adjust staffing."),
     },
   ],
-  connection: { to: "knowledge", text: tx("바쁜 하루가 지나고 나면 SME에게 남는 일이 있습니다. 오늘 본 것을 팀의 지식으로 돌려주는 일입니다.", "When the busy day is over, one job is left for the SME: turning what you saw today into knowledge for the team.") },
+  connection: { to: "knowledge", text: tx("바쁜 하루가 지나고 나면 직무전문가에게 남는 일이 있습니다. 오늘 본 것을 팀의 지식으로 돌려주는 일입니다.", "When the busy day is over, one job is left for the SME: turning what you saw today into knowledge for the team.") },
 };

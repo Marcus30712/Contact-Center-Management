@@ -12,8 +12,8 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 페이지 소개 | Finished your role's courses? Review with scenario questions that make you recall several lessons at once. This quiz is for review, not an official assessment. |
 | 팀장 퀴즈 이름 | Team lead review quiz |
 | 팀장 퀴즈 범위 | The Agent Lifecycle (6) + TL SOP Library (10) |
-| SME 퀴즈 이름 | SME review quiz |
-| SME 퀴즈 범위 | SME First Steps (7) |
+| 직무전문가 퀴즈 이름 | SME review quiz |
+| 직무전문가 퀴즈 범위 | SME First Steps (7) |
 | 잠김 안내 | Opens when you finish all the lessons. {n} lessons left. |
 | 잠김 링크 | Next lesson to take → |
 | 시작 버튼 | Start the quiz |
@@ -39,8 +39,8 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 |---|---|
 | 팀장 배지 이름 | Team lead course complete |
 | 팀장 배지 조건 | Pass the team lead review quiz (5 or more of 6) |
-| SME 배지 이름 | SME course complete |
-| SME 배지 조건 | Pass the SME review quiz (5 or more of 6) |
+| 직무전문가 배지 이름 | SME course complete |
+| 직무전문가 배지 조건 | Pass the SME review quiz (5 or more of 6) |
 
 ---
 

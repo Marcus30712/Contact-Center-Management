@@ -13,7 +13,7 @@ export default {
   title: tx("VOC 리포팅", "VOC Reporting"),
   short: tx("VOC", "VOC"),
   subtitle: tx("상담사가 바꿀 수 없는 고객의 목소리를, 고객사가 쓸 수 있게 정리합니다.", "Organize the customer voice agents can't act on, so the client can use it."),
-  roles: tx("SME → 팀장 → 고객사", "SME → Team leader → Client"),
+  roles: tx("직무전문가 → 팀장 → 고객사", "SME → Team leader → Client"),
   procedure,
   diagram: {
     nodes: [

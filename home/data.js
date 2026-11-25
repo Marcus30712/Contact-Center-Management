@@ -24,7 +24,7 @@ export const HOME_UI = {
   },
   privacy: { ko: '개인정보처리방침', en: 'Privacy Policy' },
   lifecycle: { ko: '상담사 라이프사이클', en: 'The Agent Lifecycle' },
-  sop: { ko: 'TL SOP 라이브러리', en: 'TL SOP Library' },
+  sop: { ko: '팀장 SOP 라이브러리', en: 'TL SOP Library' },
   lessonWord: { ko: '레슨', en: 'Lesson' },
 };
 
@@ -40,7 +40,7 @@ import { roleOf } from '../shared/role.js';
 const forRole = (role, c) => ({ ...c, role });
 const card = (href, ko, en, textKo, textEn) => ({ href, title: { ko, en }, text: { ko: textKo, en: textEn } });
 
-export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · TL 상황별 길잡이', 'Where to start? · TL Situation Guide',
+export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · 팀장 상황별 길잡이', 'Where to start? · TL Situation Guide',
   '지금 겪는 상황을 고르면 먼저 볼 곳을 알려 드립니다.', "Pick the situation you're in and see where to look first.");
 
 export const LEARN = [
@@ -48,7 +48,7 @@ export const LEARN = [
   forRole(roleOf('lifecycle'), card('./agent-lifecycle/', '상담사 라이프사이클', 'The Agent Lifecycle',
     '신입 팀장을 위한 6단계 강의: 채용부터 경력 개발까지.', 'A six-stage course for new team leaders, from hiring to career growth.')),
   forRole(roleOf('tl-support'), { href: './tl-support/', title: TS_UI.courseTitle, text: TS_UI.homeCard }),
-  forRole(roleOf('sop'), card('./sop-library/', 'TL SOP 라이브러리', 'TL SOP Library',
+  forRole(roleOf('sop'), card('./sop-library/', '팀장 SOP 라이브러리', 'TL SOP Library',
     "팀장이 알아야 할 절차 10개를 순서대로 배웁니다: 에스컬레이션, 스크러빙, 1:1 코칭, PIP, 캘리브레이션, 동료에서 팀장으로, 온보딩, 대규모 이슈 대응, 기존 상담사 육성, 신규 프로젝트 론칭.",
     "Learn ten procedures a team leader needs to know, step by step: escalation, scrubbing, 1:1 coaching, PIP, calibration, from colleague to team leader, onboarding, large-scale issue response, developing existing agents, new project launch.")),
   { href: './excel/', title: EXCEL_UI.homeCard, text: EXCEL_UI.homeCardLine },
@@ -63,7 +63,7 @@ export const BROWSE = [
   card('./staffing-calculator/', '인력 산정 실험실', 'Staffing Lab',
     '문의량, 처리 시간, 인원, Shrinkage를 움직여 보며 필요한 인원을 익힙니다.', 'Move volume, handle time, headcount and Shrinkage to see how required staff is worked out.'),
   card('./glossary/', '용어집', 'Glossary',
-    'AHT, Shrinkage, SME 같은 운영 용어를 한국어와 영어로 찾아봅니다.', 'Look up operations terms in Korean and English.'),
+    'AHT, Shrinkage, 직무전문가 같은 운영 용어를 한국어와 영어로 찾아봅니다.', 'Look up operations terms in Korean and English.'),
   card('./references/', '참고 자료', 'References',
     '큐크래프트의 바탕 자료와 참고한 공개 자료.', 'What Queuecraft is built on.'),
 ];

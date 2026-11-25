@@ -13,7 +13,7 @@ export default {
   title: tx("출석 관리 대행", "Covering Attendance"),
   short: tx("출석 대행", "Attendance"),
   subtitle: tx("기록하고 알리는 데까지, 판단과 조치는 팀장이 합니다.", "Record and report; the team leader judges and acts."),
-  roles: tx("SME → 팀장 · RTA", "SME → Team leader · RTA"),
+  roles: tx("직무전문가 → 팀장 · RTA", "SME → Team leader · RTA"),
   personaName: tx("준호", "Junho"),
   procedure,
   diagram: {
@@ -26,7 +26,7 @@ export default {
     edges: [edge("confirm", "check"), edge("check", "record"), edge("record", "alert")],
   },
   steps: [
-    step(tx("이 절차의 목적은 팀장이 자리에 없거나 팀원이 많을 때, SME가 출석을 대신 확인하고 기록해 인원 공백을 빨리 알리는 것입니다.", "This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the lead's behalf and flags staffing gaps quickly."), flow, procedure, null),
+    step(tx("이 절차의 목적은 팀장이 자리에 없거나 팀원이 많을 때, 직무전문가가 출석을 대신 확인하고 기록해 인원 공백을 빨리 알리는 것입니다.", "This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the lead's behalf and flags staffing gaps quickly."), flow, procedure, null),
     step(tx("첫 단계는 대행 확인입니다. 수진 팀장에게 오늘 대행을 맡는지, 연락 올 곳과 보고할 시각을 미리 받습니다.", "The first step is confirming the cover. Confirm with Sujin in advance whether you're covering today, where absence calls will come in, and when to report."), flow, ["confirm"], null),
     step(tx("둘째 단계는 출석 확인입니다. 근무 시작 시각에 스케줄과 실제 로그인을 맞춰 보고, 없는 사람을 확인합니다.", "The second step is checking attendance. At the start of the shift, match the schedule against actual logins and find who is missing."), flow, ["check"], null),
     step(tx("지각이나 결근 연락이 오면 받은 시각과 말한 사유를 그대로 받습니다. 사유가 타당한지는 판단하지 않습니다.", "When someone calls to say they'll be late or absent, take down the time and the reason as given. Don't judge whether the reason is valid."), flow, ["check"], null),
@@ -41,7 +41,7 @@ export default {
       options: [
         option("a", tx("팀장이 돌아오면 알린다.", "Tell the team leader when she's back."), tx("그동안 대기열은 두 명이 빠진 채로 돌아갑니다. 인원 공백은 바로 알려야 합니다.", "Until then the queue runs two people short. Staffing gaps need flagging right away.")),
         option("b", tx("출석 시트에 적고, RTA와 수진 팀장에게 인원 공백을 바로 알린다.", "Write it in the attendance sheet, and flag the gap to the RTA and Sujin right away.")),
-        option("c", tx("두 사람 몫의 문의를 SME가 대신 받는다.", "The SME takes the two people's contacts."), tx("SME가 상담 자리를 채우면 에스컬레이션 승인이 막힙니다. 인원 조정은 RTA와 팀장이 합니다.", "If the SME fills an agent seat, escalation approvals stall. Staffing changes are for the RTA and the team leader.")),
+        option("c", tx("두 사람 몫의 문의를 직무전문가가 대신 받는다.", "The SME takes the two people's contacts."), tx("직무전문가가 상담 자리를 채우면 에스컬레이션 승인이 막힙니다. 인원 조정은 RTA와 팀장이 합니다.", "If the SME fills an agent seat, escalation approvals stall. Staffing changes are for the RTA and the team leader.")),
       ],
       answer: "b",
       explanation: tx("출석 대행에서 가장 급한 것은 인원 공백을 빨리 알리는 것입니다.", "In covering attendance, the most urgent thing is flagging gaps quickly."),

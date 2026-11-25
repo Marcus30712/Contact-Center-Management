@@ -25,7 +25,7 @@ export default {
   steps: [
     step(tx('교육을 마친 지민이 처음으로 실제 고객의 문의를 받습니다. 이 적응기는 컨택센터에서 퇴사율이 가장 높은 시기입니다. 그래서 집중 관리가 필요합니다.', 'Training is over, and Jimin handles real customer contacts for the first time. This adjustment period has the highest attrition in a contact center. That is why it needs close attention.'),
       ['grad'], ['grad'], 'grad'),
-    step(tx('첫 단계는 OJT(직무교육)입니다. Trainer와 SME가 참관하는 가운데 실제 문의를 채널별로 경험해 봅니다.', 'The first step is OJT (on-the-job training). With a trainer and an SME observing, she handles real contacts in each channel.'),
+    step(tx('첫 단계는 OJT(직무교육)입니다. Trainer와 직무전문가가 참관하는 가운데 실제 문의를 채널별로 경험해 봅니다.', 'The first step is OJT (on-the-job training). With a trainer and an SME observing, she handles real contacts in each channel.'),
       ojt, ['ojt', 'grad-ojt'], 'ojt'),
     step(tx('OJT를 마쳐도 곧바로 정식 팀에 넣지 않습니다. 별도의 집중 케어 그룹에서 먼저 문의를 받게 하는데, 이것이 네스팅입니다. 보통 1~2주 동안 운영합니다.', 'Even after OJT, she does not go straight into a regular team. She first takes contacts in a separate, closely supported group, which is called nesting. It usually runs for 1 to 2 weeks.'),
       base, ['nest', 'ojt-nest'], 'nest'),

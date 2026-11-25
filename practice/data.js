@@ -39,8 +39,8 @@ export const BADGES = [
   { id: 'comeback', name: { ko: '다시 잡기', en: 'Comeback' }, rule: { ko: '전에 틀린 문제를 다시 맞힘', en: 'Get a question right that you missed before' } },
   { id: 'terms', name: { ko: '용어 박사', en: 'Term expert' }, rule: { ko: '열린 용어 카드가 10장 이상이고 모두 "알아요"', en: '10 or more term cards open, all marked "I know it"' } },
   { id: 'lifecycle', name: { ko: '라이프사이클 완주', en: 'Lifecycle finished' }, rule: { ko: '라이프사이클 6개 레슨을 모두 마침', en: 'Finish all 6 Lifecycle lessons' } },
-  { id: 'sop', name: { ko: 'SOP 완주', en: 'SOP Library finished' }, rule: { ko: 'TL SOP 레슨을 모두 마침', en: 'Finish all the TL SOP lessons' } },
+  { id: 'sop', name: { ko: 'SOP 완주', en: 'SOP Library finished' }, rule: { ko: '팀장 SOP 레슨을 모두 마침', en: 'Finish all the TL SOP lessons' } },
   { id: 'excel', name: { ko: '엑셀 완주', en: 'Excel finished' }, rule: { ko: '미소의 엑셀 연습 11개 레슨을 모두 마침', en: 'Finish all 11 lessons of Miso\'s Excel Practice' } },
   { id: 'review-tl', name: { ko: '팀장 과정 완주', en: 'Team lead course complete' }, rule: { ko: '팀장 복습 퀴즈 통과 (6문제 중 5개 이상)', en: 'Pass the team lead review quiz (5 or more of 6)' } },
-  { id: 'review-sme', name: { ko: 'SME 과정 완주', en: 'SME course complete' }, rule: { ko: 'SME 복습 퀴즈 통과 (6문제 중 5개 이상)', en: 'Pass the SME review quiz (5 or more of 6)' } },
+  { id: 'review-sme', name: { ko: '직무전문가 과정 완주', en: 'SME course complete' }, rule: { ko: '직무전문가 복습 퀴즈 통과 (6문제 중 5개 이상)', en: 'Pass the SME review quiz (5 or more of 6)' } },
 ];

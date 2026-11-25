@@ -2,20 +2,20 @@
 // docs/superpowers/specs/2026-11-25-sme-course-copy-ko.md §2; English follows
 // …-sme-course-copy.en.md.
 export const ROLE_NAMES = {
-  agent: { ko: '상담사 (Agent)', en: 'Agent' },
-  sme: { ko: 'SME', en: 'SME' },
-  tl: { ko: 'TL · 팀장', en: 'TL · Team Lead' },
-  am: { ko: 'AM · 부매니저', en: 'AM · Assistant Manager' },
-  om: { ko: 'OM · 매니저', en: 'OM · Operation Manager' },
+  agent: { ko: '상담사 / Agent', en: 'Agent' },
+  sme: { ko: '직무전문가 / SME', en: 'Subject Matter Expert / SME' },
+  tl: { ko: '팀장 / TL', en: 'Team Lead / TL' },
+  am: { ko: '부매니저 / AM', en: 'Assistant Manager / AM' },
+  om: { ko: '매니저 / OM', en: 'Operation Manager / OM' },
 };
 
 // Short names for labels and titles (2026-11-25, role-home-copy).
 export const ROLE_SHORT = {
   agent: { ko: '상담사', en: 'Agent' },
-  sme: { ko: 'SME', en: 'SME' },
-  tl: { ko: 'TL', en: 'TL' },
-  am: { ko: 'AM', en: 'AM' },
-  om: { ko: 'OM', en: 'OM' },
+  sme: { ko: '직무전문가', en: 'SME' },
+  tl: { ko: '팀장', en: 'TL' },
+  am: { ko: '부매니저', en: 'AM' },
+  om: { ko: '매니저', en: 'OM' },
 };
 
 export const ROLE_UI = {

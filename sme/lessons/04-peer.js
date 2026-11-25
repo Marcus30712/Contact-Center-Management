@@ -43,7 +43,7 @@ export default {
       options: [
         option("a", tx("오래 함께한 동기니 이번에는 넘어간다.", "Let it go this time, since you have worked together so long."), tx("한 사람에게만 느슨하면 다른 상담사들은 승인 기준이 친분에 따라 달라진다고 느낍니다.", "When it is looser for one person, other agents feel the approval standard depends on friendship.")),
         option("b", tx("누구에게나 같은 기준이라고 차분히 말하고, 승인 절차를 거치게 한다.", "Say calmly that the standard is the same for everyone, and have it go through approval.")),
-        option("c", tx("다른 상담사들 앞에서 절차를 어겼다고 지적한다.", "Point out in front of the other agents that he broke the procedure."), tx("공개적인 지적은 준호에게 상처가 되고, 팀은 SME가 동기에게 본보기를 보였다고 받아들입니다.", "Calling it out in public hurts Junho, and the team reads it as the SME making an example of a peer.")),
+        option("c", tx("다른 상담사들 앞에서 절차를 어겼다고 지적한다.", "Point out in front of the other agents that he broke the procedure."), tx("공개적인 지적은 준호에게 상처가 되고, 팀은 직무전문가가 동기에게 본보기를 보였다고 받아들입니다.", "Calling it out in public hurts Junho, and the team reads it as the SME making an example of a peer.")),
       ],
       answer: "b",
       explanation: tx("같은 기준을, 존중하는 방식으로 적용합니다.", "Apply the same standard, in a respectful way."),
@@ -52,7 +52,7 @@ export default {
       id: "peer-q2",
       prompt: tx("준호가 어려운 케이스를 자기가 더 잘 안다며 당신의 안내와 다르게 처리하려 합니다. 알맞은 것은 무엇일까요?", "Junho says he knows a hard case better and wants to handle it differently from your guidance. What fits best?"),
       options: [
-        option("a", tx("이제 내가 SME이니 내 방식대로 하라고 한다.", "Tell him to do it your way, since you are the SME now."), tx("직급만으로 밀어붙이면 준호는 앞으로 의견을 내지 않고, 팀은 좋은 판단 하나를 잃습니다.", "Pushing by title alone means Junho stops speaking up, and the team loses a good call.")),
+        option("a", tx("이제 내가 직무전문가이니 내 방식대로 하라고 한다.", "Tell him to do it your way, since you are the SME now."), tx("직급만으로 밀어붙이면 준호는 앞으로 의견을 내지 않고, 팀은 좋은 판단 하나를 잃습니다.", "Pushing by title alone means Junho stops speaking up, and the team loses a good call.")),
         option("b", tx("준호의 판단과 이유를 먼저 듣고, 승인 기준에 맞는지 함께 확인한다.", "Hear Junho's view and reasons first, and check together that it meets the approval standard.")),
         option("c", tx("어색해지기 싫으니 준호의 요청은 따로 확인하지 않고 승인한다.", "Approve Junho's requests without checking, to avoid awkwardness."), tx("확인을 건너뛰면 기준이 사람에 따라 달라지고, 문제가 생기면 승인한 당신의 책임이 됩니다.", "Skipping the check makes the standard depend on the person, and if something goes wrong, it is on you as the approver.")),
       ],
@@ -60,5 +60,5 @@ export default {
       explanation: tx("선임의 경험은 존중하되, 승인 기준은 누구에게나 똑같이 확인합니다.", "Respect a senior's experience, but check the approval standard the same way for everyone."),
     },
   ],
-  connection: { to: "lead", text: tx("SME가 받쳐 주는 사람은 상담사만이 아닙니다. 팀장의 일도 나눠 맡습니다.", "The SME does not back up only agents. You also take on part of the team leader's work.") },
+  connection: { to: "lead", text: tx("직무전문가가 받쳐 주는 사람은 상담사만이 아닙니다. 팀장의 일도 나눠 맡습니다.", "The SME does not back up only agents. You also take on part of the team leader's work.") },
 };

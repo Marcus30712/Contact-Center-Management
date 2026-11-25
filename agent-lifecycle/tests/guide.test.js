@@ -20,7 +20,7 @@ function parseTable() {
     const m = cell.match(/^(.+?)(?: \(`(.+)`\))?$/);
     const title = m[1].trim();
     let addr = m[2];
-    if (addr && addr.startsWith('#')) addr = `${title.startsWith('TL SOP') ? 'sop-library/' : 'agent-lifecycle/'}${addr}`;
+    if (addr && addr.startsWith('#')) addr = `${title.startsWith('팀장 SOP') ? 'sop-library/' : 'agent-lifecycle/'}${addr}`;
     if (addr) seen[title] = addr;
     return { title, href: `../${addr ?? seen[title]}` };
   };
@@ -50,7 +50,7 @@ test('eighteen situations in five groups, as confirmed', () => {
 
 test('screen wording is the confirmed wording', () => {
   // Renamed with the short role name (2026-11-25, role-home-copy §2).
-  assert.deepEqual(GUIDE_UI.title, { ko: 'TL 상황별 길잡이', en: 'TL Situation Guide' });
+  assert.deepEqual(GUIDE_UI.title, { ko: '팀장 상황별 길잡이', en: 'TL Situation Guide' });
   assert.equal(GUIDE_UI.intro.ko, field('안내'));
   assert.deepEqual([GUIDE_UI.all.ko, ...GROUPS.map((g) => g.chip.ko)].join(' / '), field('칩'));
   assert.equal(`${GUIDE_UI.first.ko} / ${GUIDE_UI.then.ko}`, field('링크 묶음 이름'));
@@ -113,7 +113,7 @@ const isOpen = (card) => card.querySelector('[aria-expanded]').getAttribute('ari
 
 test('the screen shows six chips and eighteen closed situations', () => {
   const { $, $$ } = mount();
-  assert.equal($('h1').textContent, 'TL 상황별 길잡이');
+  assert.equal($('h1').textContent, '팀장 상황별 길잡이');
   assert.deepEqual($$('[data-tab]').map((b) => b.getAttribute('data-tab')), ['all', 'member', 'newcomer', 'customer', 'staffing', 'org']);
   assert.equal($('[data-tab="all"]').getAttribute('aria-pressed'), 'true');
   assert.equal($$('[data-card]').length, 18);
@@ -136,7 +136,7 @@ test('a situation opens to where to look first and next', () => {
   $('[data-card="s9"] button').click();
   const links = [...$('[data-card="s9"]').querySelectorAll('a[data-go]')];
   assert.deepEqual(links.map((a) => [a.getAttribute('data-go'), a.getAttribute('href')]), [['first', '../sop-library/?guide=s9#escalation-0'], ['then', '../sop-library/#coaching-0']]);
-  assert.ok(links[0].textContent.includes('먼저 볼 곳') && links[0].textContent.includes('TL SOP · 고객 불만 에스컬레이션'));
+  assert.ok(links[0].textContent.includes('먼저 볼 곳') && links[0].textContent.includes('팀장 SOP · 고객 불만 에스컬레이션'));
 });
 
 test('a language switch keeps the chosen group and the open card', () => {

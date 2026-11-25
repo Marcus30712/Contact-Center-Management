@@ -14,7 +14,7 @@ export default {
   title: tx('캘리브레이션', 'Calibration'),
   short: tx('캘리브레이션', 'Calibration'),
   subtitle: tx('평가자끼리 기준의 눈높이를 맞춥니다.', 'Evaluators align on a shared standard.'),
-  roles: tx('QA · SME · 팀장', 'QA · SME · Team leader'),
+  roles: tx('QA · 직무전문가 · 팀장', 'QA · SME · Team leader'),
   procedure,
   diagram: {
     nodes: [
@@ -31,7 +31,7 @@ export default {
     ],
   },
   steps: [
-    step(tx('이 절차의 목적은 상담 품질 평가의 일관성과 공정성을 지키는 것입니다. QA, SME, 팀장이 정기적으로 모여 평가 기준의 눈높이를 맞춥니다. 다섯 단계로 진행합니다.', 'This procedure exists to keep quality evaluation consistent and fair. QA, SMEs, and team leaders meet regularly to align on the evaluation standard. It runs in five steps.'),
+    step(tx('이 절차의 목적은 상담 품질 평가의 일관성과 공정성을 지키는 것입니다. QA, 직무전문가, 팀장이 정기적으로 모여 평가 기준의 눈높이를 맞춥니다. 다섯 단계로 진행합니다.', 'This procedure exists to keep quality evaluation consistent and fair. QA, SMEs, and team leaders meet regularly to align on the evaluation standard. It runs in five steps.'),
       flow, procedure, null),
     step(tx('지민은 이제 QA입니다. 이번 세션은 지민이 진행하고, 당신은 참석자입니다.', 'Jimin is in QA now. She runs this session, and you take part.'),
       flow, [], null),

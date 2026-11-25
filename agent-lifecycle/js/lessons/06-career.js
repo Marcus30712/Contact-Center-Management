@@ -32,7 +32,7 @@ export default {
       paths, ['qa', 'trainer', 'lead', 'wfm'], 'agent'),
     step(tx('이런 길이 있다는 것을 상담사가 스스로 알기는 어렵습니다. 경로를 보여 주고 연결해 주는 것이 팀장의 몫입니다.', 'Agents rarely find out on their own that these paths exist. Showing the paths and making the connection is the team leader’s part.'),
       paths, ['agent'], 'agent'),
-    step(tx('운영팀 안에서 올라가는 길도 있습니다. 상담사 다음 단계는 SME(Subject Matter Expert)입니다. 어려운 문의를 지원하고 동료의 성장을 돕는, 팀의 지식 허브 역할입니다.', 'There is also a path up within the operations team. The step after agent is SME (Subject Matter Expert). An SME supports difficult inquiries and helps colleagues grow, acting as the team’s knowledge hub.'),
+    step(tx('운영팀 안에서 올라가는 길도 있습니다. 상담사 다음 단계는 직무전문가(SME)입니다. 어려운 문의를 지원하고 동료의 성장을 돕는, 팀의 지식 허브 역할입니다.', 'There is also a path up within the operations team. The step after agent is SME (Subject Matter Expert). An SME supports difficult inquiries and helps colleagues grow, acting as the team’s knowledge hub.'),
       paths, ['agent', 'lead'], 'agent'),
     step(tx('멘토십 프로그램은 이 길을 돕습니다. 경험 많은 선배를 멘토로 연결해 다음 목표와 준비할 것을 구체적으로 이야기하게 합니다. 멘토에게는 리더십을 연습하는 기회가 됩니다.', 'A mentorship program supports this path. It pairs the agent with an experienced senior as a mentor to talk through the next goal and what to prepare. For the mentor, it is a chance to practice leadership.'),
       paths, ['agent'], 'agent'),

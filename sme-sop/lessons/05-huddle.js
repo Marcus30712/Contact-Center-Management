@@ -13,7 +13,7 @@ export default {
   title: tx("고객사 업데이트 허들", "Client Update Huddle"),
   short: tx("업데이트 허들", "Update huddle"),
   subtitle: tx("바뀐 정책을 먼저 이해하고, 상담사가 고객에게 할 말까지 준비합니다.", "Understand the change first, and prepare what agents should say to customers."),
-  roles: tx("고객사 → SME → 상담사 전체", "Client → SME → All agents"),
+  roles: tx("고객사 → 직무전문가 → 상담사 전체", "Client → SME → All agents"),
   personaName: tx("수진", "Sujin"),
   procedure,
   diagram: {
@@ -52,12 +52,12 @@ export default {
       prompt: tx("야간 근무 상담사들이 허들에 참석하지 못했습니다. 어떻게 할까요?", "Night-shift agents couldn't attend the huddle. What do you do?"),
       options: [
         option("a", tx("다음 날 허들에서 다시 전한다.", "Share it again at the next day's huddle."), tx("그사이 야간 고객은 예전 정책으로 안내받습니다.", "Meanwhile, night customers are told the old policy.")),
-        option("b", tx("같은 내용을 글로 남겨 근무 시작 전에 읽게 하고, 야간 담당 SME나 팀장에게도 전한다.", "Leave the same content in writing for them to read before their shift, and pass it to the night SME or team leader too.")),
-        option("c", tx("고객이 물으면 그때 SME에게 물어보라고 한다.", "Tell them to ask the SME when a customer asks."), tx("야간에는 SME가 없을 수 있고, 모든 문의가 SME를 거치면 고객 대기가 길어집니다.", "There may be no SME at night, and sending every contact through the SME makes customers wait longer.")),
+        option("b", tx("같은 내용을 글로 남겨 근무 시작 전에 읽게 하고, 야간 담당 직무전문가나 팀장에게도 전한다.", "Leave the same content in writing for them to read before their shift, and pass it to the night SME or team leader too.")),
+        option("c", tx("고객이 물으면 그때 직무전문가에게 물어보라고 한다.", "Tell them to ask the SME when a customer asks."), tx("야간에는 직무전문가가 없을 수 있고, 모든 문의가 직무전문가를 거치면 고객 대기가 길어집니다.", "There may be no SME at night, and sending every contact through the SME makes customers wait longer.")),
       ],
       answer: "b",
       explanation: tx("허들에 오지 못한 사람에게도 같은 날, 같은 내용이 닿아야 합니다.", "The same content needs to reach those who missed the huddle, on the same day."),
     },
   ],
-  connection: { to: "calibration", text: tx("SME가 팀에 전하는 기준은 고객사 공지만이 아닙니다. 품질 평가 기준도 SME가 현장에 전합니다.", "Client notices aren't the only rules the SME brings to the team. The SME also brings quality standards to the floor.") },
+  connection: { to: "calibration", text: tx("직무전문가가 팀에 전하는 기준은 고객사 공지만이 아닙니다. 품질 평가 기준도 직무전문가가 현장에 전합니다.", "Client notices aren't the only rules the SME brings to the team. The SME also brings quality standards to the floor.") },
 };

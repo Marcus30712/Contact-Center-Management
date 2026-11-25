@@ -178,7 +178,7 @@ export const DAILY = {
     {
       "id": "sme",
       "name": {
-        "ko": "SME",
+        "ko": "직무전문가 (SME)",
         "en": "SME"
       },
       "tasks": [
@@ -658,7 +658,7 @@ export const DAILY = {
           "to": "16:30",
           "task": 1,
           "text": {
-            "ko": "프로세스 개선 계획 수립 (QA/SME와 협업)",
+            "ko": "프로세스 개선 계획 수립 (QA/직무전문가와 협업)",
             "en": "Plan process improvements (with QA and SMEs)"
           }
         },
@@ -731,7 +731,7 @@ export const DAILY = {
             "en": "about 25%"
           },
           "outputs": {
-            "ko": "중간 관리자(AM, TL) 1:1 미팅 로그, 리더십 개발 및 승계 계획",
+            "ko": "중간 관리자(부매니저, 팀장) 1:1 미팅 로그, 리더십 개발 및 승계 계획",
             "en": "Log of 1:1s with middle managers (AM, TL), leadership development and succession plan"
           }
         },
@@ -824,7 +824,7 @@ export const DAILY = {
           "to": "15:00",
           "task": 2,
           "text": {
-            "ko": "리더십 개발 (AM, TL과 1:1 미팅)",
+            "ko": "리더십 개발 (부매니저, 팀장과 1:1 미팅)",
             "en": "Leadership development (1:1s with AMs and TLs)"
           }
         },

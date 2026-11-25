@@ -200,7 +200,7 @@ test('Codex additions are common steps in lessons 2, 3 and 6', () => {
   const en = (id) => commonCaptions(id, 'en').join(' ');
   for (const w of ['버디(Buddy)', '1:1로 만나']) assert.ok(ko('onboarding').includes(w), w);
   for (const w of ['에스컬레이션입니다', '논쟁하지 않고', '사실대로 기록']) assert.ok(ko('nesting').includes(w), w);
-  for (const w of ['SME(Subject Matter Expert)', '지식 허브', '멘토십 프로그램']) assert.ok(ko('career').includes(w), w);
+  for (const w of ['직무전문가(SME)', '지식 허브', '멘토십 프로그램']) assert.ok(ko('career').includes(w), w);
   for (const w of ['buddy', 'one-on-one']) assert.ok(en('onboarding').includes(w), w);
   for (const w of ['escalation', 'do not argue', 'factually']) assert.ok(en('nesting').includes(w), w);
   for (const w of ['SME (Subject Matter Expert)', 'knowledge hub', 'mentorship program']) assert.ok(en('career').includes(w), w);
@@ -221,7 +221,7 @@ test('lesson 3 runs training -> OJT -> nesting', () => {
   const iOjt = ko.findIndex((c) => c.includes('OJT(직무교육)'));
   const iNest = ko.findIndex((c) => c.includes('이것이 네스팅입니다'));
   assert.ok(iOjt === 1 && iNest === 2, `${iOjt} ${iNest}`);
-  for (const w of ['Trainer와 SME가 참관', '채널별']) assert.ok(ko[1].includes(w), w);
+  for (const w of ['Trainer와 직무전문가가 참관', '채널별']) assert.ok(ko[1].includes(w), w);
   assert.ok(ko[0].includes('실제 고객의 문의'));
   assert.ok(ko[2].startsWith('OJT를 마쳐도 곧바로 정식 팀에 넣지 않습니다.'));
   assert.ok(ko[3].startsWith('네스팅에서 받은 콜입니다.'));

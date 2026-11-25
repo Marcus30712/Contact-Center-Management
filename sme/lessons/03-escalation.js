@@ -59,5 +59,5 @@ export default {
       explanation: tx("반복되는 질문은 팀 전체에 한 번에 돌려줍니다. 그래야 다음 질문이 줄어듭니다.", "Give repeated questions back to the whole team at once. That is how the next questions drop."),
     },
   ],
-  connection: { to: "peer", text: tx("에스컬레이션을 요청하는 사람 중에는 어제까지 동료였던 사람도 있습니다. 이 관계가 새 SME에게 가장 어렵습니다.", "Some of the people asking for escalations were your peers until yesterday. That relationship is the hardest part for a new SME.") },
+  connection: { to: "peer", text: tx("에스컬레이션을 요청하는 사람 중에는 어제까지 동료였던 사람도 있습니다. 이 관계가 새 직무전문가에게 가장 어렵습니다.", "Some of the people asking for escalations were your peers until yesterday. That relationship is the hardest part for a new SME.") },
 };
