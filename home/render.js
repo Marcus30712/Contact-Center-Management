@@ -13,6 +13,8 @@ import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
 import { COURSE_ROLES, DEFAULT_ROLE, coursesFor } from '../shared/role.js';
 import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
+import { REVIEW_UI } from '../review/data.js';
+import { loadReview, unlocked } from '../review/engine.js';
 
 // The learner's own role first, everything else in its usual order (2026-11-25).
 export function orderByRole(items, role) {
@@ -104,6 +106,14 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
     note = h('p', { class: 'hm-note', 'data-all-done': true, text: tr(UI.allDone) });
   }
 
+  // Once the role's courses are all done, its review quiz is offered here.
+  function quizCard() {
+    if (!storage || !unlocked(storage, role).open) return null;
+    const rec = loadReview(storage)[role];
+    const text = rec?.passed ? tr(REVIEW_UI.homeDone).replace('{x}', rec.best).replace('{n}', rec.total) : tr(REVIEW_UI.homeStart);
+    return h('p', { class: 'hm-note' }, [h('a', { href: `./review/#${role}`, 'data-review-quiz': true, text })]);
+  }
+
   root.replaceChildren(
     h('header', { class: 'hm-head' }, [
       h('h1', { text: tr(UI.title) }),
@@ -120,6 +130,7 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
       h('h2', { text: tr(UI.myLearning) }),
       learning.started ? h('ul', { class: 'hm-courses' }, learning.map(courseRow)) : null,
       note,
+      quizCard(),
       COURSE_ROLES.includes(role) ? null : h('div', { class: 'hm-note', 'data-role-preparing': true }, [
         h('p', { text: tr(ROLE_UI.preparing).replace('{role}', tr(ROLE_NAMES[role])) }),
         h('p', {}, [

@@ -274,3 +274,28 @@ test('an SME sees only SME and Excel progress', () => {
 test('roles without a course see Excel only', () => {
   for (const role of ['agent', 'am', 'om']) assert.deepEqual(myLearning(fakeStorage(ALL), role).map((r) => r.id), ['excel'], role);
 });
+
+test('the quiz card appears once the role\'s courses are done', async () => {
+  const { REVIEW_UI } = await import('../../review/data.js');
+  const sme = ['firstday', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge'];
+  const card = (storage, role = 'sme', lang = 'ko') => {
+    const { root } = setupDom();
+    renderHome(root, lang, storage, '2026-11-25', role);
+    return root.querySelector('a[data-review-quiz]');
+  };
+  assert.equal(card(fakeStorage({ 'sme-course:v1': JSON.stringify({ completed: sme.slice(0, 6) }) })), null);
+  const open = card(fakeStorage({ 'sme-course:v1': JSON.stringify({ completed: sme }) }));
+  assert.equal(open.getAttribute('href'), './review/#sme');
+  assert.equal(open.textContent, REVIEW_UI.homeStart.ko);
+  const passed = card(fakeStorage({ 'sme-course:v1': JSON.stringify({ completed: sme }), 'queuecraft:review:v1': JSON.stringify({ sme: { best: 6, total: 6, passed: true } }) }));
+  assert.equal(passed.textContent, REVIEW_UI.homeDone.ko.replace('{x}', '6').replace('{n}', '6'));
+  assert.equal(card(fakeStorage(ALL), 'tl').getAttribute('href'), './review/#tl');
+});
+
+test('roles without a course get no quiz card', () => {
+  for (const role of ['agent', 'am', 'om']) {
+    const { root } = setupDom();
+    renderHome(root, 'ko', fakeStorage(ALL), '2026-11-25', role);
+    assert.equal(root.querySelector('a[data-review-quiz]'), null, role);
+  }
+});
