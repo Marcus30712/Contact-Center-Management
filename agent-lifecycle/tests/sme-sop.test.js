@@ -132,3 +132,54 @@ test('the course words are the approved copy', () => {
   assert.equal(SS_UI.rolesLabel.ko, row(COPY, '누가 표시'));
   assert.deepEqual(SCREEN_KEYS.map((k) => SS_UI[k].ko), row(COPY, '레슨 화면 버튼').split(' · '));
 });
+
+// ---------- the course page (Task 2) ----------
+import { setupDom } from './dom.js';
+import { renderLesson } from '../js/render/lesson.js';
+import { parseRoute, lessonHref } from '../js/engine/router.js';
+import { renderSmeSopHome } from '../../sme-sop/home.js';
+
+function openLesson(id, stepIndex = 0, lang = 'ko') {
+  const { root } = setupDom();
+  renderLesson(root, SS_LESSONS.find((l) => l.id === id), stepIndex, lang, { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: SS_LESSONS.length, text: SS_UI });
+  return root;
+}
+
+test('the list shows the eight procedures in order with who and done marks', () => {
+  const { root } = setupDom();
+  renderSmeSopHome(root, SS_LESSONS, { completed: ['trend'] }, 'ko');
+  assert.equal(root.querySelector('h1').textContent, SS_UI.courseTitle.ko);
+  assert.equal(root.querySelector('.tagline').textContent, SS_UI.courseTagline.ko);
+  assert.equal(root.querySelector('[data-list-note]').textContent, SS_UI.listNote.ko);
+  const links = [...root.querySelectorAll('ol[data-sme-sop-list] a[data-sme-sop]')];
+  assert.deepEqual(links.map((a) => a.getAttribute('href')), IDS.map((id) => `#${id}-0`));
+  assert.deepEqual(links.map((a) => a.querySelector('.stage-card-num').textContent), ['1', '2', '3', '4', '5', '6', '7', '8']);
+  links.forEach((a, i) => {
+    const l = SS_LESSONS[i];
+    assert.ok(a.textContent.includes(l.title.ko) && a.textContent.includes(l.subtitle.ko), l.id);
+    assert.equal(a.querySelector('[data-roles]').textContent, `누가: ${l.roles.ko}`);
+    assert.equal(a.classList.contains('is-done'), l.id === 'trend');
+  });
+});
+
+test('a lesson counts out of eight, says SME checkpoint and Next SOP, and the last one leads to the list', () => {
+  const first = openLesson('approval');
+  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 8');
+  assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), '#scrubbing-0');
+  assert.ok(first.textContent.includes(SS_UI.checkpoint.ko));
+  assert.ok(first.textContent.includes('다음 SOP'));
+  assert.equal(openLesson('kbrequest').querySelector('[data-next-lesson]').getAttribute('href'), '#home');
+});
+
+test('stale addresses open the list', () => {
+  for (const hash of ['#home', '#escalation-2', '#pip-0', '', '#nope']) assert.deepEqual(parseRoute(hash, IDS), { view: 'home' }, hash);
+  const route = parseRoute('#approval-99', IDS);
+  assert.equal(route.id, 'approval');
+  const { root } = setupDom();
+  renderLesson(root, SS_LESSONS[0], route.step, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 8, text: SS_UI });
+  assert.ok(root.querySelector('.eyebrow'));
+});
+
+test('every lesson address opens that lesson', () => {
+  for (const id of IDS) assert.deepEqual(parseRoute(lessonHref(id, 3), IDS), { view: 'lesson', id, step: 3 }, id);
+});
