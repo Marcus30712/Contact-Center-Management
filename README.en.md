@@ -9,6 +9,7 @@ A learning app for getting ready for your next contact center role, from agent t
 | Topic | Folder | What it is |
 |---|---|---|
 | Situation Guide | [`guide/`](guide/) | Pick one of 18 situations and get the lesson, SOP or one-pager to read first (Korean/English) |
+| SME Situation Guide | [`sme-guide/`](sme-guide/) | Pick one of 16 situations a new SME meets and get the SME lesson or SOP to read first (Korean/English) |
 | Today's Practice | [`practice/`](practice/) | Three questions a day from the lessons you've finished (lifecycle, SOP, SME, Excel), term cards, a weekday streak and 12 badges. Miso reacts with her face (Korean/English). Records stay on your phone |
 | Miso's Excel Practice | [`excel/`](excel/) | 11 Excel skills every team lead uses (from cell addresses to SUMIFS, XLOOKUP, pivot tables and conditional formatting), plus 5 advanced lessons that mix the functions you've learned. No typing: tap cards and cells to build formulas, graded by really calculating them on Miso's team call log (example) (Korean/English) |
 | The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | A six-stage course for new team leads (Korean/English) |

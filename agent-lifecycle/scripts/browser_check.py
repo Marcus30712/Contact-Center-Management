@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -670,7 +670,7 @@ def main():
         page.reload()
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
-        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "codex/#daily": "browse", "browse/": "browse",
+        PAGES = {"": "home", "guide/": "guide", "sme-guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "codex/#daily": "browse", "browse/": "browse",
                  "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
@@ -1492,6 +1492,39 @@ def main():
         check("(p3) the finished procedure is marked and the menu marks Learn",
               page.locator("[data-sme-sop-list] a.is-done").count() == 1 and page.get_attribute("nav.appbar a[aria-current='page']", "data-item") == "learn")
         page.screenshot(path=str(OUT / "sme-sop-390.png"), full_page=True)
+        page.context.close()
+
+        # (g) SME Situation Guide (2026-11-25): home card and menu lead an SME there; m3 leads on to its "then"
+        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'sme'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("a.card[href='./sme-guide/']")
+        check("(g1) the SME home guide card and menu Guide both open the SME guide",
+              page.locator("[data-soon='guide']").count() == 0 and page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/sme-guide/"))
+        page.click("a.card[href='./sme-guide/']")
+        page.wait_for_selector("[data-card]")
+        check("(g1) the SME guide shows sixteen situations with Guide current",
+              page.url.endswith("/sme-guide/") and page.locator("[data-card]").count() == 16 and page.get_attribute("nav.appbar a[aria-current='page']", "data-item") == "guide")
+        page.click("[data-card='m3'] button")
+        page.click("[data-card='m3'] a[data-go='first']")
+        page.wait_for_selector("[data-counter]")
+        check("(g2) m3 opens Support Lifecycle lesson 1", "/sme-lifecycle/" in page.url and "trainee-0" in page.url)
+        steps = int(page.inner_text("[data-counter]").split("/")[1])
+        for _ in range(steps):
+            page.click("[data-next]")
+        page.wait_for_selector("[data-view='checkpoint']")
+        page.click("[data-question='trainee-q1'] [data-option='b']")
+        page.click("[data-question='trainee-q2'] [data-option='b']")
+        page.wait_for_selector("[data-connection] a[data-guide-then]")
+        check("(g2) the lesson ends with the guide's next place", page.get_attribute("[data-connection] a[data-guide-then]", "href") == "../sop-library/#onboarding-0")
+        page.screenshot(path=str(OUT / "sme-guide-then-390.png"), full_page=False)
+        page.context.close()
+        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'tl'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("nav.appbar a[data-item='guide']")
+        check("(g1) a team lead's menu Guide still opens the TL guide", page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/kb/guide/"))
+        page.goto(HUB + "sme-guide/")
+        page.wait_for_selector("[data-card]")
+        page.screenshot(path=str(OUT / "sme-guide-390.png"), full_page=True)
         page.context.close()
 
         browser.close()
