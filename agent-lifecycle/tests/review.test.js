@@ -115,3 +115,117 @@ test('a quiz unlocks when the role\'s courses are finished', () => {
   assert.equal(unlocked(fakeStorage({ 'sme-course:v1': JSON.stringify({ completed: sme }) }), 'sme').open, true);
   assert.deepEqual(unlocked(fakeStorage(), 'am'), { open: false, left: 0, next: null });
 });
+
+// ---------- the review/ page (Task 3) ----------
+import { setupDom, click } from './dom.js';
+import { renderReview, newReviewView, routeRole } from '../../review/render.js';
+import { loadState } from '../../practice/engine.js';
+
+const SME_DONE = { 'sme-course:v1': JSON.stringify({ completed: ['firstday', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge'] }) };
+function page(storage, role = 'sme', lang = 'ko', view = newReviewView()) {
+  const { root } = setupDom();
+  const draw = () => renderReview(root, lang, storage, view, role, draw);
+  draw();
+  return { root, view, draw };
+}
+// Answers question by question: right[i] says whether to pick the right option.
+function play(root, quiz, right) {
+  quiz.questions.forEach((q, i) => {
+    const pick = right[i] ? q.answer : q.options.find((o) => o.id !== q.answer).id;
+    click(root.querySelector(`[data-option="${pick}"]`));
+    click(root.querySelector('[data-next]'));
+  });
+}
+
+test('the list shows my role\'s quiz first, with lock, best and pass', () => {
+  const locked = page(fakeStorage(), 'sme').root;
+  const cards = [...locked.querySelectorAll('[data-quiz]')];
+  assert.deepEqual(cards.map((c) => c.getAttribute('data-quiz')), ['sme', 'tl']);
+  assert.equal(cards[0].querySelector('[data-locked]').textContent, REVIEW_UI.locked.ko.replace('{n}', '7'));
+  assert.equal(cards[1].querySelector('[data-locked]').textContent, REVIEW_UI.locked.ko.replace('{n}', '16'));
+  assert.equal(cards[0].querySelector('a[data-locked-link]').getAttribute('href'), '../sme/#firstday-0');
+  assert.equal(cards[0].querySelector('[data-start-quiz]'), null);
+  assert.deepEqual([...page(fakeStorage(), 'tl').root.querySelectorAll('[data-quiz]')].map((c) => c.getAttribute('data-quiz')), ['tl', 'sme']);
+
+  const s = fakeStorage({ ...SME_DONE, [REVIEW_KEY]: JSON.stringify({ sme: { best: 5, total: 6, passed: true } }) });
+  const open = page(s, 'sme').root.querySelector('[data-quiz="sme"]');
+  assert.ok(open.textContent.includes(REVIEW_UI.passMark.ko));
+  assert.ok(open.textContent.includes(REVIEW_UI.best.ko.replace('{x}', '5').replace('{n}', '6')));
+  assert.ok(open.querySelector('[data-start-quiz]'));
+});
+
+test('answering shows feedback, explanation and related lessons', () => {
+  const { root } = page(fakeStorage(SME_DONE));
+  click(root.querySelector('[data-start-quiz="sme"]'));
+  const q = QUIZZES.sme.questions[0];
+  assert.equal(root.querySelector('[data-count]').textContent, REVIEW_UI.count.ko.replace('{i}', '1').replace('{n}', '6'));
+  const wrong = q.options.find((o) => o.id !== q.answer);
+  click(root.querySelector(`[data-option="${wrong.id}"]`));
+  assert.equal(root.querySelector('[data-feedback]').textContent, wrong.feedback.ko);
+  assert.ok(root.querySelector('[data-explanation]').textContent.includes(q.explanation.ko));
+  assert.deepEqual([...root.querySelectorAll('a[data-related]')].map((a) => a.getAttribute('href')), q.lessons.map((l) => l.href));
+  assert.ok([...root.querySelectorAll('[data-option]')].every((b) => b.disabled));
+  click(root.querySelector('[data-next]'));
+  const q2 = QUIZZES.sme.questions[1];
+  click(root.querySelector(`[data-option="${q2.answer}"]`));
+  assert.equal(root.querySelectorAll('a[data-related]').length, 0);
+});
+
+test('finishing scores the run, offers a retry and awards the badge once', () => {
+  const s = fakeStorage(SME_DONE);
+  const { root } = page(s);
+  click(root.querySelector('[data-start-quiz="sme"]'));
+  play(root, QUIZZES.sme, [true, true, true, true, true, false]);
+  assert.equal(root.querySelector('[data-score]').textContent, REVIEW_UI.score.ko.replace('{n}', '6').replace('{x}', '5'));
+  assert.equal(root.querySelector('[data-result]').textContent, REVIEW_UI.passed.ko);
+  assert.ok(root.querySelector('[data-new-badge]'));
+  assert.ok(loadState(s).badges['review-sme']);
+  assert.deepEqual(loadReview(s).sme, { best: 5, total: 6, passed: true });
+  click(root.querySelector('[data-retry]'));
+  play(root, QUIZZES.sme, [true, true, true, true, true, true]);
+  assert.equal(root.querySelector('[data-new-badge]'), null, 'the badge is given once');
+  assert.deepEqual(loadReview(s).sme, { best: 6, total: 6, passed: true });
+});
+
+test('a failed run lists the lessons to review', () => {
+  const s = fakeStorage(SME_DONE);
+  const { root } = page(s);
+  click(root.querySelector('[data-start-quiz="sme"]'));
+  play(root, QUIZZES.sme, [true, true, true, true, false, false]);
+  assert.equal(root.querySelector('[data-result]').textContent, REVIEW_UI.failed.ko.replace('{need}', '5'));
+  const want = [...new Set(QUIZZES.sme.questions.slice(4).flatMap((q) => q.lessons.map((l) => l.href)))];
+  assert.deepEqual([...root.querySelectorAll('[data-missed] a')].map((a) => a.getAttribute('href')), want);
+  assert.equal(loadState(s).badges['review-sme'], undefined);
+});
+
+test('leaving mid-quiz stores nothing', () => {
+  const s = fakeStorage(SME_DONE);
+  const first = page(s);
+  click(first.root.querySelector('[data-start-quiz="sme"]'));
+  play(first.root, { questions: QUIZZES.sme.questions.slice(0, 3) }, [true, true, true]);
+  const again = page(s);
+  assert.ok(again.root.querySelector('[data-quiz="sme"]'), 'a new visit opens the list');
+  assert.deepEqual(loadReview(s), {});
+});
+
+test('a locked or unknown quiz address shows the list', () => {
+  assert.equal(routeRole('#sme', fakeStorage(SME_DONE)), 'sme');
+  assert.equal(routeRole('#tl', fakeStorage(SME_DONE)), null);
+  assert.equal(routeRole('#boss', fakeStorage(SME_DONE)), null);
+  assert.equal(routeRole('', fakeStorage(SME_DONE)), null);
+  const view = newReviewView();
+  view.role = routeRole('#tl', fakeStorage());
+  assert.ok(page(fakeStorage(), 'tl', 'ko', view).root.querySelector('[data-quiz="tl"]'));
+});
+
+test('blocked storage still plays a quiz to the end', async () => {
+  const s = fakeStorage(SME_DONE);
+  const view = newReviewView();
+  const { root } = setupDom();
+  const draw = () => renderReview(root, 'ko', throwingStorage, view, 'sme', draw);
+  view.role = 'sme';
+  draw();
+  play(root, QUIZZES.sme, [true, true, true, true, true, true]);
+  assert.ok(root.querySelector('[data-score]'));
+  assert.ok(s);
+});

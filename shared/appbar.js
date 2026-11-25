@@ -10,7 +10,7 @@ export const APPBAR_UI = {
   settings: { ko: '설정', en: 'Settings' },
 };
 
-const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'practice/', 'excel/'];
+const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'sme/', 'review/', 'practice/', 'excel/'];
 const GUIDE_PAGES = ['guide/'];
 
 // Simple line icons, drawn here so nothing else needs to load.

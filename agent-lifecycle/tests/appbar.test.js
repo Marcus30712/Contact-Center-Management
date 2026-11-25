@@ -16,6 +16,8 @@ test('the menu marks where you are', () => {
   assert.equal(current('https://x.test/kb/sop-library/'), 'learn');
   assert.equal(current('https://x.test/kb/practice/'), 'learn');
   assert.equal(current('https://x.test/kb/excel/'), 'learn');
+  assert.equal(current('https://x.test/kb/sme/'), 'learn');
+  assert.equal(current('https://x.test/kb/review/#sme'), 'learn');
   for (const p of ['codex/#teams', 'staffing-calculator/', 'glossary/#aht', 'references/', 'privacy/']) assert.equal(current(`https://x.test/kb/${p}`), 'browse', p);
   assert.equal(current('https://x.test/kb/settings/'), 'settings');
 });

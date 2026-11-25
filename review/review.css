@@ -1,0 +1,7 @@
+/* Review quiz page: builds on the practice page's cards and question styles. */
+.rv-quiz h2 { margin: 0 0 4px; }
+.rv-quiz .btn { margin-top: 8px; }
+.rv-best { font-weight: 700; }
+.rv-related { margin: 10px 0 0; }
+.rv-related a, [data-missed] a { font-weight: 700; }
+.rv-badge { font-weight: 700; color: var(--accent); }
