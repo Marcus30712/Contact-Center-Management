@@ -229,3 +229,43 @@ test('blocked storage still plays a quiz to the end', async () => {
   assert.ok(root.querySelector('[data-score]'));
   assert.ok(s);
 });
+
+// ---------- English (Task 6): …-review-quiz-copy.en.md ----------
+const EN = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-review-quiz-copy.en.md', import.meta.url), 'utf8');
+const enQuiz = (n) => EN.split(/^## 퀴즈 \d+\. /m)[n].split(/^## /m)[0].split(/^### 문제 \d+/m).slice(1).map(parseQuestion);
+
+test('the English is the English copy, word for word', () => {
+  const PARSED_EN = { tl: enQuiz(1), sme: enQuiz(2) };
+  for (const role of ['tl', 'sme']) {
+    QUIZZES[role].questions.forEach((q, i) => {
+      const want = PARSED_EN[role][i];
+      assert.equal(q.prompt.en, want.prompt, q.id);
+      assert.equal(q.answer, want.answer, q.id);
+      assert.equal(q.explanation.en, want.explanation, q.id);
+      assert.deepEqual(q.options.map((o) => ({ id: o.id, text: o.text.en, ...(o.feedback ? { feedback: o.feedback.en } : {}) })), want.options, q.id);
+      assert.deepEqual(q.lessons.map((l) => ({ title: l.title.en, href: l.href })), want.lessons, q.id);
+    });
+  }
+  const s1 = EN.split(/^## 1\. /m)[1].split(/^## /m)[0];
+  for (const [key, place] of Object.entries(UI_ROWS)) assert.equal(REVIEW_UI[key].en, rowIn(s1, place)[1], key);
+  const s2 = EN.split(/^## 2\. /m)[1].split(/^## /m)[0];
+  const badge = (id) => BADGES.find((b) => b.id === id);
+  assert.deepEqual([badge('review-tl').name.en, badge('review-tl').rule.en], [rowIn(s2, '팀장 배지 이름')[1], rowIn(s2, '팀장 배지 조건')[1]]);
+  assert.deepEqual([badge('review-sme').name.en, badge('review-sme').rule.en], [rowIn(s2, 'SME 배지 이름')[1], rowIn(s2, 'SME 배지 조건')[1]]);
+});
+
+test('the English never runs to more sentences than the Korean', () => {
+  const count = (s) => (s.match(/[.?!](?=["'”’)]*(\s|$))/g) || []).length;
+  for (const q of [...QUIZZES.tl.questions, ...QUIZZES.sme.questions]) {
+    for (const k of ['prompt', 'explanation']) assert.ok(count(q[k].en) <= count(q[k].ko), `${q.id} ${k}`);
+  }
+});
+
+test('the English page has no Korean, through to the result', () => {
+  const s = fakeStorage(SME_DONE);
+  const { root } = page(s, 'sme', 'en');
+  assert.ok(!/[가-힣]/.test(root.textContent), 'list');
+  click(root.querySelector('[data-start-quiz="sme"]'));
+  play(root, QUIZZES.sme, [true, true, true, true, false, false]);
+  assert.ok(!/[가-힣]/.test(root.textContent), 'result');
+});

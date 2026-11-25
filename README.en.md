@@ -9,10 +9,11 @@ A learning app for getting ready for your next contact center role, from agent t
 | Topic | Folder | What it is |
 |---|---|---|
 | Situation Guide | [`guide/`](guide/) | Pick one of 18 situations and get the lesson, SOP or one-pager to read first (Korean/English) |
-| Today's Practice | [`practice/`](practice/) | Three questions a day from the lessons you've finished (lifecycle, SOP, SME, Excel), term cards, a weekday streak and 10 badges. Miso reacts with her face (Korean/English). Records stay on your phone |
+| Today's Practice | [`practice/`](practice/) | Three questions a day from the lessons you've finished (lifecycle, SOP, SME, Excel), term cards, a weekday streak and 12 badges. Miso reacts with her face (Korean/English). Records stay on your phone |
 | Miso's Excel Practice | [`excel/`](excel/) | 11 Excel skills every team lead uses (from cell addresses to SUMIFS, XLOOKUP, pivot tables and conditional formatting), plus 5 advanced lessons that mix the functions you've learned. No typing: tap cards and cells to build formulas, graded by really calculating them on Miso's team call log (example) (Korean/English) |
 | The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | A six-stage course for new team leads (Korean/English) |
 | SME First Steps | [`sme/`](sme/) | Seven lessons for agents who have just become SMEs: the first day; supporting new hires, existing agents, former peers and the team leader; when requests pile up; giving knowledge back (Korean/English) |
+| Review Quiz | [`review/`](review/) | Six scenario questions that open once your role's courses are done (team lead: Lifecycle and SOP; SME: SME First Steps). Pass with 5 or more right to earn a badge (Korean/English) |
 | SOP Library | [`sop-library/`](sop-library/) | Lessons that walk through the SOPs a team lead needs to know, step by step (Korean/English) |
 | Codex One-Pagers | [`codex/`](codex/) | The four chapters of the Codex (operations optimisation principles, the five core teams, the career matrix, daily work by role), one page each; tap for detail (Korean/English) |
 | Staffing Lab | [`staffing-calculator/`](staffing-calculator/) | A practice screen to learn staffing with sliders (30-minute interval), and a channel comparison tab that sets phone, chat and email side by side: staff needed, weekly/monthly hours and overtime. The maths is in `staffing-calculator/erlang.js` and `channels.js` |
