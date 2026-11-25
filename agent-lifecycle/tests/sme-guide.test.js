@@ -165,3 +165,37 @@ test('the SME course apps settle the guide', () => {
     assert.ok(/\n\s+guide,\n/.test(src), `${dir} passes the guide to the lesson`);
   }
 });
+
+// ---------- English (Task 4): design doc §7 ----------
+const EN_ROWS = Object.fromEntries((DOC.split('## 7. ')[1] ?? '').split('\n')
+  .filter((l) => l.startsWith('| ') && !l.startsWith('| 한국어') && !l.startsWith('|---')).map((l) => cells(l).slice(0, 2)));
+
+test('English is complete, American and free of Korean', () => {
+  const strings = [SME_GUIDE_UI, ...SME_GROUPS.flatMap((g) => [g.chip, g.heading, ...g.situations.flatMap((s) => [s.text, s.first.title, s.then.title])])]
+    .flatMap((x) => ('ko' in x ? [x] : Object.values(x)));
+  for (const x of strings) {
+    assert.ok(x.ko?.trim() && x.en?.trim(), x.ko);
+    assert.ok(!/[가-힣]/.test(x.en), x.en);
+    assert.ok(!/licence|organis|behaviour|centre/.test(x.en), x.en);
+  }
+});
+
+test('the English is the English table, word for word', () => {
+  const strings = [SME_GUIDE_UI.title, SME_GUIDE_UI.intro, ...SME_GROUPS.flatMap((g) => [g.chip, g.heading, ...g.situations.flatMap((s) => [s.text, s.first.title, s.then.title])])];
+  for (const x of strings) assert.equal(x.en, EN_ROWS[x.ko], x.ko);
+});
+
+test('English lesson link names are the current English lesson titles', () => {
+  for (const { s } of flat) {
+    for (const link of [s.first, s.then]) {
+      const { c, l } = lessonOf(link.href);
+      if (c) assert.equal(link.title.en, c.name(l).en, link.href);
+    }
+  }
+});
+
+test('the English page has no Korean', () => {
+  const { root } = mount('en');
+  for (const b of root.querySelectorAll('[data-card] button')) b.click();
+  assert.ok(!/[가-힣]/.test(root.textContent), root.textContent);
+});

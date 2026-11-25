@@ -73,3 +73,62 @@
 - 먼저 볼 곳으로 연 SME 레슨의 끝에 "이어서 볼 곳" 카드가 나오고, 다른 레슨으로 가면 사라진다.
 - 모든 링크가 실제로 있는 곳으로 가고, 레슨 링크 이름이 실제 레슨 제목과 같다.
 - TL 길잡이의 주소, 화면, 테스트는 그대로다. 전체 테스트와 브라우저 점검이 통과한다.
+
+## 7. 영어 문안 (승인 대기)
+
+US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목을 그대로 씁니다.
+
+| 한국어 | English |
+|---|---|
+| SME 상황별 길잡이 | SME Situation Guide |
+| 지금 어떤 상황인가요? 누르면 먼저 볼 곳과 이어서 볼 곳을 알려 드립니다. | What's happening right now? Tap a situation to see where to look first and where to go next. |
+| SME 첫 주 | First week |
+| 신입·교육생 | New hires |
+| 기존·선임 | Agents and seniors |
+| 요청이 몰릴 때 | Request rush |
+| 팀장·품질 | Lead and quality |
+| SME가 된 첫 주 | Your first week as an SME |
+| 신입과 교육 중인 상담사 | New hires and agents in training |
+| 기존 상담사와 선임 | Existing agents and seniors |
+| 요청이 한꺼번에 몰릴 때 | When requests pile up at once |
+| 팀장 지원과 품질 | Supporting the team leader, and quality |
+| SME가 된 첫날이다 | It's your first day as an SME |
+| 동료였던 선임이 승인 없이 처리하려 한다 | A senior who was your peer wants to go ahead without approval |
+| 다음 주 OJT 교육생이 플로어에 나온다 | Trainees start OJT on the floor next week |
+| 네스팅 중인 신입이 같은 유형에서 계속 막힌다 | A new hire in nesting keeps getting stuck on the same contact type |
+| 신입이 하루 종일 질문을 하지 않는다 | A new hire hasn't asked a single question all day |
+| 상담사가 권한 밖 보상 승인을 요청한다 | An agent asks you to approve compensation beyond their authority |
+| 정식 상담사의 품질이 갑자기 떨어졌다 | A regular agent's quality has suddenly dropped |
+| 선임이 SME나 팀장이 되고 싶어 한다 | A senior wants to become an SME or team leader |
+| 플로어와 메신저 요청이 한꺼번에 몰린다 | Floor and messenger requests pile up at once |
+| 같은 질문이 여러 상담사에게서 계속 온다 | Several agents keep asking the same question |
+| 팀장이 자리를 비워 출석을 대신 봐야 한다 | The team leader is away and you have to cover attendance |
+| 팀장에게 주간 코칭 요약을 보내야 한다 | You need to send the team leader the weekly coaching summary |
+| 팀장이 팀원별 현황을 물어본다 | The team leader asks where each team member stands |
+| 고객사가 정책 변경을 보내왔다 | The client has sent a policy change |
+| 캘리브레이션에 참석하게 됐다 | You're joining a calibration session |
+| 같은 고객 불만이 계속 쌓인다 | The same customer complaint keeps piling up |
+| SME 첫걸음 레슨 1 · SME가 된 첫날 | SME First Steps lesson 1 · Your First Day as an SME |
+| SME 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 | SME First Steps lesson 2 · Supporting Agents in Training or Just Trained |
+| SME 첫걸음 레슨 3 · 기존 상담사 서포트 | SME First Steps lesson 3 · Supporting Existing Agents |
+| SME 첫걸음 레슨 4 · 동료였던 선임 서포트 | SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers |
+| SME 첫걸음 레슨 5 · 팀장 서포트 | SME First Steps lesson 5 · Supporting the Team Leader |
+| SME 첫걸음 레슨 6 · 요청이 동시에 몰릴 때 | SME First Steps lesson 6 · When Requests Pile Up at Once |
+| SME 첫걸음 레슨 7 · 팀에 지식 돌려주기 | SME First Steps lesson 7 · Giving Knowledge Back to the Team |
+| 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | Support Lifecycle lesson 1 · Supporting Agents in Training |
+| 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 | Support Lifecycle lesson 2 · Supporting Agents Just Out of Training |
+| 서포트 라이프사이클 레슨 3 · 정식 상담사 지원 | Support Lifecycle lesson 3 · Supporting Regular Agents |
+| 서포트 라이프사이클 레슨 4 · 선임 상담사 지원 | Support Lifecycle lesson 4 · Supporting Senior Agents |
+| 서포트 라이프사이클 레슨 5 · 팀장 지원 | Support Lifecycle lesson 5 · Supporting the Team Leader |
+| SME SOP · 에스컬레이션 승인 | SME SOP · Escalation Approval |
+| SME SOP · 스크러빙 | SME SOP · Scrubbing |
+| SME SOP · 상담 트렌드 요약 보고 | SME SOP · Contact Trend Summary Report |
+| SME SOP · 출석 관리 대행 | SME SOP · Covering Attendance |
+| SME SOP · 고객사 업데이트 허들 | SME SOP · Client Update Huddle |
+| SME SOP · 캘리브레이션 참여와 기준 전달 | SME SOP · Joining Calibration and Passing On Standards |
+| SME SOP · VOC 리포팅 | SME SOP · VOC Reporting |
+| SME SOP · 지식 베이스 업데이트 요청 | SME SOP · Knowledge Base Update Requests |
+| SOP · 신규 입사자 온보딩 | SOP · New Hire Onboarding |
+| SOP · 캘리브레이션 | SOP · Calibration |
+| Codex 원페이저 ④ SME의 하루 | Codex one-pager ④ An SME's day |
+| Codex 원페이저 ③ 커리어 매트릭스 | Codex one-pager ③ Career Matrix |
