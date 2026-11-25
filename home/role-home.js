@@ -50,7 +50,7 @@ export function homeFor(role) {
       learn: [
         { id: 'sme', ...byHref('./sme/') },
         { id: 'sme-lifecycle', ...byHref('./sme-lifecycle/') },
-        soon('sme-sop', HOME_COPY.smeSop.title, HOME_COPY.smeSop.text),
+        { id: 'sme-sop', ...byHref('./sme-sop/') },
         excel(HOME_COPY.excelSme),
       ],
     };

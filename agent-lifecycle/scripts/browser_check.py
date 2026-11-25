@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -670,7 +670,7 @@ def main():
         page.reload()
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
-        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "codex/#daily": "browse", "browse/": "browse",
+        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "codex/#daily": "browse", "browse/": "browse",
                  "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
@@ -1463,6 +1463,35 @@ def main():
         page.wait_for_selector("[data-stage-list]")
         check("(s3) the finished stage is marked on the list", page.locator("[data-stage-list] a.is-done").count() == 1)
         page.screenshot(path=str(OUT / "sme-lifecycle-390.png"), full_page=True)
+        page.context.close()
+
+        # (p) SME SOP Library (2026-11-25): an SME opens it from Learn, finishes procedure 1, and home counts it
+        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'sme'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("#learn a.card[href='./sme-sop/']")
+        check("(p1) an SME's Learn has no coming-soon card left", page.locator("#learn [data-soon]").count() == 0)
+        page.click("#learn a.card[href='./sme-sop/']")
+        page.wait_for_selector("[data-sme-sop-list]")
+        check("(p1) Learn opens the SME SOP Library with eight procedures and who takes part",
+              page.url.endswith("/sme-sop/") and page.locator("[data-sme-sop-list] a").count() == 8 and page.locator("[data-roles]").count() == 8)
+        page.click("[data-sme-sop-list] a[data-sme-sop='approval']")
+        page.wait_for_selector("[data-counter]")
+        steps = int(page.inner_text("[data-counter]").split("/")[1])
+        for _ in range(steps):
+            page.click("[data-next]")
+        page.wait_for_selector("[data-view='checkpoint']")
+        page.click("[data-question='approval-q1'] [data-option='b']")
+        page.click("[data-question='approval-q2'] [data-option='b']")
+        page.wait_for_selector("[data-connection]")
+        check("(p2) the next SOP is scrubbing", page.get_attribute("[data-next-lesson]", "href") == "#scrubbing-0")
+        page.goto(HUB)
+        page.wait_for_selector("[data-course='sme-sop']")
+        check("(p2) home my learning counts the finished procedure", "1/8" in page.inner_text("[data-course='sme-sop']") and page.get_attribute("a[data-next='sme-sop']", "href") == "./sme-sop/#scrubbing-0")
+        page.goto(HUB + "sme-sop/")
+        page.wait_for_selector("[data-sme-sop-list]")
+        check("(p3) the finished procedure is marked and the menu marks Learn",
+              page.locator("[data-sme-sop-list] a.is-done").count() == 1 and page.get_attribute("nav.appbar a[aria-current='page']", "data-item") == "learn")
+        page.screenshot(path=str(OUT / "sme-sop-390.png"), full_page=True)
         page.context.close()
 
         browser.close()

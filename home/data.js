@@ -32,6 +32,7 @@ export const HOME_UI = {
 import { EXCEL_UI } from '../excel/data.js';
 import { SME_UI } from '../sme/ui.js';
 import { SL_UI } from '../sme-lifecycle/ui.js';
+import { SS_UI } from '../sme-sop/ui.js';
 import { roleOf } from '../shared/role.js';
 
 // A course card can name the role it is written for; home puts that role's cards first.
@@ -50,6 +51,7 @@ export const LEARN = [
   { href: './excel/', title: EXCEL_UI.homeCard, text: EXCEL_UI.homeCardLine },
   forRole(roleOf('sme'), { href: './sme/', title: SME_UI.courseTitle, text: SME_UI.homeCard }),
   forRole(roleOf('sme-lifecycle'), { href: './sme-lifecycle/', title: SL_UI.courseTitle, text: SL_UI.homeCard }),
+  forRole(roleOf('sme-sop'), { href: './sme-sop/', title: SS_UI.courseTitle, text: SS_UI.homeCard }),
 ];
 
 export const BROWSE = [

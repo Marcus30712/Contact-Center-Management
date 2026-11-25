@@ -14,6 +14,7 @@ A learning app for getting ready for your next contact center role, from agent t
 | The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | A six-stage course for new team leads (Korean/English) |
 | SME First Steps | [`sme/`](sme/) | Seven lessons for agents who have just become SMEs: the first day; supporting new hires, existing agents, former peers and the team leader; when requests pile up; giving knowledge back (Korean/English) |
 | Support Lifecycle | [`sme-lifecycle/`](sme-lifecycle/) | Five lessons on the support procedure an SME follows at each stage as one agent grows from training through nesting and regular work to senior, plus supporting the team leader (Korean/English) |
+| SME SOP Library | [`sme-sop/`](sme-sop/) | Eight standard procedures an SME runs: escalation approval, scrubbing, contact trend summaries, covering attendance, client update huddles, calibration, VOC reporting and knowledge base update requests (Korean/English) |
 | Review Quiz | [`review/`](review/) | Six scenario questions that open once your role's courses are done (team lead: Lifecycle and SOP; SME: SME First Steps). Pass with 5 or more right to earn a badge (Korean/English) |
 | SOP Library | [`sop-library/`](sop-library/) | Lessons that walk through the SOPs a team lead needs to know, step by step (Korean/English) |
 | Codex One-Pagers | [`codex/`](codex/) | The four chapters of the Codex (operations optimisation principles, the five core teams, the career matrix, daily work by role), one page each; tap for detail (Korean/English) |

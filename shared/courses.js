@@ -9,10 +9,13 @@ import { SME_LESSONS } from '../sme/lessons/index.js';
 import { SME_PROGRESS_KEY } from '../sme/ui.js';
 import { SL_LESSONS } from '../sme-lifecycle/lessons/index.js';
 import { SL_PROGRESS_KEY } from '../sme-lifecycle/ui.js';
+import { SS_LESSONS } from '../sme-sop/lessons/index.js';
+import { SS_PROGRESS_KEY } from '../sme-sop/ui.js';
 
 export const COURSE_INFO = {
   lifecycle: { key: PROGRESS_KEY, lessons: LESSONS, dir: 'agent-lifecycle/' },
   sop: { key: SOP_PROGRESS_KEY, lessons: SOP_LESSONS, dir: 'sop-library/' },
   sme: { key: SME_PROGRESS_KEY, lessons: SME_LESSONS, dir: 'sme/' },
   'sme-lifecycle': { key: SL_PROGRESS_KEY, lessons: SL_LESSONS, dir: 'sme-lifecycle/' },
+  'sme-sop': { key: SS_PROGRESS_KEY, lessons: SS_LESSONS, dir: 'sme-sop/' },
 };

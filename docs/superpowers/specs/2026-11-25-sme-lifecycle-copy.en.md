@@ -225,4 +225,4 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | They are a regular agent, so just watch. |
 | c 피드백 | If you know about a change and don't pass it on, the team leader finds out only after the problem has grown. |
 | 해설 | The SME handles work support; the team leader handles attendance and personal matters. Deal with the two separately. |
-| 마지막 연결 | You have finished Support Lifecycle. Procedures such as escalation approval and scrubbing will be covered one by one in the SME SOP Library. |
+| 마지막 연결 | You have finished Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |
