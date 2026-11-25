@@ -52,7 +52,7 @@ export const SME_GROUPS = [
         "id": "m2",
         "text": {
           "ko": "동료였던 선임이 승인 없이 처리하려 한다",
-          "en": "A senior who was your peer wants to go ahead without approval"
+          "en": "A senior agent who was your peer wants to go ahead without approval"
         },
         "first": {
           "title": {
@@ -151,18 +151,18 @@ export const SME_GROUPS = [
     "id": "agents",
     "chip": {
       "ko": "기존·선임",
-      "en": "Agents and seniors"
+      "en": "Existing and senior agents"
     },
     "heading": {
       "ko": "기존 상담사와 선임",
-      "en": "Existing agents and seniors"
+      "en": "Existing and senior agents"
     },
     "situations": [
       {
         "id": "m6",
         "text": {
           "ko": "상담사가 권한 밖 보상 승인을 요청한다",
-          "en": "An agent asks you to approve compensation beyond their authority"
+          "en": "An agent asks you to approve compensation they aren't authorized to give"
         },
         "first": {
           "title": {
@@ -204,7 +204,7 @@ export const SME_GROUPS = [
         "id": "m8",
         "text": {
           "ko": "선임이 SME나 팀장이 되고 싶어 한다",
-          "en": "A senior wants to become an SME or team leader"
+          "en": "A senior agent wants to become an SME or team leader"
         },
         "first": {
           "title": {
@@ -282,11 +282,11 @@ export const SME_GROUPS = [
     "id": "lead",
     "chip": {
       "ko": "팀장·품질",
-      "en": "Lead and quality"
+      "en": "Team leader and quality"
     },
     "heading": {
       "ko": "팀장 지원과 품질",
-      "en": "Supporting the team leader, and quality"
+      "en": "Team leader support and quality"
     },
     "situations": [
       {
@@ -398,7 +398,7 @@ export const SME_GROUPS = [
         "id": "m16",
         "text": {
           "ko": "같은 고객 불만이 계속 쌓인다",
-          "en": "The same customer complaint keeps piling up"
+          "en": "Complaints about the same issue keep piling up"
         },
         "first": {
           "title": {
