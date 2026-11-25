@@ -41,8 +41,9 @@ export function openItem(state, view, item) {
   return state;
 }
 
-export function newState() {
-  return { principles: new Set(), team: null, careerTeam: null, careerLevel: null, dailyRole: null, dailyPick: null, weekChecks: new Set(), focus: null };
+// `you`: the role the learner picked (2026-11-25); the career and daily pages open on it.
+export function newState(you = 'tl') {
+  return { you, principles: new Set(), team: null, careerTeam: null, careerLevel: null, dailyRole: null, dailyPick: null, weekChecks: new Set(), focus: null };
 }
 
 export function renderPage(root, id, lang, state) {

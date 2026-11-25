@@ -13,7 +13,7 @@ const tagKind = (tag) => TAG_KIND[['핵심', '성장', '준비', '마무리', '�
 
 export function dailyBody(lang, state, redraw) {
   const tr = (text) => t(text, lang).text;
-  const role = DAILY.roles.find((r) => r.id === state.dailyRole) ?? DAILY.roles.find((r) => r.id === DAILY.defaultRole);
+  const role = DAILY.roles.find((r) => r.id === state.dailyRole) ?? DAILY.roles.find((r) => r.id === state.you) ?? DAILY.roles.find((r) => r.id === DAILY.defaultRole);
   const pick = state.dailyPick;
   const pickedTask = pick == null ? null : 'block' in pick ? role.schedule[pick.block]?.task : pick.task;
   // What a screen reader hears after a choice: the task in one line.

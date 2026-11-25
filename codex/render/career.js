@@ -5,13 +5,15 @@ import { CODEX_UI as UI } from '../ui.js';
 import { CAREER } from '../data/career.js';
 import { tabs, chip, announce } from './parts.js';
 
-const defaultLevel = (team) => (team.id === CAREER.you.team ? CAREER.you.level : team.levels[0].id);
 
 export function careerBody(lang, state, redraw) {
   const tr = (text) => t(text, lang).text;
-  const team = CAREER.teams.find((x) => x.id === state.careerTeam) ?? CAREER.teams.find((x) => x.id === CAREER.you.team);
+  // The reader: their saved role on the operation team (team lead when none is saved).
+  const you = { team: CAREER.you.team, level: state.you ?? CAREER.you.level };
+  const defaultLevel = (team) => (team.id === you.team ? you.level : team.levels[0].id);
+  const team = CAREER.teams.find((x) => x.id === state.careerTeam) ?? CAREER.teams.find((x) => x.id === you.team);
   const level = team.levels.find((l) => l.id === state.careerLevel) ?? team.levels.find((l) => l.id === defaultLevel(team));
-  const isYou = (l) => team.id === CAREER.you.team && l.id === CAREER.you.level;
+  const isYou = (l) => team.id === you.team && l.id === you.level;
 
   const detail = h('div', { class: 'cx-detail', 'data-level-detail': true }, [
     h('h3', {}, [tr(level.name), isYou(level) ? ' ' : null, isYou(level) ? chip(tr(UI.youAreHere), 'you') : null]),
