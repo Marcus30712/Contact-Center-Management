@@ -116,6 +116,23 @@ test('a quiz unlocks when the role\'s courses are finished', () => {
   assert.deepEqual(unlocked(fakeStorage(), 'am'), { open: false, left: 0, next: null });
 });
 
+test('the SME quiz still opens with SME First Steps alone', async () => {
+  // Support Lifecycle is an SME course (2026-11-25) but the quiz stays tied to SME First Steps (design §4.4).
+  const { coursesFor, reviewCoursesFor } = await import('../../shared/role.js');
+  assert.ok(coursesFor('sme').includes('sme-lifecycle'));
+  assert.deepEqual(reviewCoursesFor('sme'), ['sme']);
+  assert.deepEqual(reviewCoursesFor('tl'), ['lifecycle', 'sop']);
+  assert.deepEqual(reviewCoursesFor('am'), []);
+  const sme = ['firstday', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge'];
+  const s = fakeStorage({ 'sme-course:v1': JSON.stringify({ completed: sme }) });
+  assert.deepEqual(unlocked(s, 'sme'), { open: true, left: 0, next: null });
+  const { setupDom: dom } = await import('./dom.js');
+  const { renderHome } = await import('../../home/render.js');
+  const { root } = dom();
+  renderHome(root, 'ko', s, '2026-11-25', 'sme');
+  assert.ok(root.querySelector('a[data-review-quiz]'));
+});
+
 // ---------- the review/ page (Task 3) ----------
 import { setupDom, click } from './dom.js';
 import { renderReview, newReviewView, routeRole } from '../../review/render.js';

@@ -8,10 +8,17 @@ export const DEFAULT_ROLE = 'tl';
 // Roles that already have a course of their own, and the courses each role
 // learns (home's course ids). Excel is for every role and belongs to none.
 export const COURSE_ROLES = ['sme', 'tl'];
-export const ROLE_COURSES = { tl: ['lifecycle', 'sop'], sme: ['sme'] };
+export const ROLE_COURSES = { tl: ['lifecycle', 'sop'], sme: ['sme', 'sme-lifecycle'] };
+// The courses that open a role's review quiz. The SME quiz was written for
+// SME First Steps and stays tied to it (design 2026-11-25-sme-learn-set §4.4).
+export const REVIEW_COURSES = { tl: ['lifecycle', 'sop'], sme: ['sme'] };
 
 export function coursesFor(role) {
   return ROLE_COURSES[role] ?? [];
+}
+
+export function reviewCoursesFor(role) {
+  return REVIEW_COURSES[role] ?? [];
 }
 
 // SMEs learn the 11 basic Excel lessons only (2026-11-25); everyone else also sees the advanced five.

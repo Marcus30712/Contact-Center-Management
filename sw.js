@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = '28fd276cf4e6';
+const VERSION = 'cbc57c89e10f';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -155,6 +155,16 @@ const PRECACHE = [
   "shared/tour-data.js",
   "shared/tour.css",
   "shared/tour.js",
+  "sme-lifecycle/",
+  "sme-lifecycle/app.js",
+  "sme-lifecycle/index.html",
+  "sme-lifecycle/lessons/01-trainee.js",
+  "sme-lifecycle/lessons/02-graduate.js",
+  "sme-lifecycle/lessons/03-regular.js",
+  "sme-lifecycle/lessons/04-senior.js",
+  "sme-lifecycle/lessons/05-leadsupport.js",
+  "sme-lifecycle/lessons/index.js",
+  "sme-lifecycle/ui.js",
   "sme/",
   "sme/app.js",
   "sme/home.js",

@@ -7,9 +7,12 @@ import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { SOP_PROGRESS_KEY } from '../sop-library/ui.js';
 import { SME_LESSONS } from '../sme/lessons/index.js';
 import { SME_PROGRESS_KEY } from '../sme/ui.js';
+import { SL_LESSONS } from '../sme-lifecycle/lessons/index.js';
+import { SL_PROGRESS_KEY } from '../sme-lifecycle/ui.js';
 
 export const COURSE_INFO = {
   lifecycle: { key: PROGRESS_KEY, lessons: LESSONS, dir: 'agent-lifecycle/' },
   sop: { key: SOP_PROGRESS_KEY, lessons: SOP_LESSONS, dir: 'sop-library/' },
   sme: { key: SME_PROGRESS_KEY, lessons: SME_LESSONS, dir: 'sme/' },
+  'sme-lifecycle': { key: SL_PROGRESS_KEY, lessons: SL_LESSONS, dir: 'sme-lifecycle/' },
 };

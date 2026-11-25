@@ -49,7 +49,7 @@ export function homeFor(role) {
       guide,
       learn: [
         { id: 'sme', ...byHref('./sme/') },
-        soon('sme-lifecycle', HOME_COPY.supportLifecycle.title, HOME_COPY.supportLifecycle.text),
+        { id: 'sme-lifecycle', ...byHref('./sme-lifecycle/') },
         soon('sme-sop', HOME_COPY.smeSop.title, HOME_COPY.smeSop.text),
         excel(HOME_COPY.excelSme),
       ],

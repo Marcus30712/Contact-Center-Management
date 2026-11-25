@@ -84,13 +84,14 @@ const filled = () => fakeStorage({
   'kb-practice:v1': '{"days":["2026-11-20"]}',
   'sme-course:v1': '{"completed":["peer"]}',
   'queuecraft:review:v1': '{"sme":{"best":6,"total":6,"passed":true}}',
+  'sme-lifecycle:v1': '{"completed":["trainee"]}',
   'other-site:key': 'not ours',
 });
 
-test('a backup holds exactly the eleven Queuecraft keys that are set', () => {
+test('a backup holds exactly the twelve Queuecraft keys that are set', () => {
   assert.deepEqual(BACKUP_KEYS, ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'queuecraft:theme',
     'queuecraft:role', 'queuecraft:role-asked',
-    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1']);
+    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1', 'sme-lifecycle:v1']);
   const b = makeBackup(filled(), '2026-11-20');
   assert.equal(b.app, 'queuecraft');
   assert.equal(b.format, 1);
@@ -131,6 +132,20 @@ test('restoring an older backup keeps the role', () => {
   assert.equal(s.getItem(ROLE_ASKED_KEY), '1');
   restoreBackup(s, { 'agent-lifecycle-course:v1': '{"completed":[]}', [ROLE_KEY]: 'om' });
   assert.equal(loadRole(s), 'om');
+});
+
+test('backup and reset include support lifecycle progress', () => {
+  const old = fakeStorage();
+  // A backup made before the course existed has no support lifecycle key.
+  assert.equal(restoreBackup(old, { 'sme-course:v1': '{"completed":["peer"]}' }), true);
+  assert.equal(old.getItem('sme-course:v1'), '{"completed":["peer"]}');
+  assert.equal(old.getItem('sme-lifecycle:v1'), null);
+  const s = fakeStorage({ [ROLE_KEY]: 'sme', 'sme-lifecycle:v1': '{"completed":["trainee"]}' });
+  assert.equal(makeBackup(s, '2026-11-25').data['sme-lifecycle:v1'], '{"completed":["trainee"]}');
+  assert.ok(RESET_KEYS.includes('sme-lifecycle:v1'));
+  assert.equal(resetLearning(s), true);
+  assert.equal(s.getItem('sme-lifecycle:v1'), null);
+  assert.equal(loadRole(s), 'sme');
 });
 
 test('reset keeps the role and erases SME progress', () => {
@@ -344,8 +359,8 @@ test('the tutorial has its own section with a View link', () => {
 });
 
 // ---------- 2026-11-21: reset learning ----------
-test('reset clears only the six learning records and reports whether anything was there', () => {
-  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1']);
+test('reset clears only the seven learning records and reports whether anything was there', () => {
+  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1', 'sme-lifecycle:v1']);
   const s = filled();
   s.setItem('queuecraft:tour', 'done');
   assert.equal(resetLearning(s), true);

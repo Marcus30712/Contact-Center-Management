@@ -13,6 +13,7 @@
 | 미소의 엑셀 연습 / Miso's Excel Practice | [`excel/`](excel/) | 팀장이 꼭 쓰는 엑셀 11가지(셀 주소부터 SUMIFS·XLOOKUP·피벗·조건부 서식까지)와, 배운 함수를 섞어 쓰는 심화 5개. 타자 없이 카드와 칸을 눌러 수식을 만들고, 미소 팀 콜 기록(예시)으로 실제 계산해 채점 (한국어/영어) |
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
 | SME 첫걸음 / SME First Steps | [`sme/`](sme/) | 상담사에서 막 SME가 된 사람을 위한 7개 레슨: 첫날, 신입·기존 상담사·동료였던 선임·팀장 서포트, 요청이 몰릴 때, 팀에 지식 돌려주기 (한국어/영어) |
+| 서포트 라이프사이클 / Support Lifecycle | [`sme-lifecycle/`](sme-lifecycle/) | 상담사 한 사람이 교육 중 → 네스팅 → 정식 → 선임으로 자라는 동안 단계마다 SME가 따르는 지원 절차와 팀장 지원, 5개 레슨 (한국어/영어) |
 | 복습 퀴즈 / Review Quiz | [`review/`](review/) | 직급 강의(팀장: 라이프사이클·SOP, SME: SME 첫걸음)를 모두 마치면 열리는 상황형 6문제. 5개 이상 맞히면 통과하고 배지를 받습니다 (한국어/영어) |
 | SOP 라이브러리 / SOP Library | [`sop-library/`](sop-library/) | 팀장이 알아야 할 SOP를 순서대로 배우는 강의 (한국어/영어) |
 | Codex 원페이저 / Codex One-Pagers | [`codex/`](codex/) | Codex의 네 장(운영 최적화 원칙, 5대 핵심팀, 커리어 매트릭스, 직무별 일일 업무)을 한 장씩, 누르면 자세히 (한국어/영어) |
@@ -36,7 +37,7 @@
 | 무엇 | 라이선스 | 파일 |
 |---|---|---|
 | 코드 (화면을 그리는 코드, 계산기, 테스트, 도구) | MIT | [`LICENSE`](LICENSE) |
-| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
 
 - CC BY-NC-ND 4.0: 출처("Marcus Shim, Queuecraft")를 밝히고, 바꾸지 않고, 비상업적으로만 공유할 수 있습니다. 자세한 범위는 `LICENSE-CONTENT`에 있습니다.
 - 2026년 11월 20일 이전에 MIT로 공개된 판은 그대로 MIT입니다.

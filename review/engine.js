@@ -1,7 +1,7 @@
 // Review quiz results and when each quiz opens (2026-11-25).
 // Spec: docs/superpowers/specs/2026-11-25-role-review-quiz-design.md §4.2–4.4.
 import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
-import { coursesFor } from '../shared/role.js';
+import { reviewCoursesFor } from '../shared/role.js';
 import { COURSE_INFO } from '../shared/courses.js';
 
 export const REVIEW_KEY = 'queuecraft:review:v1';
@@ -39,7 +39,7 @@ export function recordRun(storage, role, correct, total) {
 // Open once every lesson of the role's courses is finished; otherwise how many
 // are left and the first unfinished one, in course order.
 export function unlocked(storage, role) {
-  const courses = coursesFor(role);
+  const courses = reviewCoursesFor(role);
   if (!courses.length) return { open: false, left: 0, next: null };
   const pending = courses.flatMap((id) => {
     const c = COURSE_INFO[id];
