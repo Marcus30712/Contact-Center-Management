@@ -1,6 +1,6 @@
 # Review quizzes per role — English copy
 
-Written: 2026-11-25 · Status: awaiting owner approval · Korean: `2026-11-25-review-quiz-copy-ko.md`
+Written: 2026-11-25 · Status: approved (2026-11-25) · Korean: `2026-11-25-review-quiz-copy-ko.md`
 
 Same sections, order and row names as the Korean file, so one check reads both. US English.
 

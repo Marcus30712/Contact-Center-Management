@@ -434,7 +434,7 @@
 - 홈 "내 학습"에는 내 직급 강의와 엑셀만 보입니다. 팀장(또는 직급을 고르지 않은 사람)에게는 SME 진도가 보이지 않고, 라이프사이클·SOP·엑셀을 다 마치면 다시 "다 마쳤어요"가 보입니다.
 - 복습 퀴즈(`review/`): 직급 강의를 모두 마치면 열리는 상황형 6문제(팀장, SME). 레슨 여러 개를 함께 떠올려야 풀리는 새 문제이고, 오답 피드백·해설·관련 레슨 링크가 있습니다. 5개 이상 맞히면 통과하고 "팀장 과정 완주"·"SME 과정 완주" 배지를 받습니다(배지 12개). 최고 기록과 통과 여부는 백업에 들어가고 학습 초기화로 지워집니다.
 - 홈 "내 학습"에 퀴즈 카드가 나타나고, 아래 메뉴에서는 SME 강의와 복습 퀴즈가 "배우기"에 속합니다.
-- 설계·문안: `docs/superpowers/specs/2026-11-25-role-review-quiz-design.md`, `…-review-quiz-copy-ko.md`(승인), `…-review-quiz-copy.en.md`, 계획 `docs/superpowers/plans/2026-11-25-role-review-quiz.md`.
+- 설계·문안: `docs/superpowers/specs/2026-11-25-role-review-quiz-design.md`, `…-review-quiz-copy-ko.md`(승인), `…-review-quiz-copy.en.md`(승인), 계획 `docs/superpowers/plans/2026-11-25-role-review-quiz.md`.
 
 ---
 
