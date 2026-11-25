@@ -8,6 +8,7 @@ import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { SME_LESSONS } from '../sme/lessons/index.js';
 import { SME_PROGRESS_KEY as SME_KEY } from '../sme/ui.js';
 import { loadReview } from '../review/engine.js';
+import { loadRole, showsAdvancedExcel } from '../shared/role.js';
 import { TERMS } from '../glossary/terms.js';
 import { EXCEL_LESSONS } from '../excel/data.js';
 import { EXCEL_ADVANCED } from '../excel/advanced.js';
@@ -92,7 +93,8 @@ export function pool(storage, { allTracks = false } = {}) {
 function excelQuestions(storage) {
   if (!storage) return [];
   const done = loadExcelProgress(storage).completed;
-  return [...EXCEL_LESSONS, ...EXCEL_ADVANCED]
+  // SMEs are not asked advanced questions; their stored progress stays as it is.
+  return [...EXCEL_LESSONS, ...(showsAdvancedExcel(loadRole(storage)) ? EXCEL_ADVANCED : [])]
     .map((l, i) => ({ l, order: i + 1 }))
     .filter(({ l }) => done.includes(l.id))
     .flatMap(({ l, order }) => l.questions

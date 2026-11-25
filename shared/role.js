@@ -14,6 +14,11 @@ export function coursesFor(role) {
   return ROLE_COURSES[role] ?? [];
 }
 
+// SMEs learn the 11 basic Excel lessons only (2026-11-25); everyone else also sees the advanced five.
+export function showsAdvancedExcel(role) {
+  return role !== 'sme';
+}
+
 // The role a course is written for (undefined for shared ones such as Excel).
 export function roleOf(courseId) {
   return Object.keys(ROLE_COURSES).find((r) => ROLE_COURSES[r].includes(courseId));

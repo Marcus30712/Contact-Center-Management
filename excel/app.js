@@ -4,6 +4,7 @@ import { loadLang, saveLang, t } from '../agent-lifecycle/js/engine/i18n.js';
 import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { EXCEL_UI as UI } from './data.js';
 import { renderExcel, newExcelView } from './render.js';
+import { loadRole, showsAdvancedExcel } from '../shared/role.js';
 
 function getStorage() {
   try {
@@ -29,7 +30,7 @@ function draw(focusTitle) {
     draw();
     langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
   });
-  renderExcel(app, lang, storage, route(), view);
+  renderExcel(app, lang, storage, route(), view, { advanced: showsAdvancedExcel(loadRole(storage)) });
   if (focusTitle) app.querySelector('h1')?.focus();
 }
 
