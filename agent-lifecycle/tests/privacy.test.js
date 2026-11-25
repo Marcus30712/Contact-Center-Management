@@ -23,7 +23,7 @@ const table = () => {
   return out;
 };
 
-// Rows changed for the role and the SME course (2026-11-25), awaiting approval.
+// Rows changed for the role and the SME course (approved 2026-11-25).
 const SME_DOC = file('docs/superpowers/specs/2026-11-25-sme-course-copy-ko.md');
 const changed = new Map(SME_DOC.split('## 4. ')[1].split('\n').filter((l) => /^\| s\d/.test(l))
   .map((l) => l.slice(1, -1).split(' | ').map((c) => c.trim())).map(([k, ko, en]) => [k, [k, ko, en]]));

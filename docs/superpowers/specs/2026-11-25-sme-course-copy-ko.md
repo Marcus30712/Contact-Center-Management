@@ -346,7 +346,7 @@
 
 ---
 
-## 4. 개인정보처리방침 변경 (구현 중 추가, 승인 대기)
+## 4. 개인정보처리방침 변경 (구현 중 추가, 승인됨 2026-11-25)
 
 새로 기기에 저장하는 항목(직급, SME 강의 진도)을 방침에 적어야 해서 추가한 문구입니다. 테스트는 이 표를 `2026-11-20-privacy-design.md`의 같은 키보다 우선해 대조합니다.
 
@@ -355,7 +355,7 @@
 | s2.item1 | 고른 언어, 직군, 준비하는 직급, 화면 모드(밝게·어둡게), 튜토리얼을 봤는지 여부 | Your chosen language, job track, the role you are preparing for, display mode (light or dark), and whether you've seen the tutorial |
 | s2.item2 | 레슨 진도 (라이프사이클, SOP, SME, 엑셀) | Lesson progress (Lifecycle, SOP, SME, Excel) |
 
-## 5. 최종 검토 후 추가 (승인 대기)
+## 5. 최종 검토 후 추가 (승인됨 2026-11-25)
 
 SME를 고른 새 사용자에게 홈의 첫 안내가 팀장 강의(라이프사이클 레슨 1)를 가리키지 않도록 추가한 문구입니다.
 

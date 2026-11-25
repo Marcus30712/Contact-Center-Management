@@ -1,6 +1,6 @@
 # Role select and the SME course — English copy
 
-Written: 2026-11-25 · Status: awaiting owner approval · Korean: `2026-11-25-sme-course-copy-ko.md`
+Written: 2026-11-25 · Status: approved (2026-11-25) · Korean: `2026-11-25-sme-course-copy-ko.md`
 
 Same sections and order as the Korean file. US English.
 
