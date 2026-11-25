@@ -10,7 +10,7 @@ test('the menu marks where you are', () => {
   assert.equal(current('https://x.test/kb/'), 'home');
   assert.equal(current('https://x.test/kb/index.html'), 'home');
   assert.equal(current('https://x.test/kb/#learn'), 'learn');
-  assert.equal(current('https://x.test/kb/#browse'), 'browse');
+  assert.equal(current('https://x.test/kb/browse/'), 'browse');
   assert.equal(current('https://x.test/kb/guide/'), 'guide');
   assert.equal(current('https://x.test/kb/agent-lifecycle/#coaching-3'), 'learn');
   assert.equal(current('https://x.test/kb/sop-library/'), 'learn');
@@ -26,7 +26,7 @@ test('the menu links point at the site root wherever the page is', () => {
   const items = appBarItems(ROOT, 'https://x.test/kb/codex/#daily');
   assert.deepEqual(items.map((i) => [i.id, i.href]), [
     ['home', 'https://x.test/kb/'], ['learn', 'https://x.test/kb/#learn'],
-    ['guide', 'https://x.test/kb/guide/'], ['browse', 'https://x.test/kb/#browse'], ['settings', 'https://x.test/kb/settings/'],
+    ['guide', 'https://x.test/kb/guide/'], ['browse', 'https://x.test/kb/browse/'], ['settings', 'https://x.test/kb/settings/'],
   ]);
 });
 
@@ -44,9 +44,10 @@ test('the menu renders five labeled links and follows the page language', () => 
 
 test('on the home page the highlight follows where you have scrolled', async () => {
   const { homeSection, appBarItems } = await import('../../shared/appbar.js');
-  assert.equal(homeSection(0, 900, 1600), 'home');
-  assert.equal(homeSection(950, 900, 1600), 'learn');
-  assert.equal(homeSection(1700, 900, 1600), 'browse');
+  // Home has no Browse section any more (2026-11-25): Learn is the last part.
+  assert.equal(homeSection(0, 900), 'home');
+  assert.equal(homeSection(950, 900), 'learn');
+  assert.equal(homeSection(1700, 900), 'learn');
   const root = 'https://x.test/kb/';
   const current = (section) => appBarItems(root, `${root}#learn`, section).find((i) => i.current).id;
   assert.equal(current('home'), 'home', 'scrolled back up after tapping Learn');
@@ -64,10 +65,10 @@ test('wide screens keep their wider side margins', async () => {
   assert.ok(/@media \(min-width: 900px\) \{\s*\.page \{[^}]*max\(32px, env\(safe-area-inset-left/.test(css));
 });
 
-test('scrolled to the bottom of home counts as Browse; index.html and ?query count as home', async () => {
+test('scrolled to the bottom of home counts as Learn; index.html and ?query count as home', async () => {
   const { homeSection, isRootPage } = await import('../../shared/appbar.js');
-  assert.equal(homeSection(715, 400, 946, true), 'browse', 'the short last section can never reach the top');
-  assert.equal(homeSection(500, 400, 946, false), 'learn');
+  assert.equal(homeSection(300, 400, true), 'learn', 'the short last section can never reach the top');
+  assert.equal(homeSection(300, 400, false), 'home');
   const root = 'https://x.test/kb/';
   assert.ok(isRootPage(root, `${root}`));
   assert.ok(isRootPage(root, `${root}index.html`));

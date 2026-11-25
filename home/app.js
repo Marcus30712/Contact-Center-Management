@@ -5,7 +5,11 @@ import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { HOME_UI as UI } from './data.js';
 import { renderHome } from './render.js';
 import { whenAppBar, shouldStartTour, startTour } from '../shared/tour.js';
-import { pickGreeting, shouldShowStart, watchOffline } from './start.js';
+import { pickGreeting, shouldShowStart, watchOffline, browseRedirect } from './start.js';
+
+// An old bookmark to home's Browse section goes to the Browse page.
+const movedTo = browseRedirect(location.href);
+if (movedTo) location.replace(movedTo);
 import { renderStart } from './start-render.js';
 import { saveRole, markRoleAsked, loadRole } from '../shared/role.js';
 import { openRoleSheet, askRoleHere, runFirstOpen } from '../shared/role-sheet.js';

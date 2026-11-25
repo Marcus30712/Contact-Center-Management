@@ -56,3 +56,10 @@ export async function watchOffline(sw, set) {
     set(null);
   }
 }
+
+// The old home address of Browse (bookmarks, before 2026-11-25) now opens the Browse page.
+export function browseRedirect(href) {
+  const url = new URL(href);
+  if (url.hash !== '#browse') return null;
+  return new URL('browse/', new URL('./', url)).href;
+}
