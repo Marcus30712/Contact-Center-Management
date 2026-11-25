@@ -1,6 +1,6 @@
 # SME SOP Library — English copy
 
-Written: 2026-11-25 · Status: draft (awaiting approval) · Korean: `2026-11-25-sme-sop-copy-ko.md`
+Written: 2026-11-25 · Status: approved (2026-11-25, with the reviewer's wording fixes) · Korean: `2026-11-25-sme-sop-copy-ko.md`
 
 Same sections and order as the Korean file. US English. Terms follow the team leader's SOP Library (DSAT, CSAT, L1/L2, controllable, RTA, huddle, calibration, VOC, knowledge base).
 
@@ -12,7 +12,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | Course intro | Learn the eight standard procedures an SME runs, in order. Where a procedure is also in the team leader's SOP Library, only the SME's part is covered. |
 | Home card | Learn the eight standard procedures an SME follows, in order. |
 | Figures note | Times and counts with numbers are examples; each center sets its own values. |
-| Lesson screen | All lessons · SME checkpoint · Up next · Next SOP · Back to the list · Done |
+| Lesson screen | All SOPs · SME checkpoint · Up next · Next SOP · Back to the list · Done |
 | Who label | Who |
 
 ---
@@ -30,10 +30,10 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 스텝:
 
 1. This procedure exists to judge an agent's escalation quickly and by the same rules, then approve it, handle it yourself, or pass it to the team leader. It is the part that comes after the SME takes over in the team leader's customer complaint escalation SOP.
-2. Jimin asks for a compensation approval by messenger. The first step is checking the request. See whether the ticket records what the customer wants, what Jimin has already tried, and how the customer is.
+2. Jimin asks for a compensation approval by messenger. The first step is checking the request. See whether the ticket records what the customer wants, what Jimin has already tried, and how the customer is feeling.
 3. If the record is thin, ask Jimin a quick question. That way the customer isn't asked the same thing again.
 4. The second step is judging the scope. Use the approval scope list agreed with the team leader to decide whether it is inside your scope or not. If you're not sure, treat it as outside.
-5. The third step is approving or handling. Approve it if it's in scope, and take over a case the agent finds hard to solve and handle the customer yourself. When you take over, first tell the customer you already know what happened so far.
+5. The third step is approving or handling. Approve it if it's in scope; if the agent is stuck, take the case over and handle the customer yourself. When you take over, first tell the customer you already know what happened so far.
 6. The fourth step is handing it to the team leader. Requests outside your scope or outside policy go to the team leader. Meanwhile, ask Jimin to tell the customer about the wait.
 7. The fifth step is keeping a record. Whether you approved it or passed it on, write the decision and the reason in the ticket and in the approval log. When the same request comes again, anyone can judge it by the same rule.
 8. If an answer will take time, say first when you will answer (Example: within 5 minutes). While the agent waits, the customer is waiting too.
@@ -152,9 +152,9 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 스텝:
 
 1. This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the lead's behalf and flags staffing gaps quickly.
-2. The first step is confirming the cover. Get from Sujin in advance whether you are covering today, where absence calls will come, and when to report.
+2. The first step is confirming the cover. Confirm with Sujin in advance whether you're covering today, where absence calls will come in, and when to report.
 3. The second step is checking attendance. At the start of the shift, match the schedule against actual logins and find who is missing.
-4. When someone calls in late or absent, take down the time and the reason as given. Don't judge whether the reason is valid.
+4. When someone calls to say they'll be late or absent, take down the time and the reason as given. Don't judge whether the reason is valid.
 5. The third step is recording the facts. Write the arrival time, whether they called, and the reason in the attendance sheet, as they are. Don't leave anything out or change it.
 6. The fourth step is flagging gaps. If absences leave you short, tell the RTA right away so the queue can be protected.
 7. Send Sujin the attendance results at the agreed time. Warnings, attendance actions and schedule changes are for the team leader to decide.
@@ -295,7 +295,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 2번 질문 | A VOC topic you sent last month is still just as common this month. What do you do? |
 | 보기 a (오답) | You already sent it, so leave it out this time. |
 | a 피드백 | If it drops out, the client assumes it's solved. |
-| 보기 b (정답) | Raise it again with last report's figures to show the change, and discuss priority with the team leader. |
+| 보기 b (정답) | Raise it again with the figures from the last report to show the change, and discuss priority with the team leader. |
 | 보기 c (오답) | Contact the client directly and complain. |
 | c 피드백 | Communication with the client goes through the team leader and the agreed channel. Reaching out alone sends the same story down several paths and causes confusion. |
 | 해설 | Track a VOC topic you sent until it changes. |
@@ -314,7 +314,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 스텝:
 
 1. This procedure exists to find wrong or missing content in the knowledge base, ask for a fix the owner can make right away, and tell the team once it's fixed.
-2. The first step is spotting the problem. When Seojun and Jimin ask the same question, or scrubbing finds a wrong answer given by the book, suspect the article.
+2. The first step is spotting the problem. When Seojun and Jimin ask the same question, or scrubbing finds a wrong answer that came straight from the article, suspect the article.
 3. The second step is checking the source. Compare the article with the policy text or the client's latest notice to confirm whether it is really wrong or missing.
 4. The third step is writing the request. Note the article name, the wrong sentence, the right content, and the notice or ticket numbers it is based on, and send it through the agreed channel.
 5. A request like "the refund article looks off" makes the owner ask again. Say what to change into what, and it gets fixed fast.
@@ -339,4 +339,4 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 c (오답) | Tell agents not to use the knowledge base. |
 | c 피드백 | Blocking the whole knowledge base removes the place to find the correct content too. |
 | 해설 | Until it's fixed, cover the gap with an interim note, and say so once it's fixed. |
-| 마지막 연결 | You have finished the SME SOP Library. You can see which procedure to use at each stage again in Support Lifecycle. |
+| 마지막 연결 | You have finished the SME SOP Library. To review which procedure fits each stage, go back to Support Lifecycle. |

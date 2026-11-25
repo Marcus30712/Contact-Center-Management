@@ -15,7 +15,7 @@ export const SS_UI = {
   homeCard: { ko: 'SME가 따르는 표준 절차 8개를 순서대로 배웁니다.', en: 'Learn the eight standard procedures an SME follows, in order.' },
   rolesLabel: { ko: '누가', en: 'Who' },
   // Lesson-screen labels: as SME First Steps, but the next lesson is the next SOP.
-  home: SME_UI.home,
+  home: { ko: '목록', en: 'All SOPs' },
   checkpoint: SME_UI.checkpoint,
   connection: SME_UI.connection,
   nextLesson: { ko: '다음 SOP', en: 'Next SOP' },

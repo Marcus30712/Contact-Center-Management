@@ -26,7 +26,7 @@ export default {
   },
   steps: [
     step(tx("이 절차의 목적은 지식 베이스의 틀리거나 빠진 내용을 찾아 담당자가 바로 고칠 수 있게 요청하고, 고쳐지면 팀에 알리는 것입니다.", "This procedure exists to find wrong or missing content in the knowledge base, ask for a fix the owner can make right away, and tell the team once it's fixed."), flow, procedure, null),
-    step(tx("첫 단계는 문제 찾기입니다. 서준과 지민이 같은 질문을 하거나, 스크러빙에서 문서대로 안내했는데 틀린 건이 나오면 문서를 의심합니다.", "The first step is spotting the problem. When Seojun and Jimin ask the same question, or scrubbing finds a wrong answer given by the book, suspect the article."), flow, ["spot"], null),
+    step(tx("첫 단계는 문제 찾기입니다. 서준과 지민이 같은 질문을 하거나, 스크러빙에서 문서대로 안내했는데 틀린 건이 나오면 문서를 의심합니다.", "The first step is spotting the problem. When Seojun and Jimin ask the same question, or scrubbing finds a wrong answer that came straight from the article, suspect the article."), flow, ["spot"], null),
     step(tx("둘째 단계는 원문 확인입니다. 정책 원문이나 고객사의 최신 공지와 문서를 비교해, 정말 틀렸는지 또는 빠졌는지 확인합니다.", "The second step is checking the source. Compare the article with the policy text or the client's latest notice to confirm whether it is really wrong or missing."), flow, ["source"], null),
     step(tx("셋째 단계는 요청 쓰기입니다. 문서 이름, 틀린 문장, 바른 내용, 근거가 된 공지나 티켓 번호를 적어 정해진 경로로 보냅니다.", "The third step is writing the request. Note the article name, the wrong sentence, the right content, and the notice or ticket numbers it is based on, and send it through the agreed channel."), flow, ["request"], null),
     step(tx("\"환불 문서가 이상해요\"처럼 보내면 담당자가 다시 물어야 합니다. 무엇을 무엇으로 바꿀지까지 적어야 빨리 고쳐집니다.", "A request like \"the refund article looks off\" makes the owner ask again. Say what to change into what, and it gets fixed fast."), flow, ["request"], null),
@@ -57,5 +57,5 @@ export default {
       explanation: tx("고쳐지기 전까지는 임시 안내로 빈틈을 막고, 반영되면 알립니다.", "Until it's fixed, cover the gap with an interim note, and say so once it's fixed."),
     },
   ],
-  connection: { to: "home", text: tx("SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 서포트 라이프사이클에서 다시 볼 수 있습니다.", "You have finished the SME SOP Library. You can see which procedure to use at each stage again in Support Lifecycle.") },
+  connection: { to: "home", text: tx("SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 서포트 라이프사이클에서 다시 볼 수 있습니다.", "You have finished the SME SOP Library. To review which procedure fits each stage, go back to Support Lifecycle.") },
 };

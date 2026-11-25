@@ -51,7 +51,7 @@ export default {
       prompt: tx("지난달 전한 VOC 주제가 이번 달에도 그대로 많습니다. 어떻게 할까요?", "A VOC topic you sent last month is still just as common this month. What do you do?"),
       options: [
         option("a", tx("이미 전했으니 이번에는 뺀다.", "You already sent it, so leave it out this time."), tx("빠지면 고객사는 문제가 해결된 것으로 봅니다.", "If it drops out, the client assumes it's solved.")),
-        option("b", tx("지난 리포트와 함께 건수 변화를 보여 다시 올리고, 팀장과 우선순위를 상의한다.", "Raise it again with last report's figures to show the change, and discuss priority with the team leader.")),
+        option("b", tx("지난 리포트와 함께 건수 변화를 보여 다시 올리고, 팀장과 우선순위를 상의한다.", "Raise it again with the figures from the last report to show the change, and discuss priority with the team leader.")),
         option("c", tx("고객사 담당에게 직접 연락해 항의한다.", "Contact the client directly and complain."), tx("고객사와의 소통은 팀장과 정해진 경로를 거칩니다. 혼자 연락하면 같은 이야기가 여러 길로 가서 혼란이 생깁니다.", "Communication with the client goes through the team leader and the agreed channel. Reaching out alone sends the same story down several paths and causes confusion.")),
       ],
       answer: "b",
