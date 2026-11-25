@@ -5,7 +5,7 @@
 공통 원칙: 스텝은 3문장 이내로 씁니다. 출처 없는 숫자에는 "예시"를 붙입니다. 시점은 "당신 = SME"입니다.
 
 다른 강의와 겹치지 않게 하는 방법:
-- SME 첫걸음은 SME가 된 직후의 적응을, 서포트 라이프사이클은 상담사가 자라는 단계별 지원을 다룹니다. 이 강의는 **절차 하나하나를 순서대로** 다룹니다. 단계 이름, 누가 하는지, 무엇을 기록하고 어디로 보내는지가 중심입니다.
+- SME 첫걸음은 SME가 된 직후의 적응을, SME 서포트 라이프사이클은 상담사가 자라는 단계별 지원을 다룹니다. 이 강의는 **절차 하나하나를 순서대로** 다룹니다. 단계 이름, 누가 하는지, 무엇을 기록하고 어디로 보내는지가 중심입니다.
 - 팀장 SOP와 같은 절차(에스컬레이션, 스크러빙, 캘리브레이션)는 SME가 맡는 부분만 다루고, 팀장 SOP를 가리킵니다. 스크러빙의 L1·L2 분류는 팀장 SOP와 같은 기준입니다(L1: 원인이 있는 곳, L2: BPO가 통제할 수 있는지).
 - 확인 문제는 앞의 두 강의와 같은 장면을 피하고, 절차의 세부(기록, 분류, 전달 경로)를 묻습니다.
 
@@ -354,7 +354,7 @@
 | 보기 c (오답) | 상담사들에게 지식 베이스를 보지 말라고 한다. |
 | c 피드백 | 지식 베이스 전체를 막으면 맞는 내용까지 찾을 곳이 사라집니다. |
 | 해설 | 고쳐지기 전까지는 임시 안내로 빈틈을 막고, 반영되면 알립니다. |
-| 마지막 연결 | SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 서포트 라이프사이클에서 다시 볼 수 있습니다. |
+| 마지막 연결 | SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 SME 서포트 라이프사이클에서 다시 볼 수 있습니다. |
 
 ---
 
@@ -364,13 +364,13 @@
 
 | 키 | 한국어 | English |
 |---|---|---|
-| s2.item2 | 레슨 진도 (라이프사이클, SOP, SME 첫걸음, 서포트 라이프사이클, SME SOP, 엑셀) | Lesson progress (Lifecycle, SOP, SME First Steps, Support Lifecycle, SME SOP, Excel) |
+| s2.item2 | 레슨 진도 (라이프사이클, SOP, SME 첫걸음, SME 서포트 라이프사이클, SME SOP, 엑셀) | Lesson progress (Lifecycle, SOP, SME First Steps, SME Support Lifecycle, SME SOP, Excel) |
 
-## 3. 서포트 라이프사이클 마지막 연결 변경 (구현 중 추가, 승인됨 2026-11-25)
+## 3. SME 서포트 라이프사이클 마지막 연결 변경 (구현 중 추가, 승인됨 2026-11-25)
 
 SME SOP 라이브러리가 생겨서 "다룰 예정입니다"를 바꿉니다. 바꾼 문구는 `2026-11-25-sme-lifecycle-copy-ko.md`와 `.en.md`의 레슨 5 마지막 연결에 바로 적었습니다.
 
 | 언어 | 바뀐 뒤 |
 |---|---|
-| 한국어 | 서포트 라이프사이클을 마쳤습니다. 에스컬레이션 승인, 스크러빙 같은 절차는 SME SOP 라이브러리에서 하나씩 자세히 볼 수 있습니다. |
-| English | You have finished Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |
+| 한국어 | SME 서포트 라이프사이클을 마쳤습니다. 에스컬레이션 승인, 스크러빙 같은 절차는 SME SOP 라이브러리에서 하나씩 자세히 볼 수 있습니다. |
+| English | You have finished SME Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |

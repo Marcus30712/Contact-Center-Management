@@ -133,6 +133,17 @@ test('the SME quiz still opens with SME First Steps alone', async () => {
   assert.ok(root.querySelector('a[data-review-quiz]'));
 });
 
+test('the TL quiz still opens with the lifecycle and TL SOP alone', async () => {
+  // TL First Steps and TL Support Lifecycle are TL courses (2026-11-25) but the quiz stays as it was.
+  const { coursesFor, reviewCoursesFor } = await import('../../shared/role.js');
+  assert.deepEqual(coursesFor('tl'), ['tl', 'lifecycle', 'tl-support', 'sop']);
+  assert.deepEqual(reviewCoursesFor('tl'), ['lifecycle', 'sop']);
+  const life = ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'];
+  const sop = ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'transition', 'onboarding', 'incident', 'nurture', 'launch'];
+  const s = fakeStorage({ 'agent-lifecycle-course:v1': JSON.stringify({ completed: life }), 'sop-library:v1': JSON.stringify({ completed: sop }) });
+  assert.deepEqual(unlocked(s, 'tl'), { open: true, left: 0, next: null });
+});
+
 // ---------- the review/ page (Task 3) ----------
 import { setupDom, click } from './dom.js';
 import { renderReview, newReviewView, routeRole } from '../../review/render.js';

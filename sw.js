@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = '31e544f5b372';
+const VERSION = '20f5625f1068';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -223,7 +223,30 @@ const PRECACHE = [
   "staffing-calculator/lab.js",
   "staffing-calculator/model.js",
   "staffing-calculator/render.js",
-  "staffing-calculator/text.js"
+  "staffing-calculator/text.js",
+  "tl-support/",
+  "tl-support/app.js",
+  "tl-support/index.html",
+  "tl-support/lessons/01-agents.js",
+  "tl-support/lessons/02-sme.js",
+  "tl-support/lessons/03-qa.js",
+  "tl-support/lessons/04-trainers.js",
+  "tl-support/lessons/05-team.js",
+  "tl-support/lessons/index.js",
+  "tl-support/ui.js",
+  "tl/",
+  "tl/app.js",
+  "tl/home.js",
+  "tl/index.html",
+  "tl/lessons/01-start.js",
+  "tl/lessons/02-roster.js",
+  "tl/lessons/03-results.js",
+  "tl/lessons/04-listen.js",
+  "tl/lessons/05-contribution.js",
+  "tl/lessons/06-oneonone.js",
+  "tl/lessons/07-direction.js",
+  "tl/lessons/index.js",
+  "tl/ui.js"
 ];
 
 self.addEventListener('install', (event) => {

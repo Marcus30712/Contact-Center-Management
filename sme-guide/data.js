@@ -90,15 +90,15 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원",
-            "en": "Support Lifecycle lesson 1 · Supporting Agents in Training"
+            "ko": "SME 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원",
+            "en": "SME Support Lifecycle lesson 1 · Supporting Agents in Training"
           },
           "href": "../sme-lifecycle/#trainee-0"
         },
         "then": {
           "title": {
-            "ko": "SOP · 신규 입사자 온보딩",
-            "en": "SOP · New Hire Onboarding"
+            "ko": "TL SOP · 신규 입사자 온보딩",
+            "en": "TL SOP · New Hire Onboarding"
           },
           "href": "../sop-library/#onboarding-0"
         }
@@ -111,8 +111,8 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
-            "en": "Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
+            "ko": "SME 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
+            "en": "SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
           },
           "href": "../sme-lifecycle/#graduate-0"
         },
@@ -139,8 +139,8 @@ export const SME_GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
-            "en": "Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
+            "ko": "SME 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
+            "en": "SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
           },
           "href": "../sme-lifecycle/#graduate-0"
         }
@@ -187,8 +187,8 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "서포트 라이프사이클 레슨 3 · 정식 상담사 지원",
-            "en": "Support Lifecycle lesson 3 · Supporting Regular Agents"
+            "ko": "SME 서포트 라이프사이클 레슨 3 · 정식 상담사 지원",
+            "en": "SME Support Lifecycle lesson 3 · Supporting Regular Agents"
           },
           "href": "../sme-lifecycle/#regular-0"
         },
@@ -208,8 +208,8 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "서포트 라이프사이클 레슨 4 · 선임 상담사 지원",
-            "en": "Support Lifecycle lesson 4 · Supporting Senior Agents"
+            "ko": "SME 서포트 라이프사이클 레슨 4 · 선임 상담사 지원",
+            "en": "SME Support Lifecycle lesson 4 · Supporting Senior Agents"
           },
           "href": "../sme-lifecycle/#senior-0"
         },
@@ -339,8 +339,8 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "서포트 라이프사이클 레슨 5 · 팀장 지원",
-            "en": "Support Lifecycle lesson 5 · Supporting the Team Leader"
+            "ko": "SME 서포트 라이프사이클 레슨 5 · 팀장 지원",
+            "en": "SME Support Lifecycle lesson 5 · Supporting the Team Leader"
           },
           "href": "../sme-lifecycle/#leadsupport-0"
         },
@@ -388,8 +388,8 @@ export const SME_GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "SOP · 캘리브레이션",
-            "en": "SOP · Calibration"
+            "ko": "TL SOP · 캘리브레이션",
+            "en": "TL SOP · Calibration"
           },
           "href": "../sop-library/#calibration-0"
         }

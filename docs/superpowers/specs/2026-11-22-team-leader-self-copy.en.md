@@ -98,5 +98,5 @@ Connection text:
 | Item | English |
 |---|---|
 | s18 | You now lead the colleagues you used to work beside |
-| Look here first | SOP · From Colleague to Team Leader |
+| Look here first | TL SOP · From Colleague to Team Leader |
 | Then go here | Codex one-pager ④ A team lead's day |

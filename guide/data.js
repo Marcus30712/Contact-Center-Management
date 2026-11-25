@@ -60,8 +60,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 1:1 코칭",
-            "en": "SOP · One-on-One Coaching"
+            "ko": "TL SOP · 1:1 코칭",
+            "en": "TL SOP · One-on-One Coaching"
           },
           "href": "../sop-library/#coaching-0"
         },
@@ -81,8 +81,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 성과 개선 계획 (PIP)",
-            "en": "SOP · Performance Improvement Plan (PIP)"
+            "ko": "TL SOP · 성과 개선 계획 (PIP)",
+            "en": "TL SOP · Performance Improvement Plan (PIP)"
           },
           "href": "../sop-library/#pip-0"
         },
@@ -109,8 +109,8 @@ export const GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "SOP · 1:1 코칭",
-            "en": "SOP · One-on-One Coaching"
+            "ko": "TL SOP · 1:1 코칭",
+            "en": "TL SOP · One-on-One Coaching"
           },
           "href": "../sop-library/#coaching-0"
         }
@@ -178,8 +178,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 신규 입사자 온보딩",
-            "en": "SOP · New Hire Onboarding"
+            "ko": "TL SOP · 신규 입사자 온보딩",
+            "en": "TL SOP · New Hire Onboarding"
           },
           "href": "../sop-library/#onboarding-0"
         },
@@ -206,8 +206,8 @@ export const GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "SOP · 고객 불만 에스컬레이션",
-            "en": "SOP · Customer Complaint Escalation"
+            "ko": "TL SOP · 고객 불만 에스컬레이션",
+            "en": "TL SOP · Customer Complaint Escalation"
           },
           "href": "../sop-library/#escalation-0"
         }
@@ -254,15 +254,15 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 고객 불만 에스컬레이션",
-            "en": "SOP · Customer Complaint Escalation"
+            "ko": "TL SOP · 고객 불만 에스컬레이션",
+            "en": "TL SOP · Customer Complaint Escalation"
           },
           "href": "../sop-library/#escalation-0"
         },
         "then": {
           "title": {
-            "ko": "SOP · 1:1 코칭",
-            "en": "SOP · One-on-One Coaching"
+            "ko": "TL SOP · 1:1 코칭",
+            "en": "TL SOP · One-on-One Coaching"
           },
           "href": "../sop-library/#coaching-0"
         }
@@ -275,8 +275,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 대규모 이슈 대응",
-            "en": "SOP · Large-Scale Issue Response"
+            "ko": "TL SOP · 대규모 이슈 대응",
+            "en": "TL SOP · Large-Scale Issue Response"
           },
           "href": "../sop-library/#incident-0"
         },
@@ -296,8 +296,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 캘리브레이션",
-            "en": "SOP · Calibration"
+            "ko": "TL SOP · 캘리브레이션",
+            "en": "TL SOP · Calibration"
           },
           "href": "../sop-library/#calibration-0"
         },
@@ -379,8 +379,8 @@ export const GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "SOP · 1:1 코칭",
-            "en": "SOP · One-on-One Coaching"
+            "ko": "TL SOP · 1:1 코칭",
+            "en": "TL SOP · One-on-One Coaching"
           },
           "href": "../sop-library/#coaching-0"
         }
@@ -406,8 +406,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 신규 프로젝트 론칭",
-            "en": "SOP · New Project Launch"
+            "ko": "TL SOP · 신규 프로젝트 론칭",
+            "en": "TL SOP · New Project Launch"
           },
           "href": "../sop-library/#launch-0"
         },
@@ -455,8 +455,8 @@ export const GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "SOP 라이브러리",
-            "en": "SOP Library"
+            "ko": "TL SOP 라이브러리",
+            "en": "TL SOP Library"
           },
           "href": "../sop-library/#home"
         }
@@ -469,8 +469,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "SOP · 동료에서 팀장으로",
-            "en": "SOP · From Colleague to Team Leader"
+            "ko": "TL SOP · 동료에서 팀장으로",
+            "en": "TL SOP · From Colleague to Team Leader"
           },
           "href": "../sop-library/#transition-0"
         },

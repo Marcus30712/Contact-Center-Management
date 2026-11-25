@@ -25,9 +25,9 @@ const flat = SME_GROUPS.flatMap((g) => g.situations.map((s) => ({ g, s })));
 // Where each course lives and how its lesson links are named.
 const COURSES = {
   'sme/': { lessons: SME_LESSONS, name: (l) => ({ ko: `SME 첫걸음 레슨 ${l.order} · ${l.title.ko}`, en: `SME First Steps lesson ${l.order} · ${l.title.en}` }) },
-  'sme-lifecycle/': { lessons: SL_LESSONS, name: (l) => ({ ko: `서포트 라이프사이클 레슨 ${l.order} · ${l.title.ko}`, en: `Support Lifecycle lesson ${l.order} · ${l.title.en}` }) },
+  'sme-lifecycle/': { lessons: SL_LESSONS, name: (l) => ({ ko: `SME 서포트 라이프사이클 레슨 ${l.order} · ${l.title.ko}`, en: `SME Support Lifecycle lesson ${l.order} · ${l.title.en}` }) },
   'sme-sop/': { lessons: SS_LESSONS, name: (l) => ({ ko: `SME SOP · ${l.title.ko}`, en: `SME SOP · ${l.title.en}` }) },
-  'sop-library/': { lessons: SOP_LESSONS, name: (l) => ({ ko: `SOP · ${l.title.ko}`, en: `SOP · ${l.title.en}` }) },
+  'sop-library/': { lessons: SOP_LESSONS, name: (l) => ({ ko: `TL SOP · ${l.title.ko}`, en: `TL SOP · ${l.title.en}` }) },
 };
 const lessonOf = (href) => {
   const [, path, hash = ''] = href.match(/^\.\.\/([^#]+)(?:#(.*))?$/);

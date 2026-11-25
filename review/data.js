@@ -6,7 +6,7 @@ export const REVIEW_UI = {
   title: tx("복습 퀴즈", "Review quiz"),
   intro: tx("직급 강의를 모두 마쳤다면, 여러 레슨을 함께 떠올려야 풀리는 상황 문제로 복습해 보세요. 복습용 퀴즈이며 공식 평가가 아닙니다.", "Finished your role's courses? Review with scenario questions that make you recall several lessons at once. This quiz is for review, not an official assessment."),
   nameTl: tx("팀장 복습 퀴즈", "Team lead review quiz"),
-  scopeTl: tx("상담사 라이프사이클 6개 + SOP 라이브러리 10개", "The Agent Lifecycle (6) + SOP Library (10)"),
+  scopeTl: tx("상담사 라이프사이클 6개 + TL SOP 라이브러리 10개", "The Agent Lifecycle (6) + TL SOP Library (10)"),
   nameSme: tx("SME 복습 퀴즈", "SME review quiz"),
   scopeSme: tx("SME 첫걸음 7개", "SME First Steps (7)"),
   locked: tx("레슨을 모두 마치면 열려요. 남은 레슨 {n}개.", "Opens when you finish all the lessons. {n} lessons left."),
@@ -46,7 +46,7 @@ export const QUIZZES = {
         explanation: tx("한 지표만 보면 다른 지표를 희생시키는 코칭이 됩니다. 여러 지표와 실제 상담을 함께 보고, 1:1 코칭에서 행동을 정합니다.", "Looking at one metric leads to coaching that sacrifices the others. Look at several metrics and real contacts together, and agree on behavior in a one-on-one."),
         lessons: [
           { title: tx("라이프사이클 레슨 4 · 성과 관리 및 코칭", "Lifecycle lesson 4 · Performance Management and Coaching"), href: "../agent-lifecycle/#coaching-0" },
-          { title: tx("SOP · 1:1 코칭", "SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
+          { title: tx("TL SOP · 1:1 코칭", "TL SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
         ],
       },
       {
@@ -60,8 +60,8 @@ export const QUIZZES = {
         answer: "c",
         explanation: tx("코칭만으로 부족하면 PIP로 넘어갑니다. PIP는 벌이 아니라, 목표와 지원과 점검을 분명히 하는 절차입니다.", "When coaching alone is not enough, move to a PIP. A PIP is not a punishment but a procedure that makes goals, support and check-ins clear."),
         lessons: [
-          { title: tx("SOP · 성과 개선 계획 (PIP)", "SOP · Performance Improvement Plan (PIP)"), href: "../sop-library/#pip-0" },
-          { title: tx("SOP · 1:1 코칭", "SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
+          { title: tx("TL SOP · 성과 개선 계획 (PIP)", "TL SOP · Performance Improvement Plan (PIP)"), href: "../sop-library/#pip-0" },
+          { title: tx("TL SOP · 1:1 코칭", "TL SOP · One-on-One Coaching"), href: "../sop-library/#coaching-0" },
         ],
       },
       {
@@ -76,7 +76,7 @@ export const QUIZZES = {
         explanation: tx("사람을 먼저 보호하고, 몰리는 불만은 여러 팀이 함께 움직이도록 바로 알립니다.", "Protect the person first, and raise the surge right away so several teams can move together."),
         lessons: [
           { title: tx("라이프사이클 레슨 5 · 동기부여 및 유지", "Lifecycle lesson 5 · Engagement and Retention"), href: "../agent-lifecycle/#retention-0" },
-          { title: tx("SOP · 대규모 이슈 대응", "SOP · Large-Scale Issue Response"), href: "../sop-library/#incident-0" },
+          { title: tx("TL SOP · 대규모 이슈 대응", "TL SOP · Large-Scale Issue Response"), href: "../sop-library/#incident-0" },
         ],
       },
       {
@@ -105,8 +105,8 @@ export const QUIZZES = {
         answer: "c",
         explanation: tx("개인의 불만에서 팀 전체의 기준 문제를 찾고, 모두에게 같은 방식으로 풀어 줍니다.", "Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone."),
         lessons: [
-          { title: tx("SOP · 캘리브레이션", "SOP · Calibration"), href: "../sop-library/#calibration-0" },
-          { title: tx("SOP · 동료에서 팀장으로", "SOP · From Colleague to Team Leader"), href: "../sop-library/#transition-0" },
+          { title: tx("TL SOP · 캘리브레이션", "TL SOP · Calibration"), href: "../sop-library/#calibration-0" },
+          { title: tx("TL SOP · 동료에서 팀장으로", "TL SOP · From Colleague to Team Leader"), href: "../sop-library/#transition-0" },
         ],
       },
       {
@@ -120,8 +120,8 @@ export const QUIZZES = {
         answer: "a",
         explanation: tx("신입은 기다리지 말고 먼저 챙기고, 실수는 1:1로 짚습니다. 버디가 그 거리를 좁혀 줍니다.", "Don't wait for new hires; reach out first, and go over mistakes one on one. A buddy closes that distance."),
         lessons: [
-          { title: tx("SOP · 신규 입사자 온보딩", "SOP · New Hire Onboarding"), href: "../sop-library/#onboarding-0" },
-          { title: tx("SOP · 스크러빙", "SOP · Scrubbing"), href: "../sop-library/#scrubbing-0" },
+          { title: tx("TL SOP · 신규 입사자 온보딩", "TL SOP · New Hire Onboarding"), href: "../sop-library/#onboarding-0" },
+          { title: tx("TL SOP · 스크러빙", "TL SOP · Scrubbing"), href: "../sop-library/#scrubbing-0" },
         ],
       },
     ],

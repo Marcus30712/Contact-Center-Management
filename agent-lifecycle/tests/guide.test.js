@@ -20,7 +20,7 @@ function parseTable() {
     const m = cell.match(/^(.+?)(?: \(`(.+)`\))?$/);
     const title = m[1].trim();
     let addr = m[2];
-    if (addr && addr.startsWith('#')) addr = `${title.startsWith('SOP') ? 'sop-library/' : 'agent-lifecycle/'}${addr}`;
+    if (addr && addr.startsWith('#')) addr = `${title.startsWith('TL SOP') ? 'sop-library/' : 'agent-lifecycle/'}${addr}`;
     if (addr) seen[title] = addr;
     return { title, href: `../${addr ?? seen[title]}` };
   };
@@ -92,8 +92,8 @@ test('English is complete, American and free of Korean', () => {
   const lesson = Object.fromEntries(LESSONS.map((l) => [l.title.ko, l.title.en]));
   for (const { s } of flat) {
     for (const { title } of [s.first, s.then]) {
-      const sm = title.ko.match(/^SOP · (.+)$/);
-      if (sm) assert.equal(title.en, `SOP · ${sop[sm[1]]}`);
+      const sm = title.ko.match(/^TL SOP · (.+)$/);
+      if (sm) assert.equal(title.en, `TL SOP · ${sop[sm[1]]}`);
       const lm = title.ko.match(/^라이프사이클 레슨 (\d) · (.+)$/);
       if (lm) assert.equal(title.en, `Lifecycle lesson ${lm[1]} · ${lesson[lm[2]]}`);
     }
@@ -136,7 +136,7 @@ test('a situation opens to where to look first and next', () => {
   $('[data-card="s9"] button').click();
   const links = [...$('[data-card="s9"]').querySelectorAll('a[data-go]')];
   assert.deepEqual(links.map((a) => [a.getAttribute('data-go'), a.getAttribute('href')]), [['first', '../sop-library/?guide=s9#escalation-0'], ['then', '../sop-library/#coaching-0']]);
-  assert.ok(links[0].textContent.includes('먼저 볼 곳') && links[0].textContent.includes('SOP · 고객 불만 에스컬레이션'));
+  assert.ok(links[0].textContent.includes('먼저 볼 곳') && links[0].textContent.includes('TL SOP · 고객 불만 에스컬레이션'));
 });
 
 test('a language switch keeps the chosen group and the open card', () => {

@@ -11,9 +11,15 @@ import { SL_LESSONS } from '../sme-lifecycle/lessons/index.js';
 import { SL_PROGRESS_KEY } from '../sme-lifecycle/ui.js';
 import { SS_LESSONS } from '../sme-sop/lessons/index.js';
 import { SS_PROGRESS_KEY } from '../sme-sop/ui.js';
+import { TL_LESSONS } from '../tl/lessons/index.js';
+import { TL_PROGRESS_KEY } from '../tl/ui.js';
+import { TS_LESSONS } from '../tl-support/lessons/index.js';
+import { TS_PROGRESS_KEY } from '../tl-support/ui.js';
 
 export const COURSE_INFO = {
+  tl: { key: TL_PROGRESS_KEY, lessons: TL_LESSONS, dir: 'tl/' },
   lifecycle: { key: PROGRESS_KEY, lessons: LESSONS, dir: 'agent-lifecycle/' },
+  'tl-support': { key: TS_PROGRESS_KEY, lessons: TS_LESSONS, dir: 'tl-support/' },
   sop: { key: SOP_PROGRESS_KEY, lessons: SOP_LESSONS, dir: 'sop-library/' },
   sme: { key: SME_PROGRESS_KEY, lessons: SME_LESSONS, dir: 'sme/' },
   'sme-lifecycle': { key: SL_PROGRESS_KEY, lessons: SL_LESSONS, dir: 'sme-lifecycle/' },

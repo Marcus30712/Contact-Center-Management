@@ -1,4 +1,4 @@
-# Support Lifecycle — English copy
+# SME Support Lifecycle — English copy
 
 Written: 2026-11-25 · Status: approved (2026-11-25, with the reviewer's four wording fixes) · Korean: `2026-11-25-sme-lifecycle-copy-ko.md`
 
@@ -8,7 +8,7 @@ Same sections and order as the Korean file. US English.
 
 | Place | English |
 |---|---|
-| Course title | Support Lifecycle |
+| Course title | SME Support Lifecycle |
 | Course intro | Learn the support procedure an SME follows at each stage as one agent grows from training to senior. The last stage is supporting the team leader. |
 | Home card | The support procedure an SME follows at each stage, from agents in training to seniors and the team leader. |
 | Figures note | Periods, counts and times in the lessons are examples and may differ from center to center. |
@@ -225,4 +225,4 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | They are a regular agent, so just watch. |
 | c 피드백 | If you know about a change and don't pass it on, the team leader finds out only after the problem has grown. |
 | 해설 | The SME handles work support; the team leader handles attendance and personal matters. Deal with the two separately. |
-| 마지막 연결 | You have finished Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |
+| 마지막 연결 | You have finished SME Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |

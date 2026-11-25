@@ -1,6 +1,6 @@
 import { tx, node, edge, step, option } from '../../agent-lifecycle/js/lessons/build.js';
 
-// 서포트 라이프사이클, lesson 5. Approved copy: docs/superpowers/specs/2026-11-25-sme-lifecycle-copy-ko.md (2026-11-25).
+// SME 서포트 라이프사이클, lesson 5. Approved copy: docs/superpowers/specs/2026-11-25-sme-lifecycle-copy-ko.md (2026-11-25).
 // Four stages run down one column, like the SME First Steps lessons.
 const wide = (n) => ({ ...n, hw: 76 });
 
@@ -59,5 +59,5 @@ export default {
       explanation: tx("업무 지원은 SME가, 근태와 개인 사정은 팀장이 맡습니다. 둘을 나눠 처리합니다.", "The SME handles work support; the team leader handles attendance and personal matters. Deal with the two separately."),
     },
   ],
-  connection: { to: "home", text: tx("서포트 라이프사이클을 마쳤습니다. 에스컬레이션 승인, 스크러빙 같은 절차는 SME SOP 라이브러리에서 하나씩 자세히 볼 수 있습니다.", "You have finished Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library.") },
+  connection: { to: "home", text: tx("SME 서포트 라이프사이클을 마쳤습니다. 에스컬레이션 승인, 스크러빙 같은 절차는 SME SOP 라이브러리에서 하나씩 자세히 볼 수 있습니다.", "You have finished SME Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library.") },
 };

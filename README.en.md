@@ -10,14 +10,16 @@ A learning app for getting ready for your next contact center role, from agent t
 |---|---|---|
 | Situation Guide | [`guide/`](guide/) | Pick one of 18 situations and get the lesson, SOP or one-pager to read first (Korean/English) |
 | SME Situation Guide | [`sme-guide/`](sme-guide/) | Pick one of 16 situations a new SME meets and get the SME lesson or SOP to read first (Korean/English) |
-| Today's Practice | [`practice/`](practice/) | Three questions a day from the lessons you've finished (lifecycle, SOP, SME, Excel), term cards, a weekday streak and 12 badges. Miso reacts with her face (Korean/English). Records stay on your phone |
+| Today's Practice | [`practice/`](practice/) | Three questions a day from the lessons you've finished (four TL courses, three SME courses, Excel), term cards, a weekday streak and 12 badges. Miso reacts with her face (Korean/English). Records stay on your phone |
 | Miso's Excel Practice | [`excel/`](excel/) | 11 Excel skills every team lead uses (from cell addresses to SUMIFS, XLOOKUP, pivot tables and conditional formatting), plus 5 advanced lessons that mix the functions you've learned. No typing: tap cards and cells to build formulas, graded by really calculating them on Miso's team call log (example) (Korean/English) |
+| TL First Steps | [`tl/`](tl/) | Seven lessons for new team leaders: the roster, individual results, listening to calls and reading tickets, the team's contribution, first one-on-ones, and getting direction from the AM or OM (Korean/English) |
 | The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | A six-stage course for new team leads (Korean/English) |
+| TL Support Lifecycle | [`tl-support/`](tl-support/) | Five lessons on how a team leader supports agents, the SME, QA, trainers and the whole team (Korean/English) |
 | SME First Steps | [`sme/`](sme/) | Seven lessons for agents who have just become SMEs: the first day; supporting new hires, existing agents, former peers and the team leader; when requests pile up; giving knowledge back (Korean/English) |
-| Support Lifecycle | [`sme-lifecycle/`](sme-lifecycle/) | Five lessons on the support procedure an SME follows at each stage as one agent grows from training through nesting and regular work to senior, plus supporting the team leader (Korean/English) |
+| SME Support Lifecycle | [`sme-lifecycle/`](sme-lifecycle/) | Five lessons on the support procedure an SME follows at each stage as one agent grows from training through nesting and regular work to senior, plus supporting the team leader (Korean/English) |
 | SME SOP Library | [`sme-sop/`](sme-sop/) | Eight standard procedures an SME runs: escalation approval, scrubbing, contact trend summaries, covering attendance, client update huddles, calibration, VOC reporting and knowledge base update requests (Korean/English) |
-| Review Quiz | [`review/`](review/) | Six scenario questions that open once your role's courses are done (team lead: Lifecycle and SOP; SME: SME First Steps). Pass with 5 or more right to earn a badge (Korean/English) |
-| SOP Library | [`sop-library/`](sop-library/) | Lessons that walk through the SOPs a team lead needs to know, step by step (Korean/English) |
+| Review Quiz | [`review/`](review/) | Six scenario questions that open once your role's courses are done (team lead: Lifecycle and TL SOP; SME: SME First Steps). Pass with 5 or more right to earn a badge (Korean/English) |
+| TL SOP Library | [`sop-library/`](sop-library/) | Lessons that walk through the SOPs a team lead needs to know, step by step (Korean/English) |
 | Codex One-Pagers | [`codex/`](codex/) | The four chapters of the Codex (operations optimisation principles, the five core teams, the career matrix, daily work by role), one page each; tap for detail (Korean/English) |
 | Staffing Lab | [`staffing-calculator/`](staffing-calculator/) | A practice screen to learn staffing with sliders (30-minute interval), and a channel comparison tab that sets phone, chat and email side by side: staff needed, weekly/monthly hours and overtime. The maths is in `staffing-calculator/erlang.js` and `channels.js` |
 | Glossary | [`glossary/`](glossary/) | 49 operations terms to search and browse by category. The terms are in `glossary/terms.js` |
@@ -39,7 +41,7 @@ A static site with no build step. To deploy on GitHub Pages, choose the root fol
 | What | Licence | File |
 |---|---|---|
 | Code (rendering code, calculators, tests, tools) | MIT | [`LICENSE`](LICENSE) |
-| Lesson content, copy and data (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `practice/data.js`, `excel/data.js` and others), design and copy documents (`docs/`), Miso Kim artwork (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+| Lesson content, copy and data (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/` and others), design and copy documents (`docs/`), Miso Kim artwork (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
 
 - CC BY-NC-ND 4.0: you may share it unchanged, non-commercially, with credit ("Marcus Shim, Queuecraft"). See `LICENSE-CONTENT` for the full scope.
 - Versions published under MIT before 20 November 2026 remain MIT.

@@ -334,4 +334,4 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 c (오답) | Doing them all on a busy day gives the same result, but the report looks better. |
 | c 피드백 | Doing them all at once delays giving them back, and the same mistakes repeat in the meantime. |
 | 해설 | Looking a little each day shows the trends and lets you give knowledge back in time. |
-| 마지막 연결 | You have finished SME First Steps. To go deeper, continue with Scrubbing, Calibration and Developing Existing Agents in the SOP Library. |
+| 마지막 연결 | You have finished SME First Steps. To go deeper, continue with Scrubbing, Calibration and Developing Existing Agents in the TL SOP Library. |

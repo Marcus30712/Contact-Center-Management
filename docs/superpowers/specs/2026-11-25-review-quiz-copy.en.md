@@ -11,7 +11,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 페이지 제목 | Review quiz |
 | 페이지 소개 | Finished your role's courses? Review with scenario questions that make you recall several lessons at once. This quiz is for review, not an official assessment. |
 | 팀장 퀴즈 이름 | Team lead review quiz |
-| 팀장 퀴즈 범위 | The Agent Lifecycle (6) + SOP Library (10) |
+| 팀장 퀴즈 범위 | The Agent Lifecycle (6) + TL SOP Library (10) |
 | SME 퀴즈 이름 | SME review quiz |
 | SME 퀴즈 범위 | SME First Steps (7) |
 | 잠김 안내 | Opens when you finish all the lessons. {n} lessons left. |
@@ -57,7 +57,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 c (오답) | Announce in the team huddle that calls need to end faster. |
 | c 피드백 | Stressing time alone teaches agents to hang up fast rather than to explain correctly. |
 | 해설 | Looking at one metric leads to coaching that sacrifices the others. Look at several metrics and real contacts together, and agree on behavior in a one-on-one. |
-| 관련 레슨 | Lifecycle lesson 4 · Performance Management and Coaching (../agent-lifecycle/#coaching-0) · SOP · One-on-One Coaching (../sop-library/#coaching-0) |
+| 관련 레슨 | Lifecycle lesson 4 · Performance Management and Coaching (../agent-lifecycle/#coaching-0) · TL SOP · One-on-One Coaching (../sop-library/#coaching-0) |
 
 ### 문제 2
 
@@ -70,7 +70,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | b 피드백 | Ending it without a chance or support tells the team that asking for help is pointless. |
 | 보기 c (정답) | Move to a PIP: meet with the data, agree on goals and the support you will give, and check in weekly. |
 | 해설 | When coaching alone is not enough, move to a PIP. A PIP is not a punishment but a procedure that makes goals, support and check-ins clear. |
-| 관련 레슨 | SOP · Performance Improvement Plan (PIP) (../sop-library/#pip-0) · SOP · One-on-One Coaching (../sop-library/#coaching-0) |
+| 관련 레슨 | TL SOP · Performance Improvement Plan (PIP) (../sop-library/#pip-0) · TL SOP · One-on-One Coaching (../sop-library/#coaching-0) |
 
 ### 문제 3
 
@@ -83,7 +83,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 c (오답) | Handle it inside the team until the complaints calm down. |
 | c 피드백 | The first step in a large-scale issue is spotting and sharing it. Holding it alone delays cause analysis and staffing plans. |
 | 해설 | Protect the person first, and raise the surge right away so several teams can move together. |
-| 관련 레슨 | Lifecycle lesson 5 · Engagement and Retention (../agent-lifecycle/#retention-0) · SOP · Large-Scale Issue Response (../sop-library/#incident-0) |
+| 관련 레슨 | Lifecycle lesson 5 · Engagement and Retention (../agent-lifecycle/#retention-0) · TL SOP · Large-Scale Issue Response (../sop-library/#incident-0) |
 
 ### 문제 4
 
@@ -109,7 +109,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | b 피드백 | Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching. |
 | 보기 c (정답) | Treat it as a question about the standard: hold a calibration session with QA to align it, then tell the whole team the outcome. |
 | 해설 | Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone. |
-| 관련 레슨 | SOP · Calibration (../sop-library/#calibration-0) · SOP · From Colleague to Team Leader (../sop-library/#transition-0) |
+| 관련 레슨 | TL SOP · Calibration (../sop-library/#calibration-0) · TL SOP · From Colleague to Team Leader (../sop-library/#transition-0) |
 
 ### 문제 6
 
@@ -122,7 +122,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 c (오답) | It is only the first week, so just watch for a month. |
 | c 피드백 | The first weeks are when people are most likely to leave. Leaving her stuck for long makes it hard to hold on. |
 | 해설 | Don't wait for new hires; reach out first, and go over mistakes one on one. A buddy closes that distance. |
-| 관련 레슨 | SOP · New Hire Onboarding (../sop-library/#onboarding-0) · SOP · Scrubbing (../sop-library/#scrubbing-0) |
+| 관련 레슨 | TL SOP · New Hire Onboarding (../sop-library/#onboarding-0) · TL SOP · Scrubbing (../sop-library/#scrubbing-0) |
 
 ## 퀴즈 2. SME review quiz
 

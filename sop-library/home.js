@@ -1,4 +1,4 @@
-// The SOP Library's first screen: a numbered list in two groups, since
+// The TL SOP Library's first screen: a numbered list in two groups, since
 // procedures are a list to work through, not a cycle.
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';

@@ -57,5 +57,5 @@ export default {
       explanation: tx("고쳐지기 전까지는 임시 안내로 빈틈을 막고, 반영되면 알립니다.", "Until it's fixed, cover the gap with an interim note, and say so once it's fixed."),
     },
   ],
-  connection: { to: "home", text: tx("SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 서포트 라이프사이클에서 다시 볼 수 있습니다.", "You have finished the SME SOP Library. To review which procedure fits each stage, go back to Support Lifecycle.") },
+  connection: { to: "home", text: tx("SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 SME 서포트 라이프사이클에서 다시 볼 수 있습니다.", "You have finished the SME SOP Library. To review which procedure fits each stage, go back to SME Support Lifecycle.") },
 };
