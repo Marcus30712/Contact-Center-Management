@@ -1,4 +1,4 @@
-// SOP Library course: reads the address, follows the language choice shared
+// TL SOP Library course: reads the address, follows the language choice shared
 // with the rest of the site, and shows either the list or one SOP lesson.
 // It reuses the lifecycle course's player and lesson screen.
 import { parseRoute } from '../agent-lifecycle/js/engine/router.js';

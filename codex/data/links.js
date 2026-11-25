@@ -19,8 +19,8 @@ export const LINKS = {
       "dir": "after",
       "href": "../sop-library/#home",
       "title": {
-        "ko": "SOP 라이브러리",
-        "en": "SOP Library"
+        "ko": "TL SOP 라이브러리",
+        "en": "TL SOP Library"
       },
       "why": {
         "ko": "원칙 1의 Master SOP가 실제로 어떤 모습인지 봅니다.",
@@ -121,8 +121,8 @@ export const LINKS = {
       "dir": "after",
       "href": "../sop-library/#coaching-0",
       "title": {
-        "ko": "SOP 라이브러리 · 1:1 코칭",
-        "en": "SOP Library · 1:1 Coaching"
+        "ko": "TL SOP 라이브러리 · 1:1 코칭",
+        "en": "TL SOP Library · 1:1 Coaching"
       },
       "why": {
         "ko": "팀장의 하루에서 가장 큰 비중인 1:1 코칭을 단계별로 배웁니다.",

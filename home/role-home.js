@@ -14,7 +14,7 @@ export const HOME_COPY = {
   firstSteps: { ko: '{직급} 첫걸음', en: '{role} First Steps' },
   sopLibrary: { ko: '{직급} SOP 라이브러리', en: '{role} SOP Library' },
   supportLifecycle: {
-    title: { ko: '서포트 라이프사이클', en: 'Support Lifecycle' },
+    title: { ko: 'SME 서포트 라이프사이클', en: 'SME Support Lifecycle' },
     text: { ko: '교육 중인 상담사부터 선임, 팀장까지, 단계마다 SME가 따르는 지원 절차.', en: 'The support procedure an SME follows at each stage, from agents in training to seniors and the team leader.' },
   },
   smeSop: {
@@ -40,7 +40,13 @@ export function homeFor(role) {
   if (role === 'tl') {
     return {
       guide: { id: 'guide', ...GUIDE_CARD },
-      learn: [{ id: 'lifecycle', ...byHref('./agent-lifecycle/') }, { id: 'sop', ...byHref('./sop-library/') }, excel(EXCEL_UI.homeCardLine)],
+      learn: [
+        { id: 'tl', ...byHref('./tl/') },
+        { id: 'lifecycle', ...byHref('./agent-lifecycle/') },
+        { id: 'tl-support', ...byHref('./tl-support/') },
+        { id: 'sop', ...byHref('./sop-library/') },
+        excel(EXCEL_UI.homeCardLine),
+      ],
     };
   }
   const guide = soon('guide', withRole(HOME_COPY.guideTitle, role));

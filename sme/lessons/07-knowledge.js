@@ -59,5 +59,5 @@ export default {
       explanation: tx("매일 조금씩 봐야 트렌드가 보이고, 지식을 제때 돌려줄 수 있습니다.", "Looking a little each day shows the trends and lets you give knowledge back in time."),
     },
   ],
-  connection: { to: "home", text: tx("SME 첫걸음을 마쳤습니다. 더 깊이 보고 싶다면 SOP 라이브러리의 스크러빙, 캘리브레이션, 기존 상담사 육성을 이어서 보세요.", "You have finished SME First Steps. To go deeper, continue with Scrubbing, Calibration and Developing Existing Agents in the SOP Library.") },
+  connection: { to: "home", text: tx("SME 첫걸음을 마쳤습니다. 더 깊이 보고 싶다면 TL SOP 라이브러리의 스크러빙, 캘리브레이션, 기존 상담사 육성을 이어서 보세요.", "You have finished SME First Steps. To go deeper, continue with Scrubbing, Calibration and Developing Existing Agents in the TL SOP Library.") },
 };

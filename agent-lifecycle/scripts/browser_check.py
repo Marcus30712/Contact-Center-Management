@@ -283,8 +283,8 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB)
         cards = page.locator("a.card")
-        check("(r) a team lead's home shows practice, guide and three Learn cards", cards.count() == 5, str(cards.count()))
-        for href, title in (("./guide/", "TL 상황별 길잡이"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("../codex/", "Codex 원페이저"), ("../staffing-calculator/", "인력 산정 실험실"), ("../glossary/", "용어집"), ("../references/", "참고 자료")):
+        check("(r) a team lead's home shows practice, guide and five Learn cards", cards.count() == 7, str(cards.count()))
+        for href, title in (("./guide/", "TL 상황별 길잡이"), ("./tl/", "TL 첫걸음"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./tl-support/", "TL 서포트 라이프사이클"), ("./sop-library/", "TL SOP 라이브러리"), ("../codex/", "Codex 원페이저"), ("../staffing-calculator/", "인력 산정 실험실"), ("../glossary/", "용어집"), ("../references/", "참고 자료")):
             page.goto(HUB if href.startswith("./") else HUB + "browse/")
             page.click(f"a.card[href='{href}']")
             page.wait_for_selector("#app h1")
@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "tl/", "tl/#listen-3", "tl-support/", "tl-support/#qa-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -550,7 +550,7 @@ def main():
         page.click("[data-lang='en']")
         page.goto(SOP)
         page.wait_for_selector("[data-sop-list]")
-        check("(s6) SOP list follows the shared language", page.inner_text("#app h1") == "SOP Library")
+        check("(s6) SOP list follows the shared language", page.inner_text("#app h1") == "TL SOP Library")
         page.click("[data-lang='ko']")
         page.set_viewport_size({"width": 1280, "height": 900})
         page.screenshot(path=str(OUT / "sop-list-1280.png"), full_page=True)
@@ -670,7 +670,7 @@ def main():
         page.reload()
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
-        PAGES = {"": "home", "guide/": "guide", "sme-guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "codex/#daily": "browse", "browse/": "browse",
+        PAGES = {"": "home", "guide/": "guide", "sme-guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "tl/": "learn", "tl-support/": "learn", "codex/#daily": "browse", "browse/": "browse",
                  "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
@@ -1182,7 +1182,7 @@ def main():
 
         # (v) storage blocked
         page = new_page(browser, errors, init=BLOCK_STORAGE)
-        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "SOP 라이브러리", "SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers"), ("guide/", "TL 상황별 길잡이", "TL Situation Guide")):
+        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "TL SOP 라이브러리", "TL SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers"), ("guide/", "TL 상황별 길잡이", "TL Situation Guide")):
             page.goto(HUB + path)
             page.wait_for_selector("#app h1")
             check(f"(v) {path} opens in Korean with storage blocked", page.inner_text("#app h1") == ko)
@@ -1492,6 +1492,39 @@ def main():
         check("(p3) the finished procedure is marked and the menu marks Learn",
               page.locator("[data-sme-sop-list] a.is-done").count() == 1 and page.get_attribute("nav.appbar a[aria-current='page']", "data-item") == "learn")
         page.screenshot(path=str(OUT / "sme-sop-390.png"), full_page=True)
+        page.context.close()
+
+        # (tl) TL courses (2026-11-25): a team lead opens both new courses from Learn, finishes lesson 1 of each, and home counts them
+        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'tl'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("#learn a.card[href='./tl/']")
+        check("(tl1) a team lead's Learn lists the five cards in order",
+              [page.get_attribute(f"#learn li:nth-child({i}) a.card", "href") for i in range(1, 6)] == ["./tl/", "./agent-lifecycle/", "./tl-support/", "./sop-library/", "./excel/"])
+        for href, list_sel, n, first, second, done_text in (("./tl/", "[data-tl-list] a", 7, "start", "roster", "1/7"), ("./tl-support/", "[data-stage-list] a", 5, "agents", "sme", "1/5")):
+            page.goto(HUB)
+            page.click(f"#learn a.card[href='{href}']")
+            page.wait_for_selector(list_sel)
+            check(f"(tl2) {href} opens with {n} lessons", page.locator(list_sel).count() == n)
+            page.click(f"{list_sel}[href='#{first}-0']")
+            page.wait_for_selector("[data-counter]")
+            steps = int(page.inner_text("[data-counter]").split("/")[1])
+            for _ in range(steps):
+                page.click("[data-next]")
+            page.wait_for_selector("[data-view='checkpoint']")
+            for q in page.evaluate("[...document.querySelectorAll('[data-question]')].map((e) => e.dataset.question)"):
+                page.click(f"[data-question='{q}'] [data-option='b']")
+            page.wait_for_selector("[data-connection]")
+            check(f"(tl2) {href} lesson 1 leads on to lesson 2", page.get_attribute("[data-next-lesson]", "href") == f"#{second}-0")
+            course = href.strip("./").rstrip("/")
+            page.goto(HUB)
+            page.wait_for_selector(f"[data-course='{course}']")
+            check(f"(tl3) home my learning counts {course}", done_text in page.inner_text(f"[data-course='{course}']"))
+        page.goto(HUB + "tl-support/")
+        page.wait_for_selector("[data-stage-list]")
+        page.screenshot(path=str(OUT / "tl-support-390.png"), full_page=True)
+        page.goto(HUB + "tl/")
+        page.wait_for_selector("[data-tl-list]")
+        page.screenshot(path=str(OUT / "tl-390.png"), full_page=True)
         page.context.close()
 
         # (g) SME Situation Guide (2026-11-25): home card and menu lead an SME there; m3 leads on to its "then"

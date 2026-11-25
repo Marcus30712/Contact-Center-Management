@@ -4,7 +4,7 @@
 
 ## 1. 의도와 이유
 
-막 SME가 된 사람이 현장에서 막혔을 때 "지금 무엇을 봐야 하지?"를 두 번 눌러 찾게 한다. 새 설명을 쓰지 않고, 이미 있는 SME 첫걸음·서포트 라이프사이클·SME SOP 라이브러리·Codex·팀장 SOP로 안내한다. SME 홈의 "준비 중" 길잡이 카드를 실제 길잡이로 바꾼다.
+막 SME가 된 사람이 현장에서 막혔을 때 "지금 무엇을 봐야 하지?"를 두 번 눌러 찾게 한다. 새 설명을 쓰지 않고, 이미 있는 SME 첫걸음·SME 서포트 라이프사이클·SME SOP 라이브러리·Codex·팀장 SOP로 안내한다. SME 홈의 "준비 중" 길잡이 카드를 실제 길잡이로 바꾼다.
 
 ## 2. 목표 · 비목표 · 반목표
 
@@ -49,22 +49,22 @@
 |---|---|---|---|---|
 | m1 | SME가 된 첫 주 | SME가 된 첫날이다 | SME 첫걸음 레슨 1 · SME가 된 첫날 | Codex 원페이저 ④ SME의 하루 |
 | m2 | | 동료였던 선임이 승인 없이 처리하려 한다 | SME 첫걸음 레슨 4 · 동료였던 선임 서포트 | SME SOP · 에스컬레이션 승인 |
-| m3 | 신입과 교육 중인 상담사 | 다음 주 OJT 교육생이 플로어에 나온다 | 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | SOP · 신규 입사자 온보딩 |
-| m4 | | 네스팅 중인 신입이 같은 유형에서 계속 막힌다 | 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 | SME 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 |
-| m5 | | 신입이 하루 종일 질문을 하지 않는다 | SME 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 | 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 |
+| m3 | 신입과 교육 중인 상담사 | 다음 주 OJT 교육생이 플로어에 나온다 | SME 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | TL SOP · 신규 입사자 온보딩 |
+| m4 | | 네스팅 중인 신입이 같은 유형에서 계속 막힌다 | SME 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 | SME 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 |
+| m5 | | 신입이 하루 종일 질문을 하지 않는다 | SME 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 | SME 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 |
 | m6 | 기존 상담사와 선임 | 상담사가 권한 밖 보상 승인을 요청한다 | SME SOP · 에스컬레이션 승인 | SME 첫걸음 레슨 3 · 기존 상담사 서포트 |
-| m7 | | 정식 상담사의 품질이 갑자기 떨어졌다 | 서포트 라이프사이클 레슨 3 · 정식 상담사 지원 | SME SOP · 상담 트렌드 요약 보고 |
-| m8 | | 선임이 SME나 팀장이 되고 싶어 한다 | 서포트 라이프사이클 레슨 4 · 선임 상담사 지원 | Codex 원페이저 ③ 커리어 매트릭스 |
+| m7 | | 정식 상담사의 품질이 갑자기 떨어졌다 | SME 서포트 라이프사이클 레슨 3 · 정식 상담사 지원 | SME SOP · 상담 트렌드 요약 보고 |
+| m8 | | 선임이 SME나 팀장이 되고 싶어 한다 | SME 서포트 라이프사이클 레슨 4 · 선임 상담사 지원 | Codex 원페이저 ③ 커리어 매트릭스 |
 | m9 | 요청이 한꺼번에 몰릴 때 | 플로어와 메신저 요청이 한꺼번에 몰린다 | SME 첫걸음 레슨 6 · 요청이 동시에 몰릴 때 | SME SOP · 에스컬레이션 승인 |
 | m10 | | 같은 질문이 여러 상담사에게서 계속 온다 | SME SOP · 지식 베이스 업데이트 요청 | SME 첫걸음 레슨 7 · 팀에 지식 돌려주기 |
 | m11 | 팀장 지원과 품질 | 팀장이 자리를 비워 출석을 대신 봐야 한다 | SME SOP · 출석 관리 대행 | SME 첫걸음 레슨 5 · 팀장 서포트 |
 | m12 | | 팀장에게 주간 코칭 요약을 보내야 한다 | SME SOP · 상담 트렌드 요약 보고 | SME SOP · 스크러빙 |
-| m13 | | 팀장이 팀원별 현황을 물어본다 | 서포트 라이프사이클 레슨 5 · 팀장 지원 | SME SOP · 상담 트렌드 요약 보고 |
+| m13 | | 팀장이 팀원별 현황을 물어본다 | SME 서포트 라이프사이클 레슨 5 · 팀장 지원 | SME SOP · 상담 트렌드 요약 보고 |
 | m14 | | 고객사가 정책 변경을 보내왔다 | SME SOP · 고객사 업데이트 허들 | SME SOP · 지식 베이스 업데이트 요청 |
-| m15 | | 캘리브레이션에 참석하게 됐다 | SME SOP · 캘리브레이션 참여와 기준 전달 | SOP · 캘리브레이션 |
+| m15 | | 캘리브레이션에 참석하게 됐다 | SME SOP · 캘리브레이션 참여와 기준 전달 | TL SOP · 캘리브레이션 |
 | m16 | | 같은 고객 불만이 계속 쌓인다 | SME SOP · VOC 리포팅 | SME SOP · 스크러빙 |
 
-주소: SME 첫걸음 `../sme/#<id>-0`, 서포트 라이프사이클 `../sme-lifecycle/#<id>-0`, SME SOP `../sme-sop/#<id>-0`, 팀장 SOP `../sop-library/#<id>-0`, Codex `../codex/#daily-sme`·`../codex/#career`.
+주소: SME 첫걸음 `../sme/#<id>-0`, SME 서포트 라이프사이클 `../sme-lifecycle/#<id>-0`, SME SOP `../sme-sop/#<id>-0`, 팀장 SOP `../sop-library/#<id>-0`, Codex `../codex/#daily-sme`·`../codex/#career`.
 
 ## 6. 성공 확인
 
@@ -115,11 +115,11 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | SME 첫걸음 레슨 5 · 팀장 서포트 | SME First Steps lesson 5 · Supporting the Team Leader |
 | SME 첫걸음 레슨 6 · 요청이 동시에 몰릴 때 | SME First Steps lesson 6 · When Requests Pile Up at Once |
 | SME 첫걸음 레슨 7 · 팀에 지식 돌려주기 | SME First Steps lesson 7 · Giving Knowledge Back to the Team |
-| 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | Support Lifecycle lesson 1 · Supporting Agents in Training |
-| 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 | Support Lifecycle lesson 2 · Supporting Agents Just Out of Training |
-| 서포트 라이프사이클 레슨 3 · 정식 상담사 지원 | Support Lifecycle lesson 3 · Supporting Regular Agents |
-| 서포트 라이프사이클 레슨 4 · 선임 상담사 지원 | Support Lifecycle lesson 4 · Supporting Senior Agents |
-| 서포트 라이프사이클 레슨 5 · 팀장 지원 | Support Lifecycle lesson 5 · Supporting the Team Leader |
+| SME 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | SME Support Lifecycle lesson 1 · Supporting Agents in Training |
+| SME 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 | SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training |
+| SME 서포트 라이프사이클 레슨 3 · 정식 상담사 지원 | SME Support Lifecycle lesson 3 · Supporting Regular Agents |
+| SME 서포트 라이프사이클 레슨 4 · 선임 상담사 지원 | SME Support Lifecycle lesson 4 · Supporting Senior Agents |
+| SME 서포트 라이프사이클 레슨 5 · 팀장 지원 | SME Support Lifecycle lesson 5 · Supporting the Team Leader |
 | SME SOP · 에스컬레이션 승인 | SME SOP · Escalation Approval |
 | SME SOP · 스크러빙 | SME SOP · Scrubbing |
 | SME SOP · 상담 트렌드 요약 보고 | SME SOP · Contact Trend Summary Report |
@@ -128,7 +128,7 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | SME SOP · 캘리브레이션 참여와 기준 전달 | SME SOP · Joining Calibration and Passing On Standards |
 | SME SOP · VOC 리포팅 | SME SOP · VOC Reporting |
 | SME SOP · 지식 베이스 업데이트 요청 | SME SOP · Knowledge Base Update Requests |
-| SOP · 신규 입사자 온보딩 | SOP · New Hire Onboarding |
-| SOP · 캘리브레이션 | SOP · Calibration |
+| TL SOP · 신규 입사자 온보딩 | TL SOP · New Hire Onboarding |
+| TL SOP · 캘리브레이션 | TL SOP · Calibration |
 | Codex 원페이저 ④ SME의 하루 | Codex one-pager ④ An SME's day |
 | Codex 원페이저 ③ 커리어 매트릭스 | Codex one-pager ③ Career Matrix |

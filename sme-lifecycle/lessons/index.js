@@ -1,4 +1,4 @@
-// 서포트 라이프사이클's lessons, in the order an agent grows. The last one
+// SME 서포트 라이프사이클's lessons, in the order an agent grows. The last one
 // leads back to the list ('home').
 
 import trainee from './01-trainee.js';

@@ -344,7 +344,7 @@ test('an unknown SOP lesson is rejected', () => {
 });
 
 test('the card links to the SOP Library next to the course link', () => {
-  for (const [lang, label] of [['ko', 'SOP 라이브러리에서 보기'], ['en', 'See it in the SOP Library']]) {
+  for (const [lang, label] of [['ko', 'TL SOP 라이브러리에서 보기'], ['en', 'See it in the TL SOP Library']]) {
     const { $, $$ } = mount({}, lang, TERMS);
     const link = $('[data-term="grow"] a[data-sop-link]');
     assert.equal(link.getAttribute('href'), '../sop-library/#coaching-0');

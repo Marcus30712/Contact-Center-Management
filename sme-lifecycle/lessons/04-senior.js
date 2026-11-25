@@ -1,6 +1,6 @@
 import { tx, node, edge, step, option } from '../../agent-lifecycle/js/lessons/build.js';
 
-// 서포트 라이프사이클, lesson 4. Approved copy: docs/superpowers/specs/2026-11-25-sme-lifecycle-copy-ko.md (2026-11-25).
+// SME 서포트 라이프사이클, lesson 4. Approved copy: docs/superpowers/specs/2026-11-25-sme-lifecycle-copy-ko.md (2026-11-25).
 // Four stages run down one column, like the SME First Steps lessons.
 const wide = (n) => ({ ...n, hw: 76 });
 

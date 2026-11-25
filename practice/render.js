@@ -5,6 +5,7 @@ import { renderSheet } from '../excel/sheet.js';
 import { SHEETS } from '../excel/data.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { PRACTICE_UI as UI, BADGES } from './data.js';
+import { COURSE_INFO } from '../shared/courses.js';
 import {
   loadState, saveState, pool, ensureToday, recordAnswer, streak,
   openTerms, todayCards, markCard, checkBadges, courseFacts,
@@ -143,7 +144,8 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
         document.createTextNode(tr(q.explanation)),
         right ? null : h('p', {}, [h('a', {
           'data-review': true, text: tr(UI.reviewLesson),
-          href: q.course === 'excel' ? `../excel/#lesson-${q.lessonId}` : `${{ sop: '../sop-library/', sme: '../sme/', 'sme-lifecycle': '../sme-lifecycle/', 'sme-sop': '../sme-sop/' }[q.course] ?? '../agent-lifecycle/'}#${q.lessonId}-0`,
+          // Each course's folder comes from the course list, so a new course links back without a change here.
+          href: q.course === 'excel' ? `../excel/#lesson-${q.lessonId}` : `../${COURSE_INFO[q.course]?.dir ?? 'agent-lifecycle/'}#${q.lessonId}-0`,
         })]),
       ]),
     ]) : null;

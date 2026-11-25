@@ -339,4 +339,4 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 c (오답) | Tell agents not to use the knowledge base. |
 | c 피드백 | Blocking the whole knowledge base removes the place to find the correct content too. |
 | 해설 | Until it's fixed, cover the gap with an interim note, and say so once it's fixed. |
-| 마지막 연결 | You have finished the SME SOP Library. To review which procedure fits each stage, go back to Support Lifecycle. |
+| 마지막 연결 | You have finished the SME SOP Library. To review which procedure fits each stage, go back to SME Support Lifecycle. |

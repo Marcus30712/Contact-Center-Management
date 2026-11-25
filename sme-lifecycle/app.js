@@ -1,4 +1,4 @@
-// 서포트 라이프사이클 (2026-11-25): reads the address, follows the language choice
+// SME 서포트 라이프사이클 (2026-11-25): reads the address, follows the language choice
 // shared with the rest of the site, and shows either the ring or one lesson.
 // Built like the SME course, with the lifecycle course's ring as its first screen.
 import { parseRoute } from '../agent-lifecycle/js/engine/router.js';
