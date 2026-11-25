@@ -46,6 +46,7 @@ function draw() {
   renderLangToggle(langRoot, lang, (next) => setLang(next, true));
   renderSettings(app, lang, storage, view, {
     onLang: (next) => setLang(next, false),
+    onRole: () => location.assign('../'),
     download,
     today: localDate(),
     offline,

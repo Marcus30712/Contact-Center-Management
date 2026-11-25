@@ -110,9 +110,9 @@ test('References links to the privacy policy', () => {
   assert.ok(file('references/references.js').includes("href: '../privacy/'"));
 });
 
-test('the page is a real page: Queuecraft brand, app bar, offline list', () => {
+test('the page is a real page: role picker slot, app bar, offline list', () => {
   const html = file('privacy/index.html');
-  assert.ok(html.includes('<a class="brand" href="../">Queuecraft</a>'));
+  assert.ok(html.includes('<span class="role-slot" data-role-slot></span>'));
   assert.ok(html.includes('../shared/appbar.js') && html.includes('./app.js'));
   assert.ok(file('sw.js').includes('"privacy/index.html"'));
 });

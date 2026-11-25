@@ -9,11 +9,12 @@ import { REFERENCES_TEXT as R } from '../../references/text.js';
 const file = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), 'utf8');
 const PAGES = ['', 'agent-lifecycle/', 'sop-library/', 'codex/', 'staffing-calculator/', 'glossary/', 'references/', 'guide/', 'practice/', 'excel/', 'privacy/', 'settings/'];
 
-test('every page names Queuecraft and none says Knowledge Base or Contact Center KB', () => {
+// Since 2026-11-26 the top-left "Queuecraft" word is a role picker, so the
+// name lives in the home page's tab title and heading (HOME_UI.brand).
+test('home names Queuecraft and no page says Knowledge Base or Contact Center KB', () => {
   for (const p of PAGES) {
     const html = file(`${p}index.html`);
     assert.ok(!html.includes('Knowledge Base') && !html.includes('Contact Center KB'), p || 'home');
-    assert.ok(html.includes('Queuecraft'), p || 'home');
   }
   assert.ok(file('index.html').includes('<title>Queuecraft</title>'));
 });
