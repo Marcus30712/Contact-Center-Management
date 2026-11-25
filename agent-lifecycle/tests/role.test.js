@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import { fakeStorage, throwingStorage } from './helpers.js';
 import {
   ROLE_KEY, ROLE_ASKED_KEY, ROLES, DEFAULT_ROLE, COURSE_ROLES, coursesFor, roleOf,
-  loadRole, saveRole, shouldAskRole, markRoleAsked,
+  loadRole, saveRole, shouldAskRole, markRoleAsked, ROLE_EVENT,
 } from '../../shared/role.js';
 import { ROLE_UI, ROLE_NAMES, ROLE_SHORT } from '../../shared/role-data.js';
 const HOME_COPY_DOC = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-role-home-copy.md', import.meta.url), 'utf8');
@@ -114,4 +114,17 @@ test('role names follow the copy', () => {
     assert.deepEqual(ROLE_NAMES[role], { ko: clean(ko), en: clean(en) }, role);
   }
   assert.deepEqual(ROLE_SHORT, { agent: { ko: '상담사', en: 'Agent' }, sme: { ko: 'SME', en: 'SME' }, tl: { ko: 'TL', en: 'TL' }, am: { ko: 'AM', en: 'AM' }, om: { ko: 'OM', en: 'OM' } });
+});
+
+test('saving a role tells the page, so the menu can follow', async () => {
+  // The bottom menu's Guide depends on the role (2026-11-25); it redraws on this event.
+  const { setupDom } = await import('./dom.js');
+  const { window } = setupDom();
+  const heard = [];
+  window.addEventListener(ROLE_EVENT, (e) => heard.push(e.detail));
+  saveRole(fakeStorage(), 'sme');
+  saveRole(fakeStorage(), 'boss');
+  assert.deepEqual(heard, ['sme'], 'only a real change is announced');
+  const src = readFileSync(new URL('../../shared/appbar.js', import.meta.url), 'utf8');
+  assert.match(src, /addEventListener\(ROLE_EVENT, draw\)/, 'the menu redraws when the role changes');
 });

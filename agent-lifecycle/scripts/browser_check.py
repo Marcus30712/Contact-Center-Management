@@ -1522,6 +1522,14 @@ def main():
         page.goto(HUB)
         page.wait_for_selector("nav.appbar a[data-item='guide']")
         check("(g1) a team lead's menu Guide still opens the TL guide", page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/kb/guide/"))
+        page.goto(HUB + "settings/")
+        page.wait_for_selector("[data-set-role='sme']")
+        page.wait_for_timeout(1500)  # let the page's own late redraws (offline status) finish first
+        page.evaluate("window.__samePage = true")  # a reload would hide a menu that never updated
+        page.click("[data-set-role='sme']")
+        page.wait_for_timeout(300)
+        check("(g1) after picking SME in Settings, the menu Guide opens the SME guide at once",
+              page.evaluate("window.__samePage === true") and page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/sme-guide/"))
         page.goto(HUB + "sme-guide/")
         page.wait_for_selector("[data-card]")
         page.screenshot(path=str(OUT / "sme-guide-390.png"), full_page=True)

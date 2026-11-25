@@ -1,7 +1,7 @@
 // The bottom menu shared by every page (home, learn, guide, browse, settings). Each
 // page loads this file once; it draws the menu, keeps its labels in the
 // page's language, and registers the offline worker.
-import { loadRole } from './role.js';
+import { loadRole, ROLE_EVENT } from './role.js';
 
 export const APPBAR_UI = {
   label: { ko: '주 메뉴', en: 'Main menu' },
@@ -120,6 +120,8 @@ function mount() {
   // Pages switch language by changing <html lang>; hash changes can move "current".
   new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   window.addEventListener('hashchange', () => { section = undefined; draw(); });
+  // A role picked on this page (Settings, the first-visit sheet) moves the Guide link at once.
+  window.addEventListener(ROLE_EVENT, draw);
   // On the home page, follow the part in view once the reader scrolls.
   if (onRoot) {
     const top = (id) => {

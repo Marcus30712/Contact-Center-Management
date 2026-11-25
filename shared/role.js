@@ -3,6 +3,9 @@
 // Spec: docs/superpowers/specs/2026-11-25-role-select-sme-course-design.md §4.1.
 export const ROLE_KEY = 'queuecraft:role';
 export const ROLE_ASKED_KEY = 'queuecraft:role-asked';
+// Fired on window when a role is saved, so parts of the page that depend on
+// the role (the bottom menu's Guide) can follow at once (2026-11-25).
+export const ROLE_EVENT = 'queuecraft:role';
 export const ROLES = ['agent', 'sme', 'tl', 'am', 'om'];
 export const DEFAULT_ROLE = 'tl';
 // Roles that already have a course of their own, and the courses each role
@@ -54,6 +57,9 @@ export function saveRole(storage, role) {
   if (!ROLES.includes(role)) return;
   write(storage, ROLE_KEY, role);
   markRoleAsked(storage);
+  try {
+    globalThis.window?.dispatchEvent(new globalThis.window.CustomEvent(ROLE_EVENT, { detail: role }));
+  } catch { /* no page to tell */ }
 }
 
 export function markRoleAsked(storage) {
