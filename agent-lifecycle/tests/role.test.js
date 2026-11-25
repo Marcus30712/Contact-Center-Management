@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fakeStorage, throwingStorage } from './helpers.js';
 import {
-  ROLE_KEY, ROLE_ASKED_KEY, ROLES, DEFAULT_ROLE, COURSE_ROLES,
+  ROLE_KEY, ROLE_ASKED_KEY, ROLES, DEFAULT_ROLE, COURSE_ROLES, coursesFor,
   loadRole, saveRole, shouldAskRole, markRoleAsked,
 } from '../../shared/role.js';
 import { ROLE_UI, ROLE_NAMES } from '../../shared/role-data.js';
@@ -72,4 +72,10 @@ test('role wording is the approved copy', () => {
   assert.equal(ROLE_UI.preparingCareer.ko, ko('준비 중 링크 1'));
   assert.equal(ROLE_UI.preparingDaily.ko, ko('준비 중 링크 2'));
   assert.deepEqual(ROLES.map((r) => ROLE_NAMES[r].ko), ko('선택지').split(' · '));
+});
+
+test('courses per role', () => {
+  assert.deepEqual(coursesFor('tl'), ['lifecycle', 'sop']);
+  assert.deepEqual(coursesFor('sme'), ['sme']);
+  for (const r of ['agent', 'am', 'om', 'boss']) assert.deepEqual(coursesFor(r), [], r);
 });

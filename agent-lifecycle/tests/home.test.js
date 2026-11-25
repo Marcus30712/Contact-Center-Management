@@ -42,13 +42,13 @@ test('cards keep every topic and are split into learn and browse', () => {
 test('my learning: nothing started, part done, all done, storage blocked', () => {
   const s = fakeStorage();
   const fresh = myLearning(s);
-  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 10, 'escalation'], ['excel', 0, 11, '1'], ['sme', 0, 7, 'firstday']]);
+  assert.deepEqual(fresh.map((c) => [c.id, c.done, c.total, c.next.id]), [['lifecycle', 0, 6, 'hiring'], ['sop', 0, 10, 'escalation'], ['excel', 0, 11, '1']]);
   assert.equal(fresh.started, false);
 
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'coaching'] }));
   s.setItem('sop-library:v1', JSON.stringify({ completed: ['escalation'] }));
   const mid = myLearning(s);
-  assert.deepEqual(mid.map((c) => [c.done, c.next.id, c.next.href]), [[3, 'nesting', './agent-lifecycle/#nesting-0'], [1, 'scrubbing', './sop-library/#scrubbing-0'], [0, '1', './excel/#lesson-1'], [0, 'firstday', './sme/#firstday-0']]);
+  assert.deepEqual(mid.map((c) => [c.done, c.next.id, c.next.href]), [[3, 'nesting', './agent-lifecycle/#nesting-0'], [1, 'scrubbing', './sop-library/#scrubbing-0'], [0, '1', './excel/#lesson-1']]);
   assert.equal(mid.started, true);
 
   s.setItem('agent-lifecycle-course:v1', JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'] }));
@@ -59,15 +59,14 @@ test('my learning: nothing started, part done, all done, storage blocked', () =>
   s.setItem('sop-library:v1', JSON.stringify({ completed: [...['escalation', 'coaching', 'pip', 'calibration', 'onboarding', 'incident', 'launch'], 'scrubbing', 'nurture', 'transition'] }));
   assert.equal(myLearning(s).allDone, false, 'the Excel lessons are still to do');
   s.setItem('excel-practice:v1', JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }));
-  assert.equal(myLearning(s).allDone, false, 'the SME lessons are still to do');
-  s.setItem('sme-course:v1', JSON.stringify({ completed: ['firstday', 'newcomer', 'escalation', 'peer', 'lead', 'priority', 'knowledge'] }));
+  // A team lead's home leaves the SME course out (2026-11-25), so this is everything.
   const all = myLearning(s);
-  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [10, null], [11, null], [7, null]]);
+  assert.deepEqual(all.map((c) => [c.done, c.next]), [[6, null], [10, null], [11, null]]);
   assert.equal(all.allDone, true);
 
   const blocked = myLearning(throwingStorage);
-  assert.deepEqual(blocked.map((c) => c.done), [0, 0, 0, 0]);
-  assert.deepEqual(myLearning(null).map((c) => c.done), [0, 0, 0, 0]);
+  assert.deepEqual(blocked.map((c) => c.done), [0, 0, 0]);
+  assert.deepEqual(myLearning(null).map((c) => c.done), [0, 0, 0]);
 });
 
 test('the home screen greets with Miso and shows where to continue', () => {
@@ -80,7 +79,7 @@ test('the home screen greets with Miso and shows where to continue', () => {
   assert.ok(miso.getAttribute('alt').includes('김미소'));
   assert.ok(root.querySelector('[data-greeting]').textContent.includes(HOME_UI.greeting.ko));
   const rows = [...root.querySelectorAll('[data-course]')];
-  assert.equal(rows.length, 4);
+  assert.equal(rows.length, 3);
   assert.equal(rows[1].querySelector('progress').value, 1);
   assert.equal(rows[1].querySelector('progress').max, 10);
   assert.equal(rows[1].querySelector('a[data-next]').getAttribute('href'), './sop-library/#scrubbing-0');
@@ -108,7 +107,7 @@ test('a first visit suggests lesson 1, and a finished learner sees the done note
   assert.ok(done.root.querySelector('[data-all-done]').textContent.includes(HOME_UI.allDone.ko));
   assert.equal(HOME_UI.review.ko, '다시 보기');
   const reviews = [...done.root.querySelectorAll('a[data-review]')];
-  assert.deepEqual(reviews.map((a) => a.getAttribute('href')), ['./agent-lifecycle/', './sop-library/', './excel/', './sme/']);
+  assert.deepEqual(reviews.map((a) => a.getAttribute('href')), ['./agent-lifecycle/', './sop-library/', './excel/']);
   assert.ok(reviews.every((a) => a.textContent.includes('다시 보기')));
 });
 
@@ -229,9 +228,9 @@ test('an SME learner sees the SME course first in Learn and in my learning', () 
   renderHome(root, 'ko', s, '2026-11-25', 'sme');
   assert.deepEqual([...root.querySelectorAll('#learn a')].map((a) => a.getAttribute('href')), ['./sme/', './agent-lifecycle/', './sop-library/', './excel/']);
   assert.equal(root.querySelector('#learn a').querySelector('span').textContent, SME_UI.homeCard.ko);
-  assert.deepEqual(myLearning(s, 'sme').map((r) => r.id), ['sme', 'lifecycle', 'sop', 'excel']);
+  assert.deepEqual(myLearning(s, 'sme').map((r) => r.id), ['sme', 'excel']);
   assert.equal(root.querySelector('[data-next="sme"]').getAttribute('href'), './sme/#newcomer-0');
-  assert.deepEqual(myLearning(s).map((r) => r.id), ['lifecycle', 'sop', 'excel', 'sme']);
+  assert.deepEqual(myLearning(s).map((r) => r.id), ['lifecycle', 'sop', 'excel']);
 });
 
 test('a new SME is pointed at SME lesson 1, everyone else at lifecycle lesson 1', () => {
@@ -249,4 +248,29 @@ test('a new SME is pointed at SME lesson 1, everyone else at lifecycle lesson 1'
       assert.equal(other.root.querySelector('[data-start]').textContent, HOME_UI.start[lang], role);
     }
   }
+});
+
+const ALL = {
+  'agent-lifecycle-course:v1': JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting', 'coaching', 'retention', 'career'] }),
+  'sop-library:v1': JSON.stringify({ completed: ['escalation', 'scrubbing', 'coaching', 'pip', 'calibration', 'transition', 'onboarding', 'incident', 'nurture', 'launch'] }),
+  'excel-practice:v1': JSON.stringify({ completed: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] }),
+};
+
+test('team lead home hides SME progress and can be all done', () => {
+  const s = fakeStorage(ALL);
+  const rows = myLearning(s);
+  assert.deepEqual(rows.map((r) => r.id), ['lifecycle', 'sop', 'excel']);
+  assert.equal(rows.allDone, true);
+  const { root } = setupDom();
+  renderHome(root, 'ko', s, '2026-11-25');
+  assert.ok(root.querySelector('[data-all-done]'));
+  assert.equal(root.querySelector('[data-course="sme"]'), null);
+});
+
+test('an SME sees only SME and Excel progress', () => {
+  assert.deepEqual(myLearning(fakeStorage(ALL), 'sme').map((r) => r.id), ['sme', 'excel']);
+});
+
+test('roles without a course see Excel only', () => {
+  for (const role of ['agent', 'am', 'om']) assert.deepEqual(myLearning(fakeStorage(ALL), role).map((r) => r.id), ['excel'], role);
 });

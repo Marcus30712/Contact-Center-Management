@@ -5,8 +5,14 @@ export const ROLE_KEY = 'queuecraft:role';
 export const ROLE_ASKED_KEY = 'queuecraft:role-asked';
 export const ROLES = ['agent', 'sme', 'tl', 'am', 'om'];
 export const DEFAULT_ROLE = 'tl';
-// Roles that already have a course of their own.
+// Roles that already have a course of their own, and the courses each role
+// learns (home's course ids). Excel is for every role and belongs to none.
 export const COURSE_ROLES = ['sme', 'tl'];
+export const ROLE_COURSES = { tl: ['lifecycle', 'sop'], sme: ['sme'] };
+
+export function coursesFor(role) {
+  return ROLE_COURSES[role] ?? [];
+}
 
 function read(storage, key) {
   try {

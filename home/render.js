@@ -11,7 +11,7 @@ import { SME_UI, SME_PROGRESS_KEY } from '../sme/ui.js';
 import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
-import { COURSE_ROLES, DEFAULT_ROLE } from '../shared/role.js';
+import { COURSE_ROLES, DEFAULT_ROLE, coursesFor } from '../shared/role.js';
 import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
 
 // The learner's own role first, everything else in its usual order (2026-11-25).
@@ -32,8 +32,11 @@ const COURSES = [
 
 // Progress for the three courses, read from the keys each course already uses.
 // The next lesson is the first one, in course order, not yet finished.
+// Only the role's own courses and the shared ones (Excel) are shown (2026-11-25).
+const shownFor = (role) => COURSES.filter((c) => !c.role || coursesFor(role).includes(c.id));
+
 export function myLearning(storage, role = DEFAULT_ROLE) {
-  const rows = orderByRole(COURSES, role).map((course) => {
+  const rows = orderByRole(shownFor(role), role).map((course) => {
     const done = new Set(storage ? loadProgress(storage, course.key).completed : []);
     const ordered = [...course.lessons].sort((a, b) => a.order - b.order);
     const next = ordered.find((l) => !done.has(l.id));
@@ -92,8 +95,11 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
   let note = null;
   if (!learning.started) {
     // A new SME starts on their own course; everyone else on lifecycle lesson 1, as the wording says.
-    const [startRow, startText] = role === 'sme' ? ['sme', SME_UI.startNote] : ['lifecycle', UI.start];
-    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: learning.find((r) => r.id === startRow).next.href, text: tr(startText) })]);
+    // The start course may not be among the rows shown (roles without a course), so look it up in all courses.
+    const [startId, startText] = role === 'sme' ? ['sme', SME_UI.startNote] : ['lifecycle', UI.start];
+    const startCourse = COURSES.find((c) => c.id === startId);
+    const first = [...startCourse.lessons].sort((a, b) => a.order - b.order)[0];
+    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: `${startCourse.path}#${first.id}-0`, text: tr(startText) })]);
   } else if (learning.allDone) {
     note = h('p', { class: 'hm-note', 'data-all-done': true, text: tr(UI.allDone) });
   }
