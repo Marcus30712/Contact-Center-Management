@@ -1,0 +1,22 @@
+/* "Which role are you preparing for?" sheet, styled like the install sheet. */
+.rs-back {
+  position: fixed; inset: 0; z-index: 60; display: grid; place-items: end center;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  background: rgba(15, 23, 42, 0.5);
+}
+.rs-sheet {
+  width: 100%; max-width: 448px; max-height: 85dvh; overflow-y: auto; box-sizing: border-box;
+  padding: 20px; border-radius: 22px; border: 1.5px solid var(--line);
+  background: var(--surface); color: var(--ink); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: rs-up 0.22s ease;
+}
+@keyframes rs-up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.rs-miso { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.rs-miso img { width: 72px; height: auto; flex: none; }
+.rs-miso h2 { margin: 0; font-size: 1.15rem; }
+.rs-note { margin: 0 0 14px; line-height: 1.5; }
+.rs-roles { display: grid; gap: 8px; margin-bottom: 12px; }
+.rs-role, .rs-later { width: 100%; min-height: 48px; }
+.rs-later { background: transparent; border-color: transparent; color: var(--muted, var(--ink)); }
+.rs-role:focus-visible, .rs-later:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .rs-sheet { animation: none; } }
