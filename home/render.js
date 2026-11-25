@@ -50,7 +50,9 @@ export function myLearning(storage, role = DEFAULT_ROLE) {
       next: next ? { id: next.id, order: next.order, title: next.title, href: course.href ? course.href(next) : `${course.path}#${next.id}-0` } : null,
     };
   });
-  rows.started = rows.some((r) => r.done > 0);
+  // Progress in any course counts, even one not shown for this role.
+  rows.started = rows.some((r) => r.done > 0)
+    || (storage ? COURSES.some((c) => loadProgress(storage, c.key).completed.length > 0) : false);
   rows.allDone = rows.every((r) => r.next === null);
   return rows;
 }

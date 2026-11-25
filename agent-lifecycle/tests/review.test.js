@@ -269,3 +269,17 @@ test('the English page has no Korean, through to the result', () => {
   play(root, QUIZZES.sme, [true, true, true, true, false, false]);
   assert.ok(!/[가-힣]/.test(root.textContent), 'result');
 });
+
+test('after an answer, focus is on Next and the result is read out', () => {
+  const { root } = page(fakeStorage(SME_DONE));
+  click(root.querySelector('[data-start-quiz="sme"]'));
+  const q = QUIZZES.sme.questions[0];
+  click(root.querySelector(`[data-option="${q.answer}"]`));
+  assert.equal(document.activeElement, root.querySelector('[data-next]'));
+  assert.equal(document.querySelector('[role="status"][data-status]').textContent, REVIEW_UI.correct.ko);
+  click(root.querySelector('[data-next]'));
+  assert.equal(document.querySelector('[data-status]').textContent, '', 'cleared for the next question');
+  const q2 = QUIZZES.sme.questions[1];
+  click(root.querySelector(`[data-option="${q2.options.find((o) => o.id !== q2.answer).id}"]`));
+  assert.equal(document.querySelector('[data-status]').textContent, REVIEW_UI.wrong.ko);
+});

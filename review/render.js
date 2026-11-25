@@ -26,7 +26,16 @@ export function renderReview(root, lang, storage, view, myRole, redraw) {
   const miso = (name, size = 72) => h('img', {
     class: 'pr-miso', src: `../assets/miso/${name}.webp`, alt: '', width: size, height: Math.round((size * 227) / 157), 'data-miso': name,
   });
-  const go = (change) => { change(); redraw(); root.querySelector('h2')?.focus?.(); };
+  const go = (change) => { say(''); change(); redraw(); root.querySelector('h2')?.focus?.(); };
+  // One read-out line outside the redrawn area, so a right or wrong answer is announced.
+  function say(text) {
+    let status = document.querySelector('[data-status]');
+    if (!status) {
+      status = h('p', { class: 'visually-hidden', role: 'status', 'data-status': true });
+      document.body.append(status);
+    }
+    status.textContent = text;
+  }
 
   if (!view.role) return root.replaceChildren(header(), ...listCards());
   if (view.result) return root.replaceChildren(header(), resultCard());
@@ -80,7 +89,13 @@ export function renderReview(root, lang, storage, view, myRole, redraw) {
       type: 'button', 'data-option': o.id, text: tr(o.text), disabled: answered,
       class: `option${chosen === o.id && right ? ' is-correct' : ''}${chosen === o.id && !right ? ' is-wrong' : ''}`,
       'aria-pressed': answered ? String(chosen === o.id) : false,
-      onclick: () => { view.answers[q.id] = o.id; redraw(); },
+      onclick: () => {
+        view.answers[q.id] = o.id;
+        redraw();
+        // Like today's practice: the answer is read out and Next takes the focus.
+        say(tr(gradeAnswer(q, o.id).correct ? UI.correct : UI.wrong));
+        root.querySelector('[data-next]')?.focus();
+      },
     }));
     const feedback = answered ? h('div', { class: `pr-feedback ${right ? 'is-correct' : 'is-wrong'}` }, [
       miso(right ? 'joy' : 'worry'),

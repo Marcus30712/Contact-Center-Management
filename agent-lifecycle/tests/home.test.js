@@ -299,3 +299,13 @@ test('roles without a course get no quiz card', () => {
     assert.equal(root.querySelector('a[data-review-quiz]'), null, role);
   }
 });
+
+test('a learner with progress in any course is not greeted as new', () => {
+  const s = fakeStorage({ 'agent-lifecycle-course:v1': JSON.stringify({ completed: ['hiring', 'onboarding', 'nesting'] }) });
+  for (const role of ['agent', 'am', 'om', 'sme']) {
+    assert.equal(myLearning(s, role).started, true, role);
+    const { root } = setupDom();
+    renderHome(root, 'ko', s, '2026-11-25', role);
+    assert.equal(root.querySelector('[data-start]'), null, role);
+  }
+});
