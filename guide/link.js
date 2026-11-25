@@ -1,8 +1,10 @@
 // The guide's "look here first" link carries the situation (?guide=s1), so the
 // lesson it opens can lead on to that situation's "then go here" at its end.
 import { GROUPS } from './data.js';
+import { SME_GROUPS } from '../sme-guide/data.js';
 
-const SITUATIONS = GROUPS.flatMap((g) => g.situations);
+// Both guides' situations; their ids differ (s… for TL, m… for SME).
+const SITUATIONS = [...GROUPS, ...SME_GROUPS].flatMap((g) => g.situations);
 
 // '../sop-library/#coaching-0' -> '../sop-library/?guide=s1#coaching-0'
 export function withGuide(href, id) {

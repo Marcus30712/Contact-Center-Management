@@ -1,6 +1,8 @@
 // The bottom menu shared by every page (home, learn, guide, browse, settings). Each
 // page loads this file once; it draws the menu, keeps its labels in the
 // page's language, and registers the offline worker.
+import { loadRole } from './role.js';
+
 export const APPBAR_UI = {
   label: { ko: '주 메뉴', en: 'Main menu' },
   home: { ko: '홈', en: 'Home' },
@@ -11,7 +13,9 @@ export const APPBAR_UI = {
 };
 
 const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'sme/', 'sme-lifecycle/', 'sme-sop/', 'review/', 'practice/', 'excel/'];
-const GUIDE_PAGES = ['guide/'];
+const GUIDE_PAGES = ['guide/', 'sme-guide/'];
+// Each role's guide; roles without one of their own use the team lead's (2026-11-25).
+const GUIDE_FOR = { sme: './sme-guide/' };
 
 // Simple line icons, drawn here so nothing else needs to load.
 const ICONS = {
@@ -49,7 +53,7 @@ export function setCurrent(nav, id) {
 }
 
 // section: on the home page, the part in view (overrides the address).
-export function appBarItems(rootUrl, pageUrl, section) {
+export function appBarItems(rootUrl, pageUrl, section, role) {
   const root = new URL(rootUrl);
   const page = new URL(pageUrl);
   const inside = page.pathname.startsWith(root.pathname) ? page.pathname.slice(root.pathname.length) : '';
@@ -63,19 +67,19 @@ export function appBarItems(rootUrl, pageUrl, section) {
   return [
     { id: 'home', href: href('./'), current: current === 'home' },
     { id: 'learn', href: href('./#learn'), current: current === 'learn' },
-    { id: 'guide', href: href('./guide/'), current: current === 'guide' },
+    { id: 'guide', href: href(GUIDE_FOR[role] ?? './guide/'), current: current === 'guide' },
     { id: 'browse', href: href('./browse/'), current: current === 'browse' },
     { id: 'settings', href: href('./settings/'), current: current === 'settings' },
   ];
 }
 
-export function renderAppBar(doc, rootUrl, pageUrl, lang, section) {
+export function renderAppBar(doc, rootUrl, pageUrl, lang, section, role) {
   const say = (entry) => entry[lang] ?? entry.ko;
   const svgNs = 'http://www.w3.org/2000/svg';
   const nav = doc.createElement('nav');
   nav.className = 'appbar';
   nav.setAttribute('aria-label', say(APPBAR_UI.label));
-  for (const item of appBarItems(rootUrl, pageUrl, section)) {
+  for (const item of appBarItems(rootUrl, pageUrl, section, role)) {
     const a = doc.createElement('a');
     a.href = item.href;
     a.dataset.item = item.id;
@@ -94,13 +98,20 @@ export function renderAppBar(doc, rootUrl, pageUrl, lang, section) {
   return nav;
 }
 
+// The saved role picks the Guide address; blocked storage means the default role.
+function pageRole() {
+  let storage = null;
+  try { storage = window.localStorage; } catch { /* blocked */ }
+  return loadRole(storage);
+}
+
 function mount() {
   const rootUrl = new URL('../', import.meta.url).href;
   const onRoot = isRootPage(rootUrl, location.href);
   let section;
   const draw = () => {
     const lang = document.documentElement.lang === 'en' ? 'en' : 'ko';
-    const nav = renderAppBar(document, rootUrl, location.href, lang, section);
+    const nav = renderAppBar(document, rootUrl, location.href, lang, section, pageRole());
     const old = document.querySelector('nav.appbar');
     if (old) old.replaceWith(nav);
     else document.body.append(nav);

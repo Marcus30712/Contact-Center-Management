@@ -75,7 +75,7 @@ test('SME lesson link names are the current lesson titles', () => {
 });
 
 // ---------- the page (Task 2) ----------
-import { setupDom } from './dom.js';
+import { setupDom, click } from './dom.js';
 import { renderGuide, newGuideState } from '../../guide/render.js';
 import { GROUPS } from '../../guide/data.js';
 
@@ -130,4 +130,38 @@ test('the SME guide page draws the SME data', () => {
   const html = readFileSync(new URL('../../sme-guide/index.html', import.meta.url), 'utf8');
   assert.match(html, /<title>SME 상황별 길잡이<\/title>/);
   assert.match(html, /href="\.\.\/guide\/guide\.css"/);
+});
+
+// ---------- connected (Task 3) ----------
+import { guideFor } from '../../guide/link.js';
+import { renderLesson } from '../js/render/lesson.js';
+import { SL_UI } from '../../sme-lifecycle/ui.js';
+
+test('guideFor finds SME situations only on their own lesson', () => {
+  assert.equal(guideFor('?guide=m3', 'sme-lifecycle', 'trainee').id, 'm3');
+  assert.equal(guideFor('?guide=m3', 'sme-lifecycle', 'graduate'), null);
+  assert.equal(guideFor('?guide=s1', 'sme', 'firstday'), null);
+  assert.equal(guideFor('?guide=m1', 'sme', 'firstday').then.href, '../codex/#daily-sme');
+  assert.equal(guideFor('?guide=m6', 'sme-sop', 'approval').id, 'm6');
+  assert.equal(guideFor('?guide=s1', 'sop-library', 'coaching').id, 's1');
+});
+
+test('a lesson opened from the SME guide ends with its "then" link', () => {
+  const { root } = setupDom();
+  const m3 = guideFor('?guide=m3', 'sme-lifecycle', 'trainee');
+  const lesson = SL_LESSONS.find((l) => l.id === 'trainee');
+  renderLesson(root, lesson, 99, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 5, text: SL_UI, guide: m3 });
+  click(root.querySelector('[data-next]'));
+  for (const q of lesson.checkpoint) click(root.querySelector(`[data-question="${q.id}"] [data-option="${q.answer}"]`));
+  const then = root.querySelector('[data-connection] a[data-guide-then]');
+  assert.ok(then, 'then card shown');
+  assert.equal(then.getAttribute('href'), '../sop-library/#onboarding-0');
+});
+
+test('the SME course apps settle the guide', () => {
+  for (const dir of ['sme', 'sme-lifecycle', 'sme-sop']) {
+    const src = readFileSync(new URL(`../../${dir}/app.js`, import.meta.url), 'utf8');
+    assert.ok(src.includes(`settleGuide(location, history, '${dir}',`), dir);
+    assert.ok(/\n\s+guide,\n/.test(src), `${dir} passes the guide to the lesson`);
+  }
 });
