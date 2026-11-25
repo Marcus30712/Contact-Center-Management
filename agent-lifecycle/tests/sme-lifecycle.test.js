@@ -197,3 +197,62 @@ test('support lifecycle questions link to their own course', () => {
   root.querySelector('[data-question] [data-option]').dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
   assert.equal(root.querySelector('a[data-review]').getAttribute('href'), '../sme-lifecycle/#trainee-0');
 });
+
+// ---------- English (Task 4): docs/superpowers/specs/2026-11-25-sme-lifecycle-copy.en.md ----------
+import { existsSync } from 'node:fs';
+import { SME_UI } from '../../sme/ui.js';
+
+const EN_FILE = new URL('../../docs/superpowers/specs/2026-11-25-sme-lifecycle-copy.en.md', import.meta.url);
+const EN = existsSync(EN_FILE) ? readFileSync(EN_FILE, 'utf8') : '';
+const PARSED_EN = lessonsOf(EN);
+
+test('the course passes the rules with English required', () => {
+  assert.deepEqual(validateCourse(SL_LESSONS, { requireEnglish: true, lessonCount: 5, loop: false, figure: SL_FIGURE }), []);
+});
+
+test('the English is the English copy, word for word', () => {
+  assert.equal(PARSED_EN.length, 5);
+  SL_LESSONS.forEach((l, i) => {
+    const c = PARSED_EN[i];
+    assert.equal(l.title.en, c.title, l.id);
+    assert.equal(l.short.en, c.short, l.id);
+    assert.equal(l.subtitle.en, c.subtitle, l.id);
+    assert.deepEqual(l.procedure.map((id) => l.diagram.nodes.find((n) => n.id === id).label.en), c.nodes, l.id);
+    assert.deepEqual(l.steps.map((s) => s.caption.en), c.steps, l.id);
+    l.checkpoint.forEach((q, k) => {
+      const want = c.questions[k];
+      assert.equal(q.prompt.en, want.prompt, q.id);
+      assert.equal(q.answer, want.answer, q.id);
+      assert.equal(q.explanation.en, want.explanation, q.id);
+      assert.deepEqual(q.options.map((o) => ({ id: o.id, text: o.text.en, ...(o.feedback ? { feedback: o.feedback.en } : {}) })), want.options, q.id);
+    });
+    assert.equal(l.connection.text.en, c.connection, l.id);
+    assert.deepEqual(l.personaName, l.id === 'senior' ? { ko: '준호', en: 'Junho' } : { ko: '서준', en: 'Seojun' }, l.id);
+  });
+});
+
+test('the English never runs to more sentences than the Korean it translates', () => {
+  const count = (s) => (s.match(/[.?!](?=["'”’)]*(\s|$))/g) || []).length;
+  for (const l of SL_LESSONS) l.steps.forEach((s, i) => assert.ok(count(s.caption.en) <= count(s.caption.ko), `${l.id} step ${i + 1}`));
+});
+
+test('course and lesson-screen words match the English copy', () => {
+  const en = (place) => cells(EN.split('\n').find((x) => x.startsWith(`| ${place} |`)))[1];
+  assert.equal(SL_UI.courseTitle.en, en('Course title'));
+  assert.equal(SL_UI.courseTagline.en, en('Course intro'));
+  assert.equal(SL_UI.homeCard.en, en('Home card'));
+  assert.equal(SL_UI.homeCard.en, HOME_COPY.supportLifecycle.text.en);
+  assert.equal(SL_UI.listNote.en, en('Figures note'));
+  assert.equal(SL_UI.personaName.en, en('Name in the ring'));
+  assert.equal(SL_UI.loop.en, en('Loop note (under the ring)'));
+  assert.deepEqual(SL_LESSONS.map((l) => l.short.en), en('Short names in the ring').split(' · '));
+  for (const k of ['home', 'checkpoint', 'connection', 'nextLesson', 'toList', 'done']) assert.equal(SL_UI[k], SME_UI[k], k);
+});
+
+test('the English ring and lessons have no Korean left', () => {
+  const { root } = setupDom();
+  renderHome(root, SL_LESSONS, { completed: [] }, 'en', SL_UI);
+  assert.ok(!/[가-힣]/.test(root.textContent), root.textContent);
+  assert.equal(root.querySelector('[data-translation-note]').hidden, true);
+  for (const l of SL_LESSONS) assert.ok(!/[가-힣]/.test(lessonText(l, 'en')), l.id);
+});
