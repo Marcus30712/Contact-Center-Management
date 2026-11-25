@@ -119,7 +119,7 @@ test('a quiz unlocks when the role\'s courses are finished', () => {
 test('the SME quiz still opens with SME First Steps alone', async () => {
   // Support Lifecycle is an SME course (2026-11-25) but the quiz stays tied to SME First Steps (design §4.4).
   const { coursesFor, reviewCoursesFor } = await import('../../shared/role.js');
-  assert.ok(coursesFor('sme').includes('sme-lifecycle'));
+  assert.ok(coursesFor('sme').includes('sme-lifecycle') && coursesFor('sme').includes('sme-sop'));
   assert.deepEqual(reviewCoursesFor('sme'), ['sme']);
   assert.deepEqual(reviewCoursesFor('tl'), ['lifecycle', 'sop']);
   assert.deepEqual(reviewCoursesFor('am'), []);

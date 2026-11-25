@@ -6,6 +6,7 @@ import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
 import { EXCEL_LESSONS, EXCEL_UI } from '../excel/data.js';
 import { SME_UI } from '../sme/ui.js';
 import { SL_UI } from '../sme-lifecycle/ui.js';
+import { SS_UI } from '../sme-sop/ui.js';
 import { HOME_UI as UI } from './data.js';
 import { HOME_COPY, homeFor, withRole } from './role-home.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
@@ -36,6 +37,7 @@ const COURSES = [
   },
   course('sme', SME_UI.courseTitle),
   course('sme-lifecycle', SL_UI.courseTitle),
+  course('sme-sop', SS_UI.courseTitle),
 ];
 
 // Progress for the three courses, read from the keys each course already uses.

@@ -355,3 +355,22 @@
 | c 피드백 | 지식 베이스 전체를 막으면 맞는 내용까지 찾을 곳이 사라집니다. |
 | 해설 | 고쳐지기 전까지는 임시 안내로 빈틈을 막고, 반영되면 알립니다. |
 | 마지막 연결 | SME SOP 라이브러리를 마쳤습니다. 단계마다 어떤 절차를 쓰는지는 서포트 라이프사이클에서 다시 볼 수 있습니다. |
+
+---
+
+## 2. 개인정보처리방침 변경 (구현 중 추가, 승인 대기)
+
+새 강의의 진도를 기기에 저장하므로, 저장 항목의 레슨 진도 문구에 강의 이름을 더합니다. 테스트는 이 표를 앞선 문안 문서의 같은 키보다 우선해 대조합니다.
+
+| 키 | 한국어 | English |
+|---|---|---|
+| s2.item2 | 레슨 진도 (라이프사이클, SOP, SME 첫걸음, 서포트 라이프사이클, SME SOP, 엑셀) | Lesson progress (Lifecycle, SOP, SME First Steps, Support Lifecycle, SME SOP, Excel) |
+
+## 3. 서포트 라이프사이클 마지막 연결 변경 (구현 중 추가, 승인 대기)
+
+SME SOP 라이브러리가 생겨서 "다룰 예정입니다"를 바꿉니다. 바꾼 문구는 `2026-11-25-sme-lifecycle-copy-ko.md`와 `.en.md`의 레슨 5 마지막 연결에 바로 적었습니다.
+
+| 언어 | 바뀐 뒤 |
+|---|---|
+| 한국어 | 서포트 라이프사이클을 마쳤습니다. 에스컬레이션 승인, 스크러빙 같은 절차는 SME SOP 라이브러리에서 하나씩 자세히 볼 수 있습니다. |
+| English | You have finished Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |
