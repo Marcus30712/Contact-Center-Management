@@ -235,7 +235,7 @@ test('abbreviations are spelled out as agreed', () => {
   assert.equal(term('rta').name.en, 'Real-Time Analyst');
   assert.equal(term('wfm').name.en, 'Workforce Management');
   assert.equal(term('aht').name.ko, '평균 처리 시간');
-  assert.equal(term('team-lead').name.ko, '팀장');
+  assert.equal(term('team-lead').name.ko, '팀장 (TL)'); // short name added 2026-11-25
   assert.equal(term('attrition').name.ko, '퇴사율');
   assert.equal(term('shrinkage').name.ko, '슈링키지');
 });
@@ -244,7 +244,9 @@ test('every "seen" lesson really uses the term', () => {
   for (const x of TERMS) {
     for (const id of x.seen) {
       const text = lessonText(LESSONS.find((l) => l.id === id), 'ko');
-      assert.ok(text.includes(x.term) || text.includes(x.name.ko), `${x.id} in ${id}`);
+      // A role's short name in brackets, e.g. "팀장 (TL)", is not part of lesson sentences.
+      const name = x.name.ko.replace(/ \([A-Z]+\)$/, '');
+      assert.ok(text.includes(x.term) || text.includes(name), `${x.id} in ${id}`);
     }
   }
 });
@@ -377,4 +379,16 @@ test('1:1 coaching is told apart from feedback and compliance checks (approved 2
   const t = TERMS.find((x) => x.id === 'one-on-one-coaching');
   assert.equal(t.definition.ko, cell('2026-11-22-team-leader-self-copy.md', '바뀐 뒤'));
   assert.equal(t.definition.en, cell('2026-11-22-team-leader-self-copy.en.md', 'After'));
+});
+
+test('role cards carry the short name, and TL finds the team lead', async () => {
+  const { readFileSync } = await import('node:fs');
+  const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-role-home-copy.md', import.meta.url), 'utf8').split(/^## 8\. /m)[1];
+  const row = (label) => doc.split('\n').find((l) => l.startsWith(`| ${label} |`)).slice(1, -1).split(' | ').map((c) => c.trim());
+  for (const [id, label] of [['team-lead', 'Team Lead'], ['assistant-manager', 'Assistant Manager'], ['operation-manager', 'Operation Manager']]) {
+    const t = TERMS.find((x) => x.id === id);
+    assert.deepEqual(t.name, { ko: row(label)[1], en: row(label)[2] }, id);
+  }
+  assert.ok(filterTerms(TERMS, { query: 'TL' }).some((t) => t.id === 'team-lead'));
+  assert.ok(filterTerms(TERMS, { query: 'AM', lang: 'en' }).some((t) => t.id === 'assistant-manager'));
 });
