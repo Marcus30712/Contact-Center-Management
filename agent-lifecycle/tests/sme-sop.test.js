@@ -92,7 +92,8 @@ test('right answers carry no feedback and every wrong answer has one', () => {
 test('each step that names a stage lights up that stage', () => {
   for (const l of SS_LESSONS) {
     l.steps.forEach((s, i) => {
-      const k = ORDINALS.findIndex((o) => s.caption.ko.startsWith(`${o} 단계는`));
+      // The ordinal may open the caption or a later sentence ("…요청합니다. 첫 단계는 …").
+      const k = ORDINALS.findIndex((o) => new RegExp(`(^|\\. )${o} 단계는`).test(s.caption.ko));
       if (k === -1) return;
       assert.deepEqual(s.highlight, [l.procedure[k]], `${l.id} step ${i + 1}`);
     });
