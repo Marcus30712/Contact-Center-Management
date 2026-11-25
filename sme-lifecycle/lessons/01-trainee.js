@@ -25,7 +25,7 @@ export default {
     edges: [edge("roles", "demo"), edge("demo", "record"), edge("record", "handover")],
   },
   steps: [
-    step(tx("이 레슨의 목적은 교육 중인 상담사를 지원할 때 SME가 무엇을 확인하고, 무엇을 기록하고, 언제 넘기는지 아는 것입니다. 이 강의는 서준 한 사람이 자라는 순서를 따라 단계마다 SME의 절차를 봅니다.", "This lesson is about knowing what an SME checks, records and hands on when supporting an agent in training. This course follows one agent, Seojun, as he grows, and looks at the SME's procedure at each stage."), flow, procedure, null),
+    step(tx("이 레슨의 목적은 교육 중인 상담사를 지원할 때 SME가 무엇을 확인하고, 무엇을 기록하고, 언제 넘기는지 아는 것입니다. 이 강의는 서준 한 사람이 자라는 순서를 따라 단계마다 SME의 절차를 봅니다.", "This lesson is about knowing what an SME checks, records and hands off when supporting an agent in training. This course follows one agent, Seojun, as he grows, and looks at the SME's procedure at each stage."), flow, procedure, null),
     step(tx("서준은 입사 3주 차(예시) 교육생입니다. 이론 교육을 마치고 이번 주부터 OJT로 실제 문의를 처음 받습니다.", "Seojun is a trainee in his third week (Example). He has finished classroom training, and this week he takes real contacts for the first time in OJT."), flow, [], null),
     step(tx("첫 단계는 역할 나누기입니다. 교육 과정과 수료 판단은 트레이너가 맡습니다. SME는 실제 시스템과 도구로 교육 내용이 현장에서 어떻게 쓰이는지 보여 줍니다.", "The first stage is dividing the roles. The trainer owns the curriculum and decides who graduates. The SME uses the real systems and tools to show how the training is used on the floor."), flow, ["roles"], null),
     step(tx("OJT 시작 전에 트레이너와 짧게 맞춥니다. 이번 주에 서준이 받을 채널과 문의 유형, SME가 참관할 시간을 정합니다.", "Before OJT starts, align briefly with the trainer. Agree on the channels and contact types Seojun will take this week, and when the SME will sit in."), flow, ["roles"], null),

@@ -1,6 +1,6 @@
 # Support Lifecycle — English copy
 
-Written: 2026-11-25 · Status: draft (awaiting approval) · Korean: `2026-11-25-sme-lifecycle-copy-ko.md`
+Written: 2026-11-25 · Status: approved (2026-11-25, with the reviewer's four wording fixes) · Korean: `2026-11-25-sme-lifecycle-copy-ko.md`
 
 Same sections and order as the Korean file. US English.
 
@@ -30,7 +30,7 @@ Same sections and order as the Korean file. US English.
 
 스텝:
 
-1. This lesson is about knowing what an SME checks, records and hands on when supporting an agent in training. This course follows one agent, Seojun, as he grows, and looks at the SME's procedure at each stage.
+1. This lesson is about knowing what an SME checks, records and hands off when supporting an agent in training. This course follows one agent, Seojun, as he grows, and looks at the SME's procedure at each stage.
 2. Seojun is a trainee in his third week (Example). He has finished classroom training, and this week he takes real contacts for the first time in OJT.
 3. The first stage is dividing the roles. The trainer owns the curriculum and decides who graduates. The SME uses the real systems and tools to show how the training is used on the floor.
 4. Before OJT starts, align briefly with the trainer. Agree on the channels and contact types Seojun will take this week, and when the SME will sit in.
@@ -69,16 +69,16 @@ Same sections and order as the Korean file. US English.
 | 제목 | Supporting Agents Just Out of Training |
 | 짧은 이름 | Nesting |
 | 부제 | Start close, then step back type by type, by an agreed rule. |
-| 노드 | Take the handover · Set check-ins · Step back · Graduation review |
+| 노드 | Take the handover · Set check-ins · Ease off · Graduation review |
 
 스텝:
 
 1. This lesson is about how close to start support in nesting, when to step back, and the rule for moving to a regular team. How to help from beside the agent was covered in SME First Steps lesson 2.
 2. Seojun has graduated. For the next two weeks (Example), he takes real contacts in the nesting group.
 3. The first stage is taking the handover. Get the OJT observation record from the trainer, and check which contact types Seojun has not yet handled alone. Make sure he meets each of those types during nesting.
-4. The second stage is setting check-ins. In the first week (Example), go to him at set intervals, and read hard types with him before they go out. Agree on the interval and the types with Sujin, the team leader, beforehand.
+4. The second stage is setting check-ins. In the first week (Example), go to him at set intervals, and go over hard contacts with him before he sends his reply. Agree on the interval and the types with Sujin, the team leader, beforehand.
 5. At the end of each day, write down three things briefly. The types he finished alone, the types he needed help with, and the cases he escalated.
-6. The third stage is stepping back. Once he finishes a type alone several days in a row (Example), stop checking that type first and look at it only when he asks.
+6. The third stage is easing off. Once he finishes a type alone several days in a row (Example), stop checking that type first and look at it only when he asks.
 7. Step back type by type, not all at once. Instead of helping directly, send links to the policy articles he needs in chat, so he finds and handles it himself. Left alone suddenly, new hires hesitate even more to ask.
 8. Tell Seojun ahead of time what is changing. Say "You can handle shipping contacts on your own now. Call me any time you get stuck," and stepping back sounds like recognition, not being left alone.
 9. The fourth stage is the graduation review. Before nesting ends, go through the record with Sujin and decide whether he moves to a regular team or stays longer in nesting. The team leader makes the decision.
@@ -111,7 +111,7 @@ Same sections and order as the Korean file. US English.
 | 제목 | Supporting Regular Agents |
 | 짧은 이름 | Regular |
 | 부제 | Help when asked, and find what never gets asked through scrubbing. |
-| 노드 | Take requests · Scrubbing check · Step back in · Share growth signs |
+| 노드 | Take requests · Scrubbing check · Move back in close · Share growth signs |
 
 스텝:
 
@@ -120,8 +120,8 @@ Same sections and order as the Korean file. US English.
 3. The first stage is taking requests. Seojun calls the SME on the floor or by messenger when he needs approval or gets stuck. The order for approving and handling is the same as in SME First Steps lesson 3.
 4. The second stage is checking through scrubbing. Mistakes by an agent who works alone don't arrive as requests, because he doesn't know about them. When Seojun's tickets come up in your daily scrubbing, look for anything that repeats.
 5. Write down what you find as behaviors and ticket numbers. Tell Seojun briefly about a one-off mistake, and put a repeated one in the summary you hand the team leader.
-6. The third stage is stepping back in close. When a new product launches or a policy changes, even a regular agent is new again for that type. For the first few days (Example) after a change, check those contacts first.
-7. Step back in close as well when Seojun's quality suddenly drops or his requests rise sharply. If the reason seems to lie outside work, don't press him; tell the team leader.
+6. The third stage is moving back in close. When a new product launches or a policy changes, even a regular agent is new again for that type. For the first few days (Example) after a change, check those contacts first.
+7. Move back in close as well when Seojun's quality suddenly drops or his requests rise sharply. If the reason seems to lie outside work, don't press him; tell the team leader.
 8. The fourth stage is sharing signs of growth. When Seojun handles hard contacts alone and starts answering other agents' questions, write it down.
 9. Pass these signs on to the team leader. The team leader decides whether to make him a buddy for new hires or grow him into a senior.
 
@@ -201,7 +201,7 @@ Same sections and order as the Korean file. US English.
 2. Every Monday (Example), Sujin decides the next stage for each team member. These are decisions such as who moves from nesting to a regular team and who becomes a buddy.
 3. The first stage is putting together the stage status. For each team member, write one line: their current stage, what you saw last week, and any sign they are ready for the next stage.
 4. For example, write "Seojun: three months as a regular agent, steady on new-plan contacts, starting to answer other agents' questions." From that one line, Sujin can decide whether to make Seojun a buddy for the next class.
-5. The second stage is aligning the delegated scope. Each quarter (Example), check again with Sujin what the SME does on her behalf and what it doesn't. When team size or policies change, the scope changes too.
+5. The second stage is aligning the delegated scope. Each quarter (Example), check again with Sujin what the SME does on her behalf and what the SME doesn't do. When team size or policies change, the scope changes too.
 6. The third stage is the hand-off rules. Attendance, performance actions, personal matters and approvals outside policy go to the team leader at any stage. When you hand something off, send a factual note of what happened with it.
 7. Ask how handed-off cases turned out, and record it. Next time the same thing happens, you will know what to do.
 8. The fourth stage is going back to the start. When a new training class arrives, the SME's support starts again at the in-training stage. Use the last class's records with the trainer to prepare for the next one.
