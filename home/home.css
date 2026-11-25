@@ -40,3 +40,8 @@
 .hm-practice { border-color: var(--accent); }
 .hm-practice span { display: block; }
 .hm-practice .hm-practice-streak { color: var(--accent); font-weight: 700; }
+
+/* A coming-soon card (2026-11-25): not a link, dimmed, with a small mark. */
+.card.is-soon { opacity: 0.75; border-style: dashed; cursor: default; }
+.hm-soon-mark { align-self: flex-start; font-size: 0.8rem; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.hm-soon-links a { font-weight: 700; }

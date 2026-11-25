@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'c7cf7fd085fc';
+const VERSION = 'c73e099e1188';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -97,6 +97,7 @@ const PRECACHE = [
   "home/data.js",
   "home/home.css",
   "home/render.js",
+  "home/role-home.js",
   "home/start-data.js",
   "home/start-render.js",
   "home/start.css",
