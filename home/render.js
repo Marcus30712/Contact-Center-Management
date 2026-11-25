@@ -3,15 +3,13 @@
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
-import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
-import { SOP_LESSONS } from '../sop-library/lessons/index.js';
 import { EXCEL_LESSONS, EXCEL_UI } from '../excel/data.js';
-import { SME_LESSONS } from '../sme/lessons/index.js';
-import { SME_UI, SME_PROGRESS_KEY } from '../sme/ui.js';
+import { SME_UI } from '../sme/ui.js';
 import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
-import { COURSE_ROLES, DEFAULT_ROLE, coursesFor } from '../shared/role.js';
+import { COURSE_ROLES, DEFAULT_ROLE, coursesFor, roleOf } from '../shared/role.js';
+import { COURSE_INFO } from '../shared/courses.js';
 import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
 import { REVIEW_UI } from '../review/data.js';
 import { loadReview, unlocked } from '../review/engine.js';
@@ -21,15 +19,21 @@ export function orderByRole(items, role) {
   return [...items.filter((x) => x.role === role), ...items.filter((x) => x.role !== role)];
 }
 
+// A role's course, from the shared course list.
+const course = (id, name) => {
+  const c = COURSE_INFO[id];
+  return { id, role: roleOf(id), name, lessons: c.lessons, key: c.key, path: `./${c.dir}` };
+};
+
 const COURSES = [
-  { id: 'lifecycle', role: 'tl', name: UI.lifecycle, lessons: LESSONS, key: 'agent-lifecycle-course:v1', path: './agent-lifecycle/' },
-  { id: 'sop', role: 'tl', name: UI.sop, lessons: SOP_LESSONS, key: 'sop-library:v1', path: './sop-library/' },
+  course('lifecycle', UI.lifecycle),
+  course('sop', UI.sop),
   {
     id: 'excel', name: EXCEL_UI.homeCard, key: 'excel-practice:v1', path: './excel/',
     lessons: EXCEL_LESSONS.map((l, i) => ({ id: l.id, order: i + 1, title: l.title })),
     href: (lesson) => `./excel/#lesson-${lesson.id}`,
   },
-  { id: 'sme', role: 'sme', name: SME_UI.courseTitle, lessons: SME_LESSONS, key: SME_PROGRESS_KEY, path: './sme/' },
+  course('sme', SME_UI.courseTitle),
 ];
 
 // Progress for the three courses, read from the keys each course already uses.

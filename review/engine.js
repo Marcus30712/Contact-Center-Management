@@ -1,25 +1,16 @@
 // Review quiz results and when each quiz opens (2026-11-25).
 // Spec: docs/superpowers/specs/2026-11-25-role-review-quiz-design.md §4.2–4.4.
 import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
-import { LESSONS } from '../agent-lifecycle/js/lessons/index.js';
-import { SOP_LESSONS } from '../sop-library/lessons/index.js';
-import { SME_LESSONS } from '../sme/lessons/index.js';
-import { SOP_PROGRESS_KEY } from '../sop-library/ui.js';
-import { SME_PROGRESS_KEY } from '../sme/ui.js';
 import { coursesFor } from '../shared/role.js';
+import { COURSE_INFO } from '../shared/courses.js';
 
 export const REVIEW_KEY = 'queuecraft:review:v1';
 export const PASS_MARK = 5; // of six questions
 export const QUIZ_ROLES = ['tl', 'sme'];
 
-// Each course: where its progress is kept, its lessons and its address from review/.
-const COURSES = {
-  lifecycle: { key: 'agent-lifecycle-course:v1', lessons: LESSONS, path: '../agent-lifecycle/' },
-  sop: { key: SOP_PROGRESS_KEY, lessons: SOP_LESSONS, path: '../sop-library/' },
-  sme: { key: SME_PROGRESS_KEY, lessons: SME_LESSONS, path: '../sme/' },
-};
-
-const isRecord = (r) => r && Number.isInteger(r.best) && Number.isInteger(r.total) && typeof r.passed === 'boolean';
+// A record that could really happen: 0 ≤ best ≤ total, at least one question.
+const isRecord = (r) => r && Number.isInteger(r.best) && Number.isInteger(r.total) && typeof r.passed === 'boolean'
+  && r.total > 0 && r.best >= 0 && r.best <= r.total;
 
 // Results by role; anything unreadable or unknown is left out.
 export function loadReview(storage) {
@@ -51,9 +42,9 @@ export function unlocked(storage, role) {
   const courses = coursesFor(role);
   if (!courses.length) return { open: false, left: 0, next: null };
   const pending = courses.flatMap((id) => {
-    const c = COURSES[id];
+    const c = COURSE_INFO[id];
     const done = new Set(storage ? loadProgress(storage, c.key).completed : []);
-    return [...c.lessons].sort((a, b) => a.order - b.order).filter((l) => !done.has(l.id)).map((l) => `${c.path}#${l.id}-0`);
+    return [...c.lessons].sort((a, b) => a.order - b.order).filter((l) => !done.has(l.id)).map((l) => `../${c.dir}#${l.id}-0`);
   });
   return { open: pending.length === 0, left: pending.length, next: pending.length ? { href: pending[0] } : null };
 }

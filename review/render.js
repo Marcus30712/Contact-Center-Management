@@ -21,7 +21,8 @@ export function routeRole(hash, storage) {
 const fill = (text, values) => text.replace(/\{(\w+)\}/g, (_, k) => values[k] ?? '');
 
 // redraw: draws the page again after a choice (the app passes its own draw).
-export function renderReview(root, lang, storage, view, myRole, redraw) {
+// opts.onStart(role): a quiz was started from the list (the app puts it in the address).
+export function renderReview(root, lang, storage, view, myRole, redraw, opts = {}) {
   const tr = (text) => t(text, lang).text;
   const miso = (name, size = 72) => h('img', {
     class: 'pr-miso', src: `../assets/miso/${name}.webp`, alt: '', width: size, height: Math.round((size * 227) / 157), 'data-miso': name,
@@ -61,7 +62,7 @@ export function renderReview(root, lang, storage, view, myRole, redraw) {
             rec.passed ? h('strong', { text: `${tr(UI.passMark)} · ` }) : null,
             fill(tr(UI.best), { x: rec.best, n: rec.total }),
           ]) : null,
-          h('button', { type: 'button', class: 'btn primary', 'data-start-quiz': role, text: tr(UI.start), onclick: () => start(role) }),
+          h('button', { type: 'button', class: 'btn primary', 'data-start-quiz': role, text: tr(UI.start), onclick: () => { start(role); opts.onStart?.(role); } }),
         ]
         : [
           h('p', { class: 'muted', 'data-locked': true, text: fill(tr(UI.locked), { n: gate.left }) }),

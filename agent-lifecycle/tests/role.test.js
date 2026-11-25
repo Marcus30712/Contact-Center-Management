@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fakeStorage, throwingStorage } from './helpers.js';
 import {
-  ROLE_KEY, ROLE_ASKED_KEY, ROLES, DEFAULT_ROLE, COURSE_ROLES, coursesFor,
+  ROLE_KEY, ROLE_ASKED_KEY, ROLES, DEFAULT_ROLE, COURSE_ROLES, coursesFor, roleOf,
   loadRole, saveRole, shouldAskRole, markRoleAsked,
 } from '../../shared/role.js';
 import { ROLE_UI, ROLE_NAMES } from '../../shared/role-data.js';
@@ -78,4 +78,26 @@ test('courses per role', () => {
   assert.deepEqual(coursesFor('tl'), ['lifecycle', 'sop']);
   assert.deepEqual(coursesFor('sme'), ['sme']);
   for (const r of ['agent', 'am', 'om', 'boss']) assert.deepEqual(coursesFor(r), [], r);
+});
+
+test('each course has one role, read from the same table', () => {
+  assert.equal(roleOf('lifecycle'), 'tl');
+  assert.equal(roleOf('sop'), 'tl');
+  assert.equal(roleOf('sme'), 'sme');
+  assert.equal(roleOf('excel'), undefined);
+});
+
+test('home and the quiz read courses from one shared list', async () => {
+  const { COURSE_INFO } = await import('../../shared/courses.js');
+  const { LEARN } = await import('../../home/data.js');
+  assert.deepEqual(Object.keys(COURSE_INFO), ['lifecycle', 'sop', 'sme']);
+  for (const [id, c] of Object.entries(COURSE_INFO)) {
+    const card = LEARN.find((x) => x.href === `./${c.dir}`);
+    assert.equal(card.role, roleOf(id), id);
+  }
+  const { readFileSync } = await import('node:fs');
+  for (const f of ['home/render.js', 'review/engine.js']) {
+    const src = readFileSync(new URL(`../../${f}`, import.meta.url), 'utf8');
+    assert.ok(!src.includes("'agent-lifecycle-course:v1'") && !/role: '(tl|sme)'/.test(src), `${f} keeps no copy of course keys or roles`);
+  }
 });

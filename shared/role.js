@@ -14,6 +14,11 @@ export function coursesFor(role) {
   return ROLE_COURSES[role] ?? [];
 }
 
+// The role a course is written for (undefined for shared ones such as Excel).
+export function roleOf(courseId) {
+  return Object.keys(ROLE_COURSES).find((r) => ROLE_COURSES[r].includes(courseId));
+}
+
 function read(storage, key) {
   try {
     return storage ? storage.getItem(key) : null;

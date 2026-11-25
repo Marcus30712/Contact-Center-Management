@@ -436,6 +436,12 @@
 - 홈 "내 학습"에 퀴즈 카드가 나타나고, 아래 메뉴에서는 SME 강의와 복습 퀴즈가 "배우기"에 속합니다.
 - 설계·문안: `docs/superpowers/specs/2026-11-25-role-review-quiz-design.md`, `…-review-quiz-copy-ko.md`(승인), `…-review-quiz-copy.en.md`(승인), 계획 `docs/superpowers/plans/2026-11-25-role-review-quiz.md`.
 
+### 53. 미뤄 둔 작은 개선 세 가지 — 상태: Pull Request 검토 중 (PR #87)
+
+- 직급별 강의 정보를 한곳으로 모았습니다. 어떤 직급이 어떤 강의를 듣는지는 `shared/role.js`의 표 하나에, 각 강의의 진도 키·레슨·폴더는 `shared/courses.js`에 두고 홈과 복습 퀴즈가 함께 읽습니다. 다음 직급 강의를 붙일 때 고칠 곳이 줄어듭니다.
+- 복습 퀴즈 기록에서 "99/6"처럼 있을 수 없는 값은 읽지 않습니다.
+- 목록에서 퀴즈를 시작하면 주소에 `#sme`/`#tl`이 남아, 새로고침하면 그 퀴즈의 1번부터 열리고 뒤로 가기를 누르면 목록으로 돌아갑니다.
+
 ---
 
 ## 알려진 한계

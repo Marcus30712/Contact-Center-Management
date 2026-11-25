@@ -29,7 +29,10 @@ function draw() {
     draw();
     langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
   });
-  renderReview(app, lang, storage, view, loadRole(storage), draw);
+  renderReview(app, lang, storage, view, loadRole(storage), draw, {
+    // A new history entry with the quiz's address: reload reopens it, Back returns to the list.
+    onStart: (role) => { if (location.hash !== `#${role}`) history.pushState(null, '', `#${role}`); },
+  });
 }
 
 function fromAddress() {

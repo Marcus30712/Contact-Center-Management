@@ -283,3 +283,21 @@ test('after an answer, focus is on Next and the result is read out', () => {
   click(root.querySelector(`[data-option="${q2.options.find((o) => o.id !== q2.answer).id}"]`));
   assert.equal(document.querySelector('[data-status]').textContent, REVIEW_UI.wrong.ko);
 });
+
+test('impossible records are not read', () => {
+  for (const rec of [{ best: 99, total: 6, passed: true }, { best: -1, total: 6, passed: false }, { best: 0, total: 0, passed: false }]) {
+    assert.deepEqual(loadReview(fakeStorage({ [REVIEW_KEY]: JSON.stringify({ sme: rec }) })), {}, JSON.stringify(rec));
+  }
+  assert.deepEqual(loadReview(fakeStorage({ [REVIEW_KEY]: JSON.stringify({ sme: { best: 6, total: 6, passed: true } }) })).sme.best, 6);
+});
+
+test('starting a quiz from the list reports it, so the address can follow', () => {
+  const started = [];
+  const { root } = setupDom();
+  const view = newReviewView();
+  const draw = () => renderReview(root, 'ko', fakeStorage(SME_DONE), view, 'sme', draw, { onStart: (r) => started.push(r) });
+  draw();
+  click(root.querySelector('[data-start-quiz="sme"]'));
+  assert.deepEqual(started, ['sme']);
+  assert.ok(root.querySelector('[data-question]'));
+});
