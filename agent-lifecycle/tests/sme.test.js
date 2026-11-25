@@ -186,3 +186,60 @@ test('every lesson address opens that lesson', async () => {
   const { lessonHref } = await import('../js/engine/router.js');
   for (const id of IDS) assert.deepEqual(parseRoute(lessonHref(id, 3), IDS), { view: 'lesson', id, step: 3 }, id);
 });
+
+// ---------- English (Task 8): docs/superpowers/specs/2026-11-25-sme-course-copy.en.md ----------
+const EN = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-sme-course-copy.en.md', import.meta.url), 'utf8');
+const PARSED_EN = EN.split(/^## 레슨 \d+\. /m).slice(1).map((s) => parseLesson(s.split(/^## /m)[0]));
+
+test('the course passes the rules with English required', () => {
+  assert.deepEqual(validateCourse(SME_LESSONS, { requireEnglish: true, lessonCount: 7, loop: false, figure: SME_FIGURE }), []);
+});
+
+test('the English is the English copy, word for word', () => {
+  assert.equal(PARSED_EN.length, 7);
+  SME_LESSONS.forEach((l, i) => {
+    const c = PARSED_EN[i];
+    assert.equal(l.title.en, c.title, l.id);
+    assert.equal(l.short.en, c.short, l.id);
+    assert.equal(l.subtitle.en, c.subtitle, l.id);
+    assert.deepEqual(l.procedure.map((id) => l.diagram.nodes.find((n) => n.id === id).label.en), c.nodes, l.id);
+    assert.deepEqual(l.steps.map((s) => s.caption.en), c.steps, l.id);
+    l.checkpoint.forEach((q, k) => {
+      const want = c.questions[k];
+      assert.equal(q.prompt.en, want.prompt, q.id);
+      assert.equal(q.answer, want.answer, q.id);
+      assert.equal(q.explanation.en, want.explanation, q.id);
+      assert.deepEqual(q.options.map((o) => ({ id: o.id, text: o.text.en, ...(o.feedback ? { feedback: o.feedback.en } : {}) })), want.options, q.id);
+    });
+    assert.equal(l.connection.text.en, c.connection, l.id);
+  });
+  assert.deepEqual(SME_LESSONS.find((l) => l.id === 'newcomer').personaName, { ko: '서준', en: 'Seojun' });
+  assert.deepEqual(SME_LESSONS.find((l) => l.id === 'peer').personaName, { ko: '준호', en: 'Junho' });
+});
+
+test('the English never runs to more sentences than the Korean it translates', () => {
+  const count = (s) => (s.match(/[.?!](?=["'”’)]*(\s|$))/g) || []).length;
+  for (const l of SME_LESSONS) l.steps.forEach((s, i) => assert.ok(count(s.caption.en) <= count(s.caption.ko), `${l.id} step ${i + 1}`));
+});
+
+test('course, role and lesson-screen words match the English copy', async () => {
+  const { ROLE_UI, ROLE_NAMES } = await import('../../shared/role-data.js');
+  const { ROLES } = await import('../../shared/role.js');
+  const en = (section, place) => cells(EN.split(/^## /m).find((s) => s.startsWith(section)).split('\n').find((x) => x.startsWith(`| ${place} |`)))[1];
+  assert.equal(SME_UI.courseTitle.en, en('3.', 'Course title'));
+  assert.equal(SME_UI.courseTagline.en, en('3.', 'Course intro'));
+  assert.equal(SME_UI.homeCard.en, en('3.', 'Home card'));
+  assert.equal(SME_UI.listNote.en, en('3.', 'Figures note'));
+  assert.deepEqual(['home', 'checkpoint', 'connection', 'nextLesson', 'toList', 'done'].map((k) => SME_UI[k].en), en('3.', 'Lesson screen').split(' · '));
+  const pairs = { sheetTitle: 'Sheet title', sheetNote: 'Sheet note', later: 'Later button', settingsHeading: 'Settings heading',
+    settingsNote: 'Settings note', preparing: 'Preparing note (home)', preparingCareer: 'Preparing link 1', preparingDaily: 'Preparing link 2' };
+  for (const [k, place] of Object.entries(pairs)) assert.equal(ROLE_UI[k].en, en('2.', place), k);
+  assert.deepEqual(ROLES.map((r) => ROLE_NAMES[r].en), en('2.', 'Choices').split(' · '));
+});
+
+test('the English list and lessons have no Korean left', () => {
+  const { root } = setupDom();
+  renderSmeHome(root, SME_LESSONS, { completed: [] }, 'en');
+  assert.ok(!/[가-힣]/.test(root.textContent));
+  for (const l of SME_LESSONS) assert.ok(!/[가-힣]/.test(lessonText(l, 'en')), l.id);
+});
