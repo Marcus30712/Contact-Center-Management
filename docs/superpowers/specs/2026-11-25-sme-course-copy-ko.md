@@ -343,3 +343,14 @@
 | c 피드백 | 몰아서 하면 돌려주는 시점이 늦어지고, 그사이 같은 실수가 되풀이됩니다. |
 | 해설 | 매일 조금씩 봐야 트렌드가 보이고, 지식을 제때 돌려줄 수 있습니다. |
 | 마지막 연결 | SME 첫걸음을 마쳤습니다. 더 깊이 보고 싶다면 SOP 라이브러리의 스크러빙, 캘리브레이션, 기존 상담사 육성을 이어서 보세요. |
+
+---
+
+## 4. 개인정보처리방침 변경 (구현 중 추가, 승인 대기)
+
+새로 기기에 저장하는 항목(직급, SME 강의 진도)을 방침에 적어야 해서 추가한 문구입니다. 테스트는 이 표를 `2026-11-20-privacy-design.md`의 같은 키보다 우선해 대조합니다.
+
+| 키 | 한국어 | English |
+|---|---|---|
+| s2.item1 | 고른 언어, 직군, 준비하는 직급, 화면 모드(밝게·어둡게), 튜토리얼을 봤는지 여부 | Your chosen language, job track, the role you are preparing for, display mode (light or dark), and whether you've seen the tutorial |
+| s2.item2 | 레슨 진도 (라이프사이클, SOP, SME, 엑셀) | Lesson progress (Lifecycle, SOP, SME, Excel) |
