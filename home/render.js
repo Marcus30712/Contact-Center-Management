@@ -87,7 +87,7 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
   // A ready card is a link; a coming-soon card is not, and says so.
   const cardEl = (c) => h('li', {}, [c.href
     ? h('a', { class: 'card', href: c.href }, [h('strong', { text: tr(c.title) }), h('span', { text: tr(c.text) })])
-    : h('div', { class: 'card is-soon', 'aria-disabled': 'true', 'data-soon': c.id }, [
+    : h('div', { class: 'card is-soon', 'data-soon': c.id }, [
       h('strong', { text: tr(c.title) }),
       h('span', { class: 'hm-soon-mark', 'data-soon-mark': true, text: tr(HOME_COPY.soonMark) }),
       h('span', { 'data-soon-text': true, text: tr(c.codex ? withRole(HOME_COPY.soonText, role) : c.text) }),

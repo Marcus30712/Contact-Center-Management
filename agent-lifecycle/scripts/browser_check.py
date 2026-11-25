@@ -1375,6 +1375,13 @@ def main():
         page.goto(HUB)
         page.wait_for_selector("[data-soon='first-steps']")
         check("(r6) a role without a course sees coming-soon cards", page.locator("[data-soon] a").count() >= 2 and page.locator("#learn a.card[href='./excel/']").count() == 1)
+        box = page.evaluate("""() => {
+          const st = (el) => { const c = getComputedStyle(el); return { pad: c.paddingTop + ' ' + c.paddingLeft, bg: c.backgroundColor, radius: c.borderTopLeftRadius, bw: c.borderTopWidth }; };
+          const soon = document.querySelector('#learn [data-soon]');
+          const ready = document.querySelector('#learn a.card');
+          return { soon: st(soon), ready: st(ready), title: getComputedStyle(soon.querySelector('strong')).display, text: getComputedStyle(soon.querySelector('[data-soon-text]')).display };
+        }""")
+        check("(r7) a coming-soon card is boxed like a ready card", box["soon"] == box["ready"] and box["title"] == "block" and box["text"] == "block")
         page.context.close()
 
         # (q) review quiz (2026-11-25): an SME who finished the course takes the quiz and gets the badge

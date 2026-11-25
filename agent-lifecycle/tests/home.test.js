@@ -348,7 +348,6 @@ test('coming-soon cards are not links and say so', () => {
   for (const [role, lang] of [['am', 'ko'], ['om', 'en'], ['agent', 'ko']]) {
     const card = homeOf(role, lang).querySelector('[data-soon="first-steps"]');
     assert.notEqual(card.tagName, 'A');
-    assert.equal(card.getAttribute('aria-disabled'), 'true');
     assert.equal(card.querySelector('[data-soon-mark]').textContent, lang === 'ko' ? mark[1] : mark[2]);
     assert.equal(card.querySelector('[data-soon-text]').textContent, fillRole(lang === 'ko' ? text[1] : text[2], role, lang));
     assert.deepEqual([...card.querySelectorAll('a')].map((a) => a.getAttribute('href')), ['./codex/#career', `./codex/#daily-${role}`]);
@@ -356,6 +355,15 @@ test('coming-soon cards are not links and say so', () => {
   const support = homeOf('sme').querySelector('[data-soon="sme-lifecycle"]');
   assert.equal(support.querySelector('[data-soon-text]').textContent, rhRows(3).find((r) => r[1] === '서포트 라이프사이클')[3]);
   assert.ok(support.querySelector('[data-soon-mark]'));
+});
+
+test('working links inside a coming-soon card are not announced as unavailable', () => {
+  for (const role of ['agent', 'sme', 'am', 'om']) {
+    const root = homeOf(role);
+    for (const a of root.querySelectorAll('[data-soon] a')) {
+      assert.equal(a.closest('[aria-disabled="true"]'), null, `${role}: ${a.getAttribute('href')}`);
+    }
+  }
 });
 
 test('roles without a course start at Excel lesson 1', () => {

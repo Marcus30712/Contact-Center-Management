@@ -28,13 +28,13 @@
 .hm-note { margin: 12px 0 0; font-size: 0.92rem; }
 
 .hm-cards { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
-.hm-cards a.card {
+.hm-cards .card {
   display: block; padding: 14px 16px; border-radius: var(--radius); background: var(--surface);
   border: 1px solid var(--line); text-decoration: none; color: inherit;
 }
 .hm-cards a.card:hover, .hm-cards a.card:focus-visible { border-color: var(--accent); }
-.hm-cards a.card strong { display: block; font-size: 1.05rem; }
-.hm-cards a.card span { color: var(--muted); font-size: 0.9rem; }
+.hm-cards .card strong { display: block; font-size: 1.05rem; }
+.hm-cards .card span { color: var(--muted); font-size: 0.9rem; }
 .hm-privacy { font-size: 0.82rem; margin: 22px 0 28px; }
 /* Today's practice card, right under Miso. */
 .hm-practice { border-color: var(--accent); }
@@ -42,6 +42,8 @@
 .hm-practice .hm-practice-streak { color: var(--accent); font-weight: 700; }
 
 /* A coming-soon card (2026-11-25): not a link, dimmed, with a small mark. */
-.card.is-soon { opacity: 0.75; border-style: dashed; cursor: default; }
-.hm-soon-mark { align-self: flex-start; font-size: 0.8rem; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.hm-cards .card.is-soon { opacity: 0.75; border: 1px dashed var(--line); cursor: default; }
+.hm-cards .card.is-soon [data-soon-text] { display: block; margin-top: 4px; }
+.hm-cards .card .hm-soon-mark { display: inline-block; margin-top: 4px; font-size: 0.8rem; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+.hm-cards .card .hm-soon-links { display: block; margin-top: 6px; }
 .hm-soon-links a { font-weight: 700; }
