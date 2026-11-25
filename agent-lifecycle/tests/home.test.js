@@ -85,8 +85,8 @@ test('the home screen greets with Miso and shows where to continue', () => {
   assert.equal(rows[1].querySelector('a[data-next]').getAttribute('href'), './sop-library/#scrubbing-0');
   assert.ok(rows[1].textContent.includes('1/10'));
   assert.equal(root.querySelector('a.card[href="./guide/"]').closest('section')?.id ?? '', '');
-  assert.ok(root.querySelector('#learn') && root.querySelector('#browse'));
-  assert.equal(root.querySelectorAll('a.card').length, 10, 'nine topics plus the practice card');
+  assert.ok(root.querySelector('#learn') && !root.querySelector('#browse'), 'Browse has its own page now');
+  assert.equal(root.querySelectorAll('a.card').length, 5, 'practice, guide and three Learn cards');
   assert.equal(root.querySelector('[data-install]'), null, 'the install note moved to Settings');
 });
 
@@ -195,45 +195,26 @@ test('orderByRole keeps order within groups', () => {
   assert.deepEqual(items.map((x) => x.id), ['a', 'b', 'c'], 'the list itself is not changed');
 });
 
-test('a role without a course shows the preparing note', () => {
-  for (const lang of ['ko', 'en']) {
-    for (const role of ['agent', 'am', 'om']) {
-      const { root } = setupDom();
-      renderHome(root, lang, fakeStorage(), '2026-11-25', role);
-      const note = root.querySelector('[data-role-preparing]');
-      assert.ok(note, role);
-      assert.equal(note.querySelector('p').textContent, ROLE_UI.preparing[lang].replace('{role}', ROLE_NAMES[role][lang]));
-      const links = [...note.querySelectorAll('a')];
-      assert.deepEqual(links.map((a) => a.getAttribute('href')), ['./codex/#career', `./codex/#daily-${role}`]);
-      assert.deepEqual(links.map((a) => a.textContent), [ROLE_UI.preparingCareer[lang], ROLE_UI.preparingDaily[lang]]);
-    }
-    for (const role of ['sme', 'tl']) {
-      const { root } = setupDom();
-      renderHome(root, lang, fakeStorage(), '2026-11-25', role);
-      assert.equal(root.querySelector('[data-role-preparing]'), null, role);
-    }
-  }
-});
+// The separate preparing note gave way to coming-soon cards (2026-11-25): see 'coming-soon cards are not links and say so'.
 
 test('without a role, home is the team-lead home', () => {
   const { root } = setupDom();
   renderHome(root, 'ko', fakeStorage(), '2026-11-25');
-  assert.equal(root.querySelector('[data-role-preparing]'), null);
-  assert.deepEqual([...root.querySelectorAll('#learn a')].map((a) => a.getAttribute('href')), LEARN.map((c) => c.href));
+  assert.deepEqual([...root.querySelectorAll('#learn a.card')].map((a) => a.getAttribute('href')), ['./agent-lifecycle/', './sop-library/', './excel/']);
 });
 
 test('an SME learner sees the SME course first in Learn and in my learning', () => {
   const s = fakeStorage({ 'sme-course:v1': '{"completed":["firstday"]}' });
   const { root } = setupDom();
   renderHome(root, 'ko', s, '2026-11-25', 'sme');
-  assert.deepEqual([...root.querySelectorAll('#learn a')].map((a) => a.getAttribute('href')), ['./sme/', './agent-lifecycle/', './sop-library/', './excel/']);
+  assert.deepEqual([...root.querySelectorAll('#learn a.card')].map((a) => a.getAttribute('href')), ['./sme/', './excel/']);
   assert.equal(root.querySelector('#learn a').querySelector('span').textContent, SME_UI.homeCard.ko);
   assert.deepEqual(myLearning(s, 'sme').map((r) => r.id), ['sme', 'excel']);
   assert.equal(root.querySelector('[data-next="sme"]').getAttribute('href'), './sme/#newcomer-0');
   assert.deepEqual(myLearning(s).map((r) => r.id), ['lifecycle', 'sop', 'excel']);
 });
 
-test('a new SME is pointed at SME lesson 1, everyone else at lifecycle lesson 1', () => {
+test('a new SME is pointed at SME lesson 1, a team lead at lifecycle lesson 1', () => {
   const row = SME_DOC.split('\n').find((l) => l.startsWith('| 처음 안내 (SME) |')).slice(1, -1).split(' | ').map((c) => c.trim());
   assert.deepEqual(SME_UI.startNote, { ko: row[1], en: row[2] });
   for (const lang of ['ko', 'en']) {
@@ -241,7 +222,7 @@ test('a new SME is pointed at SME lesson 1, everyone else at lifecycle lesson 1'
     renderHome(sme.root, lang, fakeStorage(), '2026-11-25', 'sme');
     assert.equal(sme.root.querySelector('[data-start] a').getAttribute('href'), './sme/#firstday-0');
     assert.equal(sme.root.querySelector('[data-start]').textContent, SME_UI.startNote[lang]);
-    for (const role of ['tl', 'agent', 'am', 'om']) {
+    for (const role of ['tl']) { // roles without a course start at Excel: see 'roles without a course start at Excel lesson 1'
       const other = setupDom();
       renderHome(other.root, lang, fakeStorage(), '2026-11-25', role);
       assert.equal(other.root.querySelector('[data-start] a').getAttribute('href'), './agent-lifecycle/#hiring-0', role);
@@ -308,4 +289,89 @@ test('a learner with progress in any course is not greeted as new', () => {
     renderHome(root, 'ko', s, '2026-11-25', role);
     assert.equal(root.querySelector('[data-start]'), null, role);
   }
+});
+
+// ---------- per-role home (2026-11-25, role-home-copy) ----------
+const RH = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-role-home-copy.md', import.meta.url), 'utf8');
+const rhRows = (section) => RH.split(new RegExp(`^## ${section}\\. `, 'm'))[1].split(/^## /m)[0].split('\n')
+  .filter((l) => l.startsWith('| ') && !/^\| (위치|직급|단계) /.test(l)).map((l) => l.slice(1, -1).split(' | ').map((c) => c.trim()));
+const rhRow = (section, first) => rhRows(section).find((r) => r[0] === first);
+const SHORT = { agent: ['상담사', 'Agent'], sme: ['SME', 'SME'], tl: ['TL', 'TL'], am: ['AM', 'AM'], om: ['OM', 'OM'] };
+const fillRole = (text, role, lang) => text.replace(lang === 'ko' ? '{직급}' : '{role}', SHORT[role][lang === 'ko' ? 0 : 1]);
+const homeOf = (role, lang = 'ko', storage = fakeStorage()) => { const { root } = setupDom(); renderHome(root, lang, storage, '2026-11-25', role); return root; };
+const learnTitles = (root) => [...root.querySelectorAll('#learn li')].map((li) => li.querySelector('strong').textContent);
+
+test('each role\'s home has the same sections in the same order', () => {
+  const shape = (root) => [...root.children].map((el) => el.tagName + (el.id ? `#${el.id}` : '') + (el.className ? `.${el.className.split(' ')[0]}` : ''));
+  const shapes = ['tl', 'sme', 'agent', 'am', 'om'].map((r) => shape(homeOf(r)));
+  for (const s of shapes) assert.deepEqual(s, shapes[0]);
+  for (const r of ['tl', 'sme', 'agent']) assert.equal(homeOf(r).querySelector('#browse'), null, r);
+  assert.ok(homeOf('tl').querySelector('#learn'));
+});
+
+test('Learn shows only the role\'s cards', () => {
+  const hrefs = (root) => [...root.querySelectorAll('#learn li')].map((li) => li.querySelector('a.card')?.getAttribute('href') ?? 'soon');
+  assert.deepEqual(hrefs(homeOf('tl')), ['./agent-lifecycle/', './sop-library/', './excel/']);
+  assert.deepEqual(learnTitles(homeOf('tl')), ['상담사 라이프사이클', 'SOP 라이브러리', '미소의 엑셀 연습']);
+  assert.deepEqual(hrefs(homeOf('sme')), ['./sme/', 'soon', 'soon', './excel/']);
+  assert.deepEqual(learnTitles(homeOf('sme')), ['SME 첫걸음', '서포트 라이프사이클', 'SME SOP 라이브러리', '미소의 엑셀 연습']);
+  assert.deepEqual(learnTitles(homeOf('sme', 'en')), ['SME First Steps', 'Support Lifecycle', 'SME SOP Library', "Miso's Excel Practice"]);
+  for (const role of ['agent', 'am', 'om']) {
+    assert.deepEqual(hrefs(homeOf(role)), ['soon', 'soon', './excel/'], role);
+    assert.deepEqual(learnTitles(homeOf(role)), [`${SHORT[role][0]} 첫걸음`, `${SHORT[role][0]} SOP 라이브러리`, '미소의 엑셀 연습'], role);
+    assert.deepEqual(learnTitles(homeOf(role, 'en')), [`${SHORT[role][1]} First Steps`, `${SHORT[role][1]} SOP Library`, "Miso's Excel Practice"], role);
+  }
+});
+
+test('the Excel card line depends on the role', () => {
+  const excelText = (role, lang = 'ko') => homeOf(role, lang).querySelector('#learn a[href="./excel/"] span').textContent;
+  const sme = rhRows(3).find((r) => r[0] === 'SME' && r[1] === '엑셀');
+  const shared = rhRows(3).find((r) => r[1] === '엑셀' && r[0] !== 'SME');
+  assert.equal(excelText('tl'), '팀장이 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.');
+  assert.equal(excelText('sme'), sme[3]);
+  assert.equal(excelText('sme', 'en'), sme[5]);
+  for (const r of ['agent', 'am', 'om']) assert.equal(excelText(r), shared[3], r);
+});
+
+test('the guide card is TL\'s guide or coming soon', () => {
+  const tl = homeOf('tl').querySelector('a.card[href="./guide/"]');
+  assert.equal(tl.querySelector('strong').textContent, rhRow(2, 'TL')[1]);
+  const sme = homeOf('sme');
+  assert.equal(sme.querySelector('a.card[href="./guide/"]'), null);
+  assert.equal(sme.querySelector('[data-soon="guide"] strong').textContent, rhRow(2, 'SME')[1]);
+  assert.equal(homeOf('am', 'en').querySelector('[data-soon="guide"] strong').textContent, rhRow(2, 'AM')[2]);
+});
+
+test('coming-soon cards are not links and say so', () => {
+  const mark = rhRow(1, '준비 중 표시');
+  const text = rhRow(1, '준비 중 카드 설명');
+  for (const [role, lang] of [['am', 'ko'], ['om', 'en'], ['agent', 'ko']]) {
+    const card = homeOf(role, lang).querySelector('[data-soon="first-steps"]');
+    assert.notEqual(card.tagName, 'A');
+    assert.equal(card.querySelector('[data-soon-mark]').textContent, lang === 'ko' ? mark[1] : mark[2]);
+    assert.equal(card.querySelector('[data-soon-text]').textContent, fillRole(lang === 'ko' ? text[1] : text[2], role, lang));
+    assert.deepEqual([...card.querySelectorAll('a')].map((a) => a.getAttribute('href')), ['./codex/#career', `./codex/#daily-${role}`]);
+  }
+  const support = homeOf('sme').querySelector('[data-soon="sme-lifecycle"]');
+  assert.equal(support.querySelector('[data-soon-text]').textContent, rhRows(3).find((r) => r[1] === '서포트 라이프사이클')[3]);
+  assert.ok(support.querySelector('[data-soon-mark]'));
+});
+
+test('working links inside a coming-soon card are not announced as unavailable', () => {
+  for (const role of ['agent', 'sme', 'am', 'om']) {
+    const root = homeOf(role);
+    for (const a of root.querySelectorAll('[data-soon] a')) {
+      assert.equal(a.closest('[aria-disabled="true"]'), null, `${role}: ${a.getAttribute('href')}`);
+    }
+  }
+});
+
+test('roles without a course start at Excel lesson 1', () => {
+  const row = rhRows(4).find((r) => r[0].startsWith('상담사'));
+  for (const role of ['agent', 'am', 'om']) {
+    const start = homeOf(role).querySelector('[data-start] a');
+    assert.equal(start.getAttribute('href'), './excel/#lesson-1', role);
+    assert.equal(start.textContent, row[1], role);
+  }
+  assert.equal(homeOf('om', 'en').querySelector('[data-start] a').textContent, row[2]);
 });

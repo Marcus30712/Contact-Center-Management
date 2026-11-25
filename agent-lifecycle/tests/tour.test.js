@@ -21,8 +21,15 @@ const rows = (header) => {
 
 test('tour wording is the confirmed table', () => {
   assert.deepEqual(TOUR_STEPS.map((s) => s.id), ['home', 'learn', 'guide', 'browse', 'settings']);
-  assert.deepEqual(TOUR_STEPS.map((s) => s.text.ko), rows('| 순서 | 메뉴 | 말풍선 |').map((r) => r[2]));
-  assert.deepEqual(TOUR_STEPS.map((s) => s.text.en), rows('| 순서 | 말풍선 |').map((r) => r[1]));
+  // The Learn step was reworded for every role (2026-11-25, role-home-copy §6).
+  const learn = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-role-home-copy.md', import.meta.url), 'utf8')
+    .split('\n').find((l) => l.startsWith('| 배우기 |')).slice(1, -1).split(' | ').map((c) => c.trim());
+  const ko = rows('| 순서 | 메뉴 | 말풍선 |').map((r) => r[2]);
+  const en = rows('| 순서 | 말풍선 |').map((r) => r[1]);
+  ko[1] = learn[2];
+  en[1] = learn[3];
+  assert.deepEqual(TOUR_STEPS.map((s) => s.text.ko), ko);
+  assert.deepEqual(TOUR_STEPS.map((s) => s.text.en), en);
   const words = Object.fromEntries(rows('| 쓰임 | 문구 |'));
   assert.equal(TOUR_UI.skip.ko, words['건너뛰기 버튼']);
   assert.equal(TOUR_UI.next.ko, words['다음 버튼']);

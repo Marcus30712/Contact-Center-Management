@@ -50,7 +50,9 @@ function dropSecondTap(root, view) {
   }, true);
 }
 
-export function renderExcel(root, lang, storage, route, view) {
+// opts.advanced: false hides the advanced lessons (SMEs, 2026-11-25); stored progress is kept.
+export function renderExcel(root, lang, storage, route, view, opts = {}) {
+  const advancedOn = opts.advanced !== false;
   dropSecondTap(root, view);
   const screen = [route, view.lessonId, view.stage, view.qi, Boolean(view.graded)].join('|');
   if (view.screen !== screen) { view.screen = screen; view.movedAt = Date.now(); }
@@ -62,7 +64,7 @@ export function renderExcel(root, lang, storage, route, view) {
   const progress = loadProgress(storage);
   const show_ = (...parts) => root.replaceChildren(...parts.filter(Boolean));
   const redraw = (focus) => {
-    renderExcel(root, lang, storage, route, view);
+    renderExcel(root, lang, storage, route, view, opts);
     if (focus) root.querySelector(focus)?.focus();
   };
 
@@ -77,7 +79,7 @@ export function renderExcel(root, lang, storage, route, view) {
   if (status.textContent !== view.status) status.textContent = view.status;
 
   const m = /^lesson-(\d+)$/.exec(route || '');
-  const lesson = m && [...EXCEL_LESSONS, ...EXCEL_ADVANCED].find((l) => l.id === m[1]);
+  const lesson = m && [...EXCEL_LESSONS, ...(advancedOn ? EXCEL_ADVANCED : [])].find((l) => l.id === m[1]);
   const advanced = Boolean(lesson && EXCEL_ADVANCED.includes(lesson));
   if (!lesson || !isOpen(progress, lesson.id)) {
     view.lessonId = null;
@@ -107,7 +109,8 @@ export function renderExcel(root, lang, storage, route, view) {
 
   if (view.stage === 'summary') {
     const right = lesson.questions.filter((q) => view.firstTry[q.id]).length;
-    const nextId = nextLessonAfter(progress, lesson.id);
+    const after = nextLessonAfter(progress, lesson.id);
+    const nextId = advancedOn || !EXCEL_ADVANCED.some((l) => l.id === after) ? after : null;
     const allDone = EXCEL_LESSONS.every((l) => progress.completed.includes(l.id));
     const advancedDone = allDone && EXCEL_ADVANCED.every((l) => progress.completed.includes(l.id));
     show_(head, h('section', { class: 'ex-done', 'data-done': true }, [
@@ -115,7 +118,7 @@ export function renderExcel(root, lang, storage, route, view) {
       h('div', {}, [
         h('h2', { tabindex: '-1', text: fill(tr(UI.lessonDone), { i: lesson.id }) }),
         h('p', { 'data-score': true, text: fill(tr(UI.score), { n: right }) }),
-        advancedDone ? h('p', { text: tr(ADVANCED_UI.advancedDone) }) : allDone ? h('p', { text: tr(UI.allDone) }) : null,
+        advancedOn && advancedDone ? h('p', { text: tr(ADVANCED_UI.advancedDone) }) : allDone ? h('p', { text: tr(UI.allDone) }) : null,
       ]),
     ]), h('section', { class: 'ex-summary', 'data-summary': true }, [
       h('h2', { text: tr(UI.summaryTitle) }),
@@ -313,7 +316,7 @@ export function renderExcel(root, lang, storage, route, view) {
       h('header', { class: 'ex-head' }, [
         h('h1', { tabindex: '-1', text: tr(UI.title) }),
       ]),
-      h('section', { class: 'ex-intro' }, [miso('smile', 72), h('p', { text: tr(advancedDone ? ADVANCED_UI.advancedDone : allDone ? ADVANCED_UI.advancedNext : UI.intro) })]),
+      h('section', { class: 'ex-intro' }, [miso('smile', 72), h('p', { text: tr(!advancedOn ? (allDone ? UI.allDone : UI.intro) : advancedDone ? ADVANCED_UI.advancedDone : allDone ? ADVANCED_UI.advancedNext : UI.intro) })]),
       h('ol', { class: 'ex-list' }, EXCEL_LESSONS.map((l) => {
         const open = isOpen(progress, l.id);
         const done = progress.completed.includes(l.id);
@@ -326,7 +329,7 @@ export function renderExcel(root, lang, storage, route, view) {
           open ? null : h('span', { class: 'ex-locked', text: tr(UI.locked) }),
         ]);
       })),
-      h('section', { class: 'ex-advanced', 'data-advanced': true }, [
+      !advancedOn ? null : h('section', { class: 'ex-advanced', 'data-advanced': true }, [
         h('h2', { text: tr(ADVANCED_UI.advancedHeading) }),
         h('p', { class: 'muted', text: tr(ADVANCED_UI.advancedNote) }),
         h('ol', { class: 'ex-list', start: '12' }, EXCEL_ADVANCED.map((l) => {

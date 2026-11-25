@@ -8,7 +8,8 @@ import {
   ROLE_KEY, ROLE_ASKED_KEY, ROLES, DEFAULT_ROLE, COURSE_ROLES, coursesFor, roleOf,
   loadRole, saveRole, shouldAskRole, markRoleAsked,
 } from '../../shared/role.js';
-import { ROLE_UI, ROLE_NAMES } from '../../shared/role-data.js';
+import { ROLE_UI, ROLE_NAMES, ROLE_SHORT } from '../../shared/role-data.js';
+const HOME_COPY_DOC = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-role-home-copy.md', import.meta.url), 'utf8');
 
 const COPY = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-sme-course-copy-ko.md', import.meta.url), 'utf8');
 const copyRow = (section, place) => {
@@ -71,7 +72,7 @@ test('role wording is the approved copy', () => {
   assert.equal(ROLE_UI.preparing.ko, ko('준비 중 안내 (홈)').replace('{직급}', '{role}'));
   assert.equal(ROLE_UI.preparingCareer.ko, ko('준비 중 링크 1'));
   assert.equal(ROLE_UI.preparingDaily.ko, ko('준비 중 링크 2'));
-  assert.deepEqual(ROLES.map((r) => ROLE_NAMES[r].ko), ko('선택지').split(' · '));
+  // The choices were renamed with TL/AM/OM (2026-11-25): see 'role names follow the copy'.
 });
 
 test('courses per role', () => {
@@ -100,4 +101,15 @@ test('home and the quiz read courses from one shared list', async () => {
     const src = readFileSync(new URL(`../../${f}`, import.meta.url), 'utf8');
     assert.ok(!src.includes("'agent-lifecycle-course:v1'") && !/role: '(tl|sme)'/.test(src), `${f} keeps no copy of course keys or roles`);
   }
+});
+
+test('role names follow the copy', () => {
+  const s8 = HOME_COPY_DOC.split(/^## 8\. /m)[1];
+  const row = (label) => s8.split('\n').find((l) => l.startsWith(`| ${label} |`)).slice(1, -1).split(' | ').map((c) => c.trim());
+  const clean = (x) => x.replace(/ \(지금 그대로\)$| \(as now\)$/, '');
+  for (const [role, label] of [['agent', '상담사'], ['sme', 'SME'], ['tl', 'TL'], ['am', 'AM'], ['om', 'OM']]) {
+    const [, ko, en] = row(label);
+    assert.deepEqual(ROLE_NAMES[role], { ko: clean(ko), en: clean(en) }, role);
+  }
+  assert.deepEqual(ROLE_SHORT, { agent: { ko: '상담사', en: 'Agent' }, sme: { ko: 'SME', en: 'SME' }, tl: { ko: 'TL', en: 'TL' }, am: { ko: 'AM', en: 'AM' }, om: { ko: 'OM', en: 'OM' } });
 });

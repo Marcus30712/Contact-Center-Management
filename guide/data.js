@@ -3,8 +3,8 @@
 // agent-lifecycle/tests/guide.test.js keeps the two identical.
 export const GUIDE_UI = {
   "title": {
-    "ko": "팀장 상황별 길잡이",
-    "en": "Team Lead Situation Guide"
+    "ko": "TL 상황별 길잡이",
+    "en": "TL Situation Guide"
   },
   "intro": {
     "ko": "지금 어떤 상황인가요? 누르면 먼저 볼 곳과 이어서 볼 곳을 알려 드립니다.",

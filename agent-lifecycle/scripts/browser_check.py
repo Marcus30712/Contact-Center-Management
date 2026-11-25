@@ -283,9 +283,9 @@ def main():
         page = new_page(browser, errors)
         page.goto(HUB)
         cards = page.locator("a.card")
-        check("(r) hub shows nine topic cards plus the practice card", cards.count() == 10, str(cards.count()))
-        for href, title in (("./guide/", "팀장 상황별 길잡이"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("./codex/", "Codex 원페이저"), ("./staffing-calculator/", "인력 산정 실험실"), ("./glossary/", "용어집"), ("./references/", "참고 자료")):
-            page.goto(HUB)
+        check("(r) a team lead's home shows practice, guide and three Learn cards", cards.count() == 5, str(cards.count()))
+        for href, title in (("./guide/", "TL 상황별 길잡이"), ("./agent-lifecycle/", "상담사 라이프사이클"), ("./sop-library/", "SOP 라이브러리"), ("../codex/", "Codex 원페이저"), ("../staffing-calculator/", "인력 산정 실험실"), ("../glossary/", "용어집"), ("../references/", "참고 자료")):
+            page.goto(HUB if href.startswith("./") else HUB + "browse/")
             page.click(f"a.card[href='{href}']")
             page.wait_for_selector("#app h1")
             check(f"(r) card opens {href}", page.inner_text("#app h1") == title, page.inner_text("#app h1"))
@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "review/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -670,7 +670,7 @@ def main():
         page.reload()
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
-        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "codex/#daily": "browse",
+        PAGES = {"": "home", "guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "codex/#daily": "browse", "browse/": "browse",
                  "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
@@ -749,7 +749,7 @@ def main():
         check(f"(a5) wide screens keep 32px side margins ({pad})", pad == "32px")
         page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
         page.wait_for_timeout(200)
-        check("(a5) scrolled to the bottom of home, the menu marks Browse", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "browse")
+        check("(a5) scrolled to the bottom of home, the menu marks Learn", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "learn")
         page.evaluate("window.scrollTo(0, 0)")
         page.wait_for_timeout(200)
         check("(a5) back at the top, the menu marks Home", page.get_attribute("nav.appbar [aria-current='page']", "data-item") == "home")
@@ -1182,7 +1182,7 @@ def main():
 
         # (v) storage blocked
         page = new_page(browser, errors, init=BLOCK_STORAGE)
-        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "SOP 라이브러리", "SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers"), ("guide/", "팀장 상황별 길잡이", "Team Lead Situation Guide")):
+        for path, ko, en in (("glossary/", "용어집", "Glossary"), ("references/", "참고 자료", "References"), ("staffing-calculator/", "인력 산정 실험실", "Staffing Lab"), ("sop-library/", "SOP 라이브러리", "SOP Library"), ("codex/", "Codex 원페이저", "Codex One-Pagers"), ("guide/", "TL 상황별 길잡이", "TL Situation Guide")):
             page.goto(HUB + path)
             page.wait_for_selector("#app h1")
             check(f"(v) {path} opens in Korean with storage blocked", page.inner_text("#app h1") == ko)
@@ -1373,8 +1373,15 @@ def main():
         page.goto(HUB + "settings/")
         page.click("[data-set-role='am']")
         page.goto(HUB)
-        page.wait_for_selector("[data-role-preparing]")
-        check("(r6) a role without a course shows the preparing note", page.locator("[data-role-preparing] a").count() == 2)
+        page.wait_for_selector("[data-soon='first-steps']")
+        check("(r6) a role without a course sees coming-soon cards", page.locator("[data-soon] a").count() >= 2 and page.locator("#learn a.card[href='./excel/']").count() == 1)
+        box = page.evaluate("""() => {
+          const st = (el) => { const c = getComputedStyle(el); return { pad: c.paddingTop + ' ' + c.paddingLeft, bg: c.backgroundColor, radius: c.borderTopLeftRadius, bw: c.borderTopWidth }; };
+          const soon = document.querySelector('#learn [data-soon]');
+          const ready = document.querySelector('#learn a.card');
+          return { soon: st(soon), ready: st(ready), title: getComputedStyle(soon.querySelector('strong')).display, text: getComputedStyle(soon.querySelector('[data-soon-text]')).display };
+        }""")
+        check("(r7) a coming-soon card is boxed like a ready card", box["soon"] == box["ready"] and box["title"] == "block" and box["text"] == "block")
         page.context.close()
 
         # (q) review quiz (2026-11-25): an SME who finished the course takes the quiz and gets the badge
@@ -1406,6 +1413,30 @@ def main():
         page.go_back()
         page.wait_for_selector("[data-quiz]")
         check("(q3) Back returns to the list", page.locator("[data-start-quiz]").count() >= 1)
+        page.context.close()
+
+        # (h) every role's home has the same layout; Browse has its own page (2026-11-25)
+        shapes = {}
+        for role in ("tl", "sme", "agent", "am", "om"):
+            page = new_page(browser, errors, init=f"try {{ localStorage.setItem('queuecraft:role', '{role}'); }} catch (e) {{}}")
+            page.goto(HUB)
+            page.wait_for_selector("#learn")
+            shapes[role] = page.evaluate("[...document.querySelector('#app').children].map((e) => e.tagName + (e.id ? '#' + e.id : ''))")
+            if role == "sme":
+                page.goto(HUB + "excel/")
+                page.wait_for_selector("ol.ex-list")
+                check("(h3) an SME's Excel page has no advanced section", page.locator("[data-advanced]").count() == 0)
+            page.context.close()
+        check("(h1) every role's home has the same sections in the same order", len({str(v) for v in shapes.values()}) == 1, str(shapes))
+        page = new_page(browser, errors)
+        page.goto(HUB)
+        page.wait_for_selector("nav.appbar")
+        page.click("nav.appbar a[data-item='browse']")
+        page.wait_for_selector("a.card[href='../codex/']")
+        check("(h2) the menu's Browse opens the Browse page", page.url.endswith("/browse/"), page.url)
+        page.goto(HUB + "#browse")
+        page.wait_for_url("**/browse/")
+        check("(h2) the old home Browse address opens the Browse page", page.url.endswith("/browse/"), page.url)
         page.context.close()
 
         browser.close()

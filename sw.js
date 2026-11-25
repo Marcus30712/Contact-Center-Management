@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = '63a635f0bb65';
+const VERSION = '28fd276cf4e6';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -49,6 +49,10 @@ const PRECACHE = [
   "assets/miso/think.webp",
   "assets/miso/wink.webp",
   "assets/miso/worry.webp",
+  "browse/",
+  "browse/app.js",
+  "browse/index.html",
+  "browse/render.js",
   "codex/",
   "codex/app.js",
   "codex/codex.css",
@@ -97,6 +101,7 @@ const PRECACHE = [
   "home/data.js",
   "home/home.css",
   "home/render.js",
+  "home/role-home.js",
   "home/start-data.js",
   "home/start-render.js",
   "home/start.css",

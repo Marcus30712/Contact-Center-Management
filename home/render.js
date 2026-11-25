@@ -5,12 +5,12 @@ import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { loadProgress } from '../agent-lifecycle/js/engine/progress.js';
 import { EXCEL_LESSONS, EXCEL_UI } from '../excel/data.js';
 import { SME_UI } from '../sme/ui.js';
-import { HOME_UI as UI, LEARN, BROWSE, GUIDE_CARD } from './data.js';
+import { HOME_UI as UI } from './data.js';
+import { HOME_COPY, homeFor, withRole } from './role-home.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
 import { loadState, pool, streak, localDate, ensureToday } from '../practice/engine.js';
-import { COURSE_ROLES, DEFAULT_ROLE, coursesFor, roleOf } from '../shared/role.js';
+import { DEFAULT_ROLE, coursesFor, roleOf } from '../shared/role.js';
 import { COURSE_INFO } from '../shared/courses.js';
-import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
 import { REVIEW_UI } from '../review/data.js';
 import { loadReview, unlocked } from '../review/engine.js';
 
@@ -84,7 +84,19 @@ function practiceCard(tr, storage, today) {
 export function renderHome(root, lang, storage, today = localDate(), role = DEFAULT_ROLE) {
   const tr = (text) => t(text, lang).text;
   const learning = myLearning(storage, role);
-  const cardEl = (c) => h('li', {}, [h('a', { class: 'card', href: c.href }, [h('strong', { text: tr(c.title) }), h('span', { text: tr(c.text) })])]);
+  // A ready card is a link; a coming-soon card is not, and says so.
+  const cardEl = (c) => h('li', {}, [c.href
+    ? h('a', { class: 'card', href: c.href }, [h('strong', { text: tr(c.title) }), h('span', { text: tr(c.text) })])
+    : h('div', { class: 'card is-soon', 'data-soon': c.id }, [
+      h('strong', { text: tr(c.title) }),
+      h('span', { class: 'hm-soon-mark', 'data-soon-mark': true, text: tr(HOME_COPY.soonMark) }),
+      h('span', { 'data-soon-text': true, text: tr(c.codex ? withRole(HOME_COPY.soonText, role) : c.text) }),
+      c.codex ? h('span', { class: 'hm-soon-links' }, [
+        h('a', { href: './codex/#career', text: tr(HOME_COPY.soonCareer) }), ' ',
+        h('a', { href: `./codex/#daily-${role}`, text: tr(HOME_COPY.soonDaily) }),
+      ]) : null,
+    ])]);
+  const cards = homeFor(role);
 
   const reviewHref = (row) => COURSES.find((c) => c.id === row.id).path;
   const courseRow = (row) => h('li', { class: 'hm-course', 'data-course': row.id }, [
@@ -104,10 +116,12 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
   if (!learning.started) {
     // A new SME starts on their own course; everyone else on lifecycle lesson 1, as the wording says.
     // The start course may not be among the rows shown (roles without a course), so look it up in all courses.
-    const [startId, startText] = role === 'sme' ? ['sme', SME_UI.startNote] : ['lifecycle', UI.start];
+    // Roles without a course of their own start on Excel lesson 1 (2026-11-25).
+    const [startId, startText] = role === 'sme' ? ['sme', SME_UI.startNote] : role === 'tl' ? ['lifecycle', UI.start] : ['excel', HOME_COPY.startExcel];
     const startCourse = COURSES.find((c) => c.id === startId);
     const first = [...startCourse.lessons].sort((a, b) => a.order - b.order)[0];
-    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href: `${startCourse.path}#${first.id}-0`, text: tr(startText) })]);
+    const href = startCourse.href ? startCourse.href(first) : `${startCourse.path}#${first.id}-0`;
+    note = h('p', { class: 'hm-note', 'data-start': true }, [h('a', { href, text: tr(startText) })]);
   } else if (learning.allDone) {
     note = h('p', { class: 'hm-note', 'data-all-done': true, text: tr(UI.allDone) });
   }
@@ -137,19 +151,10 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
       learning.started ? h('ul', { class: 'hm-courses' }, learning.map(courseRow)) : null,
       note,
       quizCard(),
-      COURSE_ROLES.includes(role) ? null : h('div', { class: 'hm-note', 'data-role-preparing': true }, [
-        h('p', { text: tr(ROLE_UI.preparing).replace('{role}', tr(ROLE_NAMES[role])) }),
-        h('p', {}, [
-          h('a', { href: './codex/#career', text: tr(ROLE_UI.preparingCareer) }),
-          ' ',
-          h('a', { href: `./codex/#daily-${role}`, text: tr(ROLE_UI.preparingDaily) }),
-        ]),
-      ]),
     ]),
     h('div', { class: 'hm-cards' }, [practiceCard(tr, storage, today)]),
-    h('ul', { class: 'hm-cards' }, [cardEl(GUIDE_CARD)]),
-    h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, orderByRole(LEARN, role).map(cardEl))]),
-    h('section', { id: 'browse' }, [h('h2', { text: tr(UI.browse) }), h('ul', { class: 'hm-cards' }, BROWSE.map(cardEl))]),
+    h('ul', { class: 'hm-cards' }, [cardEl(cards.guide)]),
+    h('section', { id: 'learn' }, [h('h2', { text: tr(UI.learn) }), h('ul', { class: 'hm-cards' }, cards.learn.map(cardEl))]),
     h('p', { class: 'hm-privacy' }, [h('a', { href: './privacy/', 'data-privacy': true, text: tr(UI.privacy) })]),
   );
 }

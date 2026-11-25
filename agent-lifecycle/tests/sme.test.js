@@ -234,7 +234,7 @@ test('course, role and lesson-screen words match the English copy', async () => 
   const pairs = { sheetTitle: 'Sheet title', sheetNote: 'Sheet note', later: 'Later button', settingsHeading: 'Settings heading',
     settingsNote: 'Settings note', preparing: 'Preparing note (home)', preparingCareer: 'Preparing link 1', preparingDaily: 'Preparing link 2' };
   for (const [k, place] of Object.entries(pairs)) assert.equal(ROLE_UI[k].en, en('2.', place), k);
-  assert.deepEqual(ROLES.map((r) => ROLE_NAMES[r].en), en('2.', 'Choices').split(' · '));
+  // The role choices were renamed with TL/AM/OM (2026-11-25); role.test checks them against role-home-copy §8.
 });
 
 test('the English list and lessons have no Korean left', () => {

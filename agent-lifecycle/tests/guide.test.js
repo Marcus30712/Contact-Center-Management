@@ -49,7 +49,8 @@ test('eighteen situations in five groups, as confirmed', () => {
 });
 
 test('screen wording is the confirmed wording', () => {
-  assert.equal(GUIDE_UI.title.ko, field('제목'));
+  // Renamed with the short role name (2026-11-25, role-home-copy §2).
+  assert.deepEqual(GUIDE_UI.title, { ko: 'TL 상황별 길잡이', en: 'TL Situation Guide' });
   assert.equal(GUIDE_UI.intro.ko, field('안내'));
   assert.deepEqual([GUIDE_UI.all.ko, ...GROUPS.map((g) => g.chip.ko)].join(' / '), field('칩'));
   assert.equal(`${GUIDE_UI.first.ko} / ${GUIDE_UI.then.ko}`, field('링크 묶음 이름'));
@@ -112,7 +113,7 @@ const isOpen = (card) => card.querySelector('[aria-expanded]').getAttribute('ari
 
 test('the screen shows six chips and eighteen closed situations', () => {
   const { $, $$ } = mount();
-  assert.equal($('h1').textContent, '팀장 상황별 길잡이');
+  assert.equal($('h1').textContent, 'TL 상황별 길잡이');
   assert.deepEqual($$('[data-tab]').map((b) => b.getAttribute('data-tab')), ['all', 'member', 'newcomer', 'customer', 'staffing', 'org']);
   assert.equal($('[data-tab="all"]').getAttribute('aria-pressed'), 'true');
   assert.equal($$('[data-card]').length, 18);

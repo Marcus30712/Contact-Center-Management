@@ -367,3 +367,42 @@ test('advanced builds keep the formula line in view and use smaller cards', () =
   }
   assert.ok(p.root.querySelector('.ex-build.is-advanced [data-line]'));
 });
+
+// ---------- no advanced lessons for SMEs (2026-11-25) ----------
+import { showsAdvancedExcel } from '../../shared/role.js';
+
+const BASIC_DONE = () => fakeStorage({ [PROGRESS_KEY]: JSON.stringify({ completed: EXCEL_LESSONS.map((l) => l.id), scores: {} }) });
+const excelPage = (storage, route, advanced) => {
+  const { root } = setupDom();
+  renderExcel(root, 'ko', storage, route, newExcelView(), { advanced });
+  return root;
+};
+
+test('only SMEs are kept from advanced Excel', () => {
+  assert.equal(showsAdvancedExcel('sme'), false);
+  for (const r of ['tl', 'agent', 'am', 'om']) assert.equal(showsAdvancedExcel(r), true, r);
+});
+
+test('an SME never sees advanced Excel', () => {
+  const s = BASIC_DONE();
+  const listRoot = excelPage(s, '', false);
+  assert.equal(listRoot.querySelector('[data-advanced]'), null);
+  assert.ok(!listRoot.textContent.includes(ADVANCED_UI.advancedNext.ko));
+  const viaAddress = excelPage(s, `lesson-${EXCEL_ADVANCED[0].id}`, false);
+  assert.ok(viaAddress.querySelector('ol.ex-list'), 'an advanced address shows the list');
+  assert.equal(viaAddress.querySelector('[data-advanced]'), null);
+  // A team lead still gets them.
+  assert.ok(excelPage(s, '', true).querySelector('[data-advanced]'));
+  assert.ok(excelPage(s, '', undefined).querySelector('[data-advanced]'), 'advanced is shown by default');
+});
+
+test('advanced progress is kept but not asked', async () => {
+  const { pool } = await import('../../practice/engine.js');
+  const adv = EXCEL_ADVANCED[0].id;
+  const stored = JSON.stringify({ completed: [...EXCEL_LESSONS.map((l) => l.id), adv], scores: {} });
+  const sme = fakeStorage({ [PROGRESS_KEY]: stored, 'queuecraft:role': 'sme' });
+  assert.ok(!pool(sme).some((q) => q.course === 'excel' && q.lessonId === adv));
+  assert.equal(sme.getItem(PROGRESS_KEY), stored, 'the record is untouched');
+  const tl = fakeStorage({ [PROGRESS_KEY]: stored, 'queuecraft:role': 'tl' });
+  assert.ok(pool(tl).some((q) => q.course === 'excel' && q.lessonId === adv));
+});

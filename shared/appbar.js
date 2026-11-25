@@ -26,10 +26,9 @@ const ICONS = {
 // On the home page: which part is in view, from the scroll position and where
 // the Learn and Browse sections start.
 // atBottom: Browse is short and can never reach the top, so the bottom counts.
-export function homeSection(scrollY, learnTop, browseTop, atBottom = false) {
-  if (atBottom || scrollY >= browseTop) return 'browse';
-  if (scrollY >= learnTop) return 'learn';
-  return 'home';
+export function homeSection(scrollY, learnTop, atBottom = false) {
+  // Home ends with Learn (Browse has its own page since 2026-11-25).
+  return atBottom || scrollY >= learnTop ? 'learn' : 'home';
 }
 
 // Is this address the home page? (…/, …/index.html, with any ?query or #hash)
@@ -65,7 +64,7 @@ export function appBarItems(rootUrl, pageUrl, section) {
     { id: 'home', href: href('./'), current: current === 'home' },
     { id: 'learn', href: href('./#learn'), current: current === 'learn' },
     { id: 'guide', href: href('./guide/'), current: current === 'guide' },
-    { id: 'browse', href: href('./#browse'), current: current === 'browse' },
+    { id: 'browse', href: href('./browse/'), current: current === 'browse' },
     { id: 'settings', href: href('./settings/'), current: current === 'settings' },
   ];
 }
@@ -118,7 +117,7 @@ function mount() {
     };
     window.addEventListener('scroll', () => {
       const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
-      const next = homeSection(window.scrollY, top('learn'), top('browse'), atBottom);
+      const next = homeSection(window.scrollY, top('learn'), atBottom);
       if (next === section) return;
       section = next;
       const nav = document.querySelector('nav.appbar');

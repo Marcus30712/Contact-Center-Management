@@ -22,7 +22,7 @@ A learning app for getting ready for your next contact center role, from agent t
 | Privacy Policy | [`privacy/`](privacy/) | States that the app collects no personal data and keeps records on the device only. The address used for store listings (Korean/English) |
 | Settings | [`settings/`](settings/) | Language, your role, appearance (system, light, dark), backup (export and import a file), offline status, how to add to the home screen, version. The fifth tab of the bottom menu (Korean/English) |
 
-- Home: `index.html` (Miso's greeting, My learning, Learn and Browse cards). Every page shares the bottom menu (Home, Learn, Guide, Browse, Settings) (`shared/`)
+- Home: `index.html` (Miso's greeting, My learning, Today's Practice, the situation guide, Learn). Every role gets the same layout; only the guide and Learn cards change by role (`home/role-home.js`), and courses not built yet show as "Coming soon" cards. The Browse cards have their own page, `browse/`. Every page shares the bottom menu (Home, Learn, Guide, Browse, Settings) (`shared/`)
 - Install and offline: `manifest.webmanifest`, `sw.js`. After changing a page file, rebuild `sw.js` with `python3 tools/sw_list.py`
 - Miso Kim artwork: made by Marcus Shim with Google Gemini, under CC BY-NC-ND 4.0 (`assets/miso/`, originals in `art/miso/`)
 - Design documents and plans: `docs/superpowers/` (mostly in Korean)

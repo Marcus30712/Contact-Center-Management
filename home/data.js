@@ -37,7 +37,7 @@ import { roleOf } from '../shared/role.js';
 const forRole = (role, c) => ({ ...c, role });
 const card = (href, ko, en, textKo, textEn) => ({ href, title: { ko, en }, text: { ko: textKo, en: textEn } });
 
-export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · 팀장 상황별 길잡이', 'Where to start? · Team Lead Situation Guide',
+export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · TL 상황별 길잡이', 'Where to start? · TL Situation Guide',
   '지금 겪는 상황을 고르면 먼저 볼 곳을 알려 드립니다.', "Pick the situation you're in and see where to look first.");
 
 export const LEARN = [

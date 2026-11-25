@@ -4,9 +4,18 @@
 export const ROLE_NAMES = {
   agent: { ko: '상담사 (Agent)', en: 'Agent' },
   sme: { ko: 'SME', en: 'SME' },
-  tl: { ko: '팀장 (Team Lead)', en: 'Team Lead' },
-  am: { ko: '부매니저 (Assistant Manager)', en: 'Assistant Manager' },
-  om: { ko: '매니저 (Operation Manager)', en: 'Operation Manager' },
+  tl: { ko: 'TL · 팀장', en: 'TL · Team Lead' },
+  am: { ko: 'AM · 부매니저', en: 'AM · Assistant Manager' },
+  om: { ko: 'OM · 매니저', en: 'OM · Operation Manager' },
+};
+
+// Short names for labels and titles (2026-11-25, role-home-copy).
+export const ROLE_SHORT = {
+  agent: { ko: '상담사', en: 'Agent' },
+  sme: { ko: 'SME', en: 'SME' },
+  tl: { ko: 'TL', en: 'TL' },
+  am: { ko: 'AM', en: 'AM' },
+  om: { ko: 'OM', en: 'OM' },
 };
 
 export const ROLE_UI = {
