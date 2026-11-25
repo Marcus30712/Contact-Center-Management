@@ -200,3 +200,58 @@ test('SME SOP questions link to their own course', () => {
   root.querySelector('[data-question] [data-option]').dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
   assert.equal(root.querySelector('a[data-review]').getAttribute('href'), '../sme-sop/#scrubbing-0');
 });
+
+// ---------- English (Task 4): docs/superpowers/specs/2026-11-25-sme-sop-copy.en.md ----------
+const EN_FILE = new URL('../../docs/superpowers/specs/2026-11-25-sme-sop-copy.en.md', import.meta.url);
+const EN = existsSync(EN_FILE) ? readFileSync(EN_FILE, 'utf8') : '';
+const PARSED_EN = lessonsOf(EN);
+
+test('the course passes the rules with English required', () => {
+  assert.deepEqual(validateCourse(SS_LESSONS, { requireEnglish: true, lessonCount: 8, loop: false, figure: SS_FIGURE }), []);
+});
+
+test('the English is the English copy, word for word', () => {
+  assert.equal(PARSED_EN.length, 8);
+  const people = { scrubbing: { ko: '서준', en: 'Seojun' }, attendance: { ko: '준호', en: 'Junho' }, huddle: { ko: '수진', en: 'Sujin' } };
+  SS_LESSONS.forEach((l, i) => {
+    const c = PARSED_EN[i];
+    assert.equal(l.title.en, c.title, l.id);
+    assert.equal(l.short.en, c.short, l.id);
+    assert.equal(l.subtitle.en, c.subtitle, l.id);
+    assert.equal(l.roles.en, c.roles, l.id);
+    assert.deepEqual(l.procedure.map((id) => l.diagram.nodes.find((n) => n.id === id).label.en), c.nodes, l.id);
+    assert.deepEqual(l.steps.map((s) => s.caption.en), c.steps, l.id);
+    l.checkpoint.forEach((q, k) => {
+      const want = c.questions[k];
+      assert.equal(q.prompt.en, want.prompt, q.id);
+      assert.equal(q.answer, want.answer, q.id);
+      assert.equal(q.explanation.en, want.explanation, q.id);
+      assert.deepEqual(q.options.map((o) => ({ id: o.id, text: o.text.en, ...(o.feedback ? { feedback: o.feedback.en } : {}) })), want.options, q.id);
+    });
+    assert.equal(l.connection.text.en, c.connection, l.id);
+    assert.deepEqual(l.personaName, people[l.id], l.id);
+  });
+});
+
+test('the English never runs to more sentences than the Korean it translates', () => {
+  const count = (s) => (s.match(/[.?!](?=["'”’)]*(\s|$))/g) || []).length;
+  for (const l of SS_LESSONS) l.steps.forEach((s, i) => assert.ok(count(s.caption.en) <= count(s.caption.ko), `${l.id} step ${i + 1}`));
+});
+
+test('course and lesson-screen words match the English copy', () => {
+  const en = (place) => cells(EN.split('\n').find((x) => x.startsWith(`| ${place} |`)))[1];
+  assert.equal(SS_UI.courseTitle.en, en('Course title'));
+  assert.equal(SS_UI.courseTagline.en, en('Course intro'));
+  assert.equal(SS_UI.homeCard.en, en('Home card'));
+  assert.equal(SS_UI.homeCard.en, HOME_COPY.smeSop.text.en);
+  assert.equal(SS_UI.listNote.en, en('Figures note'));
+  assert.equal(SS_UI.rolesLabel.en, en('Who label'));
+  assert.deepEqual(SCREEN_KEYS.map((k) => SS_UI[k].en), en('Lesson screen').split(' · '));
+});
+
+test('the English list and lessons have no Korean left', () => {
+  const { root } = setupDom();
+  renderSmeSopHome(root, SS_LESSONS, { completed: [] }, 'en');
+  assert.ok(!/[가-힣]/.test(root.textContent), root.textContent);
+  for (const l of SS_LESSONS) assert.ok(!/[가-힣]/.test(lessonText(l, 'en')), l.id);
+});
