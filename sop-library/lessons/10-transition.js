@@ -69,8 +69,8 @@ export default {
       id: 'transition-q2',
       prompt: tx("가장 친했던 하은이 지각을 되풀이합니다. 어떻게 하는 것이 좋을까요?", "Haeun, your closest colleague, keeps arriving late. What is the best way to handle it?"),
       options: [
-        option('a', tx("친한 사이니 이번에는 넘어간다.", "You are close, so let it go this time."), tx("한 사람에게만 기준이 느슨하면 다른 팀원들은 기준이 사람에 따라 다르다고 느낍니다.", "When the standard is looser for one person, the rest of the team feels the standard depends on who you are.")),
-        option('b', tx("다른 팀원과 같은 기준으로, 1:1에서 차분히 이야기한다.", "Talk with her calmly in a one-on-one, by the same standard as everyone else.")),
+        option('a', tx("친한 사이라 팀 분위기를 생각해, 이번 한 번은 조용히 넘어간다.", "You are close and care about the team mood, so quietly let it go this once."), tx("한 사람에게만 기준이 느슨하면 다른 팀원들은 기준이 사람에 따라 다르다고 느낍니다.", "When the standard is looser for one person, the rest of the team feels the standard depends on who you are.")),
+        option('b', tx("다른 팀원과 같은 기준으로, 1:1에서 차분히 말한다.", "Talk with her calmly in a one-on-one, by the same standard as everyone else.")),
         option('c', tx("다른 팀원들 앞에서 엄하게 지적해 본보기로 삼는다.", "Call her out sternly in front of the team to make an example of her."), tx("공개적으로 지적하면 당사자는 상처를 받고, 팀은 친했던 사이를 일부러 끊는다고 읽습니다.", "Calling her out in public hurts her, and the team reads it as you cutting off the friendship on purpose.")),
       ],
       answer: 'b',

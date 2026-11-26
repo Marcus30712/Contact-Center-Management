@@ -38,9 +38,9 @@ export default {
       id: "kbrequest-q1",
       prompt: tx("지식 베이스 업데이트 요청으로 알맞은 것은 무엇일까요?", "Which fits as a knowledge base update request?"),
       options: [
-        option("a", tx("\"환불 문서 내용이 이상합니다.\"", "\"The refund article looks wrong.\""), tx("무엇이 틀렸는지 담당자가 다시 찾아야 해서 반영이 늦어집니다.", "The owner has to find out what is wrong, which slows the fix.")),
-        option("b", tx("\"환불 문서 3번 항목의 신청 기간을 14일에서 7일로: 고객사 공지와 관련 티켓 2건 첨부\"", "\"Refund article item 3: claim period from 14 days to 7 days; client notice and 2 related tickets attached\"")),
-        option("c", tx("편집 권한이 있으니 검토 없이 바로 고친다.", "You have edit access, so fix it yourself right away without review."), tx("검토 없이 고친 문서는 팀 전체의 안내를 한 번에 바꿉니다. 정해진 경로로 요청합니다.", "An article changed without review changes the whole team's answers at once. Use the agreed channel.")),
+        option("a", tx("\"환불 문서 내용이 최근 고객사 공지와 다른 것 같습니다. 확인하고 고쳐 주세요.\"", "\"The refund article seems to differ from the client's recent notice. Please check and fix it.\""), tx("무엇이 어떻게 다른지 담당자가 다시 찾아야 해서 반영이 늦어집니다.", "The owner has to work out what differs and how, which slows the fix.")),
+        option("b", tx("\"환불 문서 3번 항목의 신청 기간을 14일에서 7일로: 고객사 공지, 티켓 2건 첨부\"", "\"Refund article item 3: claim period from 14 days to 7 days; client notice and 2 tickets attached\"")),
+        option("c", tx("편집 권한이 있으니 검토를 기다리지 않고 직접 고친 뒤 팀에 알린다.", "You have edit access, so fix it yourself without waiting for review, then tell the team."), tx("검토 없이 고친 문서는 팀 전체의 안내를 한 번에 바꿉니다. 정해진 경로로 요청합니다.", "An article changed without review changes the whole team's answers at once. Use the agreed channel.")),
       ],
       answer: "b",
       explanation: tx("요청에는 문서, 틀린 곳, 바른 내용, 근거를 적습니다.", "A request names the article, what's wrong, the right content and the source."),
@@ -49,7 +49,7 @@ export default {
       id: "kbrequest-q2",
       prompt: tx("요청을 보냈지만 문서가 아직 고쳐지지 않았습니다. 그사이 할 일은 무엇일까요?", "You sent a request, but the article isn't fixed yet. What do you do meanwhile?"),
       options: [
-        option("a", tx("고쳐질 때까지 기다린다.", "Wait until it's fixed."), tx("그동안 상담사들은 틀린 문서대로 안내합니다.", "Meanwhile, agents keep giving answers from the wrong article.")),
+        option("a", tx("요청은 보냈으니, 담당자가 고칠 때까지 기다리며 진행 상황만 확인한다.", "The request is in, so wait for the owner to fix it and just check on progress."), tx("그동안 상담사들은 틀린 문서대로 안내합니다.", "Meanwhile, agents keep giving answers from the wrong article.")),
         option("b", tx("팀 채팅방에 임시 안내를 올리고, 반영되면 다시 알린다.", "Post an interim note in the team chat, and tell the team again once it's fixed.")),
         option("c", tx("상담사들에게 지식 베이스를 보지 말라고 한다.", "Tell agents not to use the knowledge base."), tx("지식 베이스 전체를 막으면 맞는 내용까지 찾을 곳이 사라집니다.", "Blocking the whole knowledge base removes the place to find the correct content too.")),
       ],

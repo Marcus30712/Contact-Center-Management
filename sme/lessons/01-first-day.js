@@ -40,9 +40,9 @@ export default {
       id: "firstday-q1",
       prompt: tx("첫날, 상담사가 고객에게 정책에 없는 큰 보상을 해 주자며 승인을 요청합니다. 어떻게 할까요?", "On your first day, an agent asks you to approve a large compensation that policy does not cover. What do you do?"),
       options: [
-        option("a", tx("고객이 화가 많이 났으니 일단 승인한다.", "Approve it for now, since the customer is very upset."), tx("승인 범위 밖의 결정은 되돌리기 어렵고, 다른 고객에게도 같은 기준을 요구받게 됩니다.", "A decision beyond your limits is hard to undo, and other customers will ask for the same.")),
-        option("b", tx("승인 범위 밖이므로 고객에게 기다림을 안내하게 하고, 팀장에게 바로 넘긴다.", "It is outside your limits, so have the agent ask the customer to wait and pass it to the team leader right away.")),
-        option("c", tx("정책에 없으니 거절하고 상담사에게 그대로 응대하게 한다.", "Turn it down because policy does not cover it, and let the agent carry on."), tx("거절로 끝내면 고객의 문제는 그대로 남습니다. 내가 정할 수 없는 건은 정할 수 있는 사람에게 넘깁니다.", "Turning it down leaves the customer's problem where it was. What you cannot decide goes to someone who can.")),
+        option("a", tx("고객이 많이 화가 나 있고 대기가 길어지니, 이번만 승인하고 팀장에게는 나중에 보고한다.", "The customer is very upset and the wait is growing, so approve it just this once and report to the team leader later."), tx("승인 범위 밖의 결정은 되돌리기 어렵고, 다른 고객에게도 같은 기준을 요구받게 됩니다.", "A decision beyond your limits is hard to undo, and other customers will ask for the same.")),
+        option("b", tx("범위 밖이니 고객에게 기다림을 안내하게 하고, 팀장에게 바로 넘긴다.", "It's outside your limits, so have the agent ask the customer to wait and pass it to the team leader right away.")),
+        option("c", tx("정책에 없는 요청이니 상담사에게 정중히 거절하게 하고, 사과 문구를 함께 써 준다.", "Policy doesn't cover it, so have the agent decline politely, and write the apology line together."), tx("정중히 거절해도 고객의 문제는 그대로 남습니다. 내가 정할 수 없는 건은 정할 수 있는 사람에게 넘깁니다.", "A polite refusal still leaves the customer's problem where it was. What you cannot decide goes to someone who can.")),
       ],
       answer: "b",
       explanation: tx("승인 범위 안은 내가 정하고, 범위 밖은 팀장에게 넘깁니다. 첫날 범위를 맞춰 두는 이유입니다.", "You decide within your limits and pass on what is outside them. That is why you agree on the limits on day one."),
@@ -51,8 +51,8 @@ export default {
       id: "firstday-q2",
       prompt: tx("지민의 응대 태도가 요즘 걱정됩니다. 직무전문가로서 알맞은 것은 무엇일까요?", "You are worried about how Jimin has been treating customers lately. What fits your role as SME?"),
       options: [
-        option("a", tx("지민의 품질 점수를 직접 낮춰 기록한다.", "Mark down Jimin's quality score yourself."), tx("평가는 QA와 팀장이 맡습니다. 직무전문가가 점수를 매기면 역할이 섞여 지민도 누구에게 도움을 청할지 헷갈립니다.", "QA and the team leader do the evaluating. If the SME scores agents, the roles blur and Jimin won't know whom to ask for help.")),
-        option("b", tx("옆에서 응대를 함께 보며 돕고, 같은 모습이 반복되면 팀장에게 사례와 함께 알린다.", "Watch Jimin's contacts alongside her and help, and if it keeps happening, tell the team leader with examples.")),
+        option("a", tx("지민의 품질 점수를 직접 낮춰 기록하고, 다음 평가에 반영해 달라고 QA에 요청한다.", "Mark down Jimin's quality score yourself, and ask QA to reflect it in the next evaluation."), tx("평가는 QA와 팀장이 맡습니다. 직무전문가가 점수를 매기면 역할이 섞여 지민도 누구에게 도움을 청할지 헷갈립니다.", "QA and the team leader do the evaluating. If the SME scores agents, the roles blur and Jimin won't know whom to ask for help.")),
+        option("b", tx("옆에서 응대를 함께 보며 돕고, 반복되면 팀장에게 사례와 함께 알린다.", "Watch Jimin's contacts alongside her and help, and if it repeats, tell the team leader with examples.")),
         option("c", tx("직무전문가가 관여할 일이 아니니 모른 척한다.", "Stay out of it, since it is not the SME's business."), tx("돕는 것은 직무전문가의 일입니다. 모른 척하면 문제가 커진 뒤에야 드러납니다.", "Helping is the SME's job. If you stay out of it, the problem shows only after it has grown.")),
       ],
       answer: "b",

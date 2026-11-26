@@ -270,7 +270,7 @@ export const DAILY = {
             "en": "about 10%"
           },
           "outputs": {
-            "ko": "교정 세션 회의록, 합의된 평가 기준 가이드라인",
+            "ko": "캘리브레이션 회의록, 합의된 평가 기준 가이드라인",
             "en": "Calibration session minutes, guideline on the agreed criteria"
           }
         }

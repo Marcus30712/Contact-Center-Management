@@ -38,8 +38,8 @@ export default {
       id: "roster-q1",
       prompt: tx("로스터의 \"스킬\" 칸에 알맞은 것은 무엇일까요?", "What fits the \"Skills\" column of the roster?"),
       options: [
-        option("a", tx("\"열정적이고 성실함\"", "\"Passionate and diligent\""), tx("성격에 대한 인상은 어떤 일을 맡길 수 있는지 알려 주지 않습니다.", "An impression of personality doesn't tell you what work you can give someone.")),
-        option("b", tx("\"채팅·이메일 가능, 환불·배송 문의 처리, 신입 버디 경험\"", "\"Chat and email; refund and delivery contacts; new-hire buddy experience\"")),
+        option("a", tx("\"열정적이고 성실함, 팀원들과 잘 어울리며 늘 먼저 돕는 편\"", "\"Passionate and diligent; gets on well with everyone and is always first to help\""), tx("성격에 대한 인상은 어떤 일을 맡길 수 있는지 알려 주지 않습니다.", "An impression of personality doesn't tell you what work you can give someone.")),
+        option("b", tx("\"채팅·이메일, 환불·배송 문의, 신입 버디 경험\"", "\"Chat and email; refund and delivery contacts; new-hire buddy experience\"")),
         option("c", tx("\"지난달 CSAT 팀 3위\"", "\"Third on the team for CSAT last month\""), tx("순위는 성과 기록에 둡니다. 스킬 칸은 할 수 있는 일을 적는 곳입니다.", "Rankings belong in the results record. The skills column is for what someone can do.")),
       ],
       answer: "b",
@@ -49,8 +49,8 @@ export default {
       id: "roster-q2",
       prompt: tx("기록에는 없지만 서준이 어떤 유형에서 자주 막히는지 알고 싶습니다. 누구에게 묻는 것이 알맞을까요?", "The records don't show it, but you want to know which types Seojun often gets stuck on. Whom should you ask?"),
       options: [
-        option("a", tx("같은 팀 상담사들에게 서준에 대해 묻는다.", "Ask the other agents on the team about Seojun."), tx("동료에게 다른 사람을 평가하게 하면 팀 안에 불편한 분위기가 생깁니다.", "Asking colleagues to judge someone creates an uneasy mood in the team.")),
-        option("b", tx("서준을 가까이에서 도와 온 직무전문가 하린에게 묻는다.", "Ask Harin, the SME who has helped Seojun up close.")),
+        option("a", tx("같은 팀 상담사들에게 서준이 요즘 어디서 힘들어하는지 슬쩍 물어본다.", "Quietly ask the other agents on the team where Seojun seems to struggle lately."), tx("동료에게 다른 사람을 평가하게 하면 팀 안에 불편한 분위기가 생깁니다.", "Asking colleagues to judge someone creates an uneasy mood in the team.")),
+        option("b", tx("서준을 매일 도와 온 직무전문가 하린에게 묻는다.", "Ask Harin, the SME who has helped Seojun every day.")),
         option("c", tx("묻지 않고 숫자에 나타날 때까지 기다린다.", "Don't ask; wait until it shows in the numbers."), tx("숫자에 나타날 때쯤이면 서준은 이미 오래 막혀 있었을 수 있습니다.", "By the time it shows in the numbers, Seojun may have been stuck for a long time.")),
       ],
       answer: "b",

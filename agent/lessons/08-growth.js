@@ -39,8 +39,8 @@ export default {
       id: "growth-q1",
       prompt: tx("실전 배치 뒤 두 달이 지났는데, 지민의 처리 속도가 동기보다 느립니다. 어떻게 생각하면 좋을까요?", "Two months after Go Live, Jimin is slower than others who started with her. How should she see it?"),
       options: [
-        option("a", tx("나는 이 일에 맞지 않는다고 판단한다.", "Decide she isn't cut out for this job."), tx("익숙해지는 속도는 사람마다 다릅니다. 판단하기엔 이른 시기입니다.", "People get comfortable at different speeds. It's too early to judge.")),
-        option("b", tx("지난달의 나와 비교하고, 코칭에서 한 가지를 골라 연습한다.", "Compare herself with last month, and pick one thing from coaching to practice.")),
+        option("a", tx("동기보다 느리니, 이 일에 맞지 않는다고 판단하고 다른 일을 알아본다.", "She's slower than her cohort, so decide she isn't cut out for this and look for other work."), tx("익숙해지는 속도는 사람마다 다릅니다. 판단하기엔 이른 시기입니다.", "People get comfortable at different speeds. It's too early to judge.")),
+        option("b", tx("지난달의 나와 비교하고, 한 가지를 골라 연습한다.", "Compare herself with last month, and pick one thing to practice.")),
         option("c", tx("속도를 올리려고 확인 절차를 줄인다.", "Cut back the checks to speed up."), tx("속도는 정확함 위에 쌓입니다. 절차를 줄이면 다시 연락이 늘어납니다.", "Speed is built on accuracy. Cutting steps brings more repeat contacts.")),
       ],
       answer: "b",

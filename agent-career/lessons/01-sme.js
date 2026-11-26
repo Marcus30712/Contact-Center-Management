@@ -40,8 +40,8 @@ export default {
       id: "sme-q1",
       prompt: tx("직무전문가가 되고 싶은 지민이 지금 할 수 있는 일로 가장 알맞은 것은 무엇일까요?", "What's the best thing Jimin, who wants to become an SME, can do now?"),
       options: [
-        option("a", tx("다른 상담사의 실수를 찾아 팀장에게 알린다.", "Find other agents' mistakes and report them to the team leader."), tx("실수를 찾아 알리는 일은 품질 평가에 가깝고, 동료의 믿음을 잃기 쉽습니다. 직무전문가의 핵심은 돕는 것입니다.", "Finding and reporting mistakes is closer to quality scoring, and it easily costs peers' trust. The heart of an SME's work is helping.")),
-        option("b", tx("자주 막히는 문의를 정리하고, 동료가 물어 오면 찾는 방법까지 함께 알려 준다.", "Write up the contacts people often get stuck on, and when a peer asks, show them how to find the answer too.")),
+        option("a", tx("팀 품질을 높이려고, 다른 상담사의 실수를 찾아 모아서 팀장에게 알린다.", "To raise team quality, collect other agents' mistakes and report them to the team leader."), tx("실수를 찾아 알리는 일은 품질 평가에 가깝고, 동료의 믿음을 잃기 쉽습니다. 직무전문가의 핵심은 돕는 것입니다.", "Finding and reporting mistakes is closer to quality scoring, and it easily costs peers' trust. The heart of an SME's work is helping.")),
+        option("b", tx("자주 막히는 문의를 정리하고, 동료에게 찾는 방법까지 알려 준다.", "Write up the contacts people often get stuck on, and show peers how to find the answer too.")),
         option("c", tx("직무전문가가 될 때까지는 다른 사람의 질문에 답하지 않는다.", "Not answer anyone's questions until she becomes an SME."), tx("돕는 경험이 곧 준비입니다. 뽑는 사람도 평소에 동료를 도와 온 모습을 봅니다.", "Helping is the preparation. The people choosing also look at how you've helped peers.")),
       ],
       answer: "b",
@@ -51,9 +51,9 @@ export default {
       id: "sme-q2",
       prompt: tx("하린이 팀장에게 보고서를 쓰는 이유로 알맞은 것은 무엇일까요?", "Why does Harin write reports for the team leader?"),
       options: [
-        option("a", tx("자주 들어오는 질문과 VOC의 원인을 알려 개선할 수 있게 하려고", "To show the causes of frequent questions and VOC so they can be fixed")),
-        option("b", tx("상담사 한 사람 한 사람의 점수를 매기려고", "To score each agent one by one"), tx("상담 품질 점수를 매기는 것은 QA의 일입니다.", "Scoring contact quality is QA's job.")),
-        option("c", tx("팀장 대신 팀원을 평가하려고", "To evaluate team members in the team leader's place"), tx("팀원 평가는 팀장의 일입니다. 직무전문가는 팀장이 판단할 근거를 전합니다.", "Evaluating team members is the team leader's job. The SME brings the evidence the team leader decides on.")),
+        option("a", tx("자주 나오는 질문과 VOC의 원인을 알려 개선하게 하려고", "To show the causes of frequent questions and VOC so they get fixed")),
+        option("b", tx("상담사마다 품질 점수를 매겨 누가 잘하는지 팀장에게 보여 주려고", "To score each agent's quality and show the team leader who does well"), tx("상담 품질 점수를 매기는 것은 QA의 일입니다.", "Scoring contact quality is QA's job.")),
+        option("c", tx("팀장이 바쁠 때 팀장 대신 팀원을 평가하고 순위를 정하려고", "To evaluate and rank team members in the team leader's place when they're busy"), tx("팀원 평가는 팀장의 일입니다. 직무전문가는 팀장이 판단할 근거를 전합니다.", "Evaluating team members is the team leader's job. The SME brings the evidence the team leader decides on.")),
       ],
       answer: "a",
       explanation: tx("직무전문가의 보고서는 반복되는 문제의 원인을 팀장에게 알려, 팀 전체가 덜 막히게 하는 데 씁니다.", "An SME's report tells the team leader the causes of repeated problems, so the whole team gets stuck less often."),

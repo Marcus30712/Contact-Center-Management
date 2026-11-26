@@ -46,7 +46,7 @@ const PROCEDURES = {
   escalation: ['불만 접수', '1차 해결 시도', '에스컬레이션 안내', '즉시 알림', '기록 및 인계'],
   coaching: ['데이터 준비', '분위기 조성', '원인 분석', '해결책 수립', '마무리 및 격려'],
   pip: ['데이터 기반 면담', '공동 목표 설정', '지원 약속 및 주간 점검', '결과 평가'],
-  calibration: ['사전 준비', '독립 평가', '교정 세션', '합의 및 결정', '후속 조치 및 공유'],
+  calibration: ['사전 준비', '독립 평가', '캘리브레이션 세션', '합의 및 결정', '후속 조치 및 공유'],
   scrubbing: ['대상 고르기', '원인 분석(RCA)', 'L1·L2 분류', '내부 토의', '보고 및 건의'],
   nurture: ['강점 데이터 진단', '강점 자리 배치', '육성 계획 수립', '지식 공유·멘토링', '성장 리뷰 및 추천'],
   transition: ['듣기', '기준 합의', '실행과 점검'],
@@ -292,7 +292,7 @@ test('when Woojin meets the goal only the closing branch lights up', () => {
 test('the new English keeps the Korean meaning', () => {
   const launch = lessonText(byId('launch'), 'en');
   assert.ok(!/intensive-care|refresher training|start it steadily|4 weeks from launch day/.test(launch));
-  assert.ok(byId('onboarding').checkpoint[0].options[0].text.en.includes('what was hard'));
+  assert.ok(byId('onboarding').checkpoint[0].options[0].text.en.includes('first-week struggles'));
 });
 
 test('each group heading names its list for screen readers', () => {

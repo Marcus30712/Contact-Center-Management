@@ -68,8 +68,8 @@ export default {
       id: 'escalation-q2',
       prompt: tx('넘기는 티켓에는 무엇을 기록해야 할까요?', 'What should go into the ticket that is handed over?'),
       options: [
-        option('a', tx('문제가 해결된 뒤에 결과만 적는다.', 'Only the outcome, written once the problem is solved.'), tx('결과만 적으면 넘겨받는 사람이 그동안 무슨 일이 있었는지 몰라, 고객에게 같은 질문을 다시 하게 됩니다.', 'Recording only the outcome leaves the next person unaware of what happened, so they ask the customer the same questions again.')),
-        option('b', tx('고객의 감정 표현을 포함해 모든 과정을 사실대로 적는다.', 'The whole exchange as fact, including how the customer expressed their feelings.')),
+        option('a', tx('넘겨받는 사람이 헷갈리지 않게, 해결된 뒤 결과만 깔끔하게 적는다.', 'Only the outcome, written cleanly once it is solved so the next person is not confused.'), tx('결과만 적으면 넘겨받는 사람이 그동안 무슨 일이 있었는지 몰라, 고객에게 같은 질문을 다시 하게 됩니다.', 'Recording only the outcome leaves the next person unaware of what happened, so they ask the customer the same questions again.')),
+        option('b', tx('감정 표현까지 포함해 모든 과정을 사실대로 적는다.', 'The whole exchange as fact, including the customer\'s expressions of feeling.')),
         option('c', tx('지민이 느낀 점과 추측을 중심으로 적는다.', 'Mostly Jimin\'s own impressions and guesses.'), tx('느낌과 추측은 다음 담당자의 판단을 흐리고, 사실과 섞이면 실제로 무슨 일이 있었는지 알 수 없게 됩니다.', 'Feelings and guesses cloud the next person’s judgment, and mixed with facts they hide what actually happened.')),
       ],
       answer: 'b',

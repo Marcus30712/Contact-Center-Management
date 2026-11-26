@@ -51,9 +51,9 @@ export default {
       id: "approval-q2",
       prompt: tx("지민이 풀기 어려운 건을 직무전문가가 이어받아 고객과 통화합니다. 먼저 할 말로 알맞은 것은 무엇일까요?", "The SME takes over a case Jimin found hard and calls the customer. What should you say first?"),
       options: [
-        option("a", tx("\"처음부터 다시 설명해 주시겠어요?\"", "\"Could you explain it all again from the start?\""), tx("고객은 같은 이야기를 되풀이하는 것을 가장 싫어합니다. 기록을 읽고 이어받습니다.", "Customers dislike repeating themselves most of all. Read the record and pick up from there.")),
-        option("b", tx("\"앞서 상담하신 내용을 확인했습니다. 이어서 도와드리겠습니다.\"", "\"I've reviewed your earlier conversation. I'll take it from here.\"")),
-        option("c", tx("\"앞 상담사가 실수한 것 같습니다.\"", "\"I think the agent before me made a mistake.\""), tx("동료를 탓하면 고객의 신뢰가 떨어지고, 문제는 그대로 남습니다.", "Blaming a colleague lowers the customer's trust, and the problem stays.")),
+        option("a", tx("\"정확히 돕기 위해, 처음부터 다시 한번 설명해 주시겠어요?\"", "\"To help you accurately, could you explain it all again from the start?\""), tx("고객은 같은 이야기를 되풀이하는 것을 가장 싫어합니다. 기록을 읽고 이어받습니다.", "Customers dislike repeating themselves most of all. Read the record and pick up from there.")),
+        option("b", tx("\"앞선 상담 내용을 확인했습니다. 이어서 도와드리겠습니다.\"", "\"I've reviewed your earlier conversation. I'll take it from here.\"")),
+        option("c", tx("\"앞 상담사가 잘못 안내한 것 같습니다. 제가 바로잡겠습니다.\"", "\"I think the agent before me gave you wrong information. I'll fix it.\""), tx("동료를 탓하면 고객은 센터 전체를 믿기 어려워집니다. 이전 내용을 이어받는다고만 말합니다.", "Blaming a colleague makes the customer distrust the whole center. Just say you are picking up from before.")),
       ],
       answer: "b",
       explanation: tx("이어받을 때는 이전 내용을 알고 있다고 먼저 말합니다.", "When you take over, first say you know what happened so far."),

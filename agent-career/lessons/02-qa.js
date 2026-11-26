@@ -40,8 +40,8 @@ export default {
       id: "qa-q1",
       prompt: tx("지민이 이번 주 평가표를 받았습니다. QA를 준비하는 사람으로서 가장 알맞은 행동은 무엇일까요?", "Jimin has her score sheet for this week. As someone preparing for QA, what fits best?"),
       options: [
-        option("a", tx("총점이 괜찮으면 그냥 넘어간다.", "Move on if the total looks fine."), tx("총점이 괜찮아도 깎인 항목에는 아직 모르는 기준이 숨어 있습니다.", "Even with a fine total, the items that lost points hide standards she doesn't know yet.")),
-        option("b", tx("깎인 항목을 평가 기준과 함께 읽고, 녹취를 들을 수 있으면 다시 들으며 스스로 매겨 본다.", "Read the items that lost points alongside the standard, listen to the recording again if she can, and score it herself.")),
+        option("a", tx("총점이 목표를 넘었으니, 깎인 항목은 따로 보지 않고 다음 주 상담에 집중한다.", "The total beat the target, so skip the items that lost points and focus on next week's contacts."), tx("총점이 괜찮아도 깎인 항목에는 아직 모르는 기준이 숨어 있습니다.", "Even with a fine total, the items that lost points hide standards she doesn't know yet.")),
+        option("b", tx("깎인 항목을 기준과 맞춰 읽고, 가능하면 녹취로 직접 매겨 본다.", "Read the items that lost points against the standard and, if she can, score the recording herself.")),
         option("c", tx("점수가 낮으면 도현에게 점수를 올려 달라고 부탁한다.", "Ask Dohyun to raise the score if it's low."), tx("다르게 생각하는 항목이 있으면 근거를 들고 평가 리뷰에서 묻습니다. 부탁으로 점수를 바꾸면 평가를 믿을 수 없게 됩니다.", "If she sees an item differently, she brings her evidence to the score review. Scores changed on request can't be trusted.")),
       ],
       answer: "b",
@@ -51,9 +51,9 @@ export default {
       id: "qa-q2",
       prompt: tx("캘리브레이션을 하는 이유로 알맞은 것은 무엇일까요?", "Why is calibration held?"),
       options: [
-        option("a", tx("점수가 낮은 상담사를 찾으려고", "To find agents with low scores"), tx("캘리브레이션은 평가하는 사람들의 기준을 맞추는 자리입니다. 특정 상담사를 찾는 자리가 아닙니다.", "Calibration lines up the standards of the people who score. It isn't for finding particular agents.")),
-        option("b", tx("평가 기준을 없애고 각자 판단하려고", "To drop the standard and let each person judge"), tx("오히려 기준을 더 분명하게 맞추려는 자리입니다.", "It's the opposite: it makes the standard clearer.")),
-        option("c", tx("누가 평가해도 같은 점수가 나오게 기준을 맞추려고", "To line up the standard so anyone scoring gets the same result")),
+        option("a", tx("점수가 낮은 상담사를 찾아 따로 코칭 대상으로 정하려고", "To find low-scoring agents and pick them out for coaching"), tx("캘리브레이션은 평가하는 사람들의 기준을 맞추는 자리입니다. 특정 상담사를 찾는 자리가 아닙니다.", "Calibration lines up the standards of the people who score. It isn't for finding particular agents.")),
+        option("b", tx("평가 기준을 없애고, 평가하는 사람이 각자 판단하게 하려고", "To drop the standard and let each scorer judge for themselves"), tx("오히려 기준을 더 분명하게 맞추려는 자리입니다.", "It's the opposite: it makes the standard clearer.")),
+        option("c", tx("누가 매겨도 같은 점수가 나오게 하려고", "So anyone scoring gets the same result")),
       ],
       answer: "c",
       explanation: tx("같은 상담에 평가하는 사람마다 다른 점수가 나오면 아무도 점수를 믿지 않습니다. 캘리브레이션이 그 차이를 줄입니다.", "If the same contact gets different scores from different people, no one trusts the scores. Calibration closes that gap."),

@@ -38,9 +38,9 @@ export default {
       id: "calibration-q1",
       prompt: tx("점수가 갈린 항목에서 직무전문가가 할 말로 알맞은 것은 무엇일까요?", "On an item where scores differ, what should the SME say?"),
       options: [
-        option("a", tx("\"상담사 입장도 생각해서 점수를 올려 주세요.\"", "\"Please raise the score with the agent's side in mind.\""), tx("편을 들면 기준이 흐려지고, 직무전문가의 의견도 믿기 어려워집니다.", "Taking sides blurs the standard and makes the SME's view harder to trust.")),
+        option("a", tx("\"상담사가 많이 애쓴 건이니, 그 입장도 생각해서 점수를 올려 주세요.\"", "\"The agent worked hard on this one, so please raise the score with their side in mind.\""), tx("편을 들면 기준이 흐려지고, 직무전문가의 의견도 믿기 어려워집니다.", "Taking sides blurs the standard and makes the SME's view harder to trust.")),
         option("b", tx("\"그 시점에 상담사 화면에는 주문 상태가 보이지 않았습니다.\"", "\"At that point, the order status wasn't visible on the agent's screen.\"")),
-        option("c", tx("\"저는 QA가 아니니 의견이 없습니다.\"", "\"I'm not QA, so I have no opinion.\""), tx("현장 사정을 아는 사람이 말하지 않으면 기준이 현실과 어긋난 채 정해집니다.", "If the person who knows the floor says nothing, the standard is set out of step with reality.")),
+        option("c", tx("\"저는 QA가 아니니 점수에는 의견이 없고, 정해지는 대로 따르겠습니다.\"", "\"I'm not QA, so I have no view on the score; I'll go with whatever is decided.\""), tx("현장 사정을 아는 사람이 말하지 않으면 기준이 현실과 어긋난 채 정해집니다.", "If the person who knows the floor says nothing, the standard is set out of step with reality.")),
       ],
       answer: "b",
       explanation: tx("직무전문가는 편을 드는 대신 현장에서 실제로 있었던 사실을 전합니다.", "Instead of taking sides, the SME shares what actually happened on the floor."),
@@ -49,9 +49,9 @@ export default {
       id: "calibration-q2",
       prompt: tx("세션에서 사과 표현 기준이 바뀌었고, 다음 평가는 내일부터입니다. 어떻게 할까요?", "The apology standard changed at the session, and the next scoring starts tomorrow. What do you do?"),
       options: [
-        option("a", tx("공식 공지가 나올 때까지 기다린다.", "Wait for the official notice."), tx("공지가 늦으면 상담사들은 모르는 기준으로 평가받습니다.", "If the notice comes late, agents are scored on a standard they don't know.")),
+        option("a", tx("잘못 전하지 않도록, 공식 공지가 나올 때까지 기다린다.", "So nothing is passed on wrongly, wait for the official notice."), tx("공지가 늦으면 상담사들은 모르는 기준으로 평가받습니다.", "If the notice comes late, agents are scored on a standard they don't know.")),
         option("b", tx("오늘 안에 허들이나 팀 채팅방에서 예시와 함께 전한다.", "Share it with an example at a huddle or in the team chat today.")),
-        option("c", tx("점수가 낮게 나온 상담사에게만 알려 준다.", "Tell only the agents who scored low."), tx("평가를 받은 뒤에 알게 되면 이미 늦습니다. 모두가 미리 알아야 합니다.", "Learning it after being scored is too late. Everyone needs to know beforehand.")),
+        option("c", tx("모두에게 알리면 혼란스러우니, 점수가 낮게 나온 상담사에게만 알려 준다.", "Telling everyone causes confusion, so tell only the agents who scored low."), tx("평가를 받은 뒤에 알게 되면 이미 늦습니다. 모두가 미리 알아야 합니다.", "Learning it after being scored is too late. Everyone needs to know beforehand.")),
       ],
       answer: "b",
       explanation: tx("바뀐 기준은 평가보다 먼저 현장에 닿아야 합니다.", "A changed standard must reach the floor before the scoring does."),

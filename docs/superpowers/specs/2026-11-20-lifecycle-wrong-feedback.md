@@ -19,14 +19,14 @@
 | hiring-general.c | 규정을 벗어난 처리는 다른 고객과의 형평을 깨고, 그 책임을 상담사 혼자 지게 만듭니다. | Going outside the rules is unfair to other customers and leaves the agent carrying the responsibility alone. |
 | hiring-tech.a | 증상을 확인하지 않고 흔한 해결법만 안내하면, 원인이 다를 때 같은 티켓이 다시 열립니다. | Giving the common fix without checking the symptom means the same ticket reopens whenever the cause is different. |
 | hiring-tech.c | 전문 용어로 길게 설명하면 고객이 따라 하지 못해 해결이 오히려 늦어집니다. | A long explanation in jargon leaves the customer unable to follow along, so the fix actually takes longer. |
-| hiring-general-2.a | 빠른 입력은 온보딩에서 기를 수 있는 기술이라, 채용에서 더 무겁게 볼 기준은 아닙니다. | Fast typing is a skill onboarding can build, so it is not the criterion to weigh most in hiring. |
+| hiring-general-2.a | 빠른 입력은 온보딩에서 기를 수 있지만, 대화하며 공감하는 성향은 교육으로 바꾸기 어렵습니다. | Fast typing can be built in onboarding, but a temperament for conversation and empathy is hard to change through training. |
 | hiring-general-2.b | 일반 고객지원에 맞는 성향을 이미 보여 준 지원자가 있으니 처음부터 다시 뽑을 이유가 없습니다. | One candidate has already shown the temperament general support needs, so there is no reason to start over. |
 | hiring-tech-2.a | 기술지원 문의는 채팅과 이메일로도 들어오는데, 전화만 보면 글로 설명하는 능력을 확인할 수 없습니다. | Tech support inquiries also arrive by chat and email, and a phone call alone cannot show whether they can explain in writing. |
 | hiring-tech-2.c | 용어를 아는 것과 고객이 따라 할 수 있게 설명하는 것은 다른 능력입니다. | Knowing the terms and explaining so a customer can follow along are different skills. |
 | onboarding-q1.a | 시험 점수는 아는 것을 보여 줄 뿐, 통화하면서 입력하는 손이 준비됐다는 뜻은 아닙니다. | A test score shows what she knows; it does not mean her hands are ready to type while she talks. |
 | onboarding-q1.c | 실전에서 익히라고 하면 첫 고객들이 입력 누락과 늦어진 응대를 그대로 겪게 됩니다. | Leaving it to the job means her first customers live with the missed entries and slower service. |
 | onboarding-general.a | 교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 배치만 늦어집니다. | A longer training period still will not make the whole range of policy memorable; it only delays going live. |
-| onboarding-general.c | 준비 없이 실전에서 배우게 하면 틀린 안내가 고객에게 그대로 전해집니다. | Learning on the job without preparation passes wrong information straight to customers. |
+| onboarding-general.c | 찾아보는 법도 모른 채 실전에서 배우게 하면, 틀린 안내가 고객에게 그대로 전해집니다. | Learning on live contacts without knowing how to look things up passes wrong information straight to customers. |
 | onboarding-tech.a | 해결했더라도 기록이 한 줄뿐이면, 같은 고객이 다시 연락했을 때 다음 담당자가 처음부터 다시 물어야 합니다. | Even when it is solved, a one-line record means the next agent has to ask everything again if the customer comes back. |
 | onboarding-tech.c | 나중에 몰아서 쓰면 확인한 내용과 순서를 잊어 기록이 부정확해집니다. | Writing records up in a batch later means forgetting what was checked and in what order, so the records become inaccurate. |
 | onboarding-general-2.a | 드문 문의라도 틀린 안내는 고객 불만으로 이어지므로, 대부분 맞았다는 이유로 넘길 수 없습니다. | Wrong information leads to complaints even on rare inquiries, so getting most of it right is not a reason to let it pass. |
@@ -36,7 +36,7 @@
 | nesting-q1.a | 적응 기간에 바로 같은 목표를 적용하면, 지민은 정확하게 안내하기보다 빨리 끊는 법을 먼저 배웁니다. | Applying the full target while she is still settling in teaches Jimin to end calls fast before she learns to inform customers accurately. |
 | nesting-q1.c | 콜을 대신 마무리해 주면 지민은 스스로 끝까지 해낸 경험을 쌓지 못합니다. | Finishing her calls for her keeps Jimin from building the experience of seeing a call through herself. |
 | nesting-general.a | 준비되지 않은 유형을 혼자 맡기면 고객도 지민도 실패한 콜을 겪게 됩니다. | Leaving her alone with a type she is not ready for gives both the customer and Jimin a failed call. |
-| nesting-general.c | 아직 맡기지 않은 유형에서 생긴 일은 지민의 실수가 아니라 배정의 문제입니다. | What happens on a type she has not been assigned yet is an assignment problem, not Jimin’s mistake. |
+| nesting-general.c | 아직 맡기지 않은 유형에서 생긴 일은 지민의 실수가 아니라 배정의 문제라, 평가에 남길 일이 아닙니다. | What happens on a type she has not been assigned yet is an assignment problem, not Jimin's mistake, so it does not belong in her evaluation. |
 | nesting-tech.a | 기다리는 동안 고객의 대기 시간만 길어지고, 지민은 넘기는 기준을 배우지 못합니다. | Waiting only makes the customer wait longer, and Jimin never learns when to escalate. |
 | nesting-tech.c | 조용히 대신 처리하면 지민은 무엇을 확인하고 언제 넘겨야 하는지 배우지 못합니다. | Quietly handling it yourself means Jimin never learns what to check and when to pass a ticket on. |
 | nesting-general-2.a | 한 번에 모든 유형을 맡기면 막히는 순간이 몰려, 쌓아 온 자신감이 쉽게 무너집니다. | Handing over every type at once piles up the moments she gets stuck, and the confidence she has built can collapse. |
@@ -47,7 +47,7 @@
 | coaching-q1.c | 남과 비교하면 방어적으로 되기 쉽고, 지민의 강점인 높은 해결률은 묻힙니다. | Comparing her with others tends to make her defensive, and buries her strength, a high resolution rate. |
 | coaching-general.a | 친절했어도 틀린 안내는 고객이 다시 문의하게 만들기 때문에 넘어갈 수 없습니다. | However courteous, wrong information makes the customer call back, so it cannot be let go. |
 | coaching-general.c | 틀린 점만 지적하면 지민이 잘하는 공감 표현까지 줄어들 수 있습니다. | Pointing out only the mistake can make Jimin cut back on the empathy she does well. |
-| coaching-tech.a | 해결 시간이 짧아도 같은 문의가 다시 들어온다면, 해결되지 않은 채 닫힌 것입니다. | If the same issue comes back, a short resolution time means the ticket was closed without being solved. |
+| coaching-tech.a | 같은 문의가 다시 들어온다면 해결되지 않은 채 닫힌 것이라, 공유할 노하우가 아닙니다. | If the same issue comes back, the ticket was closed without being solved; that is not know-how to share. |
 | coaching-tech.c | 원인을 모른 채 에스컬레이션만 늘리면 상위 단계의 부담만 커지고, 그 팀원의 진단 능력은 그대로입니다. | Escalating more without knowing the cause only adds to the load on higher tiers, and that agent’s diagnosis skills stay where they are. |
 | coaching-general-2.a | 한쪽 점수를 따르면 기준은 맞춰지지 않고, 다음 평가에서도 같은 차이가 생깁니다. | Going with one score leaves the standards unaligned, and the same gap appears in the next evaluation. |
 | coaching-general-2.b | 평균을 내면 숫자는 하나가 되지만, 무엇을 고쳐야 하는지는 여전히 알 수 없습니다. | Averaging gives you one number, but it still does not say what needs to change. |

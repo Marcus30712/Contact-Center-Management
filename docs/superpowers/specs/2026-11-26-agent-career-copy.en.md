@@ -45,17 +45,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | What's the best thing Jimin, who wants to become an SME, can do now? |
-| 보기 a (오답) | Find other agents' mistakes and report them to the team leader. |
+| 보기 a (오답) | To raise team quality, collect other agents' mistakes and report them to the team leader. |
 | a 피드백 | Finding and reporting mistakes is closer to quality scoring, and it easily costs peers' trust. The heart of an SME's work is helping. |
-| 보기 b (정답) | Write up the contacts people often get stuck on, and when a peer asks, show them how to find the answer too. |
+| 보기 b (정답) | Write up the contacts people often get stuck on, and show peers how to find the answer too. |
 | 보기 c (오답) | Not answer anyone's questions until she becomes an SME. |
 | c 피드백 | Helping is the preparation. The people choosing also look at how you've helped peers. |
 | 해설 | An SME is the person the team turns to when it's stuck. Helping peers now and writing down what you know is the closest preparation. |
 | 2번 질문 | Why does Harin write reports for the team leader? |
-| 보기 a (정답) | To show the causes of frequent questions and VOC so they can be fixed |
-| 보기 b (오답) | To score each agent one by one |
+| 보기 a (정답) | To show the causes of frequent questions and VOC so they get fixed |
+| 보기 b (오답) | To score each agent's quality and show the team leader who does well |
 | b 피드백 | Scoring contact quality is QA's job. |
-| 보기 c (오답) | To evaluate team members in the team leader's place |
+| 보기 c (오답) | To evaluate and rank team members in the team leader's place when they're busy |
 | c 피드백 | Evaluating team members is the team leader's job. The SME brings the evidence the team leader decides on. |
 | 해설 | An SME's report tells the team leader the causes of repeated problems, so the whole team gets stuck less often. |
 | 다음 레슨 연결 | If the SME helps with contacts, someone also measures their quality. Next, meet Dohyun from QA. |
@@ -88,18 +88,18 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin has her score sheet for this week. As someone preparing for QA, what fits best? |
-| 보기 a (오답) | Move on if the total looks fine. |
+| 보기 a (오답) | The total beat the target, so skip the items that lost points and focus on next week's contacts. |
 | a 피드백 | Even with a fine total, the items that lost points hide standards she doesn't know yet. |
-| 보기 b (정답) | Read the items that lost points alongside the standard, listen to the recording again if she can, and score it herself. |
+| 보기 b (정답) | Read the items that lost points against the standard and, if she can, score the recording herself. |
 | 보기 c (오답) | Ask Dohyun to raise the score if it's low. |
 | c 피드백 | If she sees an item differently, she brings her evidence to the score review. Scores changed on request can't be trusted. |
 | 해설 | A score sheet is material for learning the standard, not just a score. Scoring yourself and comparing builds a QA's eye. |
 | 2번 질문 | Why is calibration held? |
-| 보기 a (오답) | To find agents with low scores |
+| 보기 a (오답) | To find low-scoring agents and pick them out for coaching |
 | a 피드백 | Calibration lines up the standards of the people who score. It isn't for finding particular agents. |
-| 보기 b (오답) | To drop the standard and let each person judge |
+| 보기 b (오답) | To drop the standard and let each scorer judge for themselves |
 | b 피드백 | It's the opposite: it makes the standard clearer. |
-| 보기 c (정답) | To line up the standard so anyone scoring gets the same result |
+| 보기 c (정답) | So anyone scoring gets the same result |
 | 해설 | If the same contact gets different scores from different people, no one trusts the scores. Calibration closes that gap. |
 | 다음 레슨 연결 | If QA measures quality, someone also teaches people to learn it right from the start. Next, meet Yuna the trainer. |
 
@@ -131,17 +131,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin dreams of becoming a trainer, and a new colleague asks her about a policy change. What fits best? |
-| 보기 a (정답) | Explain it in plain words, and show where to look in the policy document. |
+| 보기 a (정답) | Explain it in plain words, and show where it is in the policy document. |
 | 보기 b (오답) | Say it's the trainer's job and tell them to ask Yuna. |
 | b 피드백 | A colleague asking up close is a good chance to practice teaching. Just look up together the parts you don't know. |
-| 보기 c (오답) | Answer quickly from memory. |
+| 보기 c (오답) | The colleague looks busy, so answer quickly from memory without checking the document. |
 | c 피드백 | If memory is wrong, the wrong answer goes straight to a customer. When teaching, pass on what you've checked in the document. |
 | 해설 | Explaining in plain words and showing where the source is: that's what a trainer does every day. |
 | 2번 질문 | What fits the relationship between the trainer and QA? |
-| 보기 a (오답) | The trainer scores agents' quality. |
+| 보기 a (오답) | After training, the trainer also scores and tracks agents' quality. |
 | a 피드백 | QA gives quality scores. The trainer runs training and tests. |
 | 보기 b (정답) | The trainer puts the mistakes QA often finds into training. |
-| 보기 c (오답) | The two roles have nothing to do with each other. |
+| 보기 c (오답) | The two roles sit in different teams with different work, so they have nothing to do with each other. |
 | c 피드백 | The two roles often sit in the same Training & Development team, and quality results feed the next training. |
 | 해설 | The trainer uses training to fix the problems QA finds on the floor. Together they raise contact quality. |
 | 다음 레슨 연결 | So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the team leader. |
@@ -174,15 +174,15 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Which path from agent to team leader is common in many centers? |
-| 보기 a (오답) | Agent → team leader → SME |
+| 보기 a (오답) | Agent → team leader (managing a team) → SME |
 | a 피드백 | SME is usually the role you hold before becoming a team leader. |
-| 보기 b (오답) | Team leader training right after joining → team leader |
+| 보기 b (오답) | Team leader training (leadership course) right after joining → team leader |
 | b 피드백 | You need to know what agents go through to lead a team, so people usually build floor experience first. |
-| 보기 c (정답) | Agent → SME (team leader backup experience) → team leader |
+| 보기 c (정답) | Agent → SME (team leader backup) → team leader |
 | 해설 | Helping peers as an SME and covering for the team leader is the bridge to team leader. It may differ by center. |
 | 2번 질문 | What can Jimin, an agent who dreams of becoming a team leader, do now? |
-| 보기 a (정답) | Read her own metrics first in the score review, and say what went well and what to fix. |
-| 보기 b (오답) | Learn it once she's a team leader, and for now focus only on her own calls. |
+| 보기 a (정답) | In the score review, read her own metrics first and explain them herself. |
+| 보기 b (오답) | She can learn to read metrics once she's a team leader, so for now she focuses only on her own calls. |
 | b 피드백 | Practicing reading your own metrics becomes the ability to read team members' metrics later. |
 | 보기 c (오답) | Keep track of colleagues' lateness and report it to the team leader. |
 | c 피드백 | Managing attendance is the team leader's job. Watching colleagues tends to cost their trust. |
@@ -204,7 +204,7 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson is about knowing the four things every role looks at, and building them from today. Selection criteria differ by center, but the basics are similar.
 2. Jimin saw a posting for an SME opening next month. Not sure whether she should apply, she asked Miso.
-3. The first stage is attendance, and it matters above all. Next roles work with many agents and other departments, so when you're often absent, the flow breaks when the team or project needs you.
+3. The first stage is attendance, and it matters above all. The roles you'd move into work with many agents and other departments, so when you're often absent, the flow breaks when the team or project needs you.
 4. However high your quality and contribution, low attendance makes it hard to be chosen. When you're sick, rest. But cutting the gaps you can avoid, like lateness and no-shows, builds the most trust.
 5. The second stage is a clean record. People with no complaints from customers or the client in the last 6 months (Example) are preferred. They also check for any disciplinary record for breaking company rules.
 6. Records fall outside the window as time passes. If you have a time in mind to apply, your preparation starts 6 months (Example) before it.
@@ -218,18 +218,18 @@ Same sections and order as the Korean file. US English.
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | When looking at applicants for a next role, what do they look at first? |
+| 1번 질문 | When looking at applicants for the next role, what do they look at first? |
 | 보기 a (오답) | How long they've been with the company |
 | a 피드백 | They look at the last few months of attendance, record, scores and contribution rather than tenure. |
 | 보기 b (정답) | Attendance |
 | 보기 c (오답) | How close they are to the team leader |
 | c 피드백 | It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence. |
-| 해설 | Next roles work with many people. A record of showing up is the first thing that builds trust. |
+| 해설 | Those roles work with many people. A record of showing up is the first thing that builds trust. |
 | 2번 질문 | In an interview, which statement best shows team contribution? |
-| 보기 a (오답) | "I helped my colleagues a lot." |
-| a 피드백 | It leaves out what she helped with, how, and what came of it, so it isn't evidence. |
-| 보기 b (오답) | "My quality score is the highest on the team." |
+| 보기 a (오답) | "Whenever new colleagues got stuck, I went over to help first, and many people said the team mood got better." |
+| a 피드백 | It leaves out the facts of what she helped with, how, and what came of it, so it isn't evidence. |
+| 보기 b (오답) | "My quality score has been the team's highest for months, and my handling time is the shortest." |
 | b 피드백 | Scores belong to the quality and test scores criterion. Team contribution is what you did for others and the team, not your own score. |
-| 보기 c (정답) | "I found in VOC why delivery-delay contacts were frequent and proposed changing our guidance wording, and the next month those contacts dropped." |
+| 보기 c (정답) | "Using VOC, I found why delivery-delay contacts were frequent and proposed new wording; the next month those contacts dropped." |
 | 해설 | Describe team contribution as when, what, why, and what came of it. Experience of finding a cause and proposing a fix has clear evidence, and that gives it weight. |
 | 다음 레슨 연결 | You've finished Agent Career Lifecycle. Today's attendance and this week's score review are where preparing for your next role begins. |

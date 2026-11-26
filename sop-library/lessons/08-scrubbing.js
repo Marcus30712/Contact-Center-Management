@@ -86,9 +86,9 @@ export default {
       id: 'scrubbing-q2',
       prompt: tx("고객 답변을 기다리며 2주째 열려 있는 티켓들이 SLA를 끌어내리고 있습니다. 이 티켓들을 종료하려면 고객사의 허락이 필요합니다. 어떻게 할까요?", "Tickets left open for two weeks while waiting for the customer's reply are dragging SLA down. Closing them needs the client's approval. What do you do?"),
       options: [
-        option('a', tx("팀에서 바로 모두 종료한다.", "Close them all right away within the team."), tx("고객사의 허락 없이 종료하면 합의한 처리 기준을 어기게 되고, 고객이 다시 문의할 때 신뢰를 잃습니다.", "Closing them without the client’s approval breaks the agreed handling standard, and trust is lost when the customer contacts you again.")),
-        option('b', tx("그대로 두고 SLA가 떨어졌다고 보고만 한다.", "Leave them and only report that SLA has dropped."), tx("원인을 알면서 그대로 두면 같은 티켓이 계속 쌓이고, 보고서는 같은 문제를 매주 되풀이합니다.", "Leaving them while knowing the cause lets the same tickets keep piling up, and the report repeats the same problem every week.")),
-        option('c', tx("팔로업을 정해진 횟수만큼 한 뒤 종료하는 프로세스를 만들어 고객사에 건의한다.", "Build a process that closes them after a set number of follow-ups, and propose it to the client.")),
+        option('a', tx("SLA가 더 떨어지기 전에, 팀에서 오늘 바로 모두 종료 처리한다.", "Close them all within the team today, before SLA drops any further."), tx("고객사의 허락 없이 종료하면 합의한 처리 기준을 어기게 되고, 고객이 다시 문의할 때 신뢰를 잃습니다.", "Closing them without the client’s approval breaks the agreed handling standard, and trust is lost when the customer contacts you again.")),
+        option('b', tx("고객 답변을 기다리는 건이니 그대로 두고, SLA 하락 사유로 보고만 한다.", "They are waiting on the customer, so leave them and only report them as the reason SLA dropped."), tx("원인을 알면서 그대로 두면 같은 티켓이 계속 쌓이고, 보고서는 같은 문제를 매주 되풀이합니다.", "Leaving them while knowing the cause lets the same tickets keep piling up, and the report repeats the same problem every week.")),
+        option('c', tx("팔로업 횟수를 정해 종료하는 프로세스를 고객사에 건의한다.", "Propose to the client a process that closes them after a set number of follow-ups.")),
       ],
       answer: 'c',
       explanation: tx("고객사의 허락이 필요한 해결은 BPO가 프로세스를 만들어 건의합니다. 승인되면 기준이 생겨, 같은 티켓이 다시 쌓이지 않습니다.", "When a fix needs the client's approval, the BPO builds a process and proposes it. Once approved, there is a standard, and the same tickets stop piling up."),

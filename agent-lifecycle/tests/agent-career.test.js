@@ -288,5 +288,5 @@ test('the quoted interview answer carries no example label inside the quotes', (
 test('the QA lesson does not assume agents can replay their own recordings', () => {
   const qa = SL_LESSONS.find((l) => l.id === 'qa');
   assert.ok(qa.steps[6].caption.ko.includes('들을 수 있다면'), qa.steps[6].caption.ko);
-  assert.ok(qa.checkpoint[0].options.find((o) => o.id === 'b').text.ko.includes('들을 수 있으면'));
+  assert.ok(qa.checkpoint[0].options.find((o) => o.id === 'b').text.ko.includes('가능하면'));
 });

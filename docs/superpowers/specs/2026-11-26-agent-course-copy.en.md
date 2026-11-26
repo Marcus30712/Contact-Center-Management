@@ -45,9 +45,9 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | In her first week, Jimin can't remember her colleagues' names. What should she do? |
 | 보기 a (오답) | Ask no one anything until she knows every name. |
 | a 피드백 | Not asking slows down learning. Knowing whom to ask about what comes before names. |
-| 보기 b (정답) | Note down seats and roles, and learn first whom to ask about what. |
-| 보기 c (오답) | Names don't matter, so don't bother with them. |
-| c 피드백 | Calling people by name makes it much easier to ask for help. Learn them over time. |
+| 보기 b (정답) | Note seats and roles, and learn first whom to ask about what. |
+| 보기 c (오답) | Names don't matter, so in the first week she memorizes only the training content and doesn't bother with people. |
+| c 피드백 | Knowing people is how you get help when you're stuck. Learn names and roles over time. |
 | 해설 | In the first week, learning the people and their roles is the job. |
 | 2번 질문 | Which order does a new agent go through? |
 | 보기 a (오답) | Onboarding → OJT and nesting → training → Go Live |
@@ -86,8 +86,8 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | Training covers so many policies that Jimin feels she can't memorize them all. What should she do? |
 | 보기 a (오답) | Memorize them all, even if it takes all night. |
 | a 피드백 | Even if you memorize them all, policies change. It only wears you out and doesn't last. |
-| 보기 b (정답) | Learn the common ones first, and for the rest, learn where they are in the knowledge base. |
-| 보기 c (오답) | Learn them after Go Live, when they're needed. |
+| 보기 b (정답) | Learn the common ones, and for the rest, just know where they are in the knowledge base. |
+| 보기 c (오답) | She can't memorize it all now, so she'll look each one up after Go Live, when that contact comes in. |
 | c 피드백 | Then you'll be looking for them for the first time while a customer waits. Learn where they are during training. |
 | 해설 | Separate what to memorize from what to look up. |
 | 2번 질문 | A CRM screen from the afternoon session didn't make sense. When should Jimin ask? |
@@ -127,15 +127,15 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | During a call, Jimin can't find the policy she needs. What should she do? |
 | 보기 a (오답) | Tell the customer whatever she remembers. |
 | a 피드백 | Wrong information makes the customer contact you again and costs their trust. |
-| 보기 b (정답) | Tell the customer she needs a moment to check, put the call on hold, then check with the next seat or the SME. |
-| 보기 c (오답) | Leave the customer waiting in silence until she finds it. |
+| 보기 b (정답) | Ask the customer to bear with her, put the call on hold, then check with the next seat or the SME. |
+| 보기 c (오답) | Knowing the customer is waiting, keep searching the knowledge base in silence until she finds it. |
 | c 피드백 | In silence, the customer thinks the call has dropped. Ask them to wait first. |
 | 해설 | When you don't know, ask the customer for a moment, check, then answer. |
 | 2번 질문 | Which is the best question to send Harin the SME in chat? |
-| 보기 a (오답) | "How do I do this?" |
-| a 피드백 | Without the situation, Harin has to ask back, so the answer comes later. |
-| 보기 b (정답) | "It's a refund request (Example). I checked the purchase date and it's past the window. Can we approve an exception?" |
-| 보기 c (오답) | "The customer is angry. Please come quickly." |
+| 보기 a (오답) | "The customer wants a refund. How do I do this? I'm on the call, so it's urgent." |
+| a 피드백 | It leaves out what you checked and what you need, so Harin has to ask back and the answer comes later. |
+| 보기 b (정답) | "Refund request (Example), past the purchase window. Can we approve an exception?" |
+| 보기 c (오답) | "The customer is really angry. I can't handle this, so please come quickly." |
 | c 피드백 | The urgency is understandable, but Harin needs to know what you need to help right away. |
 | 해설 | Say the situation, what you checked and what you need, all at once. |
 | 다음 레슨 연결 | Once you finish nesting and graduate, you join the regular team. Next is your first call on your own. |
@@ -166,16 +166,16 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Mid-call, Jimin's mind goes blank and she can't think what to say next. What should she do? |
-| 보기 a (오답) | Keep talking about anything so the silence doesn't drag on. |
+| 보기 a (오답) | Silence makes customers uneasy, so keep talking with whatever comes to mind, even if she isn't sure. |
 | a 피드백 | Things said without certainty are hard to correct later. |
-| 보기 b (정답) | Say "Let me check that for you," put the call on hold the agreed way, then look at her notes and the knowledge base. |
-| 보기 c (오답) | Hand the call straight to another agent. |
+| 보기 b (정답) | Say "Let me check that for you," put the call on hold, then look at her notes and the knowledge base. |
+| 보기 c (오답) | Treat it as a call she can't solve alone and hand it straight to the senior agent next to her. |
 | c 피드백 | This isn't a call to hand over; she just needs a moment to check. |
 | 해설 | Asking for a moment to check is a normal part of handling a contact. |
 | 2번 질문 | After a call ends, Jimin realizes she gave wrong information. What should she do? |
-| 보기 a (오답) | If the customer doesn't call back, it's fine, so let it go. |
+| 보기 a (오답) | If the customer doesn't call back, there's no problem, so move on to the next contact. |
 | a 피드백 | Wrong information can come back as a bigger complaint. |
-| 보기 b (정답) | Tell the SME or team leader right away and correct it through the agreed process. |
+| 보기 b (정답) | Tell the SME or team leader right away and correct it through the process. |
 | 보기 c (오답) | Contact the customer again on her own without telling anyone. |
 | c 피드백 | There may be set rules for contacting customers again and recording it. Tell someone first and follow the process. |
 | 해설 | The sooner a mistake is reported, the smaller it stays. |
@@ -208,17 +208,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | A customer keeps asking Jimin to repeat what she said. What should she do? |
-| 보기 a (오답) | Repeat the same sentence louder and faster. |
+| 보기 a (오답) | The customer seems not to hear well, so repeat the same sentence once more, louder. |
 | a 피드백 | Hearing the same words again only frustrates the customer more. |
-| 보기 b (정답) | Say one thing at a time in shorter sentences, and check they've understood. |
-| 보기 c (오답) | Say she'll send a text, then end the call right away. |
+| 보기 b (정답) | Say one thing at a time in short sentences, and check they've understood. |
+| 보기 c (오답) | Talking isn't working, so say she'll send a text and end the call right away. |
 | c 피드백 | A text can help, but ending without checking they understood brings another contact. |
 | 해설 | Use simple words, one at a time, and check as you go. |
 | 2번 질문 | The customer keeps swearing. What should Jimin do? |
 | 보기 a (오답) | Put up with it to the end, since it's a customer. |
 | a 피드백 | There's a process that protects agents. It's not something to endure alone. |
-| 보기 b (정답) | Warn with the center's set wording; if it continues, get a supervisor's approval if needed, end the call, then record it in the contact notes. |
-| 보기 c (오답) | Hang up straight away without a word. |
+| 보기 b (정답) | Warn with the center's wording; if it continues, end the call by the process and record it. |
+| 보기 c (오답) | There's no need to listen, so hang up the moment the swearing starts, without a word. |
 | c 피드백 | Ending without a warning and a record can leave the complaint on the agent. If your center needs approval, get that too. |
 | 해설 | For abuse, follow the center's process starting with a warning, get approval where it's needed, and leave a record. |
 | 다음 레슨 연결 | Calls like these also come back as quality scores. Next is the weekly score review with your team leader. |
@@ -238,7 +238,7 @@ Same sections and order as the Korean file. US English.
 2. Dohyun from QA scores a few of Jimin's contacts each week (Example). Sujin, her team leader, reviews those scores with her every week.
 3. The first stage is reading the score. Look at each item's score rather than the total. What matters is where you lost points, such as the greeting, the identity check or accurate information.
 4. The second stage is listening back. Before the review, go back over the recording or chat log that was scored, or, if your center doesn't let agents open them, ask your team leader or QA to listen with you. You'll hear what the score alone doesn't show.
-5. The third stage is picking one. Even with several things to fix, pick with your team leader just the most important one to change this week. Trying to change everything at once changes nothing.
+5. The third stage is picking one. Even with several things to fix, pick just the most important one to change this week, together with your team leader. Trying to change everything at once changes nothing.
 6. The fourth stage is checking next week. At the next review, look together at whether that one thing actually changed. But if you lost points for a critical error, such as a missed identity check, fix it right away instead of waiting your turn.
 7. In the review, ask concretely, for example: "How should I say this part?" Sujin spends this time precisely to give you that answer.
 8. If you disagree with a score, don't push back emotionally. Ask to go over the recording together; if there are grounds, it can be reviewed again through the agreed process.
@@ -256,10 +256,10 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | Finding what to change helps next week's score more than explaining. |
 | 해설 | Look at your own contacts before the review. |
 | 2번 질문 | The review turned up five things to fix. What should Jimin do? |
-| 보기 a (오답) | Fix all five next week. |
+| 보기 a (오답) | Strike while she's motivated: fix all five at once next week. |
 | a 피드백 | Trying to change everything at once means none of it sticks. |
-| 보기 b (정답) | Pick the most important one with the team leader to fix this week, and check it at the next review. |
-| 보기 c (오답) | Fix only the easiest one and forget the rest. |
+| 보기 b (정답) | Pick the most important one with the team leader, fix it, and check it at the next review. |
+| 보기 c (오답) | Fix only the easiest one, and forget the other four without writing them down. |
 | c 피드백 | Forgetting the rest means the same points keep being lost. Take them in order of importance, and write down the rest. |
 | 해설 | Fix the most important thing first, one at a time, and check it. |
 | 다음 레슨 연결 | Attendance weighs on you as much as scores. Next, how to look after yourself in a tight schedule. |
@@ -290,17 +290,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin wakes up with a fever and can't come in. What should she do? |
-| 보기 a (오답) | Get in touch once she feels better, after her shift has started. |
+| 보기 a (오답) | She might feel better after some rest, so see how she is and get in touch after her shift starts. |
 | a 피드백 | Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence. |
-| 보기 b (정답) | Tell her team leader directly, the agreed way, at least 1–2 hours before her shift (Example). |
+| 보기 b (정답) | Tell her team leader directly 1–2 hours before her shift (Example). |
 | 보기 c (오답) | Only ask a colleague to pass it on. |
 | c 피드백 | Going through a colleague can delay or lose the message. Tell them directly the agreed way. |
 | 해설 | On a sick day, tell your team leader directly, well before your shift and the agreed way. If your team leader is away, tell the SME. |
 | 2번 질문 | Two colleagues are off sick, and many contacts are waiting. What should Jimin do? |
-| 보기 a (오답) | Skip her breaks and keep taking contacts nonstop. |
+| 보기 a (오답) | The team is busy, so skip her breaks today and take contacts nonstop. |
 | a 피드백 | When you're worn out, mistakes rise and handling time grows. Breaks are part of the schedule too. |
-| 보기 b (정답) | Keep her scheduled breaks and handle one contact at a time, accurately. |
-| 보기 c (오답) | Skip the checks to finish faster. |
+| 보기 b (정답) | Keep her breaks and handle one contact at a time, accurately. |
+| 보기 c (오답) | Skip the checks to bring the queue down faster. |
 | c 피드백 | Skipping checks brings contacts back, and they pile up again. |
 | 해설 | The busier the day, the more you keep to the set order and breaks. |
 | 다음 레슨 연결 | After a few months like this, you'll notice how much you've changed. Next is the story of getting comfortable. |
@@ -331,9 +331,9 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Two months after Go Live, Jimin is slower than others who started with her. How should she see it? |
-| 보기 a (오답) | Decide she isn't cut out for this job. |
+| 보기 a (오답) | She's slower than her cohort, so decide she isn't cut out for this and look for other work. |
 | a 피드백 | People get comfortable at different speeds. It's too early to judge. |
-| 보기 b (정답) | Compare herself with last month, and pick one thing from coaching to practice. |
+| 보기 b (정답) | Compare herself with last month, and pick one thing to practice. |
 | 보기 c (오답) | Cut back the checks to speed up. |
 | c 피드백 | Speed is built on accuracy. Cutting steps brings more repeat contacts. |
 | 해설 | Compare yourself with last month, and practice one thing at a time. |

@@ -77,7 +77,7 @@ Checkpoint:
 | c feedback | The listening period is for asking and understanding. Bury a problem you have found, and the team decides that speaking up is pointless. |
 | Explanation | In the first step you listen and understand rather than change. A change is accepted when you know the reason and have talked it over with the team. |
 | Question 2 | Haeun, your closest colleague, keeps arriving late. What is the best way to handle it? |
-| Option a (wrong) | You are close, so let it go this time. |
+| Option a (wrong) | You are close and care about the team mood, so quietly let it go this once. |
 | a feedback | When the standard is looser for one person, the rest of the team feels the standard depends on who you are. |
 | Option b (right) | Talk with her calmly in a one-on-one, by the same standard as everyone else. |
 | Option c (wrong) | Call her out sternly in front of the team to make an example of her. |
@@ -88,7 +88,7 @@ Connection text:
 
 | Place | English |
 |---|---|
-| Calibration → this SOP | There is one more procedure a team leader runs directly. The next lesson, From Colleague to Team Leader, covers your first 90 days leading the colleagues you worked beside. |
+| Calibration → this SOP | There is one more procedure a team leader runs or takes part in. The next lesson, From Colleague to Team Leader, covers your first 90 days leading the colleagues you worked beside. |
 | This SOP → onboarding | These are the six procedures a team leader runs or takes part in. From here on, the procedures are ones several teams run together. The first is new hire onboarding. |
 | New project launch → list (last connection) | These are the ten SOPs. A procedure is not finished once it is written; it is a document you revise at every retrospective. |
 | Home card description | Learn ten procedures a team leader needs to know, step by step: escalation, scrubbing, 1:1 coaching, PIP, calibration, from colleague to team leader, onboarding, large-scale issue response, developing existing agents, new project launch. |

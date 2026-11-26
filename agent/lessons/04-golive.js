@@ -39,9 +39,9 @@ export default {
       id: "golive-q1",
       prompt: tx("통화 중에 지민은 머리가 하얘져서 다음에 할 말이 생각나지 않습니다. 어떻게 할까요?", "Mid-call, Jimin's mind goes blank and she can't think what to say next. What should she do?"),
       options: [
-        option("a", tx("침묵이 길어지지 않게 아무 말이나 이어 간다.", "Keep talking about anything so the silence doesn't drag on."), tx("확실하지 않은 말은 나중에 바로잡기 어렵습니다.", "Things said without certainty are hard to correct later.")),
-        option("b", tx("\"확인해 드리겠습니다\"라고 말하고 정해진 방법으로 통화를 보류한 뒤, 메모와 지식 베이스를 본다.", "Say \"Let me check that for you,\" put the call on hold the agreed way, then look at her notes and the knowledge base.")),
-        option("c", tx("바로 통화를 다른 상담사에게 넘긴다.", "Hand the call straight to another agent."), tx("넘길 일이 아니라 잠깐 확인할 시간이 필요한 상황입니다.", "This isn't a call to hand over; she just needs a moment to check.")),
+        option("a", tx("침묵이 길어지면 고객이 불안해하니, 확실하지 않아도 생각나는 대로 말을 이어 간다.", "Silence makes customers uneasy, so keep talking with whatever comes to mind, even if she isn't sure."), tx("확실하지 않은 말은 나중에 바로잡기 어렵습니다.", "Things said without certainty are hard to correct later.")),
+        option("b", tx("\"확인해 드리겠습니다\" 하고 보류한 뒤, 메모와 지식 베이스를 본다.", "Say \"Let me check that for you,\" put the call on hold, then look at her notes and the knowledge base.")),
+        option("c", tx("혼자 해결하기 어려운 통화라고 보고, 바로 옆자리 선배 상담사에게 통화를 넘긴다.", "Treat it as a call she can't solve alone and hand it straight to the senior agent next to her."), tx("넘길 일이 아니라 잠깐 확인할 시간이 필요한 상황입니다.", "This isn't a call to hand over; she just needs a moment to check.")),
       ],
       answer: "b",
       explanation: tx("확인할 시간을 요청하는 것은 정상적인 응대입니다.", "Asking for a moment to check is a normal part of handling a contact."),
@@ -50,8 +50,8 @@ export default {
       id: "golive-q2",
       prompt: tx("통화를 마친 뒤 잘못 안내한 것을 알았습니다. 어떻게 할까요?", "After a call ends, Jimin realizes she gave wrong information. What should she do?"),
       options: [
-        option("a", tx("고객이 다시 연락하지 않으면 괜찮으니 넘어간다.", "If the customer doesn't call back, it's fine, so let it go."), tx("잘못된 안내는 더 큰 불만으로 돌아올 수 있습니다.", "Wrong information can come back as a bigger complaint.")),
-        option("b", tx("바로 직무전문가나 팀장에게 알리고, 정해진 절차로 바로잡는다.", "Tell the SME or team leader right away and correct it through the agreed process.")),
+        option("a", tx("고객이 다시 연락하지 않으면 문제없으니, 다음 문의를 받으며 넘어간다.", "If the customer doesn't call back, there's no problem, so move on to the next contact."), tx("잘못된 안내는 더 큰 불만으로 돌아올 수 있습니다.", "Wrong information can come back as a bigger complaint.")),
+        option("b", tx("바로 직무전문가나 팀장에게 알리고 절차대로 바로잡는다.", "Tell the SME or team leader right away and correct it through the process.")),
         option("c", tx("아무에게도 말하지 않고 혼자 고객에게 다시 연락한다.", "Contact the customer again on her own without telling anyone."), tx("다시 연락하는 방법과 기록 규칙이 정해져 있을 수 있습니다. 먼저 알리고 절차를 따릅니다.", "There may be set rules for contacting customers again and recording it. Tell someone first and follow the process.")),
       ],
       answer: "b",

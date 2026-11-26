@@ -43,10 +43,10 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | On your first day, you notice ways of working that differ from the previous team leader's. What do you do? |
-| 보기 a (오답) | Switch to your own way from day one. |
+| 보기 a (오답) | Announce your way at the first huddle and switch right away; setting the standard early means less wobbling later. |
 | a 피드백 | Changing things before you know why shakes what was working, and the team grows wary of the new team leader. |
-| 보기 b (정답) | Note it down, and decide whether to change it once you know why it has been done that way. |
-| 보기 c (오답) | It's how the team has always worked, so leave it alone from now on. |
+| 보기 b (정답) | Note it down, and decide whether to change it once you know why. |
+| 보기 c (오답) | It's how the team has long worked, so leave it alone for good so no one is put out. |
 | c 피드백 | If you never change anything even after learning why, you miss chances to improve. Decide whether to change it after you understand it. |
 | 해설 | The first few weeks are for understanding, not changing. |
 | 2번 질문 | Which order fits getting to know the team? |
@@ -83,16 +83,16 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | What fits the "Skills" column of the roster? |
-| 보기 a (오답) | "Passionate and diligent" |
+| 보기 a (오답) | "Passionate and diligent; gets on well with everyone and is always first to help" |
 | a 피드백 | An impression of personality doesn't tell you what work you can give someone. |
 | 보기 b (정답) | "Chat and email; refund and delivery contacts; new-hire buddy experience" |
 | 보기 c (오답) | "Third on the team for CSAT last month" |
 | c 피드백 | Rankings belong in the results record. The skills column is for what someone can do. |
 | 해설 | Write skills as the channels, contact types and work someone has taken on. |
 | 2번 질문 | The records don't show it, but you want to know which types Seojun often gets stuck on. Whom should you ask? |
-| 보기 a (오답) | Ask the other agents on the team about Seojun. |
+| 보기 a (오답) | Quietly ask the other agents on the team where Seojun seems to struggle lately. |
 | a 피드백 | Asking colleagues to judge someone creates an uneasy mood in the team. |
-| 보기 b (정답) | Ask Harin, the SME who has helped Seojun up close. |
+| 보기 b (정답) | Ask Harin, the SME who has helped Seojun every day. |
 | 보기 c (오답) | Don't ask; wait until it shows in the numbers. |
 | c 피드백 | By the time it shows in the numbers, Seojun may have been stuck for a long time. |
 | 해설 | The SME who helps agents every day knows best where they get stuck. |
@@ -125,7 +125,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | Junho handles the most tickets on the team, but his quality score is below average. What do you do first? |
 | 보기 a (오답) | Note him down as a top performer, since his volume is high. |
 | a 피드백 | Looking at one number alone misses why quality is slipping. |
-| 보기 b (정답) | Hear from QA which items lost points, and note questions to check by listening to his actual contacts. |
+| 보기 b (정답) | Hear from QA which items lost points, and note questions to check in his recordings. |
 | 보기 c (오답) | His quality score is low, so put him on the coaching list right away. |
 | c 피드백 | Coaching without knowing why fixes the wrong thing. |
 | 해설 | When numbers disagree, write questions to check rather than drawing conclusions. |
@@ -133,7 +133,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Last week only |
 | a 피드백 | A single week can be good or bad by chance, so no trend shows. |
 | 보기 b (정답) | The last few months (Example: 6 months) |
-| 보기 c (오답) | Their whole time since joining |
+| 보기 c (오답) | Their whole time since joining (the longer, the more accurate) |
 | c 피드백 | Mixing in old records blurs how they are doing now. |
 | 해설 | Looking at the last few months shows both where people are now and how they are changing. |
 | 다음 레슨 연결 | The numbers have raised questions. Now see for yourself how people actually work behind them. |
@@ -163,14 +163,14 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | In one of Jimin's calls, you notice she left out a minor explanation. How do you record it? |
-| 보기 a (오답) | Note it as Jimin's habit. |
+| 보기 a (오답) | Note it as Jimin's habit; writing down even small things gives you grounds for coaching later. |
 | a 피드백 | One contact isn't a habit yet. See whether it shows up in others. |
-| 보기 b (정답) | Listen to more contacts to see whether it repeats before noting it as a habit. |
-| 보기 c (오답) | Tell Jimin right away and warn her. |
+| 보기 b (정답) | Listen to a few more, and note it as a habit if it repeats. |
+| 보기 c (오답) | Tell Jimin on the spot and warn her; saying it right away stops it repeating. |
 | c 피드백 | Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog. |
 | 해설 | Call it a habit when it repeats across several contacts. But if it is a required disclosure, correct it right away, even once. |
 | 2번 질문 | Several agents are giving the same wrong explanation. What do you check first? |
-| 보기 a (오답) | Coach each of them one by one. |
+| 보기 a (오답) | Call in each agent who got it wrong and coach them one by one. |
 | a 피드백 | If the cause is the training, the next class will make the same mistake even after coaching. |
 | 보기 b (정답) | Ask the trainer whether it was taught that way in training. |
 | 보기 c (오답) | Point out the mistake at the team huddle. |
@@ -203,17 +203,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | This team's schedule adherence is below target. What do you check first? |
-| 보기 a (오답) | Tell the team to keep to their schedules better. |
+| 보기 a (오답) | Tell the team to keep to their schedules better, and share adherence at the huddle every day. |
 | a 피드백 | A notice sent without knowing the cause only lets the same thing happen again. |
-| 보기 b (정답) | See whether other teams on the project are the same, and separate causes inside the team from those outside. |
-| 보기 c (오답) | Decide the target is wrong and ignore it. |
+| 보기 b (정답) | See whether other teams are the same, and sort causes inside the team from those outside. |
+| 보기 c (오답) | Decide the target was set wrong and leave it, so the team doesn't feel pressured. |
 | c 피드백 | Even when a target doesn't fit reality, it changes only when you raise it with evidence. |
 | 해설 | Compare first to separate causes inside the team from those outside it. |
 | 2번 질문 | What fits the team's one-page summary? |
 | 보기 a (오답) | A ranking of team members |
 | a 피드백 | A ranking shows only who is lowest, not what the team has done. |
 | 보기 b (정답) | Goals and results, strengths and gaps, and their causes |
-| 보기 c (오답) | Raw data for every metric over the last 6 months (Example) |
+| 보기 c (오답) | Raw data for every metric over the last 6 months (Example), with nothing left out |
 | c 피드백 | With only raw data, readers have to work out again what matters. |
 | 해설 | A summary should show results against goals, and why, at a glance. |
 | 다음 레슨 연결 | You can see the whole team now. Next, go back to one person at a time and decide how to help each. |
@@ -243,17 +243,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | What fits as the opening of a first one-on-one? |
-| 보기 a (오답) | "Looking at your last 6 months (Example), there's a lot to improve." |
+| 보기 a (오답) | "Looking at the last few months, there's a lot to improve. Let's start with that today." |
 | a 피드백 | Opening a first meeting with an evaluation makes people defensive, and they won't say what they really think. |
-| 보기 b (정답) | "This is a chance for us to get to know each other. I'd like to hear how work is going for you." |
+| 보기 b (정답) | "This is for getting to know each other. I'd like to hear how work is going." |
 | 보기 c (오답) | "If there's nothing in particular, we'll keep it short." |
 | c 피드백 | Keeping it a formality misses the chance to hear what the records can't tell you. |
 | 해설 | A first one-on-one is for listening, not evaluating. |
 | 2번 질문 | In the one-on-one, Jimin says family matters have made night shifts hard. What fits? |
-| 보기 a (오답) | Tell the team at the huddle about her situation and ask for their cooperation. |
+| 보기 a (오답) | Tell the team at the huddle about her situation and ask who could swap night shifts with her. |
 | a 피드백 | Sharing someone's personal matters without permission destroys trust. |
-| 보기 b (정답) | Don't share it without Jimin's permission, and check through the agreed process whether her shifts can change. |
-| 보기 c (오답) | It has nothing to do with performance, so don't note it. |
+| 보기 b (정답) | Don't share it without Jimin's permission, and check shift changes through the agreed process. |
+| 보기 c (오답) | It's personal and unrelated to performance, so leave it out of your notes. |
 | c 피드백 | Personal matters may be affecting performance. Keep what you need in mind. |
 | 해설 | Protect personal matters, and take any needed action through the process. |
 | 다음 레슨 연결 | You've decided how to help each person. Last, take all of this to your assistant manager and set the direction for the whole team. |
@@ -291,9 +291,9 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | If you don't share how the team is now, the direction may not fit the team's reality. |
 | 해설 | Share what you've learned briefly, so you get direction that fits the team. |
 | 2번 질문 | Your priorities differ from your assistant manager's direction. What do you do? |
-| 보기 a (오답) | Go back to the team and follow your own priorities. |
+| 보기 a (오답) | You know the team better, so go back and follow your own priorities. |
 | a 피드백 | Running the team against the direction puts you out of step with the project's plan and costs trust. |
-| 보기 b (정답) | Give your view with evidence, follow the direction once it's set, and keep a record of your view. |
+| 보기 b (정답) | Give your view with evidence; once it's set, follow it and keep a record of your view. |
 | 보기 c (오답) | Say nothing and just write down the direction. |
 | c 피드백 | Leaving out the view of the team leader who sees the floor most closely can mean missing a good decision. |
 | 해설 | Give your view with evidence, and follow the direction once it's decided. |
