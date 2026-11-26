@@ -3,6 +3,7 @@
 // page's language, and registers the offline worker.
 import { loadRole, ROLE_EVENT } from './role.js';
 import { renderRoleSwitch, pickRole } from './role-switch.js';
+import { BRAND } from './brand.js';
 
 export const APPBAR_UI = {
   label: { ko: '주 메뉴', en: 'Main menu' },
@@ -99,6 +100,18 @@ export function renderAppBar(doc, rootUrl, pageUrl, lang, section, role) {
   return nav;
 }
 
+// Course pages hard-code their way home ("← CX 2회차"); name it in the page's
+// language, so English pages show no Korean (2026-11-26).
+export function nameHomeLinks(doc, lang) {
+  const name = BRAND[lang] ?? BRAND.ko;
+  for (const a of doc.querySelectorAll('[data-kb-link]')) {
+    a.setAttribute('aria-label', name);
+    a.title = name;
+    const text = a.querySelector('.kb-text');
+    if (text) text.textContent = ` ${name}`;
+  }
+}
+
 // The saved role picks the Guide address; blocked storage means the default role.
 function pageRole() {
   let storage = null;
@@ -116,6 +129,7 @@ function mount() {
     const old = document.querySelector('nav.appbar');
     if (old) old.replaceWith(nav);
     else document.body.append(nav);
+    nameHomeLinks(document, lang);
     // The role picker in the top bar (2026-11-26), on pages that keep a place for it.
     const slot = document.querySelector('[data-role-slot]');
     if (slot) {

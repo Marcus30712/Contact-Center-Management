@@ -6,12 +6,12 @@ Written 2026-11-22. Follows the approved Korean (`2026-11-22-start-screen-design
 
 | Place | English |
 |---|---|
-| Logo | Queuecraft |
+| Logo | CX Replay |
 | Tagline | Learning contact center operations, for new team leaders |
 | Button | Start |
 | Offline getting ready | Getting ready for offline use… |
 | Offline ready | You can use it offline too |
-| Dialog name (screen readers) | Queuecraft start screen |
+| Dialog name (screen readers) | CX Replay start screen |
 | Miso picture | Miso Kim |
 
 **Greetings** (group · Miso's face · line)

@@ -2,11 +2,11 @@
 // docs/superpowers/specs/2026-11-20-app-shell-design.md (§4.3); card texts
 // are the ones the hub already used.
 export const HOME_UI = {
-  brand: { ko: 'Queuecraft', en: 'Queuecraft' },
-  title: { ko: '큐크래프트', en: 'Queuecraft' },
+  brand: BRAND,
+  title: BRAND,
   tagline: {
-    ko: '컨택센터 운영 관리를 주제별로 배우는 인터랙티브 자료 모음입니다.',
-    en: 'Interactive learning material on contact center management, one topic at a time.',
+    ko: '그때 알았더라면 좋았을 컨택센터 이야기를, 상담사부터 매니저까지 자리별로 모았습니다.',
+    en: "The contact center lessons I wish I'd known back then, gathered role by role from agent to manager.",
   },
   greeting: { ko: '안녕하세요, 김미소예요. 오늘도 조금씩 같이 가 봐요.', en: "Hi, I'm Miso Kim. Let's take another small step together today." },
   misoRole: { ko: '새 자리를 준비하는 사람을 돕는 선배 매니저', en: 'A senior manager who helps people get ready for a new role' },
@@ -35,6 +35,7 @@ import { SS_UI } from '../sme-sop/ui.js';
 import { TL_UI } from '../tl/ui.js';
 import { TS_UI } from '../tl-support/ui.js';
 import { roleOf } from '../shared/role.js';
+import { BRAND } from '../shared/brand.js';
 
 // A course card can name the role it is written for; home puts that role's cards first.
 const forRole = (role, c) => ({ ...c, role });
@@ -65,5 +66,5 @@ export const BROWSE = [
   card('./glossary/', '용어집', 'Glossary',
     'AHT, Shrinkage, 직무전문가 같은 운영 용어를 한국어와 영어로 찾아봅니다.', 'Look up operations terms in Korean and English.'),
   card('./references/', '참고 자료', 'References',
-    '큐크래프트의 바탕 자료와 참고한 공개 자료.', 'What Queuecraft is built on.'),
+    'CX 2회차의 바탕 자료와 참고한 공개 자료.', 'What CX Replay is built on.'),
 ];

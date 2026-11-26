@@ -1,13 +1,14 @@
 // Start screen wording. Korean is the approved copy in
 // docs/superpowers/specs/2026-11-22-start-screen-design.md §5; English follows
 // …-start-screen-copy.en.md. Tests compare both, row for row.
+import { BRAND } from '../shared/brand.js';
 export const START_UI = {
-  logo: { ko: "큐크래프트", en: "Queuecraft" },
-  tagline: { ko: "상담사부터 매니저까지, 컨택센터의 새 자리를 미리 배우기", en: "From agent to manager: learn your next contact center role ahead of time" },
+  logo: BRAND,
+  tagline: { ko: "상담사부터 매니저까지, 그때 알았더라면 좋았을 것들", en: "From agent to manager: what I wish I'd known back then" },
   start: { ko: "시작하기", en: "Start" },
   offlineWait: { ko: "오프라인 준비 중…", en: "Getting ready for offline use…" },
   offlineReady: { ko: "오프라인에서도 볼 수 있어요", en: "You can use it offline too" },
-  dialog: { ko: "큐크래프트 시작 화면", en: "Queuecraft start screen" },
+  dialog: { ko: "CX 2회차 시작 화면", en: "CX Replay start screen" },
   misoAlt: { ko: "김미소", en: "Miso Kim" },
 };
 

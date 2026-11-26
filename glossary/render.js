@@ -4,6 +4,7 @@ import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { lessonHref } from '../agent-lifecycle/js/engine/router.js';
 import { CATEGORIES } from './schema.js';
 import { filterTerms } from './filter.js';
+import { BRAND } from '../shared/brand.js';
 
 export const GLOSSARY_UI = {
   title: { ko: '용어집', en: 'Glossary' },
@@ -11,7 +12,7 @@ export const GLOSSARY_UI = {
     ko: '강의와 운영 지침서에 나오는 용어를 찾아보세요.',
     en: 'Look up the terms used in the course and the operations guide.',
   },
-  back: { ko: 'Queuecraft', en: 'Queuecraft' },
+  back: BRAND,
   searchLabel: { ko: '용어 검색', en: 'Search terms' },
   categoryLabel: { ko: '분류', en: 'Category' },
   all: { ko: '전체', en: 'All' },

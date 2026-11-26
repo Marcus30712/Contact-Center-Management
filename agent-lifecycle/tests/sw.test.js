@@ -41,8 +41,8 @@ test('the version changes whenever a listed file changes', () => {
 
 test('the app manifest has what phones need to install it', () => {
   const m = JSON.parse(readFileSync(join(ROOT, 'manifest.webmanifest'), 'utf8'));
-  assert.equal(m.name, 'Queuecraft');
-  assert.equal(m.short_name, 'Queuecraft');
+  assert.equal(m.name, 'CX 2회차 · CX Replay');
+  assert.equal(m.short_name, 'CX 2회차');
   assert.equal(m.start_url, './');
   assert.equal(m.scope, './');
   assert.equal(m.display, 'standalone');

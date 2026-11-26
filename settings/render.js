@@ -18,6 +18,7 @@ export function newSettingsView() {
 // offline store's version (null when unknown).
 import { ROLES, loadRole, saveRole } from '../shared/role.js';
 import { ROLE_UI, ROLE_NAMES } from '../shared/role-data.js';
+import { BRAND } from '../shared/brand.js';
 
 export function renderSettings(root, lang, storage, view, opts) {
   const tr = (text) => t(text, lang).text;
@@ -141,7 +142,7 @@ export function renderSettings(root, lang, storage, view, opts) {
       h('button', { type: 'button', class: 'btn st-wide', 'data-install-open': true, text: tr(INSTALL_UI.installButton), onclick: () => openInstallSheet(document, lang, { platform: installPlatform(navigator.userAgent), focusBack: () => root.querySelector('[data-install-open]')?.focus({ preventScroll: true }) }) }),
     ]),
     h('p', { class: 'st-footer', 'data-footer': true }, [
-      `Queuecraft v${APP_VERSION}${opts.build ? ` (${opts.build.slice(0, 8)})` : ''} · `,
+      `${tr(BRAND)} v${APP_VERSION}${opts.build ? ` (${opts.build.slice(0, 8)})` : ''} · `,
       h('a', { href: '../privacy/', 'data-privacy': true, text: tr(PRIVACY_TEXT.link) }),
       ' · ',
       h('a', { href: '../references/', 'data-references': true, text: tr(REFERENCES_TEXT.title) }),

@@ -1572,7 +1572,7 @@ def main():
         page = new_page(browser, errors, init=once_tl)
         page.goto(HUB)
         page.wait_for_selector(".topbar select.role-switch")
-        check("(rs1) home shows the role picker with the saved role, not the Queuecraft word",
+        check("(rs1) home shows the role picker with the saved role, not the old name word",
               page.input_value(".topbar select.role-switch") == "tl" and page.locator(".topbar a.brand").count() == 0)
         boxes = page.evaluate("""() => {
           const r = (el) => el.getBoundingClientRect();
@@ -1585,6 +1585,17 @@ def main():
             page.goto(HUB + path)
             page.wait_for_selector(".topbar select.role-switch")
             check(f"(rs3) {path} has the picker", page.input_value(".topbar select.role-switch") == "tl")
+        # (cx) the service name (2026-11-26): CX 2회차 / CX Replay
+        page.goto(HUB)
+        page.wait_for_selector("#app h1")
+        check("(cx1) home is titled CX 2회차 with the replay tagline", page.inner_text("#app h1") == "CX 2회차" and page.title() == "CX 2회차" and "그때 알았더라면" in page.inner_text("#app"))
+        page.goto(HUB + "agent-lifecycle/")
+        page.wait_for_selector("[data-kb-link]")
+        check("(cx2) a course page's way home says CX 2회차", page.get_attribute("[data-kb-link]", "aria-label") == "CX 2회차")
+        page.click("[data-lang='en']")
+        page.wait_for_timeout(200)
+        check("(cx3) in English it says CX Replay", page.get_attribute("[data-kb-link]", "aria-label") == "CX Replay" and page.text_content("[data-kb-link] .kb-text").strip() == "CX Replay")
+        page.click("[data-lang='ko']")
         page.goto(HUB + "tl/")
         page.wait_for_selector("#brand")
         check("(rs4) a course page keeps its name at the top left", page.locator(".topbar select.role-switch").count() == 0 and page.inner_text("#brand") == "팀장 첫걸음")

@@ -76,7 +76,8 @@ test('greeting wording follows the content rules', () => {
     assert.ok(sentences(v.ko) <= 3 && sentences(v.en) <= 3, v.ko);
     assert.ok(sentences(v.en) <= Math.max(1, sentences(v.ko)), v.en);
     assert.ok(!/[가-힣]/.test(v.en), v.en);
-    assert.ok(!/\d/.test(v.ko), `no figures: ${v.ko}`);
+    // The service name itself carries a figure (CX 2회차); the rule is about the wording around it.
+    assert.ok(!/\d/.test(v.ko.replaceAll(BRAND.ko, '')), `no figures: ${v.ko}`);
   }
 });
 
@@ -126,6 +127,7 @@ test('the start screen stores nothing', () => {
 
 // ---- Task 2: the start screen on the home page ----
 import { setupDom, click } from './dom.js';
+import { BRAND } from '../../shared/brand.js';
 import { renderStart } from '../../home/start-render.js';
 
 function open(lang = 'ko', opts = {}) {

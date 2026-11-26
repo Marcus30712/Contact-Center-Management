@@ -21,7 +21,7 @@ export const SETTINGS_UI = {
   replace: { ko: "바꾸기", en: "Replace" },
   exported: { ko: "기록 파일을 내보냈어요.", en: "Progress file exported." },
   imported: { ko: "기록을 가져왔어요.", en: "Progress imported." },
-  importBad: { ko: "기록 파일을 읽지 못했어요. 큐크래프트에서 내보낸 파일인지 확인해 주세요.", en: "Couldn't read the progress file. Check that it was exported from Queuecraft." },
+  importBad: { ko: "기록 파일을 읽지 못했어요. CX 2회차에서 내보낸 파일인지 확인해 주세요.", en: "Couldn't read the progress file. Check that it was exported from CX Replay." },
   reset: { ko: "학습 초기화", en: "Reset learning" },
   resetAsk: { ko: "학습 기록을 모두 지울까요?", en: "Erase all your learning records?" },
   resetAskNote: { ko: "레슨 진도와 오늘의 연습 기록, 배지가 지워지고 되돌릴 수 없어요. 먼저 '기록 내보내기'로 백업해 두면 나중에 다시 가져올 수 있어요.", en: "Lesson progress, Today’s Practice records and badges will be erased, and this can’t be undone. Back up first with “Export progress” and you can bring them back later." },

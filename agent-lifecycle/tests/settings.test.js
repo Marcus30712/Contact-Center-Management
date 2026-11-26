@@ -192,7 +192,7 @@ test('the page shows its sections in order with the confirmed words', () => {
     assert.equal(root.querySelector('[data-install]').textContent, INSTALL_UI.installNote[lang]);
     assert.equal(root.querySelector('button[data-install-open]').textContent, INSTALL_UI.installButton[lang]);
     const foot = root.querySelector('[data-footer]');
-    assert.ok(foot.textContent.includes(`Queuecraft v${APP_VERSION}`));
+    assert.ok(foot.textContent.includes(`${{ ko: 'CX 2회차', en: 'CX Replay' }[lang]} v${APP_VERSION}`));
     assert.equal(foot.querySelector('a[data-privacy]').getAttribute('href'), '../privacy/');
     assert.equal(foot.querySelector('a[data-privacy]').textContent, PRIVACY_TEXT.link[lang]);
     assert.equal(foot.querySelector('a[data-references]').getAttribute('href'), '../references/');
@@ -366,8 +366,8 @@ test('choice rows work like radio groups: one Tab stop, arrows move and pick', (
 });
 
 test('the footer shows the build next to the version when it is known', () => {
-  assert.ok(page(fakeStorage(), 'ko', { build: '946492ed754b' }).root.querySelector('[data-footer]').textContent.includes(`Queuecraft v${APP_VERSION} (946492ed)`));
-  assert.ok(page(fakeStorage(), 'ko', { build: null }).root.querySelector('[data-footer]').textContent.startsWith(`Queuecraft v${APP_VERSION} · `));
+  assert.ok(page(fakeStorage(), 'ko', { build: '946492ed754b' }).root.querySelector('[data-footer]').textContent.includes(`CX 2회차 v${APP_VERSION} (946492ed)`));
+  assert.ok(page(fakeStorage(), 'ko', { build: null }).root.querySelector('[data-footer]').textContent.startsWith(`CX 2회차 v${APP_VERSION} · `));
 });
 
 test('the tutorial has its own section with a View link', () => {

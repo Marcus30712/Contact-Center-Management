@@ -34,7 +34,7 @@ Glossary "One-on-One Coaching" definition (one sentence added after the two exis
 |---|---|
 | Title | Look back on my week |
 | Note | Compare last week with the time shares above (example). Anything you could not tick is what to take care of first next week. Ticks are not saved. |
-| Source note | Queuecraft added these items; they are not in the original Codex. |
+| Source note | CX Replay added these items; they are not in the original Codex. |
 | 1 | I had a one-on-one coaching session with every team member. |
 | 2 | I did not put off coaching for meetings or reports. |
 | 3 | At least once a day I listened to or watched a team member's contacts myself. |
