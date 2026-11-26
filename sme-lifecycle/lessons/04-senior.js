@@ -41,7 +41,7 @@ export default {
       prompt: tx("일반 질문을 맡은 준호가 승인이 필요한 보상 요청까지 \"괜찮을 거야\"라며 처리해 주려 합니다. 알맞은 것은 무엇일까요?", "Junho, who answers general questions, is about to handle a compensation request that needs approval, saying \"It'll be fine.\" What fits best?"),
       options: [
         option("a", tx("준호는 기준을 잘 알고 경력도 길어서, 이번 건은 그대로 처리하게 둔다.", "Junho knows the rules well and has years in, so let him handle this one."), tx("기준을 아는 것과 승인할 권한은 다릅니다. 선임이 승인하기 시작하면 승인 기록이 남지 않습니다.", "Knowing the rules is not the same as having approval authority. Once seniors start approving, no approval record is left.")),
-        option("b", tx("답변은 계속 맡기되, 승인이 필요한 건은 직무전문가에게 넘기게 다시 맞춘다.", "Keep him on answering, but agree again that cases needing approval go to the SME.")),
+        option("b", tx("승인 권한은 선임에게 없으니, 답변은 계속 맡기되 승인 건은 넘기게 한다.", "Seniors don't hold approval authority, so keep him on answering but have approval cases come to you.")),
         option("c", tx("승인 권한을 넘은 건 문제이니, 앞으로 준호에게 질문 답변을 맡기지 않는다.", "Overstepping approval is a problem, so stop giving Junho questions to answer."), tx("한 건 때문에 나눈 일을 모두 거두면 직무전문가에게 다시 일이 몰리고, 준호도 자랄 기회를 잃습니다.", "Taking back all the shared work over one case piles it on the SME again, and Junho loses a chance to grow.")),
       ],
       answer: "b",

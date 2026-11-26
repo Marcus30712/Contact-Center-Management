@@ -50,7 +50,7 @@ export default {
       prompt: tx("세션에서 사과 표현 기준이 바뀌었고, 다음 평가는 내일부터입니다. 어떻게 할까요?", "The apology standard changed at the session, and the next scoring starts tomorrow. What do you do?"),
       options: [
         option("a", tx("잘못 전하지 않도록, 공식 공지가 나올 때까지 기다린다.", "So nothing is passed on wrongly, wait for the official notice."), tx("공지가 늦으면 상담사들은 모르는 기준으로 평가받습니다.", "If the notice comes late, agents are scored on a standard they don't know.")),
-        option("b", tx("오늘 안에 허들이나 팀 채팅방에서 예시와 함께 전한다.", "Share it with an example at a huddle or in the team chat today.")),
+        option("b", tx("평가가 내일부터이니, 오늘 허들이나 팀 채팅방에서 예시와 함께 전한다.", "Evaluations start tomorrow, so share it today with an example at a huddle or in the team chat.")),
         option("c", tx("모두에게 알리면 혼란스러우니, 점수가 낮게 나온 상담사에게만 알려 준다.", "Telling everyone causes confusion, so tell only the agents who scored low."), tx("평가를 받은 뒤에 알게 되면 이미 늦습니다. 모두가 미리 알아야 합니다.", "Learning it after being scored is too late. Everyone needs to know beforehand.")),
       ],
       answer: "b",

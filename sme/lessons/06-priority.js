@@ -41,7 +41,7 @@ export default {
       prompt: tx("통화 중 고객을 보류해 둔 서준과, 이메일 답변 문구를 확인받고 싶은 지민이 동시에 부릅니다. 어떻게 할까요?", "Seojun, with a customer on hold during a call, and Jimin, who wants an email reply checked, both call you at once. What do you do?"),
       options: [
         option("a", tx("공정하게, 먼저 부른 사람부터 차례대로 간다.", "To be fair, go in order, starting with whoever called first."), tx("순서보다 고객이 지금 기다리고 있는지가 기준입니다. 보류된 고객은 1분마다 더 지칩니다.", "The test is whether a customer is waiting now, not the order. A customer on hold gets more tired every minute.")),
-        option("b", tx("서준에게 먼저 가고, 지민에게는 언제 갈지 알린다.", "Go to Seojun first, and tell Jimin when you will come.")),
+        option("b", tx("보류된 고객이 기다리니, 서준에게 먼저 가고 지민에게는 언제 갈지 알린다.", "A customer is waiting on hold, so go to Seojun first and tell Jimin when you will come.")),
         option("c", tx("지민의 건은 금방 끝나니, 지민부터 처리하고 바로 서준에게 간다.", "Jimin's will be quick, so do hers first and then go straight to Seojun."), tx("금방 끝나도 이메일은 기다릴 수 있습니다. 통화 중인 고객은 기다릴 수 없습니다.", "Even if it is quick, the email can wait. The customer on the call cannot.")),
       ],
       answer: "b",

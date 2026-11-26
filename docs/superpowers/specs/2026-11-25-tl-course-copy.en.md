@@ -45,7 +45,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | On your first day, you notice ways of working that differ from the previous team leader's. What do you do? |
 | 보기 a (오답) | Announce your way at the first huddle and switch right away; setting the standard early means less wobbling later. |
 | a 피드백 | Changing things before you know why shakes what was working, and the team grows wary of the new team leader. |
-| 보기 b (정답) | Note it down, and decide whether to change it once you know why. |
+| 보기 b (정답) | There may be a reason behind the old way, so note it down and decide whether to change it once you know why. |
 | 보기 c (오답) | It's how the team has long worked, so leave it alone for good so no one is put out. |
 | c 피드백 | If you never change anything even after learning why, you miss chances to improve. Decide whether to change it after you understand it. |
 | 해설 | The first few weeks are for understanding, not changing. |
@@ -165,7 +165,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | In one of Jimin's calls, you notice she left out a minor explanation. How do you record it? |
 | 보기 a (오답) | Note it as Jimin's habit; writing down even small things gives you grounds for coaching later. |
 | a 피드백 | One contact isn't a habit yet. See whether it shows up in others. |
-| 보기 b (정답) | Listen to a few more, and note it as a habit if it repeats. |
+| 보기 b (정답) | One call could be chance, so listen to a few more and note it as a habit if it repeats. |
 | 보기 c (오답) | Tell Jimin on the spot and warn her; saying it right away stops it repeating. |
 | c 피드백 | Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog. |
 | 해설 | Call it a habit when it repeats across several contacts. But if it is a required disclosure, correct it right away, even once. |

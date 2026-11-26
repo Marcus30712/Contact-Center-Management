@@ -60,7 +60,7 @@ export default {
     prompt: tx('일반 고객지원 팀의 모의 상담입니다. 지원자가 정책상 들어줄 수 없는 요청을 받았습니다. 어떤 응대를 높게 볼까요?', 'This is a mock call for a general support team. The candidate gets a request that policy does not allow. Which response do you rate highly?'),
     options: [
       option('a', tx('규정상 안 된다는 말만 되풀이한다.', 'Keeps repeating that the rules do not allow it.'), tx('거절만 되풀이하면 고객은 방법을 얻지 못한 채 통화를 끝내고, 같은 문의로 다시 연락합니다.', 'Repeating the refusal sends the customer away with no way forward, and they call back with the same request.')),
-      option('b', tx('안 되는 이유와 함께 정책 안의 다른 방법을 제안한다.', 'Explains why not, along with another option within policy.')),
+      option('b', tx('고객이 방법을 얻도록, 안 되는 이유를 말하고 정책 안의 대안을 제안한다.', 'So the customer leaves with a way forward, explains why not and offers another option within policy.')),
       option('c', tx('고객 만족이 우선이니, 이번 한 번만 규정과 다르게 처리해 주겠다고 한다.', 'Puts customer satisfaction first and promises to make an exception to the rules just this once.'), tx('규정을 벗어난 처리는 다른 고객과의 형평을 깨고, 그 책임을 상담사 혼자 지게 만듭니다.', 'Going outside the rules is unfair to other customers and leaves the agent carrying the responsibility alone.')),
     ],
     answer: 'b',
@@ -70,7 +70,7 @@ export default {
     prompt: tx('기술지원 팀의 모의 상담입니다. 지원자가 처음 보는 오류 증상을 만났습니다. 어떤 응대를 높게 볼까요?', 'This is a mock call for a tech support team. The candidate meets an error symptom they have never seen. Which response do you rate highly?'),
     options: [
       option('a', tx('통화를 끌지 않으려고, 가장 흔한 해결법 하나를 바로 안내하고 끝낸다.', 'Gives the single most common fix right away to keep the call short, and stops there.'), tx('증상을 확인하지 않고 흔한 해결법만 안내하면, 원인이 다를 때 같은 티켓이 다시 열립니다.', 'Giving the common fix without checking the symptom means the same ticket reopens whenever the cause is different.')),
-      option('b', tx('증상과 발생 조건부터 묻고, 원인을 하나씩 좁힌다.', 'Asks about the symptom and when it happens, then narrows down causes one by one.')),
+      option('b', tx('처음 보는 오류이니, 증상과 발생 조건부터 묻고 원인을 하나씩 좁힌다.', 'Since the error is new, first asks about the symptom and when it happens, then narrows down causes one by one.')),
       option('c', tx('전문 용어를 써서 길게 설명한다.', 'Explains at length in technical jargon.'), tx('전문 용어로 길게 설명하면 고객이 따라 하지 못해 해결이 오히려 늦어집니다.', 'A long explanation in jargon leaves the customer unable to follow along, so the fix actually takes longer.')),
     ],
     answer: 'b',

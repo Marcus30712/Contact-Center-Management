@@ -86,7 +86,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | Training covers so many policies that Jimin feels she can't memorize them all. What should she do? |
 | 보기 a (오답) | Memorize them all, even if it takes all night. |
 | a 피드백 | Even if you memorize them all, policies change. It only wears you out and doesn't last. |
-| 보기 b (정답) | Learn the common ones, and for the rest, just know where they are in the knowledge base. |
+| 보기 b (정답) | Policies keep changing, so learn the common ones and, for the rest, just know where they are in the knowledge base. |
 | 보기 c (오답) | She can't memorize it all now, so she'll look each one up after Go Live, when that contact comes in. |
 | c 피드백 | Then you'll be looking for them for the first time while a customer waits. Learn where they are during training. |
 | 해설 | Separate what to memorize from what to look up. |
@@ -127,7 +127,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | During a call, Jimin can't find the policy she needs. What should she do? |
 | 보기 a (오답) | Tell the customer whatever she remembers. |
 | a 피드백 | Wrong information makes the customer contact you again and costs their trust. |
-| 보기 b (정답) | Ask the customer to bear with her, put the call on hold, then check with the next seat or the SME. |
+| 보기 b (정답) | So the customer isn't left wondering, ask them to bear with her, put the call on hold, then check with the next seat or the SME. |
 | 보기 c (오답) | Knowing the customer is waiting, keep searching the knowledge base in silence until she finds it. |
 | c 피드백 | In silence, the customer thinks the call has dropped. Ask them to wait first. |
 | 해설 | When you don't know, ask the customer for a moment, check, then answer. |
@@ -173,7 +173,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | This isn't a call to hand over; she just needs a moment to check. |
 | 해설 | Asking for a moment to check is a normal part of handling a contact. |
 | 2번 질문 | After a call ends, Jimin realizes she gave wrong information. What should she do? |
-| 보기 a (오답) | If the customer doesn't call back, there's no problem, so move on to the next contact. |
+| 보기 a (오답) | Treat it as fine unless the customer calls back, and move on to the next contact. |
 | a 피드백 | Wrong information can come back as a bigger complaint. |
 | 보기 b (정답) | Tell the SME or team leader right away and correct it through the process. |
 | 보기 c (오답) | Contact the customer again on her own without telling anyone. |
@@ -208,7 +208,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | A customer keeps asking Jimin to repeat what she said. What should she do? |
-| 보기 a (오답) | The customer seems not to hear well, so repeat the same sentence once more, louder. |
+| 보기 a (오답) | Repeat the same sentence, louder, until the customer gets it. |
 | a 피드백 | Hearing the same words again only frustrates the customer more. |
 | 보기 b (정답) | Say one thing at a time in short sentences, and check they've understood. |
 | 보기 c (오답) | Talking isn't working, so say she'll send a text and end the call right away. |
@@ -292,7 +292,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | Jimin wakes up with a fever and can't come in. What should she do? |
 | 보기 a (오답) | She might feel better after some rest, so see how she is and get in touch after her shift starts. |
 | a 피드백 | Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence. |
-| 보기 b (정답) | Tell her team leader directly 1–2 hours before her shift (Example). |
+| 보기 b (정답) | Tell her team leader directly 1–2 hours before her shift (Example), so the schedule can be rearranged. |
 | 보기 c (오답) | Only ask a colleague to pass it on. |
 | c 피드백 | Going through a colleague can delay or lose the message. Tell them directly the agreed way. |
 | 해설 | On a sick day, tell your team leader directly, well before your shift and the agreed way. If your team leader is away, tell the SME. |

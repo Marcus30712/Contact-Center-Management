@@ -56,7 +56,7 @@ export default {
     prompt: tx('네스팅 셋째 날, 지민의 평균 처리 시간(AHT)이 팀 평균의 두 배쯤 됩니다. 안내 내용은 정확합니다. 어떻게 할까요?', 'On day three of nesting, Jimin’s average handle time (AHT) is about twice the team average. Her information is accurate. What do you do?'),
     options: [
       option('a', tx('팀 평균과 차이가 크니, 정식 상담사와 같은 AHT 목표를 바로 적용한다.', 'The gap from the team average is large, so apply the regular agents\' AHT target right away.'), tx('적응 기간에 바로 같은 목표를 적용하면, 지민은 정확하게 안내하기보다 빨리 끊는 법을 먼저 배웁니다.', 'Applying the full target while she is still settling in teaches Jimin to end calls fast before she learns to inform customers accurately.')),
-      option('b', tx('정확성을 칭찬하고, 속도는 적응한 뒤에 다루자고 한다.', 'Praise her accuracy and say speed can wait until she settles in.')),
+      option('b', tx('안내가 정확하니, 그 점을 칭찬하고 속도는 적응한 뒤에 다루자고 한다.', 'Her information is accurate, so praise that and say speed can wait until she settles in.')),
       option('c', tx('통화가 길어질 때마다 콜을 넘겨받아 대신 마무리한다.', 'Take over and finish the call whenever it runs long.'), tx('콜을 대신 마무리해 주면 지민은 스스로 끝까지 해낸 경험을 쌓지 못합니다.', 'Finishing her calls for her keeps Jimin from building the experience of seeing a call through herself.')),
     ],
     answer: 'b',
@@ -65,7 +65,7 @@ export default {
     id: 'nesting-general',
     prompt: tx('네스팅 중인 지민에게 아직 맡기지 않은 유형인 복잡한 불만 문의가 연결됐습니다. 어떻게 할까요?', 'During nesting, Jimin is connected to a complex complaint, a type not yet assigned to her. What do you do?'),
     options: [
-      option('a', tx('부딪혀 봐야 빨리 느니, 끝까지 혼자 처리하게 둔다.', 'People learn fastest by facing it, so leave her to finish it alone.'), tx('준비되지 않은 유형을 혼자 맡기면 고객도 지민도 실패한 콜을 겪게 됩니다.', 'Leaving her alone with a type she is not ready for gives both the customer and Jimin a failed call.')),
+      option('a', tx('끝까지 혼자 처리하게 두고, 부딪히며 배우게 한다.', 'Leave her to finish it alone and learn by facing it.'), tx('준비되지 않은 유형을 혼자 맡기면 고객도 지민도 실패한 콜을 겪게 됩니다.', 'Leaving her alone with a type she is not ready for gives both the customer and Jimin a failed call.')),
       option('b', tx('직무전문가가 함께 처리하고, 그 유형은 준비된 뒤 맡긴다.', 'Have the SME handle it with her, and assign that type once she is ready.')),
       option('c', tx('어디서 막혔는지 알 수 있게, 처리 결과를 지민의 평가 기록에 남긴다.', 'Record the outcome in Jimin\'s performance record so you can see where she got stuck.'), tx('아직 맡기지 않은 유형에서 생긴 일은 지민의 실수가 아니라 배정의 문제라, 평가에 남길 일이 아닙니다.', 'What happens on a type she has not been assigned yet is an assignment problem, not Jimin\'s mistake, so it does not belong in her evaluation.')),
     ],
@@ -75,7 +75,7 @@ export default {
     id: 'nesting-tech',
     prompt: tx('네스팅 중인 지민이 한 티켓을 오래 붙잡고 있습니다. 원인을 찾지 못했지만 넘기기를 망설입니다. 어떻게 할까요?', 'During nesting, Jimin has been holding one ticket for a long time. She has not found the cause but hesitates to pass it on. What do you do?'),
     options: [
-      option('a', tx('스스로 원인을 찾아야 실력이 느니, 해결할 때까지 기다려 준다.', 'Finding the cause herself is how she grows, so wait until she solves it.'), tx('기다리는 동안 고객의 대기 시간만 길어지고, 지민은 넘기는 기준을 배우지 못합니다.', 'Waiting only makes the customer wait longer, and Jimin never learns when to escalate.')),
+      option('a', tx('해결할 때까지 기다려 주며, 스스로 원인을 찾게 한다.', 'Wait until she solves it, and let her find the cause herself.'), tx('기다리는 동안 고객의 대기 시간만 길어지고, 지민은 넘기는 기준을 배우지 못합니다.', 'Waiting only makes the customer wait longer, and Jimin never learns when to escalate.')),
       option('b', tx('넘기는 기준을 짚어 주고, 확인한 내용을 적어 넘기게 한다.', 'Go over the escalation criteria, and have her note what she checked and escalate.')),
       option('c', tx('고객을 더 기다리게 할 수 없으니, 대신 받아서 조용히 처리한다.', 'The customer cannot wait any longer, so take it over and resolve it quietly.'), tx('조용히 대신 처리하면 지민은 무엇을 확인하고 언제 넘겨야 하는지 배우지 못합니다.', 'Quietly handling it yourself means Jimin never learns what to check and when to pass a ticket on.')),
     ],
@@ -95,7 +95,7 @@ export default {
     id: 'nesting-tech-2',
     prompt: tx('기술지원 네스팅 중인 지민이 원인을 찾아보기도 전에 티켓을 곧바로 상위 단계로 넘기는 일이 잦습니다. 어떻게 할까요?', 'During tech support nesting, Jimin often passes tickets straight to a higher tier before looking for the cause. What do you do?'),
     options: [
-      option('a', tx('넘기기 전 확인 단계와 넘기는 기준을 다시 짚어 준다.', 'Go over the checks to try before passing a ticket on, and the criteria for passing it.')),
+      option('a', tx('습관이 되지 않도록, 넘기기 전 확인 단계와 기준을 다시 짚어 준다.', 'So it does not become a habit, go over the checks to try before passing a ticket on, and the criteria for passing it.')),
       option('b', tx('혼자 푸는 힘을 기르도록, 넘기는 것을 금지하고 혼자 해결하게 한다.', 'Ban passing tickets on so she builds the ability to solve them alone.'), tx('넘기는 것을 금지하면 지민은 풀지 못한 티켓을 붙잡고, 고객은 더 오래 기다리게 됩니다.', 'Banning escalation leaves Jimin holding tickets she cannot solve while customers wait longer.')),
       option('c', tx('신입에게는 넘기는 쪽이 안전하니, 익숙해질 때까지 그대로 둔다.', 'Passing tickets on is the safe choice for someone new, so leave it until she gets used to the work.'), tx('지금 바로잡지 않으면 확인 없이 넘기는 습관이 정식 팀까지 이어집니다.', 'Unless it is corrected now, the habit of passing tickets on without checking follows her into the regular team.')),
     ],

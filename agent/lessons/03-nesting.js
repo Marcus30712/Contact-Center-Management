@@ -40,7 +40,7 @@ export default {
       prompt: tx("지민이 고객과 통화하다가 필요한 정책을 찾지 못했습니다. 어떻게 할까요?", "During a call, Jimin can't find the policy she needs. What should she do?"),
       options: [
         option("a", tx("고객에게 기억나는 대로 안내한다.", "Tell the customer whatever she remembers."), tx("틀린 안내는 고객이 다시 연락하게 만들고, 신뢰도 잃게 합니다.", "Wrong information makes the customer contact you again and costs their trust.")),
-        option("b", tx("고객에게 양해를 구하고 보류한 뒤, 옆자리나 직무전문가에게 확인한다.", "Ask the customer to bear with her, put the call on hold, then check with the next seat or the SME.")),
+        option("b", tx("고객이 불안하지 않도록, 양해를 구하고 보류한 뒤 옆자리나 직무전문가에게 확인한다.", "So the customer isn't left wondering, ask them to bear with her, put the call on hold, then check with the next seat or the SME.")),
         option("c", tx("고객이 기다리는 것을 알기에, 찾을 때까지 말없이 지식 베이스를 계속 검색한다.", "Knowing the customer is waiting, keep searching the knowledge base in silence until she finds it."), tx("아무 말 없이 기다리면 고객은 통화가 끊긴 줄 압니다. 기다려 달라고 먼저 말합니다.", "In silence, the customer thinks the call has dropped. Ask them to wait first.")),
       ],
       answer: "b",

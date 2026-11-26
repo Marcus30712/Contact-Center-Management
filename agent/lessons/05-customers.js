@@ -40,7 +40,7 @@ export default {
       id: "customers-q1",
       prompt: tx("고객이 지민의 안내를 여러 번 되묻습니다. 어떻게 할까요?", "A customer keeps asking Jimin to repeat what she said. What should she do?"),
       options: [
-        option("a", tx("잘 안 들리시는 것 같으니, 같은 문장을 더 크게 한 번 더 반복한다.", "The customer seems not to hear well, so repeat the same sentence once more, louder."), tx("같은 말을 반복하면 고객은 더 답답해집니다.", "Hearing the same words again only frustrates the customer more.")),
+        option("a", tx("고객이 알아들을 때까지 같은 문장을 더 크게 반복한다.", "Repeat the same sentence, louder, until the customer gets it."), tx("같은 말을 반복하면 고객은 더 답답해집니다.", "Hearing the same words again only frustrates the customer more.")),
         option("b", tx("짧은 문장으로 하나씩 말하고, 이해했는지 확인한다.", "Say one thing at a time in short sentences, and check they've understood.")),
         option("c", tx("말로는 어려워 보이니 문자로 보내 드리겠다고 하고 바로 통화를 끝낸다.", "Talking isn't working, so say she'll send a text and end the call right away."), tx("문자 안내가 도움이 될 수는 있지만, 이해했는지 확인하지 않고 끝내면 다시 연락이 옵니다.", "A text can help, but ending without checking they understood brings another contact.")),
       ],

@@ -42,7 +42,7 @@ export default {
       options: [
         option("a", tx("시간이 없으니 일단 모든 회원에게 적용된다고 전하고, 나중에 바로잡는다.", "There's no time, so say for now it applies to all members and correct it later."), tx("추측으로 전하면 팀 전체가 같은 잘못을 고객에게 안내합니다.", "Passing on a guess means the whole team tells customers the same wrong thing.")),
         option("b", tx("팀장이나 고객사 담당에게 확인하고, 확인 전이면 확인 중이라고 전한다.", "Check with the team leader or the client contact, and if it isn't confirmed yet, say it's being checked.")),
-        option("c", tx("틀리게 전하는 것보다 나으니, 모호한 부분은 빼고 확실한 것만 전한다.", "It beats passing on something wrong, so leave out the unclear part and share only what's certain."), tx("상담사는 그 질문을 받게 되고, 그때마다 각자 다르게 답하게 됩니다.", "Agents will get that question anyway, and each will answer it differently.")),
+        option("c", tx("모호한 부분은 빼고, 확실한 내용만 정리해 전한다.", "Leave out the unclear part, and share only what's certain."), tx("상담사는 그 질문을 받게 되고, 그때마다 각자 다르게 답하게 됩니다.", "Agents will get that question anyway, and each will answer it differently.")),
       ],
       answer: "b",
       explanation: tx("모호한 것은 확인한 뒤 전하고, 확인 중이라면 그렇다고 말합니다.", "Pass on unclear things after checking, and if you're still checking, say so."),

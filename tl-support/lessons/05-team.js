@@ -40,7 +40,7 @@ export default {
       prompt: tx("직무전문가, QA, 트레이너가 각각 다른 문제를 이야기합니다. 팀장이 먼저 할 일은 무엇일까요?", "The SME, QA and the trainer each raise a different problem. What should the team leader do first?"),
       options: [
         option("a", tx("각자 맡은 분야이니, 알아서 해결하고 결과만 알려 달라고 한다.", "It's each one's own area, so tell them to sort it out and just report back."), tx("따로 풀면 같은 원인을 세 번 다르게 고치게 됩니다.", "Solving them separately means fixing the same cause three different ways.")),
-        option("b", tx("한자리에 모아 같은 원인인지 함께 본다.", "Bring them together and see whether it is the same cause.")),
+        option("b", tx("원인이 하나일 수 있으니, 한자리에 모아 함께 본다.", "The problems may share a cause, so bring them together and look at them jointly.")),
         option("c", tx("숫자가 가장 나쁜 문제 하나만 골라 먼저 고친다.", "Pick only the problem with the worst numbers and fix it first."), tx("연결된 문제라면 하나만 고쳐서는 다시 생깁니다.", "If the problems are connected, fixing just one lets them come back.")),
       ],
       answer: "b",

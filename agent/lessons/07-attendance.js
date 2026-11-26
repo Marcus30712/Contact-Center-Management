@@ -40,7 +40,7 @@ export default {
       prompt: tx("지민이 아침에 열이 나서 출근하기 어렵습니다. 어떻게 할까요?", "Jimin wakes up with a fever and can't come in. What should she do?"),
       options: [
         option("a", tx("조금 쉬면 나아질 수도 있으니, 근무가 시작된 뒤 상태를 보고 연락한다.", "She might feel better after some rest, so see how she is and get in touch after her shift starts."), tx("늦게 알리면 스케줄을 다시 짤 시간이 없고, 무단 결근으로 남을 수 있습니다.", "Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence.")),
-        option("b", tx("근무 1~2시간 전(예시)에 팀장에게 직접 알린다.", "Tell her team leader directly 1–2 hours before her shift (Example).")),
+        option("b", tx("스케줄을 다시 짤 수 있게, 근무 1~2시간 전(예시)에 팀장에게 직접 알린다.", "Tell her team leader directly 1–2 hours before her shift (Example), so the schedule can be rearranged.")),
         option("c", tx("동료에게 대신 말해 달라고만 부탁한다.", "Only ask a colleague to pass it on."), tx("동료를 거치면 전달이 늦거나 빠질 수 있습니다. 정해진 방법으로 직접 알립니다.", "Going through a colleague can delay or lose the message. Tell them directly the agreed way.")),
       ],
       answer: "b",

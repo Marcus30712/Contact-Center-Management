@@ -46,7 +46,7 @@ export default {
     prompt: tx('지민이 폭언 콜을 끊은 직후 자리에서 굳어 있습니다. 대기 콜은 밀려 있습니다. 먼저 무엇을 할까요?', 'Right after ending an abusive call, Jimin sits frozen at her desk. Calls are queuing up. What do you do first?'),
     options: [
       option('a', tx('대기 콜이 밀려 있으니, 다음 콜을 받게 하고 끝난 뒤에 이야기한다.', 'The queue is long, so have her take the next call and talk afterward.'), tx('바로 다음 콜을 받게 하면 충격이 그대로 다음 고객에게 이어지고, 지민은 보호받지 못했다고 느낍니다.', 'Sending her straight to the next call carries the shock over to the next customer, and Jimin feels unprotected.')),
-      option('b', tx('잠시 쉬게 하고, 끊은 판단이 맞았다고 말해 준다.', 'Give her a short break and tell her ending the call was the right decision.')),
+      option('b', tx('충격이 가라앉도록, 잠시 쉬게 하고 끊은 판단이 맞았다고 말해 준다.', 'So the shock can settle, give her a short break and tell her ending the call was the right decision.')),
       option('c', tx('왜 조금 더 참지 못했는지 묻는다.', 'Ask why she could not hold on a little longer.'), tx('판단을 따져 물으면 지민은 다음에 선끊기 권한을 쓰기를 망설이게 됩니다.', 'Questioning her judgment makes Jimin hesitate to use her authority to hang up first next time.')),
     ],
     answer: 'b',
@@ -66,7 +66,7 @@ export default {
     prompt: tx('기술지원 팀에 새 제품이 출시됩니다. 대기 티켓이 많아 학습 시간을 빼기 어렵습니다. 어떻게 할까요?', 'A new product is launching for the tech support team. The ticket queue is long, and it is hard to free up learning time. What do you do?'),
     options: [
       option('a', tx('각자 퇴근 후에 공부하게 한다.', 'Have everyone study after work.'), tx('학습을 퇴근 뒤로 미루면 새 제품을 익히는 부담이 상담사 개인에게 넘어갑니다.', 'Pushing learning to after hours shifts the burden of learning the new product onto each agent.')),
-      option('b', tx('근무 안에 학습 시간을 잡고, 그 시간을 지켜 준다.', 'Schedule learning time within working hours, and protect it.')),
+      option('b', tx('출시 전에 익히도록, 근무 안에 학습 시간을 잡고 그 시간을 지켜 준다.', 'So everyone learns it before launch, schedule learning time within working hours, and protect it.')),
       option('c', tx('실제 티켓으로 배우는 게 가장 빠르니, 출시 후 티켓을 받으며 익히게 한다.', 'Real tickets teach fastest, so let them learn by taking tickets after launch.'), tx('모르는 제품의 티켓을 받으며 익히게 하면 응대 품질과 상담사의 자신감이 함께 떨어집니다.', 'Learning on live tickets for an unfamiliar product lowers both service quality and the agents’ confidence.')),
     ],
     answer: 'b',
@@ -87,7 +87,7 @@ export default {
     options: [
       option('a', tx('어려운 티켓은 실력 있는 사람이 맡아야 하니, 지금 배정을 그대로 둔다.', 'Hard tickets need a skilled person, so keep the current assignments as they are.'), tx('실력이 좋을수록 어려운 티켓이 몰리기 쉬운데, 그대로 두면 그 사람이 먼저 지칩니다.', 'The more skilled someone is, the more hard tickets flow their way, and left alone they burn out first.')),
       option('b', tx('쉬운 티켓을 섞어 주고, 해결 사례를 지식 자료로 정리하게 한다.', 'Mix in easier tickets, and have them write up solved cases for the knowledge base.')),
-      option('c', tx('지친 상태이니, 회복될 때까지 당분간 쉬운 티켓만 맡겨 부담을 덜어 준다.', 'They are worn out, so give them only easy tickets until they recover.'), tx('쉬운 티켓만 맡기면 부담은 줄지만, 성장할 기회까지 멈추게 됩니다.', 'Only easy tickets lightens the load but also stops their chance to grow.')),
+      option('c', tx('회복될 때까지 당분간 쉬운 티켓만 맡겨 부담을 덜어 준다.', 'Give them only easy tickets until they recover, to lighten the load.'), tx('쉬운 티켓만 맡기면 부담은 줄지만, 성장할 기회까지 멈추게 됩니다.', 'Only easy tickets lightens the load but also stops their chance to grow.')),
     ],
     answer: 'b',
     explanation: tx('어려운 티켓이 이어지면 인지 부담이 쌓입니다. 부담은 나누고 해결 경험을 지식 자료로 남기게 하면, 지친 경험이 기술적인 성장으로 이어집니다.', 'A run of hard tickets builds cognitive load. Spreading the load and having them record what they solved in the knowledge base turns a draining stretch into technical growth.'),

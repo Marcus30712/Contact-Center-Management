@@ -39,7 +39,7 @@ export default {
       prompt: tx("지민의 콜 한 건에서 사소한 안내 하나를 빠뜨린 것을 발견했습니다. 어떻게 기록할까요?", "In one of Jimin's calls, you notice she left out a minor explanation. How do you record it?"),
       options: [
         option("a", tx("지민의 습관으로 메모한다. 작은 것도 적어 둬야 나중에 코칭 근거가 된다.", "Note it as Jimin's habit; writing down even small things gives you grounds for coaching later."), tx("한 건은 아직 습관이 아닙니다. 다른 건에서도 나오는지 봅니다.", "One contact isn't a habit yet. See whether it shows up in others.")),
-        option("b", tx("몇 건 더 들어 보고, 반복되면 습관으로 적는다.", "Listen to a few more, and note it as a habit if it repeats.")),
+        option("b", tx("한 건은 우연일 수 있으니, 몇 건 더 듣고 반복되면 습관으로 적는다.", "One call could be chance, so listen to a few more and note it as a habit if it repeats.")),
         option("c", tx("그 자리에서 지민에게 알려 주의를 준다. 바로 말해야 반복을 막는다.", "Tell Jimin on the spot and warn her; saying it right away stops it repeating."), tx("파악하는 단계에서 한 건으로 지적하면, 팀원은 새 팀장을 감시자로 느낍니다.", "Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog.")),
       ],
       answer: "b",

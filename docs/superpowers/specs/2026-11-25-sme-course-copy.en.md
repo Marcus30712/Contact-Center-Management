@@ -162,7 +162,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 2번 질문 | Five agents ask you the same policy question in one day. What fits best? |
 | 보기 a (오답) | Answer each person as they ask, and tell them to note it down. |
 | a 피드백 | Their notes don't reach the rest of the team, so a sixth and seventh question will come, and you miss more urgent requests meanwhile. |
-| 보기 b (정답) | Sum up the answer and share it in the huddle or the team chat. |
+| 보기 b (정답) | Everyone needs this answer, so sum it up and share it in the huddle or the team chat. |
 | 보기 c (오답) | The answer is in the knowledge base, so send the article link and tell them to read it. |
 | c 피드백 | When five people ask the same thing, it is a sign the article is hard to find or unclear. |
 | 해설 | Give repeated questions back to the whole team at once. That is how the next questions drop. |
@@ -281,7 +281,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 1번 질문 | Seojun, with a customer on hold during a call, and Jimin, who wants an email reply checked, both call you at once. What do you do? |
 | 보기 a (오답) | To be fair, go in order, starting with whoever called first. |
 | a 피드백 | The test is whether a customer is waiting now, not the order. A customer on hold gets more tired every minute. |
-| 보기 b (정답) | Go to Seojun first, and tell Jimin when you will come. |
+| 보기 b (정답) | A customer is waiting on hold, so go to Seojun first and tell Jimin when you will come. |
 | 보기 c (오답) | Jimin's will be quick, so do hers first and then go straight to Seojun. |
 | c 피드백 | Even if it is quick, the email can wait. The customer on the call cannot. |
 | 해설 | Customers waiting live come first, and whoever has to wait hears when you will come. |
