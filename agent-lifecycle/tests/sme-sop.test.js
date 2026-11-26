@@ -198,7 +198,7 @@ test('SME SOP questions link to their own course', () => {
   assert.deepEqual(pool(s).map((q) => q.key), ['sme-sop:scrubbing-q1', 'sme-sop:scrubbing-q2']);
   const { root } = setupDom();
   renderPractice(root, 'ko', s, '2026-11-25', newPracticeView());
-  root.querySelector('[data-question] [data-option]').dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+  root.querySelector('[data-question] [data-option="a"]').dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
   assert.equal(root.querySelector('a[data-review]').getAttribute('href'), '../sme-sop/#scrubbing-0');
 });
 

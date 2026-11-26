@@ -10,7 +10,7 @@ const flow = ["prepare", "greet", "confirm", "wrapup", "prepare-greet", "greet-c
 export default {
   id: "golive",
   order: 4,
-  title: tx("고라이브와 첫 콜", "Go-live and the First Call"),
+  title: tx("실전 배치와 첫 콜", "Go Live and the First Call"),
   short: tx("첫 콜", "First call"),
   subtitle: tx("혼자 받는 첫 콜을, 긴장 속에서도 끝까지 해내는 순서를 익힙니다.", "Learn the order that gets you through your first call alone, even when nervous."),
   procedure,
@@ -24,7 +24,7 @@ export default {
     edges: [edge("prepare", "greet"), edge("greet", "confirm"), edge("confirm", "wrapup")],
   },
   steps: [
-    step(tx("이 레슨의 목적은 고라이브 뒤 혼자 받는 콜을, 긴장한 상태에서도 끝까지 해내는 순서를 익히는 것입니다.", "This lesson is about learning the order that gets you through a call on your own after go-live, even when you're nervous."), flow, procedure, null),
+    step(tx("이 레슨의 목적은 실전 배치 뒤 혼자 받는 콜을, 긴장한 상태에서도 끝까지 해내는 순서를 익히는 것입니다.", "This lesson is about learning the order that gets you through a call on your own after Go Live, even when you're nervous."), flow, procedure, null),
     step(tx("지민은 오늘부터 정식 팀입니다. 첫 콜 신호가 울리자 손이 떨리고, 배운 것이 하나도 생각나지 않는 것 같습니다.", "From today Jimin is on the regular team. When the first call rings, her hands shake and it feels like she remembers nothing."), flow, [], null),
     step(tx("첫 단계는 준비입니다. 근무가 시작되면 바로 받을 수 있도록 도구에 로그인하고, 지식 베이스와 자주 쓰는 화면을 열어 둡니다. 물 한 잔도 챙깁니다.", "The first stage is preparing. Log in to your tools so you're ready to take contacts as your shift starts, and open the knowledge base and the screens you use most. Get a glass of water too."), flow, ["prepare"], null),
     step(tx("둘째 단계는 인사입니다. 정해진 인사말을 천천히 말합니다. 첫 문장이 안정되면 나머지도 따라옵니다.", "The second stage is the greeting. Say the set greeting slowly. Once the first sentence is steady, the rest follows."), flow, ["greet"], null),

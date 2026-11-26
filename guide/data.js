@@ -200,7 +200,7 @@ export const GROUPS = [
         "first": {
           "title": {
             "ko": "라이프사이클 레슨 3 · 실전 배치 및 네스팅",
-            "en": "Lifecycle lesson 3 · Go-Live and Nesting"
+            "en": "Lifecycle lesson 3 · Go Live and Nesting"
           },
           "href": "../agent-lifecycle/#nesting-0"
         },

@@ -8,7 +8,7 @@ const all = [...walk, 'target', 'target-nest'];
 export default {
   id: 'nesting',
   order: 3,
-  title: tx('실전 배치 및 네스팅', 'Go-Live and Nesting'),
+  title: tx('실전 배치 및 네스팅', 'Go Live and Nesting'),
   short: tx('네스팅', 'Nesting'),
   subtitle: tx('처음 실제 문의를 받는 적응기. 가장 많이 떠나는 시기입니다.', 'The first weeks on real contacts, when people are most likely to leave.'),
   diagram: {

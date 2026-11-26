@@ -37,7 +37,8 @@ test('locked when nothing is finished', () => {
   const { root } = page(store([], []));
   assert.ok(root.querySelector('img[data-miso="think"]'));
   assert.ok(root.querySelector('[data-locked]').textContent.includes(UI.locked.ko));
-  assert.equal(root.querySelector('a[data-start]').getAttribute('href'), '../agent-lifecycle/#hiring-0');
+  // No role given: the default role (team lead) starts on TL First Steps (2026-11-26).
+  assert.equal(root.querySelector('a[data-start]').getAttribute('href'), '../tl/#start-0');
   assert.equal(root.querySelector('[data-question]'), null);
   assert.equal(root.querySelector('[data-cards]'), null);
 });

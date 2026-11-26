@@ -4,6 +4,7 @@ import { createPlayer } from '../engine/player.js';
 import { lessonHref, HOME_HREF } from '../engine/router.js';
 import { gradeAnswer } from '../engine/quiz.js';
 import { visibleSteps, visibleQuestions } from '../engine/track.js';
+import { orderedOptions } from '../../../shared/option-order.js';
 import { renderDiagram } from './diagram.js';
 import { UI } from '../i18n/ui.js';
 import { GUIDE_UI } from '../../../guide/data.js';
@@ -74,7 +75,7 @@ export function renderLesson(root, lesson, stepIndex, lang, {
   ]);
   const questions = checkpoint.map((q) => {
     const explanation = h('div', { class: 'explanation', 'data-explanation': true, hidden: true, 'aria-live': 'polite' });
-    const buttons = q.options.map((o) => h('button', {
+    const buttons = orderedOptions(q).map((o) => h('button', {
       type: 'button', class: 'option', 'data-option': o.id, text: tr(o.text),
       onclick: () => answer(q, o.id, buttons, explanation),
     }));

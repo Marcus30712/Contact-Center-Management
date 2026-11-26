@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = '1c2cb8f2107a';
+const VERSION = 'e07dcda7ea94';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -163,6 +163,7 @@ const PRECACHE = [
   "shared/appbar.js",
   "shared/brand.js",
   "shared/courses.js",
+  "shared/option-order.js",
   "shared/role-data.js",
   "shared/role-sheet.css",
   "shared/role-sheet.js",
