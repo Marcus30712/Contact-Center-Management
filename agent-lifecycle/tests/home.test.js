@@ -33,7 +33,7 @@ test('home wording is the approved wording', () => {
 });
 
 test('cards keep every topic and are split into learn and browse', () => {
-  assert.deepEqual(LEARN.map((c) => c.href), ['./agent/', './tl/', './agent-lifecycle/', './tl-support/', './sop-library/', './excel/', './sme/', './sme-lifecycle/', './sme-sop/']);
+  assert.deepEqual(LEARN.map((c) => c.href), ['./agent/', './agent-career/', './tl/', './agent-lifecycle/', './tl-support/', './sop-library/', './excel/', './sme/', './sme-lifecycle/', './sme-sop/']);
   assert.deepEqual(BROWSE.map((c) => c.href), ['./codex/', './staffing-calculator/', './glossary/', './references/']);
   assert.equal(GUIDE_CARD.href, './guide/');
   for (const c of [GUIDE_CARD, ...LEARN, ...BROWSE]) {
@@ -299,19 +299,21 @@ test('roles without a course see Excel only', () => {
 });
 
 // 상담사 첫걸음 (2026-11-26): the agent's first course replaces its "coming soon" card.
-test('an agent learns Agent First Steps and Excel; the SOP library is still coming', async () => {
+test('an agent learns Agent First Steps, Agent Career Lifecycle and Excel; the SOP library is still coming', async () => {
   const { AGENT_UI } = await import('../../agent/ui.js');
+  const { AC_UI } = await import('../../agent-career/ui.js');
   const s = fakeStorage();
   const { root } = setupDom();
   renderHome(root, 'ko', s, '2026-11-26', 'agent');
-  assert.deepEqual([...root.querySelectorAll('#learn a.card')].map((a) => a.getAttribute('href')), ['./agent/', './excel/']);
+  assert.deepEqual([...root.querySelectorAll('#learn a.card')].map((a) => a.getAttribute('href')), ['./agent/', './agent-career/', './excel/']);
   assert.equal(root.querySelector('a.card[href="./agent/"] span').textContent, AGENT_UI.homeCard.ko);
+  assert.equal(root.querySelector('a.card[href="./agent-career/"] span').textContent, AC_UI.homeCard.ko);
   assert.deepEqual([...root.querySelectorAll('#learn [data-soon]')].map((c) => c.getAttribute('data-soon')), ['sop']);
   assert.equal(root.querySelector('[data-start] a').getAttribute('href'), './agent/#start-0');
   assert.equal(root.querySelector('[data-start]').textContent, AGENT_UI.startNote.ko);
-  assert.deepEqual(myLearning(s, 'agent').map((r) => [r.id, r.total, r.next.href]), [['agent', 8, './agent/#start-0'], ['excel', 11, './excel/#lesson-1']]);
+  assert.deepEqual(myLearning(s, 'agent').map((r) => [r.id, r.total, r.next.href]), [['agent', 8, './agent/#start-0'], ['agent-career', 5, './agent-career/#sme-0'], ['excel', 11, './excel/#lesson-1']]);
   const done = fakeStorage({ 'agent-course:v1': JSON.stringify({ completed: ['start', 'training'] }) });
-  assert.deepEqual(myLearning(done, 'agent').map((r) => [r.id, r.done, r.next.id]), [['agent', 2, 'nesting'], ['excel', 0, '1']]);
+  assert.deepEqual(myLearning(done, 'agent').map((r) => [r.id, r.done, r.next.id]), [['agent', 2, 'nesting'], ['agent-career', 0, 'sme'], ['excel', 0, '1']]);
 });
 
 test('other roles never see Agent First Steps, though its progress counts as started', () => {
@@ -323,6 +325,18 @@ test('other roles never see Agent First Steps, though its progress counts as sta
     const { root } = setupDom();
     renderHome(root, 'ko', s, '2026-11-26', role);
     assert.equal(root.querySelector('#learn a[href="./agent/"]'), null, role);
+  }
+});
+
+test('other roles never see Agent Career Lifecycle, though its progress counts as started', () => {
+  const s = fakeStorage({ 'agent-career:v1': JSON.stringify({ completed: ['sme'] }) });
+  for (const role of ['sme', 'tl', 'am', 'om']) {
+    const rows = myLearning(s, role);
+    assert.ok(!rows.some((r) => r.id === 'agent-career'), role);
+    assert.equal(rows.started, true, role);
+    const { root } = setupDom();
+    renderHome(root, 'ko', s, '2026-11-26', role);
+    assert.equal(root.querySelector('#learn a[href="./agent-career/"]'), null, role);
   }
 });
 
@@ -388,9 +402,9 @@ test('Learn shows only the role\'s cards', () => {
   assert.deepEqual(learnTitles(homeOf('sme')), ['직무전문가 첫걸음', '직무전문가 서포트 라이프사이클', '직무전문가 SOP 라이브러리', '미소의 엑셀 연습']);
   assert.deepEqual(learnTitles(homeOf('sme', 'en')), ['SME First Steps', 'SME Support Lifecycle', 'SME SOP Library', "Miso's Excel Practice"]);
   // Agents have their first course since 2026-11-26; their SOP library is still coming.
-  assert.deepEqual(hrefs(homeOf('agent')), ['./agent/', 'soon', './excel/']);
-  assert.deepEqual(learnTitles(homeOf('agent')), ['상담사 첫걸음', '상담사 SOP 라이브러리', '미소의 엑셀 연습']);
-  assert.deepEqual(learnTitles(homeOf('agent', 'en')), ['Agent First Steps', 'Agent SOP Library', "Miso's Excel Practice"]);
+  assert.deepEqual(hrefs(homeOf('agent')), ['./agent/', './agent-career/', 'soon', './excel/']);
+  assert.deepEqual(learnTitles(homeOf('agent')), ['상담사 첫걸음', '상담사 커리어 라이프사이클', '상담사 SOP 라이브러리', '미소의 엑셀 연습']);
+  assert.deepEqual(learnTitles(homeOf('agent', 'en')), ['Agent First Steps', 'Agent Career Lifecycle', 'Agent SOP Library', "Miso's Excel Practice"]);
   for (const role of ['am', 'om']) {
     assert.deepEqual(hrefs(homeOf(role)), ['soon', 'soon', './excel/'], role);
     assert.deepEqual(learnTitles(homeOf(role)), [`${SHORT[role][0]} 첫걸음`, `${SHORT[role][0]} SOP 라이브러리`, '미소의 엑셀 연습'], role);

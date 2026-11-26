@@ -35,6 +35,7 @@ import { SS_UI } from '../sme-sop/ui.js';
 import { TL_UI } from '../tl/ui.js';
 import { TS_UI } from '../tl-support/ui.js';
 import { AGENT_UI } from '../agent/ui.js';
+import { AC_UI } from '../agent-career/ui.js';
 import { roleOf } from '../shared/role.js';
 import { BRAND } from '../shared/brand.js';
 
@@ -47,6 +48,7 @@ export const GUIDE_CARD = card('./guide/', '어디서부터 볼까요? · 팀장
 
 export const LEARN = [
   forRole(roleOf('agent'), { href: './agent/', title: AGENT_UI.courseTitle, text: AGENT_UI.homeCard }),
+  forRole(roleOf('agent-career'), { href: './agent-career/', title: AC_UI.courseTitle, text: AC_UI.homeCard }),
   forRole(roleOf('tl'), { href: './tl/', title: TL_UI.courseTitle, text: TL_UI.homeCard }),
   forRole(roleOf('lifecycle'), card('./agent-lifecycle/', '상담사 라이프사이클', 'The Agent Lifecycle',
     '신입 팀장을 위한 6단계 강의: 채용부터 경력 개발까지.', 'A six-stage course for new team leaders, from hiring to career growth.')),

@@ -14,6 +14,7 @@
 | 미소의 엑셀 연습 / Miso's Excel Practice | [`excel/`](excel/) | 팀장이 꼭 쓰는 엑셀 11가지(셀 주소부터 SUMIFS·XLOOKUP·피벗·조건부 서식까지)와, 배운 함수를 섞어 쓰는 심화 5개. 타자 없이 카드와 칸을 눌러 수식을 만들고, 미소 팀 콜 기록(예시)으로 실제 계산해 채점 (한국어/영어) |
 | TL 첫걸음 / TL First Steps | [`tl/`](tl/) | 막 팀장이 된 사람을 위한 7개 레슨: 로스터, 개인 성과, 콜·티켓 직접 보기, 팀의 기여, 첫 1:1 면담, AM·OM에게 방침 받기 (한국어/영어) |
 | 상담사 첫걸음 / Agent First Steps | [`agent/`](agent/) | 막 상담사가 된 사람을 위한 8개 레슨: 첫 출근부터 교육, 묻는 법, 첫 콜, 어려운 고객, 평가 리뷰, 근태, 익숙해지기까지 (한국어/영어) |
+| 상담사 커리어 라이프사이클 / Agent Career Lifecycle | [`agent-career/`](agent-career/) | 상담사가 지향할 수 있는 다음 자리 5개 레슨: 직무전문가, QA, 트레이너, 팀장, 그리고 어느 자리든 공통으로 보는 준비 (한국어/영어) |
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
 | TL 서포트 라이프사이클 / TL Support Lifecycle | [`tl-support/`](tl-support/) | 팀장이 상담사, SME, QA, 트레이너, 팀 전체를 각각 지원하는 절차, 5개 레슨 (한국어/영어) |
 | SME 첫걸음 / SME First Steps | [`sme/`](sme/) | 상담사에서 막 SME가 된 사람을 위한 7개 레슨: 첫날, 신입·기존 상담사·동료였던 선임·팀장 서포트, 요청이 몰릴 때, 팀에 지식 돌려주기 (한국어/영어) |

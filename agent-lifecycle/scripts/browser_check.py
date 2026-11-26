@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "tl/", "tl/#listen-3", "tl-support/", "tl-support/#qa-3", "agent/", "agent/#golive-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "tl/", "tl/#listen-3", "tl-support/", "tl-support/#qa-3", "agent/", "agent/#golive-3", "agent-career/", "agent-career/#tl-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -670,7 +670,7 @@ def main():
         page.reload()
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
-        PAGES = {"": "home", "guide/": "guide", "sme-guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "tl/": "learn", "tl-support/": "learn", "codex/#daily": "browse", "browse/": "browse",
+        PAGES = {"": "home", "guide/": "guide", "sme-guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "tl/": "learn", "tl-support/": "learn", "agent-career/": "learn", "codex/#daily": "browse", "browse/": "browse",
                  "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
@@ -1499,9 +1499,10 @@ def main():
         page = new_page(browser, errors, init="try { if (!localStorage.getItem('queuecraft:role')) localStorage.setItem('queuecraft:role', 'agent'); } catch (e) {}")
         page.goto(HUB)
         page.wait_for_selector("#learn a.card[href='./agent/']")
-        check("(ag1) an agent's Learn shows Agent First Steps, the SOP library still coming, then Excel",
-              page.get_attribute("#learn li:nth-child(1) a.card", "href") == "./agent/" and page.locator("#learn li:nth-child(2) [data-soon='sop']").count() == 1
-              and page.get_attribute("#learn li:nth-child(3) a.card", "href") == "./excel/" and page.get_attribute("[data-start] a", "href") == "./agent/#start-0")
+        check("(ag1) an agent's Learn shows Agent First Steps, Agent Career Lifecycle, the SOP library still coming, then Excel",
+              page.get_attribute("#learn li:nth-child(1) a.card", "href") == "./agent/" and page.get_attribute("#learn li:nth-child(2) a.card", "href") == "./agent-career/"
+              and page.locator("#learn li:nth-child(3) [data-soon='sop']").count() == 1
+              and page.get_attribute("#learn li:nth-child(4) a.card", "href") == "./excel/" and page.get_attribute("[data-start] a", "href") == "./agent/#start-0")
         page.click("#learn a.card[href='./agent/']")
         page.wait_for_selector("[data-agent-list] a")
         check("(ag2) Agent First Steps opens with 8 lessons", page.locator("[data-agent-list] a").count() == 8)
@@ -1526,6 +1527,39 @@ def main():
         check("(ag4) an agent lesson in English shows no Korean", not any("\uac00" <= ch <= "\ud7a3" for ch in page.inner_text("#app")))
         page.click("[data-lang='ko']")
         page.screenshot(path=str(OUT / "agent-390.png"), full_page=True)
+        page.context.close()
+
+        # (ac) Agent Career Lifecycle (2026-11-26): an agent opens it from Learn, finishes lesson 1, and home counts it
+        page = new_page(browser, errors, init="try { if (!localStorage.getItem('queuecraft:role')) localStorage.setItem('queuecraft:role', 'agent'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("#learn a.card[href='./agent-career/']")
+        page.click("#learn a.card[href='./agent-career/']")
+        page.wait_for_selector("[data-stage-list]")
+        check("(ac1) Learn opens Agent Career Lifecycle with five roles on the ring", page.url.endswith("/agent-career/") and page.locator("svg a[data-stage]").count() == 5 and page.locator("[data-stage-list] a").count() == 5)
+        page.click("[data-stage-list] a[data-stage='sme']")
+        page.wait_for_selector("[data-counter]")
+        steps = int(page.inner_text("[data-counter]").split("/")[1])
+        for _ in range(steps):
+            page.click("[data-next]")
+        page.wait_for_selector("[data-view='checkpoint']")
+        check("(ac2) the checkpoint is the agent's", "상담사 체크포인트" in page.inner_text("#app"))
+        page.click("[data-question='sme-q1'] [data-option='b']")
+        page.click("[data-question='sme-q2'] [data-option='a']")
+        page.wait_for_selector("[data-connection]")
+        check("(ac2) lesson 1 leads on to QA", page.get_attribute("[data-next-lesson]", "href") == "#qa-0")
+        page.goto(HUB)
+        page.wait_for_selector("[data-course='agent-career']")
+        check("(ac3) home my learning counts the finished lesson", "1/5" in page.inner_text("[data-course='agent-career']") and page.get_attribute("a[data-next='agent-career']", "href") == "./agent-career/#qa-0")
+        page.goto(HUB + "agent-career/#tl-3")
+        page.wait_for_selector("[data-counter]")
+        page.click("[data-lang='en']")
+        page.wait_for_timeout(200)
+        check("(ac4) a career lesson in English shows no Korean", not any("\uac00" <= ch <= "\ud7a3" for ch in page.inner_text("#app")))
+        page.goto(HUB + "agent-career/")
+        page.wait_for_selector("[data-stage-list]")
+        check("(ac4) the English ring shows no Korean", not any("\uac00" <= ch <= "\ud7a3" for ch in page.inner_text("#app")))
+        page.click("[data-lang='ko']")
+        page.screenshot(path=str(OUT / "agent-career-390.png"), full_page=True)
         page.context.close()
 
         # (tl) TL courses (2026-11-25): a team lead opens both new courses from Learn, finishes lesson 1 of each, and home counts them

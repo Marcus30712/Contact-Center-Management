@@ -58,5 +58,5 @@ export default {
       explanation: tx("리뷰는 함께 다음 목표를 정하는 시간입니다.", "The review is a time to set the next goal together."),
     },
   ],
-  connection: { to: "home", text: tx("상담사 첫걸음을 마쳤습니다. 다음은 미소의 엑셀 연습에서 실적 숫자를 읽는 법을 익혀 보세요.", "You have finished Agent First Steps. Next, learn to read performance numbers in Miso's Excel Practice.") },
+  connection: { to: "home", text: tx("상담사 첫걸음을 마쳤습니다. 다음은 상담사 커리어 라이프사이클에서 앞으로 지향할 수 있는 자리를 미리 알아보세요.", "You have finished Agent First Steps. Next, look ahead at the roles you can aim for in Agent Career Lifecycle.") },
 };
