@@ -19,7 +19,8 @@ https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
   sop-library/ui.js, codex/data/, glossary/terms.js, guide/data.js,
   practice/data.js, excel/data.js, home/data.js, references/text.js,
   staffing-calculator/text.js, sme-guide/data.js, sme/lessons/,
-  sme-lifecycle/lessons/, sme-sop/lessons/, tl/lessons/, tl-support/lessons/
+  sme-lifecycle/lessons/, sme-sop/lessons/, tl/lessons/, tl-support/lessons/,
+  agent/lessons/
 - design and wording documents: docs/
 - the Miso Kim character images: assets/miso/, art/miso/, icons/
 

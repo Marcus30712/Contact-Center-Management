@@ -10,9 +10,10 @@ A learning app for getting ready for your next contact center role, from agent t
 |---|---|---|
 | Situation Guide | [`guide/`](guide/) | Pick one of 18 situations and get the lesson, SOP or one-pager to read first (Korean/English) |
 | SME Situation Guide | [`sme-guide/`](sme-guide/) | Pick one of 16 situations a new SME meets and get the SME lesson or SOP to read first (Korean/English) |
-| Today's Practice | [`practice/`](practice/) | Three questions a day from the lessons you've finished (four TL courses, three SME courses, Excel), term cards, a weekday streak and 12 badges. Miso reacts with her face (Korean/English). Records stay on your phone |
+| Today's Practice | [`practice/`](practice/) | Three questions a day from the lessons you've finished (one agent course, four TL courses, three SME courses, Excel), term cards, a weekday streak and 12 badges. Miso reacts with her face (Korean/English). Records stay on your phone |
 | Miso's Excel Practice | [`excel/`](excel/) | 11 Excel skills every team lead uses (from cell addresses to SUMIFS, XLOOKUP, pivot tables and conditional formatting), plus 5 advanced lessons that mix the functions you've learned. No typing: tap cards and cells to build formulas, graded by really calculating them on Miso's team call log (example) (Korean/English) |
 | TL First Steps | [`tl/`](tl/) | Seven lessons for new team leaders: the roster, individual results, listening to calls and reading tickets, the team's contribution, first one-on-ones, and getting direction from the AM or OM (Korean/English) |
+| Agent First Steps | [`agent/`](agent/) | Eight lessons for new agents: the first day, training, how to ask, the first call, difficult customers, score reviews, attendance and getting comfortable (Korean/English) |
 | The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | A six-stage course for new team leads (Korean/English) |
 | TL Support Lifecycle | [`tl-support/`](tl-support/) | Five lessons on how a team leader supports agents, the SME, QA, trainers and the whole team (Korean/English) |
 | SME First Steps | [`sme/`](sme/) | Seven lessons for agents who have just become SMEs: the first day; supporting new hires, existing agents, former peers and the team leader; when requests pile up; giving knowledge back (Korean/English) |

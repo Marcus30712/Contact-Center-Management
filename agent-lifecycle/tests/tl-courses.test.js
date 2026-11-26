@@ -14,6 +14,9 @@ import { TS_LESSONS } from '../../tl-support/lessons/index.js';
 import { TS_UI, TS_PROGRESS_KEY, TS_FIGURE } from '../../tl-support/ui.js';
 import { SME_FIGURE } from '../../sme/ui.js';
 import { renderTlHome } from '../../tl/home.js';
+import { AGENT_LESSONS } from '../../agent/lessons/index.js';
+import { AGENT_UI, AGENT_PROGRESS_KEY, AGENT_FIGURE } from '../../agent/ui.js';
+import { renderAgentHome } from '../../agent/home.js';
 import { renderHome } from '../js/render/home.js';
 import { renderLesson } from '../js/render/lesson.js';
 import { parseRoute, lessonHref } from '../js/engine/router.js';
@@ -60,13 +63,20 @@ const COURSES = [
     id: 'tl', dir: 'tl/', key: 'tl-course:v1', lessons: TL_LESSONS, ui: TL_UI, progressKey: TL_PROGRESS_KEY, figure: TL_FIGURE,
     ko: doc('2026-11-25-tl-course-copy-ko.md'), en: doc('2026-11-25-tl-course-copy.en.md'),
     ids: ['start', 'roster', 'results', 'listen', 'contribution', 'oneonone', 'direction'],
-    people: { contribution: ['하린', 'Harin'], direction: ['민석', 'Minseok'] },
+    people: { contribution: ['하린', 'Harin'], direction: ['민석', 'Minseok'] }, checkpointLabel: '팀장 체크포인트',
   },
   {
     id: 'tl-support', dir: 'tl-support/', key: 'tl-support:v1', lessons: TS_LESSONS, ui: TS_UI, progressKey: TS_PROGRESS_KEY, figure: TS_FIGURE,
     ko: doc('2026-11-25-tl-support-copy-ko.md'), en: doc('2026-11-25-tl-support-copy.en.md'),
     ids: ['agents', 'sme', 'qa', 'trainers', 'team'],
-    people: { sme: ['하린', 'Harin'], qa: ['도현', 'Dohyun'], trainers: ['유나', 'Yuna'], team: ['하린', 'Harin'] },
+    people: { sme: ['하린', 'Harin'], qa: ['도현', 'Dohyun'], trainers: ['유나', 'Yuna'], team: ['하린', 'Harin'] }, checkpointLabel: '팀장 체크포인트',
+  },
+  // 상담사 첫걸음 (2026-11-26): the same list course for the agent role.
+  {
+    id: 'agent', dir: 'agent/', key: 'agent-course:v1', lessons: AGENT_LESSONS, ui: AGENT_UI, progressKey: AGENT_PROGRESS_KEY, figure: AGENT_FIGURE,
+    ko: doc('2026-11-26-agent-course-copy-ko.md'), en: doc('2026-11-26-agent-course-copy.en.md'),
+    ids: ['start', 'training', 'nesting', 'golive', 'customers', 'review', 'attendance', 'growth'],
+    people: {}, checkpointLabel: '상담사 체크포인트',
   },
 ];
 
@@ -174,7 +184,7 @@ for (const c of COURSES) {
     const first = open(c.ids[0]);
     assert.equal(first.querySelector('.eyebrow').textContent, `1 / ${c.ids.length}`);
     assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), `#${c.ids[1]}-0`);
-    assert.ok(first.textContent.includes('팀장 체크포인트'));
+    assert.ok(first.textContent.includes(c.checkpointLabel));
     assert.equal(open(c.ids.at(-1)).querySelector('[data-next-lesson]').getAttribute('href'), '#home');
   });
 
@@ -225,8 +235,21 @@ test('TL Support Lifecycle: the ring shows five roles with the team leader in th
   assert.equal(en.root.querySelector('[data-translation-note]').hidden, true);
 });
 
-test('both TL course pages settle the guide and save their own progress', () => {
-  for (const [dir, key] of [['tl', 'TL_PROGRESS_KEY'], ['tl-support', 'TS_PROGRESS_KEY']]) {
+test('Agent First Steps: the list shows eight lessons with done marks, in both languages', () => {
+  const { root } = setupDom();
+  renderAgentHome(root, AGENT_LESSONS, { completed: ['golive'] }, 'ko');
+  assert.equal(root.querySelector('h1').textContent, '상담사 첫걸음');
+  assert.equal(root.querySelector('[data-list-note]').textContent, AGENT_UI.listNote.ko);
+  const links = [...root.querySelectorAll('ol[data-agent-list] a[data-agent]')];
+  assert.deepEqual(links.map((a) => a.getAttribute('href')), AGENT_LESSONS.map((l) => `#${l.id}-0`));
+  assert.deepEqual(links.map((a) => a.classList.contains('is-done')), AGENT_LESSONS.map((l) => l.id === 'golive'));
+  const en = setupDom();
+  renderAgentHome(en.root, AGENT_LESSONS, { completed: [] }, 'en');
+  assert.ok(!/[가-힣]/.test(en.root.textContent));
+});
+
+test('the TL and agent course pages settle the guide and save their own progress', () => {
+  for (const [dir, key] of [['tl', 'TL_PROGRESS_KEY'], ['tl-support', 'TS_PROGRESS_KEY'], ['agent', 'AGENT_PROGRESS_KEY']]) {
     const src = readFileSync(new URL(`../../${dir}/app.js`, import.meta.url), 'utf8');
     assert.ok(src.includes(`settleGuide(location, history, '${dir}',`), dir);
     assert.ok(src.includes(`markComplete(storage, id, ${key})`), dir);
@@ -241,7 +264,7 @@ test('the course rename never doubles a prefix in the docs or the app', async ()
   const root = new URL('../../', import.meta.url);
   const bad = /(AM|OM|상담사|Agent) TL SOP|SME의 SME|\bTL TL\b|\bSME SME\b/;
   const files = readdirSync(new URL('docs/superpowers/specs/', root)).map((f) => `docs/superpowers/specs/${f}`);
-  for (const dir of ['home', 'tl', 'tl-support', 'sme', 'sme-lifecycle', 'sme-sop', 'sop-library', 'guide', 'sme-guide', 'review', 'privacy', 'codex/data', 'glossary']) {
+  for (const dir of ['home', 'tl', 'tl-support', 'agent', 'sme', 'sme-lifecycle', 'sme-sop', 'sop-library', 'guide', 'sme-guide', 'review', 'privacy', 'codex/data', 'glossary']) {
     for (const f of readdirSync(new URL(`${dir}/`, root), { recursive: true })) {
       if (String(f).endsWith('.js') || String(f).endsWith('.html')) files.push(`${dir}/${f}`);
     }
@@ -261,7 +284,15 @@ test('the SOP badge rule names the TL SOP lessons', async () => {
 // Every course's lesson text is content under CC BY-NC-ND, as the README says.
 test('the content licence lists every course lesson folder', () => {
   const lic = readFileSync(new URL('../../LICENSE-CONTENT', import.meta.url), 'utf8').replace(/\s+/g, ' ');
-  for (const d of ['sme/lessons/', 'sme-lifecycle/lessons/', 'sme-sop/lessons/', 'tl/lessons/', 'tl-support/lessons/', 'sme-guide/data.js']) {
+  for (const d of ['sme/lessons/', 'sme-lifecycle/lessons/', 'sme-sop/lessons/', 'tl/lessons/', 'tl-support/lessons/', 'agent/lessons/', 'sme-guide/data.js']) {
     assert.ok(lic.includes(d), d);
   }
+});
+
+// Review 2026-11-26: steps after the four stages light the stage they talk about,
+// not whichever stage came last.
+test('Agent First Steps: later steps light the stage they are about', () => {
+  const hl = (id, n) => AGENT_LESSONS.find((l) => l.id === id).steps[n - 1].highlight;
+  assert.deepEqual([hl('start', 7), hl('start', 8)], [['onboarding'], ['onboarding']]);
+  assert.deepEqual([hl('attendance', 7), hl('attendance', 8)], [['sick'], ['sick']]);
 });

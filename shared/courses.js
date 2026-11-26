@@ -15,8 +15,11 @@ import { TL_LESSONS } from '../tl/lessons/index.js';
 import { TL_PROGRESS_KEY } from '../tl/ui.js';
 import { TS_LESSONS } from '../tl-support/lessons/index.js';
 import { TS_PROGRESS_KEY } from '../tl-support/ui.js';
+import { AGENT_LESSONS } from '../agent/lessons/index.js';
+import { AGENT_PROGRESS_KEY } from '../agent/ui.js';
 
 export const COURSE_INFO = {
+  agent: { key: AGENT_PROGRESS_KEY, lessons: AGENT_LESSONS, dir: 'agent/' },
   tl: { key: TL_PROGRESS_KEY, lessons: TL_LESSONS, dir: 'tl/' },
   lifecycle: { key: PROGRESS_KEY, lessons: LESSONS, dir: 'agent-lifecycle/' },
   'tl-support': { key: TS_PROGRESS_KEY, lessons: TS_LESSONS, dir: 'tl-support/' },

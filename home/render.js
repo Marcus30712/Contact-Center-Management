@@ -9,6 +9,7 @@ import { SL_UI } from '../sme-lifecycle/ui.js';
 import { SS_UI } from '../sme-sop/ui.js';
 import { TL_UI } from '../tl/ui.js';
 import { TS_UI } from '../tl-support/ui.js';
+import { AGENT_UI } from '../agent/ui.js';
 import { HOME_UI as UI } from './data.js';
 import { HOME_COPY, homeFor, withRole } from './role-home.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
@@ -30,6 +31,7 @@ const course = (id, name) => {
 };
 
 const COURSES = [
+  course('agent', AGENT_UI.courseTitle),
   course('tl', TL_UI.courseTitle),
   course('lifecycle', UI.lifecycle),
   course('tl-support', TS_UI.courseTitle),
@@ -124,8 +126,9 @@ export function renderHome(root, lang, storage, today = localDate(), role = DEFA
   if (!learning.started) {
     // A new SME starts on SME First Steps and a new team leader on TL First Steps (2026-11-25).
     // The start course may not be among the rows shown (roles without a course), so look it up in all courses.
-    // Roles without a course of their own start on Excel lesson 1 (2026-11-25).
-    const [startId, startText] = role === 'sme' ? ['sme', SME_UI.startNote] : role === 'tl' ? ['tl', TL_UI.startNote] : ['excel', HOME_COPY.startExcel];
+    // Roles without a course of their own start on Excel lesson 1 (2026-11-25); agents on Agent First Steps (2026-11-26).
+    const START = { sme: ['sme', SME_UI.startNote], tl: ['tl', TL_UI.startNote], agent: ['agent', AGENT_UI.startNote] };
+    const [startId, startText] = START[role] ?? ['excel', HOME_COPY.startExcel];
     const startCourse = COURSES.find((c) => c.id === startId);
     const first = [...startCourse.lessons].sort((a, b) => a.order - b.order)[0];
     const href = startCourse.href ? startCourse.href(first) : `${startCourse.path}#${first.id}-0`;

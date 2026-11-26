@@ -13,7 +13,7 @@ export const PRIVACY_TEXT = {
   "s2.heading": { ko: "2. 기기에만 저장하는 정보", en: "2. Information kept only on your device" },
   "s2.body": { ko: "학습을 이어 갈 수 있도록 아래 내용을 사용하는 기기의 브라우저 저장공간에만 저장합니다. 이 정보는 어디로도 보내지 않으며 운영자도 볼 수 없습니다.", en: "So you can pick up where you left off, the items below are stored only in your browser's storage on the device you use. They are never sent anywhere, and the operator cannot see them." },
   "s2.item1": { ko: "고른 언어, 직군, 준비하는 직급, 화면 모드(밝게·어둡게), 튜토리얼을 봤는지 여부", en: "Your chosen language, job track, the role you are preparing for, display mode (light or dark), and whether you've seen the tutorial" },
-  "s2.item2": { ko: "레슨 진도 (팀장 첫걸음, 상담사 라이프사이클, 팀장 서포트 라이프사이클, 팀장 SOP, 직무전문가 첫걸음, 직무전문가 서포트 라이프사이클, 직무전문가 SOP, 엑셀)", en: "Lesson progress (TL First Steps, The Agent Lifecycle, TL Support Lifecycle, TL SOP, SME First Steps, SME Support Lifecycle, SME SOP, Excel)" },
+  "s2.item2": { ko: "레슨 진도 (상담사 첫걸음, 팀장 첫걸음, 상담사 라이프사이클, 팀장 서포트 라이프사이클, 팀장 SOP, 직무전문가 첫걸음, 직무전문가 서포트 라이프사이클, 직무전문가 SOP, 엑셀)", en: "Lesson progress (Agent First Steps, TL First Steps, The Agent Lifecycle, TL Support Lifecycle, TL SOP, SME First Steps, SME Support Lifecycle, SME SOP, Excel)" },
   "s2.item3": { ko: "오늘의 연습 기록(연습한 날짜, 푼 문제와 카드)과 배지, 복습 퀴즈 결과", en: "Today's Practice records (days practised, questions and cards), badges and review quiz results" },
   "s2.item4": { ko: "오프라인에서 보기 위한 화면 파일", en: "Page files for offline use" },
   "s2.backup": { ko: "설정에서 기록을 내보내면 그 파일은 사용하는 기기에 저장되며, 이 역시 어디로도 보내지 않습니다.", en: "If you export your progress in Settings, the file is saved on the device you use; it is not sent anywhere either." },

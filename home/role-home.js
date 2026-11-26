@@ -63,6 +63,13 @@ export function homeFor(role) {
       ],
     };
   }
+  if (role === 'agent') {
+    // Agent First Steps is built (2026-11-26); the agent SOP library and guide are still coming.
+    return {
+      guide,
+      learn: [{ id: 'agent', ...byHref('./agent/') }, soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],
+    };
+  }
   return {
     guide,
     learn: [soon('first-steps', withRole(HOME_COPY.firstSteps, role)), soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],
