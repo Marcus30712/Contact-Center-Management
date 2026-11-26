@@ -49,7 +49,7 @@ export default {
     },
     {
       id: "tl-q2",
-      prompt: tx("팀장을 꿈꾸는 상담사 지민이 지금 할 수 있는 것은 무엇일까요?", "Jimin is an agent who dreams of becoming a team leader. What can she do now?"),
+      prompt: tx("팀장을 꿈꾸는 상담사 지민이 지금 할 수 있는 것은 무엇일까요?", "What can Jimin, an agent who dreams of becoming a team leader, do now?"),
       options: [
         option("a", tx("평가 리뷰 때 내 지표를 먼저 읽고, 좋았던 점과 고칠 점을 말해 본다.", "Read her own metrics first in the score review, and say what went well and what to fix.")),
         option("b", tx("팀장이 되면 배우면 되니, 지금은 내 콜만 신경 쓴다.", "Learn it once she's a team leader, and for now focus only on her own calls."), tx("내 지표를 읽는 연습이 나중에 팀원의 지표를 읽는 힘이 됩니다.", "Practicing reading your own metrics becomes the ability to read team members' metrics later.")),

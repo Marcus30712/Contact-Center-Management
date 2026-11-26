@@ -26,12 +26,12 @@ export default {
     edges: [edge("confirm", "check"), edge("check", "record"), edge("record", "alert")],
   },
   steps: [
-    step(tx("이 절차의 목적은 팀장이 자리에 없거나 팀원이 많을 때, 직무전문가가 출석을 대신 확인하고 기록해 인원 공백을 빨리 알리는 것입니다.", "This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the lead's behalf and flags staffing gaps quickly."), flow, procedure, null),
+    step(tx("이 절차의 목적은 팀장이 자리에 없거나 팀원이 많을 때, 직무전문가가 출석을 대신 확인하고 기록해 인원 공백을 빨리 알리는 것입니다.", "This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the team leader's behalf and flags staffing gaps quickly."), flow, procedure, null),
     step(tx("첫 단계는 대행 확인입니다. 수진 팀장에게 오늘 대행을 맡는지, 연락 올 곳과 보고할 시각을 미리 받습니다.", "The first step is confirming the cover. Confirm with Sujin in advance whether you're covering today, where absence calls will come in, and when to report."), flow, ["confirm"], null),
     step(tx("둘째 단계는 출석 확인입니다. 근무 시작 시각에 스케줄과 실제 로그인을 맞춰 보고, 없는 사람을 확인합니다.", "The second step is checking attendance. At the start of the shift, match the schedule against actual logins and find who is missing."), flow, ["check"], null),
-    step(tx("지각이나 결근 연락이 오면 받은 시각과 말한 사유를 그대로 받습니다. 사유가 타당한지는 판단하지 않습니다.", "When someone calls to say they'll be late or absent, take down the time and the reason as given. Don't judge whether the reason is valid."), flow, ["check"], null),
+    step(tx("지각이나 결근 연락이 오면 받은 시각과 말한 사유를 그대로 받습니다. 사유가 타당한지는 판단하지 않고, 건강 같은 개인 사정은 캐묻거나 자세히 적지 않습니다.", "When someone calls to say they'll be late or absent, take down the time and the reason as given. Don't judge whether the reason is valid, and don't probe into or write down details of health or other personal matters."), flow, ["check"], null),
     step(tx("셋째 단계는 사실 기록입니다. 출석 시트에 도착 시각, 연락 여부, 사유를 사실대로 적습니다. 빼거나 고치지 않습니다.", "The third step is recording the facts. Write the arrival time, whether they called, and the reason in the attendance sheet, as they are. Don't leave anything out or change it."), flow, ["record"], null),
-    step(tx("넷째 단계는 공백 알리기입니다. 결근으로 인원이 부족하면 RTA에게 바로 알려 대기열을 지킬 수 있게 합니다.", "The fourth step is flagging gaps. If absences leave you short, tell the RTA right away so the queue can be protected."), flow, ["alert"], null),
+    step(tx("넷째 단계는 공백 알리기입니다. 결근으로 인원이 부족하면 RTA와 수진 팀장에게 바로 알려 대기열을 지킬 수 있게 합니다.", "The fourth step is flagging gaps. If absences leave you short, tell the RTA and Sujin right away so the queue can be protected."), flow, ["alert"], null),
     step(tx("정해진 시각에 수진 팀장에게 출석 결과를 보냅니다. 경고, 근태 조치, 스케줄 변경은 팀장이 정합니다.", "Send Sujin the attendance results at the agreed time. Warnings, attendance actions and schedule changes are for the team leader to decide."), flow, ["alert"], null),
   ],
   checkpoint: [

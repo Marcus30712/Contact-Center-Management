@@ -14,8 +14,8 @@ export default {
     nodes: [
       node('agent', '상담사', 58, 96, 'Agent'),
       node('qa', 'QA', 196, 26, 'QA'),
-      node('trainer', '교육 강사', 196, 72, 'Trainer'),
-      node('lead', '팀 리더', 196, 118, 'Team leader'),
+      node('trainer', '트레이너', 196, 72, 'Trainer'),
+      node('lead', '팀장', 196, 118, 'Team leader'),
       node('wfm', 'WFM', 196, 164, 'WFM'),
       node('exit', '퇴사 면담', 58, 212, 'Exit interview'),
       node('improve', '채용·관리 개선', 250, 212, 'Hiring fixes'),
@@ -26,9 +26,9 @@ export default {
     ],
   },
   steps: [
-    step(tx('마지막 단계에는 두 갈래가 있습니다. 상담사로서의 경력을 넓히는 길과, 잘 마무리하고 떠나는 길입니다.', 'The last stage has two branches. One is growing a career beyond taking calls, and the other is leaving on good terms.'),
+    step(tx('마지막 단계에는 두 갈래가 있습니다. 상담사로서의 경력을 넓히는 길과, 잘 마무리하고 떠나는 길입니다.', 'The last stage has two branches. One is growing a career that started as an agent, and the other is leaving on good terms.'),
       ['agent'], ['agent'], 'agent'),
-    step(tx('먼저 경력 경로입니다. 상담 업무에서 QA(품질 관리자), 교육 강사, 팀 리더, WFM(인력 관리자)으로 승진하거나 직무를 바꿀 기회를 줍니다.', 'Start with career paths. Agents get the chance to be promoted or to move into roles such as QA (quality analyst), trainer, team leader, or WFM (workforce management).'),
+    step(tx('먼저 경력 경로입니다. 상담 업무에서 QA(품질 평가 담당), 트레이너, WFM(인력 관리)으로 직무를 바꾸거나, 직무전문가를 거쳐 팀장으로 승진할 기회를 줍니다.', 'Start with career paths. Agents get the chance to move into roles such as QA (quality analyst), trainer, or WFM (workforce management), or to be promoted through SME to team leader.'),
       paths, ['qa', 'trainer', 'lead', 'wfm'], 'agent'),
     step(tx('이런 길이 있다는 것을 상담사가 스스로 알기는 어렵습니다. 경로를 보여 주고 연결해 주는 것이 팀장의 몫입니다.', 'Agents rarely find out on their own that these paths exist. Showing the paths and making the connection is the team leader’s part.'),
       paths, ['agent'], 'agent'),
@@ -65,7 +65,7 @@ export default {
     id: 'career-general',
     prompt: tx('지민의 동료가 상담은 잘하지만 관리 직무에는 관심이 없다고 합니다. 어떤 길을 보여 줄까요?', 'A colleague of Jimin’s is strong on calls but says management roles do not appeal. Which path do you show?'),
     options: [
-      option('a', tx('팀 리더가 아니면 길이 없다고 말한다.', 'Say there is no path other than team leader.'), tx('관리 직무만 길이라고 하면, 상담을 잘하는 사람이 성장할 곳이 없다고 느껴 떠날 수 있습니다.', 'Presenting management as the only path can make a strong agent feel there is nowhere to grow, and leave.')),
+      option('a', tx('팀장이 아니면 길이 없다고 말한다.', 'Say there is no path other than team leader.'), tx('관리 직무만 길이라고 하면, 상담을 잘하는 사람이 성장할 곳이 없다고 느껴 떠날 수 있습니다.', 'Presenting management as the only path can make a strong agent feel there is nowhere to grow, and leave.')),
       option('b', tx('전문 상담 담당처럼 응대의 깊이를 넓히는 길을 소개한다.', 'Introduce a path that deepens handling skill, such as specialist support.')),
       option('c', tx('지금 자리에 만족하라고 한다.', 'Tell them to be satisfied where they are.'), tx('지금 자리에 만족하라는 말은 성장하고 싶은 마음을 닫아 버립니다.', 'Telling them to be content where they are shuts down the wish to grow.')),
     ],
@@ -76,7 +76,7 @@ export default {
     prompt: tx('기술지원 상담사가 더 어려운 티켓을 맡고 싶다고 합니다. 무엇을 할까요?', 'A tech support agent says they want to take on harder tickets. What do you do?'),
     options: [
       option('a', tx('지금 맡은 범위만 하라고 한다.', 'Tell them to stay within their current scope.'), tx('더 하고 싶다는 말을 막으면 성장 의지가 꺾이고, 팀은 다음 2차 지원 인력을 놓칩니다.', 'Holding back someone who wants more breaks their drive to grow, and the team misses its next Tier 2 agent.')),
-      option('b', tx('2차 지원에 필요한 역량을 알려 주고, 일부 티켓을 함께 처리해 보게 한다.', 'Explain the skills Tier 2 requires, and have them work some tickets alongside a Tier 2 agent.')),
+      option('b', tx('2차 지원에 필요한 역량을 알려 주고, 일부 티켓을 함께 처리해 보게 한다.', 'Explain the skills Tier 2 requires, and have them try some of those tickets with support.')),
       option('c', tx('준비 없이 바로 2차 지원으로 보낸다.', 'Move them to Tier 2 right away with no preparation.'), tx('준비 없이 보내면 실패할 가능성이 커지고, 고객도 그 부담을 함께 집니다.', 'Sending them unprepared raises the chance of failure, and customers share the cost.')),
     ],
     answer: 'b',

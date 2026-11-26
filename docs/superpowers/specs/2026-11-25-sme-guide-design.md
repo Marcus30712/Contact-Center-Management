@@ -49,9 +49,9 @@
 |---|---|---|---|---|
 | m1 | 직무전문가가 된 첫 주 | 직무전문가가 된 첫날이다 | 직무전문가 첫걸음 레슨 1 · 직무전문가가 된 첫날 | Codex 원페이저 ④ 직무전문가의 하루 |
 | m2 | | 동료였던 선임이 승인 없이 처리하려 한다 | 직무전문가 첫걸음 레슨 4 · 동료였던 선임 서포트 | 직무전문가 SOP · 에스컬레이션 승인 |
-| m3 | 신입과 교육 중인 상담사 | 다음 주 OJT 교육생이 플로어에 나온다 | 직무전문가 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | 팀장 SOP · 신규 입사자 온보딩 |
-| m4 | | 네스팅 중인 신입이 같은 유형에서 계속 막힌다 | 직무전문가 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 | 직무전문가 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 |
-| m5 | | 신입이 하루 종일 질문을 하지 않는다 | 직무전문가 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 | 직무전문가 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 |
+| m3 | 신입과 교육 중인 상담사 | 다음 주 OJT 교육생이 플로어에 나온다 | 직무전문가 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | 상담사 라이프사이클 레슨 3 · OJT 및 네스팅 |
+| m4 | | 네스팅 중인 신입이 같은 유형에서 계속 막힌다 | 직무전문가 서포트 라이프사이클 레슨 2 · 네스팅 중인 상담사 지원 | 직무전문가 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 |
+| m5 | | 신입이 하루 종일 질문을 하지 않는다 | 직무전문가 첫걸음 레슨 2 · 교육 중·막 교육을 마친 상담사 서포트 | 직무전문가 서포트 라이프사이클 레슨 2 · 네스팅 중인 상담사 지원 |
 | m6 | 기존 상담사와 선임 | 상담사가 권한 밖 보상 승인을 요청한다 | 직무전문가 SOP · 에스컬레이션 승인 | 직무전문가 첫걸음 레슨 3 · 기존 상담사 서포트 |
 | m7 | | 정식 상담사의 품질이 갑자기 떨어졌다 | 직무전문가 서포트 라이프사이클 레슨 3 · 정식 상담사 지원 | 직무전문가 SOP · 상담 트렌드 요약 보고 |
 | m8 | | 선임이 직무전문가나 팀장이 되고 싶어 한다 | 직무전문가 서포트 라이프사이클 레슨 4 · 선임 상담사 지원 | Codex 원페이저 ③ 커리어 매트릭스 |
@@ -116,7 +116,7 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | 직무전문가 첫걸음 레슨 6 · 요청이 동시에 몰릴 때 | SME First Steps lesson 6 · When Requests Pile Up at Once |
 | 직무전문가 첫걸음 레슨 7 · 팀에 지식 돌려주기 | SME First Steps lesson 7 · Giving Knowledge Back to the Team |
 | 직무전문가 서포트 라이프사이클 레슨 1 · 교육 중인 상담사 지원 | SME Support Lifecycle lesson 1 · Supporting Agents in Training |
-| 직무전문가 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원 | SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training |
+| 직무전문가 서포트 라이프사이클 레슨 2 · 네스팅 중인 상담사 지원 | SME Support Lifecycle lesson 2 · Supporting Agents in Nesting |
 | 직무전문가 서포트 라이프사이클 레슨 3 · 정식 상담사 지원 | SME Support Lifecycle lesson 3 · Supporting Regular Agents |
 | 직무전문가 서포트 라이프사이클 레슨 4 · 선임 상담사 지원 | SME Support Lifecycle lesson 4 · Supporting Senior Agents |
 | 직무전문가 서포트 라이프사이클 레슨 5 · 팀장 지원 | SME Support Lifecycle lesson 5 · Supporting the Team Leader |
@@ -128,7 +128,7 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | 직무전문가 SOP · 캘리브레이션 참여와 기준 전달 | SME SOP · Joining Calibration and Passing On Standards |
 | 직무전문가 SOP · VOC 리포팅 | SME SOP · VOC Reporting |
 | 직무전문가 SOP · 지식 베이스 업데이트 요청 | SME SOP · Knowledge Base Update Requests |
-| 팀장 SOP · 신규 입사자 온보딩 | TL SOP · New Hire Onboarding |
+| 상담사 라이프사이클 레슨 3 · OJT 및 네스팅 | Agent Lifecycle lesson 3 · OJT and Nesting |
 | 팀장 SOP · 캘리브레이션 | TL SOP · Calibration |
 | Codex 원페이저 ④ 직무전문가의 하루 | Codex one-pager ④ An SME's day |
 | Codex 원페이저 ③ 커리어 매트릭스 | Codex one-pager ③ Career Matrix |

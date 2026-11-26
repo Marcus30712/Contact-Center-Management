@@ -9,6 +9,7 @@ import { SME_LESSONS } from '../../sme/lessons/index.js';
 import { SL_LESSONS } from '../../sme-lifecycle/lessons/index.js';
 import { SS_LESSONS } from '../../sme-sop/lessons/index.js';
 import { SOP_LESSONS } from '../../sop-library/lessons/index.js';
+import { LESSONS as AL_LESSONS } from '../js/lessons/index.js';
 import { DAILY } from '../../codex/data/daily.js';
 
 const DOC = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-sme-guide-design.md', import.meta.url), 'utf8');
@@ -28,6 +29,7 @@ const COURSES = {
   'sme-lifecycle/': { lessons: SL_LESSONS, name: (l) => ({ ko: `직무전문가 서포트 라이프사이클 레슨 ${l.order} · ${l.title.ko}`, en: `SME Support Lifecycle lesson ${l.order} · ${l.title.en}` }) },
   'sme-sop/': { lessons: SS_LESSONS, name: (l) => ({ ko: `직무전문가 SOP · ${l.title.ko}`, en: `SME SOP · ${l.title.en}` }) },
   'sop-library/': { lessons: SOP_LESSONS, name: (l) => ({ ko: `팀장 SOP · ${l.title.ko}`, en: `TL SOP · ${l.title.en}` }) },
+  'agent-lifecycle/': { lessons: AL_LESSONS, name: (l) => ({ ko: `상담사 라이프사이클 레슨 ${l.order} · ${l.title.ko}`, en: `Agent Lifecycle lesson ${l.order} · ${l.title.en}` }) },
 };
 const lessonOf = (href) => {
   const [, path, hash = ''] = href.match(/^\.\.\/([^#]+)(?:#(.*))?$/);
@@ -106,7 +108,7 @@ test('a chip narrows to one group; a card opens to its two links', () => {
   $('[data-card="m3"] button').click();
   const links = [...$('[data-card="m3"]').querySelectorAll('a[data-go]')];
   assert.deepEqual(links.map((a) => [a.getAttribute('data-go'), a.getAttribute('href')]),
-    [['first', '../sme-lifecycle/?guide=m3#trainee-0'], ['then', '../sop-library/#onboarding-0']]);
+    [['first', '../sme-lifecycle/?guide=m3#trainee-0'], ['then', '../agent-lifecycle/#nesting-0']]);
 });
 
 test('the TL guide renders as before', () => {
@@ -155,7 +157,7 @@ test('a lesson opened from the SME guide ends with its "then" link', () => {
   for (const q of lesson.checkpoint) click(root.querySelector(`[data-question="${q.id}"] [data-option="${q.answer}"]`));
   const then = root.querySelector('[data-connection] a[data-guide-then]');
   assert.ok(then, 'then card shown');
-  assert.equal(then.getAttribute('href'), '../sop-library/#onboarding-0');
+  assert.equal(then.getAttribute('href'), '../agent-lifecycle/#nesting-0');
 });
 
 test('the SME course apps settle the guide', () => {

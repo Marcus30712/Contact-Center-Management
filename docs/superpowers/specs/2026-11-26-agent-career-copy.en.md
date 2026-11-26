@@ -9,7 +9,7 @@ Same sections and order as the Korean file. US English.
 | Place | English |
 |---|---|
 | Course title | Agent Career Lifecycle |
-| Course intro | With Jimin, about a year after Go Live, look into the work of an SME, a QA, a trainer and a team leader. The four roles are separate paths, not steps to climb in order. The last lesson is what every role looks for. |
+| Course intro | With Jimin, about a year after Go Live (Example), look into the work of an SME, a QA, a trainer and a team leader. The four roles are not a ladder you must climb in order; each is its own path. Team leaders usually get there through the SME role. The last lesson is what every role looks for. |
 | Home card | SME · QA · Trainer · Team leader: a look at the next roles an agent can aim for. |
 | Figures note | Periods, headcounts and score windows in the lessons are examples and may differ from center to center. |
 | Name in the ring | Jimin |
@@ -34,7 +34,7 @@ Same sections and order as the Korean file. US English.
 2. Jimin now handles most contacts on her own. Today, instead of asking Harin a question as she always did, she asks Harin about her work.
 3. The first stage is the work. The SME is the team's knowledge hub. They help agents with contacts they're stuck on through chat or floor support, and stay close to new hires through OJT and nesting.
 4. They gather frequent questions and the voice of the customer (VOC), find the causes, and report them to the team leader. When the team leader is away, they cover part of the team leader's work.
-5. The second stage is the skills needed. Knowing the products and systems in depth is the baseline, plus the ability to analyze VOC and write it up as a report. Coaching peers and working through problems step by step matter too.
+5. The second stage is the skills needed. Knowing the products and systems in depth is the baseline, plus the ability to analyze VOC and write it up as a report. Coaching peers and analytical thinking, working through problems step by step, matter too.
 6. The third stage is preparing now. Keep a note of the contacts you often got stuck on, with their answers. It becomes material for helping peers who get stuck in the same place.
 7. When the colleague next to you asks, don't just give the answer; show where to find it too. Helping someone who asks is the closest thing to an SME's work.
 8. The fourth stage is what else they look for. When choosing an SME, they look at product knowledge and how much you've helped peers. It helps if the team leader and Harin already know you as "the one who explains things well."
@@ -44,7 +44,7 @@ Same sections and order as the Korean file. US English.
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | Jimin wants to become an SME. What fits best as something she can do now? |
+| 1번 질문 | What's the best thing Jimin, who wants to become an SME, can do now? |
 | 보기 a (오답) | Find other agents' mistakes and report them to the team leader. |
 | a 피드백 | Finding and reporting mistakes is closer to quality scoring, and it easily costs peers' trust. The heart of an SME's work is helping. |
 | 보기 b (정답) | Write up the contacts people often get stuck on, and when a peer asks, show them how to find the answer too. |
@@ -73,13 +73,13 @@ Same sections and order as the Korean file. US English.
 
 스텝:
 
-1. This lesson is about knowing what a QA does, and what to prepare now to get there.
+1. This lesson is about knowing what QA does, and what to prepare now to get there.
 2. Every week in her score review, Jimin sees the quality scores Dohyun gave. She has always looked only at the score; today she asks about the work of the person who gives it.
 3. The first stage is the work. QA checks call recordings, chats and emails against a set scoring standard and gives scores. They send the results back to the team leader and agents so coaching has evidence to stand on.
 4. QA also runs calibration, where QA, the team leader, the SME and the trainer listen to the same recording and line up their scores. If scores differ by who gives them, agents stop trusting them.
 5. The second stage is the skills needed. You need to know the standard exactly and score carefully enough that anyone would reach the same score. Basic data analysis, to see where points are often lost, matters too.
-6. The third stage is preparing now. When you get your score sheet, read why points were lost on each item, not just the total. The better you know the standard, the better your own contacts get and the more you see like a QA.
-7. If you can play back your recording, or when you listen to it together in a score review, score it yourself with the sheet and compare with Dohyun's score. The items that differ are the standards you don't know yet.
+6. The third stage is preparing now. When you get your score sheet, read why points were lost on each item, not just the total. The better you know the standard, the better your own contacts get and the more you see contacts the way QA does.
+7. Play back your recording if you can, or listen together in a score review, and score it yourself with the sheet, then compare with Dohyun's score. The items that differ are the standards you don't know yet.
 8. The fourth stage is what else they look for. When choosing a QA, they look at whether your own quality scores are steadily high and whether you understand the standard exactly. They also look for the fairness to hold a close friend's contacts to the same standard.
 9. A word from Miso: Every time I got a score sheet, I looked at the score and put it away. If I'd really read the standard, I'd have repeated fewer mistakes, and QA would have caught my eye sooner.
 
@@ -143,8 +143,8 @@ Same sections and order as the Korean file. US English.
 | 보기 b (정답) | The trainer puts the mistakes QA often finds into training. |
 | 보기 c (오답) | The two roles have nothing to do with each other. |
 | c 피드백 | The two roles often sit in the same Training & Development team, and quality results feed the next training. |
-| 해설 | The trainer fixes through training the problems QA finds on the floor. Together they raise contact quality. |
-| 다음 레슨 연결 | So far these were paths that go deep in one area. Next is the path that takes on the whole team: meet Sujin the team leader. |
+| 해설 | The trainer uses training to fix the problems QA finds on the floor. Together they raise contact quality. |
+| 다음 레슨 연결 | So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the team leader. |
 
 ---
 
@@ -180,7 +180,7 @@ Same sections and order as the Korean file. US English.
 | b 피드백 | You need to know what agents go through to lead a team, so people usually build floor experience first. |
 | 보기 c (정답) | Agent → SME (team leader backup experience) → team leader |
 | 해설 | Helping peers as an SME and covering for the team leader is the bridge to team leader. It may differ by center. |
-| 2번 질문 | Jimin is an agent who dreams of becoming a team leader. What can she do now? |
+| 2번 질문 | What can Jimin, an agent who dreams of becoming a team leader, do now? |
 | 보기 a (정답) | Read her own metrics first in the score review, and say what went well and what to fix. |
 | 보기 b (오답) | Learn it once she's a team leader, and for now focus only on her own calls. |
 | b 피드백 | Practicing reading your own metrics becomes the ability to read team members' metrics later. |
@@ -204,7 +204,7 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson is about knowing the four things every role looks at, and building them from today. Selection criteria differ by center, but the basics are similar.
 2. Jimin saw a posting for an SME opening next month. Not sure whether she should apply, she asked Miso.
-3. The first stage is attendance. Above all, attendance matters. Roles above agent work with many agents and other departments, so when a seat is often empty, the flow breaks when the team or project needs it.
+3. The first stage is attendance, and it matters above all. Next roles work with many agents and other departments, so when you're often absent, the flow breaks when the team or project needs you.
 4. However high your quality and contribution, low attendance makes it hard to be chosen. When you're sick, rest. But cutting the gaps you can avoid, like lateness and no-shows, builds the most trust.
 5. The second stage is a clean record. People with no complaints from customers or the client in the last 6 months (Example) are preferred. They also check for any disciplinary record for breaking company rules.
 6. Records fall outside the window as time passes. If you have a time in mind to apply, your preparation starts 6 months (Example) before it.
@@ -218,18 +218,18 @@ Same sections and order as the Korean file. US English.
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | When looking at applicants for a role above agent, what do they look at first? |
+| 1번 질문 | When looking at applicants for a next role, what do they look at first? |
 | 보기 a (오답) | How long they've been with the company |
 | a 피드백 | They look at the last few months of attendance, record, scores and contribution rather than tenure. |
 | 보기 b (정답) | Attendance |
 | 보기 c (오답) | How close they are to the team leader |
 | c 피드백 | It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence. |
-| 해설 | Roles above agent work with many people. A record of being there comes first as trust. |
+| 해설 | Next roles work with many people. A record of showing up is the first thing that builds trust. |
 | 2번 질문 | In an interview, which statement best shows team contribution? |
 | 보기 a (오답) | "I helped my colleagues a lot." |
 | a 피드백 | It leaves out what she helped with, how, and what came of it, so it isn't evidence. |
 | 보기 b (오답) | "My quality score is the highest on the team." |
-| b 피드백 | Scores are the third criterion. Team contribution is what you did for others and the team, not your own score. |
+| b 피드백 | Scores belong to the quality and test scores criterion. Team contribution is what you did for others and the team, not your own score. |
 | 보기 c (정답) | "I found in VOC why delivery-delay contacts were frequent and proposed changing our guidance wording, and the next month those contacts dropped." |
 | 해설 | Describe team contribution as when, what, why, and what came of it. Experience of finding a cause and proposing a fix has clear evidence, and that gives it weight. |
 | 다음 레슨 연결 | You've finished Agent Career Lifecycle. Today's attendance and this week's score review are where preparing for your next role begins. |

@@ -30,7 +30,7 @@ export default {
     step(tx("둘째 단계는 받기입니다. 하린에게서 주간 트렌드 요약, 출석 결과, 팀원별 단계 현황을 정해진 날에 받습니다. 받은 요약은 그 주의 코칭 계획에 바로 씁니다.", "The second stage is getting back. Get the weekly trend summary, attendance results and each member's stage from Harin on agreed days. Use the summary straight away in that week's coaching plan."), flow, ["getback"], null),
     step(tx("셋째 단계는 돕기입니다. 직무전문가는 요청이 몰리면 혼자 버티기 쉽습니다. 바쁜 시간대에는 팀장이 함께 서포트하거나 RTA와 인원을 조정합니다.", "The third stage is helping. SMEs tend to try to hold out alone when requests pile up. At busy times, the team leader helps support the floor or adjusts staffing with the RTA."), flow, ["help"], null),
     step(tx("직무전문가의 성장도 돕습니다. 하린이 팀장 자리를 바란다면 회의 진행이나 신입 계획 같은 일을 조금씩 맡겨 봅니다.", "Help the SME grow too. If Harin wants to become a team leader, give her a little of that work at a time, such as running a meeting or planning for new hires."), flow, ["help"], null),
-    step(tx("넷째 단계는 개입하기입니다. 근태, 성과 조치, 정책 밖 승인처럼 직무전문가가 넘긴 일은 팀장이 직접 결정합니다. 승인 판단의 결과는 하린에게도 알려 같은 일이 다시 생기면 어떻게 할지 알게 하고, 근태나 성과 조치의 내용은 당사자와만 다룹니다.", "The fourth stage is stepping in. Matters the SME passes up, such as attendance, performance actions and approvals outside policy, are decided by the team leader. Tell Harin the outcome of approval calls so she knows what to do if it happens again, and keep attendance or performance actions between you and the agent."), flow, ["stepin"], null),
+    step(tx("넷째 단계는 개입하기입니다. 근태, 성과 조치, 정책 밖 승인처럼 직무전문가가 넘긴 일은 팀장이 직접 결정합니다. 승인 판단의 결과는 하린에게도 알려 같은 일이 다시 생기면 어떻게 할지 알게 하고, 근태나 성과 조치의 내용은 당사자와 꼭 필요한 사람(부매니저, 인사 담당)하고만 다룹니다.", "The fourth stage is stepping in. Matters the SME passes up, such as attendance, performance actions and approvals outside policy, are decided by the team leader. Tell Harin the outcome of approval calls so she knows what to do if it happens again, and keep attendance or performance actions between you, the agent and only those who must know, such as your assistant manager or HR."), flow, ["stepin"], null),
     step(tx("직무전문가를 작은 팀장으로 쓰지 않습니다. 평가와 조치까지 넘기면 직무전문가와 상담사의 관계가 무너집니다.", "Don't use the SME as a mini team leader. Handing over evaluation and action breaks the relationship between the SME and the agents."), flow, ["stepin"], null),
   ],
   checkpoint: [
@@ -50,7 +50,7 @@ export default {
       prompt: tx("하린이 한 상담사의 반복되는 지각을 알려 왔습니다. 알맞은 것은 무엇일까요?", "Harin tells you an agent keeps coming in late. What fits?"),
       options: [
         option("a", tx("하린에게 그 상담사에게 경고하라고 한다.", "Tell Harin to warn the agent."), tx("근태 조치는 팀장의 몫입니다. 직무전문가에게 넘기면 상담사와의 관계가 무너집니다.", "Attendance action is the team leader's job. Passing it to the SME breaks her relationship with the agents.")),
-        option("b", tx("팀장이 직접 확인하고 조치하며, 하린에게는 넘겨받아 처리했다는 것만 알린다.", "Check it yourself, take action, and tell Harin only that you have taken it over.")),
+        option("b", tx("팀장이 직접 확인하고 조치하며, 하린에게는 넘겨받아 처리했다는 것만 알린다.", "Check it yourself, take action, and tell Harin only that you have taken it over and handled it.")),
         option("c", tx("하린의 보고이니 따로 확인하지 않고 바로 조치한다.", "It's Harin's report, so act right away without checking."), tx("팀장이 직접 사실을 확인해야 공정한 조치가 됩니다.", "The team leader has to check the facts directly for the action to be fair.")),
       ],
       answer: "b",

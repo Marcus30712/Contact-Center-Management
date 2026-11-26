@@ -27,10 +27,10 @@ export default {
   steps: [
     step(tx("이 레슨의 목적은 어느 직무에 지원하든 공통으로 보는 네 가지를 알고, 오늘부터 쌓는 것입니다. 뽑는 기준은 센터마다 다르지만 기본은 비슷합니다.", "This lesson is about knowing the four things every role looks at, and building them from today. Selection criteria differ by center, but the basics are similar."), flow, procedure, null),
     step(tx("지민이 다음 달 직무전문가 모집 공고를 봤습니다. 지원해도 될지 몰라 미소에게 물었습니다.", "Jimin saw a posting for an SME opening next month. Not sure whether she should apply, she asked Miso."), flow, [], null),
-    step(tx("첫 단계는 출석률입니다. 무엇보다 출석률이 중요합니다. 위 직급은 여러 상담사, 다른 부서와 함께 일하기 때문에 자리가 자주 비면 팀이나 프로젝트가 필요할 때 흐름이 깨집니다.", "The first stage is attendance. Above all, attendance matters. Roles above agent work with many agents and other departments, so when a seat is often empty, the flow breaks when the team or project needs it."), flow, ["attendance"], null),
+    step(tx("첫 단계는 출석률이고, 무엇보다 중요합니다. 다음 자리는 여러 상담사, 다른 부서와 함께 일하기 때문에 자주 빠지면 팀이나 프로젝트가 필요할 때 흐름이 깨집니다.", "The first stage is attendance, and it matters above all. Next roles work with many agents and other departments, so when you're often absent, the flow breaks when the team or project needs you."), flow, ["attendance"], null),
     step(tx("품질과 기여가 아무리 높아도 출석률이 낮으면 뽑히기 어렵습니다. 아플 때는 쉬어야 합니다. 다만 지각이나 무단 결근처럼 피할 수 있는 빈자리를 줄이는 것이 가장 큰 믿음이 됩니다.", "However high your quality and contribution, low attendance makes it hard to be chosen. When you're sick, rest. But cutting the gaps you can avoid, like lateness and no-shows, builds the most trust."), flow, ["attendance"], null),
     step(tx("둘째 단계는 깨끗한 기록입니다. 최근 6개월(예시) 동안 고객이나 고객사로부터 받은 클레임이 없는 사람이 선호됩니다. 회사 내규를 어겨 징계를 받은 기록이 없는지도 봅니다.", "The second stage is a clean record. People with no complaints from customers or the client in the last 6 months (Example) are preferred. They also check for any disciplinary record for breaking company rules."), flow, ["record"], null),
-    step(tx("기록은 시간이 지나면 기준 밖으로 나갑니다. 지원하고 싶은 때가 있다면, 그 6개월(예시) 전부터가 준비 기간입니다.", "Records fall outside the window as time passes. If you have a time in mind to apply, your preparation starts 6 months (Example) before it."), flow, ["record"], null),
+    step(tx("오래된 기록은 시간이 지나면 보는 기간 밖으로 빠집니다. 지원하고 싶은 때가 있다면, 그 6개월(예시) 전부터가 준비 기간입니다.", "Records fall outside the window as time passes. If you have a time in mind to apply, your preparation starts 6 months (Example) before it."), flow, ["record"], null),
     step(tx("셋째 단계는 품질·시험 점수입니다. 지금 프로젝트의 제품, 서비스, 시스템을 다른 지원자보다 잘 알아야 합니다. 이를 보여 주는 객관적인 지표가 최근 3~6개월(예시)의 QA 품질 점수와 트레이너의 교육·시험 점수입니다.", "The third stage is quality and test scores. You need to know the current project's products, services and systems better than the other applicants. The objective measures are QA quality scores and the trainer's training and test scores from the last 3 to 6 months (Example)."), flow, ["scores"], null),
     step(tx("한 달만 높은 점수보다 몇 달 동안 꾸준한 점수가 강합니다. 매주 평가 리뷰에서 고칠 점 하나를 정해 온 습관이 여기서 숫자로 드러납니다.", "Steady scores over several months beat one high month. The habit of picking one thing to fix in each weekly score review shows up here as numbers."), flow, ["scores"], null),
     step(tx("넷째 단계는 팀 기여입니다. 평소 주변 상담사의 업무를 도와 온 것은 면접에서 더 어필할 수 있는 부분입니다.", "The fourth stage is team contribution. Having helped the agents around you is something extra you can show in the interview."), flow, ["contribution"], null),
@@ -40,21 +40,21 @@ export default {
   checkpoint: [
     {
       id: "ready-q1",
-      prompt: tx("위 직급 지원자를 볼 때 무엇보다 먼저 보는 것은 무엇일까요?", "When looking at applicants for a role above agent, what do they look at first?"),
+      prompt: tx("다음 자리 지원자를 볼 때 무엇보다 먼저 보는 것은 무엇일까요?", "When looking at applicants for a next role, what do they look at first?"),
       options: [
         option("a", tx("입사한 지 얼마나 오래됐는지", "How long they've been with the company"), tx("연차보다 최근 몇 달의 출석, 기록, 점수, 기여를 봅니다.", "They look at the last few months of attendance, record, scores and contribution rather than tenure.")),
         option("b", tx("출석률", "Attendance")),
         option("c", tx("팀장과 얼마나 가까운지", "How close they are to the team leader"), tx("친분이 아니라 기록으로 봅니다. 출석률, 클레임과 징계 기록, 품질·시험 점수가 근거가 됩니다.", "It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence.")),
       ],
       answer: "b",
-      explanation: tx("위 직급은 여러 사람과 함께 일합니다. 자리를 지켜 온 기록이 가장 먼저 믿음이 됩니다.", "Roles above agent work with many people. A record of being there comes first as trust."),
+      explanation: tx("다음 자리는 여러 사람과 함께 일합니다. 자리를 지켜 온 기록이 가장 먼저 믿음이 됩니다.", "Next roles work with many people. A record of showing up is the first thing that builds trust."),
     },
     {
       id: "ready-q2",
       prompt: tx("면접에서 팀 기여를 가장 잘 보여 주는 말은 무엇일까요?", "In an interview, which statement best shows team contribution?"),
       options: [
         option("a", tx("\"동료들을 많이 도왔습니다.\"", "\"I helped my colleagues a lot.\""), tx("무엇을 어떻게 도왔고 결과가 어땠는지가 빠져 있어 근거가 되지 않습니다.", "It leaves out what she helped with, how, and what came of it, so it isn't evidence.")),
-        option("b", tx("\"제 품질 점수가 팀에서 가장 높습니다.\"", "\"My quality score is the highest on the team.\""), tx("점수는 셋째 기준입니다. 팀 기여는 내 점수가 아니라 다른 사람과 팀을 위해 한 일입니다.", "Scores are the third criterion. Team contribution is what you did for others and the team, not your own score.")),
+        option("b", tx("\"제 품질 점수가 팀에서 가장 높습니다.\"", "\"My quality score is the highest on the team.\""), tx("점수는 품질·시험 점수 항목에서 봅니다. 팀 기여는 내 점수가 아니라 다른 사람과 팀을 위해 한 일입니다.", "Scores belong to the quality and test scores criterion. Team contribution is what you did for others and the team, not your own score.")),
         option("c", tx("\"배송 지연 문의가 잦은 원인을 VOC에서 찾아 안내 문구를 바꾸자고 제안했고, 다음 달 같은 문의가 줄었습니다.\"", "\"I found in VOC why delivery-delay contacts were frequent and proposed changing our guidance wording, and the next month those contacts dropped.\"")),
       ],
       answer: "c",

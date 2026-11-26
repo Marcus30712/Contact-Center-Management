@@ -42,7 +42,7 @@ export default {
       flow, ['listen'], null),
     step(tx("부매니저와는 팀장에게 무엇을 기대하는지, 어디까지 혼자 정해도 되는지를 먼저 맞춥니다.", "With your assistant manager, agree first on what they expect of a team leader and how far you can decide on your own."),
       flow, ['listen'], null),
-    step(tx("둘째 단계는 기준 합의입니다(예시: 31~60일). 근태, 품질, 도움을 요청하는 방법처럼 팀이 함께 지킬 기준을 팀원들과 이야기해 정하고, 모두에게 똑같이 적용한다고 분명히 말합니다.", "The second step is agreeing on standards (Example: days 31 to 60). Talk with the team to set the standards it will keep together, such as attendance, quality and how to ask for help, and say clearly that they apply to everyone the same way."),
+    step(tx("둘째 단계는 기준 합의입니다(예시: 31~60일). 회사 규정 안에서 근태 연락 방법, 품질, 도움을 요청하는 방법처럼 팀이 함께 지킬 기준을 팀원들과 이야기해 정하고, 모두에게 똑같이 적용한다고 분명히 말합니다.", "The second step is agreeing on standards (Example: days 31 to 60). Within company rules, talk with the team to set the standards it will keep together, such as how to report attendance issues, quality and how to ask for help, and say clearly that they apply to everyone the same way."),
       flow, ['agree'], null),
     step(tx("가까웠던 동료일수록 더 조심합니다. 가장 친했던 하은을 감싸거나, 반대로 일부러 더 엄하게 대하면 팀 전체가 공정하지 않다고 느낍니다.", "The closer the colleague, the more care it takes. Shield Haeun, your closest colleague, or treat her harder on purpose, and the whole team feels things are not fair."),
       flow, ['agree'], 'agree'),
@@ -77,5 +77,5 @@ export default {
       explanation: tx("합의한 기준은 누구에게나 똑같이, 그러나 존중하는 방식으로 적용합니다.", "Apply the agreed standards the same way to everyone, but in a way that shows respect."),
     },
   ],
-  connection: { to: 'onboarding', text: tx("여기까지가 팀장이 직접 하는 여섯 가지 절차입니다. 다음부터는 여러 팀이 함께 움직이는 절차입니다. 첫 번째는 신규 입사자 온보딩입니다.", "These are the six procedures a team leader runs directly. From here on, the procedures are ones several teams run together. The first is new hire onboarding.") },
+  connection: { to: 'onboarding', text: tx("여기까지가 팀장이 직접 하거나 함께하는 여섯 가지 절차입니다. 다음부터는 여러 팀이 함께 움직이는 절차입니다. 첫 번째는 신규 입사자 온보딩입니다.", "These are the six procedures a team leader runs or takes part in. From here on, the procedures are ones several teams run together. The first is new hire onboarding.") },
 };

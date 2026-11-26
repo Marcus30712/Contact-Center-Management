@@ -97,10 +97,10 @@ export const SME_GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "팀장 SOP · 신규 입사자 온보딩",
-            "en": "TL SOP · New Hire Onboarding"
+            "ko": "상담사 라이프사이클 레슨 3 · OJT 및 네스팅",
+            "en": "Agent Lifecycle lesson 3 · OJT and Nesting"
           },
-          "href": "../sop-library/#onboarding-0"
+          "href": "../agent-lifecycle/#nesting-0"
         }
       },
       {
@@ -111,8 +111,8 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
-            "en": "SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
+            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 네스팅 중인 상담사 지원",
+            "en": "SME Support Lifecycle lesson 2 · Supporting Agents in Nesting"
           },
           "href": "../sme-lifecycle/#graduate-0"
         },
@@ -139,8 +139,8 @@ export const SME_GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 교육을 마친 상담사 지원",
-            "en": "SME Support Lifecycle lesson 2 · Supporting Agents Just Out of Training"
+            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 네스팅 중인 상담사 지원",
+            "en": "SME Support Lifecycle lesson 2 · Supporting Agents in Nesting"
           },
           "href": "../sme-lifecycle/#graduate-0"
         }

@@ -541,7 +541,7 @@ def main():
         page.goto(SOP + "#pip-3")
         page.reload()
         page.wait_for_selector("[data-persona]")
-        check("(s6) PIP badge reads 도윤", page.text_content("[data-persona] text") == "도윤")
+        check("(s6) PIP badge reads 우진", page.text_content("[data-persona] text") == "우진")
         page.goto(HUB + "glossary/#pip")
         page.wait_for_selector("[data-term='pip'] a[data-sop-link]")
         page.click("[data-term='pip'] a[data-sop-link]")
@@ -1616,7 +1616,7 @@ def main():
         page.click("[data-question='trainee-q1'] [data-option='b']")
         page.click("[data-question='trainee-q2'] [data-option='b']")
         page.wait_for_selector("[data-connection] a[data-guide-then]")
-        check("(g2) the lesson ends with the guide's next place", page.get_attribute("[data-connection] a[data-guide-then]", "href") == "../sop-library/#onboarding-0")
+        check("(g2) the lesson ends with the guide's next place", page.get_attribute("[data-connection] a[data-guide-then]", "href") == "../agent-lifecycle/#nesting-0")
         page.screenshot(path=str(OUT / "sme-guide-then-390.png"), full_page=False)
         page.context.close()
         # Seed the role once: an init script runs on every page, and these checks change the role and move on.

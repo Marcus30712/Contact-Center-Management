@@ -52,7 +52,7 @@ export default {
       options: [
         option("a", tx("팀원별 순위표", "A ranking of team members"), tx("순위는 누가 낮은지만 보여 줄 뿐, 팀이 무엇을 해 왔는지는 알려 주지 않습니다.", "A ranking shows only who is lowest, not what the team has done.")),
         option("b", tx("목표와 결과, 강점과 약점, 그리고 원인", "Goals and results, strengths and gaps, and their causes")),
-        option("c", tx("지난 6개월의 모든 지표 원본", "Raw data for every metric over the last 6 months"), tx("원본만 있으면 읽는 사람이 무엇이 중요한지 다시 찾아야 합니다.", "With only raw data, readers have to work out again what matters.")),
+        option("c", tx("지난 6개월(예시)의 모든 지표 원본", "Raw data for every metric over the last 6 months (Example)"), tx("원본만 있으면 읽는 사람이 무엇이 중요한지 다시 찾아야 합니다.", "With only raw data, readers have to work out again what matters.")),
       ],
       answer: "b",
       explanation: tx("요약은 목표 대비 결과와 그 이유를 한눈에 보여 줘야 합니다.", "A summary should show results against goals, and why, at a glance."),

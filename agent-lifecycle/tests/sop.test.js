@@ -51,7 +51,7 @@ const PROCEDURES = {
   nurture: ['강점 데이터 진단', '강점 자리 배치', '육성 계획 수립', '지식 공유·멘토링', '성장 리뷰 및 추천'],
   transition: ['듣기', '기준 합의', '실행과 점검'],
   onboarding: ['계약 및 서류 처리', '장비 지급 및 계정 생성', '비전·문화 교육', '버디 지정 및 팀 소개',
-    '제품·서비스 심화 교육', '시스템 실습 교육', '실전 투입 스케줄 배정', '첫 주 1:1 미팅'],
+    '제품·서비스 심화 교육', '시스템 실습 교육', 'OJT·네스팅 스케줄 배정', '첫 주 1:1 미팅'],
   incident: ['감지 및 상황 공유', '원인 분석 및 자원 계획', '실행 및 모니터링', '결과 보고 및 후속 조치'],
   launch: ['계획 및 설계', '인력 확보 및 교육', '시스템 및 환경 구축', '론칭 및 안정화'],
 };
@@ -159,8 +159,8 @@ test('every box sits inside the picture and none overlap', () => {
   }
 });
 
-test('Doyun in PIP, Seoa in onboarding, Haeun in transition, Jimin everywhere else', () => {
-  assert.deepEqual(byId('pip').personaName, { ko: '도윤', en: 'Doyun' });
+test('Woojin in PIP, Seoa in onboarding, Haeun in transition, Jimin everywhere else', () => {
+  assert.deepEqual(byId('pip').personaName, { ko: '우진', en: 'Woojin' });
   assert.ok(!lessonText(byId('pip'), 'ko').includes('지민'));
   assert.ok(!lessonText(byId('pip'), 'en').includes('Jimin'));
   for (const id of ['escalation', 'scrubbing', 'coaching', 'calibration', 'incident', 'nurture', 'launch']) assert.equal(byId(id).personaName, undefined, id);
@@ -251,9 +251,9 @@ test('an SOP lesson counts out of ten and the last one leads back to the list', 
   assert.equal(openLesson('onboarding', 2).querySelector('[data-persona] text').textContent, '서아');
 });
 
-test('the badge in the PIP lesson reads Doyun', () => {
+test('the badge in the PIP lesson reads Woojin', () => {
   const root = openLesson('pip', 3);
-  assert.equal(root.querySelector('[data-persona] text').textContent, '도윤');
+  assert.equal(root.querySelector('[data-persona] text').textContent, '우진');
   assert.ok(!root.querySelector('[data-persona]').classList.contains('is-hidden'));
   assert.equal(openLesson('escalation', 1).querySelector('[data-persona] text').textContent, '지민');
 });
@@ -282,7 +282,7 @@ test('the English reads as US English and keeps the Korean meaning', () => {
   assert.ok(byId('escalation').steps[7].caption.en.includes('by chat or verbally'));
 });
 
-test('when Doyun meets the goal only the closing branch lights up', () => {
+test('when Woojin meets the goal only the closing branch lights up', () => {
   const step = byId('pip').steps[9];
   assert.ok(step.highlight.includes('end') && step.highlight.includes('evaluate-end'));
   assert.ok(!step.highlight.includes('more') && !step.highlight.includes('evaluate-more'));
@@ -339,7 +339,7 @@ test('the connections changed for scrubbing are the approved wording', () => {
   assert.equal(byId('escalation').connection.to, 'scrubbing');
   assert.equal(byId('escalation').connection.text.ko, row('에스컬레이션 · 다음으로')[2]);
   assert.equal(byId('scrubbing').connection.to, 'coaching');
-  assert.ok(byId('transition').connection.text.ko.startsWith('여기까지가 팀장이 직접 하는 여섯 가지 절차입니다.'));
+  assert.ok(byId('transition').connection.text.ko.startsWith('여기까지가 팀장이 직접 하거나 함께하는 여섯 가지 절차입니다.'));
   assert.ok(byId('launch').connection.text.ko.startsWith('여기까지가 SOP 열 가지입니다.'));
   for (const id of ['calibration', 'transition', 'launch']) assert.ok(!/[가-힣]/.test(byId(id).connection.text.en), id);
 });

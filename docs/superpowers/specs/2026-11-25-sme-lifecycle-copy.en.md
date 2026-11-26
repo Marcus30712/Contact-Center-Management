@@ -9,12 +9,12 @@ Same sections and order as the Korean file. US English.
 | Place | English |
 |---|---|
 | Course title | SME Support Lifecycle |
-| Course intro | Learn the support procedure an SME follows at each stage as one agent grows from training to senior. The last stage is supporting the team leader. |
+| Course intro | Learn the support procedure an SME follows at each stage as agents grow from training to regular and senior. The last stage is supporting the team leader. |
 | Home card | The support procedure an SME follows at each stage, from agents in training to seniors and the team leader. |
 | Figures note | Periods, counts and times in the lessons are examples and may differ from center to center. |
 | Name in the ring | Seojun |
 | Loop note (under the ring) | When a new training class arrives, start again at stage 1 |
-| Short names in the ring | Training · Nesting · Regular · Senior · Lead support |
+| Short names in the ring | Training · Nesting · Regular · Senior · TL support |
 | Lesson screen | Same as SME First Steps (All lessons · SME checkpoint · Up next · Next lesson · Back to the list · Done) |
 
 ---
@@ -30,17 +30,17 @@ Same sections and order as the Korean file. US English.
 
 스텝:
 
-1. This lesson is about knowing what an SME checks, records and hands off when supporting an agent in training. This course follows one agent, Seojun, as he grows, and looks at the SME's procedure at each stage.
-2. Seojun is a trainee in his third week (Example). He has finished classroom training, and this week he takes real contacts for the first time in OJT.
-3. The first stage is dividing the roles. The trainer owns the curriculum and decides who graduates. The SME uses the real systems and tools to show how the training is used on the floor.
+1. This lesson is about knowing what an SME checks, records and hands off when supporting an agent in training. This course follows Seojun as he grows, looks at the SME's procedure at each stage, and meets Junho at the senior stage.
+2. Seojun is a trainee in his third week (Example). He has finished classroom training, and this week he takes real contacts for the first time in OJT. He graduates only after both OJT and nesting.
+3. The first stage is dividing the roles. The trainer owns the curriculum, and the trainer and the team leader decide who graduates. The SME uses the real systems and tools to show how the training is used on the floor.
 4. Before OJT starts, align briefly with the trainer. Agree on the channels and contact types Seojun will take this week, and when the SME will sit in.
-5. The second stage is demos and shadowing. Demonstrate handling several ticket types in the real systems and tools. Connect a multi-headset so Seojun can listen in on real calls the SME takes.
-6. When Seojun starts taking calls himself, the SME listens in on the multi-headset instead. If he gets stuck, mute the call for a moment and tell him the next step.
+5. The second stage is demos and shadowing. Demonstrate handling several ticket types in the real systems and tools. Connect a second headset with a splitter so Seojun can listen in on real calls the SME takes.
+6. When Seojun starts taking calls himself, the SME listens in on the second headset instead. If he gets stuck, mute the call for a moment and tell him the next step.
 7. If the training material and the floor's way differ, don't reteach Seojun on your own; tell the trainer first. Trainees who hear different answers from two people don't know which to follow.
 8. The third stage is the observation record. After each session, note briefly the types Seojun handled alone, the types he needed help with, and where he often paused.
 9. The record is a handover note, not an evaluation. Write only which behavior came up in which contact, not scores or personality.
-10. The fourth stage is preparing the handover. A week before graduation (Example), go through the record with the trainer and choose the contact types to watch more closely in nesting.
-11. Whether he graduates is up to the trainer and the team leader. The SME gives an opinion based on the record.
+10. The fourth stage is preparing the handover. A week before OJT ends (Example), go through the record with the trainer and choose the contact types to watch more closely in nesting.
+11. The trainer and the team leader decide on graduation when nesting ends. The SME's record is the basis for the opinion you give then.
 
 체크포인트:
 
@@ -60,28 +60,28 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | "OJT score 70 points (Example)" |
 | c 피드백 | Scoring is the trainer's and QA's job, and a number alone doesn't tell you which contacts to help with. |
 | 해설 | Write the observation record as contact types and behaviors. It becomes the handover note that decides where to help in nesting. |
-| 다음 레슨 연결 | Seojun has graduated from training. Next is nesting, where he leaves the trainer's hands and takes real contacts beside the SME. |
+| 다음 레슨 연결 | Seojun has finished OJT. Next is nesting, the last stage before graduation, where he takes real contacts beside the SME. |
 
-## 레슨 2. Supporting Agents Just Out of Training (Nesting)
+## 레슨 2. Supporting Agents in Nesting
 
 | 항목 | English |
 |---|---|
-| 제목 | Supporting Agents Just Out of Training |
+| 제목 | Supporting Agents in Nesting |
 | 짧은 이름 | Nesting |
 | 부제 | Start close, then step back type by type, by an agreed rule. |
 | 노드 | Take the handover · Set check-ins · Ease off · Graduation review |
 
 스텝:
 
-1. This lesson is about how close to start support in nesting, when to step back, and the rule for moving to a regular team. How to help from beside the agent was covered in SME First Steps lesson 2.
-2. Seojun has graduated. For the next two weeks (Example), he takes real contacts in the nesting group.
+1. This lesson is about how close to start support in nesting, when to step back, and the rule for graduating to a regular team. How to help from beside the agent was covered in SME First Steps lesson 2.
+2. Seojun has finished OJT. As the last stage before graduation, he takes real contacts in the nesting group for the next two weeks (Example).
 3. The first stage is taking the handover. Get the OJT observation record from the trainer, and check which contact types Seojun has not yet handled alone. Make sure he meets each of those types during nesting.
 4. The second stage is setting check-ins. In the first week (Example), go to him at set intervals, and go over hard contacts with him before he sends his reply. Agree on the interval and the types with Sujin, the team leader, beforehand.
 5. At the end of each day, write down three things briefly. The types he finished alone, the types he needed help with, and the cases he escalated.
 6. The third stage is easing off. Once he finishes a type alone several days in a row (Example), stop checking that type first and look at it only when he asks.
 7. Step back type by type, not all at once. Instead of helping directly, send links to the policy articles he needs in chat, so he finds and handles it himself. Left alone suddenly, new hires hesitate even more to ask.
 8. Tell Seojun ahead of time what is changing. Say "You can handle shipping contacts on your own now. Call me any time you get stuck," and stepping back sounds like recognition, not being left alone.
-9. The fourth stage is the graduation review. Before nesting ends, go through the record with Sujin and decide whether he moves to a regular team or stays longer in nesting. The team leader makes the decision.
+9. The fourth stage is the graduation review. Before nesting ends, go through the record with the trainer and Sujin and give your view. The trainer and the team leader decide whether he graduates to a regular team or stays longer in nesting.
 10. When he moves to a regular team, pass on the types where he still often gets stuck. If he goes to another team, tell its SME and team leader; if he stays, mark them in your own record.
 
 체크포인트:
@@ -101,8 +101,8 @@ Same sections and order as the Korean file. US English.
 | 보기 b (정답) | Show Sujin the record of refund contacts, and discuss extending nesting or more training. |
 | 보기 c (오답) | Say the SME will handle refund contacts for him from now on. |
 | c 피드백 | If you handle them for him, Seojun never learns that type, and your own day gets blocked. |
-| 해설 | The team leader decides whether to move him or extend nesting. The SME shows the stuck types through the record. |
-| 다음 레슨 연결 | Seojun has joined a regular team. Now, instead of the SME going to him first, he comes to the SME when he needs to. |
+| 해설 | The trainer and the team leader decide whether he graduates or nesting is extended. The SME shows the stuck types through the record. |
+| 다음 레슨 연결 | Seojun has graduated and joined a regular team. Now, instead of the SME going to him first, he comes to the SME when he needs to. |
 
 ## 레슨 3. Supporting Regular Agents
 
@@ -164,7 +164,7 @@ Same sections and order as the Korean file. US English.
 6. The third stage is confirming judgment. A senior's escalation often comes from wanting a decision confirmed more than from not knowing the answer. Hear Junho's judgment first, and approve it as it is if it fits the rules.
 7. If his judgment differs from the rules, point out where. Once he knows why, Junho can make the same call alone next time.
 8. The fourth stage is preparing for the next role. If Junho wants an SME or team leader role, give him a little of that work at a time, such as running a huddle or sitting in on calibration.
-9. Record what you gave him and how it went, and pass it to the team leader. Promotions are decided by the team leader and the manager, and the SME's record is part of the grounds.
+9. Record what you gave him and how it went, and pass it to the team leader. Promotions are reviewed and recommended by the team leader and the manager, and the SME's record is part of the grounds.
 
 체크포인트:
 
@@ -191,14 +191,14 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 제목 | Supporting the Team Leader |
-| 짧은 이름 | Lead support |
+| 짧은 이름 | TL support |
 | 부제 | Bring what you saw at each stage to the team leader, then start again. |
 | 노드 | Stage status · Delegated scope · Hand-off rules · Back to the start |
 
 스텝:
 
 1. This lesson is about bringing what you saw in the first four stages to the team leader, so the team leader can decide each person's next stage. Delegated work such as attendance, trend summaries and huddles was covered in SME First Steps lesson 5.
-2. Every Monday (Example), Sujin decides the next stage for each team member. These are decisions such as who moves from nesting to a regular team and who becomes a buddy.
+2. Every Monday (Example), Sujin decides the next stage for each team member. These are decisions such as who needs close support again and who becomes a buddy.
 3. The first stage is putting together the stage status. For each team member, write one line: their current stage, what you saw last week, and any sign they are ready for the next stage.
 4. For example, write "Seojun: three months as a regular agent, steady on new-plan contacts, starting to answer other agents' questions." From that one line, Sujin can decide whether to make Seojun a buddy for the next class.
 5. The second stage is aligning the delegated scope. Each quarter (Example), check again with Sujin what the SME does on her behalf and what the SME doesn't do. When team size or policies change, the scope changes too.

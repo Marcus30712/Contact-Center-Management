@@ -26,7 +26,7 @@ export default {
     ],
   },
   steps: [
-    step(tx('지민이 첫 출근을 합니다. 실무에 들어가기 전에 필수 지식과 시스템을 익히는 기간이 온보딩입니다. 기간은 센터마다 다르지만 보통 2~4주입니다.', 'Jimin starts her first day. Onboarding is the period for learning the essential knowledge and systems before live work. The length varies by center, but it usually takes 2 to 4 weeks.'),
+    step(tx('지민이 첫 출근을 합니다. 실무에 들어가기 전에 필수 지식과 시스템을 익히는 기간이 온보딩입니다. 기간은 센터마다 다릅니다(예시: 2~4주).', 'Jimin starts her first day. Onboarding is the period for learning the essential knowledge and systems before live work. The length varies by center (Example: 2 to 4 weeks).'),
       ['join'], ['join'], 'join'),
     step(tx('팀장은 지민에게 버디(Buddy)를 정해 주고 팀원들에게 소개합니다. 편하게 물어볼 사람이 생기면 적응이 쉬워집니다. 첫 주가 끝나면 1:1로 만나 어려운 점을 듣고 필요한 지원을 약속합니다.', 'The team leader assigns Jimin a buddy and introduces her to the team. Having someone she can ask freely makes settling in easier. At the end of the first week, the team leader meets her one-on-one to hear what was hard and commit to the support she needs.'),
       ['join'], ['join'], 'join'),
@@ -55,7 +55,7 @@ export default {
     id: 'onboarding-q1',
     prompt: tx('교육 막바지, 지민은 상품 시험에서 만점을 받았지만 실습에서는 CRM 입력을 자주 놓칩니다. 어떻게 할까요?', 'Near the end of training, Jimin scores full marks on the product test but often misses CRM entries in practice calls. What do you do?'),
     options: [
-      option('a', tx('시험 점수가 좋으니 그대로 수료시킨다.', 'Her test score is good, so let her graduate as is.'), tx('시험 점수는 아는 것을 보여 줄 뿐, 통화하면서 입력하는 손이 준비됐다는 뜻은 아닙니다.', 'A test score shows what she knows; it does not mean her hands are ready to type while she talks.')),
+      option('a', tx('시험 점수가 좋으니 그대로 스킬 검증을 통과시킨다.', 'Her test score is good, so pass her through verification as is.'), tx('시험 점수는 아는 것을 보여 줄 뿐, 통화하면서 입력하는 손이 준비됐다는 뜻은 아닙니다.', 'A test score shows what she knows; it does not mean her hands are ready to type while she talks.')),
       option('b', tx('통화하면서 입력하는 실습 시간을 더 준다.', 'Give her more practice time entering data while on a call.')),
       option('c', tx('"입력은 실전에서 익히면 된다"고 말해 준다.', 'Tell her she can pick up data entry on the job.'), tx('실전에서 익히라고 하면 첫 고객들이 입력 누락과 늦어진 응대를 그대로 겪게 됩니다.', 'Leaving it to the job means her first customers live with the missed entries and slower service.')),
     ],
@@ -65,12 +65,12 @@ export default {
     id: 'onboarding-general',
     prompt: tx('일반 고객지원 신입 교육에서 다룰 정책과 절차가 너무 많다는 말이 나옵니다. 어떻게 할까요?', 'People say there are too many policies and procedures to cover in general support new-hire training. What do you do?'),
     options: [
-      option('a', tx('전부 외울 때까지 교육 기간을 늘린다.', 'Extend training until everything is memorized.'), tx('교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 투입만 늦어집니다.', 'A longer training period still will not make the whole range of policy memorable; it only delays going live.')),
+      option('a', tx('전부 외울 때까지 교육 기간을 늘린다.', 'Extend training until everything is memorized.'), tx('교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 배치만 늦어집니다.', 'A longer training period still will not make the whole range of policy memorable; it only delays going live.')),
       option('b', tx('자주 들어오는 문의 유형부터 응대 흐름으로 익히게 하고, 나머지는 찾아보는 법을 가르친다.', 'Teach the most common inquiry types as handling flows first, and teach how to look up the rest.')),
       option('c', tx('실전에서 겪으면서 배우라고 한다.', 'Tell them to learn it by going through it on live calls.'), tx('준비 없이 실전에서 배우게 하면 틀린 안내가 고객에게 그대로 전해집니다.', 'Learning on the job without preparation passes wrong information straight to customers.')),
     ],
     answer: 'b',
-    explanation: tx('범위가 넓을수록 전부 외우게 하기는 어렵습니다. 자주 쓰는 흐름을 먼저 손에 익히고, 드문 문의는 자료에서 찾는 법을 알게 하는 편이 실전에 가깝습니다. 그래야 지민도 스킬 검증에서 무엇을 평가받는지 분명히 압니다.', 'The wider the scope, the harder it is to have everything memorized. Getting the common flows into their hands first and knowing how to look up rare cases is closer to real work. It also makes clear to Jimin what skills verification will assess.'),
+    explanation: tx('범위가 넓을수록 전부 외우게 하기는 어렵습니다. 자주 쓰는 흐름을 먼저 손에 익히고, 드문 문의는 자료에서 찾는 법을 알게 하는 편이 실전에 가깝습니다. 그래야 실전에서 드문 문의를 만나도 스스로 찾아 확인할 수 있습니다.', 'The wider the scope, the harder it is to have everything memorized. Getting the common flows into their hands first and knowing how to look up rare cases is closer to real work. That way, when a rare inquiry comes up on live contacts, she can look it up and check it herself.'),
   }), trackQuestion('tech', {
     id: 'onboarding-tech',
     prompt: tx('기술지원 교육 중인 지민이 문제는 잘 해결하는데 티켓 기록을 한 줄로만 남깁니다. 어떻게 할까요?', 'In tech support training, Jimin solves problems well but leaves only one line in the ticket. What do you do?'),

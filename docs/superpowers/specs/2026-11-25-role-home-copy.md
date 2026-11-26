@@ -9,7 +9,7 @@
 | 위치 | 한국어 | English |
 |---|---|---|
 | 준비 중 표시 | 준비 중 | Coming soon |
-| 준비 중 카드 설명 | 준비 중이에요. 그동안 Codex에서 {직급}의 역할과 하루를 먼저 볼 수 있어요. | Coming soon. Meanwhile, see the {role} role and day in the Codex. |
+| 준비 중 카드 설명 | 준비 중이에요. 그동안 Codex에서 {직급}의 역할과 하루를 먼저 볼 수 있어요. | Coming soon. Meanwhile, the Codex shows the {role} role and a day in it. |
 | 준비 중 링크 1 | 커리어 매트릭스 → | Career matrix → |
 | 준비 중 링크 2 | 직무별 하루 → | Day by role → |
 
@@ -86,6 +86,8 @@
 
 | 카드 | 한국어 이름 | English name |
 |---|---|---|
-| Team Lead | 팀장 (TL) | Team Lead (TL) |
+| Team Leader | 팀장 (TL) | Team Leader (TL) |
 | Assistant Manager | 부매니저 (AM) | Assistant Manager (AM) |
 | Operation Manager | 매니저 (OM) | Operation Manager (OM) |
+
+(2026-11-26 바뀜: 용어집 직급 카드의 영어는 사이트 표기 team leader로 맞춤, 콘텐츠 검수 결정 4)

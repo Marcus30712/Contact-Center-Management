@@ -20,7 +20,7 @@ export default {
       wide(node("request", "요청 확인", 180, 24, "Check the request")),
       wide(node("scope", "범위 판단", 180, 72, "Judge the scope")),
       wide(node("decide", "승인 또는 처리", 180, 120, "Approve or handle")),
-      wide(node("handoff", "팀장 인계", 180, 168, "Hand to the lead")),
+      wide(node("handoff", "팀장 인계", 180, 168, "Hand to the TL")),
       wide(node("record", "기록 남기기", 180, 216, "Keep a record")),
     ],
     edges: [edge("request", "scope"), edge("scope", "decide"), edge("decide", "handoff"), edge("handoff", "record")],

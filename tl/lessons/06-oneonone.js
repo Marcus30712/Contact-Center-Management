@@ -30,7 +30,7 @@ export default {
     step(tx("지민은 최근 집안 사정으로 야간 근무가 힘들다고 말합니다. CSAT가 떨어지기 시작한 시점과 겹칩니다. 숫자의 이유가 사람에게서 나옵니다.", "Jimin says that family matters have made night shifts hard lately. It lines up with when her CSAT started to drop. The reason behind the number comes from the person."), flow, ["hear"], null),
     step(tx("개인 사정은 필요한 만큼만 듣고, 지민의 허락 없이 다른 사람에게 말하지 않습니다. 근무 조정이 필요하면 정해진 절차로 진행합니다.", "Hear personal matters only as far as needed, and don't share them without Jimin's permission. If her shifts need changing, follow the agreed process."), flow, ["hear"], null),
     step(tx("셋째 단계는 맞춰 보기입니다. 본인의 이야기와 기록, 직접 본 모습을 맞춰 봅니다. 서로 다르면 어느 쪽이 맞는지 단정하지 않고 더 지켜봅니다.", "The third stage is comparing. Compare what they told you with the records and what you saw yourself. If they differ, don't decide which is right; keep watching."), flow, ["compare"], null),
-    step(tx("넷째 단계는 개인 메모입니다. 팀원마다 강점, 도울 점, 맡겨 볼 일, 다음에 확인할 날을 적습니다. 예를 들어 준호에게는 마무리 확인 습관이 잡힐 때까지 신입 버디를 잠시 쉬게 하고, 그 습관을 함께 봅니다.", "The fourth stage is personal notes. For each person, write strengths, where to help, what to try giving them, and when to check again. For example, give Junho a break from the new-hire buddy role until his habit of checking before closing is in place, and work on it with him."), flow, ["notes"], null),
+    step(tx("넷째 단계는 개인 메모입니다. 팀원마다 강점, 도울 점, 맡겨 볼 일, 다음에 확인할 날을 적습니다. 예를 들어 준호는 마무리 확인 습관이 잡힐 때까지 신입 버디 역할을 잠시 쉬고, 그 습관을 함께 봅니다.", "The fourth stage is personal notes. For each person, write strengths, where to help, what to try giving them, and when to check again. For example, Junho steps back from the new-hire buddy role until his habit of checking before closing is in place, and you work on it with him."), flow, ["notes"], null),
     step(tx("메모는 계획이지 낙인이 아닙니다. 몇 주 뒤 다시 보며 맞지 않는 부분은 고칩니다.", "The notes are a plan, not a label. Look at them again in a few weeks and fix what doesn't fit."), flow, ["notes"], null),
   ],
   checkpoint: [
@@ -38,7 +38,7 @@ export default {
       id: "oneonone-q1",
       prompt: tx("첫 1:1 면담을 시작하는 말로 알맞은 것은 무엇일까요?", "What fits as the opening of a first one-on-one?"),
       options: [
-        option("a", tx("\"지난 6개월 성과를 보니 보완할 점이 많네요.\"", "\"Looking at your last 6 months, there's a lot to improve.\""), tx("첫 만남을 평가로 시작하면 팀원은 방어적이 되어 속마음을 말하지 않습니다.", "Opening a first meeting with an evaluation makes people defensive, and they won't say what they really think.")),
+        option("a", tx("\"지난 6개월(예시) 성과를 보니 보완할 점이 많네요.\"", "\"Looking at your last 6 months (Example), there's a lot to improve.\""), tx("첫 만남을 평가로 시작하면 팀원은 방어적이 되어 속마음을 말하지 않습니다.", "Opening a first meeting with an evaluation makes people defensive, and they won't say what they really think.")),
         option("b", tx("\"서로 알아 가려고 마련한 자리예요. 지금 일하면서 어떤지 듣고 싶어요.\"", "\"This is a chance for us to get to know each other. I'd like to hear how work is going for you.\"")),
         option("c", tx("\"특별한 이야기가 없으면 짧게 끝낼게요.\"", "\"If there's nothing in particular, we'll keep it short.\""), tx("형식적으로 끝내면 기록으로는 알 수 없는 이야기를 들을 기회를 놓칩니다.", "Keeping it a formality misses the chance to hear what the records can't tell you.")),
       ],

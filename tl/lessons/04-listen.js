@@ -10,9 +10,9 @@ const flow = ["pick", "listen", "habits", "cause", "pick-listen", "listen-habits
 export default {
   id: "listen",
   order: 4,
-  title: tx("콜 레코딩과 티켓 직접 보기", "Listening to Calls and Reading Tickets"),
+  title: tx("녹취와 티켓 직접 보기", "Listening to Calls and Reading Tickets"),
   short: tx("직접 보기", "Look closer"),
-  subtitle: tx("숫자 뒤에 있는 실제로 일하는 방식을 확인합니다.", "See the real way people work behind the numbers."),
+  subtitle: tx("숫자 뒤에서 실제로 어떻게 일하는지 확인합니다.", "See how people really work behind the numbers."),
   procedure,
   diagram: {
     nodes: [
@@ -24,7 +24,7 @@ export default {
     edges: [edge("pick", "listen"), edge("listen", "habits"), edge("habits", "cause")],
   },
   steps: [
-    step(tx("이 레슨의 목적은 콜 레코딩과 티켓을 직접 보며, 팀원마다 실제로 어떻게 일하는지 확인하는 것입니다.", "This lesson is about listening to call recordings and reading tickets yourself to see how each team member actually works."), flow, procedure, null),
+    step(tx("이 레슨의 목적은 녹취와 티켓을 직접 보며, 팀원마다 실제로 어떻게 일하는지 확인하는 것입니다.", "This lesson is about listening to call recordings and reading tickets yourself to see how each team member actually works."), flow, procedure, null),
     step(tx("첫 단계는 고르기입니다. 팀원마다 몇 건씩(예시: 3~5건) 고르되, 잘 끝난 건과 불만으로 끝난 건을 섞습니다. 레슨 3의 메모에 적은 질문과 관련된 건을 먼저 고릅니다.", "The first stage is picking contacts. Pick a few per person (Example: 3 to 5), mixing ones that ended well with ones that ended in complaints. Start with contacts related to the questions in your lesson 3 notes."), flow, ["pick"], null),
     step(tx("둘째 단계는 듣고 읽기입니다. 인사, 문제 파악, 안내, 마무리의 흐름을 따라가며 무엇을 잘했고 어디서 흔들렸는지 적습니다.", "The second stage is listening and reading. Follow the flow of greeting, understanding the problem, explaining and closing, and note what went well and where it wobbled."), flow, ["listen"], null),
     step(tx("준호의 콜을 들어 보니, 문제를 빨리 해결하지만 고객이 이해했는지 확인하지 않고 끝냅니다. 처리 건수는 많고 품질 점수는 낮았던 이유가 보입니다.", "Listening to Junho's calls, you hear him solve problems quickly but end without checking that the customer understood. That explains his high volume and low quality score."), flow, ["listen"], null),
@@ -54,7 +54,7 @@ export default {
         option("c", tx("팀 허들에서 잘못을 지적한다.", "Point out the mistake at the team huddle."), tx("원인을 모른 채 지적하면 상담사들은 배운 대로 했을 뿐이라고 느낍니다.", "Pointing it out without knowing the cause makes agents feel they only did what they were taught.")),
       ],
       answer: "b",
-      explanation: tx("여러 사람이 같은 실수를 하면 사람보다 원인을 먼저 확인합니다.", "When several people make the same mistake, check the cause before the people."),
+      explanation: tx("여러 사람이 같은 실수를 하면 사람보다 원인을 먼저 확인합니다. 다만 잘못된 안내가 지금도 고객에게 나가고 있다면, 바른 안내부터 팀에 바로 공유합니다.", "When several people make the same mistake, check the cause before the people. But if the wrong explanation is still reaching customers, share the correct one with the team right away."),
     },
   ],
   connection: { to: "contribution", text: tx("한 사람씩 어떻게 일하는지 보았습니다. 이제 눈을 넓혀, 이 팀이 프로젝트 전체에서 어떤 몫을 해 왔는지 봅니다.", "You've seen how each person works. Now widen the view to what this team has contributed to the whole project.") },

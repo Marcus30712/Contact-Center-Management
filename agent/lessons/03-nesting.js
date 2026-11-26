@@ -40,7 +40,7 @@ export default {
       prompt: tx("지민이 고객과 통화하다가 필요한 정책을 찾지 못했습니다. 어떻게 할까요?", "During a call, Jimin can't find the policy she needs. What should she do?"),
       options: [
         option("a", tx("고객에게 기억나는 대로 안내한다.", "Tell the customer whatever she remembers."), tx("틀린 안내는 고객이 다시 연락하게 만들고, 신뢰도 잃게 합니다.", "Wrong information makes the customer contact you again and costs their trust.")),
-        option("b", tx("고객에게 확인할 시간이 필요하다고 양해를 구하고 통화를 대기로 돌린 뒤, 옆자리나 직무전문가에게 확인한다.", "Tell the customer she needs a moment to check, put the call on hold, then check with the next seat or the SME.")),
+        option("b", tx("고객에게 확인할 시간이 필요하다고 양해를 구하고 통화를 보류한 뒤, 옆자리나 직무전문가에게 확인한다.", "Tell the customer she needs a moment to check, put the call on hold, then check with the next seat or the SME.")),
         option("c", tx("찾을 때까지 고객을 말없이 기다리게 한다.", "Leave the customer waiting in silence until she finds it."), tx("아무 말 없이 기다리면 고객은 통화가 끊긴 줄 압니다. 기다려 달라고 먼저 말합니다.", "In silence, the customer thinks the call has dropped. Ask them to wait first.")),
       ],
       answer: "b",
@@ -58,5 +58,5 @@ export default {
       explanation: tx("상황, 확인한 것, 필요한 것을 한 번에 말합니다.", "Say the situation, what you checked and what you need, all at once."),
     },
   ],
-  connection: { to: "golive", text: tx("네스팅을 마치면 정식 팀에 합류합니다. 혼자 받는 첫 콜입니다.", "After nesting, you join the regular team. Next is your first call on your own.") },
+  connection: { to: "golive", text: tx("네스팅을 마치고 수료하면 정식 팀에 합류합니다. 혼자 받는 첫 콜입니다.", "Once you finish nesting and graduate, you join the regular team. Next is your first call on your own.") },
 };

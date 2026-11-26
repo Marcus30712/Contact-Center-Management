@@ -11,7 +11,7 @@ export default {
   id: "leadsupport",
   order: 5,
   title: tx("팀장 지원", "Supporting the Team Leader"),
-  short: tx("팀장 지원", "Lead support"),
+  short: tx("팀장 지원", "TL support"),
   subtitle: tx("단계마다 본 것을 팀장에게 모으고, 다시 처음으로 돌아갑니다.", "Bring what you saw at each stage to the team leader, then start again."),
   personaName: tx("서준", "Seojun"),
   procedure,
@@ -26,7 +26,7 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 앞의 네 단계에서 본 것을 팀장에게 모아, 팀장이 사람마다 다음 단계를 정하도록 돕는 것입니다. 출석 관리, 트렌드 요약, 허들 같은 대행 업무는 직무전문가 첫걸음 레슨 5에서 다뤘습니다.", "This lesson is about bringing what you saw in the first four stages to the team leader, so the team leader can decide each person's next stage. Delegated work such as attendance, trend summaries and huddles was covered in SME First Steps lesson 5."), flow, procedure, null),
-    step(tx("수진 팀장은 매주 월요일(예시) 팀원마다 다음 단계를 정합니다. 누구를 네스팅에서 정식 팀으로 넘길지, 누구에게 버디를 맡길지 같은 결정입니다.", "Every Monday (Example), Sujin decides the next stage for each team member. These are decisions such as who moves from nesting to a regular team and who becomes a buddy."), flow, [], null),
+    step(tx("수진 팀장은 매주 월요일(예시) 팀원마다 다음 단계를 정합니다. 누구를 다시 가까이 지원할지, 누구에게 버디를 맡길지 같은 결정입니다.", "Every Monday (Example), Sujin decides the next stage for each team member. These are decisions such as who needs close support again and who becomes a buddy."), flow, [], null),
     step(tx("첫 단계는 단계 현황 정리입니다. 팀원마다 지금 어느 단계인지, 지난주에 본 것, 다음 단계로 갈 신호가 있는지를 한 줄씩 적습니다.", "The first stage is putting together the stage status. For each team member, write one line: their current stage, what you saw last week, and any sign they are ready for the next stage."), flow, ["status"], null),
     step(tx("예를 들어 \"서준: 정식 석 달 차, 새 요금제 문의 안정, 다른 상담사 질문에 답하기 시작\"처럼 씁니다. 수진 팀장은 이 한 줄로 서준에게 다음 기수의 버디를 맡길지 정할 수 있습니다.", "For example, write \"Seojun: three months as a regular agent, steady on new-plan contacts, starting to answer other agents' questions.\" From that one line, Sujin can decide whether to make Seojun a buddy for the next class."), flow, ["status"], null),
     step(tx("둘째 단계는 대행 범위 맞추기입니다. 직무전문가가 대신 하는 일과 하지 않는 일을 분기마다(예시) 수진 팀장과 다시 확인합니다. 팀 인원이나 정책이 바뀌면 범위도 바뀝니다.", "The second stage is aligning the delegated scope. Each quarter (Example), check again with Sujin what the SME does on her behalf and what the SME doesn't do. When team size or policies change, the scope changes too."), flow, ["scope"], null),

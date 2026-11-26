@@ -52,7 +52,7 @@ export default {
       options: [
         option("a", tx("다섯 명을 각각 한 줄씩만 적는다.", "Just write one line for each of the five."), tx("각각만 적으면 팀 공통 문제라는 것이 보이지 않습니다.", "Separate lines hide that it's a team-wide problem.")),
         option("b", tx("팀 공통 트렌드로 묶어 허들 주제로 제안하고, 원인이 문서라면 지식 베이스 업데이트도 요청한다.", "Group it as a team-wide trend, suggest it as a huddle topic, and if the cause is a document, request a knowledge base update too.")),
-        option("c", tx("다섯 명에게 각각 주의를 준다.", "Warn each of the five."), tx("주의나 경고는 팀장의 몫입니다. 여러 명이 같다면 원인이 사람보다 문서나 교육에 있을 수 있습니다.", "Cautions and warnings are the team leader's call. When several people make the same mistake, the cause may lie in a document or training rather than the people.")),
+        option("c", tx("다섯 명에게 각각 주의를 준다.", "Warn each of the five."), tx("공식 주의나 경고는 팀장의 몫입니다. 여러 명이 같다면 원인이 사람보다 문서나 교육에 있을 수 있습니다.", "Formal cautions and warnings are the team leader's call. When several people make the same mistake, the cause may lie in a document or training rather than the people.")),
       ],
       answer: "b",
       explanation: tx("여러 사람에게 같은 실수가 나오면 사람보다 원인을 먼저 봅니다.", "When several people make the same mistake, look at the cause before the people."),

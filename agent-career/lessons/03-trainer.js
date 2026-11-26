@@ -56,8 +56,8 @@ export default {
         option("c", tx("두 직무는 서로 관계가 없다.", "The two roles have nothing to do with each other."), tx("두 직무는 같은 교육개발팀에 속하는 경우가 많고, 품질 결과가 다음 교육으로 이어집니다.", "The two roles often sit in the same Training & Development team, and quality results feed the next training.")),
       ],
       answer: "b",
-      explanation: tx("QA가 현장에서 찾은 문제를 트레이너가 교육으로 고칩니다. 두 직무가 함께 상담 품질을 끌어올립니다.", "The trainer fixes through training the problems QA finds on the floor. Together they raise contact quality."),
+      explanation: tx("QA가 현장에서 찾은 문제를 트레이너가 교육으로 고칩니다. 두 직무가 함께 상담 품질을 끌어올립니다.", "The trainer uses training to fix the problems QA finds on the floor. Together they raise contact quality."),
     },
   ],
-  connection: { to: "tl", text: tx("여기까지는 한 분야를 깊이 맡는 길이었습니다. 다음은 팀 전체를 맡는 길, 수진 팀장을 만납니다.", "So far these were paths that go deep in one area. Next is the path that takes on the whole team: meet Sujin the team leader.") },
+  connection: { to: "tl", text: tx("여기까지는 돕고, 평가하고, 가르치는 길이었습니다. 다음은 팀 전체를 맡는 길, 수진 팀장을 만납니다.", "So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the team leader.") },
 };

@@ -19,10 +19,10 @@
 | coaching-q1.c | 다른 팀원과 비교하면 방어적으로 되기 쉽고, 시간이 길어지는 진짜 이유는 이야기되지 않습니다. | Comparing her with teammates tends to make her defensive, and the real reason the time runs long never comes up. |
 | coaching-q2.a | 고칠 점을 모두 적으면 무엇부터 할지 흐려지고, 다음 코칭 때 지켰는지 확인하기도 어렵습니다. | Listing every point to fix blurs what comes first, and makes it hard to check at the next session whether it was done. |
 | coaching-q2.c | 계획 없이 숫자만 지켜보면 지민은 무엇을 해야 할지 모른 채 한 달을 보냅니다. | Watching the numbers without a plan leaves Jimin spending a month not knowing what to do. |
-| pip-q1.a | 징계 근거를 남기려는 PIP로 받아들여지면, 도윤은 개선보다 방어에 힘을 쓰게 됩니다. | If the PIP comes across as building a case for discipline, Doyun will put his energy into defending himself rather than improving. |
-| pip-q1.c | 다른 팀원에게 보여 주려는 PIP는 도윤을 본보기로 만들 뿐, 개선을 돕지 못합니다. | A PIP meant as a message to others only makes an example of Doyun; it does not help him improve. |
+| pip-q1.a | 징계 근거를 남기려는 PIP로 받아들여지면, 우진은 개선보다 방어에 힘을 쓰게 됩니다. | If the PIP comes across as building a case for discipline, Woojin will put his energy into defending himself rather than improving. |
+| pip-q1.c | 다른 팀원에게 보여 주려는 PIP는 우진을 본보기로 만들 뿐, 개선을 돕지 못합니다. | A PIP meant as a message to others only makes an example of Woojin; it does not help him improve. |
 | pip-q2.a | "더 친절하게"는 잴 수 없어서, 기간이 끝나도 달성했는지 함께 판단할 수 없습니다. | “Be friendlier” cannot be measured, so when the period ends there is no shared way to judge whether it was met. |
-| pip-q2.c | 팀 1등은 다른 사람의 결과에 달려 있어서, 도윤이 스스로 이룰 수 있는 공정한 목표가 되지 못합니다. | Being the best on the team depends on other people’s results, so it is not a fair goal Doyun can reach on his own. |
+| pip-q2.c | 팀 1등은 다른 사람의 결과에 달려 있어서, 우진이 스스로 이룰 수 있는 공정한 목표가 되지 못합니다. | Being the best on the team depends on other people’s results, so it is not a fair goal Woojin can reach on his own. |
 | calibration-q1.a | 시간을 줄이려고 함께 채점하면 점수가 서로 닮아 가, 정작 맞춰야 할 기준의 차이가 가려집니다. | Scoring together to save time makes the scores drift toward each other and hides the very differences in standards you need to align. |
 | calibration-q1.c | 평가자를 줄 세우는 자리가 되면 솔직한 점수가 나오지 않아, 기준을 맞출 수 없습니다. | If the session ranks the evaluators, people stop giving honest scores, and the standards cannot be aligned. |
 | calibration-q2.a | 참고용으로만 남기면 다음 평가에서 각자 원래 기준으로 돌아가 같은 차이가 다시 생깁니다. | Keeping it only for reference sends everyone back to their own standard at the next evaluation, and the same gap returns. |
@@ -38,4 +38,4 @@
 | launch-q1.b | 교육은 뽑은 사람을 가르치는 일이라, 몇 명이 필요한지 정해진 뒤에야 규모와 일정을 잡을 수 있습니다. | Training teaches the people you hire, so its size and schedule can only be set once you know how many people you need. |
 | launch-q1.c | 상담 시스템을 다 갖춰도 필요한 인원을 모르면 몇 명을 뽑을지 정할 수 없습니다. | Even with the systems fully built, you cannot decide how many people to hire without knowing the staffing need. |
 | launch-q2.a | 첫 달 데이터를 기다리는 동안, 현장에서 먼저 드러난 문제가 그대로 고객에게 전해집니다. | While you wait for first-month data, the problems that show up first on the floor go straight to customers. |
-| launch-q2.b | 클라이언트 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다. | The client business review is the OM’s job; right after launch, the team leader belongs on the floor. |
+| launch-q2.b | 고객사 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다. | The client business review is the OM’s job; right after launch, the team leader belongs on the floor. |

@@ -33,7 +33,7 @@ export default {
     step(tx("셋째 단계는 판단 확인입니다. 선임의 에스컬레이션은 답을 몰라서보다 판단을 확인받고 싶어서 올 때가 많습니다. 준호의 판단을 먼저 듣고, 기준에 맞으면 그대로 승인합니다.", "The third stage is confirming judgment. A senior's escalation often comes from wanting a decision confirmed more than from not knowing the answer. Hear Junho's judgment first, and approve it as it is if it fits the rules."), flow, ["confirm"], null),
     step(tx("판단이 기준과 다르면 어느 부분이 다른지 짚어 줍니다. 이유를 알면 준호는 다음에 같은 판단을 혼자 할 수 있습니다.", "If his judgment differs from the rules, point out where. Once he knows why, Junho can make the same call alone next time."), flow, ["confirm"], null),
     step(tx("넷째 단계는 다음 자리 준비입니다. 준호가 직무전문가나 팀장 자리를 바란다면 허들 진행이나 캘리브레이션 참관처럼 그 자리의 일을 조금씩 맡겨 봅니다.", "The fourth stage is preparing for the next role. If Junho wants an SME or team leader role, give him a little of that work at a time, such as running a huddle or sitting in on calibration."), flow, ["next"], null),
-    step(tx("맡긴 일과 결과를 기록해 팀장에게 전합니다. 승진은 팀장과 매니저가 정하고, 직무전문가의 기록은 그 근거가 됩니다.", "Record what you gave him and how it went, and pass it to the team leader. Promotions are decided by the team leader and the manager, and the SME's record is part of the grounds."), flow, ["next"], null),
+    step(tx("맡긴 일과 결과를 기록해 팀장에게 전합니다. 승진은 팀장과 매니저가 검토해 추천하고, 직무전문가의 기록은 그 근거가 됩니다.", "Record what you gave him and how it went, and pass it to the team leader. Promotions are reviewed and recommended by the team leader and the manager, and the SME's record is part of the grounds."), flow, ["next"], null),
   ],
   checkpoint: [
     {

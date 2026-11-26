@@ -20,7 +20,7 @@ export default {
       wide(node("reset", "관계 다시 맺기", 180, 36, "Reset the relationship")),
       wide(node("same", "같은 기준", 180, 92, "Same standard")),
       wide(node("respect", "존중하며 돕기", 180, 148, "Help with respect")),
-      wide(node("consult", "팀장과 상의", 180, 204, "Talk to the lead")),
+      wide(node("consult", "팀장과 상의", 180, 204, "Talk to the TL")),
     ],
     edges: [edge("reset", "same"), edge("same", "respect"), edge("respect", "consult")],
   },
@@ -43,7 +43,7 @@ export default {
       options: [
         option("a", tx("오래 함께한 동기니 이번에는 넘어간다.", "Let it go this time, since you have worked together so long."), tx("한 사람에게만 느슨하면 다른 상담사들은 승인 기준이 친분에 따라 달라진다고 느낍니다.", "When it is looser for one person, other agents feel the approval standard depends on friendship.")),
         option("b", tx("누구에게나 같은 기준이라고 차분히 말하고, 승인 절차를 거치게 한다.", "Say calmly that the standard is the same for everyone, and have it go through approval.")),
-        option("c", tx("다른 상담사들 앞에서 절차를 어겼다고 지적한다.", "Point out in front of the other agents that he broke the procedure."), tx("공개적인 지적은 준호에게 상처가 되고, 팀은 직무전문가가 동기에게 본보기를 보였다고 받아들입니다.", "Calling it out in public hurts Junho, and the team reads it as the SME making an example of a peer.")),
+        option("c", tx("다른 상담사들 앞에서 절차를 어겼다고 지적한다.", "Point out in front of the other agents that he broke the procedure."), tx("공개적인 지적은 준호에게 상처가 되고, 팀은 직무전문가가 동기를 본보기로 삼아 망신을 줬다고 받아들입니다.", "Calling it out in public hurts Junho, and the team reads it as the SME making an example of a peer.")),
       ],
       answer: "b",
       explanation: tx("같은 기준을, 존중하는 방식으로 적용합니다.", "Apply the same standard, in a respectful way."),

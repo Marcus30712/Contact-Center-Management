@@ -64,7 +64,7 @@
 - 가장 최근 평일부터 거꾸로 평일을 하루씩 센다. 오늘이 평일이고 아직 안 했으면 이전 평일부터 센다. 오늘이 주말이면 금요일부터 센다.
 - 평일에 연습하지 않은 날을 만나면 끊긴다. 연습한 평일이 없으면 0.
 - 주말에 연습해도 문제·카드·"첫걸음"·"만점"·"다시 잡기"는 그대로 된다. 연속 일수에만 넣지 않는다.
-- 화면: "🔥 N일째". 오늘이 평일이고 아직이면 "오늘 하면 N+1일째". 주말이면 "주말은 쉬는 날이에요".
+- 화면: "🔥 N일째". 오늘이 평일이고 아직이면 "오늘 하면 N+1일째". 주말이면 "주말은 연속 일수에 넣지 않아요".
 
 ### 5.4 배지 (받으면 영원히 유지)
 | id | 이름 | 조건 |
@@ -135,7 +135,7 @@
 | intro | 마친 레슨에서 문제 {n}개를 골랐어요. 틈틈이 풀어 보세요. | {n} for today from lessons you've finished. Try them when you have a moment. |
 | streak | 🔥 {n}일째 | 🔥 Day {n} |
 | streakPending | 오늘 하면 {n}일째 | Practice today for day {n} |
-| weekend | 주말은 쉬는 날이에요. 풀어도 좋지만 연속 일수에는 넣지 않아요. | Weekends are days off. You can still practice, but it won't add to your streak. |
+| weekend | 주말은 연속 일수에 넣지 않아요. 풀어도 좋아요. | Weekends don't count toward your streak, but you can still practice. |
 | questionCount | 문제 {i} / {n} | Question {i} of {n} |
 | correct | 맞아요! | That's right! |
 | wrong | 아쉬워요. 해설을 보고 다음에 다시 만나요. | Not quite. Read the explanation, and we'll meet this one again. |
@@ -170,7 +170,7 @@
 | perfect | 만점 | Perfect score | 그날 문제를 모두 맞힘 (문제가 3개 미만인 날은 제외) | Get all of a day's questions right (days with fewer than 3 questions don't count) |
 | comeback | 다시 잡기 | Comeback | 전에 틀린 문제를 다시 맞힘 | Get a question right that you missed before |
 | terms | 용어 박사 | Term expert | 열린 용어 카드가 10장 이상이고 모두 "알아요" | 10 or more term cards open, all marked "I know it" |
-| lifecycle | 라이프사이클 완주 | Lifecycle finished | 라이프사이클 6개 레슨을 모두 마침 | Finish all 6 Lifecycle lessons |
+| lifecycle | 상담사 라이프사이클 완주 | Agent Lifecycle finished | 팀장 강의 「상담사 라이프사이클」 6개 레슨을 모두 마침 | Finish all 6 lessons of The Agent Lifecycle (team leader course) |
 | sop | SOP 완주 | SOP Library finished | 팀장 SOP 레슨을 모두 마침 | Finish all the TL SOP lessons |
 | excel | 엑셀 완주 | Excel finished | 미소의 엑셀 연습 11개 레슨을 모두 마침 | Finish all 11 lessons of Miso's Excel Practice |
 
