@@ -8,7 +8,7 @@ Same sections and order as the Korean file. US English.
 
 | Place | Before | After |
 |---|---|---|
-| Start screen tagline | Learning contact center operations, for new team leaders | From agent to manager: learn your next contact center role ahead of time |
+| Start screen tagline | Learning contact center operations, for new team leaders | From agent to manager: what I wish I'd known back then |
 | Home Miso intro | A senior manager who helps new team leads | A senior manager who helps people get ready for a new role |
 | Start greeting (afternoon) | Keep going this afternoon! If you are coaching someone today, skim the SOP first. | Keep going this afternoon! If you are helping someone today, skim the lesson for it first. |
 | Start greeting (Monday) | It's the start of the week! Why not think first of whom you will coach this week? | It's the start of the week! Why not think first of whom to look after this week? |

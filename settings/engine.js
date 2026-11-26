@@ -72,7 +72,7 @@ export function makeBackup(storage, today) {
   return { app: 'queuecraft', format: 1, exported: today, data };
 }
 
-// The data of a Queuecraft backup file, or null for anything else.
+// The data of a CX Replay backup file, or null for anything else.
 export function readBackup(text) {
   let file;
   try { file = JSON.parse(text); } catch { return null; }

@@ -1,5 +1,5 @@
 // The role picker at the top left of the site's own pages (2026-11-26). It
-// takes the place of the "Queuecraft" word, which repeated the home title.
+// takes the place of the "CX Replay" word, which repeated the home title.
 // Design: docs/superpowers/specs/2026-11-26-role-switch-design.md
 import { ROLES, saveRole } from './role.js';
 import { ROLE_NAMES, ROLE_UI } from './role-data.js';

@@ -1,4 +1,4 @@
-# Queuecraft
+# CX Replay
 
 [한국어](README.md) · **English**
 
@@ -43,5 +43,5 @@ A static site with no build step. To deploy on GitHub Pages, choose the root fol
 | Code (rendering code, calculators, tests, tools) | MIT | [`LICENSE`](LICENSE) |
 | Lesson content, copy and data (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/` and others), design and copy documents (`docs/`), Miso Kim artwork (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
 
-- CC BY-NC-ND 4.0: you may share it unchanged, non-commercially, with credit ("Marcus Shim, Queuecraft"). See `LICENSE-CONTENT` for the full scope.
+- CC BY-NC-ND 4.0: you may share it unchanged, non-commercially, with credit ("Marcus Shim, CX 2회차 (CX Replay)"). See `LICENSE-CONTENT` for the full scope.
 - Versions published under MIT before 20 November 2026 remain MIT.

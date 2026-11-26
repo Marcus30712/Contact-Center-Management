@@ -1,7 +1,8 @@
-// Privacy policy page: what Queuecraft keeps (only on the device) and where.
+// Privacy policy page: what CX Replay keeps (only on the device) and where.
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { PRIVACY_TEXT as T, GITHUB_PRIVACY_URL, ISSUES_URL } from './text.js';
+import { BRAND } from '../shared/brand.js';
 
 export function renderPrivacy(root, lang) {
   const tr = (key) => t(T[key], lang).text;
@@ -13,7 +14,7 @@ export function renderPrivacy(root, lang) {
   const out = (attr, href, key) => h('p', {}, [h('a', { [attr]: true, href, rel: 'noopener', text: tr(key) })]);
   root.replaceChildren(
     h('header', { class: 'glossary-head' }, [
-      h('a', { class: 'home-link', 'data-back': true, href: '../', text: '← Queuecraft' }),
+      h('a', { class: 'home-link', 'data-back': true, href: '../', text: `← ${BRAND[lang] ?? BRAND.ko}` }),
       h('h1', { text: tr('title') }),
       h('p', { class: 'tagline', text: tr('intro') }),
       h('p', { class: 'pv-meta', text: tr('meta') }),

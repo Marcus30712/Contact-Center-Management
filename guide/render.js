@@ -1,5 +1,5 @@
 // Situation Guide: chips pick a group; each situation opens to two links into
-// the rest of Queuecraft. The team-lead guide is the default; another role's
+// the rest of CX Replay. The team-lead guide is the default; another role's
 // guide passes its own { ui, groups } (2026-11-25).
 import { h } from '../agent-lifecycle/js/render/dom.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';

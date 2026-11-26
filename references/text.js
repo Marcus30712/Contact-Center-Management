@@ -1,13 +1,14 @@
 // Wording for the references page, in both languages.
+import { BRAND } from '../shared/brand.js';
 export const PYWORKFORCE_URL = 'https://github.com/rodrigo-arenas/pyworkforce';
 
 export const REFERENCES_TEXT = {
   title: { ko: '참고 자료', en: 'References' },
   intro: {
-    ko: '큐크래프트가 무엇을 바탕으로 만들어졌는지 밝힙니다.',
-    en: 'What Queuecraft is built on.',
+    ko: 'CX 2회차가 무엇을 바탕으로 만들어졌는지 밝힙니다.',
+    en: 'What CX Replay is built on.',
   },
-  back: { ko: 'Queuecraft', en: 'Queuecraft' },
+  back: BRAND,
   basisHeading: { ko: '바탕 자료', en: 'Foundation' },
   codex: {
     ko: 'BPO Contact Center Operation Codex 2.0 — BPO 고객센터 운영의 원칙, 관리 프로토콜, 성장 로드맵, 팀별 청사진, 표준 운영 절차(SOP)를 정리한 운영 지침서. 작성: Marcus Shim.',
@@ -22,8 +23,8 @@ export const REFERENCES_TEXT = {
   labLink: { ko: '인력 산정 실험실 열기', en: 'Open the Staffing Lab' },
   noteHeading: { ko: '안내', en: 'Note' },
   countryNote: {
-    ko: '법과 제도는 국가마다 다를 수 있습니다. 큐크래프트의 내용은 일반적인 운영 원칙이며, 실제 적용 전에 해당 국가와 조직의 규정을 확인하세요.',
-    en: 'Laws and regulations differ from country to country. Queuecraft describes general operating principles; check the rules of your own country and organization before applying them.',
+    ko: '법과 제도는 국가마다 다를 수 있습니다. CX 2회차의 내용은 일반적인 운영 원칙이며, 실제 적용 전에 해당 국가와 조직의 규정을 확인하세요.',
+    en: 'Laws and regulations differ from country to country. CX Replay describes general operating principles; check the rules of your own country and organization before applying them.',
   },
   licenseNote: {
     ko: '코드는 MIT 라이선스로, 강의 내용과 문안, 김미소 그림은 CC BY-NC-ND 4.0으로 공개합니다.',

@@ -44,7 +44,7 @@
 | replace | 바꾸기 | Replace |
 | exported | 기록 파일을 내보냈어요. | Progress file exported. |
 | imported | 기록을 가져왔어요. | Progress imported. |
-| importBad | 기록 파일을 읽지 못했어요. 큐크래프트에서 내보낸 파일인지 확인해 주세요. | Couldn't read the progress file. Check that it was exported from Queuecraft. |
+| importBad | 기록 파일을 읽지 못했어요. CX 2회차에서 내보낸 파일인지 확인해 주세요. | Couldn't read the progress file. Check that it was exported from CX Replay. |
 | reset | 학습 초기화 | Reset learning |
 | resetAsk | 학습 기록을 모두 지울까요? | Erase all your learning records? |
 | resetAskNote | 레슨 진도와 오늘의 연습 기록, 배지가 지워지고 되돌릴 수 없어요. 먼저 '기록 내보내기'로 백업해 두면 나중에 다시 가져올 수 있어요. | Lesson progress, Today’s Practice records and badges will be erased, and this can’t be undone. Back up first with “Export progress” and you can bring them back later. |

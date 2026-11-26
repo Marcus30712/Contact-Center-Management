@@ -23,11 +23,11 @@
 | 키 | 한국어 | English |
 |---|---|---|
 | title | 개인정보처리방침 | Privacy Policy |
-| intro | 큐크래프트는 개인정보를 수집하지 않습니다. 이 페이지는 앱이 어떤 정보를 어디에 두는지 밝힙니다. | Queuecraft does not collect personal information. This page explains what the app keeps and where. |
+| intro | CX 2회차는 개인정보를 수집하지 않습니다. 이 페이지는 앱이 어떤 정보를 어디에 두는지 밝힙니다. | CX Replay does not collect personal information. This page explains what the app keeps and where. |
 | meta | 시행일: 2026년 11월 20일 · 운영: Marcus Shim | Effective date: November 20, 2026 · Operated by Marcus Shim |
 | link | 개인정보처리방침 | Privacy Policy |
 | s1.heading | 1. 수집하는 정보 | 1. Information we collect |
-| s1.body | 큐크래프트는 이름, 이메일, 전화번호, 위치 같은 개인정보를 받지 않습니다. 회원가입과 로그인이 없고, 광고나 이용 분석 도구도 쓰지 않습니다. | Queuecraft does not ask for personal information such as your name, email, phone number or location. There is no sign-up or login, and no advertising or usage analytics tools. |
+| s1.body | CX 2회차는 이름, 이메일, 전화번호, 위치 같은 개인정보를 받지 않습니다. 회원가입과 로그인이 없고, 광고나 이용 분석 도구도 쓰지 않습니다. | CX Replay does not ask for personal information such as your name, email, phone number or location. There is no sign-up or login, and no advertising or usage analytics tools. |
 | s2.heading | 2. 기기에만 저장하는 정보 | 2. Information kept only on your device |
 | s2.body | 학습을 이어 갈 수 있도록 아래 내용을 사용하는 기기의 브라우저 저장공간에만 저장합니다. 이 정보는 어디로도 보내지 않으며 운영자도 볼 수 없습니다. | So you can pick up where you left off, the items below are stored only in your browser's storage on the device you use. They are never sent anywhere, and the operator cannot see them. |
 | s2.item1 | 고른 언어, 직군, 화면 모드(밝게·어둡게), 튜토리얼을 봤는지 여부 | Your chosen language, job track, display mode (light or dark), and whether you've seen the tutorial |
@@ -38,12 +38,12 @@
 | s3.heading | 3. 지우는 방법 | 3. How to delete it |
 | s3.body | 브라우저 설정에서 이 사이트의 데이터를 지우면 모두 지워집니다. 앱을 삭제할 때 함께 지워지는지는 기기와 브라우저에 따라 다릅니다. | Clearing this site's data in your browser settings removes all of it. Whether deleting the app also removes it depends on your device and browser. |
 | s4.heading | 4. 사이트 운영 | 4. Hosting |
-| s4.body | 큐크래프트는 GitHub Pages에서 운영됩니다. GitHub는 서비스 운영과 보안을 위해 접속 기록(IP 주소 등)을 남길 수 있으며, 이 기록은 GitHub의 개인정보 처리방침을 따릅니다. | Queuecraft is hosted on GitHub Pages. GitHub may keep access logs (such as IP addresses) to run and secure its service; these follow GitHub's privacy statement. |
+| s4.body | CX 2회차는 GitHub Pages에서 운영됩니다. GitHub는 서비스 운영과 보안을 위해 접속 기록(IP 주소 등)을 남길 수 있으며, 이 기록은 GitHub의 개인정보 처리방침을 따릅니다. | CX Replay is hosted on GitHub Pages. GitHub may keep access logs (such as IP addresses) to run and secure its service; these follow GitHub's privacy statement. |
 | s4.link | GitHub 개인정보 처리방침 보기 → | View GitHub's privacy statement → |
 | s5.heading | 5. 다른 사이트로 가는 링크 | 5. Links to other sites |
 | s5.body | 참고 자료의 링크처럼 다른 사이트로 가는 링크를 누르면, 그 사이트의 방침을 따릅니다. | When you follow a link to another site, such as the links in References, that site's policy applies. |
 | s6.heading | 6. 이용 대상 | 6. Who it is for |
-| s6.body | 큐크래프트는 컨택센터 팀장을 위한 학습 자료이며 어린이를 대상으로 하지 않습니다. | Queuecraft is learning material for contact center team leads and is not directed at children. |
+| s6.body | CX 2회차는 컨택센터 팀장을 위한 학습 자료이며 어린이를 대상으로 하지 않습니다. | CX Replay is learning material for contact center team leads and is not directed at children. |
 | s7.heading | 7. 방침이 바뀔 때 | 7. Changes to this policy |
 | s7.body | 이 방침이 바뀌면 이 페이지에 바뀐 날짜와 함께 알립니다. | If this policy changes, this page will show the change along with its date. |
 | s8.heading | 8. 문의 | 8. Contact |
