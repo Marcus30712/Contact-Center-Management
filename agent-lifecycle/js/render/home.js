@@ -79,7 +79,7 @@ export function renderHome(root, lessons, progress, lang, text = UI) {
       h('p', { class: 'translation-note', 'data-translation-note': true, hidden: !fallback, text: fallback ? tr(T.translationComing) : '' }),
     ]),
     h('div', { class: 'home-body' }, [
-      h('figure', { class: 'ring-wrap' }, [
+      T.ladder ? ladderFigure(lessons, T.ladder, tr, done) : h('figure', { class: 'ring-wrap' }, [
         ring,
         h('figcaption', { class: 'loop-note', text: `↺ ${tr(T.loop)}` }),
       ]),
@@ -95,4 +95,32 @@ export function renderHome(root, lessons, progress, lang, text = UI) {
       ]))),
     ]),
   );
+}
+
+// A course can show a ladder instead of the ring (상담사 커리어 라이프사이클, 2026-11-26):
+// roles stacked bottom to top, each climb with its own prep step beside it, and the
+// learner's current place (not a lesson) at the bottom. Rungs are listed top to bottom.
+function ladderFigure(lessons, ladder, tr, done) {
+  const byId = new Map(lessons.map((l) => [l.id, l]));
+  const step = (id, kind) => {
+    const l = byId.get(id);
+    // Like the ring, the lesson cards below are the keyboard and screen-reader path.
+    return h('a', { href: lessonHref(id, 0), 'data-rung': id, tabindex: '-1', class: `ladder-step ${kind}${done.has(id) ? ' is-done' : ''}` }, [
+      h('span', { class: 'ladder-num', text: `${l.order} ` }),
+      h('span', { class: 'ladder-name', text: tr(l.short ?? l.title) }),
+      h('span', { class: 'ladder-done', 'aria-hidden': 'true', text: done.has(id) ? '✓' : '' }),
+    ]);
+  };
+  const rungs = [...ladder.roles].reverse().flatMap((role) => [
+    step(role, 'is-role'),
+    h('div', { class: 'ladder-climb' }, [
+      h('span', { class: 'ladder-arrow', 'aria-hidden': 'true', text: '▲' }),
+      step(ladder.prep[role], 'is-prep'),
+    ]),
+  ]);
+  return h('figure', { class: 'ladder-wrap', 'data-ladder': true }, [
+    h('p', { class: 'ladder-team', text: tr(ladder.team) }),
+    ...rungs,
+    h('div', { class: 'ladder-step is-here', 'data-rung': 'agent', text: tr(ladder.here) }),
+  ]);
 }

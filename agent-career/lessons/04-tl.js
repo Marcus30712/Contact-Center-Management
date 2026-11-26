@@ -1,11 +1,11 @@
 import { tx, node, edge, step, option } from '../../agent-lifecycle/js/lessons/build.js';
 
 // 상담사 커리어 라이프사이클, lesson 4. Approved copy: docs/superpowers/specs/2026-11-26-agent-career-copy-ko.md (2026-11-26).
-// Four stages run down one column, like the other ring courses.
+// Stages run down one column.
 const wide = (n) => ({ ...n, hw: 76 });
 
-const procedure = ["work", "skills", "prepare", "selection"];
-const flow = ["work", "skills", "prepare", "selection", "work-skills", "skills-prepare", "prepare-selection"];
+const procedure = ["work", "skills"];
+const flow = ["work", "skills", "work-skills"];
 
 export default {
   id: "tl",
@@ -19,21 +19,17 @@ export default {
     nodes: [
       wide(node("work", "하는 일", 180, 36, "The work")),
       wide(node("skills", "필요한 역량", 180, 92, "Skills needed")),
-      wide(node("prepare", "지금부터 준비", 180, 148, "Prepare now")),
-      wide(node("selection", "뽑을 때 더 보는 것", 180, 204, "What else they look for")),
     ],
-    edges: [edge("work", "skills"), edge("skills", "prepare"), edge("prepare", "selection")],
+    edges: [edge("work", "skills")],
   },
   steps: [
-    step(tx("이 레슨의 목적은 팀장이 무슨 일을 하는지, 상담사에서 팀장까지 어떤 길을 거치는지 아는 것입니다.", "This lesson is about knowing what a team leader does, and the path from agent to team leader."), flow, procedure, null),
-    step(tx("지민은 매주 수진 팀장과 평가 리뷰를 합니다. 오늘은 리뷰가 끝난 뒤, 팀장이 되기까지 어떤 길을 걸었는지 물었습니다.", "Jimin has a score review with Sujin every week. Today, after the review, she asks what path Sujin took to become a team leader."), flow, [], null),
+    step(tx("이 레슨의 목적은 팀장이 무슨 일을 하고, 어떤 역량이 필요한지 아는 것입니다.", "This lesson is about knowing what a team leader does and what skills the role needs."), flow, procedure, null),
+    step(tx("지민은 매주 수진 팀장과 평가 리뷰를 합니다. 오늘은 리뷰가 끝난 뒤, 팀장이 하루를 어떻게 보내는지 물었습니다.", "Jimin has a score review with Sujin every week. Today, after the review, she asks how a team leader spends the day."), flow, [], null),
     step(tx("첫 단계는 하는 일입니다. 팀장은 팀원 10~15명(예시)의 성과를 관리하고, 코칭과 피드백으로 팀이 목표에 닿게 이끕니다. 스케줄과 근태를 챙기고 팀원의 고충을 듣는 것도 팀장의 일입니다.", "The first stage is the work. A team leader manages the results of 10 to 15 team members (Example) and leads the team to its goals through coaching and feedback. Looking after schedules and attendance, and hearing team members' concerns, are part of it too."), flow, ["work"], null),
     step(tx("매일 팀의 지표를 보고, 매주 평가 리뷰를, 매달 퍼포먼스 리뷰를 합니다. 위로는 부매니저와 매니저에게 팀의 결과와 문제를 보고합니다.", "They check the team's metrics every day, hold score reviews every week and performance reviews every month. Upward, they report the team's results and problems to the assistant manager and the operation manager."), flow, ["work"], null),
     step(tx("둘째 단계는 필요한 역량입니다. 성과 데이터를 읽는 힘과 사람을 관리하는 힘이 필요합니다. 무엇보다 팀원이 다시 해 보고 싶게 만드는 리더십과 피드백이 필요합니다.", "The second stage is the skills needed. You need to read performance data and to manage people. Above all, you need the leadership and feedback that make team members want to try again."), flow, ["skills"], null),
-    step(tx("셋째 단계는 지금부터 준비하기입니다. 센터마다 다르지만, 상담사에서 바로 팀장이 되기보다 직무전문가로 일하며 팀장 백업을 맡아 본 뒤 가는 경우가 많습니다.", "The third stage is preparing now. It varies by center, but rather than going straight from agent to team leader, many work as an SME and serve as team leader backup first."), flow, ["prepare"], null),
-    step(tx("상담사인 지금은 내 지표를 스스로 읽는 연습부터 합니다. 평가 리뷰 때 수진 팀장이 말하기 전에, 이번 주에 좋았던 점과 고칠 점을 먼저 말해 봅니다.", "As an agent, start by practicing reading your own metrics. In your score review, before Sujin speaks, say first what went well this week and what to fix."), flow, ["prepare"], null),
-    step(tx("넷째 단계는 뽑을 때 더 보는 것입니다. 팀장을 뽑을 때는 직무전문가나 팀장 백업으로 사람을 이끌어 본 경험과 리더십 교육 이수를 봅니다. 팀원들이 이미 믿고 따르는 사람인지도 봅니다.", "The fourth stage is what else they look for. When choosing a team leader, they look at experience leading people as an SME or team leader backup, and completed leadership training. They also look at whether the team already trusts and follows you."), flow, ["selection"], null),
-    step(tx("미소의 한마디: 저는 팀장이 되면 리더십이 저절로 생길 줄 알았어요. 상담사 때부터 동료의 이야기를 들어 주고 함께 방법을 찾던 사람이 결국 좋은 팀장이 되더라고요.", "A word from Miso: I thought leadership would just appear once I became a team leader. The people who listened to their peers and looked for answers with them as agents were the ones who became good team leaders."), flow, ["selection"], null),
+    step(tx("센터마다 다르지만, 상담사에서 바로 팀장이 되기보다 직무전문가로 일하며 팀장 백업을 맡아 본 뒤 가는 경우가 많습니다.", "It varies by center, but rather than going straight from agent to team leader, many work as an SME and serve as team leader backup first."), flow, ["skills"], null),
+    step(tx("미소의 한마디: 저는 팀장이 되면 리더십이 저절로 생길 줄 알았어요. 상담사 때부터 동료의 이야기를 들어 주고 함께 방법을 찾던 사람이 결국 좋은 팀장이 되더라고요.", "A word from Miso: I thought leadership would just appear once I became a team leader. The people who listened to their peers and looked for answers with them as agents were the ones who became good team leaders."), flow, ["skills"], null),
   ],
   checkpoint: [
     {
@@ -49,15 +45,15 @@ export default {
     },
     {
       id: "tl-q2",
-      prompt: tx("팀장을 꿈꾸는 상담사 지민이 지금 할 수 있는 것은 무엇일까요?", "What can Jimin, an agent who dreams of becoming a team leader, do now?"),
+      prompt: tx("팀 지표가 이번 주 크게 떨어졌습니다. 수진 팀장에게 알맞은 행동은 무엇일까요?", "The team's metrics dropped sharply this week. What fits best for Sujin, the team leader?"),
       options: [
-        option("a", tx("평가 리뷰에서 내 지표를 먼저 읽고 스스로 설명해 본다.", "In the score review, read her own metrics first and explain them herself.")),
-        option("b", tx("지표 읽는 법은 팀장이 되면 배우면 되니, 지금은 내 콜만 신경 쓴다.", "She can learn to read metrics once she's a team leader, so for now she focuses only on her own calls."), tx("내 지표를 읽는 연습이 나중에 팀원의 지표를 읽는 힘이 됩니다.", "Practicing reading your own metrics becomes the ability to read team members' metrics later.")),
-        option("c", tx("동료들의 지각을 대신 챙겨 팀장에게 알린다.", "Keep track of colleagues' lateness and report it to the team leader."), tx("근태 관리는 팀장의 일입니다. 동료를 지켜보는 모습은 오히려 믿음을 잃게 합니다.", "Managing attendance is the team leader's job. Watching colleagues tends to cost their trust.")),
+        option("a", tx("원인을 확인하고, 부매니저에게 결과와 계획을 보고한다.", "Check the cause and report the results and a plan to the assistant manager.")),
+        option("b", tx("다음 주면 회복될 수 있으니, 보고는 미루고 지켜본다.", "It may recover next week, so hold off on reporting and wait."), tx("늦게 알면 위에서도 도울 수 없습니다. 원인과 계획을 함께 바로 보고합니다.", "If they hear late, the people above can't help. Report the cause and the plan together, right away.")),
+        option("c", tx("지표가 낮은 팀원들을 불러, 바로 경고를 준다.", "Call in the team members with low metrics and warn them right away."), tx("원인을 확인하기 전에 경고부터 하면 팀원의 믿음을 잃습니다. 원인이 먼저입니다.", "Warning people before checking the cause costs their trust. The cause comes first.")),
       ],
       answer: "a",
-      explanation: tx("팀장의 일은 지표를 읽고 사람과 이야기하는 것입니다. 내 지표를 스스로 읽는 데서부터 연습할 수 있습니다.", "A team leader's work is reading metrics and talking with people. You can start practicing by reading your own metrics."),
+      explanation: tx("팀장은 팀의 결과와 문제를 위로 보고하는 사람입니다. 원인과 계획을 함께 알리면 위에서도 도울 수 있습니다.", "A team leader reports the team's results and problems upward. Sharing the cause and plan together lets the people above help."),
     },
   ],
-  connection: { to: "ready", text: tx("네 자리를 모두 둘러봤습니다. 마지막으로, 어느 자리든 뽑을 때 공통으로 보는 것을 미소에게 듣습니다.", "You've looked at all four roles. Last, hear from Miso what every role looks for.") },
+  connection: { to: "home", text: tx("상담사 커리어 라이프사이클을 마쳤습니다. 오늘의 출석과 이번 주 평가 리뷰가 다음 자리를 위한 준비의 시작입니다.", "You've finished Agent Career Lifecycle. Today's attendance and this week's score review are where preparing for your next role begins.") },
 };

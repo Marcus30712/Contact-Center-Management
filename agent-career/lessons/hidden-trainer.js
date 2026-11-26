@@ -1,7 +1,7 @@
 import { tx, node, edge, step, option } from '../../agent-lifecycle/js/lessons/build.js';
 
-// 상담사 커리어 라이프사이클, lesson 3. Approved copy: docs/superpowers/specs/2026-11-26-agent-career-copy-ko.md (2026-11-26).
-// Four stages run down one column, like the other ring courses.
+// 상담사 커리어 라이프사이클, lesson 6. Approved copy: docs/superpowers/specs/2026-11-26-agent-career-copy-ko.md (2026-11-26).
+// Hidden since 2026-11-26 (QA and trainer paths are off the list). If shown again, check its connection text: it still names the next lesson of the old order.
 const wide = (n) => ({ ...n, hw: 76 });
 
 const procedure = ["work", "skills", "prepare", "selection"];
@@ -9,7 +9,7 @@ const flow = ["work", "skills", "prepare", "selection", "work-skills", "skills-p
 
 export default {
   id: "trainer",
-  order: 3,
+  order: 0,
   title: tx("트레이너", "Trainer"),
   short: tx("트레이너", "Trainer"),
   subtitle: tx("처음 오는 사람이 바르게 배우게 합니다.", "Help newcomers learn it right."),
@@ -59,5 +59,5 @@ export default {
       explanation: tx("QA가 현장에서 찾은 문제를 트레이너가 교육으로 고칩니다. 두 직무가 함께 상담 품질을 끌어올립니다.", "The trainer uses training to fix the problems QA finds on the floor. Together they raise contact quality."),
     },
   ],
-  connection: { to: "tl", text: tx("여기까지는 돕고, 평가하고, 가르치는 길이었습니다. 다음은 팀 전체를 맡는 길, 수진 팀장을 만납니다.", "So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the team leader.") },
+  connection: { to: "home", text: tx("여기까지는 돕고, 평가하고, 가르치는 길이었습니다. 다음은 팀 전체를 맡는 길, 수진 팀장을 만납니다.", "So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the team leader.") },
 };

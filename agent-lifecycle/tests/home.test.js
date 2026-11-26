@@ -311,9 +311,9 @@ test('an agent learns Agent First Steps, Agent Career Lifecycle and Excel; the S
   assert.deepEqual([...root.querySelectorAll('#learn [data-soon]')].map((c) => c.getAttribute('data-soon')), ['sop']);
   assert.equal(root.querySelector('[data-start] a').getAttribute('href'), './agent/#start-0');
   assert.equal(root.querySelector('[data-start]').textContent, AGENT_UI.startNote.ko);
-  assert.deepEqual(myLearning(s, 'agent').map((r) => [r.id, r.total, r.next.href]), [['agent', 8, './agent/#start-0'], ['agent-career', 5, './agent-career/#sme-0'], ['excel', 11, './excel/#lesson-1']]);
+  assert.deepEqual(myLearning(s, 'agent').map((r) => [r.id, r.total, r.next.href]), [['agent', 8, './agent/#start-0'], ['agent-career', 4, './agent-career/#ready-0'], ['excel', 11, './excel/#lesson-1']]);
   const done = fakeStorage({ 'agent-course:v1': JSON.stringify({ completed: ['start', 'training'] }) });
-  assert.deepEqual(myLearning(done, 'agent').map((r) => [r.id, r.done, r.next.id]), [['agent', 2, 'nesting'], ['agent-career', 0, 'sme'], ['excel', 0, '1']]);
+  assert.deepEqual(myLearning(done, 'agent').map((r) => [r.id, r.done, r.next.id]), [['agent', 2, 'nesting'], ['agent-career', 0, 'ready'], ['excel', 0, '1']]);
 });
 
 test('other roles never see Agent First Steps, though its progress counts as started', () => {
