@@ -77,7 +77,7 @@ export default {
     options: [
       option('a', tx('1차 지원 인력이 빠지면 안 되니, 지금 맡은 범위만 하라고 한다.', 'Tier 1 cannot spare anyone, so tell them to stay within their current scope.'), tx('더 하고 싶다는 말을 막으면 성장 의지가 꺾이고, 팀은 다음 2차 지원 인력을 놓칩니다.', 'Holding back someone who wants more breaks their drive to grow, and the team misses its next Tier 2 agent.')),
       option('b', tx('필요한 역량을 알려 주고, 2차 티켓 일부를 함께 해 보게 한다.', 'Explain the skills needed, and have them try some Tier 2 tickets with support.')),
-      option('c', tx('의욕이 있을 때 맡겨야 하니, 준비 과정 없이 바로 2차 지원으로 보낸다.', 'Use the motivation while it lasts and move them to Tier 2 right away, with no preparation.'), tx('준비 없이 보내면 실패할 가능성이 커지고, 고객도 그 부담을 함께 집니다.', 'Sending them unprepared raises the chance of failure, and customers share the cost.')),
+      option('c', tx('의욕이 있을 때 준비 과정 없이 바로 2차 지원으로 보낸다.', 'Move them to Tier 2 right away while the motivation lasts, with no preparation.'), tx('준비 없이 보내면 실패할 가능성이 커지고, 고객도 그 부담을 함께 집니다.', 'Sending them unprepared raises the chance of failure, and customers share the cost.')),
     ],
     answer: 'b',
     explanation: tx('상위 단계로 가는 길은 필요한 역량이 분명할 때 열립니다. 기준을 알려 주고 실제 티켓으로 경험하게 하면 준비와 검증이 함께 됩니다. 지민에게 QA를 제안했던 것처럼, 길을 보여 주는 것이 팀장의 몫입니다.', 'The path to a higher tier opens when the required skills are clear. Explaining the standard and giving real tickets to try builds readiness and verifies it at once. Showing the path is the team leader’s part, as it was when you suggested QA to Jimin.'),
@@ -86,7 +86,7 @@ export default {
     prompt: tx('일반 고객지원 퇴사 면담에서 "매일 같은 문의만 받아 성장하는 느낌이 없었다"는 말이 여러 번 나옵니다. 무엇을 할까요?', 'In general support exit interviews, several people say, “I handled the same inquiries every day and never felt I was growing.” What do you do?'),
     options: [
       option('a', tx('성장을 원하는 성향의 사람들이었으니, 개인 성향 문제로 기록하고 넘긴다.', 'They were people who wanted to grow, so record it as a matter of personal temperament and move on.'), tx('여러 사람이 같은 말을 한다면 개인 성향이 아니라 일하는 방식의 문제입니다.', 'When several people say the same thing, it is about how the work is run, not personal temperament.')),
-      option('b', tx('그달에 퇴사가 몰렸을 뿐이니, 다음 달 면담 결과를 보고 판단한다.', 'Departures just clustered that month, so decide after seeing next month\'s interviews.'), tx('여러 번 반복된 말을 한 달의 일로 보면, 같은 이유의 퇴사가 계속 이어집니다.', 'Treating a repeated message as a one-month blip lets departures for the same reason continue.')),
+      option('b', tx('그달에 퇴사가 몰린 것으로 보고, 다음 달 면담 결과까지 기다려 판단한다.', 'Treat it as departures clustering that month, and wait for next month\'s interviews before deciding.'), tx('여러 번 반복된 말을 한 달의 일로 보면, 같은 이유의 퇴사가 계속 이어집니다.', 'Treating a repeated message as a one-month blip lets departures for the same reason continue.')),
       option('c', tx('남은 팀원에게 문의 유형 순환과 전문 상담 경로를 먼저 보여 준다.', 'Show the people still on the team inquiry rotation and paths such as specialist support up front.')),
     ],
     answer: 'c',

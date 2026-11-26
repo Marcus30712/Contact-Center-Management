@@ -57,7 +57,7 @@ export default {
       prompt: tx('채용 규모를 정하려면 무엇이 먼저 있어야 할까요?', 'What has to be in place before you can decide how many people to hire?'),
       options: [
         option('a', tx('초기 인입량 예측과 필요 인력(FTE) 산정.', 'A forecast of initial contact volume and the FTE needed.')),
-        option('b', tx('몇 명을 가르칠지 보이도록, 완성된 교육 커리큘럼과 일정.', 'A finished training curriculum and schedule, to show how many people will be taught.'), tx('교육은 뽑은 사람을 가르치는 일이라, 몇 명이 필요한지 정해진 뒤에야 규모와 일정을 잡을 수 있습니다.', 'Training teaches the people you hire, so its size and schedule can only be set once you know how many people you need.')),
+        option('b', tx('완성된 교육 커리큘럼과 일정.', 'A finished training curriculum and schedule.'), tx('교육은 뽑은 사람을 가르치는 일이라, 몇 명이 필요한지 정해진 뒤에야 규모와 일정을 잡을 수 있습니다.', 'Training teaches the people you hire, so its size and schedule can only be set once you know how many people you need.')),
         option('c', tx('자리와 계정 수를 알 수 있도록, 구축을 마친 상담 시스템.', 'A fully built contact system, so you know how many seats and accounts there are.'), tx('상담 시스템을 다 갖춰도 필요한 인원을 모르면 몇 명을 뽑을지 정할 수 없습니다.', 'Even with the systems fully built, you cannot decide how many people to hire without knowing the staffing need.')),
       ],
       answer: 'a',

@@ -50,7 +50,7 @@ export default {
       id: "golive-q2",
       prompt: tx("통화를 마친 뒤 잘못 안내한 것을 알았습니다. 어떻게 할까요?", "After a call ends, Jimin realizes she gave wrong information. What should she do?"),
       options: [
-        option("a", tx("고객이 다시 연락하지 않으면 문제없으니, 다음 문의를 받으며 넘어간다.", "If the customer doesn't call back, there's no problem, so move on to the next contact."), tx("잘못된 안내는 더 큰 불만으로 돌아올 수 있습니다.", "Wrong information can come back as a bigger complaint.")),
+        option("a", tx("고객이 다시 연락하지 않으면 문제없다고 보고 다음 문의로 넘어간다.", "Treat it as fine unless the customer calls back, and move on to the next contact."), tx("잘못된 안내는 더 큰 불만으로 돌아올 수 있습니다.", "Wrong information can come back as a bigger complaint.")),
         option("b", tx("바로 직무전문가나 팀장에게 알리고 절차대로 바로잡는다.", "Tell the SME or team leader right away and correct it through the process.")),
         option("c", tx("아무에게도 말하지 않고 혼자 고객에게 다시 연락한다.", "Contact the customer again on her own without telling anyone."), tx("다시 연락하는 방법과 기록 규칙이 정해져 있을 수 있습니다. 먼저 알리고 절차를 따릅니다.", "There may be set rules for contacting customers again and recording it. Tell someone first and follow the process.")),
       ],

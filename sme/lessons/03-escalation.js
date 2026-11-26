@@ -52,7 +52,7 @@ export default {
       prompt: tx("같은 정책 질문이 하루에 다섯 명에게서 왔습니다. 알맞은 것은 무엇일까요?", "Five agents ask you the same policy question in one day. What fits best?"),
       options: [
         option("a", tx("물어본 사람마다 바로 답해 주고, 각자 메모해 두라고 한다.", "Answer each person as they ask, and tell them to note it down."), tx("각자 메모해도 다른 팀원은 모르니 여섯 번째, 일곱 번째 질문도 오고, 그 시간에 더 급한 요청을 놓칩니다.", "Their notes don't reach the rest of the team, so a sixth and seventh question will come, and you miss more urgent requests meanwhile.")),
-        option("b", tx("답을 정리해 허들이나 팀 채팅방에 공유한다.", "Sum up the answer and share it in the huddle or the team chat.")),
+        option("b", tx("모두에게 필요한 답이니, 정리해서 허들이나 팀 채팅방에 공유한다.", "Everyone needs this answer, so sum it up and share it in the huddle or the team chat.")),
         option("c", tx("답이 지식 베이스에 있으니, 문서 링크를 보내며 읽어 보라고 한다.", "The answer is in the knowledge base, so send the article link and tell them to read it."), tx("다섯 명이 같은 것을 묻는다면 문서가 찾기 어렵거나 불분명하다는 신호입니다.", "When five people ask the same thing, it is a sign the article is hard to find or unclear.")),
       ],
       answer: "b",

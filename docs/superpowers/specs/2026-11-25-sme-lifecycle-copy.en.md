@@ -173,7 +173,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | Junho, who answers general questions, is about to handle a compensation request that needs approval, saying "It'll be fine." What fits best? |
 | 보기 a (오답) | Junho knows the rules well and has years in, so let him handle this one. |
 | a 피드백 | Knowing the rules is not the same as having approval authority. Once seniors start approving, no approval record is left. |
-| 보기 b (정답) | Keep him on answering, but agree again that cases needing approval go to the SME. |
+| 보기 b (정답) | Seniors don't hold approval authority, so keep him on answering but have approval cases come to you. |
 | 보기 c (오답) | Overstepping approval is a problem, so stop giving Junho questions to answer. |
 | c 피드백 | Taking back all the shared work over one case piles it on the SME again, and Junho loses a chance to grow. |
 | 해설 | What you share with seniors is answering and support; approval stays with the SME and the team leader. |
@@ -212,9 +212,9 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Sujin asks for a team status before the Monday meeting. Which fits best? |
-| 보기 a (오답) | The meeting is short, so send only those who had problems last week, with examples. |
+| 보기 a (오답) | The meeting is short, so send only those who had problems last week, written up in detail with examples. |
 | a 피드백 | Without the growth signs of those doing well, the team leader can't decide whom to move to the next stage. |
-| 보기 b (정답) | One line per team member: current stage, what you saw last week, and signs for the next stage. |
+| 보기 b (정답) | So Sujin can decide quickly, write one line per team member: current stage, what you saw last week, and signs for the next stage. |
 | 보기 c (오답) | To leave nothing out, send a detailed hour-by-hour log of last week. |
 | c 피드백 | What the team leader needs for decisions is each person's stage and signs. They are hard to find in a long log. |
 | 해설 | Write the stage status as one line per person, so the next decision can be made from it. |

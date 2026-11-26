@@ -40,7 +40,7 @@ export default {
       prompt: tx("교육에서 배운 정책이 너무 많아, 지민은 다 외울 수 없을 것 같습니다. 어떻게 할까요?", "Training covers so many policies that Jimin feels she can't memorize them all. What should she do?"),
       options: [
         option("a", tx("밤을 새워서라도 모두 외운다.", "Memorize them all, even if it takes all night."), tx("다 외워도 정책은 바뀝니다. 지치기만 하고 오래가지 않습니다.", "Even if you memorize them all, policies change. It only wears you out and doesn't last.")),
-        option("b", tx("자주 나오는 것은 익히고, 나머지는 지식 베이스 위치만 알아 둔다.", "Learn the common ones, and for the rest, just know where they are in the knowledge base.")),
+        option("b", tx("정책은 바뀌기 마련이니, 자주 나오는 것은 익히고 나머지는 지식 베이스 위치만 알아 둔다.", "Policies keep changing, so learn the common ones and, for the rest, just know where they are in the knowledge base.")),
         option("c", tx("지금 다 외우기는 어려우니, 실전 배치 뒤에 그 문의가 들어오면 그때 찾아 배운다.", "She can't memorize it all now, so she'll look each one up after Go Live, when that contact comes in."), tx("그러면 고객을 기다리게 하면서 처음 찾게 됩니다. 어디에 있는지는 교육 중에 익혀 둡니다.", "Then you'll be looking for them for the first time while a customer waits. Learn where they are during training.")),
       ],
       answer: "b",

@@ -39,8 +39,8 @@ export default {
       prompt: tx("하린이 비슷한 보상 요청마다 팀장에게 묻습니다. 먼저 할 일은 무엇일까요?", "Harin asks you about every similar compensation request. What do you do first?"),
       options: [
         option("a", tx("매번 바로 답해 준다.", "Answer each one right away."), tx("매번 답하면 팀장의 하루가 막히고, 하린은 스스로 판단할 기준을 얻지 못합니다.", "Answering every time blocks your day, and Harin never gets a standard to judge by herself.")),
-        option("b", tx("하린과 승인 범위 목록을 다시 맞춘다.", "Go over the approval scope list with Harin again.")),
-        option("c", tx("하린을 믿고, 앞으로는 알아서 판단하라고 한다.", "Trust Harin and tell her to decide on her own from now on."), tx("기준 없이 맡기면 요청마다 다르게 승인하게 됩니다.", "Handing over without a standard means each request gets approved differently.")),
+        option("b", tx("같은 요청이 반복되니, 하린과 승인 범위 목록을 다시 맞춘다.", "Similar requests keep coming, so go over the approval scope list with Harin again.")),
+        option("c", tx("하린을 믿고, 앞으로는 보상 요청을 모두 알아서 판단하라고 한다.", "Trust Harin and tell her to decide every compensation request on her own from now on."), tx("기준 없이 맡기면 요청마다 다르게 승인하게 됩니다.", "Handing over without a standard means each request gets approved differently.")),
       ],
       answer: "b",
       explanation: tx("범위를 분명히 맡겨야 직무전문가가 같은 기준으로 판단합니다.", "A clear scope lets the SME judge by the same standard."),

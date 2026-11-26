@@ -131,7 +131,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin dreams of becoming a trainer, and a new colleague asks her about a policy change. What fits best? |
-| 보기 a (정답) | Explain it in plain words, and show where it is in the policy document. |
+| 보기 a (정답) | Explain it in plain words and show where it is in the policy document, so the colleague can find it alone next time. |
 | 보기 b (오답) | Say it's the trainer's job and tell them to ask Yuna. |
 | b 피드백 | A colleague asking up close is a good chance to practice teaching. Just look up together the parts you don't know. |
 | 보기 c (오답) | The colleague looks busy, so answer quickly from memory without checking the document. |

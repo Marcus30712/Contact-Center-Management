@@ -40,8 +40,8 @@ export default {
       id: "leadsupport-q1",
       prompt: tx("수진 팀장이 월요일 회의 전에 팀원 현황을 부탁했습니다. 알맞은 것은 무엇일까요?", "Sujin asks for a team status before the Monday meeting. Which fits best?"),
       options: [
-        option("a", tx("회의 시간이 짧으니, 지난주에 문제가 있었던 팀원만 골라 사례와 함께 보낸다.", "The meeting is short, so send only those who had problems last week, with examples."), tx("잘하고 있는 팀원의 성장 신호가 빠지면, 팀장은 누구를 다음 단계로 키울지 정할 수 없습니다.", "Without the growth signs of those doing well, the team leader can't decide whom to move to the next stage.")),
-        option("b", tx("팀원마다 지금 단계, 지난주 모습, 다음 단계 신호를 한 줄씩 적는다.", "One line per team member: current stage, what you saw last week, and signs for the next stage.")),
+        option("a", tx("회의 시간이 짧으니, 지난주에 문제가 있었던 팀원만 골라 사례와 함께 자세히 정리해 보낸다.", "The meeting is short, so send only those who had problems last week, written up in detail with examples."), tx("잘하고 있는 팀원의 성장 신호가 빠지면, 팀장은 누구를 다음 단계로 키울지 정할 수 없습니다.", "Without the growth signs of those doing well, the team leader can't decide whom to move to the next stage.")),
+        option("b", tx("팀장이 바로 정하도록, 팀원별 지금 단계·지난주 모습·다음 단계 신호를 한 줄로 적는다.", "So Sujin can decide quickly, write one line per team member: current stage, what you saw last week, and signs for the next stage.")),
         option("c", tx("빠짐없이 보이도록, 지난주 하루 일과를 시간대별로 자세히 적어 보낸다.", "To leave nothing out, send a detailed hour-by-hour log of last week."), tx("팀장이 결정에 필요한 것은 사람별 단계와 신호입니다. 긴 일지에서는 그것을 찾기 어렵습니다.", "What the team leader needs for decisions is each person's stage and signs. They are hard to find in a long log.")),
       ],
       answer: "b",

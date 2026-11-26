@@ -68,7 +68,7 @@ export default {
       id: 'onboarding-q1',
       prompt: tx('서아의 첫 2주 동안 팀장인 당신이 직접 맡는 일은 무엇일까요?', 'During Seoa\'s first two weeks, which work is yours as the team leader?'),
       options: [
-        option('a', tx('버디를 정해 팀에 소개하고, 첫 주 1:1로 어려움을 듣는다.', 'Assign a buddy, introduce her to the team, and hear her first-week struggles in a one-on-one.')),
+        option('a', tx('적응을 돕게, 버디를 정해 팀에 소개하고 첫 주 1:1로 어려움을 듣는다.', 'To help her settle in, assign a buddy, introduce her to the team, and hear her first-week struggles in a one-on-one.')),
         option('b', tx('첫날 로그인 문제가 없도록, 근로 계약서 작성과 장비 지급을 직접 챙긴다.', 'Handle the employment contract and equipment yourself so there are no login problems on day one.'), tx('근로 계약과 장비 지급은 HR이 맡는 일이라, 팀장이 붙잡으면 팀장만 할 수 있는 일이 비게 됩니다.', 'Contracts and equipment are HR’s job; if the team leader takes them on, the work only the team leader can do is left undone.')),
         option('c', tx('OJT와 네스팅 기간의 근무 스케줄을 배정한다.', 'Assign the work schedule for her OJT and nesting.'), tx('근무 스케줄은 WFM이 맡고, 첫 2주의 서아에게 먼저 필요한 것은 팀에 속해 있다는 느낌입니다.', 'Schedules belong to WFM, and what Seoa needs first in her first two weeks is a sense that she belongs on the team.')),
       ],

@@ -49,7 +49,7 @@ export default {
       id: "kbrequest-q2",
       prompt: tx("요청을 보냈지만 문서가 아직 고쳐지지 않았습니다. 그사이 할 일은 무엇일까요?", "You sent a request, but the article isn't fixed yet. What do you do meanwhile?"),
       options: [
-        option("a", tx("요청은 보냈으니, 담당자가 고칠 때까지 기다리며 진행 상황만 확인한다.", "The request is in, so wait for the owner to fix it and just check on progress."), tx("그동안 상담사들은 틀린 문서대로 안내합니다.", "Meanwhile, agents keep giving answers from the wrong article.")),
+        option("a", tx("요청을 보낸 뒤 담당자가 고칠 때까지 기다리며 진행 상황만 확인한다.", "Wait for the owner to fix it after sending the request, and just check on progress."), tx("그동안 상담사들은 틀린 문서대로 안내합니다.", "Meanwhile, agents keep giving answers from the wrong article.")),
         option("b", tx("팀 채팅방에 임시 안내를 올리고, 반영되면 다시 알린다.", "Post an interim note in the team chat, and tell the team again once it's fixed.")),
         option("c", tx("상담사들에게 지식 베이스를 보지 말라고 한다.", "Tell agents not to use the knowledge base."), tx("지식 베이스 전체를 막으면 맞는 내용까지 찾을 곳이 사라집니다.", "Blocking the whole knowledge base removes the place to find the correct content too.")),
       ],

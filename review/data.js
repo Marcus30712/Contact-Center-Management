@@ -100,7 +100,7 @@ export const QUIZZES = {
         options: [
           option("a", tx("하은이 믿고 꺼낸 이야기이니, QA에 하은의 점수만 다시 봐 달라고 조용히 부탁한다.", "Haeun trusted you with this, so quietly ask QA to look at her scores again."), tx("한 사람만 챙기면 팀은 기준이 친분에 따라 다르다고 느낍니다.", "Looking after one person makes the team feel the standard depends on friendship.")),
           option("b", tx("평가는 QA의 일이니 관여하지 않는다.", "Stay out of it, since evaluation is QA's job."), tx("팀장도 캘리브레이션에 참여합니다. 기준이 흔들리면 코칭의 근거도 흔들립니다.", "Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching.")),
-          option("c", tx("QA에 캘리브레이션을 요청해 기준을 맞추고, 결과를 팀에 알린다.", "Ask QA for calibration to align the standard, then tell the team the outcome.")),
+          option("c", tx("팀 전체의 문제일 수 있으니, QA에 캘리브레이션을 요청하고 결과를 팀에 알린다.", "It may be a team-wide problem, so ask QA for calibration and tell the team the outcome.")),
         ],
         answer: "c",
         explanation: tx("개인의 불만에서 팀 전체의 기준 문제를 찾고, 모두에게 같은 방식으로 풀어 줍니다.", "Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone."),
@@ -114,7 +114,7 @@ export const QUIZZES = {
         prompt: tx("실전 배치 후 첫 주를 보내는 신입 서아가 질문을 거의 하지 않습니다. 스크러빙에서 서아의 티켓에 같은 안내 누락이 두 번 보입니다. 알맞은 것은 무엇일까요?", "Seoa, a new hire in her first week after Go Live, hardly asks any questions. While scrubbing, you see the same missing explanation twice in her tickets. What fits best?"),
         options: [
           option("a", tx("버디와 함께 먼저 다가가 막힌 곳을 묻고, 빠진 안내를 1:1로 짚는다.", "Go to Seoa first with her buddy, ask where she's stuck, and go over the missing explanation one on one.")),
-          option("b", tx("같은 실수가 없도록, 팀 허들에서 서아의 티켓을 사례로 보여 준다.", "Show Seoa's tickets as an example at the team huddle, so no one repeats the mistake."), tx("신입의 실수를 팀 앞에서 다루면 서아는 더 묻지 않게 됩니다.", "Taking a new hire's mistakes in front of the team makes Seoa ask even less.")),
+          option("b", tx("팀 허들에서 서아의 티켓을 사례로 보여 주며 같은 실수를 막는다.", "Show Seoa's tickets as an example at the team huddle to stop the mistake repeating."), tx("신입의 실수를 팀 앞에서 다루면 서아는 더 묻지 않게 됩니다.", "Taking a new hire's mistakes in front of the team makes Seoa ask even less.")),
           option("c", tx("실전 첫 주이니 부담 주지 않게, 한 달 동안은 질문이 올 때까지 지켜본다.", "It's only her first week live, so don't add pressure; watch for a month until she asks."), tx("실전 첫 몇 주도 떠나는 사람이 많은 시기입니다. 막힌 곳을 오래 두면 버티기 어렵습니다.", "Many people also leave in their first weeks on the floor. Leaving her stuck for long makes it hard to hold on.")),
         ],
         answer: "a",
@@ -134,7 +134,7 @@ export const QUIZZES = {
         id: "sme-q1",
         prompt: tx("통화 중 고객을 보류해 둔 서준이 손을 들었고, 동기 준호는 통화가 끝난 고객의 보상 승인을 티켓으로 요청했고, 미팅 중인 수진 팀장은 오후 출석을 맡아 달라고 메신저를 보냈습니다. 먼저 할 일은 무엇일까요?", "Seojun has a customer on hold and his hand up, your peer Junho asks by ticket for a compensation approval for a customer whose call has ended, and Sujin, in a meeting, messages you to take the afternoon attendance. What do you do first?"),
         options: [
-          option("a", tx("서준에게 먼저 가고, 준호와 팀장에게는 언제 할지 알린다.", "Go to Seojun first, and tell Junho and the team leader when you will get to them.")),
+          option("a", tx("보류 고객이 먼저이니, 서준에게 가고 준호와 팀장에게 언제 할지 알린다.", "The customer on hold comes first, so go to Seojun, and tell Junho and the team leader when you will get to them.")),
           option("b", tx("동기인 준호의 승인부터 처리한다. 티켓으로 와 있어 금방 끝난다.", "Approve your peer Junho's request first; it's already in a ticket, so it's quick."), tx("순서는 빨리 끝나는 일이나 친분이 아니라, 고객이 지금 기다리느냐로 정합니다.", "The order is set by whether a customer is waiting now, not by what's quick or by friendship.")),
           option("c", tx("팀장의 요청이니 출석 확인부터 하고, 서준에게는 잠시 기다리라고 손짓한다.", "The team leader asked, so do attendance first and signal Seojun to wait a moment."), tx("출석은 잠시 뒤에도 할 수 있지만, 보류된 고객은 기다릴 수 없습니다.", "Attendance can wait a moment; the customer on hold cannot.")),
         ],
@@ -194,9 +194,9 @@ export const QUIZZES = {
         id: "sme-q5",
         prompt: tx("캘리브레이션에서 확인 단계의 기준이 바뀌었고, 바뀐 기준의 평가는 모레부터입니다. 다음 날 지민이 동료에게 들었다며, 바뀐 기준을 전달받은 적이 없다고 찾아옵니다. 알맞은 것은 무엇일까요?", "Calibration changed the standard for the check step, and scoring on it starts the day after tomorrow. The next day, Jimin comes to you saying she heard it from a colleague but was never told. What fits best?"),
         options: [
-          option("a", tx("지민에게 설명하고, 허들과 팀 채팅방으로 모두에게 바로 전한다.", "Explain it to Jimin, and pass it to everyone right away through the huddle and team chat.")),
+          option("a", tx("평가가 코앞이니, 지민에게 설명하고 허들과 팀 채팅방으로 모두에게 전한다.", "Scoring starts tomorrow, so explain it to Jimin and pass it to everyone through the huddle and team chat.")),
           option("b", tx("기준은 QA가 정하는 일이니, 자세한 것은 QA에게 직접 물어보라고 한다.", "Standards are set by QA, so tell her to ask QA directly for the details."), tx("바뀐 기준을 상담사에게 먼저 전하는 것은 직무전문가의 일입니다.", "Passing changed standards to agents first is the SME's job.")),
-          option("c", tx("평가가 모레부터이니, QA에게 지민만 이번 평가에서 빼 달라고 요청한다.", "Scoring starts the day after tomorrow, so ask QA to leave Jimin out of this round."), tx("한 사람만 빼면 기준이 사람마다 달라집니다. 평가 전에 모두에게 기준을 전하는 것이 먼저입니다.", "Leaving out one person makes the standard differ by person. Passing the standard to everyone before scoring comes first.")),
+          option("c", tx("지민만 이번 평가에서 빼 달라고 QA에게 요청한다.", "Ask QA to leave just Jimin out of this round of scoring."), tx("한 사람만 빼면 기준이 사람마다 달라집니다. 평가 전에 모두에게 기준을 전하는 것이 먼저입니다.", "Leaving out one person makes the standard differ by person. Passing the standard to everyone before scoring comes first.")),
         ],
         answer: "a",
         explanation: tx("기준이 바뀌면 직무전문가가 먼저 팀에 전합니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다.", "When a standard changes, the SME tells the team first. No agent should be scored on a standard they did not know had changed."),

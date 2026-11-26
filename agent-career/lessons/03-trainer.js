@@ -40,7 +40,7 @@ export default {
       id: "trainer-q1",
       prompt: tx("트레이너를 꿈꾸는 지민에게 신입 동료가 바뀐 정책을 물었습니다. 가장 알맞은 것은 무엇일까요?", "Jimin dreams of becoming a trainer, and a new colleague asks her about a policy change. What fits best?"),
       options: [
-        option("a", tx("쉬운 말로 설명하고, 정책 문서의 위치도 보여 준다.", "Explain it in plain words, and show where it is in the policy document.")),
+        option("a", tx("동료가 다음엔 혼자 찾을 수 있게, 쉬운 말로 설명하고 정책 문서의 위치도 보여 준다.", "Explain it in plain words and show where it is in the policy document, so the colleague can find it alone next time.")),
         option("b", tx("트레이너가 할 일이라며 유나에게 물어보라고 한다.", "Say it's the trainer's job and tell them to ask Yuna."), tx("동료가 가까이에서 묻는 순간이 가르치는 연습을 할 좋은 기회입니다. 모르는 부분만 함께 찾아보면 됩니다.", "A colleague asking up close is a good chance to practice teaching. Just look up together the parts you don't know.")),
         option("c", tx("동료가 바빠 보이니 문서를 찾지 않고 기억나는 대로 빠르게 답해 준다.", "The colleague looks busy, so answer quickly from memory without checking the document."), tx("기억이 틀리면 잘못된 내용이 그대로 고객에게 갑니다. 가르칠 때는 문서로 확인한 것을 전합니다.", "If memory is wrong, the wrong answer goes straight to a customer. When teaching, pass on what you've checked in the document.")),
       ],

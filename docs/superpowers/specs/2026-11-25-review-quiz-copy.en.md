@@ -107,7 +107,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | a 피드백 | Looking after one person makes the team feel the standard depends on friendship. |
 | 보기 b (오답) | Stay out of it, since evaluation is QA's job. |
 | b 피드백 | Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching. |
-| 보기 c (정답) | Ask QA for calibration to align the standard, then tell the team the outcome. |
+| 보기 c (정답) | It may be a team-wide problem, so ask QA for calibration and tell the team the outcome. |
 | 해설 | Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone. |
 | 관련 레슨 | TL SOP · Calibration (../sop-library/#calibration-0) · TL SOP · From Colleague to Team Leader (../sop-library/#transition-0) |
 
@@ -117,7 +117,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 |---|---|
 | 질문 | Seoa, a new hire in her first week after Go Live, hardly asks any questions. While scrubbing, you see the same missing explanation twice in her tickets. What fits best? |
 | 보기 a (정답) | Go to Seoa first with her buddy, ask where she's stuck, and go over the missing explanation one on one. |
-| 보기 b (오답) | Show Seoa's tickets as an example at the team huddle, so no one repeats the mistake. |
+| 보기 b (오답) | Show Seoa's tickets as an example at the team huddle to stop the mistake repeating. |
 | b 피드백 | Taking a new hire's mistakes in front of the team makes Seoa ask even less. |
 | 보기 c (오답) | It's only her first week live, so don't add pressure; watch for a month until she asks. |
 | c 피드백 | Many people also leave in their first weeks on the floor. Leaving her stuck for long makes it hard to hold on. |
@@ -131,7 +131,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | Seojun has a customer on hold and his hand up, your peer Junho asks by ticket for a compensation approval for a customer whose call has ended, and Sujin, in a meeting, messages you to take the afternoon attendance. What do you do first? |
-| 보기 a (정답) | Go to Seojun first, and tell Junho and the team leader when you will get to them. |
+| 보기 a (정답) | The customer on hold comes first, so go to Seojun, and tell Junho and the team leader when you will get to them. |
 | 보기 b (오답) | Approve your peer Junho's request first; it's already in a ticket, so it's quick. |
 | b 피드백 | The order is set by whether a customer is waiting now, not by what's quick or by friendship. |
 | 보기 c (오답) | The team leader asked, so do attendance first and signal Seojun to wait a moment. |
@@ -183,10 +183,10 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | Calibration changed the standard for the check step, and scoring on it starts the day after tomorrow. The next day, Jimin comes to you saying she heard it from a colleague but was never told. What fits best? |
-| 보기 a (정답) | Explain it to Jimin, and pass it to everyone right away through the huddle and team chat. |
+| 보기 a (정답) | Scoring starts tomorrow, so explain it to Jimin and pass it to everyone through the huddle and team chat. |
 | 보기 b (오답) | Standards are set by QA, so tell her to ask QA directly for the details. |
 | b 피드백 | Passing changed standards to agents first is the SME's job. |
-| 보기 c (오답) | Scoring starts the day after tomorrow, so ask QA to leave Jimin out of this round. |
+| 보기 c (오답) | Ask QA to leave just Jimin out of this round of scoring. |
 | c 피드백 | Leaving out one person makes the standard differ by person. Passing the standard to everyone before scoring comes first. |
 | 해설 | When a standard changes, the SME tells the team first. No agent should be scored on a standard they did not know had changed. |
 | 관련 레슨 | SME First Steps lesson 7 · Giving Knowledge Back to the Team (../sme/#knowledge-0) · SME First Steps lesson 1 · Your First Day as an SME (../sme/#firstday-0) |

@@ -166,14 +166,14 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 1번 질문 | Ten minutes into the shift, two people still haven't logged in and haven't called. What do you do first? |
 | 보기 a (오답) | Attendance is the team leader's job, so write it in the sheet and tell her when she's back. |
 | a 피드백 | Until then the queue runs two people short. Staffing gaps need flagging right away. |
-| 보기 b (정답) | Write it in the attendance sheet, and flag the gap to the RTA and Sujin right away. |
+| 보기 b (정답) | Staffing needs adjusting fast, so log it in the attendance sheet and flag the gap to the RTA and Sujin. |
 | 보기 c (오답) | So the queue doesn't back up, the SME takes the two people's contacts. |
 | c 피드백 | If the SME fills an agent seat, escalation approvals stall. Staffing changes are for the RTA and the team leader. |
 | 해설 | In covering attendance, the most urgent thing is flagging gaps quickly. |
 | 2번 질문 | Junho was 15 minutes late today and asks you to leave it off the attendance sheet. What do you do? |
 | 보기 a (오답) | He's a long-time colleague and it's only 15 minutes, so leave it off just this once. |
 | a 피드백 | Changing the record makes the rules differ from the rest of the team, and the cover's records can no longer be trusted. |
-| 보기 b (정답) | Record it as it is, and tell him to talk to the team leader directly if there's a reason. |
+| 보기 b (정답) | Covering means recording, not deciding, so log it as it is and tell him to take any reason to the team leader. |
 | 보기 c (오답) | So everyone knows the rule, mention in the team chat that he was late. |
 | c 피드백 | Attendance is not for public posting. Records and reports go to the team leader only. |
 | 해설 | Covering is recording and passing on facts. You don't change or judge them. |
@@ -208,7 +208,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 a (오답) | There's no time, so say for now it applies to all members and correct it later. |
 | a 피드백 | Passing on a guess means the whole team tells customers the same wrong thing. |
 | 보기 b (정답) | Check with the team leader or the client contact, and if it isn't confirmed yet, say it's being checked. |
-| 보기 c (오답) | It beats passing on something wrong, so leave out the unclear part and share only what's certain. |
+| 보기 c (오답) | Leave out the unclear part, and share only what's certain. |
 | c 피드백 | Agents will get that question anyway, and each will answer it differently. |
 | 해설 | Pass on unclear things after checking, and if you're still checking, say so. |
 | 2번 질문 | Night-shift agents couldn't attend the huddle. What do you do? |
@@ -254,7 +254,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 2번 질문 | The apology standard changed at the session, and the next scoring starts tomorrow. What do you do? |
 | 보기 a (오답) | So nothing is passed on wrongly, wait for the official notice. |
 | a 피드백 | If the notice comes late, agents are scored on a standard they don't know. |
-| 보기 b (정답) | Share it with an example at a huddle or in the team chat today. |
+| 보기 b (정답) | Evaluations start tomorrow, so share it today with an example at a huddle or in the team chat. |
 | 보기 c (오답) | Telling everyone causes confusion, so tell only the agents who scored low. |
 | c 피드백 | Learning it after being scored is too late. Everyone needs to know beforehand. |
 | 해설 | A changed standard must reach the floor before the scoring does. |
@@ -333,7 +333,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | c 피드백 | An article changed without review changes the whole team's answers at once. Use the agreed channel. |
 | 해설 | A request names the article, what's wrong, the right content and the source. |
 | 2번 질문 | You sent a request, but the article isn't fixed yet. What do you do meanwhile? |
-| 보기 a (오답) | The request is in, so wait for the owner to fix it and just check on progress. |
+| 보기 a (오답) | Wait for the owner to fix it after sending the request, and just check on progress. |
 | a 피드백 | Meanwhile, agents keep giving answers from the wrong article. |
 | 보기 b (정답) | Post an interim note in the team chat, and tell the team again once it's fixed. |
 | 보기 c (오답) | Tell agents not to use the knowledge base. |

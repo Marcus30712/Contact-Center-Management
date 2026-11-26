@@ -79,7 +79,7 @@ Checkpoint:
 | Question 2 | Haeun, your closest colleague, keeps arriving late. What is the best way to handle it? |
 | Option a (wrong) | You are close and care about the team mood, so quietly let it go this once. |
 | a feedback | When the standard is looser for one person, the rest of the team feels the standard depends on who you are. |
-| Option b (right) | Talk with her calmly in a one-on-one, by the same standard as everyone else. |
+| Option b (right) | So fairness holds, talk with her calmly in a one-on-one, by the same standard as everyone else. |
 | Option c (wrong) | Call her out sternly in front of the team to make an example of her. |
 | c feedback | Calling her out in public hurts her, and the team reads it as you cutting off the friendship on purpose. |
 | Explanation | Apply the agreed standards the same way to everyone, but in a way that shows respect. |

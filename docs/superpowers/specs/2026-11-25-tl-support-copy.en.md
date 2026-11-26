@@ -85,8 +85,8 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | Harin asks you about every similar compensation request. What do you do first? |
 | 보기 a (오답) | Answer each one right away. |
 | a 피드백 | Answering every time blocks your day, and Harin never gets a standard to judge by herself. |
-| 보기 b (정답) | Go over the approval scope list with Harin again. |
-| 보기 c (오답) | Trust Harin and tell her to decide on her own from now on. |
+| 보기 b (정답) | Similar requests keep coming, so go over the approval scope list with Harin again. |
+| 보기 c (오답) | Trust Harin and tell her to decide every compensation request on her own from now on. |
 | c 피드백 | Handing over without a standard means each request gets approved differently. |
 | 해설 | A clear scope lets the SME judge by the same standard. |
 | 2번 질문 | Harin tells you an agent keeps coming in late. What fits? |
@@ -203,7 +203,7 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | The SME, QA and the trainer each raise a different problem. What should the team leader do first? |
 | 보기 a (오답) | It's each one's own area, so tell them to sort it out and just report back. |
 | a 피드백 | Solving them separately means fixing the same cause three different ways. |
-| 보기 b (정답) | Bring them together and see whether it is the same cause. |
+| 보기 b (정답) | The problems may share a cause, so bring them together and look at them jointly. |
 | 보기 c (오답) | Pick only the problem with the worst numbers and fix it first. |
 | c 피드백 | If the problems are connected, fixing just one lets them come back. |
 | 해설 | Connecting the roles is the team leader's job. |

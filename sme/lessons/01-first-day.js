@@ -41,7 +41,7 @@ export default {
       prompt: tx("첫날, 상담사가 고객에게 정책에 없는 큰 보상을 해 주자며 승인을 요청합니다. 어떻게 할까요?", "On your first day, an agent asks you to approve a large compensation that policy does not cover. What do you do?"),
       options: [
         option("a", tx("고객이 많이 화가 나 있고 대기가 길어지니, 이번만 승인하고 팀장에게는 나중에 보고한다.", "The customer is very upset and the wait is growing, so approve it just this once and report to the team leader later."), tx("승인 범위 밖의 결정은 되돌리기 어렵고, 다른 고객에게도 같은 기준을 요구받게 됩니다.", "A decision beyond your limits is hard to undo, and other customers will ask for the same.")),
-        option("b", tx("범위 밖이니 고객에게 기다림을 안내하게 하고, 팀장에게 바로 넘긴다.", "It's outside your limits, so have the agent ask the customer to wait and pass it to the team leader right away.")),
+        option("b", tx("범위 밖이니, 고객에게 기다림을 안내하게 하고 팀장에게 바로 넘긴다.", "It's outside your limits, so have the agent ask the customer to wait and pass it to the team leader right away.")),
         option("c", tx("정책에 없는 요청이니 상담사에게 정중히 거절하게 하고, 사과 문구를 함께 써 준다.", "Policy doesn't cover it, so have the agent decline politely, and write the apology line together."), tx("정중히 거절해도 고객의 문제는 그대로 남습니다. 내가 정할 수 없는 건은 정할 수 있는 사람에게 넘깁니다.", "A polite refusal still leaves the customer's problem where it was. What you cannot decide goes to someone who can.")),
       ],
       answer: "b",

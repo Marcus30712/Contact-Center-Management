@@ -45,7 +45,7 @@
 | nesting-general-2.answer | b | b |
 | nesting-general-2.explanation | 일반 고객지원은 쉬운 유형부터 차례로 넓힙니다. 한 번에 모든 유형을 맡기면 막히는 순간이 몰립니다. 범위를 넓힐 때도 플로어 서포트는 이어 갑니다. | General support widens from easy types in order. Handing over every type at once piles up the moments she gets stuck. Floor support continues as the range widens. |
 | nesting-tech-2.prompt | 기술지원 네스팅 중인 지민이 원인을 찾아보기도 전에 티켓을 곧바로 상위 단계로 넘기는 일이 잦습니다. 어떻게 할까요? | During tech support nesting, Jimin often passes tickets straight to a higher tier before looking for the cause. What do you do? |
-| nesting-tech-2.a | 넘기기 전 확인 단계와 넘기는 기준을 다시 짚어 준다. | Go over the checks to try before passing a ticket on, and the criteria for passing it. |
+| nesting-tech-2.a | 습관이 되지 않도록, 넘기기 전 확인 단계와 기준을 다시 짚어 준다. | So it does not become a habit, go over the checks to try before passing a ticket on, and the criteria for passing it. |
 | nesting-tech-2.b | 혼자 푸는 힘을 기르도록, 넘기는 것을 금지하고 혼자 해결하게 한다. | Ban passing tickets on so she builds the ability to solve them alone. |
 | nesting-tech-2.c | 신입에게는 넘기는 쪽이 안전하니, 익숙해질 때까지 그대로 둔다. | Passing tickets on is the safe choice for someone new, so leave it until she gets used to the work. |
 | nesting-tech-2.answer | a | a |
@@ -53,7 +53,7 @@
 | coaching-general-2.prompt | 같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요? | On the same call, the team leader scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do? |
 | coaching-general-2.a | 팀원을 가장 잘 아는 사람이니, 팀장 점수를 공식 점수로 따른다. | The team leader knows the agent best, so use the team leader's score as the official one. |
 | coaching-general-2.b | 어느 쪽도 틀리지 않았으니, 두 점수의 평균을 공식 점수로 삼는다. | Neither is wrong, so make the average of the two the official score. |
-| coaching-general-2.c | 캘리브레이션에서 두 항목의 채점 기준을 맞춘다. | In calibration, align how each of the two items is scored. |
+| coaching-general-2.c | 기준이 달라 생긴 차이니, 캘리브레이션에서 채점 기준을 맞춘다. | The gap comes from different standards, so align the scoring standards in calibration. |
 | coaching-general-2.answer | c | c |
 | coaching-general-2.explanation | 평가자마다 기준이 다르면 상담사는 무엇을 고쳐야 할지 알 수 없습니다. 일반 고객지원은 정책 정확도와 공감을 함께 보므로, 두 항목의 채점 기준을 캘리브레이션으로 맞춥니다. | If each evaluator uses a different standard, agents cannot tell what to fix. General support looks at both policy accuracy and empathy, so calibration aligns how each is scored. |
 | coaching-tech-2.prompt | 팀원 한 명의 에스컬레이션 비율이 팀에서 가장 높습니다. 코칭에서 무엇부터 할까요? | One team member’s escalation rate is the highest on the team. What do you start with in coaching? |
@@ -71,12 +71,12 @@
 | retention-tech-2.prompt | 기술지원 상담사 한 명이 몇 주째 어려운 티켓만 맡아 지쳐 보입니다. 어떻게 할까요? | A tech support agent has handled only hard tickets for weeks and looks worn out. What do you do? |
 | retention-tech-2.a | 어려운 티켓은 실력 있는 사람이 맡아야 하니, 지금 배정을 그대로 둔다. | Hard tickets need a skilled person, so keep the current assignments as they are. |
 | retention-tech-2.b | 쉬운 티켓을 섞어 주고, 해결 사례를 지식 자료로 정리하게 한다. | Mix in easier tickets, and have them write up solved cases for the knowledge base. |
-| retention-tech-2.c | 지친 상태이니, 회복될 때까지 당분간 쉬운 티켓만 맡겨 부담을 덜어 준다. | They are worn out, so give them only easy tickets until they recover. |
+| retention-tech-2.c | 회복될 때까지 당분간 쉬운 티켓만 맡겨 부담을 덜어 준다. | Give them only easy tickets until they recover, to lighten the load. |
 | retention-tech-2.answer | b | b |
 | retention-tech-2.explanation | 어려운 티켓이 이어지면 인지 부담이 쌓입니다. 부담은 나누고 해결 경험을 지식 자료로 남기게 하면, 지친 경험이 기술적인 성장으로 이어집니다. | A run of hard tickets builds cognitive load. Spreading the load and having them record what they solved in the knowledge base turns a draining stretch into technical growth. |
 | career-general-2.prompt | 일반 고객지원 퇴사 면담에서 "매일 같은 문의만 받아 성장하는 느낌이 없었다"는 말이 여러 번 나옵니다. 무엇을 할까요? | In general support exit interviews, several people say, “I handled the same inquiries every day and never felt I was growing.” What do you do? |
 | career-general-2.a | 성장을 원하는 성향의 사람들이었으니, 개인 성향 문제로 기록하고 넘긴다. | They were people who wanted to grow, so record it as a matter of personal temperament and move on. |
-| career-general-2.b | 그달에 퇴사가 몰렸을 뿐이니, 다음 달 면담 결과를 보고 판단한다. | Departures just clustered that month, so decide after seeing next month's interviews. |
+| career-general-2.b | 그달에 퇴사가 몰린 것으로 보고, 다음 달 면담 결과까지 기다려 판단한다. | Treat it as departures clustering that month, and wait for next month's interviews before deciding. |
 | career-general-2.c | 남은 팀원에게 문의 유형 순환과 전문 상담 경로를 먼저 보여 준다. | Show the people still on the team inquiry rotation and paths such as specialist support up front. |
 | career-general-2.answer | c | c |
 | career-general-2.explanation | 퇴사 면담에서 나온 개선점은 다음 관리에 반영해야 의미가 있습니다. 같은 이유가 반복된다면 남아 있는 팀원도 같은 이유로 떠날 수 있습니다. | Improvements from exit interviews only matter once they feed into how you manage next. If the same reason keeps coming up, the people still on the team may leave for the same reason. |

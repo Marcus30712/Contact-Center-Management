@@ -47,3 +47,23 @@ test('spoken lines in options carry no example label inside the quotes', () => {
     assert.ok(!/예시|Example/.test(o.ko + o.en), o.ko);
   }
 });
+
+// Content review phase 3 (2026-11-26): a reason clause ("~하니, ~하려고, …") must not
+// mark an option as wrong. Right answers carry reasons about as often as wrong ones,
+// and no question has reasons on both wrong options and none on the right one.
+const REASON = /(니|어서|아서|도록|려고|게|면서|기에|으므로|므로),\s/;
+const hasReason = (o) => REASON.test(o.text.ko.split(/[.!?]/)[0]);
+const reasonCourses = { ...COURSES, review: [{ checkpoint: Object.values(QUIZZES).flatMap((q) => q.questions) }] };
+
+for (const [id, lessons] of Object.entries(reasonCourses)) {
+  test(`${id}: reason clauses do not give away the wrong options`, () => {
+    const qs = lessons.flatMap((l) => l.checkpoint);
+    const right = qs.map((q) => q.options.find((o) => o.id === q.answer));
+    const wrong = qs.flatMap((q) => q.options.filter((o) => o.id !== q.answer));
+    const rRate = right.filter(hasReason).length / right.length;
+    const wRate = wrong.filter(hasReason).length / wrong.length;
+    assert.ok(rRate >= wRate / 2, `right ${right.filter(hasReason).length}/${right.length}, wrong ${wrong.filter(hasReason).length}/${wrong.length}`);
+    const tell = qs.filter((q) => !hasReason(q.options.find((o) => o.id === q.answer)) && q.options.filter((o) => o.id !== q.answer).every(hasReason));
+    assert.deepEqual(tell.map((q) => q.id), []);
+  });
+}
