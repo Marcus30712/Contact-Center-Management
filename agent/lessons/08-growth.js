@@ -25,7 +25,7 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 매주의 코칭과 매달의 퍼포먼스 리뷰를 써서, 업무에 익숙해지는 길을 미리 보는 것입니다.", "This lesson is about seeing ahead how weekly coaching and monthly performance reviews get you comfortable in the job."), flow, procedure, null),
-    step(tx("고라이브 뒤 몇 주가 지나도 지민은 아직 느리고, 모르는 문의도 많습니다. 다른 사람은 다 잘하는 것 같습니다.", "Weeks after go-live, Jimin is still slow and still meets contacts she doesn't know. Everyone else seems to be doing fine."), flow, [], null),
+    step(tx("실전 배치 뒤 몇 주가 지나도 지민은 아직 느리고, 모르는 문의도 많습니다. 다른 사람은 다 잘하는 것 같습니다.", "Weeks after Go Live, Jimin is still slow and still meets contacts she doesn't know. Everyone else seems to be doing fine."), flow, [], null),
     step(tx("첫 단계는 석 달입니다. 이쯤이면 자주 오는 문의는 대부분 혼자 처리하고, 내 숫자가 조금씩 안정됩니다.", "The first stage is three months. By then you handle most common contacts on your own, and your numbers start to settle."), flow, ["threemonths"], null),
     step(tx("둘째 단계는 코칭입니다. 수진 팀장은 매주 한 가지씩 함께 연습할 것을 정해 줍니다. 코칭에서 받은 것을 다음 날 콜에서 바로 써 봅니다.", "The second stage is coaching. Each week, Sujin picks one thing to practice together. Use what you got from coaching on your calls the very next day."), flow, ["coaching"], null),
     step(tx("셋째 단계는 퍼포먼스 리뷰입니다. 매달 한 달의 숫자와 평가를 돌아보고, 다음 달 목표를 함께 정합니다.", "The third stage is the performance review. Each month, look back at the month's numbers and scores, and set next month's goal together."), flow, ["perfreview"], null),
@@ -37,7 +37,7 @@ export default {
   checkpoint: [
     {
       id: "growth-q1",
-      prompt: tx("고라이브 뒤 두 달이 지났는데, 지민의 처리 속도가 동기보다 느립니다. 어떻게 생각하면 좋을까요?", "Two months after go-live, Jimin is slower than others who started with her. How should she see it?"),
+      prompt: tx("실전 배치 뒤 두 달이 지났는데, 지민의 처리 속도가 동기보다 느립니다. 어떻게 생각하면 좋을까요?", "Two months after Go Live, Jimin is slower than others who started with her. How should she see it?"),
       options: [
         option("a", tx("나는 이 일에 맞지 않는다고 판단한다.", "Decide she isn't cut out for this job."), tx("익숙해지는 속도는 사람마다 다릅니다. 판단하기엔 이른 시기입니다.", "People get comfortable at different speeds. It's too early to judge.")),
         option("b", tx("지난달의 나와 비교하고, 코칭에서 한 가지를 골라 연습한다.", "Compare herself with last month, and pick one thing from coaching to practice.")),

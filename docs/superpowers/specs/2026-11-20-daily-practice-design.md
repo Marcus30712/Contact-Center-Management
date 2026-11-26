@@ -145,7 +145,7 @@
 | doneTitle | 오늘 연습 끝! | Done for today! |
 | doneLine | 내일 또 같이 해요. | See you again tomorrow. |
 | locked | 레슨 하나를 마치면 연습이 열려요. | Practice opens once you finish a lesson. |
-| lockedLink | 라이프사이클 레슨 1 시작하기 → | Start Lifecycle lesson 1 → |
+| lockedLink | {course} 레슨 1 시작하기 → | Start {course} lesson 1 → |
 | cardsTitle | 용어 카드 | Term cards |
 | cardsToday | 오늘 {n}장 | {n} today |
 | cardFlip | 눌러서 뜻 보기 | Tap to see the meaning |

@@ -6,6 +6,7 @@ import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { PRACTICE_UI as UI } from './data.js';
 import { renderPractice, newPracticeView } from './render.js';
 import { localDate } from './engine.js';
+import { loadRole } from '../shared/role.js';
 
 function getStorage() {
   try {
@@ -36,7 +37,7 @@ function draw() {
     draw();
     langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
   });
-  renderPractice(app, lang, storage, day, view, { clock: localDate, onDay: (d) => { day = d; } });
+  renderPractice(app, lang, storage, day, view, { clock: localDate, onDay: (d) => { day = d; }, role: loadRole(storage) });
 }
 
 draw();

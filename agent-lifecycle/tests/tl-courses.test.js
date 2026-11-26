@@ -200,7 +200,7 @@ for (const c of COURSES) {
     assert.deepEqual(pool(s).map((q) => q.key), [`${c.id}:${c.ids[0]}-q1`, `${c.id}:${c.ids[0]}-q2`]);
     const { root } = setupDom();
     renderPractice(root, 'ko', s, '2026-11-25', newPracticeView());
-    click(root.querySelector('[data-question] [data-option]'));
+    click(root.querySelector('[data-question] [data-option="a"]'));
     assert.equal(root.querySelector('a[data-review]').getAttribute('href'), `../${c.dir}#${c.ids[0]}-0`);
   });
 }
@@ -295,4 +295,16 @@ test('Agent First Steps: later steps light the stage they are about', () => {
   const hl = (id, n) => AGENT_LESSONS.find((l) => l.id === id).steps[n - 1].highlight;
   assert.deepEqual([hl('start', 7), hl('start', 8)], [['onboarding'], ['onboarding']]);
   assert.deepEqual([hl('attendance', 7), hl('attendance', 8)], [['sick'], ['sick']]);
+});
+
+test('Agent First Steps: the stage is called 실전 배치 / Go Live', () => {
+  const ko = AGENT_LESSONS.map((l) => lessonText(l, 'ko')).join(' ');
+  const en = AGENT_LESSONS.map((l) => lessonText(l, 'en')).join(' ');
+  assert.ok(!/고라이브|실전투입/.test(ko), 'ko still says 고라이브 or 실전투입');
+  assert.ok(!/go-live/i.test(en), 'en still says go-live');
+  assert.ok(ko.includes('실전 배치와 첫 콜'));
+  assert.ok(en.includes('Go Live and the First Call'));
+  const start = AGENT_LESSONS.find((l) => l.id === 'start');
+  assert.ok(lessonText(start, 'ko').includes('넷째 단계는 실전 배치입니다.'));
+  assert.ok(lessonText(start, 'en').includes('The fourth stage is Go Live.'));
 });

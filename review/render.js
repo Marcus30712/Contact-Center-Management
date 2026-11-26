@@ -7,6 +7,7 @@ import { loadState, saveState, localDate } from '../practice/engine.js';
 import { BADGES, PRACTICE_UI } from '../practice/data.js';
 import { QUIZZES, REVIEW_UI as UI } from './data.js';
 import { QUIZ_ROLES, PASS_MARK, loadReview, recordRun, unlocked } from './engine.js';
+import { orderedOptions } from '../shared/option-order.js';
 
 export function newReviewView() {
   return { role: null, index: 0, answers: {}, result: null };
@@ -86,7 +87,7 @@ export function renderReview(root, lang, storage, view, myRole, redraw, opts = {
     const chosen = view.answers[q.id];
     const answered = chosen !== undefined;
     const right = answered && gradeAnswer(q, chosen).correct;
-    const buttons = q.options.map((o) => h('button', {
+    const buttons = orderedOptions(q).map((o) => h('button', {
       type: 'button', 'data-option': o.id, text: tr(o.text), disabled: answered,
       class: `option${chosen === o.id && right ? ' is-correct' : ''}${chosen === o.id && !right ? ' is-wrong' : ''}`,
       'aria-pressed': answered ? String(chosen === o.id) : false,

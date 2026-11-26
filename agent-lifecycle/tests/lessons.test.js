@@ -281,3 +281,11 @@ test('every wrong option has its own approved one-sentence feedback; right answe
     }
   }
 });
+
+test('the lifecycle nesting lesson is called 실전 배치 및 네스팅 / Go Live and Nesting', async () => {
+  const nesting = LESSONS.find((l) => l.id === 'nesting');
+  assert.deepEqual(nesting.title, { ko: '실전 배치 및 네스팅', en: 'Go Live and Nesting' });
+  const { readFileSync } = await import('node:fs');
+  const guide = readFileSync(new URL('../../guide/data.js', import.meta.url), 'utf8');
+  assert.ok(!guide.includes('Go-Live'), 'guide still says Go-Live');
+});

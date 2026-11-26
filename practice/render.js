@@ -6,6 +6,20 @@ import { SHEETS } from '../excel/data.js';
 import { t } from '../agent-lifecycle/js/engine/i18n.js';
 import { PRACTICE_UI as UI, BADGES } from './data.js';
 import { COURSE_INFO } from '../shared/courses.js';
+import { orderedOptions } from '../shared/option-order.js';
+import { AGENT_UI } from '../agent/ui.js';
+import { SME_UI } from '../sme/ui.js';
+import { TL_UI } from '../tl/ui.js';
+import { EXCEL_UI } from '../excel/data.js';
+
+// Where a role starts when practice is still locked (2026-11-26): its own first
+// course, or Excel for roles without one; it used to be the lifecycle course for all.
+const FIRST_LESSON = {
+  agent: ['../agent/#start-0', AGENT_UI.courseTitle],
+  sme: ['../sme/#firstday-0', SME_UI.courseTitle],
+  tl: ['../tl/#start-0', TL_UI.courseTitle],
+};
+const EXCEL_FIRST = ['../excel/#lesson-1', EXCEL_UI.title];
 import {
   loadState, saveState, pool, ensureToday, recordAnswer, streak,
   openTerms, todayCards, markCard, checkBadges, courseFacts,
@@ -93,7 +107,10 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
       miso('think'),
       h('div', {}, [
         h('p', { 'data-locked': true, text: tr(UI.locked) }),
-        h('a', { href: '../agent-lifecycle/#hiring-0', 'data-start': true, text: tr(UI.lockedLink) }),
+        (() => {
+          const [href, course] = FIRST_LESSON[opts.role ?? 'tl'] ?? EXCEL_FIRST;
+          return h('a', { href, 'data-start': true, text: tr(UI.lockedLink).replace('{course}', tr(course)) });
+        })(),
       ]),
     ]), badgeShelf());
     return;
@@ -123,7 +140,9 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
     const index = ids.indexOf(shownKey);
     const answered = shownKey in answers;
     const right = results[shownKey];
-    const buttons = q.options.map((o) => {
+    // Course questions in their per-question order, as on the lesson; Excel's are already ordered.
+    const shownOptions = q.course === 'excel' ? q.options : orderedOptions({ ...q, id: q.key.slice(q.key.indexOf(':') + 1) });
+    const buttons = shownOptions.map((o) => {
       const mine = answers[shownKey] === o.id;
       return h('button', {
         type: 'button', 'data-option': o.id, text: tr(o.text), disabled: answered,

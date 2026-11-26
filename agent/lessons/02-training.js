@@ -31,7 +31,7 @@ export default {
     step(tx("셋째 단계는 정책입니다. 본인 확인과 개인정보 규칙은 매 콜 쓰니 확실히 익힙니다. 환불 같은 세부 정책은 모두 외우려 하지 말고, 지식 베이스 어디에 있는지를 익힙니다.", "The third stage is policies. Identity checks and personal-data rules come up on every call, so learn them by heart. For detailed policies such as refunds, don't try to memorize them all; learn where each one sits in the knowledge base."), flow, ["policies"], null),
     step(tx("넷째 단계는 복습입니다. 그날 배운 것을 내 말로 짧게 정리하고, 모르는 것은 그날 안에 트레이너 유나에게 묻습니다.", "The fourth stage is review. Sum up what you learned that day in your own words, and ask Yuna the trainer about anything unclear the same day."), flow, ["review"], null),
     step(tx("교육 중에 모르는 것이 많은 건 당연합니다. 질문을 미루면 다음 날 내용 위에 쌓여 더 어려워집니다.", "It's normal not to know a lot during training. Questions you put off pile up under the next day's material and make it harder."), flow, ["review"], null),
-    step(tx("시험이나 퀴즈가 있다면 점수보다 틀린 이유를 봅니다. 고라이브 뒤에 같은 문의가 그대로 들어옵니다.", "If there are tests or quizzes, look at why you got things wrong rather than at the score. The same contacts will come in after go-live."), flow, ["review"], null),
+    step(tx("시험이나 퀴즈가 있다면 점수보다 틀린 이유를 봅니다. 실전 배치 뒤에 같은 문의가 그대로 들어옵니다.", "If there are tests or quizzes, look at why you got things wrong rather than at the score. The same contacts will come in after Go Live."), flow, ["review"], null),
     step(tx("미소의 한마디: 저는 정책을 통째로 외우려다 지쳤어요. 어디에 있는지만 알아도 많은 콜이 풀린다는 걸 늦게 알았어요.", "A word from Miso: I wore myself out trying to memorize every policy. I learned too late that knowing where things are solves a lot of calls."), flow, ["review"], null),
   ],
   checkpoint: [
@@ -41,7 +41,7 @@ export default {
       options: [
         option("a", tx("밤을 새워서라도 모두 외운다.", "Memorize them all, even if it takes all night."), tx("다 외워도 정책은 바뀝니다. 지치기만 하고 오래가지 않습니다.", "Even if you memorize them all, policies change. It only wears you out and doesn't last.")),
         option("b", tx("자주 나오는 것부터 익히고, 나머지는 지식 베이스 어디에 있는지 익힌다.", "Learn the common ones first, and for the rest, learn where they are in the knowledge base.")),
-        option("c", tx("고라이브 뒤에 필요할 때 배운다.", "Learn them after go-live, when they're needed."), tx("그러면 고객을 기다리게 하면서 처음 찾게 됩니다. 어디에 있는지는 교육 중에 익혀 둡니다.", "Then you'll be looking for them for the first time while a customer waits. Learn where they are during training.")),
+        option("c", tx("실전 배치 뒤에 필요할 때 배운다.", "Learn them after Go Live, when they're needed."), tx("그러면 고객을 기다리게 하면서 처음 찾게 됩니다. 어디에 있는지는 교육 중에 익혀 둡니다.", "Then you'll be looking for them for the first time while a customer waits. Learn where they are during training.")),
       ],
       answer: "b",
       explanation: tx("외울 것과 찾을 것을 나눕니다.", "Separate what to memorize from what to look up."),
@@ -52,7 +52,7 @@ export default {
       options: [
         option("a", tx("내일 다시 배우면 알게 될 테니 기다린다.", "Wait, since it will click when she learns it again tomorrow."), tx("모르는 것이 다음 날 내용 위에 쌓이면 더 어려워집니다.", "What you don't understand piles up under the next day's material and gets harder.")),
         option("b", tx("그날 안에 트레이너 유나에게 묻는다.", "Ask Yuna the trainer the same day.")),
-        option("c", tx("고라이브 뒤에 직무전문가에게 묻는다.", "Ask the SME after go-live."), tx("교육 기간은 마음껏 물어도 되는 시간입니다. 지금 묻는 것이 가장 쉽습니다.", "Training is the time when you can ask as much as you like. Asking now is easiest.")),
+        option("c", tx("실전 배치 뒤에 직무전문가에게 묻는다.", "Ask the SME after Go Live."), tx("교육 기간은 마음껏 물어도 되는 시간입니다. 지금 묻는 것이 가장 쉽습니다.", "Training is the time when you can ask as much as you like. Asking now is easiest.")),
       ],
       answer: "b",
       explanation: tx("모르는 것은 그날 묻습니다.", "Ask about what you don't understand the same day."),

@@ -24,7 +24,7 @@ Same sections and order as the Korean file. US English.
 | 제목 | Your First Day at Work |
 | 짧은 이름 | First day |
 | 부제 | See the road ahead for the next half year, and get to know the people you'll work with. |
-| 노드 | Onboarding · Training · OJT and nesting · Go-live |
+| 노드 | Onboarding · Training · OJT and nesting · Go Live |
 
 스텝:
 
@@ -33,7 +33,7 @@ Same sections and order as the Korean file. US English.
 3. The first stage is onboarding. You're introduced to the company and the project, and you learn the faces and names of your team leader, colleagues and SME.
 4. The second stage is training. You learn the project's products and services, its systems and its CRM tools. If you're new to this, it's the longest and hardest stretch.
 5. The third stage is OJT and nesting. You handle real contacts while the trainer and SME watch, then work in a group of new hires with closer support.
-6. The fourth stage is go-live. You join the regular team and start handling contacts on your own. Lesson 4 covers this.
+6. The fourth stage is Go Live. You join the regular team and start handling contacts on your own. Lesson 4 covers this.
 7. Spend the first week learning who is who. Sujin is the team leader, Junho is a senior agent on the floor, Harin is the SME, Yuna the trainer teaches you, and Dohyun from QA scores contact quality.
 8. If names don't stick, note them down next to the seating plan or chat profiles. Knowing whom to ask about what comes before names.
 9. A word from Miso: At first this road looked endless to me too. It took me about half a year to feel at home, so you don't need to know everything in your first week.
@@ -50,10 +50,10 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | Calling people by name makes it much easier to ask for help. Learn them over time. |
 | 해설 | In the first week, learning the people and their roles is the job. |
 | 2번 질문 | Which order does a new agent go through? |
-| 보기 a (오답) | Go-live → training → onboarding |
+| 보기 a (오답) | Go Live → training → onboarding |
 | a 피드백 | Facing customers alone before learning is hard on the customer and the agent. |
-| 보기 b (정답) | Onboarding → training → OJT and nesting → go-live |
-| 보기 c (오답) | Training → go-live → OJT and nesting |
+| 보기 b (정답) | Onboarding → training → OJT and nesting → Go Live |
+| 보기 c (오답) | Training → Go Live → OJT and nesting |
 | c 피드백 | OJT and nesting are where you practice with support before working alone. |
 | 해설 | Learn, try it with support, then do it alone. |
 | 다음 레슨 연결 | The longest stage is training. First, how to get through it. |
@@ -76,7 +76,7 @@ Same sections and order as the Korean file. US English.
 5. The third stage is policies. Identity checks and personal-data rules come up on every call, so learn them by heart. For detailed policies such as refunds, don't try to memorize them all; learn where each one sits in the knowledge base.
 6. The fourth stage is review. Sum up what you learned that day in your own words, and ask Yuna the trainer about anything unclear the same day.
 7. It's normal not to know a lot during training. Questions you put off pile up under the next day's material and make it harder.
-8. If there are tests or quizzes, look at why you got things wrong rather than at the score. The same contacts will come in after go-live.
+8. If there are tests or quizzes, look at why you got things wrong rather than at the score. The same contacts will come in after Go Live.
 9. A word from Miso: I wore myself out trying to memorize every policy. I learned too late that knowing where things are solves a lot of calls.
 
 체크포인트:
@@ -87,14 +87,14 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Memorize them all, even if it takes all night. |
 | a 피드백 | Even if you memorize them all, policies change. It only wears you out and doesn't last. |
 | 보기 b (정답) | Learn the common ones first, and for the rest, learn where they are in the knowledge base. |
-| 보기 c (오답) | Learn them after go-live, when they're needed. |
+| 보기 c (오답) | Learn them after Go Live, when they're needed. |
 | c 피드백 | Then you'll be looking for them for the first time while a customer waits. Learn where they are during training. |
 | 해설 | Separate what to memorize from what to look up. |
 | 2번 질문 | A CRM screen from the afternoon session didn't make sense. When should Jimin ask? |
 | 보기 a (오답) | Wait, since it will click when she learns it again tomorrow. |
 | a 피드백 | What you don't understand piles up under the next day's material and gets harder. |
 | 보기 b (정답) | Ask Yuna the trainer the same day. |
-| 보기 c (오답) | Ask the SME after go-live. |
+| 보기 c (오답) | Ask the SME after Go Live. |
 | c 피드백 | Training is the time when you can ask as much as you like. Asking now is easiest. |
 | 해설 | Ask about what you don't understand the same day. |
 | 다음 레슨 연결 | After training, you start handling real contacts. Next is OJT and nesting, where you work with support. |
@@ -140,18 +140,18 @@ Same sections and order as the Korean file. US English.
 | 해설 | Say the situation, what you checked and what you need, all at once. |
 | 다음 레슨 연결 | After nesting, you join the regular team. Next is your first call on your own. |
 
-## 레슨 4. Go-live and the First Call
+## 레슨 4. Go Live and the First Call
 
 | 항목 | English |
 |---|---|
-| 제목 | Go-live and the First Call |
+| 제목 | Go Live and the First Call |
 | 짧은 이름 | First call |
 | 부제 | Learn the order that gets you through your first call alone, even when nervous. |
 | 노드 | Prepare · Greet · Confirm · Wrap up |
 
 스텝:
 
-1. This lesson is about learning the order that gets you through a call on your own after go-live, even when you're nervous.
+1. This lesson is about learning the order that gets you through a call on your own after Go Live, even when you're nervous.
 2. From today Jimin is on the regular team. When the first call rings, her hands shake and it feels like she remembers nothing.
 3. The first stage is preparing. Log in to your tools so you're ready to take contacts as your shift starts, and open the knowledge base and the screens you use most. Get a glass of water too.
 4. The second stage is the greeting. Say the set greeting slowly. Once the first sentence is steady, the rest follows.
@@ -317,7 +317,7 @@ Same sections and order as the Korean file. US English.
 스텝:
 
 1. This lesson is about seeing ahead how weekly coaching and monthly performance reviews get you comfortable in the job.
-2. Weeks after go-live, Jimin is still slow and still meets contacts she doesn't know. Everyone else seems to be doing fine.
+2. Weeks after Go Live, Jimin is still slow and still meets contacts she doesn't know. Everyone else seems to be doing fine.
 3. The first stage is three months. By then you handle most common contacts on your own, and your numbers start to settle.
 4. The second stage is coaching. Each week, Sujin picks one thing to practice together. Use what you got from coaching on your calls the very next day.
 5. The third stage is the performance review. Each month, look back at the month's numbers and scores, and set next month's goal together.
@@ -330,7 +330,7 @@ Same sections and order as the Korean file. US English.
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | Two months after go-live, Jimin is slower than others who started with her. How should she see it? |
+| 1번 질문 | Two months after Go Live, Jimin is slower than others who started with her. How should she see it? |
 | 보기 a (오답) | Decide she isn't cut out for this job. |
 | a 피드백 | People get comfortable at different speeds. It's too early to judge. |
 | 보기 b (정답) | Compare herself with last month, and pick one thing from coaching to practice. |

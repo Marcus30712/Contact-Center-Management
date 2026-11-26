@@ -15,7 +15,7 @@ export const PRACTICE_UI = {
   doneTitle: { ko: '오늘 연습 끝!', en: 'Done for today!' },
   doneLine: { ko: '내일 또 같이 해요.', en: 'See you again tomorrow.' },
   locked: { ko: '레슨 하나를 마치면 연습이 열려요.', en: 'Practice opens once you finish a lesson.' },
-  lockedLink: { ko: '라이프사이클 레슨 1 시작하기 →', en: 'Start Lifecycle lesson 1 →' },
+  lockedLink: { ko: '{course} 레슨 1 시작하기 →', en: 'Start {course} lesson 1 →' },
   cardsTitle: { ko: '용어 카드', en: 'Term cards' },
   cardsToday: { ko: '오늘 {n}장', en: '{n} today' },
   cardFlip: { ko: '눌러서 뜻 보기', en: 'Tap to see the meaning' },
