@@ -114,7 +114,8 @@ export function dailyBody(lang, state, redraw) {
       h('div', { class: 'cx-day-tasks' }, [h('h2', { class: 'cx-sub', text: tr(UI.tasksHeading) }), list]),
     ]),
     h('div', { class: 'cx-notes', 'data-notes': true }, DAILY.notes.map((n) => h('p', { class: 'cx-note', text: tr(n) }))),
-    role.id === 'tl' ? weekCheck(tr, state) : null,
+    // Only the team leader gets the week check; others add nothing (a null here showed as "null").
+    ...(role.id === 'tl' ? [weekCheck(tr, state)] : []),
   ];
 }
 

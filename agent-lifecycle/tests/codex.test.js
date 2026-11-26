@@ -498,6 +498,18 @@ test('only the team-leader view shows the week check', () => {
   assert.equal(agent.$('[data-week-check]'), null);
 });
 
+// 2026-11-26 bug: the other roles showed a stray "null" under the notes.
+test('no role\'s daily page shows a stray "null"', () => {
+  for (const role of ['agent', 'sme', 'tl', 'am', 'om']) {
+    for (const lang of ['ko', 'en']) {
+      const { root } = mountPage('daily', lang, openItem(newState(), 'daily', role));
+      const stray = [...root.childNodes].filter((n) => n.nodeType === 3 && n.textContent.trim());
+      assert.deepEqual(stray.map((n) => n.textContent), [], `${role} ${lang}`);
+      assert.ok(!/\bnull\b/.test(root.textContent), `${role} ${lang}`);
+    }
+  }
+});
+
 test('ticks are kept on the page and never stored', () => {
   const writes = [];
   const had = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
