@@ -1012,7 +1012,7 @@ def main():
         page.goto(HUB)
         page.wait_for_selector("[data-start-screen]")
         check("(st) a fresh open at home shows the start screen", page.is_visible("[data-start-screen]"))
-        check("(st) Monday 08:30 greets with a Monday line", page.inner_text("[data-start-greeting]") in ("한 주의 시작이에요! 이번 주에 먼저 챙길 팀원부터 떠올려 볼까요?", "월요일 아침은 문의가 몰리기 쉬워요. 출근 전에 마음의 준비를 해 둬요."), page.inner_text("[data-start-greeting]"))
+        check("(st) Monday 08:30 greets with a Monday line", page.inner_text("[data-start-greeting]") in ("한 주의 시작이에요! 지난주에 다시 하고 싶은 장면이 있다면, 이번 주에 바꿔 봐요.", "월요일 아침은 문의가 몰리기 쉬워요. 저도 그걸 알고 나서야 월요일이 덜 무서워졌어요."), page.inner_text("[data-start-greeting]"))
         check("(st) the dialog has focus and draws no ring", page.evaluate("document.activeElement.hasAttribute('data-start-screen') && getComputedStyle(document.activeElement).outlineStyle === 'none'"))
         check("(st) the page behind is inert", page.evaluate("Boolean(document.getElementById('app').closest('[inert]')) && Boolean(document.querySelector('nav.appbar').closest('[inert]'))"))
         check("(st) no tour while the start screen is up", page.locator("[data-tour]").count() == 0)
