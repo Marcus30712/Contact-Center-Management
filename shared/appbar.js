@@ -14,7 +14,7 @@ export const APPBAR_UI = {
   settings: { ko: '설정', en: 'Settings' },
 };
 
-const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'sme/', 'sme-lifecycle/', 'sme-sop/', 'tl/', 'tl-support/', 'review/', 'practice/', 'excel/'];
+const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'sme/', 'sme-lifecycle/', 'sme-sop/', 'tl/', 'tl-support/', 'agent/', 'review/', 'practice/', 'excel/'];
 const GUIDE_PAGES = ['guide/', 'sme-guide/'];
 // Each role's guide; roles without one of their own use the team lead's (2026-11-25).
 const GUIDE_FOR = { sme: './sme-guide/' };

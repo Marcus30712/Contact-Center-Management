@@ -35,8 +35,9 @@ const SL_DOC = file('docs/superpowers/specs/2026-11-25-sme-lifecycle-copy-ko.md'
 const SS_DOC = file('docs/superpowers/specs/2026-11-25-sme-sop-copy-ko.md');
 // …and for the TL courses (2026-11-25); later rows win.
 const TLS_DOC = file('docs/superpowers/specs/2026-11-25-tl-learn-set-design.md');
+const AGENT_DOC = file('docs/superpowers/specs/2026-11-26-agent-course-design.md');
 const changed = new Map([...policyRows(SME_DOC.split('## 4. ')[1]), ...policyRows(QUIZ_DOC.split('## 3. ')[1].split(/^## /m)[0]),
-  ...policyRows(SL_DOC.split('## 2. ')[1]), ...policyRows(SS_DOC.split('## 2. ')[1]), ...policyRows(TLS_DOC.split('## 6. ')[1])]);
+  ...policyRows(SL_DOC.split('## 2. ')[1]), ...policyRows(SS_DOC.split('## 2. ')[1]), ...policyRows(TLS_DOC.split('## 6. ')[1]), ...policyRows(AGENT_DOC.split('## 개인정보처리방침')[1])]);
 
 test('privacy wording is the confirmed table, in both languages', () => {
   const rows = table().map((r) => changed.get(r[0]) ?? r);

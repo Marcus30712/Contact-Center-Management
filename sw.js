@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = '39e1936fafb0';
+const VERSION = '1c2cb8f2107a';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -36,6 +36,20 @@ const PRECACHE = [
   "agent-lifecycle/js/render/langToggle.js",
   "agent-lifecycle/js/render/lesson.js",
   "agent-lifecycle/js/render/trackToggle.js",
+  "agent/",
+  "agent/app.js",
+  "agent/home.js",
+  "agent/index.html",
+  "agent/lessons/01-start.js",
+  "agent/lessons/02-training.js",
+  "agent/lessons/03-nesting.js",
+  "agent/lessons/04-golive.js",
+  "agent/lessons/05-customers.js",
+  "agent/lessons/06-review.js",
+  "agent/lessons/07-attendance.js",
+  "agent/lessons/08-growth.js",
+  "agent/lessons/index.js",
+  "agent/ui.js",
   "assets/miso/cheer.webp",
   "assets/miso/grin.webp",
   "assets/miso/joy.webp",
