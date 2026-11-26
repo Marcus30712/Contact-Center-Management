@@ -57,7 +57,7 @@ export const CAREER = {
         {
           "id": "agent",
           "name": {
-            "ko": "Agent",
+            "ko": "상담사 (Agent)",
             "en": "Agent"
           },
           "role": {
@@ -107,7 +107,7 @@ export const CAREER = {
         {
           "id": "tl",
           "name": {
-            "ko": "Team Lead (팀장)",
+            "ko": "팀장 (TL)",
             "en": "Team Lead"
           },
           "role": {
@@ -132,7 +132,7 @@ export const CAREER = {
         {
           "id": "am",
           "name": {
-            "ko": "Assistant Manager (부매니저)",
+            "ko": "부매니저 (AM)",
             "en": "Assistant Manager"
           },
           "role": {
@@ -157,7 +157,7 @@ export const CAREER = {
         {
           "id": "om",
           "name": {
-            "ko": "Operation Manager (매니저)",
+            "ko": "매니저 (OM)",
             "en": "Operation Manager"
           },
           "role": {

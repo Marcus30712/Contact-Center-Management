@@ -418,7 +418,7 @@ test('choices are announced once through a status line that outlives redraws', (
   assert.equal(status.textContent, '1. 1:1 코칭 세션 및 현장 관리 · 빈도: 주간 (1:1) / 일간 (현장 관리) · 시간 비중: 약 40%');
   const career = mountPage('career');
   career.$('[data-level="am"]').click();
-  assert.equal(document.getElementById('cx-status').textContent, 'Assistant Manager (부매니저) · 프로젝트 안정적 운영 책임, 중간 관리자');
+  assert.equal(document.getElementById('cx-status').textContent, '부매니저 (AM) · 프로젝트 안정적 운영 책임, 중간 관리자');
   assert.equal($$('[aria-live]').length, 0);
 });
 
@@ -555,4 +555,13 @@ test('the daily page starts on the saved role', () => {
   // An item in the address still wins over the saved role.
   const agent = mountPage('daily', 'ko', openItem(newState('om'), 'daily', 'agent'));
   assert.equal(agent.$('[data-tab="agent"]').getAttribute('aria-pressed'), 'true');
+});
+
+test('the career matrix names the operation roles in Korean first, like the rest of the site', () => {
+  assert.deepEqual(CAREER.teams.find((t) => t.id === 'operation').levels.map((l) => l.name.ko),
+    ['상담사 (Agent)', '직무전문가 (SME)', '팀장 (TL)', '부매니저 (AM)', '매니저 (OM)']);
+});
+
+test('the day-by-role tabs name the team lead 팀장 (TL), like the career matrix', () => {
+  assert.equal(DAILY.roles.find((r) => r.id === 'tl').name.ko, '팀장 (TL)');
 });

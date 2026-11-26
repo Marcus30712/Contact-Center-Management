@@ -64,10 +64,10 @@ export function homeFor(role) {
     };
   }
   if (role === 'agent') {
-    // Agent First Steps is built (2026-11-26); the agent SOP library and guide are still coming.
+    // Agent First Steps and Agent Career Lifecycle are built (2026-11-26); the agent SOP library and guide are still coming.
     return {
       guide,
-      learn: [{ id: 'agent', ...byHref('./agent/') }, soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],
+      learn: [{ id: 'agent', ...byHref('./agent/') }, { id: 'agent-career', ...byHref('./agent-career/') }, soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],
     };
   }
   return {

@@ -308,3 +308,10 @@ test('Agent First Steps: the stage is called 실전 배치 / Go Live', () => {
   assert.ok(lessonText(start, 'ko').includes('넷째 단계는 실전 배치입니다.'));
   assert.ok(lessonText(start, 'en').includes('The fourth stage is Go Live.'));
 });
+
+test('Agent First Steps ends by pointing to Agent Career Lifecycle', () => {
+  const last = AGENT_LESSONS.at(-1).connection;
+  assert.equal(last.to, 'home');
+  assert.ok(last.text.ko.includes('상담사 커리어 라이프사이클'), last.text.ko);
+  assert.ok(last.text.en.includes('Agent Career Lifecycle'), last.text.en);
+});

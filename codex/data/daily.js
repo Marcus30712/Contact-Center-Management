@@ -335,7 +335,7 @@ export const DAILY = {
     {
       "id": "tl",
       "name": {
-        "ko": "팀장 (Team Lead)",
+        "ko": "팀장 (TL)",
         "en": "Team Lead"
       },
       "tasks": [
