@@ -24,9 +24,10 @@ export function reviewCoursesFor(role) {
   return REVIEW_COURSES[role] ?? [];
 }
 
-// SMEs learn the 11 basic Excel lessons only (2026-11-25); everyone else also sees the advanced five.
+// SMEs (2026-11-25) and agents (2026-11-26) learn the 11 basic Excel lessons
+// only; team leads and managers also see the advanced five.
 export function showsAdvancedExcel(role) {
-  return role !== 'sme';
+  return role !== 'sme' && role !== 'agent';
 }
 
 // The role a course is written for (undefined for shared ones such as Excel).

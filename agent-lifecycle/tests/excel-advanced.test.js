@@ -378,9 +378,37 @@ const excelPage = (storage, route, advanced) => {
   return root;
 };
 
-test('only SMEs are kept from advanced Excel', () => {
-  assert.equal(showsAdvancedExcel('sme'), false);
-  for (const r of ['tl', 'agent', 'am', 'om']) assert.equal(showsAdvancedExcel(r), true, r);
+test('agents and SMEs are kept from advanced Excel (agents since 2026-11-26)', () => {
+  for (const r of ['sme', 'agent']) assert.equal(showsAdvancedExcel(r), false, r);
+  for (const r of ['tl', 'am', 'om']) assert.equal(showsAdvancedExcel(r), true, r);
+});
+
+// ---------- each role's own intro and "all done" (2026-11-26) ----------
+import { EXCEL_ROLE_UI } from '../../excel/role-copy.js';
+
+const ROLE_DOC = readFileSync(new URL('../../docs/superpowers/specs/2026-11-26-excel-role-copy-design.md', import.meta.url), 'utf8');
+const roleRows = (heading) => Object.fromEntries(ROLE_DOC.split(`### ${heading}`)[1].split(/\n#{2,3} /)[0].split('\n')
+  .filter((l) => /^\| (agent|sme|tl|am|om) \|/.test(l))
+  .map((l) => { const c = l.slice(1, -1).split(' | ').map((x) => x.trim()); return [c[0], { ko: c[1], en: c[2] }]; }));
+
+test('each role reads its own Excel intro and "all done" line, as in the design', () => {
+  assert.deepEqual(EXCEL_ROLE_UI.intro, roleRows('안내문'));
+  assert.deepEqual(EXCEL_ROLE_UI.allDone, roleRows('11개를 모두 마쳤을 때'));
+  assert.deepEqual(EXCEL_ROLE_UI.intro.tl, EXCEL_UI.intro, 'the team lead keeps the wording as now');
+  assert.deepEqual(EXCEL_ROLE_UI.allDone.tl, EXCEL_UI.allDone);
+});
+
+test('the Excel page shows the role\'s intro, and an agent finishing sees the agent line', () => {
+  const intro = (role, storage = fakeStorage(), advanced = true) => {
+    const { root } = setupDom();
+    renderExcel(root, 'ko', storage, '', newExcelView(), { advanced, role });
+    return root.querySelector('.ex-intro p').textContent;
+  };
+  assert.equal(intro('agent', fakeStorage(), false), EXCEL_ROLE_UI.intro.agent.ko);
+  assert.equal(intro('om'), EXCEL_ROLE_UI.intro.om.ko);
+  assert.equal(intro(undefined), EXCEL_UI.intro.ko, 'no role: the wording as now');
+  assert.equal(intro('agent', BASIC_DONE(), false), EXCEL_ROLE_UI.allDone.agent.ko);
+  assert.equal(intro('sme', BASIC_DONE(), false), EXCEL_ROLE_UI.allDone.sme.ko);
 });
 
 test('an SME never sees advanced Excel', () => {

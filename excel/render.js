@@ -9,6 +9,7 @@ import {
   grade, newBuild, displayOrder, tapBank, tapLine, lineTexts, pickCell, selectionText,
   applyAfter, loadProgress, saveProgress, finishLesson, isOpen, nextLessonAfter,
 } from './engine.js';
+import { EXCEL_ROLE_UI } from './role-copy.js';
 import { renderSheet, renderPivot } from './sheet.js';
 
 const MISO = {
@@ -50,9 +51,12 @@ function dropSecondTap(root, view) {
   }, true);
 }
 
-// opts.advanced: false hides the advanced lessons (SMEs, 2026-11-25); stored progress is kept.
+// opts.advanced: false hides the advanced lessons (SMEs, agents); stored progress is kept.
+// opts.role: picks that role's intro and "all done" line (2026-11-26); none keeps EXCEL_UI's.
 export function renderExcel(root, lang, storage, route, view, opts = {}) {
   const advancedOn = opts.advanced !== false;
+  const roleIntro = EXCEL_ROLE_UI.intro[opts.role] ?? UI.intro;
+  const roleAllDone = EXCEL_ROLE_UI.allDone[opts.role] ?? UI.allDone;
   dropSecondTap(root, view);
   const screen = [route, view.lessonId, view.stage, view.qi, Boolean(view.graded)].join('|');
   if (view.screen !== screen) { view.screen = screen; view.movedAt = Date.now(); }
@@ -316,7 +320,7 @@ export function renderExcel(root, lang, storage, route, view, opts = {}) {
       h('header', { class: 'ex-head' }, [
         h('h1', { tabindex: '-1', text: tr(UI.title) }),
       ]),
-      h('section', { class: 'ex-intro' }, [miso('smile', 72), h('p', { text: tr(!advancedOn ? (allDone ? UI.allDone : UI.intro) : advancedDone ? ADVANCED_UI.advancedDone : allDone ? ADVANCED_UI.advancedNext : UI.intro) })]),
+      h('section', { class: 'ex-intro' }, [miso('smile', 72), h('p', { text: tr(!advancedOn ? (allDone ? roleAllDone : roleIntro) : advancedDone ? ADVANCED_UI.advancedDone : allDone ? ADVANCED_UI.advancedNext : roleIntro) })]),
       h('ol', { class: 'ex-list' }, EXCEL_LESSONS.map((l) => {
         const open = isOpen(progress, l.id);
         const done = progress.completed.includes(l.id);
