@@ -38,9 +38,9 @@ export default {
       id: "listen-q1",
       prompt: tx("지민의 콜 한 건에서 사소한 안내 하나를 빠뜨린 것을 발견했습니다. 어떻게 기록할까요?", "In one of Jimin's calls, you notice she left out a minor explanation. How do you record it?"),
       options: [
-        option("a", tx("지민의 습관으로 메모한다.", "Note it as Jimin's habit."), tx("한 건은 아직 습관이 아닙니다. 다른 건에서도 나오는지 봅니다.", "One contact isn't a habit yet. See whether it shows up in others.")),
-        option("b", tx("다른 건에서도 같은 모습이 나오는지 더 들어 본 뒤에 습관으로 적는다.", "Listen to more contacts to see whether it repeats before noting it as a habit.")),
-        option("c", tx("바로 지민에게 알려 주의를 준다.", "Tell Jimin right away and warn her."), tx("파악하는 단계에서 한 건으로 지적하면, 팀원은 새 팀장을 감시자로 느낍니다.", "Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog.")),
+        option("a", tx("지민의 습관으로 메모한다. 작은 것도 적어 둬야 나중에 코칭 근거가 된다.", "Note it as Jimin's habit; writing down even small things gives you grounds for coaching later."), tx("한 건은 아직 습관이 아닙니다. 다른 건에서도 나오는지 봅니다.", "One contact isn't a habit yet. See whether it shows up in others.")),
+        option("b", tx("몇 건 더 들어 보고, 반복되면 습관으로 적는다.", "Listen to a few more, and note it as a habit if it repeats.")),
+        option("c", tx("그 자리에서 지민에게 알려 주의를 준다. 바로 말해야 반복을 막는다.", "Tell Jimin on the spot and warn her; saying it right away stops it repeating."), tx("파악하는 단계에서 한 건으로 지적하면, 팀원은 새 팀장을 감시자로 느낍니다.", "Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog.")),
       ],
       answer: "b",
       explanation: tx("여러 건에서 반복될 때 습관이라고 봅니다. 다만 필수 고지처럼 꼭 해야 하는 안내라면 한 건이라도 바로 바로잡습니다.", "Call it a habit when it repeats across several contacts. But if it is a required disclosure, correct it right away, even once."),
@@ -49,7 +49,7 @@ export default {
       id: "listen-q2",
       prompt: tx("여러 상담사가 같은 방식으로 안내를 잘못하고 있습니다. 먼저 확인할 것은 무엇일까요?", "Several agents are giving the same wrong explanation. What do you check first?"),
       options: [
-        option("a", tx("잘못한 상담사들을 한 명씩 코칭한다.", "Coach each of them one by one."), tx("원인이 교육에 있다면 코칭을 해도 다음 기수에서 같은 일이 생깁니다.", "If the cause is the training, the next class will make the same mistake even after coaching.")),
+        option("a", tx("잘못 안내한 상담사들을 한 명씩 불러 코칭한다.", "Call in each agent who got it wrong and coach them one by one."), tx("원인이 교육에 있다면 코칭을 해도 다음 기수에서 같은 일이 생깁니다.", "If the cause is the training, the next class will make the same mistake even after coaching.")),
         option("b", tx("트레이너에게 교육에서 그렇게 가르쳤는지 확인한다.", "Ask the trainer whether it was taught that way in training.")),
         option("c", tx("팀 허들에서 잘못을 지적한다.", "Point out the mistake at the team huddle."), tx("원인을 모른 채 지적하면 상담사들은 배운 대로 했을 뿐이라고 느낍니다.", "Pointing it out without knowing the cause makes agents feel they only did what they were taught.")),
       ],

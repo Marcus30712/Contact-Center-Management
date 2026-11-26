@@ -50,11 +50,11 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | c 피드백 | Asking about in-scope cases too blocks the team leader's day and defeats the point of agreeing on a scope. |
 | 해설 | An approval is finished only when the decision and reason are recorded. That keeps the rule consistent. |
 | 2번 질문 | The SME takes over a case Jimin found hard and calls the customer. What should you say first? |
-| 보기 a (오답) | "Could you explain it all again from the start?" |
+| 보기 a (오답) | "To help you accurately, could you explain it all again from the start?" |
 | a 피드백 | Customers dislike repeating themselves most of all. Read the record and pick up from there. |
 | 보기 b (정답) | "I've reviewed your earlier conversation. I'll take it from here." |
-| 보기 c (오답) | "I think the agent before me made a mistake." |
-| c 피드백 | Blaming a colleague lowers the customer's trust, and the problem stays. |
+| 보기 c (오답) | "I think the agent before me gave you wrong information. I'll fix it." |
+| c 피드백 | Blaming a colleague makes the customer distrust the whole center. Just say you are picking up from before. |
 | 해설 | When you take over, first say you know what happened so far. |
 | 다음 레슨 연결 | Escalation solves problems as they come in. Next is scrubbing, which finds problems in tickets that are already closed. |
 
@@ -90,11 +90,11 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | c 피드백 | Picking by person makes you look at people instead of causes, and it isn't fair. |
 | 해설 | Start with tickets where the customer was unhappy, so the causes to fix come out first. |
 | 2번 질문 | A DSAT from a late refund: the agent's explanation was correct, and the cause was an outage in the client's payment system. How do you classify it, and where does it go? |
-| 보기 a (오답) | The customer was angry, so treat it as an agent handling issue and add it to the trend summary. |
+| 보기 a (오답) | The customer was very angry, so treat it as an agent handling issue and put it in the trend summary for coaching. |
 | a 피드백 | The agent explained it correctly. Sending a cause that isn't the agent's behavior to coaching won't fix it. |
 | 보기 b (정답) | Classify it as a cause the BPO can't control, and pass it to the client through the VOC report. |
-| 보기 c (오답) | It's hard to classify, so don't record it. |
-| c 피드백 | Without a record, there is no evidence to give the client even as the same complaints pile up. |
+| 보기 c (오답) | The agent did nothing wrong, so there's nothing to coach; skip classifying it. |
+| c 피드백 | Without classifying it, there is no evidence to give the client even as the same complaints pile up. |
 | 해설 | L2 sorts by whether the BPO can control the cause. If we can, we change it; if not, we ask the client. |
 | 다음 레슨 연결 | The agent behaviors found in scrubbing go to the team leader. Next is the procedure for writing that summary. |
 
@@ -124,17 +124,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | This week you saw a missed check step in one of Seojun's tickets. How does it go into the summary? |
-| 보기 a (오답) | Write it as Seojun's trend. |
+| 보기 a (오답) | So it isn't missed, write it in this week's summary as Seojun's trend. |
 | a 피드백 | Once is not yet a trend. See whether it shows up again next week. |
-| 보기 b (정답) | Tell Seojun briefly, and add it to the summary when it repeats. |
-| 보기 c (오답) | Raise it at the huddle as a team-wide issue. |
+| 보기 b (정답) | Tell Seojun briefly, and add it to the summary if it repeats. |
+| 보기 c (오답) | Others may miss it too, so raise it at the huddle as a team-wide issue. |
 | c 피드백 | Raising one person's one-time mistake as a team issue gives everyone else a talk they don't need. |
 | 해설 | Only repeated behaviors go into the summary as trends. |
 | 2번 질문 | This week the same explanation mistake came up with five team members. What do you do? |
-| 보기 a (오답) | Just write one line for each of the five. |
+| 보기 a (오답) | So the team leader sees who made the mistake, write one line for each of the five in the summary. |
 | a 피드백 | Separate lines hide that it's a team-wide problem. |
-| 보기 b (정답) | Group it as a team-wide trend, suggest it as a huddle topic, and if the cause is a document, request a knowledge base update too. |
-| 보기 c (오답) | Warn each of the five. |
+| 보기 b (정답) | Group it as a team-wide trend, suggest it as a huddle topic, and if a document is the cause, request an update too. |
+| 보기 c (오답) | Before it spreads, call the five in one by one and warn each of them. |
 | c 피드백 | Formal cautions and warnings are the team leader's call. When several people make the same mistake, the cause may lie in a document or training rather than the people. |
 | 해설 | When several people make the same mistake, look at the cause before the people. |
 | 다음 레슨 연결 | Supporting the team leader isn't only summaries. When the team leader is away, you also check attendance. |
@@ -164,17 +164,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | Ten minutes into the shift, two people still haven't logged in and haven't called. What do you do first? |
-| 보기 a (오답) | Tell the team leader when she's back. |
+| 보기 a (오답) | Attendance is the team leader's job, so write it in the sheet and tell her when she's back. |
 | a 피드백 | Until then the queue runs two people short. Staffing gaps need flagging right away. |
 | 보기 b (정답) | Write it in the attendance sheet, and flag the gap to the RTA and Sujin right away. |
-| 보기 c (오답) | The SME takes the two people's contacts. |
+| 보기 c (오답) | So the queue doesn't back up, the SME takes the two people's contacts. |
 | c 피드백 | If the SME fills an agent seat, escalation approvals stall. Staffing changes are for the RTA and the team leader. |
 | 해설 | In covering attendance, the most urgent thing is flagging gaps quickly. |
 | 2번 질문 | Junho was 15 minutes late today and asks you to leave it off the attendance sheet. What do you do? |
-| 보기 a (오답) | He's a colleague of many years, so leave it off. |
+| 보기 a (오답) | He's a long-time colleague and it's only 15 minutes, so leave it off just this once. |
 | a 피드백 | Changing the record makes the rules differ from the rest of the team, and the cover's records can no longer be trusted. |
-| 보기 b (정답) | Record it as it is, and suggest he talk to the team leader directly if there's a reason. |
-| 보기 c (오답) | Mention in the team chat that he was late. |
+| 보기 b (정답) | Record it as it is, and tell him to talk to the team leader directly if there's a reason. |
+| 보기 c (오답) | So everyone knows the rule, mention in the team chat that he was late. |
 | c 피드백 | Attendance is not for public posting. Records and reports go to the team leader only. |
 | 해설 | Covering is recording and passing on facts. You don't change or judge them. |
 | 다음 레슨 연결 | Another thing you do on the team leader's behalf is the huddle that passes client updates to the team. |
@@ -205,17 +205,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | "Some members" in the notice is unclear, and the huddle is in 10 minutes. What do you do? |
-| 보기 a (오답) | Say for now that it applies to all members. |
+| 보기 a (오답) | There's no time, so say for now it applies to all members and correct it later. |
 | a 피드백 | Passing on a guess means the whole team tells customers the same wrong thing. |
-| 보기 b (정답) | Check with the client contact or the team leader, and if it isn't confirmed yet, say that part is being checked. |
-| 보기 c (오답) | Leave out the unclear part. |
+| 보기 b (정답) | Check with the team leader or the client contact, and if it isn't confirmed yet, say it's being checked. |
+| 보기 c (오답) | It beats passing on something wrong, so leave out the unclear part and share only what's certain. |
 | c 피드백 | Agents will get that question anyway, and each will answer it differently. |
 | 해설 | Pass on unclear things after checking, and if you're still checking, say so. |
 | 2번 질문 | Night-shift agents couldn't attend the huddle. What do you do? |
-| 보기 a (오답) | Share it again at the next day's huddle. |
+| 보기 a (오답) | Gather the night shift too at the next day's huddle, share it again and take questions. |
 | a 피드백 | Meanwhile, night customers are told the old policy. |
-| 보기 b (정답) | Leave the same content in writing for them to read before their shift, and pass it to the night SME or team leader too. |
-| 보기 c (오답) | Tell them to ask the SME when a customer asks. |
+| 보기 b (정답) | Leave it in writing for them to read before their shift, and pass it to the night SME or team leader too. |
+| 보기 c (오답) | Tell them to message the SME whenever a customer asks. |
 | c 피드백 | There may be no SME at night, and sending every contact through the SME makes customers wait longer. |
 | 해설 | The same content needs to reach those who missed the huddle, on the same day. |
 | 다음 레슨 연결 | Client notices aren't the only rules the SME brings to the team. The SME also brings quality standards to the floor. |
@@ -245,17 +245,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | On an item where scores differ, what should the SME say? |
-| 보기 a (오답) | "Please raise the score with the agent's side in mind." |
+| 보기 a (오답) | "The agent worked hard on this one, so please raise the score with their side in mind." |
 | a 피드백 | Taking sides blurs the standard and makes the SME's view harder to trust. |
 | 보기 b (정답) | "At that point, the order status wasn't visible on the agent's screen." |
-| 보기 c (오답) | "I'm not QA, so I have no opinion." |
+| 보기 c (오답) | "I'm not QA, so I have no view on the score; I'll go with whatever is decided." |
 | c 피드백 | If the person who knows the floor says nothing, the standard is set out of step with reality. |
 | 해설 | Instead of taking sides, the SME shares what actually happened on the floor. |
 | 2번 질문 | The apology standard changed at the session, and the next scoring starts tomorrow. What do you do? |
-| 보기 a (오답) | Wait for the official notice. |
+| 보기 a (오답) | So nothing is passed on wrongly, wait for the official notice. |
 | a 피드백 | If the notice comes late, agents are scored on a standard they don't know. |
 | 보기 b (정답) | Share it with an example at a huddle or in the team chat today. |
-| 보기 c (오답) | Tell only the agents who scored low. |
+| 보기 c (오답) | Telling everyone causes confusion, so tell only the agents who scored low. |
 | c 피드백 | Learning it after being scored is too late. Everyone needs to know beforehand. |
 | 해설 | A changed standard must reach the floor before the scoring does. |
 | 다음 레슨 연결 | QA isn't the only place the SME carries the floor's voice. The customer's voice goes to the client. |
@@ -286,17 +286,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | This week many customers said "the password reset email never arrives." Which fits as a report item? |
-| 보기 a (오답) | "Customers are very angry about passwords" |
+| 보기 a (오답) | "Very many complaints about password resets; customers are very angry; please act quickly" |
 | a 피드백 | Without counts, cases and a suggestion, the client can't tell how big the problem is or what to fix. |
-| 보기 b (정답) | "Reset email not received: 25 a week (Example), 2 typical cases, suggest checking for send delays" |
-| 보기 c (오답) | "The full list of related contacts Jimin took" |
-| c 피드백 | Agent names and a raw list are hard for the client to use, and personal data may slip in. |
+| 보기 b (정답) | "Reset email not received: 25 a week (Example), 2 cases, suggest checking for send delays" |
+| 보기 c (오답) | "The full list of related contacts Jimin took this week (with customer names and contact details)" |
+| c 피드백 | Agent names and a raw list are hard for the client to use, and it hands over personal data such as customer names and contact details. |
 | 해설 | Write VOC as topic, count, typical case and suggestion. |
 | 2번 질문 | A VOC topic you sent last month is still just as common this month. What do you do? |
-| 보기 a (오답) | You already sent it, so leave it out this time. |
+| 보기 a (오답) | It's a topic you already sent, so leave it out this time and make room for new ones. |
 | a 피드백 | If it drops out, the client assumes it's solved. |
-| 보기 b (정답) | Raise it again with the figures from the last report to show the change, and discuss priority with the team leader. |
-| 보기 c (오답) | Contact the client directly and complain. |
+| 보기 b (정답) | Raise it again with last report's figures to show the change, and discuss priority with the team leader. |
+| 보기 c (오답) | Nothing has changed in a month, so contact the client directly and complain for a quick fix. |
 | c 피드백 | Raising issues with the client goes through the team leader and the agreed channel. Complaining on your own sends the same story down several paths and causes confusion. |
 | 해설 | Track a VOC topic you sent until it changes. |
 | 다음 레슨 연결 | If VOC changes the client, the last procedure changes the documents the team reads every day. |
@@ -326,14 +326,14 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | Which fits as a knowledge base update request? |
-| 보기 a (오답) | "The refund article looks wrong." |
-| a 피드백 | The owner has to find out what is wrong, which slows the fix. |
-| 보기 b (정답) | "Refund article item 3: claim period from 14 days to 7 days; client notice and 2 related tickets attached" |
-| 보기 c (오답) | You have edit access, so fix it yourself right away without review. |
+| 보기 a (오답) | "The refund article seems to differ from the client's recent notice. Please check and fix it." |
+| a 피드백 | The owner has to work out what differs and how, which slows the fix. |
+| 보기 b (정답) | "Refund article item 3: claim period from 14 days to 7 days; client notice and 2 tickets attached" |
+| 보기 c (오답) | You have edit access, so fix it yourself without waiting for review, then tell the team. |
 | c 피드백 | An article changed without review changes the whole team's answers at once. Use the agreed channel. |
 | 해설 | A request names the article, what's wrong, the right content and the source. |
 | 2번 질문 | You sent a request, but the article isn't fixed yet. What do you do meanwhile? |
-| 보기 a (오답) | Wait until it's fixed. |
+| 보기 a (오답) | The request is in, so wait for the owner to fix it and just check on progress. |
 | a 피드백 | Meanwhile, agents keep giving answers from the wrong article. |
 | 보기 b (정답) | Post an interim note in the team chat, and tell the team again once it's fixed. |
 | 보기 c (오답) | Tell agents not to use the knowledge base. |

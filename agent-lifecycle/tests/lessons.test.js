@@ -166,15 +166,16 @@ test('English review fixes', () => {
   assert.ok(trackCaptions('onboarding', 'tech', 'en').join(' ').includes('logged as a ticket'));
   assert.ok(!opt('career', 'career-tech', 'b').includes('alongside a Tier 2 agent'));
   assert.ok(opt('career', 'career-tech', 'b').includes('with support'));
-  assert.ok(!opt('hiring', 'hiring-tech', 'a').includes('call'));
+  // 2026-11-26 answer length: the Korean now says 통화, so the English names the call too.
+  assert.ok(opt('hiring', 'hiring-tech', 'a').includes('call'));
 });
 
 // --- channel record names and lesson 4 layout ---
 test('tech coaching question names the record for each channel', () => {
   const q = byId('coaching').checkpoint.find((x) => x.id === 'coaching-tech');
   const b = q.options.find((o) => o.id === 'b').text;
-  for (const word of ['녹취', '채팅 로그', '이메일 로그']) assert.ok(b.ko.includes(word), word);
-  for (const word of ['call recordings', 'chat logs', 'email logs']) assert.ok(b.en.includes(word), word);
+  for (const word of ['녹취', '채팅 로그', '이메일 로그', '티켓']) assert.ok(b.ko.includes(word), word);
+  for (const word of ['call recordings', 'chat logs', 'email logs', 'tickets']) assert.ok(b.en.includes(word), word);
 });
 
 test('lesson 4 boxes leave similar room for every arrow', () => {

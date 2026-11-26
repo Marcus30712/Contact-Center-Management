@@ -38,7 +38,7 @@ export default {
       id: "qa-q1",
       prompt: tx("도현에게서 품질 점수만 받고 있습니다. 코칭에 쓰려면 무엇을 더 받아야 할까요?", "You only get quality scores from Dohyun. What else do you need to use them for coaching?"),
       options: [
-        option("a", tx("팀 순위표", "A team ranking"), tx("순위는 누가 낮은지만 알려 줄 뿐, 무엇을 코칭할지는 알려 주지 않습니다.", "A ranking shows only who is lowest, not what to coach.")),
+        option("a", tx("팀 순위표 (누가 가장 낮은지 바로 보이게)", "A team ranking (so you can see at once who is lowest)"), tx("순위는 누가 낮은지만 알려 줄 뿐, 무엇을 코칭할지는 알려 주지 않습니다.", "A ranking shows only who is lowest, not what to coach.")),
         option("b", tx("자주 감점된 항목과 그 녹취 사례", "The items that lose points most often, with recorded examples")),
         option("c", tx("평가한 사람의 이름", "The names of the evaluators"), tx("누가 평가했는지보다 무엇이 왜 감점됐는지가 코칭에 필요합니다.", "What lost points and why matters for coaching more than who scored it.")),
       ],
@@ -49,9 +49,9 @@ export default {
       id: "qa-q2",
       prompt: tx("서준이 QA 점수가 부당하다며 이의를 제기합니다. 알맞은 것은 무엇일까요?", "Seojun says his QA score is unfair and disputes it. What fits?"),
       options: [
-        option("a", tx("서준에게 QA에 직접 따지라고 한다.", "Tell Seojun to take it up with QA directly."), tx("상담사와 QA가 직접 다투면 관계가 나빠지고 결론도 나기 어렵습니다.", "When an agent and QA argue directly, the relationship sours and it's hard to reach a conclusion.")),
-        option("b", tx("녹취를 함께 듣고, 근거가 있으면 정해진 절차로 다시 검토를 요청한다.", "Listen to the recording together, and if there are grounds, ask for a re-review through the agreed process.")),
-        option("c", tx("QA의 평가이니 무조건 받아들이라고 한다.", "Tell him to accept it, since it's QA's scoring."), tx("근거 있는 이의를 막으면 상담사는 평가를 믿지 않게 됩니다.", "Blocking a dispute that has evidence makes agents stop trusting the scoring.")),
+        option("a", tx("점수는 본인 일이니, 서준에게 QA를 직접 찾아가 따지라고 한다.", "It's his score, so tell Seojun to go to QA and argue it himself."), tx("상담사와 QA가 직접 다투면 관계가 나빠지고 결론도 나기 어렵습니다.", "When an agent and QA argue directly, the relationship sours and it's hard to reach a conclusion.")),
+        option("b", tx("녹취를 함께 듣고, 근거가 있으면 절차대로 재검토를 요청한다.", "Listen to the recording together, and if there are grounds, ask for a re-review through the process.")),
+        option("c", tx("QA의 평가이니 이번에는 그대로 받아들이라고 다독인다.", "It's QA's scoring, so calm him down and tell him to accept it this time."), tx("근거 있는 이의를 막으면 상담사는 평가를 믿지 않게 됩니다.", "Blocking a dispute that has evidence makes agents stop trusting the scoring.")),
       ],
       answer: "b",
       explanation: tx("이의는 팀장이 먼저 근거를 확인하고 절차대로 전합니다.", "The team leader checks the grounds for a dispute first and passes it on through the process."),

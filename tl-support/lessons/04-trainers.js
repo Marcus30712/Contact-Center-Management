@@ -38,9 +38,9 @@ export default {
       id: "trainers-q1",
       prompt: tx("트레이너에게 추가 교육을 요청할 때 알맞은 것은 무엇일까요?", "What fits when you ask a trainer for extra training?"),
       options: [
-        option("a", tx("\"요즘 팀이 전반적으로 약해요.\"", "\"The team seems weak across the board lately.\""), tx("무엇이 약한지 모르면 트레이너는 교육의 목표를 정할 수 없습니다.", "Without knowing what is weak, the trainer can't set a training goal.")),
-        option("b", tx("\"환불 문의 오안내가 이번 달 12건(예시)이고, 대표 사례를 첨부합니다.\"", "\"There were 12 wrong explanations on refund contacts this month (Example); typical cases are attached.\"")),
-        option("c", tx("\"다음 기수 교육을 늘려 주세요.\"", "\"Please add more to the next class's training.\""), tx("지금 팀원의 문제를 다음 기수 교육으로는 풀 수 없습니다.", "Training the next class won't fix the problems of the people on your team now.")),
+        option("a", tx("\"요즘 팀이 전반적으로 약해요. 기본 교육을 한 번 더 부탁드려요.\"", "\"The team seems weak across the board lately. Could you run the basics again?\""), tx("무엇이 약한지 모르면 트레이너는 교육의 목표를 정할 수 없습니다.", "Without knowing what is weak, the trainer can't set a training goal.")),
+        option("b", tx("\"환불 오안내가 이번 달 12건(예시)이에요. 사례를 첨부합니다.\"", "\"There were 12 wrong refund explanations this month (Example). Cases are attached.\"")),
+        option("c", tx("\"다음 기수 교육을 늘려 주세요. 신입이 같은 문제를 겪지 않게요.\"", "\"Please add more to the next class's training, so new hires don't hit the same problem.\""), tx("지금 팀원의 문제를 다음 기수 교육으로는 풀 수 없습니다.", "Training the next class won't fix the problems of the people on your team now.")),
       ],
       answer: "b",
       explanation: tx("교육 요청은 무엇을 왜 배워야 하는지 사례와 함께 합니다.", "Ask for training with cases that show what needs learning and why."),
@@ -50,8 +50,8 @@ export default {
       prompt: tx("인원이 부족한데 수료를 앞둔 신입 한 명이 아직 준비가 덜 됐습니다. 어떻게 할까요?", "You're short of people, and a new hire about to graduate from nesting isn't ready yet. What do you do?"),
       options: [
         option("a", tx("인원이 급하니 예정대로 수료시켜 바로 정식 팀에 투입한다.", "You need people, so let them graduate on schedule and put them on the regular team right away."), tx("준비가 덜 된 채 투입하면 고객과 신입 모두 힘들어지고, 신입이 떠나기 쉽습니다.", "Putting someone on the floor before they're ready is hard on both customers and the new hire, who may well leave.")),
-        option("b", tx("트레이너와 함께 수료를 미루고, 네스팅을 늘릴지 추가 교육을 할지 정한다.", "Decide with the trainer to hold back graduation, and whether to extend nesting or add extra training.")),
-        option("c", tx("신입에게 혼자 더 공부하라고 한다.", "Tell the new hire to study more on their own."), tx("혼자 두면 같은 곳에서 계속 막히고, 무엇이 부족한지도 모른 채 시간이 갑니다.", "Left alone, they keep getting stuck in the same places, and time passes without knowing what is missing.")),
+        option("b", tx("트레이너와 함께 수료를 미루고, 네스팅 연장이나 추가 교육을 정한다.", "Decide with the trainer to hold back graduation, and choose between longer nesting and extra training.")),
+        option("c", tx("신입에게 자료를 주고, 수료 전까지 혼자 더 공부하라고 한다.", "Give the new hire materials and tell them to study more on their own before graduation."), tx("혼자 두면 같은 곳에서 계속 막히고, 무엇이 부족한지도 모른 채 시간이 갑니다.", "Left alone, they keep getting stuck in the same places, and time passes without knowing what is missing.")),
       ],
       answer: "b",
       explanation: tx("준비가 덜 된 신입은 트레이너와 함께 준비시킨 뒤 투입합니다.", "Get a new hire who isn't ready prepared with the trainer before putting them on the floor."),

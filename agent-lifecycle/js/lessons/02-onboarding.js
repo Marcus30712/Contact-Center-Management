@@ -18,7 +18,7 @@ export default {
       node('soft', '소프트 스킬', 180, 120, 'Soft skills'),
       node('listen', '녹취 청취', 180, 192, 'Call listening'),
       node('verify', '스킬 검증', 302, 84, 'Verification'),
-      node('ready', '실전 준비', 302, 172, 'Ready'),
+      node('ready', 'OJT 준비', 302, 172, 'Ready for OJT'),
     ],
     edges: [
       edge('join', 'hard'), edge('join', 'soft'), edge('join', 'listen'),
@@ -48,7 +48,7 @@ export default {
       verify, ['verify', 'hard-verify', 'soft-verify', 'listen-verify'], 'verify'),
     step(tx('기준에 못 미쳤다고 바로 탈락은 아닙니다. 부족한 부분을 보충 교육한 뒤 재평가합니다. 합격 기준과 재평가 방식은 센터마다 다릅니다.', 'Falling short of the standard does not mean being dropped right away. The trainee gets extra training on the weak areas and is assessed again. The pass standard and the reassessment process vary by center.'),
       verify, ['verify'], 'verify'),
-    step(tx('검증을 통과한 지민은 실전 준비를 마쳤습니다. 다만 교육장에서 해내는 것과 실제 고객 앞에서 해내는 것은 또 다릅니다.', 'Having passed verification, Jimin is ready for live work. Still, doing it in the classroom is different again from doing it in front of a real customer.'),
+    step(tx('검증을 통과한 지민은 OJT에 나갈 준비를 마쳤습니다. 다만 교육장에서 해내는 것과 실제 고객 앞에서 해내는 것은 또 다릅니다.', 'Having passed verification, Jimin is ready for OJT. Still, doing it in the classroom is different again from doing it in front of a real customer.'),
       [...verify, 'verify-ready', 'ready'], ['ready', 'verify-ready'], 'ready'),
   ],
   checkpoint: [{
@@ -65,9 +65,9 @@ export default {
     id: 'onboarding-general',
     prompt: tx('일반 고객지원 신입 교육에서 다룰 정책과 절차가 너무 많다는 말이 나옵니다. 어떻게 할까요?', 'People say there are too many policies and procedures to cover in general support new-hire training. What do you do?'),
     options: [
-      option('a', tx('전부 외울 때까지 교육 기간을 늘린다.', 'Extend training until everything is memorized.'), tx('교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 배치만 늦어집니다.', 'A longer training period still will not make the whole range of policy memorable; it only delays going live.')),
-      option('b', tx('자주 들어오는 문의 유형부터 응대 흐름으로 익히게 하고, 나머지는 찾아보는 법을 가르친다.', 'Teach the most common inquiry types as handling flows first, and teach how to look up the rest.')),
-      option('c', tx('실전에서 겪으면서 배우라고 한다.', 'Tell them to learn it by going through it on live calls.'), tx('준비 없이 실전에서 배우게 하면 틀린 안내가 고객에게 그대로 전해집니다.', 'Learning on the job without preparation passes wrong information straight to customers.')),
+      option('a', tx('틀린 안내를 막으려고, 전부 외울 때까지 교육 기간을 늘린다.', 'Extend training until everything is memorized, to prevent wrong answers.'), tx('교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 배치만 늦어집니다.', 'A longer training period still will not make the whole range of policy memorable; it only delays going live.')),
+      option('b', tx('자주 오는 문의 흐름부터 익히고, 나머지는 찾는 법을 가르친다.', 'Teach the common inquiry flows first, and how to look up the rest.')),
+      option('c', tx('교육은 핵심만 짧게 하고, 나머지는 실전에서 겪으면서 배우라고 한다.', 'Keep training to the essentials and let them learn the rest on live contacts.'), tx('찾아보는 법도 모른 채 실전에서 배우게 하면, 틀린 안내가 고객에게 그대로 전해집니다.', 'Learning on live contacts without knowing how to look things up passes wrong information straight to customers.')),
     ],
     answer: 'b',
     explanation: tx('범위가 넓을수록 전부 외우게 하기는 어렵습니다. 자주 쓰는 흐름을 먼저 손에 익히고, 드문 문의는 자료에서 찾는 법을 알게 하는 편이 실전에 가깝습니다. 그래야 실전에서 드문 문의를 만나도 스스로 찾아 확인할 수 있습니다.', 'The wider the scope, the harder it is to have everything memorized. Getting the common flows into their hands first and knowing how to look up rare cases is closer to real work. That way, when a rare inquiry comes up on live contacts, she can look it up and check it herself.'),
@@ -75,8 +75,8 @@ export default {
     id: 'onboarding-tech',
     prompt: tx('기술지원 교육 중인 지민이 문제는 잘 해결하는데 티켓 기록을 한 줄로만 남깁니다. 어떻게 할까요?', 'In tech support training, Jimin solves problems well but leaves only one line in the ticket. What do you do?'),
     options: [
-      option('a', tx('해결했으니 기록은 넘어간다.', 'The problem was solved, so let the notes go.'), tx('해결했더라도 기록이 한 줄뿐이면, 같은 고객이 다시 연락했을 때 다음 담당자가 처음부터 다시 물어야 합니다.', 'Even when it is solved, a one-line record means the next agent has to ask everything again if the customer comes back.')),
-      option('b', tx('다음 사람이 읽고 이어받을 수 있게 증상, 확인한 것, 조치를 남기는 연습을 시킨다.', 'Have her practice recording the symptom, what she checked, and what she did, so the next person can pick it up.')),
+      option('a', tx('해결이 더 중요하니, 기록은 한 줄이라도 남겼으면 넘어간다.', 'Solving is what matters, so as long as there is a line in the ticket, let it go.'), tx('해결했더라도 기록이 한 줄뿐이면, 같은 고객이 다시 연락했을 때 다음 담당자가 처음부터 다시 물어야 합니다.', 'Even when it is solved, a one-line record means the next agent has to ask everything again if the customer comes back.')),
+      option('b', tx('증상, 확인한 것, 조치를 남기는 연습을 시킨다.', 'Have her practice recording the symptom, what she checked, and what she did.')),
       option('c', tx('기록은 나중에 몰아서 쓰게 한다.', 'Let her write up the notes later in a batch.'), tx('나중에 몰아서 쓰면 확인한 내용과 순서를 잊어 기록이 부정확해집니다.', 'Writing records up in a batch later means forgetting what was checked and in what order, so the records become inaccurate.')),
     ],
     answer: 'b',
@@ -86,8 +86,8 @@ export default {
     prompt: tx('일반 고객지원 스킬 검증의 모의 콜에서 지민은 자주 들어오는 문의는 잘 처리했지만, 드문 정책 문의에서 틀리게 안내했습니다. 어떻게 할까요?', 'In the general support skills verification mock call, Jimin handles the common inquiries well but gives wrong information on a rarer policy question. What do you do?'),
     options: [
       option('a', tx('대부분 맞았으니 합격시키고 실전에서 배우게 한다.', 'Pass her since she got most of it right, and let her learn on the job.'), tx('드문 문의라도 틀린 안내는 고객 불만으로 이어지므로, 대부분 맞았다는 이유로 넘길 수 없습니다.', 'Wrong information leads to complaints even on rare inquiries, so getting most of it right is not a reason to let it pass.')),
-      option('b', tx('바로 탈락시킨다.', 'Fail her on the spot.'), tx('한 유형을 틀렸다고 바로 탈락시키면, 보충하면 충분히 해낼 사람을 잃습니다.', 'Failing her for one inquiry type loses someone who could do the job well after a little more training.')),
-      option('c', tx('틀린 부분을 보충 교육한 뒤 그 유형으로 다시 평가한다.', 'Give extra training on what was wrong, then reassess her on that type.')),
+      option('b', tx('틀린 안내는 기준 미달이니, 바로 탈락시킨다.', 'Wrong information is below the standard, so drop her right away.'), tx('한 유형을 틀렸다고 바로 탈락시키면, 보충하면 충분히 해낼 사람을 잃습니다.', 'Failing her for one inquiry type loses someone who could do the job well after a little more training.')),
+      option('c', tx('보충 교육 뒤 그 유형으로 다시 평가한다.', 'Give extra training, then reassess her on that type.')),
     ],
     answer: 'c',
     explanation: tx('스킬 검증은 탈락시키려는 자리가 아니라, 실전에 나갈 준비가 됐는지 확인하는 자리입니다. 일반 고객지원은 정책 범위가 넓어서, 틀린 안내가 그대로 고객 불만으로 이어집니다.', 'Skills verification is not there to weed people out; it confirms readiness for real customers. General support covers a wide range of policy, so wrong information turns straight into customer complaints.'),
@@ -96,8 +96,8 @@ export default {
     prompt: tx('기술지원 교육 막바지에 제품 업데이트가 나와 교육 자료 일부가 맞지 않게 됐습니다. 어떻게 할까요?', 'Near the end of tech support training, a product update makes part of the training material out of date. What do you do?'),
     options: [
       option('a', tx('이미 배운 내용이니 실전에서 알아서 익히게 한다.', 'The trainees have learned it already, so let them pick it up on the job.'), tx('바뀐 내용을 모른 채 실전에 나가면, 업데이트 직후 몰리는 문의에 틀린 안내를 하게 됩니다.', 'Going live without knowing what changed means giving wrong answers in the rush of questions right after the update.')),
-      option('b', tx('바뀐 부분을 지식 자료에서 찾아 확인하는 법을 함께 익히게 한다.', 'Have the trainees practice finding and checking the changed parts in the knowledge base.')),
-      option('c', tx('업데이트가 안정될 때까지 교육을 멈춘다.', 'Pause training until the update settles.'), tx('제품은 계속 바뀌므로 업데이트를 기다리면 교육은 끝나지 않습니다.', 'The product keeps changing, so waiting for updates to settle means training never ends.')),
+      option('b', tx('바뀐 부분을 지식 자료에서 찾는 법을 익히게 한다.', 'Have the trainees practice finding the changes in the knowledge base.')),
+      option('c', tx('틀린 내용을 가르치지 않도록, 업데이트가 안정될 때까지 교육을 멈춘다.', 'Pause training until the update settles, so nothing wrong gets taught.'), tx('제품은 계속 바뀌므로 업데이트를 기다리면 교육은 끝나지 않습니다.', 'The product keeps changing, so waiting for updates to settle means training never ends.')),
     ],
     answer: 'b',
     explanation: tx('기술지원은 제품이 바뀌면 알아야 할 내용도 바뀝니다. 모든 내용을 외우게 하기보다, 지식 자료를 찾아 확인하는 습관을 교육 단계에서 길러 줍니다.', 'In tech support, when the product changes, what agents need to know changes too. Rather than memorizing everything, build the habit of looking things up in the knowledge base during training.'),

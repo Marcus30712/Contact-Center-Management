@@ -40,8 +40,8 @@ export default {
       prompt: tx("지민이 고객과 통화하다가 필요한 정책을 찾지 못했습니다. 어떻게 할까요?", "During a call, Jimin can't find the policy she needs. What should she do?"),
       options: [
         option("a", tx("고객에게 기억나는 대로 안내한다.", "Tell the customer whatever she remembers."), tx("틀린 안내는 고객이 다시 연락하게 만들고, 신뢰도 잃게 합니다.", "Wrong information makes the customer contact you again and costs their trust.")),
-        option("b", tx("고객에게 확인할 시간이 필요하다고 양해를 구하고 통화를 보류한 뒤, 옆자리나 직무전문가에게 확인한다.", "Tell the customer she needs a moment to check, put the call on hold, then check with the next seat or the SME.")),
-        option("c", tx("찾을 때까지 고객을 말없이 기다리게 한다.", "Leave the customer waiting in silence until she finds it."), tx("아무 말 없이 기다리면 고객은 통화가 끊긴 줄 압니다. 기다려 달라고 먼저 말합니다.", "In silence, the customer thinks the call has dropped. Ask them to wait first.")),
+        option("b", tx("고객에게 양해를 구하고 보류한 뒤, 옆자리나 직무전문가에게 확인한다.", "Ask the customer to bear with her, put the call on hold, then check with the next seat or the SME.")),
+        option("c", tx("고객이 기다리는 것을 알기에, 찾을 때까지 말없이 지식 베이스를 계속 검색한다.", "Knowing the customer is waiting, keep searching the knowledge base in silence until she finds it."), tx("아무 말 없이 기다리면 고객은 통화가 끊긴 줄 압니다. 기다려 달라고 먼저 말합니다.", "In silence, the customer thinks the call has dropped. Ask them to wait first.")),
       ],
       answer: "b",
       explanation: tx("모르면 고객에게 양해를 구하고, 확인한 뒤 안내합니다.", "When you don't know, ask the customer for a moment, check, then answer."),
@@ -50,9 +50,9 @@ export default {
       id: "nesting-q2",
       prompt: tx("직무전문가 하린에게 채팅으로 물을 때 가장 좋은 질문은 무엇일까요?", "Which is the best question to send Harin the SME in chat?"),
       options: [
-        option("a", tx("\"이거 어떻게 해요?\"", "\"How do I do this?\""), tx("상황을 모르면 하린이 되물어야 해서 답이 늦어집니다.", "Without the situation, Harin has to ask back, so the answer comes later.")),
-        option("b", tx("\"환불 문의(예시)인데, 구매 날짜를 확인해 보니 기간이 지났습니다. 예외 승인이 되나요?\"", "\"It's a refund request (Example). I checked the purchase date and it's past the window. Can we approve an exception?\"")),
-        option("c", tx("\"고객이 화났어요. 빨리 와 주세요.\"", "\"The customer is angry. Please come quickly.\""), tx("급한 마음은 알지만, 무엇이 필요한지 알아야 하린이 바로 도울 수 있습니다.", "The urgency is understandable, but Harin needs to know what you need to help right away.")),
+        option("a", tx("\"고객이 환불해 달라는데 이거 어떻게 해요? 지금 통화 중이라 급해요.\"", "\"The customer wants a refund. How do I do this? I'm on the call, so it's urgent.\""), tx("무엇을 확인했고 무엇이 필요한지 빠져 있어, 하린이 되물어야 해서 답이 늦어집니다.", "It leaves out what you checked and what you need, so Harin has to ask back and the answer comes later.")),
+        option("b", tx("\"환불 문의(예시)인데 구매 기간이 지났어요. 예외 승인 되나요?\"", "\"Refund request (Example), past the purchase window. Can we approve an exception?\"")),
+        option("c", tx("\"고객이 많이 화났어요. 제가 처리하기 어려우니 빨리 와 주세요.\"", "\"The customer is really angry. I can't handle this, so please come quickly.\""), tx("급한 마음은 알지만, 무엇이 필요한지 알아야 하린이 바로 도울 수 있습니다.", "The urgency is understandable, but Harin needs to know what you need to help right away.")),
       ],
       answer: "b",
       explanation: tx("상황, 확인한 것, 필요한 것을 한 번에 말합니다.", "Say the situation, what you checked and what you need, all at once."),

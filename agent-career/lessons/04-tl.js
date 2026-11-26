@@ -40,9 +40,9 @@ export default {
       id: "tl-q1",
       prompt: tx("많은 센터에서 볼 수 있는, 상담사에서 팀장까지 가는 길은 무엇일까요?", "Which path from agent to team leader is common in many centers?"),
       options: [
-        option("a", tx("상담사 → 팀장 → 직무전문가", "Agent → team leader → SME"), tx("직무전문가는 대개 팀장으로 가기 전에 거치는 자리입니다.", "SME is usually the role you hold before becoming a team leader.")),
-        option("b", tx("입사하자마자 팀장 교육 → 팀장", "Team leader training right after joining → team leader"), tx("상담사가 겪는 일을 알아야 팀을 이끌 수 있어서, 대개 현장 경험부터 쌓습니다.", "You need to know what agents go through to lead a team, so people usually build floor experience first.")),
-        option("c", tx("상담사 → 직무전문가(팀장 백업 경험) → 팀장", "Agent → SME (team leader backup experience) → team leader")),
+        option("a", tx("상담사 → 팀장(팀원 관리 경험) → 직무전문가", "Agent → team leader (managing a team) → SME"), tx("직무전문가는 대개 팀장으로 가기 전에 거치는 자리입니다.", "SME is usually the role you hold before becoming a team leader.")),
+        option("b", tx("입사 직후 팀장 교육(리더십 과정) → 팀장", "Team leader training (leadership course) right after joining → team leader"), tx("상담사가 겪는 일을 알아야 팀을 이끌 수 있어서, 대개 현장 경험부터 쌓습니다.", "You need to know what agents go through to lead a team, so people usually build floor experience first.")),
+        option("c", tx("상담사 → 직무전문가(팀장 백업) → 팀장", "Agent → SME (team leader backup) → team leader")),
       ],
       answer: "c",
       explanation: tx("직무전문가로 동료를 돕고 팀장 자리를 대신 맡아 보는 경험이 팀장으로 가는 다리가 됩니다. 센터마다 다를 수 있습니다.", "Helping peers as an SME and covering for the team leader is the bridge to team leader. It may differ by center."),
@@ -51,8 +51,8 @@ export default {
       id: "tl-q2",
       prompt: tx("팀장을 꿈꾸는 상담사 지민이 지금 할 수 있는 것은 무엇일까요?", "What can Jimin, an agent who dreams of becoming a team leader, do now?"),
       options: [
-        option("a", tx("평가 리뷰 때 내 지표를 먼저 읽고, 좋았던 점과 고칠 점을 말해 본다.", "Read her own metrics first in the score review, and say what went well and what to fix.")),
-        option("b", tx("팀장이 되면 배우면 되니, 지금은 내 콜만 신경 쓴다.", "Learn it once she's a team leader, and for now focus only on her own calls."), tx("내 지표를 읽는 연습이 나중에 팀원의 지표를 읽는 힘이 됩니다.", "Practicing reading your own metrics becomes the ability to read team members' metrics later.")),
+        option("a", tx("평가 리뷰에서 내 지표를 먼저 읽고 스스로 설명해 본다.", "In the score review, read her own metrics first and explain them herself.")),
+        option("b", tx("지표 읽는 법은 팀장이 되면 배우면 되니, 지금은 내 콜만 신경 쓴다.", "She can learn to read metrics once she's a team leader, so for now she focuses only on her own calls."), tx("내 지표를 읽는 연습이 나중에 팀원의 지표를 읽는 힘이 됩니다.", "Practicing reading your own metrics becomes the ability to read team members' metrics later.")),
         option("c", tx("동료들의 지각을 대신 챙겨 팀장에게 알린다.", "Keep track of colleagues' lateness and report it to the team leader."), tx("근태 관리는 팀장의 일입니다. 동료를 지켜보는 모습은 오히려 믿음을 잃게 합니다.", "Managing attendance is the team leader's job. Watching colleagues tends to cost their trust.")),
       ],
       answer: "a",

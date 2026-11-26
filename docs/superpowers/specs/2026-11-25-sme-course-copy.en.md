@@ -69,16 +69,16 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | On your first day, an agent asks you to approve a large compensation that policy does not cover. What do you do? |
-| 보기 a (오답) | Approve it for now, since the customer is very upset. |
+| 보기 a (오답) | The customer is very upset and the wait is growing, so approve it just this once and report to the team leader later. |
 | a 피드백 | A decision beyond your limits is hard to undo, and other customers will ask for the same. |
-| 보기 b (정답) | It is outside your limits, so have the agent ask the customer to wait and pass it to the team leader right away. |
-| 보기 c (오답) | Turn it down because policy does not cover it, and let the agent carry on. |
-| c 피드백 | Turning it down leaves the customer's problem where it was. What you cannot decide goes to someone who can. |
+| 보기 b (정답) | It's outside your limits, so have the agent ask the customer to wait and pass it to the team leader right away. |
+| 보기 c (오답) | Policy doesn't cover it, so have the agent decline politely, and write the apology line together. |
+| c 피드백 | A polite refusal still leaves the customer's problem where it was. What you cannot decide goes to someone who can. |
 | 해설 | You decide within your limits and pass on what is outside them. That is why you agree on the limits on day one. |
 | 2번 질문 | You are worried about how Jimin has been treating customers lately. What fits your role as SME? |
-| 보기 a (오답) | Mark down Jimin's quality score yourself. |
+| 보기 a (오답) | Mark down Jimin's quality score yourself, and ask QA to reflect it in the next evaluation. |
 | a 피드백 | QA and the team leader do the evaluating. If the SME scores agents, the roles blur and Jimin won't know whom to ask for help. |
-| 보기 b (정답) | Watch Jimin's contacts alongside her and help, and if it keeps happening, tell the team leader with examples. |
+| 보기 b (정답) | Watch Jimin's contacts alongside her and help, and if it repeats, tell the team leader with examples. |
 | 보기 c (오답) | Stay out of it, since it is not the SME's business. |
 | c 피드백 | Helping is the SME's job. If you stay out of it, the problem shows only after it has grown. |
 | 해설 | The SME helps instead of evaluating, and takes repeated problems to the team leader with evidence. |
@@ -113,15 +113,15 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 1번 질문 | Seojun has not asked a single question all morning. What do you do? |
 | 보기 a (오답) | Leave him be; it means he is doing well. |
 | a 피드백 | A quiet new hire is often hesitating to ask, not doing well. |
-| 보기 b (정답) | Go to him first and ask how the morning's contacts went. |
-| 보기 c (오답) | Tell the team leader he is not asking questions. |
-| c 피드백 | You don't know yet what is going on. Asking Seojun directly comes first. |
+| 보기 b (정답) | Go to him first and ask how his morning contacts went. |
+| 보기 c (오답) | Worried by the silence, tell the team leader and ask for a one-on-one with him. |
+| c 피드백 | You don't know yet what is going on. Asking Seojun directly comes before any meeting. |
 | 해설 | Supporting new hires means going to them first, not waiting. |
 | 2번 질문 | Seojun asks about the same procedure for the third time. What fits best? |
-| 보기 a (오답) | Give him the answer right away again. |
-| a 피드백 | Giving only the answer builds no skill in finding it, so a fourth question will come. |
-| 보기 b (정답) | Find it in the knowledge base together, and tell the team leader and trainer about the repeated difficulty. |
-| 보기 c (오답) | Tell him you already explained it and to look it up himself. |
+| 보기 a (오답) | The customer is waiting, so give him the answer right away again and send it as a screenshot. |
+| a 피드백 | Even a tidy answer builds no skill in finding it, so a fourth question will come. |
+| 보기 b (정답) | Look it up in the knowledge base together, and pass the repeated difficulty to the team leader and trainer. |
+| 보기 c (오답) | You've explained it twice, so tell him to reread the training material and find it himself this time. |
 | c 피드백 | Leaving him to search keeps the customer waiting, and Seojun will hesitate to ask again. |
 | 해설 | Show how to find answers, and pass on repeated difficulties as grounds for more training. |
 | 다음 레슨 연결 | New hires are not the only ones who come to the SME. Experienced agents bring contacts beyond their authority too. |
@@ -156,14 +156,14 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 a (오답) | Approve it for now, since the customer can't be kept waiting. |
 | a 피드백 | An unsure approval is hard to undo later, and the wrong standard spreads through the team. |
 | 보기 b (정답) | Ask Jimin to let the customer know there is a short wait, and check with the team leader right away. |
-| 보기 c (오답) | Turn it down because you are not sure. |
+| 보기 c (오답) | When unsure, refusing is safer, so have Jimin tell the customer it can't be done. |
 | c 피드백 | If it was within your limits, the customer misses a fix they could have had. |
 | 해설 | When you don't know, check instead of guessing. Meanwhile, have the agent tell the customer they are waiting. |
 | 2번 질문 | Five agents ask you the same policy question in one day. What fits best? |
-| 보기 a (오답) | Answer each person as they come. |
-| a 피드백 | A sixth and seventh question will come, and you miss more urgent requests meanwhile. |
+| 보기 a (오답) | Answer each person as they ask, and tell them to note it down. |
+| a 피드백 | Their notes don't reach the rest of the team, so a sixth and seventh question will come, and you miss more urgent requests meanwhile. |
 | 보기 b (정답) | Sum up the answer and share it in the huddle or the team chat. |
-| 보기 c (오답) | Just tell them to read the knowledge base. |
+| 보기 c (오답) | The answer is in the knowledge base, so send the article link and tell them to read it. |
 | c 피드백 | When five people ask the same thing, it is a sign the article is hard to find or unclear. |
 | 해설 | Give repeated questions back to the whole team at once. That is how the next questions drop. |
 | 다음 레슨 연결 | Some of the people asking for escalations were your peers until yesterday. That relationship is the hardest part for a new SME. |
@@ -195,7 +195,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | Junho says, "Come on, between us?" and tries to give a compensation without approval. What do you do? |
-| 보기 a (오답) | Let it go this time, since you have worked together so long. |
+| 보기 a (오답) | He's a long-time peer and the amount is small, so let it go this once and ask him to follow it next time. |
 | a 피드백 | When it is looser for one person, other agents feel the approval standard depends on friendship. |
 | 보기 b (정답) | Say calmly that the standard is the same for everyone, and have it go through approval. |
 | 보기 c (오답) | Point out in front of the other agents that he broke the procedure. |
@@ -225,7 +225,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 2. Sujin leads a team of 12 people (Example), and today she is in client meetings all afternoon.
 3. The first is attendance. When the team is large or the team leader is away, the SME checks attendance instead. You note who is not at their desk at start time, and any late or absence messages.
 4. Covering means recording and reporting, nothing more. The team leader judges the reasons and decides on attendance action. If absences leave the team short, tell the team leader and the RTA right away.
-5. The second is the scrubbing trend summary. From the tickets you scrub each day, collect what keeps showing up for each agent, and on the agreed day (Example: every Friday) sum it up briefly so the team leader can use it for coaching.
+5. The second is the scrubbing trend summary. From the tickets you scrub each day, collect what keeps showing up for each agent, and sum it up briefly on the agreed day (Example: every Friday) so the team leader can use it right away for coaching.
 6. Write the summary with facts and examples. For example, "Jimin: skipped the same check step in 3 refund contacts (Example) this week," with the ticket numbers, is something the team leader can coach from right away.
 7. Write down behavior, not judgments about people. Not "careless," but "skipped the check step."
 8. The third is running the huddle. When the client sends a policy or promotion update, the SME passes it to the team in the huddle.
@@ -240,14 +240,14 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 a (오답) | Leave it off the late record, since the reason sounds fair. |
 | a 피드백 | Judging the reason is the team leader's job. If the SME excuses it, the standard can differ for someone else with the same reason. |
 | 보기 b (정답) | Record the arrival time and the reason as given, and pass them to the team leader. |
-| 보기 c (오답) | Warn them not to be late again. |
+| 보기 c (오답) | So it doesn't happen again, warn them you'll report it to the team leader next time. |
 | c 피드백 | Attendance action like a warning belongs to the team leader. Covering means recording and reporting, nothing more. |
 | 해설 | Covering attendance means recording the facts and passing them on. The team leader judges and acts. |
 | 2번 질문 | What belongs in the scrubbing trend summary you give the team leader? |
 | 보기 a (오답) | A one-line rating of each agent's personality and attitude. |
 | a 피드백 | A personality rating has no evidence and does not show what behavior to coach. |
-| 보기 b (정답) | The behavior that kept showing up for each agent, with the ticket numbers where it appeared. |
-| 보기 c (오답) | A ranking of this week's quality scores. |
+| 보기 b (정답) | The behavior that repeated for each agent, with the ticket numbers. |
+| 보기 c (오답) | A ranking of this week's quality scores, marking coaching targets from the bottom up. |
 | c 피드백 | A ranking shows only who is low, not what to coach. |
 | 해설 | Behavior and examples let the team leader decide right away what to coach. |
 | 다음 레슨 연결 | New hires, experienced agents, seniors, the team leader. These requests do not come one at a time; they come all at once. |
@@ -279,10 +279,10 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | Seojun, with a customer on hold during a call, and Jimin, who wants an email reply checked, both call you at once. What do you do? |
-| 보기 a (오답) | Go to whoever called first. |
+| 보기 a (오답) | To be fair, go in order, starting with whoever called first. |
 | a 피드백 | The test is whether a customer is waiting now, not the order. A customer on hold gets more tired every minute. |
 | 보기 b (정답) | Go to Seojun first, and tell Jimin when you will come. |
-| 보기 c (오답) | Do Jimin's first, since it will be quick. |
+| 보기 c (오답) | Jimin's will be quick, so do hers first and then go straight to Seojun. |
 | c 피드백 | Even if it is quick, the email can wait. The customer on the call cannot. |
 | 해설 | Customers waiting live come first, and whoever has to wait hears when you will come. |
 | 2번 질문 | Requests have kept piling up for 30 minutes and customer waits are getting longer. What fits best? |
@@ -307,7 +307,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 
 1. This lesson is about using daily scrubbing, VOC and calibration to see the team's trends, and giving what you learn back to the whole team.
 2. Scrubbing is one of the SME's main jobs. You reread handled tickets and tickets that have piled up and find the real causes. You do a few every day (Example: 3 to 4 a day).
-3. The first stage is scrubbing every day. Pick tickets in the order DSAT, CSAT, then unresolved, sum up each cause in a sentence or two, and sort it into the set categories. The procedure is in Scrubbing in the SME SOP Library.
+3. The first stage is scrubbing every day. Pick tickets in the order DSAT, CSAT, then unresolved, sum up each cause in a sentence or two, and sort it into the set categories. The procedure is in the Scrubbing lesson of the SME SOP Library.
 4. A little each day works because trends show only as they build up. Looking at many at once makes it easy to miss shared causes, and slows giving them back.
 5. The second stage is the VOC write-up. Collect what customers keep saying: complaints, requests and views on the product. Causes agents cannot change become something to pass to the client.
 6. The third stage is calibration. With QA and the team leader, each person scores the same contact and you align the differences. The SME is there not to evaluate agents but to bring what they really face on the floor.
@@ -321,17 +321,17 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | While scrubbing, you find a DSAT caused by Jimin's procedure mistake. How do you share it? |
-| 보기 a (오답) | Explain it as an example in the huddle, saying it was Jimin's contact. |
+| 보기 a (오답) | In the huddle, say it was Jimin's contact and use it as an example to prevent the same mistake. |
 | a 피드백 | Naming her embarrasses Jimin, and other agents start hiding their mistakes. |
 | 보기 b (정답) | Put it in the summary for the team leader, and share only the lesson with the team, without names. |
 | 보기 c (오답) | Tell no one, since it was a single mistake. |
 | c 피드백 | The same mistake can happen to other agents. The lesson belongs back with the team. |
 | 해설 | Individual cases go to the team leader; the lesson goes back to the team without names. |
 | 2번 질문 | Why scrub a few tickets every day, steadily? |
-| 보기 a (오답) | Because a rule sets how many to do each day. |
+| 보기 a (오답) | Because a rule sets how many to do each day, and a shortfall shows in your performance. |
 | a 피드백 | The count is an example that differs by center. What matters is looking every day. |
-| 보기 b (정답) | Because trends show as causes build up, and you can give findings back to the team right away. |
-| 보기 c (오답) | Doing them all on a busy day gives the same result, but the report looks better. |
+| 보기 b (정답) | Because trends show only as causes build up, and you can give findings back right away. |
+| 보기 c (오답) | Doing them all on a busy day gives the same result, but daily entries make the report look better. |
 | c 피드백 | Doing them all at once delays giving them back, and the same mistakes repeat in the meantime. |
 | 해설 | Looking a little each day shows the trends and lets you give knowledge back in time. |
 | 마지막 연결 | You have finished SME First Steps. Next, SME Support Lifecycle walks through the support at each stage as a new hire grows into a senior. The scrubbing and calibration procedures are in the SME SOP Library. |

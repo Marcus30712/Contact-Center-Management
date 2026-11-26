@@ -50,9 +50,9 @@ export default {
       id: "scrubbing-q2",
       prompt: tx("환불이 늦어 DSAT가 난 티켓을 보니 상담사 안내는 맞았고, 원인은 고객사 결제 시스템 장애였습니다. 어떻게 분류하고 어디로 보낼까요?", "A DSAT from a late refund: the agent's explanation was correct, and the cause was an outage in the client's payment system. How do you classify it, and where does it go?"),
       options: [
-        option("a", tx("고객이 화가 났으니 상담사 응대 문제로 보고 트렌드 요약에 담는다.", "The customer was angry, so treat it as an agent handling issue and add it to the trend summary."), tx("상담사는 안내를 제대로 했습니다. 상담사의 행동이 아닌 원인을 코칭으로 보내면 고쳐지지 않습니다.", "The agent explained it correctly. Sending a cause that isn't the agent's behavior to coaching won't fix it.")),
-        option("b", tx("BPO가 통제할 수 없는 원인으로 분류하고, VOC 리포트로 고객사에 전한다.", "Classify it as a cause the BPO can't control, and pass it to the client through the VOC report.")),
-        option("c", tx("분류하기 애매하니 기록하지 않는다.", "It's hard to classify, so don't record it."), tx("기록하지 않으면 같은 불만이 쌓여도 고객사에 전할 근거가 남지 않습니다.", "Without a record, there is no evidence to give the client even as the same complaints pile up.")),
+        option("a", tx("고객이 크게 화를 냈으니 상담사 응대 문제로 보고, 트렌드 요약에 담아 코칭한다.", "The customer was very angry, so treat it as an agent handling issue and put it in the trend summary for coaching."), tx("상담사는 안내를 제대로 했습니다. 상담사의 행동이 아닌 원인을 코칭으로 보내면 고쳐지지 않습니다.", "The agent explained it correctly. Sending a cause that isn't the agent's behavior to coaching won't fix it.")),
+        option("b", tx("BPO가 통제할 수 없는 원인으로 분류해, VOC 리포트로 고객사에 전한다.", "Classify it as a cause the BPO can't control, and pass it to the client through the VOC report.")),
+        option("c", tx("상담사 잘못이 아니니 코칭할 것이 없어, 분류하지 않고 넘어간다.", "The agent did nothing wrong, so there's nothing to coach; skip classifying it."), tx("분류해 두지 않으면 같은 불만이 쌓여도 고객사에 전할 근거가 남지 않습니다.", "Without classifying it, there is no evidence to give the client even as the same complaints pile up.")),
       ],
       answer: "b",
       explanation: tx("L2는 BPO가 통제할 수 있는지로 나눕니다. 통제할 수 있으면 우리가 바꾸고, 없으면 고객사에 요청합니다.", "L2 sorts by whether the BPO can control the cause. If we can, we change it; if not, we ask the client."),

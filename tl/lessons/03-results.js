@@ -39,7 +39,7 @@ export default {
       prompt: tx("준호의 처리 건수는 팀에서 가장 많은데 품질 점수는 평균보다 낮습니다. 먼저 할 일은 무엇일까요?", "Junho handles the most tickets on the team, but his quality score is below average. What do you do first?"),
       options: [
         option("a", tx("처리 건수가 많으니 우수 사원으로 적어 둔다.", "Note him down as a top performer, since his volume is high."), tx("한 숫자만 보면 품질이 떨어지는 이유를 놓칩니다.", "Looking at one number alone misses why quality is slipping.")),
-        option("b", tx("QA에게 감점된 항목을 듣고, 실제 응대를 들으며 확인할 질문을 메모한다.", "Hear from QA which items lost points, and note questions to check by listening to his actual contacts.")),
+        option("b", tx("QA에게 감점 항목을 듣고, 녹취로 확인할 질문을 적는다.", "Hear from QA which items lost points, and note questions to check in his recordings.")),
         option("c", tx("품질 점수가 낮으니 바로 코칭 대상으로 정한다.", "His quality score is low, so put him on the coaching list right away."), tx("이유를 모른 채 코칭하면 엉뚱한 곳을 고치게 됩니다.", "Coaching without knowing why fixes the wrong thing.")),
       ],
       answer: "b",
@@ -51,7 +51,7 @@ export default {
       options: [
         option("a", tx("지난주 한 주", "Last week only"), tx("한 주는 우연히 좋거나 나쁠 수 있어 흐름이 보이지 않습니다.", "A single week can be good or bad by chance, so no trend shows.")),
         option("b", tx("최근 몇 달 (예시: 6개월)", "The last few months (Example: 6 months)")),
-        option("c", tx("입사 뒤 전체 기간", "Their whole time since joining"), tx("오래된 기록이 섞이면 지금의 모습이 흐려집니다.", "Mixing in old records blurs how they are doing now.")),
+        option("c", tx("입사 뒤 전체 기간 (길게 볼수록 정확하므로)", "Their whole time since joining (the longer, the more accurate)"), tx("오래된 기록이 섞이면 지금의 모습이 흐려집니다.", "Mixing in old records blurs how they are doing now.")),
       ],
       answer: "b",
       explanation: tx("최근 몇 달의 흐름을 봐야 지금의 모습과 변화가 함께 보입니다.", "Looking at the last few months shows both where people are now and how they are changing."),

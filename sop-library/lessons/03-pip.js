@@ -63,8 +63,8 @@ export default {
       prompt: tx('PIP의 목적으로 알맞은 것은 무엇일까요?', 'What is the purpose of a PIP?'),
       options: [
         option('a', tx('징계의 근거를 남기는 것.', 'To leave a record that justifies discipline.'), tx('징계 근거를 남기려는 PIP로 받아들여지면, 우진은 개선보다 방어에 힘을 쓰게 됩니다.', 'If the PIP comes across as building a case for discipline, Woojin will put his energy into defending himself rather than improving.')),
-        option('b', tx('분명한 데이터와 구체적인 목표로 개선의 기회를 주는 것.', 'To give a chance to improve, with clear data and a specific goal.')),
-        option('c', tx('다른 팀원에게 경각심을 주는 것.', 'To send a warning to the rest of the team.'), tx('다른 팀원에게 보여 주려는 PIP는 우진을 본보기로 만들 뿐, 개선을 돕지 못합니다.', 'A PIP meant as a message to others only makes an example of Woojin; it does not help him improve.')),
+        option('b', tx('데이터와 구체적인 목표로 개선 기회를 주는 것.', 'To give a chance to improve, with data and a specific goal.')),
+        option('c', tx('같은 문제가 번지지 않도록, 다른 팀원에게 경각심을 주는 것.', 'To send a warning to the rest of the team so the same problem does not spread.'), tx('다른 팀원에게 보여 주려는 PIP는 우진을 본보기로 만들 뿐, 개선을 돕지 못합니다.', 'A PIP meant as a message to others only makes an example of Woojin; it does not help him improve.')),
       ],
       answer: 'b',
       explanation: tx('PIP의 목적은 징계가 아니라 성장 지원입니다. 그래서 목표만 주지 않고 정기적인 점검과 지원을 함께 약속합니다.', 'The purpose of a PIP is to support growth, not to discipline. That is why it comes with regular check-ins and a promise of support, not a goal alone.'),
@@ -73,9 +73,9 @@ export default {
       id: 'pip-q2',
       prompt: tx('우진과 정할 목표로 가장 알맞은 것은 무엇일까요?', 'Which goal fits best for Woojin?'),
       options: [
-        option('a', tx('"더 친절하게 응대하기."', '"Be friendlier with customers."'), tx('"더 친절하게"는 잴 수 없어서, 기간이 끝나도 달성했는지 함께 판단할 수 없습니다.', '“Be friendlier” cannot be measured, so when the period ends there is no shared way to judge whether it was met.')),
-        option('b', tx('예시: "앞으로 4주 동안 CSAT 점수를 5점 올리기."', 'Example: "Raise the CSAT score by 5 points over the next 4 weeks."')),
-        option('c', tx('"팀에서 가장 좋은 점수 받기."', '"Get the best score on the team."'), tx('팀 1등은 다른 사람의 결과에 달려 있어서, 우진이 스스로 이룰 수 있는 공정한 목표가 되지 못합니다.', 'Being the best on the team depends on other people’s results, so it is not a fair goal Woojin can reach on his own.')),
+        option('a', tx('"고객에게 더 친절하게, 공감 표현을 늘려 응대하기."', '"Be friendlier with customers and show more empathy."'), tx('"더 친절하게"는 잴 수 없어서, 기간이 끝나도 달성했는지 함께 판단할 수 없습니다.', '“Be friendlier” cannot be measured, so when the period ends there is no shared way to judge whether it was met.')),
+        option('b', tx('예시: "4주 동안 CSAT 5점 올리기."', 'Example: "Raise CSAT by 5 points in 4 weeks."')),
+        option('c', tx('"다음 달까지 팀에서 가장 좋은 CSAT 점수 받기."', '"Get the best CSAT score on the team by next month."'), tx('팀 1등은 다른 사람의 결과에 달려 있어서, 우진이 스스로 이룰 수 있는 공정한 목표가 되지 못합니다.', 'Being the best on the team depends on other people’s results, so it is not a fair goal Woojin can reach on his own.')),
       ],
       answer: 'b',
       explanation: tx('목표는 측정할 수 있고 구체적이어야 합니다. 그래야 기간이 끝났을 때 달성했는지 함께 평가할 수 있습니다.', 'A goal has to be specific and measurable. Only then can you evaluate together, at the end of the period, whether it was met.'),

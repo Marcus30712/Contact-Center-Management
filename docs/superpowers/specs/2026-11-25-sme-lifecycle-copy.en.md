@@ -47,17 +47,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | During OJT, Seojun followed the training material, but it was a procedure the floor no longer uses. What do you do? |
-| 보기 a (오답) | Tell Seojun to ignore the training material and do it the floor's way. |
+| 보기 a (오답) | The material is outdated, so tell Seojun to ignore it and do it the floor's way. |
 | a 피드백 | Seojun then hears different answers from the trainer and the SME, and the material stays as it is, so the next trainee meets the same confusion. |
-| 보기 b (정답) | Finish this contact correctly together, and tell the trainer about the difference so the training is brought in line. |
-| 보기 c (오답) | He is still in training, so let it go even if it is wrong. |
-| c 피드백 | Customers don't know they are talking to a trainee. Real contacts have to be finished correctly. |
+| 보기 b (정답) | Put this contact right together, and tell the trainer about the difference so the training matches. |
+| 보기 c (오답) | He's in training, so let it go even if it's wrong, and tell him everything once OJT ends. |
+| c 피드백 | Customers don't know they are talking to a trainee. Real contacts have to be finished correctly now, and if you wait, the same mistake piles up meanwhile. |
 | 해설 | When the floor and the training differ, align with the trainer, not the trainee. That way the next trainee hears the same answer too. |
 | 2번 질문 | Which fits Seojun's OJT observation record? |
-| 보기 a (오답) | "Lacks confidence" |
-| a 피드백 | An impression of personality doesn't tell you what to help with in nesting. |
+| 보기 a (오답) | "Seems to lack confidence overall; often hesitates on contacts" |
+| a 피드백 | A general impression of personality doesn't tell you what to help with in nesting. |
 | 보기 b (정답) | "Asks every time what comes after identity verification in refund contacts" |
-| 보기 c (오답) | "OJT score 70 points (Example)" |
+| 보기 c (오답) | "OJT score 70 points (Example), below the cohort average; needs extra work" |
 | c 피드백 | Scoring is the trainer's and QA's job, and a number alone doesn't tell you which contacts to help with. |
 | 해설 | Write the observation record as contact types and behaviors. It becomes the handover note that decides where to help in nesting. |
 | 다음 레슨 연결 | Seojun has finished OJT. Next is nesting, the last stage before graduation, where he takes real contacts beside the SME. |
@@ -89,17 +89,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Seojun has handled shipping contacts alone three days in a row (Example). What fits best? |
-| 보기 a (오답) | Stop all support from today. |
+| 보기 a (오답) | He handled shipping alone, so stop all support from today and let him work on his own. |
 | a 피드백 | Being comfortable with one type doesn't mean he is ready for others. Step back type by type. |
-| 보기 b (정답) | Look at shipping contacts only when he asks, and tell Seojun that this is changing. |
-| 보기 c (오답) | It is still nesting, so keep checking every contact first. |
+| 보기 b (정답) | Look at shipping contacts only when he asks, and tell Seojun about the change. |
+| 보기 c (오답) | It's still nesting, so keep checking every contact first, shipping included. |
 | c 피드백 | Checking even what he can do alone takes away his chance to judge for himself, and leaves less time for other new hires. |
 | 해설 | Step back one type at a time, starting with types that meet the rule, and say what is changing ahead of time. |
 | 2번 질문 | It's the last week of nesting, and Seojun keeps getting stuck on refund contacts. What do you do? |
-| 보기 a (오답) | Nesting is over, so move him to a regular team. |
+| 보기 a (오답) | The period is over, so send him to a regular team as planned and let him learn refunds there. |
 | a 피드백 | Moving him with that type unresolved makes things hard for both the customer and Seojun on the regular team. |
-| 보기 b (정답) | Show Sujin the record of refund contacts, and discuss extending nesting or more training. |
-| 보기 c (오답) | Say the SME will handle refund contacts for him from now on. |
+| 보기 b (정답) | Review the record with the trainer and Sujin, and discuss extending nesting or more training. |
+| 보기 c (오답) | So Seojun doesn't burn out, say the SME will handle refund contacts for him from now on. |
 | c 피드백 | If you handle them for him, Seojun never learns that type, and your own day gets blocked. |
 | 해설 | The trainer and the team leader decide whether he graduates or nesting is extended. The SME shows the stuck types through the record. |
 | 다음 레슨 연결 | Seojun has graduated and joined a regular team. Now, instead of the SME going to him first, he comes to the SME when he needs to. |
@@ -171,17 +171,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Junho, who answers general questions, is about to handle a compensation request that needs approval, saying "It'll be fine." What fits best? |
-| 보기 a (오답) | Junho knows the rules, so leave it. |
+| 보기 a (오답) | Junho knows the rules well and has years in, so let him handle this one. |
 | a 피드백 | Knowing the rules is not the same as having approval authority. Once seniors start approving, no approval record is left. |
-| 보기 b (정답) | Keep general questions with Junho, and agree again that cases needing approval go to the SME. |
-| 보기 c (오답) | Stop giving Junho questions to answer. |
+| 보기 b (정답) | Keep him on answering, but agree again that cases needing approval go to the SME. |
+| 보기 c (오답) | Overstepping approval is a problem, so stop giving Junho questions to answer. |
 | c 피드백 | Taking back all the shared work over one case piles it on the SME again, and Junho loses a chance to grow. |
 | 해설 | What you share with seniors is answering and support; approval stays with the SME and the team leader. |
 | 2번 질문 | Junho sends an escalation with a solution already written down, and it fits the rules. What do you do? |
-| 보기 a (오답) | Judge it again from scratch and find your own way. |
+| 보기 a (오답) | It's your approval to answer for, so judge it again from scratch and find your own way. |
 | a 피드백 | Judging again something that already fits the rules slows the customer's answer, and Junho stops trusting his own judgment. |
 | 보기 b (정답) | Approve it as Junho proposed, and tell him briefly that his call was right. |
-| 보기 c (오답) | Tell him that as a senior he can handle such cases without checking from now on. |
+| 보기 c (오답) | He is a senior, so tell him to handle such cases himself without checking from now on. |
 | c 피드백 | Approval authority comes with the role, not the person. Handling cases without checking blurs records and responsibility. |
 | 해설 | When a senior's judgment fits the rules, approve it as is and say so. That is how a senior grows into the next role. |
 | 다음 레슨 연결 | From trainee to senior, you have gone once around. Last is the person who sees all these stages together: the team leader. |
@@ -212,17 +212,17 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Sujin asks for a team status before the Monday meeting. Which fits best? |
-| 보기 a (오답) | Send only the team members who had problems last week. |
+| 보기 a (오답) | The meeting is short, so send only those who had problems last week, with examples. |
 | a 피드백 | Without the growth signs of those doing well, the team leader can't decide whom to move to the next stage. |
-| 보기 b (정답) | Send one line per team member: current stage, what you saw last week, and signs for the next stage. |
-| 보기 c (오답) | Send a long hour-by-hour log of last week. |
+| 보기 b (정답) | One line per team member: current stage, what you saw last week, and signs for the next stage. |
+| 보기 c (오답) | To leave nothing out, send a detailed hour-by-hour log of last week. |
 | c 피드백 | What the team leader needs for decisions is each person's stage and signs. They are hard to find in a long log. |
 | 해설 | Write the stage status as one line per person, so the next decision can be made from it. |
 | 2번 질문 | A regular agent is absent more often, and their work requests have suddenly risen too. What do you do? |
-| 보기 a (오답) | Ask the reason yourself and adjust their work hours. |
+| 보기 a (오답) | Take them aside yourself, ask why, and adjust their hours to fit. |
 | a 피드백 | Attendance and personal matters belong to the team leader. If the SME adjusts them, the rules differ from others in the same situation. |
-| 보기 b (정답) | Support the extra work requests closely again, and hand the absences and changes to the team leader as facts. |
-| 보기 c (오답) | They are a regular agent, so just watch. |
+| 보기 b (정답) | Support the work requests closely again, and hand the absences and changes to the team leader as facts. |
+| 보기 c (오답) | They're a regular agent, so wait until they speak up, and just answer the work requests. |
 | c 피드백 | If you know about a change and don't pass it on, the team leader finds out only after the problem has grown. |
 | 해설 | The SME handles work support; the team leader handles attendance and personal matters. Deal with the two separately. |
 | 마지막 연결 | You have finished SME Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |

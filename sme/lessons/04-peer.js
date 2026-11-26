@@ -41,8 +41,8 @@ export default {
       id: "peer-q1",
       prompt: tx("준호가 \"우리 사이에 뭘 그렇게까지 해\"라며 승인 없이 보상을 처리하려 합니다. 어떻게 할까요?", "Junho says, \"Come on, between us?\" and tries to give a compensation without approval. What do you do?"),
       options: [
-        option("a", tx("오래 함께한 동기니 이번에는 넘어간다.", "Let it go this time, since you have worked together so long."), tx("한 사람에게만 느슨하면 다른 상담사들은 승인 기준이 친분에 따라 달라진다고 느낍니다.", "When it is looser for one person, other agents feel the approval standard depends on friendship.")),
-        option("b", tx("누구에게나 같은 기준이라고 차분히 말하고, 승인 절차를 거치게 한다.", "Say calmly that the standard is the same for everyone, and have it go through approval.")),
+        option("a", tx("오래 함께한 동기이고 금액도 작으니, 이번만 넘어가고 다음부터 지키자고 한다.", "He's a long-time peer and the amount is small, so let it go this once and ask him to follow it next time."), tx("한 사람에게만 느슨하면 다른 상담사들은 승인 기준이 친분에 따라 달라진다고 느낍니다.", "When it is looser for one person, other agents feel the approval standard depends on friendship.")),
+        option("b", tx("누구에게나 같은 기준이라고 차분히 말하고, 승인을 거치게 한다.", "Say calmly that the standard is the same for everyone, and have it go through approval.")),
         option("c", tx("다른 상담사들 앞에서 절차를 어겼다고 지적한다.", "Point out in front of the other agents that he broke the procedure."), tx("공개적인 지적은 준호에게 상처가 되고, 팀은 직무전문가가 동기를 본보기로 삼아 망신을 줬다고 받아들입니다.", "Calling it out in public hurts Junho, and the team reads it as the SME making an example of a peer.")),
       ],
       answer: "b",

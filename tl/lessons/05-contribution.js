@@ -39,9 +39,9 @@ export default {
       id: "contribution-q1",
       prompt: tx("이 팀의 스케줄 준수율이 목표에 못 미칩니다. 먼저 확인할 것은 무엇일까요?", "This team's schedule adherence is below target. What do you check first?"),
       options: [
-        option("a", tx("팀원들에게 스케줄을 더 잘 지키라고 공지한다.", "Tell the team to keep to their schedules better."), tx("원인을 모른 채 공지만 하면 같은 일이 되풀이됩니다.", "A notice sent without knowing the cause only lets the same thing happen again.")),
-        option("b", tx("같은 프로젝트의 다른 팀도 같은지 보고, 원인이 팀 안에 있는지 밖에 있는지 나눈다.", "See whether other teams on the project are the same, and separate causes inside the team from those outside.")),
-        option("c", tx("목표가 잘못됐다고 보고 신경 쓰지 않는다.", "Decide the target is wrong and ignore it."), tx("목표가 현실과 맞지 않더라도 근거를 갖고 위로 올려야 바뀝니다.", "Even when a target doesn't fit reality, it changes only when you raise it with evidence.")),
+        option("a", tx("팀원들에게 스케줄을 더 잘 지키라고 공지하고, 매일 허들에서 준수율을 공유한다.", "Tell the team to keep to their schedules better, and share adherence at the huddle every day."), tx("원인을 모른 채 공지만 하면 같은 일이 되풀이됩니다.", "A notice sent without knowing the cause only lets the same thing happen again.")),
+        option("b", tx("다른 팀도 같은지 보고, 원인이 팀 안인지 밖인지 나눈다.", "See whether other teams are the same, and sort causes inside the team from those outside.")),
+        option("c", tx("목표가 잘못 잡혔다고 보고, 팀원들이 부담을 느끼지 않게 그냥 둔다.", "Decide the target was set wrong and leave it, so the team doesn't feel pressured."), tx("목표가 현실과 맞지 않더라도 근거를 갖고 위로 올려야 바뀝니다.", "Even when a target doesn't fit reality, it changes only when you raise it with evidence.")),
       ],
       answer: "b",
       explanation: tx("비교로 원인이 팀 안에 있는지 밖에 있는지부터 나눕니다.", "Compare first to separate causes inside the team from those outside it."),
@@ -52,7 +52,7 @@ export default {
       options: [
         option("a", tx("팀원별 순위표", "A ranking of team members"), tx("순위는 누가 낮은지만 보여 줄 뿐, 팀이 무엇을 해 왔는지는 알려 주지 않습니다.", "A ranking shows only who is lowest, not what the team has done.")),
         option("b", tx("목표와 결과, 강점과 약점, 그리고 원인", "Goals and results, strengths and gaps, and their causes")),
-        option("c", tx("지난 6개월(예시)의 모든 지표 원본", "Raw data for every metric over the last 6 months (Example)"), tx("원본만 있으면 읽는 사람이 무엇이 중요한지 다시 찾아야 합니다.", "With only raw data, readers have to work out again what matters.")),
+        option("c", tx("빠짐없이 모은 지난 6개월(예시)의 모든 지표 원본", "Raw data for every metric over the last 6 months (Example), with nothing left out"), tx("원본만 있으면 읽는 사람이 무엇이 중요한지 다시 찾아야 합니다.", "With only raw data, readers have to work out again what matters.")),
       ],
       answer: "b",
       explanation: tx("요약은 목표 대비 결과와 그 이유를 한눈에 보여 줘야 합니다.", "A summary should show results against goals, and why, at a glance."),
