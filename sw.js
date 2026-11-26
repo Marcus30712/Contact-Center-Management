@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = '2c253a3b86c8';
+const VERSION = '30790899660b';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -13,11 +13,12 @@ const PRECACHE = [
   "agent-career/",
   "agent-career/app.js",
   "agent-career/index.html",
-  "agent-career/lessons/01-sme.js",
-  "agent-career/lessons/02-qa.js",
-  "agent-career/lessons/03-trainer.js",
+  "agent-career/lessons/01-ready.js",
+  "agent-career/lessons/02-sme.js",
+  "agent-career/lessons/03-tlprep.js",
   "agent-career/lessons/04-tl.js",
-  "agent-career/lessons/05-ready.js",
+  "agent-career/lessons/hidden-qa.js",
+  "agent-career/lessons/hidden-trainer.js",
   "agent-career/lessons/index.js",
   "agent-career/ui.js",
   "agent-lifecycle/",

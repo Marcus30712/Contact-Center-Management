@@ -8,6 +8,7 @@ import { lessonText } from './helpers.js';
 import { AC_LESSONS as SL_LESSONS } from '../../agent-career/lessons/index.js';
 import { AC_UI as SL_UI, AC_PROGRESS_KEY as SL_PROGRESS_KEY, AC_FIGURE as SL_FIGURE } from '../../agent-career/ui.js';
 import { AGENT_FIGURE as SME_FIGURE, AGENT_UI as SME_UI } from '../../agent/ui.js';
+import QA_HIDDEN from '../../agent-career/lessons/hidden-qa.js';
 
 const COPY = readFileSync(new URL('../../docs/superpowers/specs/2026-11-26-agent-career-copy-ko.md', import.meta.url), 'utf8');
 const cells = (line) => line.slice(1, -1).split(' | ').map((c) => c.trim());
@@ -40,22 +41,23 @@ function parseLesson(section) {
   }
   return out;
 }
-const lessonsOf = (doc) => doc.split(/^## 레슨 \d+\. /m).slice(1).map((s) => parseLesson(s.split(/^## /m)[0]));
+// Hidden lessons (QA, trainer: kept in the doc, off the list since 2026-11-26) come after a "## 숨김" / "## Hidden" heading.
+const lessonsOf = (doc) => doc.split(/^## (?:숨김|Hidden)/m)[0].split(/^## 레슨 \d+\. /m).slice(1).map((s) => parseLesson(s.split(/^## /m)[0]));
 const PARSED = lessonsOf(COPY);
-const ORDINALS = ['첫', '둘째', '셋째', '넷째'];
-const IDS = ['sme', 'qa', 'trainer', 'tl', 'ready'];
+const ORDINALS = ['첫', '둘째', '셋째', '넷째', '다섯째'];
+const IDS = ['ready', 'sme', 'tlprep', 'tl'];
 const row = (doc, place) => cells(doc.split('\n').find((x) => x.startsWith(`| ${place} |`)))[1];
 
 test('the career lifecycle passes the course rules', () => {
-  assert.deepEqual(validateCourse(SL_LESSONS, { lessonCount: 5, loop: false, figure: SL_FIGURE }), []);
+  assert.deepEqual(validateCourse(SL_LESSONS, { lessonCount: 4, loop: false, figure: SL_FIGURE }), []);
   assert.equal(SL_FIGURE, SME_FIGURE);
   assert.equal(SL_PROGRESS_KEY, 'agent-career:v1');
 });
 
-test('five lessons in the approved order', () => {
-  assert.equal(PARSED.length, 5);
+test('four lessons in the approved ladder order', () => {
+  assert.equal(PARSED.length, 4);
   assert.deepEqual(SL_LESSONS.map((l) => l.id), IDS);
-  assert.deepEqual(SL_LESSONS.map((l) => l.order), [1, 2, 3, 4, 5]);
+  assert.deepEqual(SL_LESSONS.map((l) => l.order), [1, 2, 3, 4]);
   for (const id of IDS) assert.ok(!id.includes('-'), id);
 });
 
@@ -116,9 +118,9 @@ test('the course words are the approved copy', () => {
   assert.equal(SL_UI.courseTagline.ko, row(COPY, '강의 소개'));
   assert.equal(SL_UI.listNote.ko, row(COPY, '숫자 안내'));
   assert.equal(SL_UI.homeCard.ko, row(COPY, '홈 카드'));
-  assert.equal(SL_UI.personaName.ko, row(COPY, '원 가운데 이름'));
-  assert.equal(SL_UI.loop.ko, row(COPY, '원 아래 안내'));
-  assert.deepEqual(SL_LESSONS.map((l) => l.short.ko), row(COPY, '원 안 짧은 이름').split(' · '));
+  assert.equal(SL_UI.ladder.team.ko, row(COPY, '사다리 맨 위'));
+  assert.equal(SL_UI.ladder.here.ko, row(COPY, '상담사 칸'));
+  assert.deepEqual(SL_LESSONS.map((l) => l.short.ko), row(COPY, '사다리 칸 이름').split(' · '));
 });
 
 // ---------- the course page ----------
@@ -134,18 +136,26 @@ function openLesson(id, stepIndex = 0, lang = 'ko') {
   return root;
 }
 
-test('the ring shows five roles with Jimin in the middle', () => {
+test('the home is a ladder: agent at the bottom, a prep step beside each climb, team leader on top', () => {
   const { root } = setupDom();
-  renderHome(root, SL_LESSONS, { completed: ['sme'] }, 'ko', SL_UI);
+  renderHome(root, SL_LESSONS, { completed: ['ready'] }, 'ko', SL_UI);
   assert.equal(root.querySelector('h1').textContent, SL_UI.courseTitle.ko);
   assert.equal(root.querySelector('.tagline').textContent, SL_UI.courseTagline.ko);
+  assert.equal(root.querySelector('.ring'), null);
+  assert.equal(root.querySelector('.loop-note'), null);
+  const ladder = root.querySelector('[data-ladder]');
+  assert.equal(ladder.querySelector('.ladder-team').textContent, '운영팀');
+  // Top to bottom on screen: 팀장, 팀장 준비 beside the climb, 직무전문가, 직무전문가 준비 beside the climb, 상담사.
+  assert.deepEqual([...ladder.querySelectorAll('[data-rung]')].map((e) => e.dataset.rung), ['tl', 'tlprep', 'sme', 'ready', 'agent']);
+  assert.deepEqual([...ladder.querySelectorAll('[data-rung].is-prep')].map((e) => e.dataset.rung), ['tlprep', 'ready']);
+  assert.equal(ladder.querySelector('[data-rung="agent"]').textContent, '상담사 · 지민 (지금)');
+  assert.equal(ladder.querySelector('[data-rung="agent"]').tagName, 'DIV');
+  for (const id of IDS) assert.equal(ladder.querySelector(`a[data-rung="${id}"]`).getAttribute('href'), `#${id}-0`, id);
+  assert.ok(ladder.querySelector('[data-rung="ready"]').classList.contains('is-done'));
+  assert.ok(!ladder.querySelector('[data-rung="sme"]').classList.contains('is-done'));
+  assert.equal(ladder.querySelector('[data-rung="tlprep"]').textContent.includes('팀장 준비'), true);
   const cards = [...root.querySelectorAll('.stage-card')];
   assert.deepEqual(cards.map((a) => a.getAttribute('href')), IDS.map((id) => `#${id}-0`));
-  assert.ok(cards[0].classList.contains('is-done'));
-  assert.ok(!cards[1].classList.contains('is-done'));
-  assert.deepEqual([...root.querySelectorAll('svg .stage-name')].map((t) => t.textContent), row(COPY, '원 안 짧은 이름').split(' · '));
-  assert.equal(root.querySelector('.ring-center text').textContent, '지민');
-  assert.equal(root.querySelector('.loop-note').textContent, `↺ ${SL_UI.loop.ko}`);
   assert.equal(root.querySelector('[data-track-hint]'), null);
 });
 
@@ -157,24 +167,26 @@ test('the team-lead ring is unchanged', () => {
   assert.equal(root.querySelector('h1').textContent, '상담사 라이프사이클');
 });
 
-test('a lesson counts out of five, says Agent checkpoint, and the last one leads to the list', () => {
-  const first = openLesson('sme');
-  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 5');
-  assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), '#qa-0');
+test('a lesson counts out of four, says Agent checkpoint, climbs the ladder, and the last one leads to the list', () => {
+  const first = openLesson('ready');
+  assert.equal(first.querySelector('.eyebrow').textContent, '1 / 4');
+  assert.equal(first.querySelector('[data-next-lesson]').getAttribute('href'), '#sme-0');
   assert.ok(first.textContent.includes(SL_UI.checkpoint.ko));
-  assert.equal(openLesson('ready').querySelector('[data-next-lesson]').getAttribute('href'), '#home');
+  assert.equal(openLesson('sme').querySelector('[data-next-lesson]').getAttribute('href'), '#tlprep-0');
+  assert.equal(openLesson('tlprep').querySelector('[data-next-lesson]').getAttribute('href'), '#tl-0');
+  assert.equal(openLesson('tl').querySelector('[data-next-lesson]').getAttribute('href'), '#home');
   assert.equal(openLesson('tl', 3).querySelector('[data-persona] text').textContent, '지민');
 });
 
 test('stale addresses open the list', () => {
-  for (const hash of ['#home', '#golive-3', '#trainee-0', '', '#nope']) assert.deepEqual(parseRoute(hash, IDS), { view: 'home' }, hash);
+  for (const hash of ['#home', '#golive-3', '#trainee-0', '#qa-0', '#trainer-1', '', '#nope']) assert.deepEqual(parseRoute(hash, IDS), { view: 'home' }, hash);
   const route = parseRoute('#tl-99', IDS);
   assert.equal(route.id, 'tl');
   const { root } = setupDom();
-  renderLesson(root, SL_LESSONS[3], route.step, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 5, text: SL_UI });
+  renderLesson(root, SL_LESSONS[3], route.step, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 4, text: SL_UI });
   assert.ok(root.querySelector('.eyebrow'));
   const en = setupDom();
-  renderLesson(en.root, SL_LESSONS[3], route.step, 'en', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 5, text: SL_UI });
+  renderLesson(en.root, SL_LESSONS[3], route.step, 'en', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 4, text: SL_UI });
   assert.ok(en.root.querySelector('.eyebrow'));
   assert.ok(!/[가-힣]/.test(en.root.textContent));
 });
@@ -208,11 +220,11 @@ const EN = existsSync(EN_FILE) ? readFileSync(EN_FILE, 'utf8') : '';
 const PARSED_EN = lessonsOf(EN);
 
 test('the course passes the rules with English required', () => {
-  assert.deepEqual(validateCourse(SL_LESSONS, { requireEnglish: true, lessonCount: 5, loop: false, figure: SL_FIGURE }), []);
+  assert.deepEqual(validateCourse(SL_LESSONS, { requireEnglish: true, lessonCount: 4, loop: false, figure: SL_FIGURE }), []);
 });
 
 test('the English is the English copy, word for word', () => {
-  assert.equal(PARSED_EN.length, 5);
+  assert.equal(PARSED_EN.length, 4);
   SL_LESSONS.forEach((l, i) => {
     const c = PARSED_EN[i];
     assert.equal(l.title.en, c.title, l.id);
@@ -242,13 +254,13 @@ test('course and lesson-screen words match the English copy', () => {
   assert.equal(SL_UI.courseTagline.en, en('Course intro'));
   assert.equal(SL_UI.homeCard.en, en('Home card'));
   assert.equal(SL_UI.listNote.en, en('Figures note'));
-  assert.equal(SL_UI.personaName.en, en('Name in the ring'));
-  assert.equal(SL_UI.loop.en, en('Note under the ring'));
-  assert.deepEqual(SL_LESSONS.map((l) => l.short.en), en('Short names in the ring').split(' · '));
+  assert.equal(SL_UI.ladder.team.en, en('Top of the ladder'));
+  assert.equal(SL_UI.ladder.here.en, en('Agent step'));
+  assert.deepEqual(SL_LESSONS.map((l) => l.short.en), en('Ladder step names').split(' · '));
   for (const k of ['home', 'checkpoint', 'connection', 'nextLesson', 'toList', 'done']) assert.equal(SL_UI[k], SME_UI[k], k);
 });
 
-test('the English ring and lessons have no Korean left', () => {
+test('the English ladder and lessons have no Korean left', () => {
   const { root } = setupDom();
   renderHome(root, SL_LESSONS, { completed: [] }, 'en', SL_UI);
   assert.ok(!/[가-힣]/.test(root.textContent), root.textContent);
@@ -256,7 +268,7 @@ test('the English ring and lessons have no Korean left', () => {
   for (const l of SL_LESSONS) assert.ok(!/[가-힣]/.test(lessonText(l, 'en')), l.id);
 });
 
-test('the ring screen says the figures are examples', () => {
+test('the ladder screen says the figures are examples', () => {
   for (const lang of ['ko', 'en']) {
     const { root } = setupDom();
     renderHome(root, SL_LESSONS, { completed: [] }, lang, SL_UI);
@@ -268,13 +280,30 @@ test('the ring screen says the figures are examples', () => {
 });
 
 // ---------- final-review fixes (2026-11-26, approved "추천대로") ----------
-test('the intro says the four roles are separate paths, not a ladder, and team leaders usually come through the SME role', () => {
-  assert.ok(SL_UI.courseTagline.ko.includes('네 자리는 꼭 차례대로 거치는 사다리가 아니라 각자 다른 길입니다. 팀장은 대개 직무전문가를 거쳐 갑니다.'));
+test('the intro describes the operations-team ladder and keeps the example label', () => {
+  assert.ok(SL_UI.courseTagline.ko.includes('운영팀에서 한 단계씩 오르는 길'));
   assert.ok(SL_UI.courseTagline.ko.includes('1년쯤(예시)'));
-  assert.ok(SL_UI.courseTagline.en.includes("The four roles are not a ladder you must climb in order; each is its own path. Team leaders usually get there through the SME role."));
+  assert.ok(SL_UI.courseTagline.en.includes('the path up the operations team'));
 });
 
-test('lesson 5 says 징계, not 처벌', () => {
+// 2026-11-26: the QA and trainer paths are hidden from the course, the ladder and its words.
+test('QA and trainer paths are hidden everywhere in the visible course', () => {
+  assert.ok(!SL_LESSONS.some((l) => l.id === 'qa' || l.id === 'trainer'));
+  const visible = [SL_UI.courseTagline, SL_UI.homeCard].flatMap((v) => [v.ko, v.en]).join(' ')
+    + SL_LESSONS.map((l) => lessonText(l, 'ko') + lessonText(l, 'en')).join(' ');
+  for (const word of ['도현', '유나', 'Dohyun', 'Yuna', '트레이너의 일', 'QA의 일을']) assert.ok(!visible.includes(word), word);
+  assert.ok(!/QA ·|· QA|Trainer ·|트레이너 ·/.test(SL_UI.homeCard.ko + SL_UI.homeCard.en));
+});
+
+test("the team leader prep lesson follows the user's five priorities in order", () => {
+  const l = SL_LESSONS.find((x) => x.id === 'tlprep');
+  assert.deepEqual(l.procedure.map((id) => l.diagram.nodes.find((n) => n.id === id).label.ko), ['근태·태도', '깨끗한 기록', '피플 매니지먼트', '코칭', '백업 지표']);
+  assert.equal(l.checkpoint[0].options.find((o) => o.id === l.checkpoint[0].answer).text.ko, '근태와 태도');
+  // Harassment is never handled alone: record it and pass it on through the company process.
+  assert.ok(l.checkpoint[1].options.find((o) => o.id === l.checkpoint[1].answer).text.ko.includes('인사 담당'));
+});
+
+test('the SME prep lesson says 징계, not 처벌', () => {
   const ready = SL_LESSONS.find((l) => l.id === 'ready');
   assert.ok(!lessonText(ready, 'ko').includes('처벌'));
   assert.ok(lessonText(ready, 'ko').includes('징계를 받은 기록'));
@@ -286,7 +315,16 @@ test('the quoted interview answer carries no example label inside the quotes', (
 });
 
 test('the QA lesson does not assume agents can replay their own recordings', () => {
-  const qa = SL_LESSONS.find((l) => l.id === 'qa');
+  const qa = QA_HIDDEN;
   assert.ok(qa.steps[6].caption.ko.includes('들을 수 있다면'), qa.steps[6].caption.ko);
   assert.ok(qa.checkpoint[0].options.find((o) => o.id === 'b').text.ko.includes('가능하면'));
+});
+
+test('someone who finished the hidden QA and trainer lessons sees only the four ladder lessons counted', () => {
+  const s = fakeStorage({ 'agent-career:v1': JSON.stringify({ completed: ['sme', 'qa', 'trainer', 'tl', 'ready'] }) });
+  assert.deepEqual(pool(s).map((q) => q.key).filter((k) => /qa-q|trainer-q/.test(k)), []);
+  const { root } = setupDom();
+  renderHome(root, SL_LESSONS, { completed: ['sme', 'qa', 'trainer', 'tl', 'ready'] }, 'ko', SL_UI);
+  assert.deepEqual([...root.querySelectorAll('[data-ladder] a.is-done')].map((a) => a.dataset.rung), ['tl', 'sme', 'ready']);
+  for (const a of root.querySelectorAll('[data-ladder] a')) assert.equal(a.getAttribute('tabindex'), '-1');
 });

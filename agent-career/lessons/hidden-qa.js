@@ -1,7 +1,7 @@
 import { tx, node, edge, step, option } from '../../agent-lifecycle/js/lessons/build.js';
 
-// 상담사 커리어 라이프사이클, lesson 2. Approved copy: docs/superpowers/specs/2026-11-26-agent-career-copy-ko.md (2026-11-26).
-// Four stages run down one column, like the other ring courses.
+// 상담사 커리어 라이프사이클, lesson 5. Approved copy: docs/superpowers/specs/2026-11-26-agent-career-copy-ko.md (2026-11-26).
+// Hidden since 2026-11-26 (QA and trainer paths are off the list). If shown again, check its connection text: it still names the next lesson of the old order.
 const wide = (n) => ({ ...n, hw: 76 });
 
 const procedure = ["work", "skills", "prepare", "selection"];
@@ -9,7 +9,7 @@ const flow = ["work", "skills", "prepare", "selection", "work-skills", "skills-p
 
 export default {
   id: "qa",
-  order: 2,
+  order: 0,
   title: tx("QA", "QA"),
   short: tx("QA", "QA"),
   subtitle: tx("상담의 품질을 같은 기준으로 잽니다.", "Measure contact quality against the same standard."),
@@ -59,5 +59,5 @@ export default {
       explanation: tx("같은 상담에 평가하는 사람마다 다른 점수가 나오면 아무도 점수를 믿지 않습니다. 캘리브레이션이 그 차이를 줄입니다.", "If the same contact gets different scores from different people, no one trusts the scores. Calibration closes that gap."),
     },
   ],
-  connection: { to: "trainer", text: tx("QA가 품질을 재는 사람이라면, 처음부터 바르게 배우도록 가르치는 사람도 있습니다. 다음은 트레이너 유나를 만납니다.", "If QA measures quality, someone also teaches people to learn it right from the start. Next, meet Yuna the trainer.") },
+  connection: { to: "home", text: tx("QA가 품질을 재는 사람이라면, 처음부터 바르게 배우도록 가르치는 사람도 있습니다. 다음은 트레이너 유나를 만납니다.", "If QA measures quality, someone also teaches people to learn it right from the start. Next, meet Yuna the trainer.") },
 };

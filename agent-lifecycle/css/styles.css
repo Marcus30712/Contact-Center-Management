@@ -258,3 +258,22 @@ p { margin: 0; }
 /* A lesson opened from the situation guide: which situation, above its "then go here". */
 .connection .guide-from { margin: 12px 0 6px; font-size: 0.88rem; color: var(--muted); }
 .connection [data-guide-then] + [data-next-lesson] { margin-top: 8px; }
+
+/* Ladder home (상담사 커리어 라이프사이클, 2026-11-26): roles bottom to top, prep steps beside each climb. */
+.ladder-wrap { margin: 0 auto; width: 100%; max-width: 420px; display: flex; flex-direction: column; align-items: stretch; }
+.ladder-team { margin: 0 0 10px; text-align: center; font-weight: 800; letter-spacing: 0.04em; color: var(--accent); }
+.ladder-step { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border: 2px solid var(--accent); border-radius: 12px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.ladder-step.is-role, .ladder-step.is-here { width: 50%; }
+.ladder-step.is-here { border-style: dashed; border-color: var(--line); justify-content: center; font-weight: 600; font-size: 14px; text-align: center; }
+.ladder-step.is-done { background: var(--accent-soft); }
+a.ladder-step:hover { background: var(--accent-soft); }
+.ladder-num { font-weight: 800; color: var(--accent); }
+.ladder-name { font-weight: 700; flex: 1; }
+.ladder-done { color: var(--accent); font-weight: 800; }
+.ladder-climb { display: flex; align-items: center; min-height: 60px; }
+.ladder-arrow { width: 50%; flex: none; text-align: center; color: var(--line); font-size: 18px; position: relative; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+/* the line from the climb out to its prep step */
+.ladder-arrow::after { content: ''; position: absolute; left: 50%; right: 0; top: 50%; border-top: 2px dashed var(--signal); margin-left: 14px; }
+.ladder-step.is-prep { flex: 1; min-width: 0; padding: 8px 10px; border-width: 1.5px; border-color: var(--signal); font-size: 13.5px; }
+.ladder-step.is-prep .ladder-num { color: var(--ink); }
+@media (max-width: 360px) { .ladder-step { padding: 10px; font-size: 14px; } .ladder-step.is-prep { font-size: 13px; padding: 7px 8px; } }
