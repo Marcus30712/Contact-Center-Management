@@ -26,7 +26,7 @@ Glossary "One-on-One Coaching" definition (one sentence added after the two exis
 | Item | English |
 |---|---|
 | Now | Time a team lead spends with one team member, based on performance data and real contacts. They name what went well and agree on the behavior to improve. |
-| After | Time a team lead spends with one team member, based on performance data and real contacts. They name what went well and agree on the behavior to improve. It differs from feedback, which points out one action on the spot, and from a compliance check, which looks at whether rules were followed. |
+| After | Time a team leader spends with one team member, based on performance data and real contacts. They name what went well and agree on the behavior to improve. It differs from feedback, which points out one action on the spot, and from a compliance check, which looks at whether rules were followed. |
 
 ## ② Codex daily work: Look back on my week
 
@@ -59,7 +59,7 @@ Steps:
 3. The first step is listening (Example: first 30 days). Do not change things right away; meet each team member one on one and ask what is going well now and what is hard.
 4. Watch the rules and instructions you inherited first, and understand why they are done that way. Change them without knowing why, and the team feels the new leader does not know the floor.
 5. With your assistant manager, agree first on what they expect of a team leader and how far you can decide on your own.
-6. The second step is agreeing on standards (Example: days 31 to 60). Talk with the team to set the standards it will keep together, such as attendance, quality and how to ask for help, and say clearly that they apply to everyone the same way.
+6. The second step is agreeing on standards (Example: days 31 to 60). Within company rules, talk with the team to set the standards it will keep together, such as how to report attendance issues, quality and how to ask for help, and say clearly that they apply to everyone the same way.
 7. The closer the colleague, the more care it takes. Shield Haeun, your closest colleague, or treat her harder on purpose, and the whole team feels things are not fair.
 8. The third step is acting and checking (Example: days 61 to 90). Run one-on-one coaching and team huddles on a set rhythm, and change the procedures you want to change one at a time, after talking them over with the team.
 9. When you make a mistake, own it first. When a new team leader hides mistakes, the team starts hiding theirs too.
@@ -89,7 +89,7 @@ Connection text:
 | Place | English |
 |---|---|
 | Calibration → this SOP | There is one more procedure a team leader runs directly. The next lesson, From Colleague to Team Leader, covers your first 90 days leading the colleagues you worked beside. |
-| This SOP → onboarding | These are the six procedures a team leader runs directly. From here on, the procedures are ones several teams run together. The first is new hire onboarding. |
+| This SOP → onboarding | These are the six procedures a team leader runs or takes part in. From here on, the procedures are ones several teams run together. The first is new hire onboarding. |
 | New project launch → list (last connection) | These are the ten SOPs. A procedure is not finished once it is written; it is a document you revise at every retrospective. |
 | Home card description | Learn ten procedures a team leader needs to know, step by step: escalation, scrubbing, 1:1 coaching, PIP, calibration, from colleague to team leader, onboarding, large-scale issue response, developing existing agents, new project launch. |
 
@@ -99,4 +99,4 @@ Connection text:
 |---|---|
 | s18 | You now lead the colleagues you used to work beside |
 | Look here first | TL SOP · From Colleague to Team Leader |
-| Then go here | Codex one-pager ④ A team lead's day |
+| Then go here | Codex one-pager ④ Daily Guide by Role · Team leader |

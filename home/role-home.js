@@ -7,7 +7,7 @@ import { GUIDE_CARD, LEARN } from './data.js';
 
 export const HOME_COPY = {
   soonMark: { ko: '준비 중', en: 'Coming soon' },
-  soonText: { ko: '준비 중이에요. 그동안 Codex에서 {직급}의 역할과 하루를 먼저 볼 수 있어요.', en: 'Coming soon. Meanwhile, see the {role} role and day in the Codex.' },
+  soonText: { ko: '준비 중이에요. 그동안 Codex에서 {직급}의 역할과 하루를 먼저 볼 수 있어요.', en: 'Coming soon. Meanwhile, the Codex shows the {role} role and a day in it.' },
   soonCareer: { ko: '커리어 매트릭스 →', en: 'Career matrix →' },
   soonDaily: { ko: '직무별 하루 →', en: 'Day by role →' },
   guideTitle: { ko: '어디서부터 볼까요? · {직급} 상황별 길잡이', en: 'Where to start? · {role} Situation Guide' },

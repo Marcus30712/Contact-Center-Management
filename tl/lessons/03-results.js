@@ -25,7 +25,7 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 팀원마다 최근 기록을 모아, 숫자가 어떻게 움직여 왔는지 보는 것입니다. 한 달의 점수보다 몇 달의 흐름이 더 많은 것을 알려 줍니다.", "This lesson is about gathering each team member's recent records and seeing how their numbers have moved. A few months of trend tell you more than one month's score."), flow, procedure, null),
-    step(tx("첫 단계는 기록 모으기입니다. 최근 6개월(예시)의 티켓 처리 건수, 처리 시간(AHT), 고객 만족도(CSAT), 품질 점수를 팀원별로 모읍니다.", "The first stage is gathering records. Collect each person's ticket volume, handling time (AHT), customer satisfaction (CSAT) and quality scores for the last 6 months (Example)."), flow, ["gather"], null),
+    step(tx("첫 단계는 기록 모으기입니다. 최근 6개월(예시)의 티켓 처리 건수, 평균 처리 시간(AHT), 고객 만족도(CSAT), 품질 점수를 팀원별로 모읍니다.", "The first stage is gathering records. Collect each person's ticket volume, average handle time (AHT), customer satisfaction (CSAT) and quality scores for the last 6 months (Example)."), flow, ["gather"], null),
     step(tx("둘째 단계는 추세 보기입니다. 숫자가 꾸준한지, 오르는지, 떨어지는지 봅니다. 지민의 CSAT가 석 달째(예시) 내려가고 있다면, 그 시작 시점에 무슨 일이 있었는지가 단서입니다.", "The second stage is reading the trend. See whether the numbers are steady, rising or falling. If Jimin's CSAT has been dropping for three months (Example), what happened when it started is a clue."), flow, ["trend"], null),
     step(tx("숫자 하나만 보지 않습니다. 처리 건수가 많은데 품질 점수가 낮다면 서두르고 있을 수 있고, 처리 시간이 긴데 CSAT가 높다면 꼼꼼하게 응대하고 있을 수 있습니다.", "Don't look at one number alone. High volume with low quality may mean rushing, and long handling time with high CSAT may mean careful service."), flow, ["trend"], null),
     step(tx("셋째 단계는 함께 읽기입니다. QA 도현에게 품질 점수가 왜 그렇게 나왔는지, 자주 감점된 항목이 무엇인지 듣습니다. 점수의 이유는 점수를 매긴 사람이 가장 잘 압니다.", "The third stage is reading it together. Ask Dohyun from QA why the quality scores came out as they did and which items lose points most often. The person who gave the scores knows best why they are what they are."), flow, ["together"], null),
@@ -39,7 +39,7 @@ export default {
       prompt: tx("준호의 처리 건수는 팀에서 가장 많은데 품질 점수는 평균보다 낮습니다. 먼저 할 일은 무엇일까요?", "Junho handles the most tickets on the team, but his quality score is below average. What do you do first?"),
       options: [
         option("a", tx("처리 건수가 많으니 우수 사원으로 적어 둔다.", "Note him down as a top performer, since his volume is high."), tx("한 숫자만 보면 품질이 떨어지는 이유를 놓칩니다.", "Looking at one number alone misses why quality is slipping.")),
-        option("b", tx("QA에게 감점된 항목을 듣고, 실제 응대를 들어 볼 질문으로 메모한다.", "Hear from QA which items lost points, and note questions to check by listening to his actual contacts.")),
+        option("b", tx("QA에게 감점된 항목을 듣고, 실제 응대를 들으며 확인할 질문을 메모한다.", "Hear from QA which items lost points, and note questions to check by listening to his actual contacts.")),
         option("c", tx("품질 점수가 낮으니 바로 코칭 대상으로 정한다.", "His quality score is low, so put him on the coaching list right away."), tx("이유를 모른 채 코칭하면 엉뚱한 곳을 고치게 됩니다.", "Coaching without knowing why fixes the wrong thing.")),
       ],
       answer: "b",

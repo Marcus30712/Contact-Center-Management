@@ -100,7 +100,7 @@ test('Seojun in lesson 2, Junho in lesson 4, Jimin everywhere else', () => {
     assert.equal(by(id).personaName, undefined, id);
     assert.ok(lessonText(by(id), 'ko').includes('지민'), id);
   }
-  assert.ok(!SME_LESSONS.some((l) => lessonText(l, 'ko').includes('도윤')), 'Doyun belongs to the PIP SOP');
+  assert.ok(!SME_LESSONS.some((l) => lessonText(l, 'ko').includes('우진')), 'Woojin belongs to the PIP SOP');
 });
 
 test('every box sits inside the picture and none overlap', () => {

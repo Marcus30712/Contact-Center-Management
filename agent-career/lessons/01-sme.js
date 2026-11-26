@@ -29,7 +29,7 @@ export default {
     step(tx("지민은 이제 웬만한 문의는 혼자 처리합니다. 처음에 늘 묻던 하린에게, 오늘은 반대로 하린의 일을 묻기로 했습니다.", "Jimin now handles most contacts on her own. Today, instead of asking Harin a question as she always did, she asks Harin about her work."), flow, [], null),
     step(tx("첫 단계는 하는 일입니다. 직무전문가는 팀의 지식 허브입니다. 상담사가 막히는 문의를 채팅이나 플로어 서포트로 돕고, 신입의 OJT와 네스팅을 곁에서 지원합니다.", "The first stage is the work. The SME is the team's knowledge hub. They help agents with contacts they're stuck on through chat or floor support, and stay close to new hires through OJT and nesting."), flow, ["work"], null),
     step(tx("자주 들어오는 질문과 고객의 소리(VOC)를 모아 원인을 찾고, 팀장에게 보고서로 전합니다. 팀장이 자리를 비우면 팀장 업무 일부를 대신 맡기도 합니다.", "They gather frequent questions and the voice of the customer (VOC), find the causes, and report them to the team leader. When the team leader is away, they cover part of the team leader's work."), flow, ["work"], null),
-    step(tx("둘째 단계는 필요한 역량입니다. 제품과 시스템을 깊이 아는 것은 기본이고, VOC를 분석해 보고서로 쓰는 힘이 필요합니다. 동료를 가르치는 코칭과 문제를 차근차근 푸는 분석적 사고도 필요합니다.", "The second stage is the skills needed. Knowing the products and systems in depth is the baseline, plus the ability to analyze VOC and write it up as a report. Coaching peers and working through problems step by step matter too."), flow, ["skills"], null),
+    step(tx("둘째 단계는 필요한 역량입니다. 제품과 시스템을 깊이 아는 것은 기본이고, VOC를 분석해 보고서로 쓰는 힘이 필요합니다. 동료를 가르치는 코칭과 문제를 차근차근 푸는 분석적 사고도 필요합니다.", "The second stage is the skills needed. Knowing the products and systems in depth is the baseline, plus the ability to analyze VOC and write it up as a report. Coaching peers and analytical thinking, working through problems step by step, matter too."), flow, ["skills"], null),
     step(tx("셋째 단계는 지금부터 준비하기입니다. 내가 자주 막혔던 문의와 그 답을 정리해 둡니다. 나중에 같은 곳에서 막히는 동료를 돕는 자료가 됩니다.", "The third stage is preparing now. Keep a note of the contacts you often got stuck on, with their answers. It becomes material for helping peers who get stuck in the same place."), flow, ["prepare"], null),
     step(tx("옆자리 동료가 물어 오면 답만 주지 않고 어디서 찾는지도 함께 알려 줍니다. 묻는 사람을 돕는 경험이 직무전문가의 일과 가장 닮았습니다.", "When the colleague next to you asks, don't just give the answer; show where to find it too. Helping someone who asks is the closest thing to an SME's work."), flow, ["prepare"], null),
     step(tx("넷째 단계는 뽑을 때 더 보는 것입니다. 직무전문가를 뽑을 때는 제품 지식과 함께 평소 동료를 얼마나 도왔는지를 봅니다. 팀장과 하린에게 이미 \"물어보면 잘 알려 주는 사람\"으로 알려져 있으면 유리합니다.", "The fourth stage is what else they look for. When choosing an SME, they look at product knowledge and how much you've helped peers. It helps if the team leader and Harin already know you as \"the one who explains things well.\""), flow, ["selection"], null),
@@ -38,7 +38,7 @@ export default {
   checkpoint: [
     {
       id: "sme-q1",
-      prompt: tx("직무전문가가 되고 싶은 지민이 지금 할 수 있는 일로 가장 알맞은 것은 무엇일까요?", "Jimin wants to become an SME. What fits best as something she can do now?"),
+      prompt: tx("직무전문가가 되고 싶은 지민이 지금 할 수 있는 일로 가장 알맞은 것은 무엇일까요?", "What's the best thing Jimin, who wants to become an SME, can do now?"),
       options: [
         option("a", tx("다른 상담사의 실수를 찾아 팀장에게 알린다.", "Find other agents' mistakes and report them to the team leader."), tx("실수를 찾아 알리는 일은 품질 평가에 가깝고, 동료의 믿음을 잃기 쉽습니다. 직무전문가의 핵심은 돕는 것입니다.", "Finding and reporting mistakes is closer to quality scoring, and it easily costs peers' trust. The heart of an SME's work is helping.")),
         option("b", tx("자주 막히는 문의를 정리하고, 동료가 물어 오면 찾는 방법까지 함께 알려 준다.", "Write up the contacts people often get stuck on, and when a peer asks, show them how to find the answer too.")),

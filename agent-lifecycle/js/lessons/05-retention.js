@@ -22,7 +22,7 @@ export default {
   steps: [
     step(tx('시간이 흘러 지민은 팀에서 믿고 맡기는 상담사가 되었습니다. 그런데 요즘 말수가 줄었습니다. 이 단계의 일은 번아웃을 예방하고 장기 근속을 이끄는 것입니다.', 'Time has passed, and Jimin is an agent the team relies on. Lately, though, she has grown quiet. The work at this stage is to prevent burnout and encourage long tenure.'),
       ['stay'], ['stay'], 'stay'),
-    step(tx('첫째는 보상과 인센티브입니다. 우수 상담사 포상, 성과급, 프로모션 이벤트로 성취감을 줍니다.', 'The first lever is rewards and incentives. Awards for top agents, performance bonuses, and promotional events give a sense of achievement.'),
+    step(tx('첫째는 보상과 인센티브입니다. 우수 상담사 포상, 성과급, 프로모션 이벤트로 성취감을 줍니다.', 'The first lever is rewards and incentives. Awards for top agents, performance bonuses, and incentive contests give a sense of achievement.'),
       reward, ['reward', 'reward-stay'], 'stay'),
     step(tx('지민이 이달의 우수 상담사로 뽑힙니다. 기쁜 일입니다. 하지만 포상만으로 지친 마음까지 풀리지는 않습니다.', 'Jimin is named agent of the month. That is good news. But an award alone does not ease a tired mind.'),
       reward, ['reward'], 'stay'),
@@ -75,7 +75,7 @@ export default {
     id: 'retention-general-2',
     prompt: tx('악성 민원 콜이 이어진 날, 일반 고객지원 팀원 여럿이 지쳐 보입니다. 어떻게 할까요?', 'After a day of abusive calls, several people on the general support team look worn out. What do you do?'),
     options: [
-      option('a', tx('근무 뒤 짧게 모여 힘들었던 콜을 이야기하고, 심리 상담 프로그램(EAP)을 안내한다.', 'Gather briefly after the shift to talk through the hard calls, and point people to the employee assistance program (EAP).')),
+      option('a', tx('근무 시간 안에 짧게 모여 힘들었던 콜을 이야기하고, 심리 상담 프로그램(EAP)을 안내한다.', 'Gather briefly during working hours to talk through the hard calls, and point people to the employee assistance program (EAP).')),
       option('b', tx('다들 겪는 일이니 내일 다시 하자고 한다.', 'Everyone goes through it, so say you will start fresh tomorrow.'), tx('다들 겪는 일이라며 넘기면 그날의 피로가 다음 날로 쌓입니다.', 'Brushing it off as something everyone goes through lets the day’s fatigue pile into the next.')),
       option('c', tx('가장 지친 사람만 따로 불러 실적 이야기를 한다.', 'Call in only the most exhausted person and talk about performance.'), tx('지친 날 실적 이야기를 꺼내면 케어가 아니라 압박으로 받아들여집니다.', 'Raising performance on an exhausting day lands as pressure, not care.')),
     ],

@@ -25,12 +25,12 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 실전 배치 뒤 혼자 받는 콜을, 긴장한 상태에서도 끝까지 해내는 순서를 익히는 것입니다.", "This lesson is about learning the order that gets you through a call on your own after Go Live, even when you're nervous."), flow, procedure, null),
-    step(tx("지민은 오늘부터 정식 팀입니다. 첫 콜 신호가 울리자 손이 떨리고, 배운 것이 하나도 생각나지 않는 것 같습니다.", "From today Jimin is on the regular team. When the first call rings, her hands shake and it feels like she remembers nothing."), flow, [], null),
+    step(tx("지민은 수료하고 오늘부터 정식 팀에서 일합니다. 네스팅 때처럼 곁에서 봐 주는 사람 없이 혼자 받는 첫 콜이 울리자, 손이 떨리고 배운 것이 하나도 생각나지 않는 것 같습니다.", "Jimin has graduated, and from today she's on the regular team. When her first call without nesting support rings, her hands shake and it feels like she remembers nothing."), flow, [], null),
     step(tx("첫 단계는 준비입니다. 근무가 시작되면 바로 받을 수 있도록 도구에 로그인하고, 지식 베이스와 자주 쓰는 화면을 열어 둡니다. 물 한 잔도 챙깁니다.", "The first stage is preparing. Log in to your tools so you're ready to take contacts as your shift starts, and open the knowledge base and the screens you use most. Get a glass of water too."), flow, ["prepare"], null),
     step(tx("둘째 단계는 인사입니다. 정해진 인사말을 천천히 말합니다. 첫 문장이 안정되면 나머지도 따라옵니다.", "The second stage is the greeting. Say the set greeting slowly. Once the first sentence is steady, the rest follows."), flow, ["greet"], null),
     step(tx("셋째 단계는 확인입니다. 본인 확인을 하고, 고객이 원하는 것을 내 말로 한 번 되짚습니다. 잘못 알아들은 채 시작하면 통화가 길어집니다.", "The third stage is confirming. Check the customer's identity, then repeat back what they want in your own words. Starting on a misunderstanding makes the call longer."), flow, ["confirm"], null),
     step(tx("넷째 단계는 마무리입니다. 안내한 내용을 짧게 정리하고 더 필요한 것이 있는지 묻습니다. 통화가 끝나면 상담 기록을 바로 남깁니다.", "The fourth stage is wrapping up. Sum up what you told them and ask whether they need anything else. When the call ends, write the contact notes right away."), flow, ["wrapup"], null),
-    step(tx("처음에는 평균 처리 시간이 길게 나옵니다. 정확하게 안내하는 것이 먼저이고, 속도는 익숙해지면서 따라옵니다.", "At first your average handling time will be long. Accuracy comes first; speed follows as you get used to it."), flow, ["wrapup"], null),
+    step(tx("처음에는 평균 처리 시간(AHT)이 길게 나옵니다. 정확하게 안내하는 것이 먼저이고, 속도는 익숙해지면서 따라옵니다.", "At first your average handle time (AHT) will be long. Accuracy comes first; speed follows as you get used to it."), flow, ["wrapup"], null),
     step(tx("실수했다면 숨기지 않고 바로 직무전문가 하린이나 팀장에게 알립니다. 빨리 알릴수록 바로잡기도 쉬워집니다.", "If you made a mistake, don't hide it; tell Harin the SME or your team leader right away. The sooner you tell, the easier it is to put right."), flow, ["wrapup"], null),
     step(tx("미소의 한마디: 첫 콜은 저도 무슨 말을 했는지 기억이 안 나요. 그래도 끝까지 해냈다는 것만으로 충분했어요.", "A word from Miso: I still can't remember what I said on my first call. Getting to the end was enough."), flow, ["wrapup"], null),
   ],
@@ -40,7 +40,7 @@ export default {
       prompt: tx("통화 중에 지민은 머리가 하얘져서 다음에 할 말이 생각나지 않습니다. 어떻게 할까요?", "Mid-call, Jimin's mind goes blank and she can't think what to say next. What should she do?"),
       options: [
         option("a", tx("침묵이 길어지지 않게 아무 말이나 이어 간다.", "Keep talking about anything so the silence doesn't drag on."), tx("확실하지 않은 말은 나중에 바로잡기 어렵습니다.", "Things said without certainty are hard to correct later.")),
-        option("b", tx("\"확인해 드리겠습니다\"라고 말하고 통화를 정해진 방법으로 대기로 돌린 뒤, 메모와 지식 베이스를 본다.", "Say \"Let me check that for you,\" put the call on hold the agreed way, then look at her notes and the knowledge base.")),
+        option("b", tx("\"확인해 드리겠습니다\"라고 말하고 정해진 방법으로 통화를 보류한 뒤, 메모와 지식 베이스를 본다.", "Say \"Let me check that for you,\" put the call on hold the agreed way, then look at her notes and the knowledge base.")),
         option("c", tx("바로 통화를 다른 상담사에게 넘긴다.", "Hand the call straight to another agent."), tx("넘길 일이 아니라 잠깐 확인할 시간이 필요한 상황입니다.", "This isn't a call to hand over; she just needs a moment to check.")),
       ],
       answer: "b",

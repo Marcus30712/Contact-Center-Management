@@ -25,7 +25,7 @@
 | hiring-tech-2.c | 용어를 아는 것과 고객이 따라 할 수 있게 설명하는 것은 다른 능력입니다. | Knowing the terms and explaining so a customer can follow along are different skills. |
 | onboarding-q1.a | 시험 점수는 아는 것을 보여 줄 뿐, 통화하면서 입력하는 손이 준비됐다는 뜻은 아닙니다. | A test score shows what she knows; it does not mean her hands are ready to type while she talks. |
 | onboarding-q1.c | 실전에서 익히라고 하면 첫 고객들이 입력 누락과 늦어진 응대를 그대로 겪게 됩니다. | Leaving it to the job means her first customers live with the missed entries and slower service. |
-| onboarding-general.a | 교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 투입만 늦어집니다. | A longer training period still will not make the whole range of policy memorable; it only delays going live. |
+| onboarding-general.a | 교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 배치만 늦어집니다. | A longer training period still will not make the whole range of policy memorable; it only delays going live. |
 | onboarding-general.c | 준비 없이 실전에서 배우게 하면 틀린 안내가 고객에게 그대로 전해집니다. | Learning on the job without preparation passes wrong information straight to customers. |
 | onboarding-tech.a | 해결했더라도 기록이 한 줄뿐이면, 같은 고객이 다시 연락했을 때 다음 담당자가 처음부터 다시 물어야 합니다. | Even when it is solved, a one-line record means the next agent has to ask everything again if the customer comes back. |
 | onboarding-tech.c | 나중에 몰아서 쓰면 확인한 내용과 순서를 잊어 기록이 부정확해집니다. | Writing records up in a batch later means forgetting what was checked and in what order, so the records become inaccurate. |
@@ -48,10 +48,10 @@
 | coaching-general.a | 친절했어도 틀린 안내는 고객이 다시 문의하게 만들기 때문에 넘어갈 수 없습니다. | However courteous, wrong information makes the customer call back, so it cannot be let go. |
 | coaching-general.c | 틀린 점만 지적하면 지민이 잘하는 공감 표현까지 줄어들 수 있습니다. | Pointing out only the mistake can make Jimin cut back on the empathy she does well. |
 | coaching-tech.a | 해결 시간이 짧아도 같은 문의가 다시 들어온다면, 해결되지 않은 채 닫힌 것입니다. | If the same issue comes back, a short resolution time means the ticket was closed without being solved. |
-| coaching-tech.c | 원인을 모른 채 에스컬레이션만 늘리면 상위 단계의 부담만 커지고 지민의 진단 능력은 그대로입니다. | Escalating more without knowing the cause only adds to the load on higher tiers, and Jimin’s diagnosis skills stay where they are. |
+| coaching-tech.c | 원인을 모른 채 에스컬레이션만 늘리면 상위 단계의 부담만 커지고, 그 팀원의 진단 능력은 그대로입니다. | Escalating more without knowing the cause only adds to the load on higher tiers, and that agent’s diagnosis skills stay where they are. |
 | coaching-general-2.a | 한쪽 점수를 따르면 기준은 맞춰지지 않고, 다음 평가에서도 같은 차이가 생깁니다. | Going with one score leaves the standards unaligned, and the same gap appears in the next evaluation. |
 | coaching-general-2.b | 평균을 내면 숫자는 하나가 되지만, 무엇을 고쳐야 하는지는 여전히 알 수 없습니다. | Averaging gives you one number, but it still does not say what needs to change. |
-| coaching-tech-2.a | 비율만 낮추라고 하면 넘겨야 할 티켓까지 붙잡게 될 수 있습니다. | Telling her only to lower the rate can make her hold on to tickets she should pass on. |
+| coaching-tech-2.a | 비율만 낮추라고 하면 넘겨야 할 티켓까지 붙잡게 될 수 있습니다. | Telling them only to lower the rate can make them hold on to tickets they should pass on. |
 | coaching-tech-2.c | 비율을 공개해 비교하면 원인은 찾지 못한 채 부담만 커집니다. | Publishing and comparing rates adds pressure without finding the cause. |
 | retention-q1.a | 바로 다음 콜을 받게 하면 충격이 그대로 다음 고객에게 이어지고, 지민은 보호받지 못했다고 느낍니다. | Sending her straight to the next call carries the shock over to the next customer, and Jimin feels unprotected. |
 | retention-q1.c | 판단을 따져 물으면 지민은 다음에 선끊기 권한을 쓰기를 망설이게 됩니다. | Questioning her judgment makes Jimin hesitate to use her authority to hang up first next time. |

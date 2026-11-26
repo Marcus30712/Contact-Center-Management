@@ -50,7 +50,7 @@ export default {
       flow, ['analyze'], 'analyze'),
     step(tx('이때 GROW 모델을 씁니다. 목표(Goal), 현실(Reality), 대안(Options), 실행 의지(Will)의 순서로 묻는 대화의 틀입니다.', 'This is where you use the GROW model. It is a framework for the conversation that asks, in order, about the Goal, the Reality, the Options, and the Will to act.'),
       [...flow, ...grow], ['analyze', ...grow], 'analyze'),
-    step(tx('질문은 이렇게 합니다. "데이터를 보니 이 부분에서 시간이 길어지는데, 왜 그렇다고 생각해요?" "어떤 상황에서 가장 힘든가요?"', 'The questions sound like this. "Looking at the data, the time gets longer at this point, so why do you think that is?" "Which situations are the hardest for you?"'),
+    step(tx('질문은 이렇게 합니다. "데이터를 보니 이 부분에서 시간이 길어지는데, 왜 그렇다고 생각해요?" "어떤 상황에서 가장 힘든가요?"', 'The questions sound like this. "Looking at the data, your time runs long at this point; why do you think that is?" "Which situations are the hardest for you?"'),
       [...flow, ...grow], ['analyze', ...grow], 'analyze'),
     step(tx('지민이 답합니다. 고객 정보를 확인하느라 화면을 여러 번 오가는 데 시간이 걸린다고 합니다. 당신이 먼저 짚었다면 나오지 않았을 구체적인 원인입니다.', 'Jimin answers. She says she loses time going back and forth between screens to check customer details. It is a specific cause that would not have come out if you had named the problem first.'),
       [...flow, ...grow], ['analyze'], 'analyze'),
@@ -69,7 +69,7 @@ export default {
       prompt: tx('원인 분석 단계에서 지민에게 건넬 말로 알맞은 것은 무엇일까요?', 'Which is the right thing to say to Jimin in the find-the-cause step?'),
       options: [
         option('a', tx('"통화가 긴 이유는 확인 절차가 느려서예요. 고치세요."', '"Your calls are long because your checks are slow. Fix that."'), tx('원인을 먼저 정해 주면 지민은 이유를 스스로 생각해 볼 기회를 잃고, 해결책도 남의 것이 됩니다.', 'Naming the cause for her takes away Jimin’s chance to think it through, and the fix becomes someone else’s.')),
-        option('b', tx('"데이터를 보니 이 부분에서 시간이 길어지는데, 왜 그렇다고 생각해요?"', '"Looking at the data, the time gets longer at this point, so why do you think that is?"')),
+        option('b', tx('"데이터를 보니 이 부분에서 시간이 길어지는데, 왜 그렇다고 생각해요?"', '"Looking at the data, your time runs long at this point; why do you think that is?"')),
         option('c', tx('"다른 팀원들은 이만큼 걸리지 않아요."', '"The rest of the team does not take this long."'), tx('다른 팀원과 비교하면 방어적으로 되기 쉽고, 시간이 길어지는 진짜 이유는 이야기되지 않습니다.', 'Comparing her with teammates tends to make her defensive, and the real reason the time runs long never comes up.')),
       ],
       answer: 'b',

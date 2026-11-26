@@ -40,7 +40,7 @@ export default {
       options: [
         option("a", tx("\"환불 문서 내용이 이상합니다.\"", "\"The refund article looks wrong.\""), tx("무엇이 틀렸는지 담당자가 다시 찾아야 해서 반영이 늦어집니다.", "The owner has to find out what is wrong, which slows the fix.")),
         option("b", tx("\"환불 문서 3번 항목의 신청 기간을 14일에서 7일로: 고객사 공지와 관련 티켓 2건 첨부\"", "\"Refund article item 3: claim period from 14 days to 7 days; client notice and 2 related tickets attached\"")),
-        option("c", tx("권한이 없어도 동료 계정으로 문서를 직접 고친다.", "Fix the article yourself with a colleague's account, even without permission."), tx("검토 없이 고친 문서는 팀 전체의 안내를 한 번에 바꿉니다. 정해진 경로로 요청합니다.", "An article changed without review changes the whole team's answers at once. Use the agreed channel.")),
+        option("c", tx("편집 권한이 있으니 검토 없이 바로 고친다.", "You have edit access, so fix it yourself right away without review."), tx("검토 없이 고친 문서는 팀 전체의 안내를 한 번에 바꿉니다. 정해진 경로로 요청합니다.", "An article changed without review changes the whole team's answers at once. Use the agreed channel.")),
       ],
       answer: "b",
       explanation: tx("요청에는 문서, 틀린 곳, 바른 내용, 근거를 적습니다.", "A request names the article, what's wrong, the right content and the source."),

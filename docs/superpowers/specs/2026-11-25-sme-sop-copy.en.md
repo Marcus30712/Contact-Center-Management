@@ -25,7 +25,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 짧은 이름 | Approval |
 | 부제 | Check what came in, approve it if it's in scope, and pass it on if not. |
 | 누가 | Agent → SME → Team leader |
-| 노드 | Check the request · Judge the scope · Approve or handle · Hand to the lead · Keep a record |
+| 노드 | Check the request · Judge the scope · Approve or handle · Hand to the TL · Keep a record |
 
 스텝:
 
@@ -84,12 +84,12 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 |---|---|
 | 1번 질문 | In what order should you pick today's tickets to scrub? |
 | 보기 a (오답) | Shortest handling time first |
-| a 피드백 | Tickets that ended quickly usually have no problem. Causes show up first in tickets where the customer was unhappy. |
+| a 피드백 | Handling time doesn't tell you whether the customer was satisfied. Causes show up first in tickets where the customer was unhappy. |
 | 보기 b (정답) | DSAT, CSAT, then unresolved |
 | 보기 c (오답) | Tickets from agents you know well first |
 | c 피드백 | Picking by person makes you look at people instead of causes, and it isn't fair. |
 | 해설 | Start with tickets where the customer was unhappy, so the causes to fix come out first. |
-| 2번 질문 | A DSAT from a late refund turns out to have been caused by an outage in the client's payment system. How do you classify it, and where does it go? |
+| 2번 질문 | A DSAT from a late refund: the agent's explanation was correct, and the cause was an outage in the client's payment system. How do you classify it, and where does it go? |
 | 보기 a (오답) | The customer was angry, so treat it as an agent handling issue and add it to the trend summary. |
 | a 피드백 | The agent explained it correctly. Sending a cause that isn't the agent's behavior to coaching won't fix it. |
 | 보기 b (정답) | Classify it as a cause the BPO can't control, and pass it to the client through the VOC report. |
@@ -135,7 +135,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | a 피드백 | Separate lines hide that it's a team-wide problem. |
 | 보기 b (정답) | Group it as a team-wide trend, suggest it as a huddle topic, and if the cause is a document, request a knowledge base update too. |
 | 보기 c (오답) | Warn each of the five. |
-| c 피드백 | Cautions and warnings are the team leader's call. When several people make the same mistake, the cause may lie in a document or training rather than the people. |
+| c 피드백 | Formal cautions and warnings are the team leader's call. When several people make the same mistake, the cause may lie in a document or training rather than the people. |
 | 해설 | When several people make the same mistake, look at the cause before the people. |
 | 다음 레슨 연결 | Supporting the team leader isn't only summaries. When the team leader is away, you also check attendance. |
 
@@ -151,12 +151,12 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 
 스텝:
 
-1. This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the lead's behalf and flags staffing gaps quickly.
+1. This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the team leader's behalf and flags staffing gaps quickly.
 2. The first step is confirming the cover. Confirm with Sujin in advance whether you're covering today, where absence calls will come in, and when to report.
 3. The second step is checking attendance. At the start of the shift, match the schedule against actual logins and find who is missing.
-4. When someone calls to say they'll be late or absent, take down the time and the reason as given. Don't judge whether the reason is valid.
+4. When someone calls to say they'll be late or absent, take down the time and the reason as given. Don't judge whether the reason is valid, and don't probe into or write down details of health or other personal matters.
 5. The third step is recording the facts. Write the arrival time, whether they called, and the reason in the attendance sheet, as they are. Don't leave anything out or change it.
-6. The fourth step is flagging gaps. If absences leave you short, tell the RTA right away so the queue can be protected.
+6. The fourth step is flagging gaps. If absences leave you short, tell the RTA and Sujin right away so the queue can be protected.
 7. Send Sujin the attendance results at the agreed time. Warnings, attendance actions and schedule changes are for the team leader to decide.
 
 체크포인트:
@@ -193,7 +193,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 
 1. This procedure exists so the whole team explains a client's policy or promotion update to customers on the same day, in the same words.
 2. In the afternoon, the client sent a notice changing the refund period. It takes effect tomorrow.
-3. The first step is understanding it. Check what changes, from when, and for whom. Ask the client contact or Sujin about anything unclear before the huddle.
+3. The first step is understanding it. Check what changes, from when, and for whom. Before the huddle, ask Sujin, or the client contact through the agreed channel, about anything unclear.
 4. The second step is preparing the wording. Sum up the change in three lines or fewer, and write what agents should say to customers and answers to likely questions.
 5. The third step is running the huddle. In a short huddle before the shift (Example: 5 minutes), share the change, the wording and when it takes effect. Leave the same content in writing for agents on other shifts.
 6. Note any question you can't answer on the spot, and answer it once you've checked. If you guess, the whole team will explain it wrong.
@@ -237,7 +237,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 3. The second step is scoring alone. Before seeing anyone else's score, score it yourself against the scorecard and write down why.
 4. The third step is explaining the floor. On items where scores differ, explain what the agent could see on screen at that moment and which tools they used.
 5. The SME is not there to take the agents' side. The SME is there to share the floor's reality so the standard fits it.
-6. The fourth step is passing on the standard. If the agreed standard changes, tell agents first at the huddle and in the team chat, before they are scored on it.
+6. The fourth step is passing on the standard. If the agreed standard changes, agree with the team leader and tell agents first at the huddle and in the team chat, before they are scored on it. When QA's official summary comes out, share that too.
 7. Pass on a changed standard with one example. Showing "this is how to do it now" lets agents follow it right away.
 
 체크포인트:
@@ -297,7 +297,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | a 피드백 | If it drops out, the client assumes it's solved. |
 | 보기 b (정답) | Raise it again with the figures from the last report to show the change, and discuss priority with the team leader. |
 | 보기 c (오답) | Contact the client directly and complain. |
-| c 피드백 | Communication with the client goes through the team leader and the agreed channel. Reaching out alone sends the same story down several paths and causes confusion. |
+| c 피드백 | Raising issues with the client goes through the team leader and the agreed channel. Complaining on your own sends the same story down several paths and causes confusion. |
 | 해설 | Track a VOC topic you sent until it changes. |
 | 다음 레슨 연결 | If VOC changes the client, the last procedure changes the documents the team reads every day. |
 
@@ -329,7 +329,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 a (오답) | "The refund article looks wrong." |
 | a 피드백 | The owner has to find out what is wrong, which slows the fix. |
 | 보기 b (정답) | "Refund article item 3: claim period from 14 days to 7 days; client notice and 2 related tickets attached" |
-| 보기 c (오답) | Fix the article yourself with a colleague's account, even without permission. |
+| 보기 c (오답) | You have edit access, so fix it yourself right away without review. |
 | c 피드백 | An article changed without review changes the whole team's answers at once. Use the agreed channel. |
 | 해설 | A request names the article, what's wrong, the right content and the source. |
 | 2번 질문 | You sent a request, but the article isn't fixed yet. What do you do meanwhile? |

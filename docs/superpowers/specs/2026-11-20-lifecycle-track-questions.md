@@ -40,10 +40,10 @@
 | onboarding-tech-2.explanation | 기술지원은 제품이 바뀌면 알아야 할 내용도 바뀝니다. 모든 내용을 외우게 하기보다, 지식 자료를 찾아 확인하는 습관을 교육 단계에서 길러 줍니다. | In tech support, when the product changes, what agents need to know changes too. Rather than memorizing everything, build the habit of looking things up in the knowledge base during training. |
 | nesting-general-2.prompt | 네스팅 둘째 주, 지민은 단순 조회와 안내 문의를 실수 없이 처리합니다. 다음은 어떻게 할까요? | In the second week of nesting, Jimin handles simple lookups and information requests without mistakes. What next? |
 | nesting-general-2.a | 바로 모든 유형의 문의를 맡긴다. | Give her every type of inquiry at once. |
-| nesting-general-2.b | 변경 문의부터 범위를 넓히고, 멘토가 계속 들으며 지원한다. | Widen her range starting with change requests, with a mentor still listening in to support her. |
+| nesting-general-2.b | 변경 문의부터 범위를 넓히고, 직무전문가가 계속 들으며 지원한다. | Widen her range starting with change requests, with the SME still listening in to support her. |
 | nesting-general-2.c | 실수가 없으니 지금 유형만 계속 맡긴다. | She makes no mistakes, so keep her on the same types. |
 | nesting-general-2.answer | b | b |
-| nesting-general-2.explanation | 일반 고객지원은 쉬운 유형부터 차례로 넓힙니다. 한 번에 모든 유형을 맡기면 막히는 순간이 몰립니다. 범위를 넓힐 때도 플로어 워킹 지원은 이어 갑니다. | General support widens from easy types in order. Handing over every type at once piles up the moments she gets stuck. Floor walking support continues as the range widens. |
+| nesting-general-2.explanation | 일반 고객지원은 쉬운 유형부터 차례로 넓힙니다. 한 번에 모든 유형을 맡기면 막히는 순간이 몰립니다. 범위를 넓힐 때도 플로어 서포트는 이어 갑니다. | General support widens from easy types in order. Handing over every type at once piles up the moments she gets stuck. Floor support continues as the range widens. |
 | nesting-tech-2.prompt | 기술지원 네스팅 중인 지민이 원인을 찾아보기도 전에 티켓을 곧바로 상위 단계로 넘기는 일이 잦습니다. 어떻게 할까요? | During tech support nesting, Jimin often passes tickets straight to a higher tier before looking for the cause. What do you do? |
 | nesting-tech-2.a | 넘기기 전에 해 볼 확인 단계와 넘기는 기준을 함께 다시 짚어 준다. | Go over with her the checks to try before passing a ticket on, and the criteria for passing it. |
 | nesting-tech-2.b | 넘기는 것을 금지하고 혼자 해결하게 한다. | Ban passing tickets on and make her solve them alone. |
@@ -56,14 +56,14 @@
 | coaching-general-2.c | 캘리브레이션에서 공감과 정책 안내를 각각 어떻게 볼지 기준을 맞춘다. | In calibration, agree how to score empathy and policy information separately. |
 | coaching-general-2.answer | c | c |
 | coaching-general-2.explanation | 평가자마다 기준이 다르면 상담사는 무엇을 고쳐야 할지 알 수 없습니다. 일반 고객지원은 정책 정확도와 공감을 함께 보므로, 두 항목의 채점 기준을 캘리브레이션으로 맞춥니다. | If each evaluator uses a different standard, agents cannot tell what to fix. General support looks at both policy accuracy and empathy, so calibration aligns how each is scored. |
-| coaching-tech-2.prompt | 지민의 에스컬레이션 비율이 팀에서 가장 높습니다. 코칭에서 무엇부터 할까요? | Jimin’s escalation rate is the highest on the team. What do you start with in coaching? |
-| coaching-tech-2.a | 비율을 낮추라고만 말한다. | Just tell her to bring the rate down. |
-| coaching-tech-2.b | 넘긴 티켓 몇 건을 함께 보며 진단 과정의 어디에서 멈췄는지 찾는다. | Go through a few of the tickets she passed on and find where her diagnosis stopped. |
-| coaching-tech-2.c | 다른 팀원과의 비율을 공개해 비교한다. | Publish everyone’s rate so she can compare. |
+| coaching-tech-2.prompt | 팀원 한 명의 에스컬레이션 비율이 팀에서 가장 높습니다. 코칭에서 무엇부터 할까요? | One team member’s escalation rate is the highest on the team. What do you start with in coaching? |
+| coaching-tech-2.a | 비율을 낮추라고만 말한다. | Just tell them to bring the rate down. |
+| coaching-tech-2.b | 넘긴 티켓 몇 건을 함께 보며 진단 과정의 어디에서 멈췄는지 찾는다. | Go through a few of the tickets they passed on and find where the diagnosis stopped. |
+| coaching-tech-2.c | 다른 팀원과의 비율을 공개해 비교한다. | Publish everyone’s rate so they can compare. |
 | coaching-tech-2.answer | b | b |
 | coaching-tech-2.explanation | 숫자는 무엇이 문제인지가 아니라 어디를 봐야 하는지를 알려 줍니다. 실제 티켓으로 진단 과정을 짚어야 구체적인 개선 방법이 나옵니다. | A number tells you where to look, not what the problem is. Walking through real tickets is what turns up a specific way to improve. |
 | retention-general-2.prompt | 악성 민원 콜이 이어진 날, 일반 고객지원 팀원 여럿이 지쳐 보입니다. 어떻게 할까요? | After a day of abusive calls, several people on the general support team look worn out. What do you do? |
-| retention-general-2.a | 근무 뒤 짧게 모여 힘들었던 콜을 이야기하고, 심리 상담 프로그램(EAP)을 안내한다. | Gather briefly after the shift to talk through the hard calls, and point people to the employee assistance program (EAP). |
+| retention-general-2.a | 근무 시간 안에 짧게 모여 힘들었던 콜을 이야기하고, 심리 상담 프로그램(EAP)을 안내한다. | Gather briefly during working hours to talk through the hard calls, and point people to the employee assistance program (EAP). |
 | retention-general-2.b | 다들 겪는 일이니 내일 다시 하자고 한다. | Everyone goes through it, so say you will start fresh tomorrow. |
 | retention-general-2.c | 가장 지친 사람만 따로 불러 실적 이야기를 한다. | Call in only the most exhausted person and talk about performance. |
 | retention-general-2.answer | a | a |

@@ -268,9 +268,10 @@ test('the ring screen says the figures are examples', () => {
 });
 
 // ---------- final-review fixes (2026-11-26, approved "추천대로") ----------
-test('the intro says the four roles are separate paths, not a ladder', () => {
-  assert.ok(SL_UI.courseTagline.ko.includes('네 자리는 순서대로 거치는 길이 아니라 서로 다른 길입니다.'));
-  assert.ok(SL_UI.courseTagline.en.includes('The four roles are separate paths, not steps to climb in order.'));
+test('the intro says the four roles are separate paths, not a ladder, and team leaders usually come through the SME role', () => {
+  assert.ok(SL_UI.courseTagline.ko.includes('네 자리는 꼭 차례대로 거치는 사다리가 아니라 각자 다른 길입니다. 팀장은 대개 직무전문가를 거쳐 갑니다.'));
+  assert.ok(SL_UI.courseTagline.ko.includes('1년쯤(예시)'));
+  assert.ok(SL_UI.courseTagline.en.includes("The four roles are not a ladder you must climb in order; each is its own path. Team leaders usually get there through the SME role."));
 });
 
 test('lesson 5 says 징계, not 처벌', () => {

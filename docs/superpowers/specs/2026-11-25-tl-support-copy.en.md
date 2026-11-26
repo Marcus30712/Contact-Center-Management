@@ -9,7 +9,7 @@ Same sections and order as the Korean file. US English.
 | Place | English |
 |---|---|
 | Course title | TL Support Lifecycle |
-| Course intro | Learn how a team leader supports each role on the team: agents, SMEs, QA and trainers. For each role, see what to hand over, what to get back and when to step in. |
+| Course intro | Learn how a team leader supports each role they work with: agents, SMEs, QA and trainers. For each role, see what to hand over, what to get back and when to step in. |
 | Home card | The support procedure a team leader follows for each role, from agents to SMEs, QA and trainers. |
 | Figures note | Periods, counts and frequencies in the lessons are examples and may differ from center to center. |
 | Name in the ring | Team leader |
@@ -32,10 +32,10 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson looks at how a team leader supports agents in four stages: handing over, getting back, helping and stepping in. One agent's growth over time is covered by The Agent Lifecycle, so this lesson is about the support you give every week.
 2. The first stage is handing over. Tell Jimin clearly what goals and role you expect of her. Without knowing what good looks like, an agent can't find their own way.
-3. The second stage is getting back. What you get from agents isn't only numbers. Hear the floor's stories, such as what customers often ask and what makes work awkward, in regular one-on-ones (Example: every two weeks).
+3. The second stage is getting back. What you get from agents isn't only numbers. Hear the floor's stories, such as what customers often ask and what makes work awkward, in regular one-on-ones (Example: at the weekly score review).
 4. The third stage is helping. Give coaching, praise, and the tools and materials they need. For someone new like Seojun, stay closer together with the SME.
 5. Strong performers need support too. Give long-serving people like Jimin chances to grow, such as new work or a buddy role.
-6. The fourth stage is stepping in. When the same problem keeps coming back, or there is an attendance or conduct issue, the team leader steps in directly. If coaching doesn't solve it, follow the performance improvement plan (PIP) procedure.
+6. The fourth stage is stepping in. When the same problem keeps coming back, or there is an attendance or conduct issue, the team leader steps in directly. If coaching doesn't fix a performance problem, follow the performance improvement plan (PIP); for attendance or conduct, follow the center's attendance rules and HR procedure.
 7. The sooner you step in, the smaller it stays. Put it off for a few weeks and a small habit becomes a big problem.
 8. You don't help every agent the same way. The personal notes you made in TL First Steps tell you who needs what.
 
@@ -75,7 +75,7 @@ Same sections and order as the Korean file. US English.
 3. The second stage is getting back. Get the weekly trend summary, attendance results and each member's stage from Harin on agreed days. Use the summary straight away in that week's coaching plan.
 4. The third stage is helping. SMEs tend to try to hold out alone when requests pile up. At busy times, the team leader helps support the floor or adjusts staffing with the RTA.
 5. Help the SME grow too. If Harin wants to become a team leader, give her a little of that work at a time, such as running a meeting or planning for new hires.
-6. The fourth stage is stepping in. Matters the SME passes up, such as attendance, performance actions and approvals outside policy, are decided by the team leader. Tell Harin the outcome of approval calls so she knows what to do if it happens again, and keep attendance or performance actions between you and the agent.
+6. The fourth stage is stepping in. Matters the SME passes up, such as attendance, performance actions and approvals outside policy, are decided by the team leader. Tell Harin the outcome of approval calls so she knows what to do if it happens again, and keep attendance or performance actions between you, the agent and only those who must know, such as your assistant manager or HR.
 7. Don't use the SME as a mini team leader. Handing over evaluation and action breaks the relationship between the SME and the agents.
 
 체크포인트:
@@ -92,7 +92,7 @@ Same sections and order as the Korean file. US English.
 | 2번 질문 | Harin tells you an agent keeps coming in late. What fits? |
 | 보기 a (오답) | Tell Harin to warn the agent. |
 | a 피드백 | Attendance action is the team leader's job. Passing it to the SME breaks her relationship with the agents. |
-| 보기 b (정답) | Check it yourself, take action, and tell Harin only that you have taken it over. |
+| 보기 b (정답) | Check it yourself, take action, and tell Harin only that you have taken it over and handled it. |
 | 보기 c (오답) | It's Harin's report, so act right away without checking. |
 | c 피드백 | The team leader has to check the facts directly for the action to be fair. |
 | 해설 | Matters passed up to you are checked and decided by the team leader directly. |
@@ -150,10 +150,10 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson looks at how a team leader works with trainers to shape new-hire and refresher training to fit the floor.
 2. The first stage is handing over. Ask Yuna the trainer for the training your team needs, with evidence. Attaching cases, such as "12 wrong explanations on refund contacts this month (Example)," makes the training goal clear.
-3. The second stage is getting back. Get new hires' training records, completion assessments and the types to watch in nesting from Yuna, and share them with the SME.
+3. The second stage is getting back. Get new hires' training records, the types to watch in nesting and graduation assessments from Yuna, and share them with the SME.
 4. The third stage is helping. Tell her when training material and the floor's way differ, and find real cases and recordings for training. Cases from the floor keep training alive.
 5. What happens after training matters more. Check with the SME whether what was learned is used on the floor, and tell Yuna the results.
-6. The fourth stage is stepping in. If a new hire isn't ready, decide with Yuna whether to hold back completion for extra training or to extend nesting after it. Don't force someone onto the floor because you're short of people.
+6. The fourth stage is stepping in. If a new hire isn't ready, decide with Yuna to hold back graduation, and whether to extend nesting or add extra training. Don't force someone onto the floor because you're short of people.
 7. The trainer is responsible for the classroom, the team leader for the floor. New hires stay longer when both see them through the same eyes.
 
 체크포인트:
@@ -167,10 +167,10 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | "Please add more to the next class's training." |
 | c 피드백 | Training the next class won't fix the problems of the people on your team now. |
 | 해설 | Ask for training with cases that show what needs learning and why. |
-| 2번 질문 | You're short of people, and a new hire about to complete training isn't ready yet. What do you do? |
-| 보기 a (오답) | You need people, so put them on the regular team right away, without nesting. |
+| 2번 질문 | You're short of people, and a new hire about to graduate from nesting isn't ready yet. What do you do? |
+| 보기 a (오답) | You need people, so let them graduate on schedule and put them on the regular team right away. |
 | a 피드백 | Putting someone on the floor before they're ready is hard on both customers and the new hire, who may well leave. |
-| 보기 b (정답) | Decide with the trainer whether to hold back completion for extra training or extend nesting after it. |
+| 보기 b (정답) | Decide with the trainer to hold back graduation, and whether to extend nesting or add extra training. |
 | 보기 c (오답) | Tell the new hire to study more on their own. |
 | c 피드백 | Left alone, they keep getting stuck in the same places, and time passes without knowing what is missing. |
 | 해설 | Get a new hire who isn't ready prepared with the trainer before putting them on the floor. |

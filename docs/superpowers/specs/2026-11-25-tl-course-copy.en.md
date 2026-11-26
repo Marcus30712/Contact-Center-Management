@@ -36,7 +36,7 @@ Same sections and order as the Korean file. US English.
 6. The fourth stage is the first plan. Decide how to help each team member, get the operating direction from your assistant manager, and plan for the whole team. Lessons 6 and 7 cover this.
 7. You don't do this alone. The records and observations of Harin the SME, Dohyun from QA and Yuna the trainer, who have watched the team most closely, help a great deal.
 8. Don't rush big changes in the first few weeks. Changing things before you understand them can shake what was working well.
-9. On day one, greet the team briefly and tell them you will talk with each person over the next few weeks. They are curious too about what the new team leader will do.
+9. On day one, greet the team briefly and tell them you will talk with each person over the next few weeks. They are also curious about what the new team leader will do.
 
 체크포인트:
 
@@ -50,11 +50,11 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | If you never change anything even after learning why, you miss chances to improve. Decide whether to change it after you understand it. |
 | 해설 | The first few weeks are for understanding, not changing. |
 | 2번 질문 | Which order fits getting to know the team? |
-| 보기 a (오답) | Team plan → know the people → individual results |
-| a 피드백 | A plan made without knowing the people and their results easily misses reality. |
+| 보기 a (오답) | Individual results → know the people → team contribution → first plan |
+| a 피드백 | Looking at numbers first misses the people and circumstances behind them. |
 | 보기 b (정답) | Know the people → individual results → team contribution → first plan |
-| 보기 c (오답) | Individual results → first plan → know the people |
-| c 피드백 | Planning from numbers alone misses the people and circumstances behind them. |
+| 보기 c (오답) | Team contribution → know the people → individual results → first plan |
+| c 피드백 | Starting with the whole team hides each person, and you can't see what drives the contribution. |
 | 해설 | Know the people first, look at results and contribution, then plan. |
 | 다음 레슨 연결 | Getting to know the team starts with each person. First, build the roster. |
 
@@ -110,7 +110,7 @@ Same sections and order as the Korean file. US English.
 스텝:
 
 1. This lesson is about gathering each team member's recent records and seeing how their numbers have moved. A few months of trend tell you more than one month's score.
-2. The first stage is gathering records. Collect each person's ticket volume, handling time (AHT), customer satisfaction (CSAT) and quality scores for the last 6 months (Example).
+2. The first stage is gathering records. Collect each person's ticket volume, average handle time (AHT), customer satisfaction (CSAT) and quality scores for the last 6 months (Example).
 3. The second stage is reading the trend. See whether the numbers are steady, rising or falling. If Jimin's CSAT has been dropping for three months (Example), what happened when it started is a clue.
 4. Don't look at one number alone. High volume with low quality may mean rushing, and long handling time with high CSAT may mean careful service.
 5. The third stage is reading it together. Ask Dohyun from QA why the quality scores came out as they did and which items lose points most often. The person who gave the scores knows best why they are what they are.
@@ -144,7 +144,7 @@ Same sections and order as the Korean file. US English.
 |---|---|
 | 제목 | Listening to Calls and Reading Tickets |
 | 짧은 이름 | Look closer |
-| 부제 | See the real way people work behind the numbers. |
+| 부제 | See how people really work behind the numbers. |
 | 노드 | Pick contacts · Listen and read · Find habits · Check the cause |
 
 스텝:
@@ -175,7 +175,7 @@ Same sections and order as the Korean file. US English.
 | 보기 b (정답) | Ask the trainer whether it was taught that way in training. |
 | 보기 c (오답) | Point out the mistake at the team huddle. |
 | c 피드백 | Pointing it out without knowing the cause makes agents feel they only did what they were taught. |
-| 해설 | When several people make the same mistake, check the cause before the people. |
+| 해설 | When several people make the same mistake, check the cause before the people. But if the wrong explanation is still reaching customers, share the correct one with the team right away. |
 | 다음 레슨 연결 | You've seen how each person works. Now widen the view to what this team has contributed to the whole project. |
 
 ## 레슨 5. Understanding the Team's Contribution
@@ -213,7 +213,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | A ranking of team members |
 | a 피드백 | A ranking shows only who is lowest, not what the team has done. |
 | 보기 b (정답) | Goals and results, strengths and gaps, and their causes |
-| 보기 c (오답) | Raw data for every metric over the last 6 months |
+| 보기 c (오답) | Raw data for every metric over the last 6 months (Example) |
 | c 피드백 | With only raw data, readers have to work out again what matters. |
 | 해설 | A summary should show results against goals, and why, at a glance. |
 | 다음 레슨 연결 | You can see the whole team now. Next, go back to one person at a time and decide how to help each. |
@@ -235,7 +235,7 @@ Same sections and order as the Korean file. US English.
 4. Jimin says that family matters have made night shifts hard lately. It lines up with when her CSAT started to drop. The reason behind the number comes from the person.
 5. Hear personal matters only as far as needed, and don't share them without Jimin's permission. If her shifts need changing, follow the agreed process.
 6. The third stage is comparing. Compare what they told you with the records and what you saw yourself. If they differ, don't decide which is right; keep watching.
-7. The fourth stage is personal notes. For each person, write strengths, where to help, what to try giving them, and when to check again. For example, give Junho a break from the new-hire buddy role until his habit of checking before closing is in place, and work on it with him.
+7. The fourth stage is personal notes. For each person, write strengths, where to help, what to try giving them, and when to check again. For example, Junho steps back from the new-hire buddy role until his habit of checking before closing is in place, and you work on it with him.
 8. The notes are a plan, not a label. Look at them again in a few weeks and fix what doesn't fit.
 
 체크포인트:
@@ -243,7 +243,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | What fits as the opening of a first one-on-one? |
-| 보기 a (오답) | "Looking at your last 6 months, there's a lot to improve." |
+| 보기 a (오답) | "Looking at your last 6 months (Example), there's a lot to improve." |
 | a 피드백 | Opening a first meeting with an evaluation makes people defensive, and they won't say what they really think. |
 | 보기 b (정답) | "This is a chance for us to get to know each other. I'd like to hear how work is going for you." |
 | 보기 c (오답) | "If there's nothing in particular, we'll keep it short." |
@@ -258,11 +258,11 @@ Same sections and order as the Korean file. US English.
 | 해설 | Protect personal matters, and take any needed action through the process. |
 | 다음 레슨 연결 | You've decided how to help each person. Last, take all of this to your assistant manager and set the direction for the whole team. |
 
-## 레슨 7. Getting Direction from Your AM or OM
+## 레슨 7. Getting Direction from Your Assistant Manager or Operation Manager
 
 | 항목 | English |
 |---|---|
-| 제목 | Getting Direction from Your AM or OM |
+| 제목 | Getting Direction from Your Assistant Manager or Operation Manager |
 | 짧은 이름 | Direction |
 | 부제 | Take what you've learned, get the operating direction and make your first plan. |
 | 노드 | Prepare the report · Hear the direction · First plan · Tell the team |
@@ -277,14 +277,14 @@ Same sections and order as the Korean file. US English.
 6. The third stage is the first plan. In line with the direction, decide what to do over the next month (Example). Write down whom to coach and how, what to change first across the team, and what to ask of the SME, QA and the trainer.
 7. Start the plan small. Trying to change everything at once wears out both the team and you. Start with the one or two biggest problems.
 8. The fourth stage is telling the team. At the team huddle, briefly share the direction ahead and the first goals. Don't single anyone out; just say where the team is heading together.
-9. A month later, meet Minseok again with the results. Understanding and planning, doing and checking keep turning in this order.
+9. A month later (Example), meet Minseok again with the results. Understanding and planning, doing and checking keep turning in this order.
 
 체크포인트:
 
 | 항목 | English |
 |---|---|
 | 1번 질문 | What should you take to your first meeting with your assistant manager? |
-| 보기 a (오답) | All the raw records for 15 team members |
+| 보기 a (오답) | All the raw records for 15 team members (Example) |
 | a 피드백 | With only raw records, you can't get across what matters in a short meeting. |
 | 보기 b (정답) | The one-page team summary and the priorities you see |
 | 보기 c (오답) | Nothing; just hear the direction first |

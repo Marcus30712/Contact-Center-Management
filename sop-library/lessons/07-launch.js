@@ -30,11 +30,11 @@ export default {
     ],
   },
   steps: [
-    step(tx('이 절차의 목적은 신규 클라이언트 프로젝트를 시작할 때 모든 단계를 표준화된 절차에 따라 빠짐없이 진행해 안정적인 출발을 보장하는 것입니다. 매니저, TA, T&D, WFM, HR이 함께 따릅니다. 네 단계로 진행합니다.', 'This procedure exists to guarantee a steady start for a new client project by taking every stage through a standard procedure with nothing missed. The OM, TA, T&D, WFM, and HR follow it together. It runs in four steps.'),
+    step(tx('이 절차의 목적은 신규 고객사 프로젝트를 시작할 때 모든 단계를 표준화된 절차에 따라 빠짐없이 진행해 안정적인 출발을 보장하는 것입니다. 매니저, 채용팀(TA), 교육팀(T&D), WFM, HR이 함께 따릅니다. 네 단계로 진행합니다.', 'This procedure exists to guarantee a steady start for a new client project by taking every stage through a standard procedure with nothing missed. The OM, Talent Acquisition (TA), Training and Development (T&D), WFM, and HR follow it together. It runs in four steps.'),
       flow, procedure, null),
-    step(tx('첫 단계는 계획 및 설계입니다(예시: 론칭 8주 전). 매니저가 클라이언트와 킥오프 미팅을 열고 주요 KPI와 서비스 범위(SOW)를 확정합니다.', 'The first step is planning and design (Example: 8 weeks before launch). The OM holds a kickoff meeting with the client and confirms the main KPIs and the scope of work (SOW).'),
+    step(tx('첫 단계는 계획 및 설계입니다(예시: 론칭 8주 전). 매니저가 고객사와 킥오프 미팅을 열고 주요 KPI와 서비스 범위(SOW)를 확정합니다.', 'The first step is planning and design (Example: 8 weeks before launch). The OM holds a kickoff meeting with the client and confirms the main KPIs and the scope of work (SOW).'),
       flow, ['plan'], null),
-    step(tx('WFM은 클라이언트가 준 데이터로 초기 인입량을 예측하고 필요한 상담 인력(FTE) 규모를 산정합니다. 이 숫자에 따라 매니저, TA, HR이 채용 계획과 일정을 세우고, T&D는 교육 커리큘럼 초안과 교육 일정을 준비합니다.', 'WFM forecasts the initial contact volume from the client\'s data and works out the number of agents (FTE) needed. From that number, the OM, TA, and HR set the hiring plan and timeline, and T&D prepares a draft curriculum and a training schedule.'),
+    step(tx('WFM은 고객사가 준 데이터로 초기 인입량을 예측하고 필요한 상담 인력(FTE) 규모를 산정합니다. 이 숫자에 따라 매니저, TA, HR이 채용 계획과 일정을 세우고, T&D는 교육 커리큘럼 초안과 교육 일정을 준비합니다.', 'WFM forecasts the initial contact volume from the client\'s data and works out the number of agents (FTE) needed. From that number, the OM, TA, and HR set the hiring plan and timeline, and T&D prepares a draft curriculum and a training schedule.'),
       flow, ['plan'], null),
     step(tx('둘째 단계는 인력 확보 및 교육입니다(예시: 론칭 6주 전). TA가 채용 공고, 서류 심사, 면접으로 필요한 인력을 확보하고, HR이 합격자와 근로 계약을 맺고 입사 절차를 안내합니다.', 'The second step is recruitment and training (Example: 6 weeks before launch). TA secures the people needed through job postings, application screening, and interviews, and HR signs employment contracts with those selected and guides them through joining.'),
       flow, ['staff'], null),
@@ -48,7 +48,7 @@ export default {
       flow, ['golive'], null),
     step(tx('QA인 지민과 T&D는 초기 상담 품질을 집중적으로 모니터링하고, 추가 교육이 필요한 부분을 찾아 빠르게 보충 교육을 진행합니다.', 'Jimin, now in QA, and T&D closely monitor the quality of the first contacts, find where more training is needed, and run follow-up training quickly.'),
       flow, ['golive'], 'golive'),
-    step(tx('매니저는 론칭 첫 달의 성과 데이터를 분석해 클라이언트와 첫 공식 비즈니스 리뷰 미팅을 열고, 운영 안정화 계획을 논의합니다.', 'The OM analyzes the performance data from the first month, holds the first formal business review with the client, and discusses the plan for stabilizing operations.'),
+    step(tx('매니저는 론칭 첫 달의 성과 데이터를 분석해 고객사와 첫 공식 비즈니스 리뷰 미팅을 열고, 운영 안정화 계획을 논의합니다.', 'The OM analyzes the performance data from the first month, holds the first formal business review with the client, and discusses the plan for stabilizing operations.'),
       [...flow, ...branch], ['golive', ...branch], null),
   ],
   checkpoint: [
@@ -68,7 +68,7 @@ export default {
       prompt: tx('론칭 직후 팀장인 당신의 역할은 무엇일까요?', 'Right after go-live, what is your role as the team leader?'),
       options: [
         option('a', tx('첫 달 성과 데이터가 나올 때까지 기다린다.', 'Wait until the first month\'s performance data comes in.'), tx('첫 달 데이터를 기다리는 동안, 현장에서 먼저 드러난 문제가 그대로 고객에게 전해집니다.', 'While you wait for first-month data, the problems that show up first on the floor go straight to customers.')),
-        option('b', tx('클라이언트와의 비즈니스 리뷰 미팅을 주관한다.', 'Lead the business review meeting with the client.'), tx('클라이언트 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다.', 'The client business review is the OM’s job; right after launch, the team leader belongs on the floor.')),
+        option('b', tx('고객사와의 비즈니스 리뷰 미팅을 주관한다.', 'Lead the business review meeting with the client.'), tx('고객사 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다.', 'The client business review is the OM’s job; right after launch, the team leader belongs on the floor.')),
         option('c', tx('매니저와 함께 초기 집중 관리 기간을 운영하며 현장을 밀착 지원한다.', 'Run the hyper-care period with the OM and support the floor closely.')),
       ],
       answer: 'c',

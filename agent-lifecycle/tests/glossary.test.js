@@ -255,7 +255,7 @@ test('OJT sits between training and nesting (user wording)', () => {
   const ojt = term('ojt');
   assert.equal(ojt.category, 'process');
   assert.equal(ojt.name.en, 'On-the-Job Training');
-  for (const w of ['Basic Training', 'Trainer', '직무전문가', '채널별']) assert.ok(ojt.definition.ko.includes(w), w);
+  for (const w of ['Basic Training', '트레이너', '직무전문가', '채널별']) assert.ok(ojt.definition.ko.includes(w), w);
   assert.ok(term('nesting').definition.ko.startsWith('OJT를 마친 신입이'));
 });
 
@@ -385,7 +385,7 @@ test('role cards carry the short name, and TL finds the team lead', async () => 
   const { readFileSync } = await import('node:fs');
   const doc = readFileSync(new URL('../../docs/superpowers/specs/2026-11-25-role-home-copy.md', import.meta.url), 'utf8').split(/^## 8\. /m)[1];
   const row = (label) => doc.split('\n').find((l) => l.startsWith(`| ${label} |`)).slice(1, -1).split(' | ').map((c) => c.trim());
-  for (const [id, label] of [['team-lead', 'Team Lead'], ['assistant-manager', 'Assistant Manager'], ['operation-manager', 'Operation Manager']]) {
+  for (const [id, label] of [['team-lead', 'Team Leader'], ['assistant-manager', 'Assistant Manager'], ['operation-manager', 'Operation Manager']]) {
     const t = TERMS.find((x) => x.id === id);
     assert.deepEqual(t.name, { ko: row(label)[1], en: row(label)[2] }, id);
   }

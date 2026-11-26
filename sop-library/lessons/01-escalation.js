@@ -43,7 +43,7 @@ export default {
       [...flow, ...branch], ['attempt', ...branch], 'attempt'),
     step(tx('이번 건은 지민의 권한으로 풀 수 없습니다. 셋째 단계는 에스컬레이션 안내입니다. 고객과 논쟁하는 대신, 상급자에게 전달하겠다고 정중하게 알립니다.', 'This one is beyond Jimin\'s authority. The third step is informing the customer about the escalation. Instead of arguing, she politely says she will pass the case to someone senior.'),
       [...flow, ...branch], ['inform'], 'inform'),
-    step(tx('지민은 이렇게 말합니다. "고객님, 더 나은 해결을 위해 상급 책임자에게 전달해 드리겠습니다. 잠시만 기다려 주시겠어요?"', 'Jimin says: "To find a better resolution, I will pass this to a senior colleague. Could you hold for a moment?"'),
+    step(tx('지민은 이렇게 말합니다. "고객님, 더 나은 해결을 위해 상급 책임자에게 전달해 드리겠습니다. 잠시만 기다려 주시겠어요?"', 'Jimin says: "To find a better resolution, I will pass this to someone more senior. Could you hold for a moment?"'),
       [...flow, ...branch], ['inform'], 'inform'),
     step(tx('넷째 단계는 즉시 알림입니다. 지민이 메신저나 구두로 당신에게 상황을 바로 알리고 도움을 요청합니다.', 'The fourth step is immediate notification. Jimin tells you what is happening right away, by chat or verbally, and asks for help.'),
       [...flow, ...branch], ['notify'], 'notify'),

@@ -1,6 +1,6 @@
 import { tx, node, edge, step, option, trackStep, trackQuestion } from './build.js';
 
-const ojt = ['grad', 'grad-ojt', 'ojt'];
+const ojt = ['verified', 'verified-ojt', 'ojt'];
 const base = [...ojt, 'ojt-nest', 'nest'];
 const walk = [...base, 'mentor', 'mentor-nest'];
 const all = [...walk, 'target', 'target-nest'];
@@ -8,36 +8,37 @@ const all = [...walk, 'target', 'target-nest'];
 export default {
   id: 'nesting',
   order: 3,
-  title: tx('실전 배치 및 네스팅', 'Go Live and Nesting'),
+  title: tx('OJT 및 네스팅', 'OJT and Nesting'),
   short: tx('네스팅', 'Nesting'),
   subtitle: tx('처음 실제 문의를 받는 적응기. 가장 많이 떠나는 시기입니다.', 'The first weeks on real contacts, when people are most likely to leave.'),
   diagram: {
     nodes: [
-      node('grad', '교육 수료', 58, 62, 'Training done'),
+      node('verified', '스킬 검증', 58, 62, 'Verified'),
       node('ojt', 'OJT', 58, 170, 'OJT'),
-      node('mentor', '플로어 워킹', 180, 48, 'Floor walking'),
+      node('mentor', '플로어 서포트', 180, 48, 'Floor support'),
       node('nest', '네스팅 그룹', 180, 120, 'Nesting group'),
       node('target', '목표치 완화', 180, 192, 'Relaxed targets'),
-      node('team', '정식 팀', 302, 120, 'Regular team'),
+      node('grad', '수료', 302, 120, 'Graduation'),
+      node('team', '실전 배치', 302, 196, 'Go Live'),
     ],
-    edges: [edge('grad', 'ojt'), edge('ojt', 'nest'), edge('mentor', 'nest'), edge('target', 'nest'), edge('nest', 'team')],
+    edges: [edge('verified', 'ojt'), edge('ojt', 'nest'), edge('mentor', 'nest'), edge('target', 'nest'), edge('nest', 'grad'), edge('grad', 'team')],
   },
   steps: [
-    step(tx('교육을 마친 지민이 처음으로 실제 고객의 문의를 받습니다. 이 적응기는 컨택센터에서 퇴사율이 가장 높은 시기입니다. 그래서 집중 관리가 필요합니다.', 'Training is over, and Jimin handles real customer contacts for the first time. This adjustment period has the highest attrition in a contact center. That is why it needs close attention.'),
-      ['grad'], ['grad'], 'grad'),
-    step(tx('첫 단계는 OJT(직무교육)입니다. Trainer와 직무전문가가 참관하는 가운데 실제 문의를 채널별로 경험해 봅니다.', 'The first step is OJT (on-the-job training). With a trainer and an SME observing, she handles real contacts in each channel.'),
-      ojt, ['ojt', 'grad-ojt'], 'ojt'),
-    step(tx('OJT를 마쳐도 곧바로 정식 팀에 넣지 않습니다. 별도의 집중 케어 그룹에서 먼저 문의를 받게 하는데, 이것이 네스팅입니다. 보통 1~2주 동안 운영합니다.', 'Even after OJT, she does not go straight into a regular team. She first takes contacts in a separate, closely supported group, which is called nesting. It usually runs for 1 to 2 weeks.'),
+    step(tx('스킬 검증을 통과한 지민이 처음으로 실제 고객의 문의를 받습니다. 이 적응기는 컨택센터에서 퇴사율이 가장 높은 시기입니다. 그래서 집중 관리가 필요합니다.', 'Jimin has passed skills verification and handles real customer contacts for the first time. This adjustment period has the highest attrition in a contact center. That is why it needs close attention.'),
+      ['verified'], ['verified'], 'verified'),
+    step(tx('첫 단계는 OJT(직무교육)입니다. 트레이너와 직무전문가가 참관하는 가운데 실제 문의를 채널별로 경험해 봅니다.', 'The first step is OJT (on-the-job training). With a trainer and an SME observing, she handles real contacts in each channel.'),
+      ojt, ['ojt', 'verified-ojt'], 'ojt'),
+    step(tx('OJT를 마쳐도 곧바로 정식 팀에 넣지 않습니다. 별도의 집중 케어 그룹에서 먼저 문의를 받게 하는데, 이것이 네스팅입니다. 운영 기간은 센터마다 다릅니다(예시: 1~2주).', 'Even after OJT, she does not go straight into a regular team. She first takes contacts in a separate, closely supported group, which is called nesting. How long it runs varies by center (Example: 1 to 2 weeks).'),
       base, ['nest', 'ojt-nest'], 'nest'),
     step(tx('네스팅에서 받은 콜입니다. 고객이 교육에서 다루지 않은 것을 묻습니다. 지민의 말이 멈춥니다.', 'A call during nesting. The customer asks about something training did not cover. Jimin goes silent.'),
       base, ['nest'], 'nest'),
-    step(tx('여기서 밀착 지원, 플로어 워킹이 움직입니다. 관리자나 선배 멘토가 옆에서 콜을 실시간으로 듣다가, 막히는 순간 채팅이나 귓속말 기능으로 바로 도와줍니다.', 'This is where floor walking comes in. A supervisor or senior mentor listens to the call live from close by and helps at once through chat or the whisper function when she gets stuck.'),
+    step(tx('여기서 밀착 지원인 플로어 서포트가 움직입니다. 직무전문가나 선임이 옆에서 콜을 실시간으로 듣다가, 막히는 순간 채팅이나 귓속말 기능으로 바로 도와줍니다.', 'This is where floor support comes in. An SME or a senior agent listens to the call live from close by and helps at once through chat or the whisper function when she gets stuck.'),
       walk, ['mentor', 'mentor-nest'], 'nest'),
-    step(tx('멘토의 귓속말을 듣고 지민은 콜을 끝까지 마칩니다. 혼자 무너진 첫 콜과 도움을 받아 끝낸 첫 콜은 전혀 다른 기억으로 남습니다.', 'With the mentor’s whisper in her ear, Jimin finishes the call. A first call that fell apart alone and a first call finished with help leave very different memories.'),
+    step(tx('직무전문가의 귓속말을 듣고 지민은 콜을 끝까지 마칩니다. 혼자 무너진 첫 콜과 도움을 받아 끝낸 첫 콜은 전혀 다른 기억으로 남습니다.', 'With the SME’s whisper in her ear, Jimin finishes the call. A first call that fell apart alone and a first call finished with help leave very different memories.'),
       walk, ['mentor', 'nest'], 'nest'),
     step(tx('혼자 해결하기 어려운 불만 문의도 만납니다. 이때 따르는 순서가 에스컬레이션입니다. 끝까지 듣고, 자기 권한 안에서 먼저 해결을 시도합니다.', 'She will also meet complaints she cannot resolve alone. The sequence to follow then is escalation. Listen to the end, and first try to resolve it within your own authority.'),
       walk, ['nest'], 'nest'),
-    step(tx('어렵다고 판단되면 고객과 논쟁하지 않고 상급자에게 전달하겠다고 정중히 안내합니다. 팀장에게 바로 알리고, 있었던 일을 사실대로 기록해 넘깁니다. 네스팅 기간에 이 순서를 몸에 익히게 합니다.', 'If that will not work, do not argue with the customer; tell them politely that you will pass it to a senior colleague. Notify the team leader right away, and record what happened factually before handing it over. Nesting is when this sequence becomes habit.'),
+    step(tx('어렵다고 판단되면 고객과 논쟁하지 않고 상급자에게 전달하겠다고 정중히 안내합니다. 팀장에게 바로 알리고, 있었던 일을 사실대로 기록해 넘깁니다. 네스팅 기간에 이 순서를 몸에 익히게 합니다.', 'If that will not work, do not argue with the customer; tell them politely that you will pass it to someone more senior. Notify the team leader right away, and record what happened factually before handing it over. Nesting is when this sequence becomes habit.'),
       walk, ['mentor', 'nest'], 'nest'),
     trackStep('general', tx('일반 고객지원에서는 쉬운 문의 유형부터 차례로 맡깁니다. 지민은 단순 조회와 안내 문의로 시작해, 익숙해지면 변경이나 불만 문의로 범위를 넓힙니다.', 'In general support, inquiry types are handed over from the easiest up. Jimin starts with simple lookups and information requests, then widens to changes and complaints as she gets comfortable.'),
       walk, ['nest'], 'nest'),
@@ -47,8 +48,8 @@ export default {
       all, ['target', 'target-nest'], 'nest'),
     step(tx('지민의 통화는 선배들보다 깁니다. 이때 "왜 이렇게 오래 걸려요?"라는 말을 들으면, 지민은 정확히 안내하는 법보다 빨리 끊는 법을 먼저 배웁니다.', 'Jimin’s calls run longer than her seniors’ calls. If she hears “Why is this taking so long?” now, she learns to end calls quickly before she learns to get them right.'),
       all, ['target'], 'nest'),
-    step(tx('네스팅을 마친 지민이 정식 팀으로 옵니다. 이제 팀장인 당신의 팀원입니다.', 'Nesting ends and Jimin joins a regular team. She is now on your team.'),
-      [...all, 'nest-team', 'team'], ['team', 'nest-team'], 'team'),
+    step(tx('네스팅이 끝나면 트레이너와 팀장이 함께 수료를 정합니다. 수료한 지민은 정식 팀에 실전 배치되어, 이제 다른 팀원들과 같은 기준으로 일합니다.', 'When nesting ends, the trainer and the team leader decide together on graduation. Having graduated, Jimin goes live on a regular team and from now on works to the same standard as everyone else.'),
+      [...all, 'nest-grad', 'grad', 'grad-team', 'team'], ['grad', 'nest-grad', 'team', 'grad-team'], 'team'),
   ],
   checkpoint: [{
     id: 'nesting-q1',
@@ -65,11 +66,11 @@ export default {
     prompt: tx('네스팅 중인 지민에게 아직 맡기지 않은 유형인 복잡한 불만 문의가 연결됐습니다. 어떻게 할까요?', 'During nesting, Jimin is connected to a complex complaint, a type not yet assigned to her. What do you do?'),
     options: [
       option('a', tx('좋은 경험이니 끝까지 혼자 하게 둔다.', 'It is good experience, so leave her to finish it alone.'), tx('준비되지 않은 유형을 혼자 맡기면 고객도 지민도 실패한 콜을 겪게 됩니다.', 'Leaving her alone with a type she is not ready for gives both the customer and Jimin a failed call.')),
-      option('b', tx('멘토가 옆에서 함께 처리하고, 그 유형은 준비된 뒤에 맡긴다.', 'Have the mentor handle it with her, and assign that type once she is ready.')),
+      option('b', tx('직무전문가가 옆에서 함께 처리하고, 그 유형은 준비된 뒤에 맡긴다.', 'Have the SME handle it with her, and assign that type once she is ready.')),
       option('c', tx('제대로 못 하면 지민의 실수로 기록한다.', 'If it goes badly, record it as Jimin’s mistake.'), tx('아직 맡기지 않은 유형에서 생긴 일은 지민의 실수가 아니라 배정의 문제입니다.', 'What happens on a type she has not been assigned yet is an assignment problem, not Jimin’s mistake.')),
     ],
     answer: 'b',
-    explanation: tx('문의 유형을 차례로 넓히는 것은 지민이 감당할 수 있는 범위에서 성공 경험을 쌓게 하려는 것입니다. 준비되지 않은 유형이 들어오면 멘토가 함께 처리합니다. 그 콜은 나중에 좋은 교육 자료가 됩니다.', 'Widening inquiry types in order lets Jimin build successes within what she can handle. When an unprepared type comes in, the mentor handles it together with her. That call later becomes good training material.'),
+    explanation: tx('문의 유형을 차례로 넓히는 것은 지민이 감당할 수 있는 범위에서 성공 경험을 쌓게 하려는 것입니다. 준비되지 않은 유형이 들어오면 직무전문가가 함께 처리합니다. 그 콜은 나중에 좋은 교육 자료가 됩니다.', 'Widening inquiry types in order lets Jimin build successes within what she can handle. When an unprepared type comes in, the SME handles it together with her. That call later becomes good training material.'),
   }), trackQuestion('tech', {
     id: 'nesting-tech',
     prompt: tx('네스팅 중인 지민이 한 티켓을 오래 붙잡고 있습니다. 원인을 찾지 못했지만 넘기기를 망설입니다. 어떻게 할까요?', 'During nesting, Jimin has been holding one ticket for a long time. She has not found the cause but hesitates to pass it on. What do you do?'),
@@ -85,11 +86,11 @@ export default {
     prompt: tx('네스팅 둘째 주, 지민은 단순 조회와 안내 문의를 실수 없이 처리합니다. 다음은 어떻게 할까요?', 'In the second week of nesting, Jimin handles simple lookups and information requests without mistakes. What next?'),
     options: [
       option('a', tx('바로 모든 유형의 문의를 맡긴다.', 'Give her every type of inquiry at once.'), tx('한 번에 모든 유형을 맡기면 막히는 순간이 몰려, 쌓아 온 자신감이 쉽게 무너집니다.', 'Handing over every type at once piles up the moments she gets stuck, and the confidence she has built can collapse.')),
-      option('b', tx('변경 문의부터 범위를 넓히고, 멘토가 계속 들으며 지원한다.', 'Widen her range starting with change requests, with a mentor still listening in to support her.')),
+      option('b', tx('변경 문의부터 범위를 넓히고, 직무전문가가 계속 들으며 지원한다.', 'Widen her range starting with change requests, with the SME still listening in to support her.')),
       option('c', tx('실수가 없으니 지금 유형만 계속 맡긴다.', 'She makes no mistakes, so keep her on the same types.'), tx('실수가 없을 때가 범위를 넓힐 때이며, 같은 유형에만 머물면 정식 팀에 갈 준비가 늦어집니다.', 'No mistakes is the signal to widen her range; staying on the same types delays her readiness for the regular team.')),
     ],
     answer: 'b',
-    explanation: tx('일반 고객지원은 쉬운 유형부터 차례로 넓힙니다. 한 번에 모든 유형을 맡기면 막히는 순간이 몰립니다. 범위를 넓힐 때도 플로어 워킹 지원은 이어 갑니다.', 'General support widens from easy types in order. Handing over every type at once piles up the moments she gets stuck. Floor walking support continues as the range widens.'),
+    explanation: tx('일반 고객지원은 쉬운 유형부터 차례로 넓힙니다. 한 번에 모든 유형을 맡기면 막히는 순간이 몰립니다. 범위를 넓힐 때도 플로어 서포트는 이어 갑니다.', 'General support widens from easy types in order. Handing over every type at once piles up the moments she gets stuck. Floor support continues as the range widens.'),
   }), trackQuestion('tech', {
     id: 'nesting-tech-2',
     prompt: tx('기술지원 네스팅 중인 지민이 원인을 찾아보기도 전에 티켓을 곧바로 상위 단계로 넘기는 일이 잦습니다. 어떻게 할까요?', 'During tech support nesting, Jimin often passes tickets straight to a higher tier before looking for the cause. What do you do?'),

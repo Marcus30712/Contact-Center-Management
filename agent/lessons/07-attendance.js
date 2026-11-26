@@ -25,7 +25,7 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 빡빡한 스케줄 속에서 출결을 지키고, 아픈 날과 바쁜 날을 넘기는 법을 익히는 것입니다.", "This lesson is about keeping your attendance in a tight schedule and getting through sick days and busy days."), flow, procedure, null),
-    step(tx("콜센터는 시간대마다 필요한 인원을 맞춰 스케줄을 짭니다. 지민 한 사람이 빠지면 그 시간의 콜과 채팅, 이메일이 남은 사람에게 몰립니다.", "A contact center builds its schedule to match the people needed in each time slot. If Jimin is out, that slot's calls, chats and emails fall on everyone else."), flow, [], null),
+    step(tx("고객센터는 시간대마다 필요한 인원을 맞춰 스케줄을 짭니다. 지민 한 사람이 빠지면 그 시간의 콜과 채팅, 이메일이 남은 사람에게 몰립니다.", "A contact center builds its schedule to match the people needed in each time slot. If Jimin is out, that slot's calls, chats and emails fall on everyone else."), flow, [], null),
     step(tx("첫 단계는 스케줄 확인입니다. 다음 주 근무와 휴식, 교육 시간을 미리 확인하고 정해진 시간을 지킵니다. 이것을 스케줄 준수율로 봅니다.", "The first stage is checking the schedule. Check next week's shifts, breaks and training times ahead, and keep to them. This is what schedule adherence measures."), flow, ["schedule"], null),
     step(tx("둘째 단계는 미리 알리기입니다. 휴가나 일정 변경은 센터가 정한 방법과 기한에 맞춰 최대한 일찍 신청합니다.", "The second stage is telling them early. Request leave or schedule changes as early as you can, using the method and deadline your center sets."), flow, ["early"], null),
     step(tx("셋째 단계는 아픈 날입니다. 아프거나 불가피한 사정으로 출근할 수 없으면, 근무 시작 1~2시간 전(예시)에는 팀이나 센터가 정한 방법으로 수진 팀장에게 직접 알립니다. 수진 팀장이 휴가나 병가 중이면 직무전문가 하린에게 알리고, 필요한 서류가 있다면 챙깁니다.", "The third stage is sick days. If you're ill or something unavoidable keeps you from work, tell Sujin, your team leader, directly at least 1–2 hours before your shift (Example), the way your team or center sets. If Sujin is on leave or off sick, tell Harin the SME, and bring any documents that are needed."), flow, ["sick"], null),
@@ -39,7 +39,7 @@ export default {
       id: "attendance-q1",
       prompt: tx("지민이 아침에 열이 나서 출근하기 어렵습니다. 어떻게 할까요?", "Jimin wakes up with a fever and can't come in. What should she do?"),
       options: [
-        option("a", tx("근무 시간이 지나 몸이 나아지면 연락한다.", "Get in touch once she feels better, after her shift has started."), tx("늦게 알리면 스케줄을 다시 짤 시간이 없고, 무단 결근으로 남을 수 있습니다.", "Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence.")),
+        option("a", tx("근무가 시작된 뒤 몸이 나아지면 연락한다.", "Get in touch once she feels better, after her shift has started."), tx("늦게 알리면 스케줄을 다시 짤 시간이 없고, 무단 결근으로 남을 수 있습니다.", "Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence.")),
         option("b", tx("근무 시작 1~2시간 전(예시)에는 정해진 방법으로 팀장에게 직접 알린다.", "Tell her team leader directly, the agreed way, at least 1–2 hours before her shift (Example).")),
         option("c", tx("동료에게 대신 말해 달라고만 부탁한다.", "Only ask a colleague to pass it on."), tx("동료를 거치면 전달이 늦거나 빠질 수 있습니다. 정해진 방법으로 직접 알립니다.", "Going through a colleague can delay or lose the message. Tell them directly the agreed way.")),
       ],

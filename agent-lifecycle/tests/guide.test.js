@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { GROUPS, GUIDE_UI } from '../../guide/data.js';
 import { LESSONS } from '../js/lessons/index.js';
 import { SOP_LESSONS } from '../../sop-library/lessons/index.js';
+import { TS_LESSONS } from '../../tl-support/lessons/index.js';
 import { TERMS } from '../../glossary/terms.js';
 import { TEAMS } from '../../codex/data/teams.js';
 import { PRINCIPLES } from '../../codex/data/principles.js';
@@ -74,6 +75,7 @@ test('every link goes to a place that exists', () => {
         assert.ok(PAGES.some((p) => p.id === page), href);
         if (item) assert.ok(codex[page].includes(item), href);
       } else if (path === 'glossary/') assert.ok(TERMS.some((x) => x.id === hash), href);
+      else if (path === 'tl-support/') assert.ok(TS_LESSONS.some((l) => `${l.id}-0` === hash), href);
       else assert.equal(path, 'staffing-calculator/', href);
     }
   }
@@ -96,6 +98,12 @@ test('English is complete, American and free of Korean', () => {
       if (sm) assert.equal(title.en, `TL SOP · ${sop[sm[1]]}`);
       const lm = title.ko.match(/^라이프사이클 레슨 (\d) · (.+)$/);
       if (lm) assert.equal(title.en, `Lifecycle lesson ${lm[1]} · ${lesson[lm[2]]}`);
+      // 2026-11-26: TL Support Lifecycle titles are the lesson's own title in both languages.
+      const tm = title.ko.match(/^팀장 서포트 라이프사이클 레슨 (\d) · (.+)$/);
+      if (tm) {
+        const l = TS_LESSONS[Number(tm[1]) - 1];
+        assert.deepEqual([l.title.ko, title.en], [tm[2], `TL Support Lifecycle lesson ${tm[1]} · ${l.title.en}`]);
+      }
     }
   }
 });

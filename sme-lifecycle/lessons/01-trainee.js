@@ -25,17 +25,17 @@ export default {
     edges: [edge("roles", "demo"), edge("demo", "record"), edge("record", "handover")],
   },
   steps: [
-    step(tx("이 레슨의 목적은 교육 중인 상담사를 지원할 때 직무전문가가 무엇을 확인하고, 무엇을 기록하고, 언제 넘기는지 아는 것입니다. 이 강의는 서준 한 사람이 자라는 순서를 따라 단계마다 직무전문가의 절차를 봅니다.", "This lesson is about knowing what an SME checks, records and hands off when supporting an agent in training. This course follows one agent, Seojun, as he grows, and looks at the SME's procedure at each stage."), flow, procedure, null),
-    step(tx("서준은 입사 3주 차(예시) 교육생입니다. 이론 교육을 마치고 이번 주부터 OJT로 실제 문의를 처음 받습니다.", "Seojun is a trainee in his third week (Example). He has finished classroom training, and this week he takes real contacts for the first time in OJT."), flow, [], null),
-    step(tx("첫 단계는 역할 나누기입니다. 교육 과정과 수료 판단은 트레이너가 맡습니다. 직무전문가는 실제 시스템과 도구로 교육 내용이 현장에서 어떻게 쓰이는지 보여 줍니다.", "The first stage is dividing the roles. The trainer owns the curriculum and decides who graduates. The SME uses the real systems and tools to show how the training is used on the floor."), flow, ["roles"], null),
+    step(tx("이 레슨의 목적은 교육 중인 상담사를 지원할 때 직무전문가가 무엇을 확인하고, 무엇을 기록하고, 언제 넘기는지 아는 것입니다. 이 강의는 서준이 자라는 순서를 따라 단계마다 직무전문가의 절차를 보고, 선임 단계에서는 준호를 만납니다.", "This lesson is about knowing what an SME checks, records and hands off when supporting an agent in training. This course follows Seojun as he grows, looks at the SME's procedure at each stage, and meets Junho at the senior stage."), flow, procedure, null),
+    step(tx("서준은 입사 3주 차(예시) 교육생입니다. 이론 교육을 마치고 이번 주부터 OJT로 실제 문의를 처음 받습니다. 수료는 OJT와 네스팅을 모두 마친 뒤입니다.", "Seojun is a trainee in his third week (Example). He has finished classroom training, and this week he takes real contacts for the first time in OJT. He graduates only after both OJT and nesting."), flow, [], null),
+    step(tx("첫 단계는 역할 나누기입니다. 교육 과정은 트레이너가 맡고, 수료 여부는 트레이너와 팀장이 정합니다. 직무전문가는 실제 시스템과 도구로 교육 내용이 현장에서 어떻게 쓰이는지 보여 줍니다.", "The first stage is dividing the roles. The trainer owns the curriculum, and the trainer and the team leader decide who graduates. The SME uses the real systems and tools to show how the training is used on the floor."), flow, ["roles"], null),
     step(tx("OJT 시작 전에 트레이너와 짧게 맞춥니다. 이번 주에 서준이 받을 채널과 문의 유형, 직무전문가가 참관할 시간을 정합니다.", "Before OJT starts, align briefly with the trainer. Agree on the channels and contact types Seojun will take this week, and when the SME will sit in."), flow, ["roles"], null),
-    step(tx("둘째 단계는 시연과 쉐도잉입니다. 실제 시스템과 도구로 여러 유형의 티켓을 처리하는 모습을 시연합니다. 멀티 헤드셋을 연결해 직무전문가가 받는 실제 콜을 서준이 함께 듣게 합니다.", "The second stage is demos and shadowing. Demonstrate handling several ticket types in the real systems and tools. Connect a multi-headset so Seojun can listen in on real calls the SME takes."), flow, ["demo"], null),
-    step(tx("서준이 직접 콜을 받기 시작하면 반대로 직무전문가가 멀티 헤드셋으로 함께 듣습니다. 서준이 막히면 통화를 잠시 음소거하고 다음 절차를 알려 줍니다.", "When Seojun starts taking calls himself, the SME listens in on the multi-headset instead. If he gets stuck, mute the call for a moment and tell him the next step."), flow, ["demo"], null),
+    step(tx("둘째 단계는 시연과 쉐도잉입니다. 실제 시스템과 도구로 여러 유형의 티켓을 처리하는 모습을 시연합니다. 멀티 헤드셋을 연결해 직무전문가가 받는 실제 콜을 서준이 함께 듣게 합니다.", "The second stage is demos and shadowing. Demonstrate handling several ticket types in the real systems and tools. Connect a second headset with a splitter so Seojun can listen in on real calls the SME takes."), flow, ["demo"], null),
+    step(tx("서준이 직접 콜을 받기 시작하면 반대로 직무전문가가 멀티 헤드셋으로 함께 듣습니다. 서준이 막히면 통화를 잠시 음소거하고 다음 절차를 알려 줍니다.", "When Seojun starts taking calls himself, the SME listens in on the second headset instead. If he gets stuck, mute the call for a moment and tell him the next step."), flow, ["demo"], null),
     step(tx("교육 자료와 현장 방식이 다르면 서준에게 따로 고쳐 가르치지 않고 트레이너에게 먼저 전합니다. 교육생은 두 사람에게서 다른 답을 들으면 무엇을 따라야 할지 혼란스러워합니다.", "If the training material and the floor's way differ, don't reteach Seojun on your own; tell the trainer first. Trainees who hear different answers from two people don't know which to follow."), flow, ["demo"], null),
     step(tx("셋째 단계는 관찰 기록입니다. 참관이 끝날 때마다 서준이 혼자 처리한 유형, 도움이 필요했던 유형, 자주 멈춘 지점을 짧게 적습니다.", "The third stage is the observation record. After each session, note briefly the types Seojun handled alone, the types he needed help with, and where he often paused."), flow, ["record"], null),
     step(tx("기록은 평가가 아니라 인계 자료입니다. 점수나 성격이 아니라 어떤 문의에서 어떤 행동이 나왔는지만 적습니다.", "The record is a handover note, not an evaluation. Write only which behavior came up in which contact, not scores or personality."), flow, ["record"], null),
-    step(tx("넷째 단계는 인계 준비입니다. 수료 일주일 전(예시)에 트레이너와 기록을 함께 보고, 네스팅에서 더 가까이 볼 문의 유형을 정합니다.", "The fourth stage is preparing the handover. A week before graduation (Example), go through the record with the trainer and choose the contact types to watch more closely in nesting."), flow, ["handover"], null),
-    step(tx("수료 여부를 정하는 것은 트레이너와 팀장입니다. 직무전문가는 기록을 근거로 의견을 전합니다.", "Whether he graduates is up to the trainer and the team leader. The SME gives an opinion based on the record."), flow, ["handover"], null),
+    step(tx("넷째 단계는 인계 준비입니다. OJT가 끝나기 일주일 전(예시)에 트레이너와 기록을 함께 보고, 네스팅에서 더 가까이 볼 문의 유형을 정합니다.", "The fourth stage is preparing the handover. A week before OJT ends (Example), go through the record with the trainer and choose the contact types to watch more closely in nesting."), flow, ["handover"], null),
+    step(tx("수료는 네스팅이 끝날 때 트레이너와 팀장이 정합니다. 직무전문가의 기록은 그때 의견을 전하는 근거가 됩니다.", "The trainer and the team leader decide on graduation when nesting ends. The SME's record is the basis for the opinion you give then."), flow, ["handover"], null),
   ],
   checkpoint: [
     {
@@ -61,5 +61,5 @@ export default {
       explanation: tx("관찰 기록은 문의 유형과 행동으로 씁니다. 네스팅에서 어디를 도울지 정하는 인계 자료가 됩니다.", "Write the observation record as contact types and behaviors. It becomes the handover note that decides where to help in nesting."),
     },
   ],
-  connection: { to: "graduate", text: tx("서준이 교육을 수료했습니다. 이제 트레이너의 손을 떠나 직무전문가 곁에서 실제 문의를 받는 네스팅입니다.", "Seojun has graduated from training. Next is nesting, where he leaves the trainer's hands and takes real contacts beside the SME.") },
+  connection: { to: "graduate", text: tx("서준이 OJT를 마쳤습니다. 다음은 수료 전 마지막 단계, 직무전문가 곁에서 실제 문의를 받는 네스팅입니다.", "Seojun has finished OJT. Next is nesting, the last stage before graduation, where he takes real contacts beside the SME.") },
 };

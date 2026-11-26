@@ -9,8 +9,8 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 위치 | English |
 |---|---|
 | 페이지 제목 | Review quiz |
-| 페이지 소개 | Finished your role's courses? Review with scenario questions that make you recall several lessons at once. This quiz is for review, not an official assessment. |
-| 팀장 퀴즈 이름 | Team lead review quiz |
+| 페이지 소개 | Finished the courses listed in the scope? Review with scenario questions that make you recall several lessons at once. This quiz is for review, not an official assessment. |
+| 팀장 퀴즈 이름 | TL review quiz |
 | 팀장 퀴즈 범위 | The Agent Lifecycle (6) + TL SOP Library (10) |
 | 직무전문가 퀴즈 이름 | SME review quiz |
 | 직무전문가 퀴즈 범위 | SME First Steps (7) |
@@ -37,23 +37,23 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 
 | 위치 | English |
 |---|---|
-| 팀장 배지 이름 | Team lead course complete |
-| 팀장 배지 조건 | Pass the team lead review quiz (5 or more of 6) |
+| 팀장 배지 이름 | TL course complete |
+| 팀장 배지 조건 | Pass the TL review quiz (5 or more of 6) |
 | 직무전문가 배지 이름 | SME course complete |
 | 직무전문가 배지 조건 | Pass the SME review quiz (5 or more of 6) |
 
 ---
 
-## 퀴즈 1. Team lead review quiz
+## 퀴즈 1. TL review quiz
 
 ### 문제 1
 
 | 항목 | English |
 |---|---|
-| 질문 | Jimin, now on the regular team, has an average handle time (AHT) longer than the team average. His FCR and QA accuracy are high. Your assistant manager tells you to bring the AHT down. What do you do first? |
+| 질문 | Jimin, now on the regular team, has an average handle time (AHT) longer than the team average. Her FCR and QA accuracy are high. Your assistant manager tells you to bring the AHT down. What do you do first? |
 | 보기 a (오답) | Start a performance improvement plan (PIP) right away, with the team-average AHT as the goal. |
 | a 피드백 | A PIP is the formal procedure for when coaching is not enough. Starting it over one number also shakes what Jimin does well: solving things in one go. |
-| 보기 b (정답) | Look at a few recordings together with the metrics, and in a one-on-one find what he does well and which parts can be shorter. |
+| 보기 b (정답) | Look at a few recordings together with the metrics, and in a one-on-one find what she does well and which parts can be shorter. |
 | 보기 c (오답) | Announce in the team huddle that calls need to end faster. |
 | c 피드백 | Stressing time alone teaches agents to hang up fast rather than to explain correctly. |
 | 해설 | Looking at one metric leads to coaching that sacrifices the others. Look at several metrics and real contacts together, and agree on behavior in a one-on-one. |
@@ -63,10 +63,10 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 
 | 항목 | English |
 |---|---|
-| 질문 | You have coached Jimin one on one three times, but he keeps skipping the same check step. What comes next? |
-| 보기 a (오답) | Coach him once more on the same thing. |
+| 질문 | You have coached Jimin one on one three times, but she keeps skipping the same check step. What comes next? |
+| 보기 a (오답) | Coach her once more on the same thing. |
 | a 피드백 | If the same approach failed three times, it is time to set goals and support formally. |
-| 보기 b (오답) | Suggest he leave, since there is no sign of improvement. |
+| 보기 b (오답) | Suggest she leave, since there is no sign of improvement. |
 | b 피드백 | Ending it without a chance or support tells the team that asking for help is pointless. |
 | 보기 c (정답) | Move to a PIP: meet with the data, agree on goals and the support you will give, and check in weekly. |
 | 해설 | When coaching alone is not enough, move to a PIP. A PIP is not a punishment but a procedure that makes goals, support and check-ins clear. |
@@ -77,12 +77,12 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | A promotion error sets off a flood of identical complaint calls, and an agent who just ended an abusive call sits frozen at the desk. What fits best as the first thing to do? |
-| 보기 a (정답) | Let that agent take a short break, and tell the OM, QA and WFM right away that the same complaint is piling up. |
+| 보기 a (정답) | Let that agent take a short break, and report to your assistant manager or operation manager right away that the same complaint is piling up. |
 | 보기 b (오답) | Send the agent straight back to the next call, since many customers are waiting. |
 | b 피드백 | The shock carries straight into the next customer, and the agent feels unprotected. |
 | 보기 c (오답) | Handle it inside the team until the complaints calm down. |
 | c 피드백 | The first step in a large-scale issue is spotting and sharing it. Holding it alone delays cause analysis and staffing plans. |
-| 해설 | Protect the person first, and raise the surge right away so several teams can move together. |
+| 해설 | Protect the person first, and report the surge to your assistant manager or operation manager right away so several teams can move together. |
 | 관련 레슨 | Lifecycle lesson 5 · Engagement and Retention (../agent-lifecycle/#retention-0) · TL SOP · Large-Scale Issue Response (../sop-library/#incident-0) |
 
 ### 문제 4
@@ -91,7 +91,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 |---|---|
 | 질문 | For the second time, an exit interview brings up "I didn't know shifts would change this often." Next week you sit in on hiring interviews. What do you do? |
 | 보기 a (오답) | Explain shift work only to those who ask, so applicant numbers don't drop. |
-| a 피드백 | People who heard only the good parts start thinking of leaving the day they get their first rota. |
+| a 피드백 | People who heard only the good parts start thinking of leaving the day they get their first schedule. |
 | 보기 b (정답) | Share the interview findings with the recruiter, and explain shift work honestly in the interviews. |
 | 보기 c (오답) | Treat it as the leaver's personal situation and just keep the interview notes. |
 | c 피드백 | When the same words keep coming up, it is not a personal matter but a sign the job preview needs fixing. |
@@ -107,7 +107,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | a 피드백 | Looking after one person makes the team feel the standard depends on friendship. |
 | 보기 b (오답) | Stay out of it, since evaluation is QA's job. |
 | b 피드백 | Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching. |
-| 보기 c (정답) | Treat it as a question about the standard: hold a calibration session with QA to align it, then tell the whole team the outcome. |
+| 보기 c (정답) | Ask QA for a calibration session to align the standard, then tell the whole team the outcome. |
 | 해설 | Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone. |
 | 관련 레슨 | TL SOP · Calibration (../sop-library/#calibration-0) · TL SOP · From Colleague to Team Leader (../sop-library/#transition-0) |
 
@@ -115,12 +115,12 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 
 | 항목 | English |
 |---|---|
-| 질문 | Seoa, a new hire in her first week, hardly asks any questions. While scrubbing, you see the same missing explanation twice in her tickets. What fits best? |
+| 질문 | Seoa, a new hire in her first week after Go Live, hardly asks any questions. While scrubbing, you see the same missing explanation twice in her tickets. What fits best? |
 | 보기 a (정답) | Go to Seoa first with her buddy, ask where she gets stuck, and go over the missing explanation one on one. |
 | 보기 b (오답) | Show Seoa's tickets as an example in the team huddle. |
 | b 피드백 | Taking a new hire's mistakes in front of the team makes Seoa ask even less. |
-| 보기 c (오답) | It is only the first week, so just watch for a month. |
-| c 피드백 | The first weeks are when people are most likely to leave. Leaving her stuck for long makes it hard to hold on. |
+| 보기 c (오답) | It is only her first week live, so just watch for a month. |
+| c 피드백 | Many people also leave in their first weeks on the floor. Leaving her stuck for long makes it hard to hold on. |
 | 해설 | Don't wait for new hires; reach out first, and go over mistakes one on one. A buddy closes that distance. |
 | 관련 레슨 | TL SOP · New Hire Onboarding (../sop-library/#onboarding-0) · TL SOP · Scrubbing (../sop-library/#scrubbing-0) |
 
@@ -130,14 +130,14 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 
 | 항목 | English |
 |---|---|
-| 질문 | Seojun has a customer on hold and his hand up, your peer Junho asks for a compensation approval, and Sujin, in a meeting, messages you to take the afternoon attendance. What do you do first? |
+| 질문 | Seojun has a customer on hold and his hand up, your peer Junho asks by ticket for a compensation approval for a customer whose call has ended, and Sujin, in a meeting, messages you to take the afternoon attendance. What do you do first? |
 | 보기 a (정답) | Go to Seojun first, and tell Junho and the team leader briefly when you will get to them. |
 | 보기 b (오답) | Approve Junho's request first, since he is your peer. |
 | b 피드백 | The order is set by whether a customer is waiting now, not by friendship. |
 | 보기 c (오답) | Do the attendance first, since the team leader asked. |
 | c 피드백 | Attendance can wait a moment; the customer on hold cannot. |
 | 해설 | Customers waiting live come first, and whoever has to wait hears when you will come. |
-| 관련 레슨 | SME lesson 6 · When Requests Pile Up at Once (../sme/#priority-0) · SME lesson 2 · Supporting New Hires (../sme/#newcomer-0) |
+| 관련 레슨 | SME First Steps lesson 6 · When Requests Pile Up at Once (../sme/#priority-0) · SME First Steps lesson 2 · Supporting Agents in Training or Just Trained (../sme/#newcomer-0) |
 
 ### 문제 2
 
@@ -148,9 +148,9 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | a 피드백 | Naming him embarrasses Junho, and the team starts hiding mistakes. |
 | 보기 b (오답) | Look the other way again, since you are peers. |
 | b 피드백 | When it is looser for one person, the approval standard depends on friendship. |
-| 보기 c (정답) | Tell Junho one on one that the standard is the same for everyone, and put the repeated cases in the summary for the team leader. |
+| 보기 c (정답) | Tell Junho one on one that the standard is the same for everyone, and tell the team leader about the cases right away. |
 | 해설 | Keep the same standard in a respectful way, and handle repeated problems together with the team leader. |
-| 관련 레슨 | SME lesson 4 · Supporting Former Peers (../sme/#peer-0) · SME lesson 5 · Supporting the Team Leader (../sme/#lead-0) |
+| 관련 레슨 | SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers (../sme/#peer-0) · SME First Steps lesson 5 · Supporting the Team Leader (../sme/#lead-0) |
 
 ### 문제 3
 
@@ -163,7 +163,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 c (오답) | Answer each person as they ask. |
 | c 피드백 | The same question keeps coming, and you miss more urgent requests meanwhile. |
 | 해설 | Give repeated questions back to the whole team at once, and show new hires how to find answers. |
-| 관련 레슨 | SME lesson 3 · Supporting Existing Agents (../sme/#escalation-0) · SME lesson 7 · Giving Knowledge Back (../sme/#knowledge-0) |
+| 관련 레슨 | SME First Steps lesson 3 · Supporting Existing Agents (../sme/#escalation-0) · SME First Steps lesson 7 · Giving Knowledge Back to the Team (../sme/#knowledge-0) |
 
 ### 문제 4
 
@@ -176,20 +176,20 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 c (오답) | Stop supporting and take more calls yourself to fill the gap. |
 | c 피드백 | While you fill in alone, the team's requests pile up, and the people who can adjust staffing don't know. |
 | 해설 | Covering attendance means recording and reporting, nothing more. The team leader and the RTA can adjust staffing. |
-| 관련 레슨 | SME lesson 5 · Supporting the Team Leader (../sme/#lead-0) · SME lesson 6 · When Requests Pile Up at Once (../sme/#priority-0) |
+| 관련 레슨 | SME First Steps lesson 5 · Supporting the Team Leader (../sme/#lead-0) · SME First Steps lesson 6 · When Requests Pile Up at Once (../sme/#priority-0) |
 
 ### 문제 5
 
 | 항목 | English |
 |---|---|
-| 질문 | Calibration changed the standard for the check step. The next day, Jimin comes to you saying his QA score was low because he did not know about the change. What fits best? |
+| 질문 | Calibration changed the standard for the check step, and scoring on it starts the day after tomorrow. The next day, Jimin comes to you saying she has never heard of it. What fits best? |
 | 보기 a (정답) | Explain the new standard to Jimin, and pass it on right away through the huddle and team chat so no agent is left unaware. |
-| 보기 b (오답) | Tell him to ask QA, since scores are QA's job. |
+| 보기 b (오답) | Tell her to ask QA, since standards are QA's job. |
 | b 피드백 | Passing changed standards to agents first is the SME's job. |
-| 보기 c (오답) | Ask QA to correct Jimin's score. |
-| c 피드백 | Correcting scores is part of evaluation. Passing on the standard so it doesn't happen again comes first. |
+| 보기 c (오답) | Ask QA to leave Jimin out of this round of scoring. |
+| c 피드백 | Leaving out one person makes the standard differ by person. Passing the standard to everyone before scoring comes first. |
 | 해설 | When a standard changes, the SME tells the team first. No agent should be scored on a standard they did not know had changed. |
-| 관련 레슨 | SME lesson 7 · Giving Knowledge Back (../sme/#knowledge-0) · SME lesson 1 · Your First Day as an SME (../sme/#firstday-0) |
+| 관련 레슨 | SME First Steps lesson 7 · Giving Knowledge Back to the Team (../sme/#knowledge-0) · SME First Steps lesson 1 · Your First Day as an SME (../sme/#firstday-0) |
 
 ### 문제 6
 
@@ -202,4 +202,4 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | b 피드백 | Turning it down leaves the customer's problem where it was. What you cannot decide goes to someone who can. |
 | 보기 c (정답) | It is outside your limits, so ask Junho to tell the customer there is a short wait, and pass it to the team leader right away. |
 | 해설 | You decide within your limits and pass on what is outside them. A peer's request follows the same standard. |
-| 관련 레슨 | SME lesson 1 · Your First Day as an SME (../sme/#firstday-0) · SME lesson 4 · Supporting Former Peers (../sme/#peer-0) |
+| 관련 레슨 | SME First Steps lesson 1 · Your First Day as an SME (../sme/#firstday-0) · SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers (../sme/#peer-0) |

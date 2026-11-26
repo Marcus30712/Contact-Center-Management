@@ -126,7 +126,7 @@ export const LINKS = {
       },
       "why": {
         "ko": "팀장의 하루에서 가장 큰 비중인 1:1 코칭을 단계별로 배웁니다.",
-        "en": "Learn 1:1 coaching, the biggest share of a team lead's day, step by step."
+        "en": "Learn 1:1 coaching, the biggest share of a team leader's day, step by step."
       }
     }
   ]

@@ -55,8 +55,8 @@ export const GROUPS = [
       {
         "id": "s1",
         "text": {
-          "ko": "팀원 한 명의 숫자(AHT, CSAT 등)가 몇 주째 떨어진다",
-          "en": "One team member's numbers (AHT, CSAT and so on) have been slipping for weeks"
+          "ko": "팀원 한 명의 지표(AHT, CSAT 등)가 몇 주째 나빠진다",
+          "en": "One team member's metrics (AHT, CSAT and so on) have been getting worse for weeks"
         },
         "first": {
           "title": {
@@ -119,7 +119,7 @@ export const GROUPS = [
         "id": "s4",
         "text": {
           "ko": "팀원이 직무전문가나 팀장으로 성장하고 싶다고 한다",
-          "en": "A team member says they want to grow into an SME or team lead"
+          "en": "A team member says they want to grow into an SME or team leader"
         },
         "first": {
           "title": {
@@ -199,8 +199,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "라이프사이클 레슨 3 · 실전 배치 및 네스팅",
-            "en": "Lifecycle lesson 3 · Go Live and Nesting"
+            "ko": "라이프사이클 레슨 3 · OJT 및 네스팅",
+            "en": "Lifecycle lesson 3 · OJT and Nesting"
           },
           "href": "../agent-lifecycle/#nesting-0"
         },
@@ -372,8 +372,8 @@ export const GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "Codex 원페이저 ④ 팀장의 하루",
-            "en": "Codex one-pager ④ A team lead's day"
+            "ko": "Codex 원페이저 ④ 직무별 일일 업무 가이드 · 팀장",
+            "en": "Codex one-pager ④ Daily Guide by Role · Team leader"
           },
           "href": "../codex/#daily-tl"
         },
@@ -434,10 +434,10 @@ export const GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "Codex 원페이저 ① 운영 최적화 4대 원칙",
-            "en": "Codex one-pager ① Four Optimization Principles"
+            "ko": "팀장 서포트 라이프사이클 레슨 3 · QA 지원",
+            "en": "TL Support Lifecycle lesson 3 · Supporting QA"
           },
-          "href": "../codex/#principles"
+          "href": "../tl-support/#qa-0"
         }
       },
       {
@@ -476,8 +476,8 @@ export const GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "Codex 원페이저 ④ 팀장의 하루",
-            "en": "Codex one-pager \u2463 A team lead's day"
+            "ko": "Codex 원페이저 ④ 직무별 일일 업무 가이드 · 팀장",
+            "en": "Codex one-pager ④ Daily Guide by Role · Team leader"
           },
           "href": "../codex/#daily-tl"
         }

@@ -12,7 +12,7 @@ export default {
   order: 7,
   title: tx("VOC 리포팅", "VOC Reporting"),
   short: tx("VOC", "VOC"),
-  subtitle: tx("상담사가 바꿀 수 없는 고객의 목소리를, 고객사가 쓸 수 있게 정리합니다.", "Organize the customer voice agents can't act on, so the client can use it."),
+  subtitle: tx("상담사 선에서 풀 수 없는 고객의 목소리를, 고객사가 쓸 수 있게 정리합니다.", "Organize the customer voice agents can't act on, so the client can use it."),
   roles: tx("직무전문가 → 팀장 → 고객사", "SME → Team leader → Client"),
   procedure,
   diagram: {
@@ -52,7 +52,7 @@ export default {
       options: [
         option("a", tx("이미 전했으니 이번에는 뺀다.", "You already sent it, so leave it out this time."), tx("빠지면 고객사는 문제가 해결된 것으로 봅니다.", "If it drops out, the client assumes it's solved.")),
         option("b", tx("지난 리포트와 함께 건수 변화를 보여 다시 올리고, 팀장과 우선순위를 상의한다.", "Raise it again with the figures from the last report to show the change, and discuss priority with the team leader.")),
-        option("c", tx("고객사 담당에게 직접 연락해 항의한다.", "Contact the client directly and complain."), tx("고객사와의 소통은 팀장과 정해진 경로를 거칩니다. 혼자 연락하면 같은 이야기가 여러 길로 가서 혼란이 생깁니다.", "Communication with the client goes through the team leader and the agreed channel. Reaching out alone sends the same story down several paths and causes confusion.")),
+        option("c", tx("고객사 담당에게 직접 연락해 항의한다.", "Contact the client directly and complain."), tx("고객사에 문제를 올리는 것은 팀장과 정해진 경로를 거칩니다. 혼자 항의하면 같은 이야기가 여러 길로 가서 혼란이 생깁니다.", "Raising issues with the client goes through the team leader and the agreed channel. Complaining on your own sends the same story down several paths and causes confusion.")),
       ],
       answer: "b",
       explanation: tx("전달한 VOC는 바뀔 때까지 추적합니다.", "Track a VOC topic you sent until it changes."),

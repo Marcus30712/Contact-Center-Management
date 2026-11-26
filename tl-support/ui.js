@@ -8,7 +8,7 @@ export const TS_FIGURE = TL_FIGURE;
 
 export const TS_UI = {
   courseTitle: { ko: '팀장 서포트 라이프사이클', en: 'TL Support Lifecycle' },
-  courseTagline: { ko: '팀장이 팀을 이루는 상담사, 직무전문가, QA, 트레이너를 각각 어떻게 지원하는지 배웁니다. 역할마다 무엇을 맡기고, 무엇을 받고, 언제 개입하는지 봅니다.', en: 'Learn how a team leader supports each role on the team: agents, SMEs, QA and trainers. For each role, see what to hand over, what to get back and when to step in.' },
+  courseTagline: { ko: '팀장이 함께 일하는 상담사, 직무전문가, QA, 트레이너를 각각 어떻게 지원하는지 배웁니다. 역할마다 무엇을 맡기고, 무엇을 받고, 언제 개입하는지 봅니다.', en: 'Learn how a team leader supports each role they work with: agents, SMEs, QA and trainers. For each role, see what to hand over, what to get back and when to step in.' },
   listNote: { ko: '레슨에 나오는 기간, 건수, 횟수는 예시이며 센터마다 다를 수 있습니다.', en: 'Periods, counts and frequencies in the lessons are examples and may differ from center to center.' },
   homeCard: { ko: '상담사부터 직무전문가, QA, 트레이너까지, 팀장이 역할마다 따르는 지원 절차.', en: 'The support procedure a team leader follows for each role, from agents to SMEs, QA and trainers.' },
   // The ring's centre and the note under it.

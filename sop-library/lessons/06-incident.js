@@ -32,7 +32,7 @@ export default {
   steps: [
     step(tx('이 절차의 목적은 특정 제품이나 서비스에 대한 고객 불만이 폭주할 때 운영, QA, WFM, T&D가 빠르고 체계적으로 협력해 대응하는 것입니다. 네 단계로 진행합니다.', 'This procedure exists so that Operations, QA, WFM, and T&D work together quickly and in an organized way when complaints about a particular product or service surge. It runs in four steps.'),
       flow, procedure, null),
-    step(tx('첫 단계는 감지 및 상황 공유입니다. 특정 유형의 문의가 급증하거나 같은 불만이 반복되는 것을 가장 먼저 알아차리는 사람은 현장의 팀장과 직무전문가입니다. 당신은 즉시 부매니저나 매니저에게 구두와 메신저로 보고합니다.', 'The first step is detection and sharing. The first to notice that one type of contact is spiking or that the same complaint keeps coming back are the team leaders and SMEs on the floor. You report it to the AM or OM at once, verbally and by chat.'),
+    step(tx('첫 단계는 감지 및 상황 공유입니다. 특정 유형의 문의가 급증하거나 같은 불만이 반복되는 것을 가장 먼저 알아차리는 사람은 현장의 팀장과 직무전문가입니다. 당신은 즉시 부매니저나 매니저에게 구두와 메신저로 보고합니다.', 'The first step is detection and sharing. The first to notice that one type of contact is spiking or that the same complaint keeps coming back are the team leaders and SMEs on the floor. You report it to the assistant manager (AM) or operation manager (OM) at once, verbally and by chat.'),
       flow, ['detect'], null),
     step(tx('매니저와 부매니저는 상황의 심각성을 판단해 QA, WFM, T&D 부서장에게 \'대규모 이슈 발생\'을 공식적으로 알리고 긴급 대응팀을 소집합니다.', 'The OM and AM judge how serious the situation is, formally announce a large-scale issue to the heads of QA, WFM, and T&D, and call together an emergency response team.'),
       flow, ['detect'], null),
@@ -48,7 +48,7 @@ export default {
       flow, ['execute'], null),
     step(tx('WFM은 서비스 레벨과 상담사 업무 현황을 실시간으로 지켜보며 계획에 따라 인력을 유연하게 재배치합니다.', 'WFM watches the service level and agent activity in real time and moves staff flexibly according to the plan.'),
       flow, ['execute'], null),
-    step(tx('넷째 단계는 결과 보고 및 후속 조치입니다. 이슈가 해결되면 매니저가 발생 원인, 대응 과정, 결과, 재발 방지 대책을 담은 최종 보고서를 작성해 경영진과 클라이언트에게 보고합니다.', 'The fourth step is review and follow-up. Once the issue is resolved, the OM writes a final report covering the cause, the response, the outcome, and how to prevent a repeat, and presents it to senior management and the client.'),
+    step(tx('넷째 단계는 결과 보고 및 후속 조치입니다. 이슈가 해결되면 매니저가 발생 원인, 대응 과정, 결과, 재발 방지 대책을 담은 최종 보고서를 작성해 경영진과 고객사에게 보고합니다.', 'The fourth step is review and follow-up. Once the issue is resolved, the OM writes a final report covering the cause, the response, the outcome, and how to prevent a repeat, and presents it to senior management and the client.'),
       flow, ['report'], null),
     step(tx('모든 팀이 모여 잘된 점과 개선점을 이야기하는 회고 미팅을 엽니다. 그 결과로 SOP를 업데이트해 다음에 더 잘 대응할 준비를 합니다.', 'All teams meet for a retrospective on what went well and what to improve. The SOP is updated with the result, ready for a better response next time.'),
       [...flow, ...branch], ['report', ...branch], null),

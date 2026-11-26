@@ -30,7 +30,7 @@ export default {
     step(tx("둘째 단계는 독립 평가입니다. 다른 사람의 점수를 보기 전에, 기준표에 따라 직접 점수를 매기고 이유를 적습니다.", "The second step is scoring alone. Before seeing anyone else's score, score it yourself against the scorecard and write down why."), flow, ["score"], null),
     step(tx("셋째 단계는 현장 사정 전하기입니다. 점수가 갈린 항목에서, 상담사가 그 순간 화면에서 무엇을 볼 수 있었고 어떤 도구를 썼는지 설명합니다.", "The third step is explaining the floor. On items where scores differ, explain what the agent could see on screen at that moment and which tools they used."), flow, ["context"], null),
     step(tx("직무전문가는 상담사 편을 드는 자리가 아닙니다. 현장 사정을 알려 기준이 현실에 맞게 정해지도록 돕는 자리입니다.", "The SME is not there to take the agents' side. The SME is there to share the floor's reality so the standard fits it."), flow, ["context"], null),
-    step(tx("넷째 단계는 기준 전달입니다. 합의로 기준이 바뀌면, 그 기준으로 평가받기 전에 상담사들이 알도록 허들과 팀 채팅방에서 먼저 전합니다.", "The fourth step is passing on the standard. If the agreed standard changes, tell agents first at the huddle and in the team chat, before they are scored on it."), flow, ["pass"], null),
+    step(tx("넷째 단계는 기준 전달입니다. 합의로 기준이 바뀌면, 그 기준으로 평가받기 전에 상담사들이 알도록 팀장과 맞춰 허들과 팀 채팅방에서 먼저 전합니다. QA의 공식 공유가 나오면 그 내용도 다시 알립니다.", "The fourth step is passing on the standard. If the agreed standard changes, agree with the team leader and tell agents first at the huddle and in the team chat, before they are scored on it. When QA's official summary comes out, share that too."), flow, ["pass"], null),
     step(tx("바뀐 기준은 예시 한 건과 함께 전합니다. \"이제 이렇게 하면 됩니다\"를 보여 주면 상담사가 바로 따라 할 수 있습니다.", "Pass on a changed standard with one example. Showing \"this is how to do it now\" lets agents follow it right away."), flow, ["pass"], null),
   ],
   checkpoint: [
