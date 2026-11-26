@@ -1585,6 +1585,17 @@ def main():
             page.goto(HUB + path)
             page.wait_for_selector(".topbar select.role-switch")
             check(f"(rs3) {path} has the picker", page.input_value(".topbar select.role-switch") == "tl")
+        # (xr) Excel per role (2026-11-26): an agent's own intro, no advanced lessons
+        page.goto(HUB + "excel/")
+        page.wait_for_selector(".ex-intro p")
+        check("(xr1) a team lead's Excel keeps the team-lead intro and the advanced lessons",
+              "팀장에게 꼭 필요한" in page.inner_text(".ex-intro p") and page.locator("[data-advanced]").count() > 0)
+        page.evaluate("localStorage.setItem('queuecraft:role', 'agent')")
+        page.reload()
+        page.wait_for_selector(".ex-intro p")
+        check("(xr2) an agent's Excel has the agent intro and no advanced lessons",
+              "내 실적을 직접 확인할 때" in page.inner_text(".ex-intro p") and page.locator("[data-advanced]").count() == 0)
+        page.evaluate("localStorage.setItem('queuecraft:role', 'tl')")
         # (cx) the service name (2026-11-26): CX 2회차 / CX Replay
         page.goto(HUB)
         page.wait_for_selector("#app h1")

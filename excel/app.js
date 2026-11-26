@@ -30,7 +30,8 @@ function draw(focusTitle) {
     draw();
     langRoot.querySelector(`[data-lang="${lang}"]`)?.focus();
   });
-  renderExcel(app, lang, storage, route(), view, { advanced: showsAdvancedExcel(loadRole(storage)) });
+  const role = loadRole(storage);
+  renderExcel(app, lang, storage, route(), view, { advanced: showsAdvancedExcel(role), role });
   if (focusTitle) app.querySelector('h1')?.focus();
 }
 
