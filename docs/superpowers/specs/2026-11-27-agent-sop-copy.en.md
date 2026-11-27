@@ -224,7 +224,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 2번 질문 | The document hasn't been fixed yet. How does Jimin guide customers meanwhile? |
 | 보기 a (오답) | The document is the official source, so follow it until it's fixed. |
 | a 피드백 | Following a document you know is wrong gives customers wrong guidance. Follow the interim guidance. |
-| 보기 b (오답) | Treat what she checked as right and keep guiding that way. |
+| 보기 b (오답) | Trust what she checked and keep guiding that way. |
 | b 피드백 | Then each agent guides differently. The whole team follows the same interim guidance. |
 | 보기 c (정답) | Handle contacts with Harin's interim guidance from the team chat. |
 | 해설 | Until it's fixed, the whole team follows the same interim guidance so customers get the same answer. |
@@ -310,7 +310,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 2번 질문 | After the re-review, the score stays the same. What fits best for Jimin? |
 | 보기 a (오답) | Dispute the same case again until it makes sense. |
 | a 피드백 | The same evidence gets the same result. Hear the reason and understand the standard. |
-| 보기 b (오답) | Decide the scoring can't be trusted, and stop reading score sheets from now on. |
+| 보기 b (오답) | Stop reading score sheets from now on, since the scoring can't be trusted. |
 | b 피드백 | Score sheets are material for learning the standard. Read the reason even if you don't like the result. |
 | 보기 c (정답) | Hear the reason for the result, and guide by that standard from now on. |
 | 해설 | Even if the result stays, hearing the reason teaches you the standard. Disputing is also a way of understanding it. |
@@ -344,7 +344,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 항목 | English |
 |---|---|
 | 1번 질문 | Even after the set first fixes, order lookup keeps throwing an error. What does Jimin do? |
-| 보기 a (오답) | Assume it's her computer, and keep rebooting and reinstalling the program to fix it. |
+| 보기 a (오답) | Keep rebooting and reinstalling the program, convinced it's her own computer. |
 | a 피드백 | While you hold on to it, more agents and customers get stuck. If the first fixes don't work, report it right away. |
 | 보기 b (정답) | Report to Harin or Sujin right away which screen, since when and what error. |
 | 보기 c (오답) | Wait, assuming another agent will report it. |

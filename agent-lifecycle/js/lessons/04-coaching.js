@@ -67,7 +67,7 @@ export default {
     id: 'coaching-general',
     prompt: tx('일반 고객지원 QA에서 지민의 콜은 친절도가 높았지만 정책 안내에 틀린 부분이 있었습니다. 어떻게 피드백할까요?', 'In general support QA, Jimin’s call scored high on courtesy but part of the policy information was wrong. How do you give feedback?'),
     options: [
-      option('a', tx('친절도가 높았으니, 이번 콜은 칭찬하고 넘어간다.', 'Courtesy was high, so praise this call and move on.'), tx('친절했어도 틀린 안내는 고객이 다시 문의하게 만들기 때문에 넘어갈 수 없습니다.', 'However courteous, wrong information makes the customer call back, so it cannot be let go.')),
+      option('a', tx('친절도를 보고 이번 콜은 칭찬하고 넘어간다.', 'Praise the call for its courtesy and move on.'), tx('친절했어도 틀린 안내는 고객이 다시 문의하게 만들기 때문에 넘어갈 수 없습니다.', 'However courteous, wrong information makes the customer call back, so it cannot be let go.')),
       option('b', tx('다음 콜에 바로 쓰도록, 공감을 칭찬하고 맞는 내용과 말할 문장을 알려 준다.', 'So she can use it on her next call, praise the empathy and give her the correct content and the sentence to say.')),
       option('c', tx('정확도가 우선이니, 틀린 부분만 짚어 준다.', 'Accuracy comes first, so point out only what was wrong.'), tx('틀린 점만 지적하면 지민이 잘하는 공감 표현까지 줄어들 수 있습니다.', 'Pointing out only the mistake can make Jimin cut back on the empathy she does well.')),
     ],
@@ -77,7 +77,7 @@ export default {
     id: 'coaching-tech',
     prompt: tx('팀원 한 명의 티켓은 빨리 닫히지만, 같은 고객이 같은 문제로 다시 연락하는 일이 잦습니다. 무엇을 볼까요?', 'One team member’s tickets close quickly, but the same customers often come back with the same issue. What do you look at?'),
     options: [
-      option('a', tx('해결 시간이 짧은 것을 강점으로 보고, 노하우를 다른 팀원에게 공유하게 한다.', 'Treat the short resolution time as a strength and have them share their know-how with the team.'), tx('같은 문의가 다시 들어온다면 해결되지 않은 채 닫힌 것이라, 공유할 노하우가 아닙니다.', 'If the same issue comes back, the ticket was closed without being solved; that is not know-how to share.')),
+      option('a', tx('해결 시간이 짧은 것을 강점으로 여겨, 노하우를 다른 팀원에게 공유하게 한다.', 'Have them share their know-how with the team, counting the short resolution time as a strength.'), tx('같은 문의가 다시 들어온다면 해결되지 않은 채 닫힌 것이라, 공유할 노하우가 아닙니다.', 'If the same issue comes back, the ticket was closed without being solved; that is not know-how to share.')),
       option('b', tx('녹취·채팅 로그·이메일 로그·티켓으로 진단 과정을 보고, 건너뛴 단계를 코칭한다.', 'Review the diagnosis through call recordings, chat logs, email logs and tickets, and coach the skipped steps.')),
       option('c', tx('재문의를 줄이도록, 확실하지 않은 티켓은 에스컬레이션을 더 하라고 한다.', 'To cut repeat contacts, tell them to escalate more often whenever they are unsure.'), tx('원인을 모른 채 에스컬레이션만 늘리면 상위 단계의 부담만 커지고, 그 팀원의 진단 능력은 그대로입니다.', 'Escalating more without knowing the cause only adds to the load on higher tiers, and that agent’s diagnosis skills stay where they are.')),
     ],
@@ -87,7 +87,7 @@ export default {
     id: 'coaching-general-2',
     prompt: tx('같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요?', 'On the same call, the team leader scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do?'),
     options: [
-      option('a', tx('팀원을 가장 잘 아는 사람이니, 팀장 점수를 공식 점수로 따른다.', 'The team leader knows the agent best, so use the team leader\'s score as the official one.'), tx('한쪽 점수를 따르면 기준은 맞춰지지 않고, 다음 평가에서도 같은 차이가 생깁니다.', 'Going with one score leaves the standards unaligned, and the same gap appears in the next evaluation.')),
+      option('a', tx('팀원을 가장 잘 아는 팀장의 점수를 공식 점수로 따른다.', 'Use the score of the team leader, who knows the agent best, as the official one.'), tx('한쪽 점수를 따르면 기준은 맞춰지지 않고, 다음 평가에서도 같은 차이가 생깁니다.', 'Going with one score leaves the standards unaligned, and the same gap appears in the next evaluation.')),
       option('b', tx('어느 쪽도 틀리지 않았으니, 두 점수의 평균을 공식 점수로 삼는다.', 'Neither is wrong, so make the average of the two the official score.'), tx('평균을 내면 숫자는 하나가 되지만, 무엇을 고쳐야 하는지는 여전히 알 수 없습니다.', 'Averaging gives you one number, but it still does not say what needs to change.')),
       option('c', tx('기준이 달라 생긴 차이니, 캘리브레이션에서 채점 기준을 맞춘다.', 'The gap comes from different standards, so align the scoring standards in calibration.')),
     ],

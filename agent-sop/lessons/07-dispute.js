@@ -51,7 +51,7 @@ export default {
       prompt: tx("다시 검토했지만 점수는 그대로입니다. 지민에게 알맞은 행동은 무엇일까요?", "After the re-review, the score stays the same. What fits best for Jimin?"),
       options: [
         option("a", tx("납득될 때까지 같은 건으로 다시 이의를 제기한다.", "Dispute the same case again until it makes sense."), tx("같은 근거로 다시 요청하면 결과는 같습니다. 이유를 듣고 기준을 이해합니다.", "The same evidence gets the same result. Hear the reason and understand the standard.")),
-        option("b", tx("평가를 믿을 수 없으니 다음부터는 평가표를 보지 않는다.", "Decide the scoring can't be trusted, and stop reading score sheets from now on."), tx("평가표는 기준을 배우는 자료입니다. 결과가 마음에 들지 않아도 이유를 읽습니다.", "Score sheets are material for learning the standard. Read the reason even if you don't like the result.")),
+        option("b", tx("평가를 믿을 수 없으니 다음부터는 평가표를 보지 않는다.", "Stop reading score sheets from now on, since the scoring can't be trusted."), tx("평가표는 기준을 배우는 자료입니다. 결과가 마음에 들지 않아도 이유를 읽습니다.", "Score sheets are material for learning the standard. Read the reason even if you don't like the result.")),
         option("c", tx("결과의 이유를 듣고, 다음부터 그 기준으로 안내한다.", "Hear the reason for the result, and guide by that standard from now on.")),
       ],
       answer: "c",

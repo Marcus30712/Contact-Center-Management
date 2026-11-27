@@ -49,7 +49,7 @@ export default {
       id: "trainers-q2",
       prompt: tx("인원이 부족한데 수료를 앞둔 신입 한 명이 아직 준비가 덜 됐습니다. 어떻게 할까요?", "You're short of people, and a new hire about to graduate from nesting isn't ready yet. What do you do?"),
       options: [
-        option("a", tx("인원이 급하니 예정대로 수료시켜 바로 정식 팀에 투입한다.", "You need people, so let them graduate on schedule and put them on the regular team right away."), tx("준비가 덜 된 채 투입하면 고객과 신입 모두 힘들어지고, 신입이 떠나기 쉽습니다.", "Putting someone on the floor before they're ready is hard on both customers and the new hire, who may well leave.")),
+        option("a", tx("예정대로 수료시켜 바로 정식 팀에 투입한다.", "Let them graduate on schedule and put them on the regular team right away."), tx("준비가 덜 된 채 투입하면 고객과 신입 모두 힘들어지고, 신입이 떠나기 쉽습니다.", "Putting someone on the floor before they're ready is hard on both customers and the new hire, who may well leave.")),
         option("b", tx("트레이너와 함께 수료를 미루고, 네스팅 연장이나 추가 교육을 정한다.", "Decide with the trainer to hold back graduation, and choose between longer nesting and extra training.")),
         option("c", tx("신입에게 자료를 주고, 수료 전까지 혼자 더 공부하라고 한다.", "Give the new hire materials and tell them to study more on their own before graduation."), tx("혼자 두면 같은 곳에서 계속 막히고, 무엇이 부족한지도 모른 채 시간이 갑니다.", "Left alone, they keep getting stuck in the same places, and time passes without knowing what is missing.")),
       ],

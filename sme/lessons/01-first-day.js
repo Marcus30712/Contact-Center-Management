@@ -53,7 +53,7 @@ export default {
       options: [
         option("a", tx("지민의 품질 점수를 직접 낮춰 기록하고, 다음 평가에 반영해 달라고 QA에 요청한다.", "Mark down Jimin's quality score yourself, and ask QA to reflect it in the next evaluation."), tx("평가는 QA와 팀장이 맡습니다. 직무전문가가 점수를 매기면 역할이 섞여 지민도 누구에게 도움을 청할지 헷갈립니다.", "QA and the team leader do the evaluating. If the SME scores agents, the roles blur and Jimin won't know whom to ask for help.")),
         option("b", tx("옆에서 응대를 함께 보며 돕고, 반복되면 팀장에게 사례와 함께 알린다.", "Watch Jimin's contacts alongside her and help, and if it repeats, tell the team leader with examples.")),
-        option("c", tx("직무전문가가 관여할 일이 아니니 모른 척한다.", "Stay out of it, since it is not the SME's business."), tx("돕는 것은 직무전문가의 일입니다. 모른 척하면 문제가 커진 뒤에야 드러납니다.", "Helping is the SME's job. If you stay out of it, the problem shows only after it has grown.")),
+        option("c", tx("직무전문가의 일이 아니라며 모른 척한다.", "Say it isn't the SME's business and stay out of it."), tx("돕는 것은 직무전문가의 일입니다. 모른 척하면 문제가 커진 뒤에야 드러납니다.", "Helping is the SME's job. If you stay out of it, the problem shows only after it has grown.")),
       ],
       answer: "b",
       explanation: tx("직무전문가는 평가 대신 돕고, 반복되는 문제는 근거와 함께 팀장에게 전합니다.", "The SME helps instead of evaluating, and takes repeated problems to the team leader with evidence."),

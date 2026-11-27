@@ -46,7 +46,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Ask no one anything until she knows every name. |
 | a 피드백 | Not asking slows down learning. Knowing whom to ask about what comes before names. |
 | 보기 b (정답) | Note seats and roles, and learn first whom to ask about what. |
-| 보기 c (오답) | Names don't matter, so in the first week she memorizes only the training content and doesn't bother with people. |
+| 보기 c (오답) | In the first week, memorize only the training content and don't bother with people. |
 | c 피드백 | Knowing people is how you get help when you're stuck. Learn names and roles over time. |
 | 해설 | In the first week, learning the people and their roles is the job. |
 | 2번 질문 | Which order does a new agent go through? |
@@ -91,7 +91,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | Then you'll be looking for them for the first time while a customer waits. Learn where they are during training. |
 | 해설 | Separate what to memorize from what to look up. |
 | 2번 질문 | A CRM screen from the afternoon session didn't make sense. When should Jimin ask? |
-| 보기 a (오답) | Wait, since it will click when she learns it again tomorrow. |
+| 보기 a (오답) | Wait without asking until it's taught again in tomorrow's class. |
 | a 피드백 | What you don't understand piles up under the next day's material and gets harder. |
 | 보기 b (정답) | Ask Yuna the trainer the same day. |
 | 보기 c (오답) | Ask the SME after Go Live. |
@@ -135,7 +135,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | "The customer wants a refund. How do I do this? I'm on the call, so it's urgent." |
 | a 피드백 | It leaves out what you checked and what you need, so Harin has to ask back and the answer comes later. |
 | 보기 b (정답) | "Refund request (Example), past the purchase window. Can we approve an exception?" |
-| 보기 c (오답) | "The customer is really angry. I can't handle this, so please come quickly." |
+| 보기 c (오답) | "The customer is really angry. I can't handle this. Please come quickly." |
 | c 피드백 | The urgency is understandable, but Harin needs to know what you need to help right away. |
 | 해설 | Say the situation, what you checked and what you need, all at once. |
 | 다음 레슨 연결 | Once you finish nesting and graduate, you join the regular team. Next is your first call on your own. |
@@ -166,14 +166,14 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Mid-call, Jimin's mind goes blank and she can't think what to say next. What should she do? |
-| 보기 a (오답) | Silence makes customers uneasy, so keep talking with whatever comes to mind, even if she isn't sure. |
+| 보기 a (오답) | Avoid any silence and keep talking with whatever comes to mind, even if she isn't sure. |
 | a 피드백 | Things said without certainty are hard to correct later. |
 | 보기 b (정답) | Say "Let me check that for you," put the call on hold, then look at her notes and the knowledge base. |
-| 보기 c (오답) | Treat it as a call she can't solve alone and hand it straight to the senior agent next to her. |
+| 보기 c (오답) | Hand the call straight to the senior agent next to her, as one she can't solve alone. |
 | c 피드백 | This isn't a call to hand over; she just needs a moment to check. |
 | 해설 | Asking for a moment to check is a normal part of handling a contact. |
 | 2번 질문 | After a call ends, Jimin realizes she gave wrong information. What should she do? |
-| 보기 a (오답) | Treat it as fine unless the customer calls back, and move on to the next contact. |
+| 보기 a (오답) | Move on to the next contact; if the customer doesn't call back, it's fine. |
 | a 피드백 | Wrong information can come back as a bigger complaint. |
 | 보기 b (정답) | Tell the SME or team leader right away and correct it through the process. |
 | 보기 c (오답) | Contact the customer again on her own without telling anyone. |
@@ -211,11 +211,11 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Repeat the same sentence, louder, until the customer gets it. |
 | a 피드백 | Hearing the same words again only frustrates the customer more. |
 | 보기 b (정답) | Say one thing at a time in short sentences, and check they've understood. |
-| 보기 c (오답) | Talking isn't working, so say she'll send a text and end the call right away. |
+| 보기 c (오답) | Say she'll send a text and end the call right away. |
 | c 피드백 | A text can help, but ending without checking they understood brings another contact. |
 | 해설 | Use simple words, one at a time, and check as you go. |
 | 2번 질문 | The customer keeps swearing. What should Jimin do? |
-| 보기 a (오답) | Put up with it to the end, since it's a customer. |
+| 보기 a (오답) | Put up with it, whatever is said, until the end. |
 | a 피드백 | There's a process that protects agents. It's not something to endure alone. |
 | 보기 b (정답) | Warn with the center's wording; if it continues, end the call by the process and record it. |
 | 보기 c (오답) | There's no need to listen, so hang up the moment the swearing starts, without a word. |
@@ -249,14 +249,14 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin's score dropped this week. What should she do before the review? |
-| 보기 a (오답) | Nothing, since the team leader will explain it in the review. |
+| 보기 a (오답) | Nothing until the team leader explains it in the review. |
 | a 피드백 | Looking first gets you far more out of the same review. |
 | 보기 b (정답) | Go back over the scored contact and write down her questions. |
 | 보기 c (오답) | Prepare explanations for why the score is low. |
 | c 피드백 | Finding what to change helps next week's score more than explaining. |
 | 해설 | Look at your own contacts before the review. |
 | 2번 질문 | The review turned up five things to fix. What should Jimin do? |
-| 보기 a (오답) | Strike while she's motivated: fix all five at once next week. |
+| 보기 a (오답) | Fix all five at once next week. |
 | a 피드백 | Trying to change everything at once means none of it sticks. |
 | 보기 b (정답) | Pick the most important one with the team leader, fix it, and check it at the next review. |
 | 보기 c (오답) | Fix only the easiest one, and forget the other four without writing them down. |
@@ -290,14 +290,14 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin wakes up with a fever and can't come in. What should she do? |
-| 보기 a (오답) | She might feel better after some rest, so see how she is and get in touch after her shift starts. |
+| 보기 a (오답) | See how she feels and get in touch after her shift starts. |
 | a 피드백 | Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence. |
 | 보기 b (정답) | Tell her team leader directly 1–2 hours before her shift (Example), so the schedule can be rearranged. |
 | 보기 c (오답) | Only ask a colleague to pass it on. |
 | c 피드백 | Going through a colleague can delay or lose the message. Tell them directly the agreed way. |
 | 해설 | On a sick day, tell your team leader directly, well before your shift and the agreed way. If your team leader is away, tell the SME. |
 | 2번 질문 | Two colleagues are off sick, and many contacts are waiting. What should Jimin do? |
-| 보기 a (오답) | The team is busy, so skip her breaks today and take contacts nonstop. |
+| 보기 a (오답) | Skip her breaks today and take contacts nonstop. |
 | a 피드백 | When you're worn out, mistakes rise and handling time grows. Breaks are part of the schedule too. |
 | 보기 b (정답) | Keep her breaks and handle one contact at a time, accurately. |
 | 보기 c (오답) | Skip the checks to bring the queue down faster. |
@@ -331,7 +331,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Two months after Go Live, Jimin is slower than others who started with her. How should she see it? |
-| 보기 a (오답) | She's slower than her cohort, so decide she isn't cut out for this and look for other work. |
+| 보기 a (오답) | Conclude from being slower than her cohort that she isn't cut out for this, and look for other work. |
 | a 피드백 | People get comfortable at different speeds. It's too early to judge. |
 | 보기 b (정답) | Compare herself with last month, and pick one thing to practice. |
 | 보기 c (오답) | Cut back the checks to speed up. |

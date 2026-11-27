@@ -57,7 +57,7 @@ export const QUIZZES = {
         prompt: tx("1:1 코칭을 세 번 했지만 지민의 같은 확인 단계 누락이 계속됩니다. 다음으로 할 일은 무엇일까요?", "You have coached Jimin one on one three times, but she keeps skipping the same check step. What comes next?"),
         options: [
           option("a", tx("방식은 그대로 두고, 같은 내용으로 한 번 더 1:1 코칭을 잡는다.", "Keep the same approach and book one more one-on-one on the same point."), tx("같은 방식이 세 번 통하지 않았다면, 목표와 지원을 공식적으로 정할 때입니다.", "If the same approach failed three times, it is time to set goals and support formally.")),
-          option("b", tx("세 번이나 기회를 줬으니, 나아질 기미가 없다고 보고 퇴사를 권한다.", "You've given three chances with no sign of improvement, so suggest she leave."), tx("공식적인 목표와 지원 없이 끝내면 팀원들은 도움을 청해도 소용없다고 느낍니다.", "Ending it without formal goals and support tells the team that asking for help is pointless.")),
+          option("b", tx("세 번의 기회에도 나아질 기미가 없다며, 퇴사를 권한다.", "Suggest she leave, since three chances brought no sign of improvement."), tx("공식적인 목표와 지원 없이 끝내면 팀원들은 도움을 청해도 소용없다고 느낍니다.", "Ending it without formal goals and support tells the team that asking for help is pointless.")),
           option("c", tx("데이터로 면담하고, 목표와 지원을 정해 매주 점검하는 PIP로 넘어간다.", "Move to a PIP: meet with the data, agree on goals and support, and check in weekly.")),
         ],
         answer: "c",
@@ -72,7 +72,7 @@ export const QUIZZES = {
         prompt: tx("프로모션 오류로 같은 불만 전화가 쏟아지고, 폭언 콜을 끊은 상담사가 자리에서 굳어 있습니다. 먼저 할 일로 알맞은 것은 무엇일까요?", "A promotion error sets off a flood of identical complaint calls, and an agent who just ended an abusive call sits frozen at the desk. What fits best as the first thing to do?"),
         options: [
           option("a", tx("상담사를 잠시 쉬게 하고, 불만 급증을 부매니저나 매니저에게 바로 보고한다.", "Let the agent take a short break, and report the surge to your assistant manager or operation manager right away.")),
-          option("b", tx("대기 고객이 많으니, 상담사를 다독여 바로 다음 콜로 돌려보내고 근무 뒤에 면담한다.", "Many customers are waiting, so reassure the agent, send them straight back to calls and talk after the shift."), tx("충격이 그대로 다음 고객에게 이어지고, 상담사는 보호받지 못했다고 느낍니다.", "The shock carries straight into the next customer, and the agent feels unprotected.")),
+          option("b", tx("대기 고객이 걱정되어, 상담사를 다독여 바로 다음 콜로 돌려보내고 근무 뒤에 면담한다.", "Worried about the waiting customers, reassure the agent, send them straight back to calls and talk after the shift."), tx("충격이 그대로 다음 고객에게 이어지고, 상담사는 보호받지 못했다고 느낍니다.", "The shock carries straight into the next customer, and the agent feels unprotected.")),
           option("c", tx("불만이 가라앉을 때까지 팀 안에서 응대 문구를 맞춰 처리한다.", "Agree on a response script within the team and handle it there until the complaints calm down."), tx("대규모 이슈의 첫 단계는 감지하고 공유하는 것입니다. 혼자 막으면 원인 분석과 인력 계획이 늦어집니다.", "The first step in a large-scale issue is spotting and sharing it. Holding it alone delays cause analysis and staffing plans.")),
         ],
         answer: "a",
@@ -88,7 +88,7 @@ export const QUIZZES = {
         options: [
           option("a", tx("지원자가 줄지 않도록, 교대 근무는 묻는 지원자에게만 짧게 설명한다.", "Explain shift work briefly, and only to applicants who ask, so applicant numbers don't drop."), tx("좋은 점만 듣고 들어온 사람은 근무표를 처음 받는 날 퇴사를 고민합니다.", "People who heard only the good parts start thinking of leaving the day they get their first schedule.")),
           option("b", tx("채용 담당에게 공유하고, 면접에서 교대 근무를 솔직히 안내한다.", "Share it with the recruiter, and explain shift work honestly in the interviews.")),
-          option("c", tx("두 명뿐이니 퇴사자 개인의 사정으로 보고, 면담 기록만 남긴다.", "It's only two people, so treat it as their personal situation and just keep the interview notes."), tx("같은 말이 반복된다면 개인 사정이 아니라 직무 안내를 고칠 신호입니다.", "When the same words keep coming up, it is not a personal matter but a sign the job preview needs fixing.")),
+          option("c", tx("두 명뿐이니 퇴사자 개인의 사정으로 치고, 면담 기록만 남긴다.", "It's only two people, so put it down to their personal situations and just keep the interview notes."), tx("같은 말이 반복된다면 개인 사정이 아니라 직무 안내를 고칠 신호입니다.", "When the same words keep coming up, it is not a personal matter but a sign the job preview needs fixing.")),
         ],
         answer: "b",
         explanation: tx("퇴사 면담에서 나온 개선점은 다음 채용으로 돌아갑니다. 현실적 직무 안내(RJP)가 조기 퇴사를 줄입니다.", "Improvements from exit interviews feed the next round of hiring. A realistic job preview (RJP) cuts early leaving."),
@@ -101,7 +101,7 @@ export const QUIZZES = {
         id: "tl-q5",
         prompt: tx("팀장이 된 지 2주째(예시), 가장 친했던 하은이 QA 점수가 평가자마다 다르다고 불만을 말합니다. 알맞은 것은 무엇일까요?", "Two weeks (Example) into being team leader, Haeun, your closest colleague, complains that QA scores differ by evaluator. What fits best?"),
         options: [
-          option("a", tx("하은이 믿고 꺼낸 이야기이니, QA에 하은의 점수만 다시 봐 달라고 조용히 부탁한다.", "Haeun trusted you with this, so quietly ask QA to look at her scores again."), tx("한 사람만 챙기면 팀은 기준이 친분에 따라 다르다고 느낍니다.", "Looking after one person makes the team feel the standard depends on friendship.")),
+          option("a", tx("하은의 말을 믿고, QA에 하은의 점수만 다시 봐 달라고 조용히 부탁한다.", "Quietly ask QA to look at Haeun's scores again, trusting her account."), tx("한 사람만 챙기면 팀은 기준이 친분에 따라 다르다고 느낍니다.", "Looking after one person makes the team feel the standard depends on friendship.")),
           option("b", tx("평가는 QA의 일이니 관여하지 않는다.", "Stay out of it, since evaluation is QA's job."), tx("팀장도 캘리브레이션에 참여합니다. 기준이 흔들리면 코칭의 근거도 흔들립니다.", "Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching.")),
           option("c", tx("팀 전체의 문제일 수 있으니, QA에 캘리브레이션을 요청하고 결과를 팀에 알린다.", "It may be a team-wide problem, so ask QA for calibration and tell the team the outcome.")),
         ],
@@ -118,7 +118,7 @@ export const QUIZZES = {
         options: [
           option("a", tx("버디와 함께 먼저 다가가 막힌 곳을 묻고, 빠진 안내를 1:1로 짚는다.", "Go to Seoa first with her buddy, ask where she's stuck, and go over the missing explanation one on one.")),
           option("b", tx("팀 허들에서 서아의 티켓을 사례로 보여 주며 같은 실수를 막는다.", "Show Seoa's tickets as an example at the team huddle to stop the mistake repeating."), tx("신입의 실수를 팀 앞에서 다루면 서아는 더 묻지 않게 됩니다.", "Taking a new hire's mistakes in front of the team makes Seoa ask even less.")),
-          option("c", tx("실전 첫 주이니 부담 주지 않게, 한 달 동안은 질문이 올 때까지 지켜본다.", "It's only her first week live, so don't add pressure; watch for a month until she asks."), tx("실전 첫 몇 주도 떠나는 사람이 많은 시기입니다. 막힌 곳을 오래 두면 버티기 어렵습니다.", "Many people also leave in their first weeks on the floor. Leaving her stuck for long makes it hard to hold on.")),
+          option("c", tx("실전 첫 주라는 점을 생각해, 한 달 동안은 질문이 올 때까지 말없이 지켜본다.", "Keeping her first week in mind, watch quietly for a month until she asks."), tx("실전 첫 몇 주도 떠나는 사람이 많은 시기입니다. 막힌 곳을 오래 두면 버티기 어렵습니다.", "Many people also leave in their first weeks on the floor. Leaving her stuck for long makes it hard to hold on.")),
         ],
         answer: "a",
         explanation: tx("신입은 기다리지 말고 먼저 챙기고, 실수는 1:1로 짚습니다. 버디가 그 거리를 좁혀 줍니다.", "Don't wait for new hires; reach out first, and go over mistakes one on one. A buddy closes that distance."),
@@ -234,7 +234,7 @@ export const QUIZZES = {
         prompt: tx("네스팅 중인 지민에게 고객이 환불 한도(예시)를 넘는 환불을 요구합니다. 지민은 지식 베이스에서 한도를 확인했고, 옆자리 동료는 \"그 정도는 그냥 해 줘도 돼\"라고 말합니다. 어떻게 할까요?", "During nesting, a customer asks Jimin for a refund over the refund limit (Example). She has checked the limit in the knowledge base, and the colleague next to her says, \"Just give it to them, it's not that much.\" What does she do?"),
         options: [
           option("a", tx("확인한 한도와 고객 상황을 정리해, 승인이 필요하다고 하린에게 묻는다.", "Sum up the limit she checked and the customer's situation, and ask Harin for the approval it needs.")),
-          option("b", tx("옆자리 동료가 괜찮다고 했으니, 그대로 환불을 처리한다.", "The colleague said it's fine, so process the refund as is."), tx("승인이 필요한 판단은 옆자리가 아니라 직무전문가에게 묻습니다.", "A call that needs approval goes to the SME, not the next seat.")),
+          option("b", tx("옆자리 동료의 말대로, 그대로 환불을 처리한다.", "Process the refund as is, as the colleague said."), tx("승인이 필요한 판단은 옆자리가 아니라 직무전문가에게 묻습니다.", "A call that needs approval goes to the SME, not the next seat.")),
           option("c", tx("고객을 보류해 두고, 하린에게 \"이거 어떻게 해요?\"라고만 짧게 묻는다.", "Put the customer on hold and just ask Harin, \"What do I do with this?\""), tx("확인한 것과 필요한 것을 함께 말해야, 다시 묻지 않고 바로 답이 옵니다.", "Saying what you checked and what you need gets an answer right away, with no follow-up questions.")),
         ],
         answer: "a",
@@ -293,8 +293,8 @@ export const QUIZZES = {
         id: "agent-q5",
         prompt: tx("아침 허들에서 고객사의 환불 기간이 바뀌었다고 들었는데, 지식 베이스에는 아직 예전 기간이 그대로 있습니다. 마침 고객이 환불 기간을 묻습니다. 어떻게 할까요?", "At the morning huddle, Jimin heard the client's refund period has changed, but the knowledge base still shows the old period. Just then, a customer asks about the refund period. What does she do?"),
         options: [
-          option("a", tx("지식 베이스가 공식 문서이니, 예전 기간으로 안내한다.", "The knowledge base is the official document, so give the old period."), tx("허들에서 바뀐 내용이 문서에 늦게 반영되었을 수 있습니다. 예전 기간을 안내하면 고객이 다시 연락하게 됩니다.", "The document may not have caught up with the huddle yet. Giving the old period means the customer will have to contact you again.")),
-          option("b", tx("어느 쪽이 맞는지 직접 판단해, 지식 베이스 문서를 고쳐 둔다.", "Decide for herself which one is right and fix the knowledge base article."), tx("문서는 혼자 고치지 않고, 알려서 담당자가 바로잡게 합니다.", "You don't fix the document yourself; you report it so the owner can correct it.")),
+          option("a", tx("지식 베이스가 공식 문서라며, 예전 기간으로 안내한다.", "Give the old period, since the knowledge base is the official document."), tx("허들에서 바뀐 내용이 문서에 늦게 반영되었을 수 있습니다. 예전 기간을 안내하면 고객이 다시 연락하게 됩니다.", "The document may not have caught up with the huddle yet. Giving the old period means the customer will have to contact you again.")),
+          option("b", tx("어느 쪽이 맞는지 직접 판단해, 지식 베이스 문서를 고쳐 둔다.", "Fix the knowledge base article herself, deciding which one is right."), tx("문서는 혼자 고치지 않고, 알려서 담당자가 바로잡게 합니다.", "You don't fix the document yourself; you report it so the owner can correct it.")),
           option("c", tx("허들 메모대로 안내하고, 문서가 다르다고 하린에게 알린다.", "Go by her huddle notes, and tell Harin the document is different.")),
         ],
         answer: "c",

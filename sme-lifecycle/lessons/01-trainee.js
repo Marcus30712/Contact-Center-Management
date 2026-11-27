@@ -42,9 +42,9 @@ export default {
       id: "trainee-q1",
       prompt: tx("OJT 중 서준이 교육 자료대로 응대했는데, 실제로는 현장에서 쓰지 않는 절차였습니다. 어떻게 할까요?", "During OJT, Seojun followed the training material, but it was a procedure the floor no longer uses. What do you do?"),
       options: [
-        option("a", tx("교육 자료는 오래된 것이니 신경 쓰지 말고, 현장 방식대로 하라고 서준에게 말한다.", "The material is outdated, so tell Seojun to ignore it and do it the floor's way."), tx("서준은 트레이너와 직무전문가에게서 다른 답을 듣게 되고, 교육 자료도 그대로 남아 다음 교육생이 같은 혼란을 겪습니다.", "Seojun then hears different answers from the trainer and the SME, and the material stays as it is, so the next trainee meets the same confusion.")),
+        option("a", tx("교육 자료는 신경 쓰지 말고, 현장 방식대로 하라고 서준에게 말한다.", "Tell Seojun to ignore the material and do it the floor's way."), tx("서준은 트레이너와 직무전문가에게서 다른 답을 듣게 되고, 교육 자료도 그대로 남아 다음 교육생이 같은 혼란을 겪습니다.", "Seojun then hears different answers from the trainer and the SME, and the material stays as it is, so the next trainee meets the same confusion.")),
         option("b", tx("이번 문의는 함께 바로잡고, 다른 부분은 트레이너에게 전해 교육을 맞춘다.", "Put this contact right together, and tell the trainer about the difference so the training matches.")),
-        option("c", tx("교육 중이니 틀려도 그대로 두고, OJT가 끝나면 한꺼번에 알려 준다.", "He's in training, so let it go even if it's wrong, and tell him everything once OJT ends."), tx("고객은 상대가 교육생인지 모릅니다. 실제 문의는 지금 바르게 마무리해야 하고, 나중에 알려 주면 그사이 같은 실수가 쌓입니다.", "Customers don't know they are talking to a trainee. Real contacts have to be finished correctly now, and if you wait, the same mistake piles up meanwhile.")),
+        option("c", tx("틀려도 그대로 두고, OJT가 끝나면 한꺼번에 알려 준다.", "Let it go even if it's wrong, and tell him everything once OJT ends."), tx("고객은 상대가 교육생인지 모릅니다. 실제 문의는 지금 바르게 마무리해야 하고, 나중에 알려 주면 그사이 같은 실수가 쌓입니다.", "Customers don't know they are talking to a trainee. Real contacts have to be finished correctly now, and if you wait, the same mistake piles up meanwhile.")),
       ],
       answer: "b",
       explanation: tx("현장과 교육이 다르면 교육생이 아니라 트레이너와 맞춥니다. 그래야 다음 교육생도 같은 답을 듣습니다.", "When the floor and the training differ, align with the trainer, not the trainee. That way the next trainee hears the same answer too."),
@@ -54,7 +54,7 @@ export default {
       prompt: tx("서준의 OJT 관찰 기록으로 알맞은 것은 무엇일까요?", "Which fits Seojun's OJT observation record?"),
       options: [
         option("a", tx("\"전반적으로 자신감이 부족하고, 응대 중 자주 머뭇거림\"", "\"Seems to lack confidence overall; often hesitates on contacts\""), tx("성격에 대한 인상과 막연한 모습은 네스팅에서 무엇을 도와야 할지 알려 주지 않습니다.", "A general impression of personality doesn't tell you what to help with in nesting.")),
-        option("b", tx("\"환불 문의에서 본인 확인 다음 단계를 매번 물어봄\"", "\"Asks every time what comes after identity verification in refund contacts\"")),
+        option("b", tx("\"환불 문의에서 본인 확인 다음 단계를 매번 다시 물어봄\"", "\"Asks again every time what comes after identity verification in refund contacts\"")),
         option("c", tx("\"OJT 점수 70점(예시)으로 동기 평균보다 낮음, 보충 필요\"", "\"OJT score 70 points (Example), below the cohort average; needs extra work\""), tx("점수를 매기는 것은 트레이너와 QA의 일이고, 숫자만으로는 어떤 문의를 도와야 할지 알 수 없습니다.", "Scoring is the trainer's and QA's job, and a number alone doesn't tell you which contacts to help with.")),
       ],
       answer: "b",

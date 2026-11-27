@@ -40,7 +40,7 @@ export default {
       id: "lead-q1",
       prompt: tx("팀장이 자리에 없는 동안 한 상담사가 30분 늦게 와서 사유를 설명합니다. 어떻게 할까요?", "While the team leader is away, an agent arrives 30 minutes late and explains why. What do you do?"),
       options: [
-        option("a", tx("사유가 타당해 보이니 지각 기록에서 뺀다.", "Leave it off the late record, since the reason sounds fair."), tx("사유를 판단하는 것은 팀장의 일입니다. 직무전문가가 빼 주면 같은 사유를 가진 다른 사람과 기준이 달라질 수 있습니다.", "Judging the reason is the team leader's job. If the SME excuses it, the standard can differ for someone else with the same reason.")),
+        option("a", tx("사유를 듣고 타당하다고 판단해 지각 기록에서 뺀다.", "Hear the reason, judge it fair, and leave it off the late record."), tx("사유를 판단하는 것은 팀장의 일입니다. 직무전문가가 빼 주면 같은 사유를 가진 다른 사람과 기준이 달라질 수 있습니다.", "Judging the reason is the team leader's job. If the SME excuses it, the standard can differ for someone else with the same reason.")),
         option("b", tx("도착 시각과 사유를 그대로 기록해 팀장에게 전한다.", "Record the arrival time and the reason as given, and pass them to the team leader.")),
         option("c", tx("같은 일이 반복되지 않게, 다시 늦으면 팀장에게 보고하겠다고 경고한다.", "So it doesn't happen again, warn them you'll report it to the team leader next time."), tx("경고 같은 근태 조치는 팀장의 몫입니다. 대행은 기록하고 알리는 데까지입니다.", "Attendance action like a warning belongs to the team leader. Covering means recording and reporting, nothing more.")),
       ],

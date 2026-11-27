@@ -42,7 +42,7 @@ export default {
       options: [
         option("a", tx("고객이 알아들을 때까지 같은 문장을 더 크게 반복한다.", "Repeat the same sentence, louder, until the customer gets it."), tx("같은 말을 반복하면 고객은 더 답답해집니다.", "Hearing the same words again only frustrates the customer more.")),
         option("b", tx("짧은 문장으로 하나씩 말하고, 이해했는지 확인한다.", "Say one thing at a time in short sentences, and check they've understood.")),
-        option("c", tx("말로는 어려워 보이니 문자로 보내 드리겠다고 하고 바로 통화를 끝낸다.", "Talking isn't working, so say she'll send a text and end the call right away."), tx("문자 안내가 도움이 될 수는 있지만, 이해했는지 확인하지 않고 끝내면 다시 연락이 옵니다.", "A text can help, but ending without checking they understood brings another contact.")),
+        option("c", tx("문자로 보내 드리겠다고 하고 바로 통화를 끝낸다.", "Say she'll send a text and end the call right away."), tx("문자 안내가 도움이 될 수는 있지만, 이해했는지 확인하지 않고 끝내면 다시 연락이 옵니다.", "A text can help, but ending without checking they understood brings another contact.")),
       ],
       answer: "b",
       explanation: tx("쉬운 말로, 하나씩, 확인하며 말합니다.", "Use simple words, one at a time, and check as you go."),
@@ -51,7 +51,7 @@ export default {
       id: "customers-q2",
       prompt: tx("고객의 욕설이 계속됩니다. 어떻게 할까요?", "The customer keeps swearing. What should Jimin do?"),
       options: [
-        option("a", tx("고객이니 끝까지 참고 듣는다.", "Put up with it to the end, since it's a customer."), tx("상담사를 보호하는 절차가 있습니다. 혼자 견딜 일이 아닙니다.", "There's a process that protects agents. It's not something to endure alone.")),
+        option("a", tx("어떤 말이든 끝까지 참고 듣는다.", "Put up with it, whatever is said, until the end."), tx("상담사를 보호하는 절차가 있습니다. 혼자 견딜 일이 아닙니다.", "There's a process that protects agents. It's not something to endure alone.")),
         option("b", tx("센터 문구로 경고하고, 계속되면 절차대로 종료한 뒤 기록한다.", "Warn with the center's wording; if it continues, end the call by the process and record it.")),
         option("c", tx("더 들을 필요가 없으니, 욕설이 나오는 순간 아무 안내 없이 바로 통화를 끊는다.", "There's no need to listen, so hang up the moment the swearing starts, without a word."), tx("경고와 기록 없이 끊으면 고객 불만이 상담사의 책임으로 남을 수 있습니다. 승인이 필요한 센터라면 승인도 받습니다.", "Ending without a warning and a record can leave the complaint on the agent. If your center needs approval, get that too.")),
       ],

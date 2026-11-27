@@ -51,7 +51,7 @@ export default {
     options: [
       option('a', tx('"입사하면 조율할 수 있어요"라고 가볍게 넘긴다.', 'Brush it off: “We can sort that out once you join.”'), tx('지금 넘긴 질문은 입사 뒤 교대 근무표를 처음 받는 날, 퇴사 고민으로 돌아옵니다.', 'A question brushed off now comes back as thoughts of quitting on the day she first sees her shift roster.')),
       option('b', tx('실제 교대 빈도와 힘든 점을 있는 그대로 설명한다.', 'Describe the real shift pattern and the hard parts as they are.')),
-      option('c', tx('지원 의지가 약해 보이니 감점한다.', 'Mark her down for seeming less committed.'), tx('근무 조건을 묻는 것은 의지가 약해서가 아니라 오래 일할 수 있을지 따져 보는 신호일 수 있습니다.', 'Asking about working conditions is not a lack of commitment; it can be a sign she is weighing whether she can stay for the long run.')),
+      option('c', tx('질문을 지원 의지가 약하다는 신호로 받아들이고 감점한다.', 'Mark her down, reading the question as weak commitment.'), tx('근무 조건을 묻는 것은 의지가 약해서가 아니라 오래 일할 수 있을지 따져 보는 신호일 수 있습니다.', 'Asking about working conditions is not a lack of commitment; it can be a sign she is weighing whether she can stay for the long run.')),
     ],
     answer: 'b',
     explanation: tx('현실적 직무 안내의 핵심은 솔직함입니다. 지금 듣기 좋은 답은 입사 직후의 조기 퇴사로 돌아옵니다. 근무 조건을 묻는 지원자는 오히려 오래 일할 생각으로 따져 보는 중일 수 있습니다.', 'Honesty is the core of a realistic job preview. An answer that sounds good today comes back as early attrition right after joining. A candidate who asks about working conditions may well be weighing whether she can stay for the long run.'),
@@ -80,7 +80,7 @@ export default {
     prompt: tx('일반 고객지원 면접에서 두 지원자가 남았습니다. A는 타자가 매우 빠르지만 질문에 짧게만 답하고, B는 타자는 보통이지만 고객의 말을 되짚으며 대화를 이어 갑니다. 누구를 더 높게 볼까요?', 'In a general support interview, two candidates are left. A types very fast but gives only short answers; B types at an ordinary pace but reflects back what the customer says and keeps the conversation going. Who do you rate higher?'),
     options: [
       option('a', tx('A — 빠른 입력이 처리 시간을 줄이고, 대화는 교육으로 늘릴 수 있다.', 'A — fast entry cuts handle time, and conversation can be built in training.'), tx('빠른 입력은 온보딩에서 기를 수 있지만, 대화하며 공감하는 성향은 교육으로 바꾸기 어렵습니다.', 'Fast typing can be built in onboarding, but a temperament for conversation and empathy is hard to change through training.')),
-      option('b', tx('둘 다 아쉬우니 탈락시키고, 두 가지를 다 갖춘 지원자를 다시 찾는다.', 'Reject both as falling short, and look again for a candidate who has both.'), tx('일반 고객지원에 맞는 성향을 이미 보여 준 지원자가 있으니 처음부터 다시 뽑을 이유가 없습니다.', 'One candidate has already shown the temperament general support needs, so there is no reason to start over.')),
+      option('b', tx('둘 다 탈락시키고, 두 가지를 다 갖춘 지원자를 다시 찾는다.', 'Reject both, and look again for a candidate who has both.'), tx('일반 고객지원에 맞는 성향을 이미 보여 준 지원자가 있으니 처음부터 다시 뽑을 이유가 없습니다.', 'One candidate has already shown the temperament general support needs, so there is no reason to start over.')),
       option('c', tx('B — 대화력과 공감은 가르치기 어렵다.', 'B — conversational range and empathy are hard to teach.')),
     ],
     answer: 'c',
@@ -89,7 +89,7 @@ export default {
     id: 'hiring-tech-2',
     prompt: tx('기술지원 채용에서 채팅·이메일 응대 능력을 확인하려 합니다. 어떤 평가를 넣을까요?', 'In tech support hiring, you want to check how candidates handle chat and email. What assessment do you add?'),
     options: [
-      option('a', tx('전화 모의 상담만으로 충분하다고 본다.', 'Treat a phone mock call as enough.'), tx('기술지원 문의는 채팅과 이메일로도 들어오는데, 전화만 보면 글로 설명하는 능력을 확인할 수 없습니다.', 'Tech support inquiries also arrive by chat and email, and a phone call alone cannot show whether they can explain in writing.')),
+      option('a', tx('전화 모의 상담만으로 충분하다고 본다.', 'A phone mock call alone is enough.'), tx('기술지원 문의는 채팅과 이메일로도 들어오는데, 전화만 보면 글로 설명하는 능력을 확인할 수 없습니다.', 'Tech support inquiries also arrive by chat and email, and a phone call alone cannot show whether they can explain in writing.')),
       option('b', tx('해결 안내 메일을 직접 쓰게 하고, 따라 하기 쉬운지 본다.', 'Have them write a solution email and check whether it is easy to follow.')),
       option('c', tx('기술 용어 필기시험을 넣어, 용어를 정확히 아는 지원자를 가려낸다.', 'Add a written technical vocabulary test to pick out candidates who know the terms precisely.'), tx('용어를 아는 것과 고객이 따라 할 수 있게 설명하는 것은 다른 능력입니다.', 'Knowing the terms and explaining so a customer can follow along are different skills.')),
     ],

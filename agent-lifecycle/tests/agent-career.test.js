@@ -298,7 +298,7 @@ test('QA and trainer paths are hidden everywhere in the visible course', () => {
 test("the team leader prep lesson follows the user's five priorities in order", () => {
   const l = SL_LESSONS.find((x) => x.id === 'tlprep');
   assert.deepEqual(l.procedure.map((id) => l.diagram.nodes.find((n) => n.id === id).label.ko), ['근태·태도', '깨끗한 기록', '피플 매니지먼트', '코칭', '백업 지표']);
-  assert.equal(l.checkpoint[0].options.find((o) => o.id === l.checkpoint[0].answer).text.ko, '근태와 태도');
+  assert.equal(l.checkpoint[0].options.find((o) => o.id === l.checkpoint[0].answer).text.ko, '근태와 업무 태도');
   // Harassment is never handled alone: record it and pass it on through the company process.
   assert.ok(l.checkpoint[1].options.find((o) => o.id === l.checkpoint[1].answer).text.ko.includes('인사 담당'));
 });

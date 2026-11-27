@@ -40,7 +40,7 @@ export default {
       id: "approval-q1",
       prompt: tx("지민의 보상 요청이 범위 안이라 승인했습니다. 다음으로 할 일은 무엇일까요?", "Jimin's compensation request was in scope, so you approved it. What do you do next?"),
       options: [
-        option("a", tx("승인했으니 따로 남길 것은 없다.", "Nothing else to record, since it's approved."), tx("이유가 남지 않으면 비슷한 요청이 왔을 때 사람마다 다르게 판단하게 됩니다.", "Without the reason on record, people judge similar requests differently.")),
+        option("a", tx("승인한 것으로 끝내고 따로 남기지 않는다.", "End it at the approval and record nothing else."), tx("이유가 남지 않으면 비슷한 요청이 왔을 때 사람마다 다르게 판단하게 됩니다.", "Without the reason on record, people judge similar requests differently.")),
         option("b", tx("티켓과 승인 기록에 결정과 이유를 적는다.", "Write the decision and the reason in the ticket and the approval log.")),
         option("c", tx("승인해도 되는지 팀장에게 다시 묻는다.", "Ask the team leader again whether the approval is okay."), tx("범위 안의 건까지 다시 물으면 팀장의 하루가 막히고, 승인 범위를 맞춘 의미가 없어집니다.", "Asking about in-scope cases too blocks the team leader's day and defeats the point of agreeing on a scope.")),
       ],

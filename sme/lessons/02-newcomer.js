@@ -41,7 +41,7 @@ export default {
       id: "newcomer-q1",
       prompt: tx("서준이 오전 내내 한 번도 질문하지 않았습니다. 어떻게 할까요?", "Seojun has not asked a single question all morning. What do you do?"),
       options: [
-        option("a", tx("잘하고 있다는 뜻이니 그대로 둔다.", "Leave him be; it means he is doing well."), tx("신입이 조용한 것은 잘해서가 아니라 묻기를 망설여서일 때가 많습니다.", "A quiet new hire is often hesitating to ask, not doing well.")),
+        option("a", tx("잘하고 있다고 믿고 그대로 둔다.", "Leave him be, trusting he's doing well."), tx("신입이 조용한 것은 잘해서가 아니라 묻기를 망설여서일 때가 많습니다.", "A quiet new hire is often hesitating to ask, not doing well.")),
         option("b", tx("먼저 다가가 오전 문의가 어땠는지 묻는다.", "Go to him first and ask how his morning contacts went.")),
         option("c", tx("질문이 없는 게 걱정되니 팀장에게 알려 따로 면담을 잡아 달라고 한다.", "Worried by the silence, tell the team leader and ask for a one-on-one with him."), tx("아직 무슨 일인지 모르는 상태입니다. 면담보다 먼저 서준에게 직접 묻는 것이 순서입니다.", "You don't know yet what is going on. Asking Seojun directly comes before any meeting.")),
       ],
@@ -52,7 +52,7 @@ export default {
       id: "newcomer-q2",
       prompt: tx("서준이 같은 절차를 세 번째 묻습니다. 알맞은 것은 무엇일까요?", "Seojun asks about the same procedure for the third time. What fits best?"),
       options: [
-        option("a", tx("고객이 기다리고 있으니 이번에도 바로 답을 알려 주고, 화면 캡처로 정리해 보내 준다.", "The customer is waiting, so give him the answer right away again and send it as a screenshot."), tx("정리한 답을 받아도 스스로 찾는 힘은 생기지 않아, 네 번째 질문도 오게 됩니다.", "Even a tidy answer builds no skill in finding it, so a fourth question will come.")),
+        option("a", tx("이번에도 바로 답을 알려 주고, 화면 캡처로 정리해 보내 준다.", "Give him the answer right away again, and send it as a screenshot."), tx("정리한 답을 받아도 스스로 찾는 힘은 생기지 않아, 네 번째 질문도 오게 됩니다.", "Even a tidy answer builds no skill in finding it, so a fourth question will come.")),
         option("b", tx("지식 베이스에서 함께 찾아 보고, 반복되는 어려움은 팀장과 트레이너에게 전한다.", "Look it up in the knowledge base together, and pass the repeated difficulty to the team leader and trainer.")),
         option("c", tx("이미 두 번 알려 줬으니, 이번에는 교육 자료를 다시 읽고 혼자 찾아보라고 한다.", "You've explained it twice, so tell him to reread the training material and find it himself this time."), tx("혼자 찾게 두면 고객이 그만큼 기다리고, 서준은 다시 묻기를 망설이게 됩니다.", "Leaving him to search keeps the customer waiting, and Seojun will hesitate to ask again.")),
       ],

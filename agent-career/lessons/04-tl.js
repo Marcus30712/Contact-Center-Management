@@ -48,7 +48,7 @@ export default {
       prompt: tx("팀 지표가 이번 주 크게 떨어졌습니다. 수진 팀장에게 알맞은 행동은 무엇일까요?", "The team's metrics dropped sharply this week. What fits best for Sujin, the team leader?"),
       options: [
         option("a", tx("원인을 확인하고, 부매니저에게 결과와 계획을 보고한다.", "Check the cause and report the results and a plan to the assistant manager.")),
-        option("b", tx("다음 주면 회복될 수 있으니, 보고는 미루고 지켜본다.", "It may recover next week, so hold off on reporting and wait."), tx("늦게 알면 위에서도 도울 수 없습니다. 원인과 계획을 함께 바로 보고합니다.", "If they hear late, the people above can't help. Report the cause and the plan together, right away.")),
+        option("b", tx("보고는 다음 주로 미루고, 회복되는지 지켜본다.", "Hold off on reporting until next week and see if it recovers."), tx("늦게 알면 위에서도 도울 수 없습니다. 원인과 계획을 함께 바로 보고합니다.", "If they hear late, the people above can't help. Report the cause and the plan together, right away.")),
         option("c", tx("지표가 낮은 팀원들을 불러, 바로 경고를 준다.", "Call in the team members with low metrics and warn them right away."), tx("원인을 확인하기 전에 경고부터 하면 팀원의 믿음을 잃습니다. 원인이 먼저입니다.", "Warning people before checking the cause costs their trust. The cause comes first.")),
       ],
       answer: "a",

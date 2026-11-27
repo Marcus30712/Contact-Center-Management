@@ -51,7 +51,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | Pointing things out does nothing for someone who doesn't know the goal. Share the goal first. |
 | 해설 | Support starts with making expectations clear. |
 | 2번 질문 | Jimin keeps making the same mistake for weeks, even after coaching. What fits? |
-| 보기 a (오답) | Jimin is experienced, so wait a few more weeks for her to fix it herself. |
+| 보기 a (오답) | Wait a few more weeks for experienced Jimin to fix it herself. |
 | a 피드백 | The longer you wait, the bigger a small habit grows, and the harder it is to step in. |
 | 보기 b (정답) | Step in directly, look at the cause, and consider a PIP if it continues. |
 | 보기 c (오답) | Hand managing the mistake to the SME, who sees Jimin every day. |
@@ -132,7 +132,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | It's his score, so tell Seojun to go to QA and argue it himself. |
 | a 피드백 | When an agent and QA argue directly, the relationship sours and it's hard to reach a conclusion. |
 | 보기 b (정답) | Listen to the recording together, and if there are grounds, ask for a re-review through the process. |
-| 보기 c (오답) | It's QA's scoring, so calm him down and tell him to accept it this time. |
+| 보기 c (오답) | Calm him down and tell him to accept QA's scoring this time. |
 | c 피드백 | Blocking a dispute that has evidence makes agents stop trusting the scoring. |
 | 해설 | The team leader checks the grounds for a dispute first and passes it on through the process. |
 | 다음 레슨 연결 | Once the quality standard is aligned, the person who teaches it first is the trainer. Next is how to work with trainers. |
@@ -168,7 +168,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | Training the next class won't fix the problems of the people on your team now. |
 | 해설 | Ask for training with cases that show what needs learning and why. |
 | 2번 질문 | You're short of people, and a new hire about to graduate from nesting isn't ready yet. What do you do? |
-| 보기 a (오답) | You need people, so let them graduate on schedule and put them on the regular team right away. |
+| 보기 a (오답) | Let them graduate on schedule and put them on the regular team right away. |
 | a 피드백 | Putting someone on the floor before they're ready is hard on both customers and the new hire, who may well leave. |
 | 보기 b (정답) | Decide with the trainer to hold back graduation, and choose between longer nesting and extra training. |
 | 보기 c (오답) | Give the new hire materials and tell them to study more on their own before graduation. |
@@ -201,7 +201,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | The SME, QA and the trainer each raise a different problem. What should the team leader do first? |
-| 보기 a (오답) | It's each one's own area, so tell them to sort it out and just report back. |
+| 보기 a (오답) | Tell each to sort out their own area and just report back. |
 | a 피드백 | Solving them separately means fixing the same cause three different ways. |
 | 보기 b (정답) | The problems may share a cause, so bring them together and look at them jointly. |
 | 보기 c (오답) | Pick only the problem with the worst numbers and fix it first. |

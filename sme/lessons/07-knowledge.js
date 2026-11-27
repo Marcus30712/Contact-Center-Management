@@ -42,7 +42,7 @@ export default {
       options: [
         option("a", tx("허들에서 지민의 건이라고 밝히고, 같은 실수를 막을 사례로 설명한다.", "In the huddle, say it was Jimin's contact and use it as an example to prevent the same mistake."), tx("이름이 나오면 지민은 창피를 당하고, 다른 상담사들은 실수를 숨기기 시작합니다.", "Naming her embarrasses Jimin, and other agents start hiding their mistakes.")),
         option("b", tx("팀장에게 건넬 요약에 담고, 팀에는 이름 없이 배울 점만 나눈다.", "Put it in the summary for the team leader, and share only the lesson with the team, without names.")),
-        option("c", tx("한 번의 실수이니 아무에게도 알리지 않는다.", "Tell no one, since it was a single mistake."), tx("같은 실수가 다른 상담사에게도 생길 수 있습니다. 배울 점은 팀에 돌려줘야 합니다.", "The same mistake can happen to other agents. The lesson belongs back with the team.")),
+        option("c", tx("한 번의 실수라 아무에게도 알리지 않는다.", "Tell no one; it was a one-off mistake."), tx("같은 실수가 다른 상담사에게도 생길 수 있습니다. 배울 점은 팀에 돌려줘야 합니다.", "The same mistake can happen to other agents. The lesson belongs back with the team.")),
       ],
       answer: "b",
       explanation: tx("개인의 건은 팀장에게, 배울 점은 이름 없이 팀에게 돌려줍니다.", "Individual cases go to the team leader; the lesson goes back to the team without names."),

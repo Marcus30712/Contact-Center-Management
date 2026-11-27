@@ -45,7 +45,7 @@ export default {
     id: 'retention-q1',
     prompt: tx('지민이 폭언 콜을 끊은 직후 자리에서 굳어 있습니다. 대기 콜은 밀려 있습니다. 먼저 무엇을 할까요?', 'Right after ending an abusive call, Jimin sits frozen at her desk. Calls are queuing up. What do you do first?'),
     options: [
-      option('a', tx('대기 콜이 밀려 있으니, 다음 콜을 받게 하고 끝난 뒤에 이야기한다.', 'The queue is long, so have her take the next call and talk afterward.'), tx('바로 다음 콜을 받게 하면 충격이 그대로 다음 고객에게 이어지고, 지민은 보호받지 못했다고 느낍니다.', 'Sending her straight to the next call carries the shock over to the next customer, and Jimin feels unprotected.')),
+      option('a', tx('다음 콜을 받게 하고, 대기 콜이 줄어든 뒤에 이야기한다.', 'Have her take the next call, and talk once the queue goes down.'), tx('바로 다음 콜을 받게 하면 충격이 그대로 다음 고객에게 이어지고, 지민은 보호받지 못했다고 느낍니다.', 'Sending her straight to the next call carries the shock over to the next customer, and Jimin feels unprotected.')),
       option('b', tx('충격이 가라앉도록, 잠시 쉬게 하고 끊은 판단이 맞았다고 말해 준다.', 'So the shock can settle, give her a short break and tell her ending the call was the right decision.')),
       option('c', tx('왜 조금 더 참지 못했는지 묻는다.', 'Ask why she could not hold on a little longer.'), tx('판단을 따져 물으면 지민은 다음에 선끊기 권한을 쓰기를 망설이게 됩니다.', 'Questioning her judgment makes Jimin hesitate to use her authority to hang up first next time.')),
     ],
@@ -76,7 +76,7 @@ export default {
     prompt: tx('악성 민원 콜이 이어진 날, 일반 고객지원 팀원 여럿이 지쳐 보입니다. 어떻게 할까요?', 'After a day of abusive calls, several people on the general support team look worn out. What do you do?'),
     options: [
       option('a', tx('근무 중 짧게 모여 힘든 콜을 나누고, 심리 상담(EAP)을 안내한다.', 'Gather briefly during work to talk through the hard calls, and point people to the EAP.')),
-      option('b', tx('다들 겪는 일이니, 따로 이야기 없이 내일 새로 시작하자고 한다.', 'Everyone goes through it, so skip any talk and say you will start fresh tomorrow.'), tx('다들 겪는 일이라며 넘기면 그날의 피로가 다음 날로 쌓입니다.', 'Brushing it off as something everyone goes through lets the day’s fatigue pile into the next.')),
+      option('b', tx('따로 이야기 없이, 내일 새로 시작하자고 한다.', 'Skip any talk and say you will start fresh tomorrow.'), tx('다들 겪는 일이라며 넘기면 그날의 피로가 다음 날로 쌓입니다.', 'Brushing it off as something everyone goes through lets the day’s fatigue pile into the next.')),
       option('c', tx('가장 지친 사람을 따로 불러, 오늘 실적이 떨어진 이유를 함께 짚어 본다.', 'Call in the most exhausted person and go over why their numbers dropped today.'), tx('지친 날 실적 이야기를 꺼내면 케어가 아니라 압박으로 받아들여집니다.', 'Raising performance on an exhausting day lands as pressure, not care.')),
     ],
     answer: 'a',
@@ -85,7 +85,7 @@ export default {
     id: 'retention-tech-2',
     prompt: tx('기술지원 상담사 한 명이 몇 주째 어려운 티켓만 맡아 지쳐 보입니다. 어떻게 할까요?', 'A tech support agent has handled only hard tickets for weeks and looks worn out. What do you do?'),
     options: [
-      option('a', tx('어려운 티켓은 실력 있는 사람이 맡아야 하니, 지금 배정을 그대로 둔다.', 'Hard tickets need a skilled person, so keep the current assignments as they are.'), tx('실력이 좋을수록 어려운 티켓이 몰리기 쉬운데, 그대로 두면 그 사람이 먼저 지칩니다.', 'The more skilled someone is, the more hard tickets flow their way, and left alone they burn out first.')),
+      option('a', tx('어려운 티켓은 실력 있는 사람에게 계속 맡기고, 지금 배정을 그대로 둔다.', 'Keep hard tickets with the skilled person, and leave the current assignments as they are.'), tx('실력이 좋을수록 어려운 티켓이 몰리기 쉬운데, 그대로 두면 그 사람이 먼저 지칩니다.', 'The more skilled someone is, the more hard tickets flow their way, and left alone they burn out first.')),
       option('b', tx('쉬운 티켓을 섞어 주고, 해결 사례를 지식 자료로 정리하게 한다.', 'Mix in easier tickets, and have them write up solved cases for the knowledge base.')),
       option('c', tx('회복될 때까지 당분간 쉬운 티켓만 맡겨 부담을 덜어 준다.', 'Give them only easy tickets until they recover, to lighten the load.'), tx('쉬운 티켓만 맡기면 부담은 줄지만, 성장할 기회까지 멈추게 됩니다.', 'Only easy tickets lightens the load but also stops their chance to grow.')),
     ],

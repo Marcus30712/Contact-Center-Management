@@ -49,7 +49,7 @@ export default {
       id: "agents-q2",
       prompt: tx("지민의 같은 실수가 코칭 뒤에도 몇 주째 반복됩니다. 알맞은 것은 무엇일까요?", "Jimin keeps making the same mistake for weeks, even after coaching. What fits?"),
       options: [
-        option("a", tx("지민은 오래 일한 사람이니, 스스로 고치기를 몇 주 더 기다린다.", "Jimin is experienced, so wait a few more weeks for her to fix it herself."), tx("미룰수록 작은 습관이 큰 문제가 되고, 개입은 더 어려워집니다.", "The longer you wait, the bigger a small habit grows, and the harder it is to step in.")),
+        option("a", tx("오래 일한 지민이 스스로 고치기를 몇 주 더 기다린다.", "Wait a few more weeks for experienced Jimin to fix it herself."), tx("미룰수록 작은 습관이 큰 문제가 되고, 개입은 더 어려워집니다.", "The longer you wait, the bigger a small habit grows, and the harder it is to step in.")),
         option("b", tx("직접 개입해 원인을 보고, 계속되면 PIP를 검토한다.", "Step in directly, look at the cause, and consider a PIP if it continues.")),
         option("c", tx("지민을 매일 보는 직무전문가에게 실수 관리를 맡긴다.", "Hand managing the mistake to the SME, who sees Jimin every day."), tx("반복되는 성과 문제의 관리는 팀장의 몫입니다. 직무전문가는 업무를 돕지만 평가하거나 조치하지 않습니다.", "Managing repeated performance problems is the team leader's job. The SME helps with the work but doesn't evaluate or take action.")),
       ],

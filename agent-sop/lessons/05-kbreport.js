@@ -51,7 +51,7 @@ export default {
       prompt: tx("문서가 아직 고쳐지지 않았습니다. 그동안 지민은 어떻게 안내할까요?", "The document hasn't been fixed yet. How does Jimin guide customers meanwhile?"),
       options: [
         option("a", tx("문서가 공식 자료이니, 고쳐질 때까지 문서대로 안내한다.", "The document is the official source, so follow it until it's fixed."), tx("틀린 줄 알면서 문서대로 안내하면 고객이 잘못된 안내를 받습니다. 임시 안내를 따릅니다.", "Following a document you know is wrong gives customers wrong guidance. Follow the interim guidance.")),
-        option("b", tx("내가 확인한 내용이 맞다고 보고 계속 안내한다.", "Treat what she checked as right and keep guiding that way."), tx("상담사마다 다른 내용으로 안내하게 됩니다. 팀 전체가 같은 임시 안내를 따릅니다.", "Then each agent guides differently. The whole team follows the same interim guidance.")),
+        option("b", tx("내가 확인한 내용이 맞을 거라 믿고 계속 안내한다.", "Trust what she checked and keep guiding that way."), tx("상담사마다 다른 내용으로 안내하게 됩니다. 팀 전체가 같은 임시 안내를 따릅니다.", "Then each agent guides differently. The whole team follows the same interim guidance.")),
         option("c", tx("팀 채팅방에 올라온 하린의 임시 안내대로 응대한다.", "Handle contacts with Harin's interim guidance from the team chat.")),
       ],
       answer: "c",
