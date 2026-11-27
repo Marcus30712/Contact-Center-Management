@@ -168,12 +168,12 @@ function play(root, quiz, right) {
 test('the list shows my role\'s quiz first, with lock, best and pass', () => {
   const locked = page(fakeStorage(), 'sme').root;
   const cards = [...locked.querySelectorAll('[data-quiz]')];
-  assert.deepEqual(cards.map((c) => c.getAttribute('data-quiz')), ['sme', 'tl']);
+  assert.deepEqual(cards.map((c) => c.getAttribute('data-quiz')), ['sme', 'tl', 'agent']);
   assert.equal(cards[0].querySelector('[data-locked]').textContent, REVIEW_UI.locked.ko.replace('{n}', '7'));
   assert.equal(cards[1].querySelector('[data-locked]').textContent, REVIEW_UI.locked.ko.replace('{n}', '16'));
   assert.equal(cards[0].querySelector('a[data-locked-link]').getAttribute('href'), '../sme/#firstday-0');
   assert.equal(cards[0].querySelector('[data-start-quiz]'), null);
-  assert.deepEqual([...page(fakeStorage(), 'tl').root.querySelectorAll('[data-quiz]')].map((c) => c.getAttribute('data-quiz')), ['tl', 'sme']);
+  assert.deepEqual([...page(fakeStorage(), 'tl').root.querySelectorAll('[data-quiz]')].map((c) => c.getAttribute('data-quiz')), ['tl', 'sme', 'agent']);
 
   const s = fakeStorage({ ...SME_DONE, [REVIEW_KEY]: JSON.stringify({ sme: { best: 5, total: 6, passed: true } }) });
   const open = page(s, 'sme').root.querySelector('[data-quiz="sme"]');

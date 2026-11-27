@@ -26,9 +26,9 @@ test('practice wording is the confirmed table, in both languages', () => {
 test('badges are the confirmed ones, in engine order', () => {
   const table = rows('| id | 이름 | Name | 조건 | Condition |');
   assert.deepEqual(BADGES.map((b) => b.id), BADGE_IDS);
-  // The two review-quiz badges (2026-11-25) are checked against their own copy in review.test.js.
+  // The review-quiz badges (2026-11-25, agent 2026-11-27) are checked against their own copy in review.test.js and agent-review.test.js.
   assert.deepEqual(BADGES.slice(0, table.length).map((b) => [b.id, b.name.ko, b.name.en, b.rule.ko, b.rule.en]), table);
-  assert.deepEqual(BADGES.slice(table.length).map((b) => b.id), ['review-tl', 'review-sme']);
+  assert.deepEqual(BADGES.slice(table.length).map((b) => b.id), ['review-tl', 'review-sme', 'review-agent']);
 });
 
 test('no Hangul in English and no banned words', () => {

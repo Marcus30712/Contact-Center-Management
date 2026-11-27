@@ -109,8 +109,8 @@ test('streak counts weekdays only', () => {
   assert.equal(streak([], '2026-11-20').count, 0);
 });
 
-test('badges: each of the ten, never twice', () => {
-  assert.deepEqual(BADGE_IDS, ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel', 'review-tl', 'review-sme']);
+test('badges: each one, never twice', () => {
+  assert.deepEqual(BADGE_IDS, ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel', 'review-tl', 'review-sme', 'review-agent']);
   const p = pool(store({ life: ALL_LIFE }));
   const r1 = answerAll(empty(), p, '2026-11-16');
   assert.deepEqual(r1.badges.sort(), ['first', 'perfect']);
@@ -149,6 +149,7 @@ test('badges: each of the ten, never twice', () => {
   assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', excelDone: true }), ['excel']);
   assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', reviewTl: true }), ['review-tl']);
   assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', reviewSme: true }), ['review-sme']);
+  assert.deepEqual(checkBadges(empty(), { today: '2026-11-20', reviewAgent: true }), ['review-agent']);
   const has = { ...empty(), badges: { lifecycle: '2026-11-01' } };
   assert.deepEqual(checkBadges(has, { today: '2026-11-20', lifecycleDone: true }), []);
 });
@@ -282,4 +283,7 @@ test('passing a review quiz is a course fact', async () => {
   const f = courseFacts(s, empty(), []);
   assert.equal(f.reviewSme, true);
   assert.equal(f.reviewTl, false);
+  assert.equal(f.reviewAgent, false);
+  const a = fakeStorage({ 'queuecraft:review:v1': JSON.stringify({ agent: { best: 5, total: 6, passed: true } }) });
+  assert.equal(courseFacts(a, empty(), []).reviewAgent, true);
 });

@@ -113,10 +113,10 @@ test('term cards flip, then leave today\'s deck', () => {
   assert.ok(root.querySelector('[data-cards-done]').textContent.includes(UI.cardsDone.ko));
 });
 
-test('badge shelf shows all ten, unearned ones dimmed with their rule', () => {
+test('badge shelf shows every badge, unearned ones dimmed with their rule', () => {
   const { root } = page(store(['hiring']));
   const items = [...root.querySelectorAll('[data-badges] [data-badge]')];
-  assert.equal(items.length, 12);
+  assert.equal(items.length, 13);
   assert.equal(items[9].getAttribute('data-badge'), 'excel');
   assert.ok(items[9].textContent.includes('엑셀 완주'));
   assert.ok(items.every((li) => li.classList.contains('is-locked')));

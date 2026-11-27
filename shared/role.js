@@ -14,7 +14,7 @@ export const COURSE_ROLES = ['agent', 'sme', 'tl'];
 export const ROLE_COURSES = { agent: ['agent', 'agent-career', 'agent-sop'], tl: ['tl', 'lifecycle', 'tl-support', 'sop'], sme: ['sme', 'sme-lifecycle', 'sme-sop'] };
 // The courses that open a role's review quiz. The SME quiz was written for
 // SME First Steps and stays tied to it (design 2026-11-25-sme-learn-set §4.4).
-export const REVIEW_COURSES = { tl: ['lifecycle', 'sop'], sme: ['sme'] };
+export const REVIEW_COURSES = { tl: ['lifecycle', 'sop'], sme: ['sme'], agent: ['agent', 'agent-sop'] };
 
 export function coursesFor(role) {
   return ROLE_COURSES[role] ?? [];
