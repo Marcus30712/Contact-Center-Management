@@ -69,25 +69,44 @@ for (const [id, lessons] of Object.entries(reasonCourses)) {
   });
 }
 
-// Agent SOP Library (2026-11-27): the right answer must not give itself away by being the
-// shortest option either, and "~니" reasons must not sit only on wrong options.
-// Proposal: docs/superpowers/reviews/2026-11-27-agent-sop-answer-cues-proposal.md.
-test('agent-sop: the right answer is the single shortest option in at most a quarter of the questions', () => {
-  const qs = AS_LESSONS.flatMap((l) => l.checkpoint);
-  const soloShortest = (q) => {
-    const len = q.options.map((o) => o.text.ko.length);
-    const a = len[q.options.findIndex((o) => o.id === q.answer)];
-    return a === Math.min(...len) && len.filter((v) => v === a).length === 1;
-  };
-  const n = qs.filter(soloShortest).length;
-  assert.ok(n * 4 <= qs.length, `${n}/${qs.length}: ${qs.filter(soloShortest).map((q) => q.id).join(', ')}`);
-});
+// Content review phase 4 (2026-11-27): the right answer must not give itself away by
+// being the shortest option either, and "~니" reasons must not sit only on wrong options.
+// First tried on the Agent SOP Library, then made site-wide.
+// Proposal: docs/superpowers/reviews/2026-11-27-answer-cues-sitewide-proposal.md.
+const NI = /니[,\s]/;
+const soloShortest = (q) => {
+  const len = q.options.map((o) => o.text.ko.length);
+  const a = len[q.options.findIndex((o) => o.id === q.answer)];
+  return a === Math.min(...len) && len.filter((v) => v === a).length === 1;
+};
+const cueSets = {
+  ...Object.fromEntries(Object.entries(COURSES).map(([id, lessons]) => [id, lessons.flatMap((l) => l.checkpoint)])),
+  ...Object.fromEntries(Object.entries(QUIZZES).map(([id, quiz]) => [`review-${id}`, quiz.questions])),
+};
+for (const [id, qs] of Object.entries(cueSets)) {
+  test(`${id}: the right answer is the single shortest option in at most a quarter of the questions`, () => {
+    const n = qs.filter(soloShortest).length;
+    assert.ok(n * 4 <= qs.length, `${n}/${qs.length}: ${qs.filter(soloShortest).map((q) => q.id).join(', ')}`);
+  });
+  test(`${id}: at least a third of the options with a "~니" reason are right answers`, () => {
+    let right = 0, all = 0;
+    const wrong = [];
+    for (const q of qs) for (const o of q.options) if (NI.test(o.text.ko)) { all += 1; if (o.id === q.answer) right += 1; else wrong.push(`${q.id}:${o.id}`); }
+    assert.ok(right * 3 >= all, `${right}/${all}; wrong: ${wrong.join(', ')}`);
+  });
+}
 
-test('agent-sop: at least a third of the options with a "~니" reason are right answers', () => {
-  const NI = /니[,\s]/;
-  let right = 0, all = 0;
-  for (const q of AS_LESSONS.flatMap((l) => l.checkpoint)) {
-    for (const o of q.options) if (NI.test(o.text.ko)) { all += 1; if (o.id === q.answer) right += 1; }
+// Phase 4, after the final review (2026-11-27): taking out "~니" must not leave a new
+// cue behind. "~로 보고 / ~다고 보고" and English "Treat… / Take … as" sat on wrong options.
+const JUDGE_KO = /(다고|라고|으로|로|만) 보고[,\s]/;
+const JUDGE_EN = /^(Treat|Assume|Count|Go by|Decide)\b|^Take .* as\b|^Take \w+'s word/;
+for (const [id, qs] of Object.entries(cueSets)) {
+  for (const [lang, re] of [['ko', JUDGE_KO], ['en', JUDGE_EN]]) {
+    test(`${id}: "treat it as" wording (${lang}) is not only on wrong options`, () => {
+      let right = 0, all = 0;
+      const wrong = [];
+      for (const q of qs) for (const o of q.options) if (re.test(o.text[lang])) { all += 1; if (o.id === q.answer) right += 1; else wrong.push(`${q.id}:${o.id}`); }
+      assert.ok(right * 3 >= all, `${right}/${all}; wrong: ${wrong.join(', ')}`);
+    });
   }
-  assert.ok(all > 0 && right * 3 >= all, `${right}/${all}`);
-});
+}

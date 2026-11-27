@@ -51,7 +51,7 @@ export default {
       options: [
         option("a", tx("팀 허들에서 지민의 사정을 알리고, 야간 근무를 바꿔 줄 사람이 있는지 협조를 구한다.", "Tell the team at the huddle about her situation and ask who could swap night shifts with her."), tx("본인의 허락 없이 개인 사정을 알리면 신뢰가 무너집니다.", "Sharing someone's personal matters without permission destroys trust.")),
         option("b", tx("지민의 허락 없이 알리지 않고, 근무 조정은 정해진 절차로 확인한다.", "Don't share it without Jimin's permission, and check shift changes through the agreed process.")),
-        option("c", tx("성과와 상관없는 개인 이야기이니 면담 메모에 남기지 않는다.", "It's personal and unrelated to performance, so leave it out of your notes."), tx("개인 사정이 성과에 영향을 주고 있을 수 있습니다. 필요한 만큼은 기억해 둡니다.", "Personal matters may be affecting performance. Keep what you need in mind.")),
+        option("c", tx("성과와 상관없는 개인 이야기라서 면담 메모에 남기지 않는다.", "Leave it out of your notes; it's personal and unrelated to performance."), tx("개인 사정이 성과에 영향을 주고 있을 수 있습니다. 필요한 만큼은 기억해 둡니다.", "Personal matters may be affecting performance. Keep what you need in mind.")),
       ],
       answer: "b",
       explanation: tx("개인 사정은 지키고, 필요한 조치는 절차대로 합니다.", "Protect personal matters, and take any needed action through the process."),

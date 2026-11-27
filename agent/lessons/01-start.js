@@ -41,7 +41,7 @@ export default {
       options: [
         option("a", tx("이름을 다 외울 때까지 누구에게도 묻지 않는다.", "Ask no one anything until she knows every name."), tx("묻지 않으면 배우는 속도가 느려집니다. 이름보다 누구에게 무엇을 묻는지가 먼저입니다.", "Not asking slows down learning. Knowing whom to ask about what comes before names.")),
         option("b", tx("자리와 역할을 메모하고, 누구에게 무엇을 물을지부터 익힌다.", "Note seats and roles, and learn first whom to ask about what.")),
-        option("c", tx("이름은 중요하지 않으니, 첫 주에는 교육 내용만 외우고 사람은 신경 쓰지 않는다.", "Names don't matter, so in the first week she memorizes only the training content and doesn't bother with people."), tx("사람을 알아야 막힐 때 도움을 청할 수 있습니다. 이름과 역할은 시간을 두고 익히면 됩니다.", "Knowing people is how you get help when you're stuck. Learn names and roles over time.")),
+        option("c", tx("첫 주에는 교육 내용만 외우고, 사람은 신경 쓰지 않는다.", "In the first week, memorize only the training content and don't bother with people."), tx("사람을 알아야 막힐 때 도움을 청할 수 있습니다. 이름과 역할은 시간을 두고 익히면 됩니다.", "Knowing people is how you get help when you're stuck. Learn names and roles over time.")),
       ],
       answer: "b",
       explanation: tx("첫 주에는 사람과 역할을 익히는 것이 일입니다.", "In the first week, learning the people and their roles is the job."),

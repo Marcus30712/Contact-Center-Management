@@ -50,7 +50,7 @@ export default {
       id: "training-q2",
       prompt: tx("오후에 배운 CRM 화면이 잘 이해되지 않았습니다. 언제 물을까요?", "A CRM screen from the afternoon session didn't make sense. When should Jimin ask?"),
       options: [
-        option("a", tx("내일 다시 배우면 알게 될 테니 기다린다.", "Wait, since it will click when she learns it again tomorrow."), tx("모르는 것이 다음 날 내용 위에 쌓이면 더 어려워집니다.", "What you don't understand piles up under the next day's material and gets harder.")),
+        option("a", tx("내일 수업에서 다시 배울 때까지 묻지 않고 기다린다.", "Wait without asking until it's taught again in tomorrow's class."), tx("모르는 것이 다음 날 내용 위에 쌓이면 더 어려워집니다.", "What you don't understand piles up under the next day's material and gets harder.")),
         option("b", tx("그날 안에 트레이너 유나에게 묻는다.", "Ask Yuna the trainer the same day.")),
         option("c", tx("실전 배치 뒤에 직무전문가에게 묻는다.", "Ask the SME after Go Live."), tx("교육 기간은 마음껏 물어도 되는 시간입니다. 지금 묻는 것이 가장 쉽습니다.", "Training is the time when you can ask as much as you like. Asking now is easiest.")),
       ],

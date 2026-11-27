@@ -79,7 +79,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 a (오답) | Mark down Jimin's quality score yourself, and ask QA to reflect it in the next evaluation. |
 | a 피드백 | QA and the team leader do the evaluating. If the SME scores agents, the roles blur and Jimin won't know whom to ask for help. |
 | 보기 b (정답) | Watch Jimin's contacts alongside her and help, and if it repeats, tell the team leader with examples. |
-| 보기 c (오답) | Stay out of it, since it is not the SME's business. |
+| 보기 c (오답) | Say it isn't the SME's business and stay out of it. |
 | c 피드백 | Helping is the SME's job. If you stay out of it, the problem shows only after it has grown. |
 | 해설 | The SME helps instead of evaluating, and takes repeated problems to the team leader with evidence. |
 | 다음 레슨 연결 | Now that you know the role, it is time to meet people. First, the one you need to stay closest to: a new hire who has just finished OJT and started nesting. |
@@ -111,14 +111,14 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | Seojun has not asked a single question all morning. What do you do? |
-| 보기 a (오답) | Leave him be; it means he is doing well. |
+| 보기 a (오답) | Leave him be, trusting he's doing well. |
 | a 피드백 | A quiet new hire is often hesitating to ask, not doing well. |
 | 보기 b (정답) | Go to him first and ask how his morning contacts went. |
 | 보기 c (오답) | Worried by the silence, tell the team leader and ask for a one-on-one with him. |
 | c 피드백 | You don't know yet what is going on. Asking Seojun directly comes before any meeting. |
 | 해설 | Supporting new hires means going to them first, not waiting. |
 | 2번 질문 | Seojun asks about the same procedure for the third time. What fits best? |
-| 보기 a (오답) | The customer is waiting, so give him the answer right away again and send it as a screenshot. |
+| 보기 a (오답) | Give him the answer right away again, and send it as a screenshot. |
 | a 피드백 | Even a tidy answer builds no skill in finding it, so a fourth question will come. |
 | 보기 b (정답) | Look it up in the knowledge base together, and pass the repeated difficulty to the team leader and trainer. |
 | 보기 c (오답) | You've explained it twice, so tell him to reread the training material and find it himself this time. |
@@ -153,7 +153,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | You are not sure Jimin's request is within your approval limits. What do you do? |
-| 보기 a (오답) | Approve it for now, since the customer can't be kept waiting. |
+| 보기 a (오답) | Approve it for now so the customer isn't kept waiting. |
 | a 피드백 | An unsure approval is hard to undo later, and the wrong standard spreads through the team. |
 | 보기 b (정답) | Ask Jimin to let the customer know there is a short wait, and check with the team leader right away. |
 | 보기 c (오답) | When unsure, refusing is safer, so have Jimin tell the customer it can't be done. |
@@ -163,7 +163,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 a (오답) | Answer each person as they ask, and tell them to note it down. |
 | a 피드백 | Their notes don't reach the rest of the team, so a sixth and seventh question will come, and you miss more urgent requests meanwhile. |
 | 보기 b (정답) | Everyone needs this answer, so sum it up and share it in the huddle or the team chat. |
-| 보기 c (오답) | The answer is in the knowledge base, so send the article link and tell them to read it. |
+| 보기 c (오답) | Send the article link and tell them to read it in the knowledge base. |
 | c 피드백 | When five people ask the same thing, it is a sign the article is hard to find or unclear. |
 | 해설 | Give repeated questions back to the whole team at once. That is how the next questions drop. |
 | 다음 레슨 연결 | Some of the people asking for escalations were your peers until yesterday. That relationship is the hardest part for a new SME. |
@@ -202,10 +202,10 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | c 피드백 | Calling it out in public hurts Junho, and the team reads it as the SME making an example of a peer. |
 | 해설 | Apply the same standard, in a respectful way. |
 | 2번 질문 | Junho says he knows a hard case better and wants to handle it differently from your guidance. What fits best? |
-| 보기 a (오답) | Tell him to do it your way, since you are the SME now. |
+| 보기 a (오답) | Tell him to do it your way, since you're the SME now. |
 | a 피드백 | Pushing by title alone means Junho stops speaking up, and the team loses a good call. |
 | 보기 b (정답) | Hear Junho's view and reasons first, and check together that it meets the approval standard. |
-| 보기 c (오답) | Approve Junho's requests without checking, to avoid awkwardness. |
+| 보기 c (오답) | Approve Junho's requests without checking, to keep things from getting awkward. |
 | c 피드백 | Skipping the check makes the standard depend on the person, and if something goes wrong, it is on you as the approver. |
 | 해설 | Respect a senior's experience, but check the approval standard the same way for everyone. |
 | 다음 레슨 연결 | The SME does not back up only agents. You also take on part of the team leader's work. |
@@ -237,7 +237,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | While the team leader is away, an agent arrives 30 minutes late and explains why. What do you do? |
-| 보기 a (오답) | Leave it off the late record, since the reason sounds fair. |
+| 보기 a (오답) | Hear the reason, judge it fair, and leave it off the late record. |
 | a 피드백 | Judging the reason is the team leader's job. If the SME excuses it, the standard can differ for someone else with the same reason. |
 | 보기 b (정답) | Record the arrival time and the reason as given, and pass them to the team leader. |
 | 보기 c (오답) | So it doesn't happen again, warn them you'll report it to the team leader next time. |
@@ -282,7 +282,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 a (오답) | To be fair, go in order, starting with whoever called first. |
 | a 피드백 | The test is whether a customer is waiting now, not the order. A customer on hold gets more tired every minute. |
 | 보기 b (정답) | A customer is waiting on hold, so go to Seojun first and tell Jimin when you will come. |
-| 보기 c (오답) | Jimin's will be quick, so do hers first and then go straight to Seojun. |
+| 보기 c (오답) | Do Jimin's quick one first, then go straight to Seojun. |
 | c 피드백 | Even if it is quick, the email can wait. The customer on the call cannot. |
 | 해설 | Customers waiting live come first, and whoever has to wait hears when you will come. |
 | 2번 질문 | Requests have kept piling up for 30 minutes and customer waits are getting longer. What fits best? |
@@ -324,7 +324,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 a (오답) | In the huddle, say it was Jimin's contact and use it as an example to prevent the same mistake. |
 | a 피드백 | Naming her embarrasses Jimin, and other agents start hiding their mistakes. |
 | 보기 b (정답) | Put it in the summary for the team leader, and share only the lesson with the team, without names. |
-| 보기 c (오답) | Tell no one, since it was a single mistake. |
+| 보기 c (오답) | Tell no one; it was a one-off mistake. |
 | c 피드백 | The same mistake can happen to other agents. The lesson belongs back with the team. |
 | 해설 | Individual cases go to the team leader; the lesson goes back to the team without names. |
 | 2번 질문 | Why scrub a few tickets every day, steadily? |

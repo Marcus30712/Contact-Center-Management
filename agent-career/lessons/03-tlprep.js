@@ -42,9 +42,9 @@ export default {
       id: "tlprep-q1",
       prompt: tx("직무전문가에서 팀장으로 갈 때 가장 먼저 보는 것은 무엇일까요?", "When an SME moves up to team leader, what do they look at first?"),
       options: [
-        option("a", tx("팀장 백업을 맡은 횟수", "How many times they've covered as team leader backup"), tx("백업 때의 지표도 보지만, 그보다 먼저 근태와 태도를 봅니다.", "Backup metrics count too, but attendance and attitude come first.")),
-        option("b", tx("근태와 태도", "Attendance and attitude")),
-        option("c", tx("직무전문가로 일한 기간", "How long they've worked as an SME"), tx("기간보다 근태와 태도, 최근 기록, 사람을 이끄는 준비를 먼저 봅니다.", "Attendance and attitude, the recent record and readiness to lead people come before time in the role.")),
+        option("a", tx("팀장 백업 횟수", "Times covering as team leader backup"), tx("백업 때의 지표도 보지만, 그보다 먼저 근태와 태도를 봅니다.", "Backup metrics count too, but attendance and attitude come first.")),
+        option("b", tx("근태와 업무 태도", "Attendance and work attitude")),
+        option("c", tx("직무전문가 경력 기간", "Length of time as an SME"), tx("기간보다 근태와 태도, 최근 기록, 사람을 이끄는 준비를 먼저 봅니다.", "Attendance and attitude, the recent record and readiness to lead people come before time in the role.")),
       ],
       answer: "b",
       explanation: tx("팀장은 팀원의 근태를 챙기는 사람입니다. 그래서 내 근태와 태도가 가장 먼저 기준이 됩니다.", "A team leader looks after the team's attendance. So your own attendance and attitude are the first criterion."),

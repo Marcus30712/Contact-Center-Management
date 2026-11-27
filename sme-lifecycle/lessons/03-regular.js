@@ -40,7 +40,7 @@ export default {
       id: "regular-q1",
       prompt: tx("스크러빙에서 서준의 티켓 세 건(예시)에 같은 확인 단계 누락이 보였습니다. 어떻게 할까요?", "In scrubbing, three of Seojun's tickets (Example) show the same missed check step. What do you do?"),
       options: [
-        option("a", tx("서준이 요청하지 않았으니 그대로 둔다.", "Seojun didn't ask, so leave it."), tx("혼자 일하는 상담사의 실수는 스스로 모르기 때문에 요청으로 오지 않습니다.", "Mistakes by an agent who works alone don't arrive as requests, because he doesn't know about them.")),
+        option("a", tx("서준이 먼저 요청할 때까지 아무 말 없이 그대로 둔다.", "Say nothing and leave it until Seojun asks."), tx("혼자 일하는 상담사의 실수는 스스로 모르기 때문에 요청으로 오지 않습니다.", "Mistakes by an agent who works alone don't arrive as requests, because he doesn't know about them.")),
         option("b", tx("티켓 번호와 함께 팀장에게 건넬 요약에 담는다.", "Put it, with the ticket numbers, in the summary you hand the team leader.")),
         option("c", tx("팀 채팅방에 서준의 티켓을 사례로 올린다.", "Post Seojun's tickets in the team chat as an example."), tx("이름이 드러나면 서준은 창피를 당하고, 팀은 실수를 숨기기 시작합니다.", "With his name showing, Seojun is embarrassed and the team starts hiding mistakes.")),
       ],
@@ -51,7 +51,7 @@ export default {
       id: "regular-q2",
       prompt: tx("다음 주에 새 요금제가 출시됩니다. 정식 상담사 서준에게 알맞은 지원은 무엇일까요?", "A new plan launches next week. What support fits Seojun, a regular agent?"),
       options: [
-        option("a", tx("정식 상담사이니 허들 공지만으로 충분하다.", "He is a regular agent, so a huddle notice is enough."), tx("처음 보는 문의는 경력과 상관없이 막힙니다. 공지만으로는 첫 며칠의 실수를 막기 어렵습니다.", "Contacts you've never seen stall anyone, whatever their experience. A notice alone can't prevent mistakes in the first few days.")),
+        option("a", tx("새 요금제 안내는 허들 공지로 끝내고, 서준을 따로 더 돕지 않는다.", "Leave the new plan to the huddle notice and give Seojun no extra support."), tx("처음 보는 문의는 경력과 상관없이 막힙니다. 공지만으로는 첫 며칠의 실수를 막기 어렵습니다.", "Contacts you've never seen stall anyone, whatever their experience. A notice alone can't prevent mistakes in the first few days.")),
         option("b", tx("출시 후 첫 며칠은 새 요금제 문의를 먼저 확인한다.", "For the first few days after launch, check his contacts about the new plan first.")),
         option("c", tx("새 요금제 문의는 당분간 직무전문가가 모두 받는다.", "Have the SME take every new-plan contact for now."), tx("직무전문가 혼자 받으면 고객 대기가 길어지고, 서준은 새 요금제를 배우지 못합니다.", "If the SME takes them all, customers wait longer and Seojun never learns the new plan.")),
       ],

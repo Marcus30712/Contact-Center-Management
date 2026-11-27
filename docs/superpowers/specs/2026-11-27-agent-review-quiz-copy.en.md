@@ -28,7 +28,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 |---|---|
 | 질문 | During nesting, a customer asks Jimin for a refund over the refund limit (Example). She has checked the limit in the knowledge base, and the colleague next to her says, "Just give it to them, it's not that much." What does she do? |
 | 보기 a (정답) | Sum up the limit she checked and the customer's situation, and ask Harin for the approval it needs. |
-| 보기 b (오답) | The colleague said it's fine, so process the refund as is. |
+| 보기 b (오답) | Process the refund as is, as the colleague said. |
 | b 피드백 | A call that needs approval goes to the SME, not the next seat. |
 | 보기 c (오답) | Put the customer on hold and just ask Harin, "What do I do with this?" |
 | c 피드백 | Saying what you checked and what you need gets an answer right away, with no follow-up questions. |
@@ -79,9 +79,9 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | At the morning huddle, Jimin heard the client's refund period has changed, but the knowledge base still shows the old period. Just then, a customer asks about the refund period. What does she do? |
-| 보기 a (오답) | The knowledge base is the official document, so give the old period. |
+| 보기 a (오답) | Give the old period, since the knowledge base is the official document. |
 | a 피드백 | The document may not have caught up with the huddle yet. Giving the old period means the customer will have to contact you again. |
-| 보기 b (오답) | Decide for herself which one is right and fix the knowledge base article. |
+| 보기 b (오답) | Fix the knowledge base article herself, deciding which one is right. |
 | b 피드백 | You don't fix the document yourself; you report it so the owner can correct it. |
 | 보기 c (정답) | Go by her huddle notes, and tell Harin the document is different. |
 | 해설 | Apply the update you heard at the huddle, and report any difference in the document to the SME so everyone guides customers the same way. |

@@ -38,7 +38,7 @@ export default {
       id: "results-q1",
       prompt: tx("준호의 처리 건수는 팀에서 가장 많은데 품질 점수는 평균보다 낮습니다. 먼저 할 일은 무엇일까요?", "Junho handles the most tickets on the team, but his quality score is below average. What do you do first?"),
       options: [
-        option("a", tx("처리 건수가 많으니 우수 사원으로 적어 둔다.", "Note him down as a top performer, since his volume is high."), tx("한 숫자만 보면 품질이 떨어지는 이유를 놓칩니다.", "Looking at one number alone misses why quality is slipping.")),
+        option("a", tx("처리 건수 하나로 우수 사원이라고 적어 둔다.", "Note him down as a top performer on volume alone."), tx("한 숫자만 보면 품질이 떨어지는 이유를 놓칩니다.", "Looking at one number alone misses why quality is slipping.")),
         option("b", tx("QA에게 감점 항목을 듣고, 녹취로 확인할 질문을 적는다.", "Hear from QA which items lost points, and note questions to check in his recordings.")),
         option("c", tx("품질 점수가 낮으니 바로 코칭 대상으로 정한다.", "His quality score is low, so put him on the coaching list right away."), tx("이유를 모른 채 코칭하면 엉뚱한 곳을 고치게 됩니다.", "Coaching without knowing why fixes the wrong thing.")),
       ],

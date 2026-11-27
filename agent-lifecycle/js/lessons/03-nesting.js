@@ -77,7 +77,7 @@ export default {
     options: [
       option('a', tx('해결할 때까지 기다려 주며, 스스로 원인을 찾게 한다.', 'Wait until she solves it, and let her find the cause herself.'), tx('기다리는 동안 고객의 대기 시간만 길어지고, 지민은 넘기는 기준을 배우지 못합니다.', 'Waiting only makes the customer wait longer, and Jimin never learns when to escalate.')),
       option('b', tx('넘기는 기준을 짚어 주고, 확인한 내용을 적어 넘기게 한다.', 'Go over the escalation criteria, and have her note what she checked and escalate.')),
-      option('c', tx('고객을 더 기다리게 할 수 없으니, 대신 받아서 조용히 처리한다.', 'The customer cannot wait any longer, so take it over and resolve it quietly.'), tx('조용히 대신 처리하면 지민은 무엇을 확인하고 언제 넘겨야 하는지 배우지 못합니다.', 'Quietly handling it yourself means Jimin never learns what to check and when to pass a ticket on.')),
+      option('c', tx('대신 받아서 조용히 처리하고, 고객을 더 기다리게 하지 않는다.', 'Take it over and resolve it quietly, so the customer waits no longer.'), tx('조용히 대신 처리하면 지민은 무엇을 확인하고 언제 넘겨야 하는지 배우지 못합니다.', 'Quietly handling it yourself means Jimin never learns what to check and when to pass a ticket on.')),
     ],
     answer: 'b',
     explanation: tx('넘기는 것은 실패가 아니라 정해진 절차입니다. 기준 없이 붙잡고 있으면 고객이 기다리는 시간만 길어집니다. 확인한 내용을 티켓에 남겨 넘기면 상위 단계가 처음부터 다시 묻지 않아도 됩니다.', 'Escalating is not a failure but a defined procedure. Holding on without criteria only lengthens the customer’s wait. If she documents what she checked in the ticket, the higher tier does not have to start the questions over.'),
@@ -97,7 +97,7 @@ export default {
     options: [
       option('a', tx('습관이 되지 않도록, 넘기기 전 확인 단계와 기준을 다시 짚어 준다.', 'So it does not become a habit, go over the checks to try before passing a ticket on, and the criteria for passing it.')),
       option('b', tx('혼자 푸는 힘을 기르도록, 넘기는 것을 금지하고 혼자 해결하게 한다.', 'Ban passing tickets on so she builds the ability to solve them alone.'), tx('넘기는 것을 금지하면 지민은 풀지 못한 티켓을 붙잡고, 고객은 더 오래 기다리게 됩니다.', 'Banning escalation leaves Jimin holding tickets she cannot solve while customers wait longer.')),
-      option('c', tx('신입에게는 넘기는 쪽이 안전하니, 익숙해질 때까지 그대로 둔다.', 'Passing tickets on is the safe choice for someone new, so leave it until she gets used to the work.'), tx('지금 바로잡지 않으면 확인 없이 넘기는 습관이 정식 팀까지 이어집니다.', 'Unless it is corrected now, the habit of passing tickets on without checking follows her into the regular team.')),
+      option('c', tx('익숙해질 때까지 바로 넘기는 습관을 그대로 둔다.', 'Leave the habit of passing tickets straight on until she gets used to the work.'), tx('지금 바로잡지 않으면 확인 없이 넘기는 습관이 정식 팀까지 이어집니다.', 'Unless it is corrected now, the habit of passing tickets on without checking follows her into the regular team.')),
     ],
     answer: 'a',
     explanation: tx('너무 늦게 넘기는 것도, 너무 빨리 넘기는 것도 문제입니다. 1차 지원에서 할 수 있는 확인을 마치고 정해진 기준에 따라 넘기는 습관을 네스팅에서 들여야 상위 단계의 부담이 줄어듭니다.', 'Passing too late and passing too early are both problems. Building the habit in nesting of finishing the Tier 1 checks and escalating by the agreed criteria eases the load on higher tiers.'),

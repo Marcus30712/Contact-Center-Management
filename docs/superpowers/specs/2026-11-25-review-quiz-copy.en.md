@@ -66,7 +66,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 질문 | You have coached Jimin one on one three times, but she keeps skipping the same check step. What comes next? |
 | 보기 a (오답) | Keep the same approach and book one more one-on-one on the same point. |
 | a 피드백 | If the same approach failed three times, it is time to set goals and support formally. |
-| 보기 b (오답) | You've given three chances with no sign of improvement, so suggest she leave. |
+| 보기 b (오답) | Suggest she leave, since three chances brought no sign of improvement. |
 | b 피드백 | Ending it without formal goals and support tells the team that asking for help is pointless. |
 | 보기 c (정답) | Move to a PIP: meet with the data, agree on goals and support, and check in weekly. |
 | 해설 | When coaching alone is not enough, move to a PIP. A PIP is not a punishment but a procedure that makes goals, support and check-ins clear. |
@@ -78,7 +78,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 |---|---|
 | 질문 | A promotion error sets off a flood of identical complaint calls, and an agent who just ended an abusive call sits frozen at the desk. What fits best as the first thing to do? |
 | 보기 a (정답) | Let the agent take a short break, and report the surge to your assistant manager or operation manager right away. |
-| 보기 b (오답) | Many customers are waiting, so reassure the agent, send them straight back to calls and talk after the shift. |
+| 보기 b (오답) | Worried about the waiting customers, reassure the agent, send them straight back to calls and talk after the shift. |
 | b 피드백 | The shock carries straight into the next customer, and the agent feels unprotected. |
 | 보기 c (오답) | Agree on a response script within the team and handle it there until the complaints calm down. |
 | c 피드백 | The first step in a large-scale issue is spotting and sharing it. Holding it alone delays cause analysis and staffing plans. |
@@ -93,7 +93,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 a (오답) | Explain shift work briefly, and only to applicants who ask, so applicant numbers don't drop. |
 | a 피드백 | People who heard only the good parts start thinking of leaving the day they get their first schedule. |
 | 보기 b (정답) | Share it with the recruiter, and explain shift work honestly in the interviews. |
-| 보기 c (오답) | It's only two people, so treat it as their personal situation and just keep the interview notes. |
+| 보기 c (오답) | It's only two people, so put it down to their personal situations and just keep the interview notes. |
 | c 피드백 | When the same words keep coming up, it is not a personal matter but a sign the job preview needs fixing. |
 | 해설 | Improvements from exit interviews feed the next round of hiring. A realistic job preview (RJP) cuts early leaving. |
 | 관련 레슨 | Lifecycle lesson 6 · Career Development and Offboarding (../agent-lifecycle/#career-0) · Lifecycle lesson 1 · Recruitment and Hiring (../agent-lifecycle/#hiring-0) |
@@ -103,7 +103,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | Two weeks (Example) into being team leader, Haeun, your closest colleague, complains that QA scores differ by evaluator. What fits best? |
-| 보기 a (오답) | Haeun trusted you with this, so quietly ask QA to look at her scores again. |
+| 보기 a (오답) | Quietly ask QA to look at Haeun's scores again, trusting her account. |
 | a 피드백 | Looking after one person makes the team feel the standard depends on friendship. |
 | 보기 b (오답) | Stay out of it, since evaluation is QA's job. |
 | b 피드백 | Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching. |
@@ -119,7 +119,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 a (정답) | Go to Seoa first with her buddy, ask where she's stuck, and go over the missing explanation one on one. |
 | 보기 b (오답) | Show Seoa's tickets as an example at the team huddle to stop the mistake repeating. |
 | b 피드백 | Taking a new hire's mistakes in front of the team makes Seoa ask even less. |
-| 보기 c (오답) | It's only her first week live, so don't add pressure; watch for a month until she asks. |
+| 보기 c (오답) | Keeping her first week in mind, watch quietly for a month until she asks. |
 | c 피드백 | Many people also leave in their first weeks on the floor. Leaving her stuck for long makes it hard to hold on. |
 | 해설 | Don't wait for new hires; reach out first, and go over mistakes one on one. A buddy closes that distance. |
 | 관련 레슨 | TL SOP · New Hire Onboarding (../sop-library/#onboarding-0) · TL SOP · Scrubbing (../sop-library/#scrubbing-0) |

@@ -123,7 +123,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Junho handles the most tickets on the team, but his quality score is below average. What do you do first? |
-| 보기 a (오답) | Note him down as a top performer, since his volume is high. |
+| 보기 a (오답) | Note him down as a top performer on volume alone. |
 | a 피드백 | Looking at one number alone misses why quality is slipping. |
 | 보기 b (정답) | Hear from QA which items lost points, and note questions to check in his recordings. |
 | 보기 c (오답) | His quality score is low, so put him on the coaching list right away. |
@@ -206,7 +206,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Tell the team to keep to their schedules better, and share adherence at the huddle every day. |
 | a 피드백 | A notice sent without knowing the cause only lets the same thing happen again. |
 | 보기 b (정답) | See whether other teams are the same, and sort causes inside the team from those outside. |
-| 보기 c (오답) | Decide the target was set wrong and leave it, so the team doesn't feel pressured. |
+| 보기 c (오답) | Leave it, saying the target was set wrong, so the team doesn't feel pressured. |
 | c 피드백 | Even when a target doesn't fit reality, it changes only when you raise it with evidence. |
 | 해설 | Compare first to separate causes inside the team from those outside it. |
 | 2번 질문 | What fits the team's one-page summary? |
@@ -253,7 +253,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Tell the team at the huddle about her situation and ask who could swap night shifts with her. |
 | a 피드백 | Sharing someone's personal matters without permission destroys trust. |
 | 보기 b (정답) | Don't share it without Jimin's permission, and check shift changes through the agreed process. |
-| 보기 c (오답) | It's personal and unrelated to performance, so leave it out of your notes. |
+| 보기 c (오답) | Leave it out of your notes; it's personal and unrelated to performance. |
 | c 피드백 | Personal matters may be affecting performance. Keep what you need in mind. |
 | 해설 | Protect personal matters, and take any needed action through the process. |
 | 다음 레슨 연결 | You've decided how to help each person. Last, take all of this to your assistant manager and set the direction for the whole team. |
@@ -291,7 +291,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | If you don't share how the team is now, the direction may not fit the team's reality. |
 | 해설 | Share what you've learned briefly, so you get direction that fits the team. |
 | 2번 질문 | Your priorities differ from your assistant manager's direction. What do you do? |
-| 보기 a (오답) | You know the team better, so go back and follow your own priorities. |
+| 보기 a (오답) | Follow your own priorities, trusting your better feel for the team. |
 | a 피드백 | Running the team against the direction puts you out of step with the project's plan and costs trust. |
 | 보기 b (정답) | Give your view with evidence; once it's set, follow it and keep a record of your view. |
 | 보기 c (오답) | Say nothing and just write down the direction. |

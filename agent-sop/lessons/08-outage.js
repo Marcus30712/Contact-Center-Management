@@ -39,7 +39,7 @@ export default {
       id: "outage-q1",
       prompt: tx("정해진 첫 조치를 해 봐도 주문 조회가 계속 오류를 냅니다. 지민이 할 일은 무엇일까요?", "Even after the set first fixes, order lookup keeps throwing an error. What does Jimin do?"),
       options: [
-        option("a", tx("내 컴퓨터 문제라고 보고, 재부팅하고 프로그램을 다시 설치하며 계속 고쳐 본다.", "Assume it's her computer, and keep rebooting and reinstalling the program to fix it."), tx("혼자 붙잡고 있는 동안 막힌 상담사와 고객이 늘어납니다. 첫 조치 뒤에도 안 되면 바로 알립니다.", "While you hold on to it, more agents and customers get stuck. If the first fixes don't work, report it right away.")),
+        option("a", tx("내 컴퓨터 문제일 거라 여기고, 재부팅하고 프로그램을 다시 설치하며 계속 고쳐 본다.", "Keep rebooting and reinstalling the program, convinced it's her own computer."), tx("혼자 붙잡고 있는 동안 막힌 상담사와 고객이 늘어납니다. 첫 조치 뒤에도 안 되면 바로 알립니다.", "While you hold on to it, more agents and customers get stuck. If the first fixes don't work, report it right away.")),
         option("b", tx("어떤 화면에서 언제부터 어떤 오류인지 하린이나 수진 팀장에게 바로 알린다.", "Report to Harin or Sujin right away which screen, since when and what error.")),
         option("c", tx("다른 상담사가 알리겠지 하고 기다린다.", "Wait, assuming another agent will report it."), tx("모두가 그렇게 생각하면 아무도 알리지 않습니다. 먼저 본 사람이 알립니다.", "If everyone thinks that, no one reports it. Whoever sees it first reports it.")),
       ],

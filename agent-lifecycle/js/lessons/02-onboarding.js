@@ -55,7 +55,7 @@ export default {
     id: 'onboarding-q1',
     prompt: tx('교육 막바지, 지민은 상품 시험에서 만점을 받았지만 실습에서는 CRM 입력을 자주 놓칩니다. 어떻게 할까요?', 'Near the end of training, Jimin scores full marks on the product test but often misses CRM entries in practice calls. What do you do?'),
     options: [
-      option('a', tx('시험 점수가 좋으니 그대로 스킬 검증을 통과시킨다.', 'Her test score is good, so pass her through verification as is.'), tx('시험 점수는 아는 것을 보여 줄 뿐, 통화하면서 입력하는 손이 준비됐다는 뜻은 아닙니다.', 'A test score shows what she knows; it does not mean her hands are ready to type while she talks.')),
+      option('a', tx('시험 점수만으로 판단해 그대로 스킬 검증을 통과시킨다.', 'Pass her through verification as is, on her test score alone.'), tx('시험 점수는 아는 것을 보여 줄 뿐, 통화하면서 입력하는 손이 준비됐다는 뜻은 아닙니다.', 'A test score shows what she knows; it does not mean her hands are ready to type while she talks.')),
       option('b', tx('통화하면서 입력하는 실습 시간을 더 준다.', 'Give her more practice time entering data while on a call.')),
       option('c', tx('"입력은 실전에서 익히면 된다"고 말해 준다.', 'Tell her she can pick up data entry on the job.'), tx('실전에서 익히라고 하면 첫 고객들이 입력 누락과 늦어진 응대를 그대로 겪게 됩니다.', 'Leaving it to the job means her first customers live with the missed entries and slower service.')),
     ],
@@ -75,7 +75,7 @@ export default {
     id: 'onboarding-tech',
     prompt: tx('기술지원 교육 중인 지민이 문제는 잘 해결하는데 티켓 기록을 한 줄로만 남깁니다. 어떻게 할까요?', 'In tech support training, Jimin solves problems well but leaves only one line in the ticket. What do you do?'),
     options: [
-      option('a', tx('해결이 더 중요하니, 기록은 한 줄이라도 남겼으면 넘어간다.', 'Solving is what matters, so as long as there is a line in the ticket, let it go.'), tx('해결했더라도 기록이 한 줄뿐이면, 같은 고객이 다시 연락했을 때 다음 담당자가 처음부터 다시 물어야 합니다.', 'Even when it is solved, a one-line record means the next agent has to ask everything again if the customer comes back.')),
+      option('a', tx('해결을 먼저 보고, 기록은 한 줄이라도 남겼으면 넘어간다.', 'Look at the fix first, and let it go as long as there is a line in the ticket.'), tx('해결했더라도 기록이 한 줄뿐이면, 같은 고객이 다시 연락했을 때 다음 담당자가 처음부터 다시 물어야 합니다.', 'Even when it is solved, a one-line record means the next agent has to ask everything again if the customer comes back.')),
       option('b', tx('증상, 확인한 것, 조치를 남기는 연습을 시킨다.', 'Have her practice recording the symptom, what she checked, and what she did.')),
       option('c', tx('기록은 나중에 몰아서 쓰게 한다.', 'Let her write up the notes later in a batch.'), tx('나중에 몰아서 쓰면 확인한 내용과 순서를 잊어 기록이 부정확해집니다.', 'Writing records up in a batch later means forgetting what was checked and in what order, so the records become inaccurate.')),
     ],
@@ -85,8 +85,8 @@ export default {
     id: 'onboarding-general-2',
     prompt: tx('일반 고객지원 스킬 검증의 모의 콜에서 지민은 자주 들어오는 문의는 잘 처리했지만, 드문 정책 문의에서 틀리게 안내했습니다. 어떻게 할까요?', 'In the general support skills verification mock call, Jimin handles the common inquiries well but gives wrong information on a rarer policy question. What do you do?'),
     options: [
-      option('a', tx('대부분 맞았으니 합격시키고 실전에서 배우게 한다.', 'Pass her since she got most of it right, and let her learn on the job.'), tx('드문 문의라도 틀린 안내는 고객 불만으로 이어지므로, 대부분 맞았다는 이유로 넘길 수 없습니다.', 'Wrong information leads to complaints even on rare inquiries, so getting most of it right is not a reason to let it pass.')),
-      option('b', tx('틀린 안내는 기준 미달이니, 바로 탈락시킨다.', 'Wrong information is below the standard, so drop her right away.'), tx('한 유형을 틀렸다고 바로 탈락시키면, 보충하면 충분히 해낼 사람을 잃습니다.', 'Failing her for one inquiry type loses someone who could do the job well after a little more training.')),
+      option('a', tx('대부분 맞은 것을 보고 합격시키고, 실전에서 배우게 한다.', 'Pass her because she got most of it right, and let her learn on the job.'), tx('드문 문의라도 틀린 안내는 고객 불만으로 이어지므로, 대부분 맞았다는 이유로 넘길 수 없습니다.', 'Wrong information leads to complaints even on rare inquiries, so getting most of it right is not a reason to let it pass.')),
+      option('b', tx('틀린 안내 하나로 기준 미달 판정을 내리고 바로 탈락시킨다.', 'Rule the wrong information below the standard and drop her right away.'), tx('한 유형을 틀렸다고 바로 탈락시키면, 보충하면 충분히 해낼 사람을 잃습니다.', 'Failing her for one inquiry type loses someone who could do the job well after a little more training.')),
       option('c', tx('보충 교육 뒤 그 유형으로 다시 평가한다.', 'Give extra training, then reassess her on that type.')),
     ],
     answer: 'c',
@@ -95,7 +95,7 @@ export default {
     id: 'onboarding-tech-2',
     prompt: tx('기술지원 교육 막바지에 제품 업데이트가 나와 교육 자료 일부가 맞지 않게 됐습니다. 어떻게 할까요?', 'Near the end of tech support training, a product update makes part of the training material out of date. What do you do?'),
     options: [
-      option('a', tx('이미 배운 내용이니 실전에서 알아서 익히게 한다.', 'The trainees have learned it already, so let them pick it up on the job.'), tx('바뀐 내용을 모른 채 실전에 나가면, 업데이트 직후 몰리는 문의에 틀린 안내를 하게 됩니다.', 'Going live without knowing what changed means giving wrong answers in the rush of questions right after the update.')),
+      option('a', tx('바뀐 부분은 실전에서 알아서 익히게 한다.', 'Let the trainees pick up the changes on the job.'), tx('바뀐 내용을 모른 채 실전에 나가면, 업데이트 직후 몰리는 문의에 틀린 안내를 하게 됩니다.', 'Going live without knowing what changed means giving wrong answers in the rush of questions right after the update.')),
       option('b', tx('바뀐 부분을 지식 자료에서 찾는 법을 익히게 한다.', 'Have the trainees practice finding the changes in the knowledge base.')),
       option('c', tx('틀린 내용을 가르치지 않도록, 업데이트가 안정될 때까지 교육을 멈춘다.', 'Pause training until the update settles, so nothing wrong gets taught.'), tx('제품은 계속 바뀌므로 업데이트를 기다리면 교육은 끝나지 않습니다.', 'The product keeps changing, so waiting for updates to settle means training never ends.')),
     ],

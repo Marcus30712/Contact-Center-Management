@@ -51,7 +51,7 @@ export default {
       options: [
         option("a", tx("점수는 본인 일이니, 서준에게 QA를 직접 찾아가 따지라고 한다.", "It's his score, so tell Seojun to go to QA and argue it himself."), tx("상담사와 QA가 직접 다투면 관계가 나빠지고 결론도 나기 어렵습니다.", "When an agent and QA argue directly, the relationship sours and it's hard to reach a conclusion.")),
         option("b", tx("녹취를 함께 듣고, 근거가 있으면 절차대로 재검토를 요청한다.", "Listen to the recording together, and if there are grounds, ask for a re-review through the process.")),
-        option("c", tx("QA의 평가이니 이번에는 그대로 받아들이라고 다독인다.", "It's QA's scoring, so calm him down and tell him to accept it this time."), tx("근거 있는 이의를 막으면 상담사는 평가를 믿지 않게 됩니다.", "Blocking a dispute that has evidence makes agents stop trusting the scoring.")),
+        option("c", tx("이번 QA 평가는 그대로 받아들이라고 다독인다.", "Calm him down and tell him to accept QA's scoring this time."), tx("근거 있는 이의를 막으면 상담사는 평가를 믿지 않게 됩니다.", "Blocking a dispute that has evidence makes agents stop trusting the scoring.")),
       ],
       answer: "b",
       explanation: tx("이의는 팀장이 먼저 근거를 확인하고 절차대로 전합니다.", "The team leader checks the grounds for a dispute first and passes it on through the process."),

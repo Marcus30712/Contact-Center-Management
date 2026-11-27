@@ -39,7 +39,7 @@ export default {
       id: "review-q1",
       prompt: tx("이번 주 지민의 점수가 떨어졌습니다. 리뷰 전에 무엇을 할까요?", "Jimin's score dropped this week. What should she do before the review?"),
       options: [
-        option("a", tx("리뷰에서 팀장이 알려 줄 테니 아무것도 하지 않는다.", "Nothing, since the team leader will explain it in the review."), tx("미리 보고 가면 같은 리뷰 시간에 훨씬 많이 얻습니다.", "Looking first gets you far more out of the same review.")),
+        option("a", tx("리뷰에서 팀장이 알려 줄 때까지 아무것도 하지 않는다.", "Nothing until the team leader explains it in the review."), tx("미리 보고 가면 같은 리뷰 시간에 훨씬 많이 얻습니다.", "Looking first gets you far more out of the same review.")),
         option("b", tx("평가받은 상담을 다시 보고, 궁금한 점을 적어 간다.", "Go back over the scored contact and write down her questions.")),
         option("c", tx("점수가 낮은 이유를 해명할 말부터 준비한다.", "Prepare explanations for why the score is low."), tx("해명보다 무엇을 바꿀지 찾는 쪽이 다음 주 점수에 도움이 됩니다.", "Finding what to change helps next week's score more than explaining.")),
       ],
@@ -50,7 +50,7 @@ export default {
       id: "review-q2",
       prompt: tx("리뷰에서 고칠 점이 다섯 가지 나왔습니다. 어떻게 할까요?", "The review turned up five things to fix. What should Jimin do?"),
       options: [
-        option("a", tx("의욕이 있을 때 해야 하니, 다음 주 안에 다섯 가지를 한꺼번에 모두 고친다.", "Strike while she's motivated: fix all five at once next week."), tx("한꺼번에 바꾸려 하면 아무것도 몸에 붙지 않습니다.", "Trying to change everything at once means none of it sticks.")),
+        option("a", tx("다음 주 안에 다섯 가지를 한꺼번에 모두 고친다.", "Fix all five at once next week."), tx("한꺼번에 바꾸려 하면 아무것도 몸에 붙지 않습니다.", "Trying to change everything at once means none of it sticks.")),
         option("b", tx("팀장과 가장 중요한 하나를 골라 고치고, 다음 리뷰에서 확인한다.", "Pick the most important one with the team leader, fix it, and check it at the next review.")),
         option("c", tx("가장 쉬운 것 하나만 고치고, 나머지 넷은 따로 적어 두지 않고 잊는다.", "Fix only the easiest one, and forget the other four without writing them down."), tx("나머지를 잊으면 같은 감점이 되풀이됩니다. 중요한 것부터 차례로 다루고, 나머지는 적어 둡니다.", "Forgetting the rest means the same points keep being lost. Take them in order of importance, and write down the rest.")),
       ],

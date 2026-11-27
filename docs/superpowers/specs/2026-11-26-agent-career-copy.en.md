@@ -47,9 +47,9 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | When choosing an SME, what do they check first? |
-| 보기 a (오답) | How long they've been with the company |
+| 보기 a (오답) | Length of service |
 | a 피드백 | They look at the last few months of attendance, record, scores and contribution rather than tenure. |
-| 보기 b (정답) | Attendance |
+| 보기 b (정답) | Attendance and timekeeping |
 | 보기 c (오답) | How close they are to the team leader |
 | c 피드백 | It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence. |
 | 해설 | SMEs work with many people. A record of showing up is the first thing that builds trust. |
@@ -88,10 +88,10 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | An agent sends a chat about a kind of contact she has never handled before. What fits best for Harin, the SME? |
-| 보기 a (오답) | It's a busy hour, so send only a short answer and move on to the next chat. |
+| 보기 a (오답) | In a busy hour, send only a short answer and move on to the next chat. |
 | a 피드백 | With only the answer, the agent gets stuck on the same contact again. Showing where to find it lets her solve it alone next time. |
 | 보기 b (정답) | So she can solve it alone next time, give the answer and where to find it. |
-| 보기 c (오답) | A new kind of contact is risky, so tell her to pass it straight to the team leader. |
+| 보기 c (오답) | Tell her to pass any new kind of contact straight to the team leader. |
 | c 피드백 | Passing on a contact the SME can answer makes both the team leader and the customer wait. Pass it on only when it's outside the SME's scope. |
 | 해설 | An SME gives answers and also helps agents find them on their own next time. |
 | 2번 질문 | Why does Harin write reports for the team leader? |
@@ -132,10 +132,10 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | When an SME moves up to team leader, what do they look at first? |
-| 보기 a (오답) | How many times they've covered as team leader backup |
+| 보기 a (오답) | Times covering as team leader backup |
 | a 피드백 | Backup metrics count too, but attendance and attitude come first. |
-| 보기 b (정답) | Attendance and attitude |
-| 보기 c (오답) | How long they've worked as an SME |
+| 보기 b (정답) | Attendance and work attitude |
+| 보기 c (오답) | Length of time as an SME |
 | c 피드백 | Attendance and attitude, the recent record and readiness to lead people come before time in the role. |
 | 해설 | A team leader looks after the team's attendance. So your own attendance and attitude are the first criterion. |
 | 2번 질문 | A team member tells Harin she is being harassed by a colleague. What fits best for Harin, who is covering as team leader backup? |
@@ -181,7 +181,7 @@ Same sections and order as the Korean file. US English.
 | 해설 | Helping peers as an SME and covering for the team leader is the bridge to team leader. It may differ by center. |
 | 2번 질문 | The team's metrics dropped sharply this week. What fits best for Sujin, the team leader? |
 | 보기 a (정답) | Check the cause and report the results and a plan to the assistant manager. |
-| 보기 b (오답) | It may recover next week, so hold off on reporting and wait. |
+| 보기 b (오답) | Hold off on reporting until next week and see if it recovers. |
 | b 피드백 | If they hear late, the people above can't help. Report the cause and the plan together, right away. |
 | 보기 c (오답) | Call in the team members with low metrics and warn them right away. |
 | c 피드백 | Warning people before checking the cause costs their trust. The cause comes first. |

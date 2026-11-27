@@ -43,7 +43,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin's compensation request was in scope, so you approved it. What do you do next? |
-| 보기 a (오답) | Nothing else to record, since it's approved. |
+| 보기 a (오답) | End it at the approval and record nothing else. |
 | a 피드백 | Without the reason on record, people judge similar requests differently. |
 | 보기 b (정답) | Write the decision and the reason in the ticket and the approval log. |
 | 보기 c (오답) | Ask the team leader again whether the approval is okay. |
@@ -90,10 +90,10 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | c 피드백 | Picking by person makes you look at people instead of causes, and it isn't fair. |
 | 해설 | Start with tickets where the customer was unhappy, so the causes to fix come out first. |
 | 2번 질문 | A DSAT from a late refund: the agent's explanation was correct, and the cause was an outage in the client's payment system. How do you classify it, and where does it go? |
-| 보기 a (오답) | The customer was very angry, so treat it as an agent handling issue and put it in the trend summary for coaching. |
+| 보기 a (오답) | The customer was very angry, so file it as an agent handling issue and put it in the trend summary for coaching. |
 | a 피드백 | The agent explained it correctly. Sending a cause that isn't the agent's behavior to coaching won't fix it. |
 | 보기 b (정답) | Classify it as a cause the BPO can't control, and pass it to the client through the VOC report. |
-| 보기 c (오답) | The agent did nothing wrong, so there's nothing to coach; skip classifying it. |
+| 보기 c (오답) | Skip classifying it; there's nothing to coach. |
 | c 피드백 | Without classifying it, there is no evidence to give the client even as the same complaints pile up. |
 | 해설 | L2 sorts by whether the BPO can control the cause. If we can, we change it; if not, we ask the client. |
 | 다음 레슨 연결 | The agent behaviors found in scrubbing go to the team leader. Next is the procedure for writing that summary. |
@@ -164,14 +164,14 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 항목 | English |
 |---|---|
 | 1번 질문 | Ten minutes into the shift, two people still haven't logged in and haven't called. What do you do first? |
-| 보기 a (오답) | Attendance is the team leader's job, so write it in the sheet and tell her when she's back. |
+| 보기 a (오답) | Write it in the attendance sheet and tell Sujin when she's back. |
 | a 피드백 | Until then the queue runs two people short. Staffing gaps need flagging right away. |
 | 보기 b (정답) | Staffing needs adjusting fast, so log it in the attendance sheet and flag the gap to the RTA and Sujin. |
 | 보기 c (오답) | So the queue doesn't back up, the SME takes the two people's contacts. |
 | c 피드백 | If the SME fills an agent seat, escalation approvals stall. Staffing changes are for the RTA and the team leader. |
 | 해설 | In covering attendance, the most urgent thing is flagging gaps quickly. |
 | 2번 질문 | Junho was 15 minutes late today and asks you to leave it off the attendance sheet. What do you do? |
-| 보기 a (오답) | He's a long-time colleague and it's only 15 minutes, so leave it off just this once. |
+| 보기 a (오답) | It's a long-time colleague asking, so leave the 15 minutes off the sheet just this once. |
 | a 피드백 | Changing the record makes the rules differ from the rest of the team, and the cover's records can no longer be trusted. |
 | 보기 b (정답) | Covering means recording, not deciding, so log it as it is and tell him to take any reason to the team leader. |
 | 보기 c (오답) | So everyone knows the rule, mention in the team chat that he was late. |
@@ -293,7 +293,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | c 피드백 | Agent names and a raw list are hard for the client to use, and it hands over personal data such as customer names and contact details. |
 | 해설 | Write VOC as topic, count, typical case and suggestion. |
 | 2번 질문 | A VOC topic you sent last month is still just as common this month. What do you do? |
-| 보기 a (오답) | It's a topic you already sent, so leave it out this time and make room for new ones. |
+| 보기 a (오답) | Leave out the topic already sent this time, and make room for new ones. |
 | a 피드백 | If it drops out, the client assumes it's solved. |
 | 보기 b (정답) | Raise it again with last report's figures to show the change, and discuss priority with the team leader. |
 | 보기 c (오답) | Nothing has changed in a month, so contact the client directly and complain for a quick fix. |
@@ -329,7 +329,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 a (오답) | "The refund article seems to differ from the client's recent notice. Please check and fix it." |
 | a 피드백 | The owner has to work out what differs and how, which slows the fix. |
 | 보기 b (정답) | "Refund article item 3: claim period from 14 days to 7 days; client notice and 2 tickets attached" |
-| 보기 c (오답) | You have edit access, so fix it yourself without waiting for review, then tell the team. |
+| 보기 c (오답) | Use your edit access to fix it yourself without waiting for review, then tell the team. |
 | c 피드백 | An article changed without review changes the whole team's answers at once. Use the agreed channel. |
 | 해설 | A request names the article, what's wrong, the right content and the source. |
 | 2번 질문 | You sent a request, but the article isn't fixed yet. What do you do meanwhile? |

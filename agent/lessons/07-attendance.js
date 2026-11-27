@@ -39,7 +39,7 @@ export default {
       id: "attendance-q1",
       prompt: tx("지민이 아침에 열이 나서 출근하기 어렵습니다. 어떻게 할까요?", "Jimin wakes up with a fever and can't come in. What should she do?"),
       options: [
-        option("a", tx("조금 쉬면 나아질 수도 있으니, 근무가 시작된 뒤 상태를 보고 연락한다.", "She might feel better after some rest, so see how she is and get in touch after her shift starts."), tx("늦게 알리면 스케줄을 다시 짤 시간이 없고, 무단 결근으로 남을 수 있습니다.", "Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence.")),
+        option("a", tx("근무가 시작된 뒤에 상태를 보고 연락한다.", "See how she feels and get in touch after her shift starts."), tx("늦게 알리면 스케줄을 다시 짤 시간이 없고, 무단 결근으로 남을 수 있습니다.", "Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence.")),
         option("b", tx("스케줄을 다시 짤 수 있게, 근무 1~2시간 전(예시)에 팀장에게 직접 알린다.", "Tell her team leader directly 1–2 hours before her shift (Example), so the schedule can be rearranged.")),
         option("c", tx("동료에게 대신 말해 달라고만 부탁한다.", "Only ask a colleague to pass it on."), tx("동료를 거치면 전달이 늦거나 빠질 수 있습니다. 정해진 방법으로 직접 알립니다.", "Going through a colleague can delay or lose the message. Tell them directly the agreed way.")),
       ],
@@ -50,7 +50,7 @@ export default {
       id: "attendance-q2",
       prompt: tx("동료 두 명이 병가를 내서 대기 중인 문의가 많습니다. 어떻게 할까요?", "Two colleagues are off sick, and many contacts are waiting. What should Jimin do?"),
       options: [
-        option("a", tx("팀이 바쁘니 오늘은 휴식을 건너뛰고 쉬지 않고 받는다.", "The team is busy, so skip her breaks today and take contacts nonstop."), tx("지치면 실수가 늘고 처리 시간도 길어집니다. 휴식도 스케줄의 일부입니다.", "When you're worn out, mistakes rise and handling time grows. Breaks are part of the schedule too.")),
+        option("a", tx("오늘은 휴식을 건너뛰고 쉬지 않고 받는다.", "Skip her breaks today and take contacts nonstop."), tx("지치면 실수가 늘고 처리 시간도 길어집니다. 휴식도 스케줄의 일부입니다.", "When you're worn out, mistakes rise and handling time grows. Breaks are part of the schedule too.")),
         option("b", tx("휴식은 지키고, 한 건씩 정확하게 처리한다.", "Keep her breaks and handle one contact at a time, accurately.")),
         option("c", tx("대기를 빨리 줄이려고 확인 절차를 건너뛰고 처리한다.", "Skip the checks to bring the queue down faster."), tx("확인을 건너뛰면 다시 연락이 오고, 그 문의가 또 쌓입니다.", "Skipping checks brings contacts back, and they pile up again.")),
       ],

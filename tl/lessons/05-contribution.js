@@ -41,7 +41,7 @@ export default {
       options: [
         option("a", tx("팀원들에게 스케줄을 더 잘 지키라고 공지하고, 매일 허들에서 준수율을 공유한다.", "Tell the team to keep to their schedules better, and share adherence at the huddle every day."), tx("원인을 모른 채 공지만 하면 같은 일이 되풀이됩니다.", "A notice sent without knowing the cause only lets the same thing happen again.")),
         option("b", tx("다른 팀도 같은지 보고, 원인이 팀 안인지 밖인지 나눈다.", "See whether other teams are the same, and sort causes inside the team from those outside.")),
-        option("c", tx("목표가 잘못 잡혔다고 보고, 팀원들이 부담을 느끼지 않게 그냥 둔다.", "Decide the target was set wrong and leave it, so the team doesn't feel pressured."), tx("목표가 현실과 맞지 않더라도 근거를 갖고 위로 올려야 바뀝니다.", "Even when a target doesn't fit reality, it changes only when you raise it with evidence.")),
+        option("c", tx("목표가 잘못 잡혔다며, 팀원들이 부담을 느끼지 않게 그냥 둔다.", "Leave it, saying the target was set wrong, so the team doesn't feel pressured."), tx("목표가 현실과 맞지 않더라도 근거를 갖고 위로 올려야 바뀝니다.", "Even when a target doesn't fit reality, it changes only when you raise it with evidence.")),
       ],
       answer: "b",
       explanation: tx("비교로 원인이 팀 안에 있는지 밖에 있는지부터 나눕니다.", "Compare first to separate causes inside the team from those outside it."),

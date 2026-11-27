@@ -52,7 +52,7 @@ export default {
       options: [
         option("a", tx("\"고객이 환불해 달라는데 이거 어떻게 해요? 지금 통화 중이라 급해요.\"", "\"The customer wants a refund. How do I do this? I'm on the call, so it's urgent.\""), tx("무엇을 확인했고 무엇이 필요한지 빠져 있어, 하린이 되물어야 해서 답이 늦어집니다.", "It leaves out what you checked and what you need, so Harin has to ask back and the answer comes later.")),
         option("b", tx("\"환불 문의(예시)인데 구매 기간이 지났어요. 예외 승인 되나요?\"", "\"Refund request (Example), past the purchase window. Can we approve an exception?\"")),
-        option("c", tx("\"고객이 많이 화났어요. 제가 처리하기 어려우니 빨리 와 주세요.\"", "\"The customer is really angry. I can't handle this, so please come quickly.\""), tx("급한 마음은 알지만, 무엇이 필요한지 알아야 하린이 바로 도울 수 있습니다.", "The urgency is understandable, but Harin needs to know what you need to help right away.")),
+        option("c", tx("\"고객이 많이 화났어요. 제가 처리하기 어려워요. 빨리 와 주세요.\"", "\"The customer is really angry. I can't handle this. Please come quickly.\""), tx("급한 마음은 알지만, 무엇이 필요한지 알아야 하린이 바로 도울 수 있습니다.", "The urgency is understandable, but Harin needs to know what you need to help right away.")),
       ],
       answer: "b",
       explanation: tx("상황, 확인한 것, 필요한 것을 한 번에 말합니다.", "Say the situation, what you checked and what you need, all at once."),

@@ -40,7 +40,7 @@ export default {
       options: [
         option("a", tx("\"상담사가 많이 애쓴 건이니, 그 입장도 생각해서 점수를 올려 주세요.\"", "\"The agent worked hard on this one, so please raise the score with their side in mind.\""), tx("편을 들면 기준이 흐려지고, 직무전문가의 의견도 믿기 어려워집니다.", "Taking sides blurs the standard and makes the SME's view harder to trust.")),
         option("b", tx("\"그 시점에 상담사 화면에는 주문 상태가 보이지 않았습니다.\"", "\"At that point, the order status wasn't visible on the agent's screen.\"")),
-        option("c", tx("\"저는 QA가 아니니 점수에는 의견이 없고, 정해지는 대로 따르겠습니다.\"", "\"I'm not QA, so I have no view on the score; I'll go with whatever is decided.\""), tx("현장 사정을 아는 사람이 말하지 않으면 기준이 현실과 어긋난 채 정해집니다.", "If the person who knows the floor says nothing, the standard is set out of step with reality.")),
+        option("c", tx("\"저는 QA가 아니라서 점수에는 의견이 없고, 정해지는 대로 따르겠습니다.\"", "\"I'm not QA, so I have no view on the score; I'll go with whatever is decided.\""), tx("현장 사정을 아는 사람이 말하지 않으면 기준이 현실과 어긋난 채 정해집니다.", "If the person who knows the floor says nothing, the standard is set out of step with reality.")),
       ],
       answer: "b",
       explanation: tx("직무전문가는 편을 드는 대신 현장에서 실제로 있었던 사실을 전합니다.", "Instead of taking sides, the SME shares what actually happened on the floor."),

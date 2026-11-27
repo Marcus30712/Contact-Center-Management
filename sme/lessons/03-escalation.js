@@ -40,7 +40,7 @@ export default {
       id: "escalation-q1",
       prompt: tx("지민의 요청이 내 승인 범위 안인지 확실하지 않습니다. 어떻게 할까요?", "You are not sure Jimin's request is within your approval limits. What do you do?"),
       options: [
-        option("a", tx("고객을 오래 기다리게 할 수 없으니 일단 승인한다.", "Approve it for now, since the customer can't be kept waiting."), tx("확실하지 않은 승인은 나중에 되돌리기 어렵고, 잘못된 기준이 팀에 퍼집니다.", "An unsure approval is hard to undo later, and the wrong standard spreads through the team.")),
+        option("a", tx("고객이 오래 기다리지 않게 일단 승인한다.", "Approve it for now so the customer isn't kept waiting."), tx("확실하지 않은 승인은 나중에 되돌리기 어렵고, 잘못된 기준이 팀에 퍼집니다.", "An unsure approval is hard to undo later, and the wrong standard spreads through the team.")),
         option("b", tx("지민에게 고객 대기 안내를 부탁하고, 팀장에게 바로 확인한다.", "Ask Jimin to let the customer know there is a short wait, and check with the team leader right away.")),
         option("c", tx("확실하지 않을 때는 거절하는 게 안전하니, 고객에게 어렵다고 안내하게 한다.", "When unsure, refusing is safer, so have Jimin tell the customer it can't be done."), tx("범위 안의 요청이었다면 고객이 받을 수 있던 해결을 놓치게 됩니다.", "If it was within your limits, the customer misses a fix they could have had.")),
       ],
@@ -53,7 +53,7 @@ export default {
       options: [
         option("a", tx("물어본 사람마다 바로 답해 주고, 각자 메모해 두라고 한다.", "Answer each person as they ask, and tell them to note it down."), tx("각자 메모해도 다른 팀원은 모르니 여섯 번째, 일곱 번째 질문도 오고, 그 시간에 더 급한 요청을 놓칩니다.", "Their notes don't reach the rest of the team, so a sixth and seventh question will come, and you miss more urgent requests meanwhile.")),
         option("b", tx("모두에게 필요한 답이니, 정리해서 허들이나 팀 채팅방에 공유한다.", "Everyone needs this answer, so sum it up and share it in the huddle or the team chat.")),
-        option("c", tx("답이 지식 베이스에 있으니, 문서 링크를 보내며 읽어 보라고 한다.", "The answer is in the knowledge base, so send the article link and tell them to read it."), tx("다섯 명이 같은 것을 묻는다면 문서가 찾기 어렵거나 불분명하다는 신호입니다.", "When five people ask the same thing, it is a sign the article is hard to find or unclear.")),
+        option("c", tx("문서 링크를 보내며, 지식 베이스에서 읽어 보라고 한다.", "Send the article link and tell them to read it in the knowledge base."), tx("다섯 명이 같은 것을 묻는다면 문서가 찾기 어렵거나 불분명하다는 신호입니다.", "When five people ask the same thing, it is a sign the article is hard to find or unclear.")),
       ],
       answer: "b",
       explanation: tx("반복되는 질문은 팀 전체에 한 번에 돌려줍니다. 그래야 다음 질문이 줄어듭니다.", "Give repeated questions back to the whole team at once. That is how the next questions drop."),

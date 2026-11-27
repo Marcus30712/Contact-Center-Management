@@ -51,7 +51,7 @@ export default {
       id: "senior-q2",
       prompt: tx("준호가 에스컬레이션을 보내며 해결 방법을 적어 두었고, 그 방법은 기준에 맞습니다. 어떻게 할까요?", "Junho sends an escalation with a solution already written down, and it fits the rules. What do you do?"),
       options: [
-        option("a", tx("내가 책임질 승인이니, 처음부터 다시 판단해 내 방법을 찾아 본다.", "It's your approval to answer for, so judge it again from scratch and find your own way."), tx("기준에 맞는 판단을 다시 하면 고객 응대가 늦어지고, 준호는 자기 판단을 믿지 않게 됩니다.", "Judging again something that already fits the rules slows the customer's answer, and Junho stops trusting his own judgment.")),
+        option("a", tx("처음부터 다시 판단해, 내 방법을 따로 찾아 본다.", "Judge it again from scratch and find your own way."), tx("기준에 맞는 판단을 다시 하면 고객 응대가 늦어지고, 준호는 자기 판단을 믿지 않게 됩니다.", "Judging again something that already fits the rules slows the customer's answer, and Junho stops trusting his own judgment.")),
         option("b", tx("준호의 방법대로 승인하고, 판단이 맞았다고 짧게 알려 준다.", "Approve it as Junho proposed, and tell him briefly that his call was right.")),
         option("c", tx("선임이니 앞으로 이런 건은 확인 없이 알아서 처리하라고 한다.", "He is a senior, so tell him to handle such cases himself without checking from now on."), tx("승인 권한은 사람이 아니라 자리에 붙어 있습니다. 확인 없이 처리하면 기록과 책임이 흐려집니다.", "Approval authority comes with the role, not the person. Handling cases without checking blurs records and responsibility.")),
       ],

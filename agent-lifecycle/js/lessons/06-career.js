@@ -55,7 +55,7 @@ export default {
     id: 'career-q1',
     prompt: tx('퇴사 면담에서 "입사 전에 들은 설명과 실제 근무가 달랐다"는 말이 나왔습니다. 무엇을 할까요?', 'In an exit interview you hear, “What I was told before joining was different from the actual job.” What do you do?'),
     options: [
-      option('a', tx('어차피 떠나는 사람이니 기록만 남겨 둔다.', 'The person is leaving anyway, so just file a record.'), tx('기록만 남기면 같은 직무 안내를 들은 다음 신입도 같은 이유로 떠납니다.', 'Only recording it means the next new hire, given the same job preview, leaves for the same reason.')),
+      option('a', tx('떠나는 사람의 말이라 면담 기록만 남겨 두고 넘어간다.', 'File the interview record and move on; it\'s only a leaver\'s comment.'), tx('기록만 남기면 같은 직무 안내를 들은 다음 신입도 같은 이유로 떠납니다.', 'Only recording it means the next new hire, given the same job preview, leaves for the same reason.')),
       option('b', tx('채용 담당자에게 전달해 직무 안내 내용을 고치게 한다.', 'Pass it to the recruiter so the job preview gets corrected.')),
       option('c', tx('남은 팀원들을 불러 같은 불만이 있는지 따져 묻는다.', 'Call in the remaining team members and press them on whether they feel the same.'), tx('남은 팀원을 불러 따져 물으면 솔직한 이야기보다 경계심이 먼저 생깁니다.', 'Calling in the remaining team to question them breeds wariness before honesty.')),
     ],
@@ -75,7 +75,7 @@ export default {
     id: 'career-tech',
     prompt: tx('기술지원 상담사가 더 어려운 티켓을 맡고 싶다고 합니다. 무엇을 할까요?', 'A tech support agent says they want to take on harder tickets. What do you do?'),
     options: [
-      option('a', tx('1차 지원 인력이 빠지면 안 되니, 지금 맡은 범위만 하라고 한다.', 'Tier 1 cannot spare anyone, so tell them to stay within their current scope.'), tx('더 하고 싶다는 말을 막으면 성장 의지가 꺾이고, 팀은 다음 2차 지원 인력을 놓칩니다.', 'Holding back someone who wants more breaks their drive to grow, and the team misses its next Tier 2 agent.')),
+      option('a', tx('지금 맡은 1차 지원 범위만 계속하라고 한다.', 'Tell them to stay within their current Tier 1 scope.'), tx('더 하고 싶다는 말을 막으면 성장 의지가 꺾이고, 팀은 다음 2차 지원 인력을 놓칩니다.', 'Holding back someone who wants more breaks their drive to grow, and the team misses its next Tier 2 agent.')),
       option('b', tx('필요한 역량을 알려 주고, 2차 티켓 일부를 함께 해 보게 한다.', 'Explain the skills needed, and have them try some Tier 2 tickets with support.')),
       option('c', tx('의욕이 있을 때 준비 과정 없이 바로 2차 지원으로 보낸다.', 'Move them to Tier 2 right away while the motivation lasts, with no preparation.'), tx('준비 없이 보내면 실패할 가능성이 커지고, 고객도 그 부담을 함께 집니다.', 'Sending them unprepared raises the chance of failure, and customers share the cost.')),
     ],
@@ -85,8 +85,8 @@ export default {
     id: 'career-general-2',
     prompt: tx('일반 고객지원 퇴사 면담에서 "매일 같은 문의만 받아 성장하는 느낌이 없었다"는 말이 여러 번 나옵니다. 무엇을 할까요?', 'In general support exit interviews, several people say, “I handled the same inquiries every day and never felt I was growing.” What do you do?'),
     options: [
-      option('a', tx('성장을 원하는 성향의 사람들이었으니, 개인 성향 문제로 기록하고 넘긴다.', 'They were people who wanted to grow, so record it as a matter of personal temperament and move on.'), tx('여러 사람이 같은 말을 한다면 개인 성향이 아니라 일하는 방식의 문제입니다.', 'When several people say the same thing, it is about how the work is run, not personal temperament.')),
-      option('b', tx('그달에 퇴사가 몰린 것으로 보고, 다음 달 면담 결과까지 기다려 판단한다.', 'Treat it as departures clustering that month, and wait for next month\'s interviews before deciding.'), tx('여러 번 반복된 말을 한 달의 일로 보면, 같은 이유의 퇴사가 계속 이어집니다.', 'Treating a repeated message as a one-month blip lets departures for the same reason continue.')),
+      option('a', tx('개인 성향의 문제로 기록하고 넘긴다.', 'Record it as a matter of personal temperament and move on.'), tx('여러 사람이 같은 말을 한다면 개인 성향이 아니라 일하는 방식의 문제입니다.', 'When several people say the same thing, it is about how the work is run, not personal temperament.')),
+      option('b', tx('그달에 퇴사가 몰렸을 뿐이라 여기고, 다음 달 면담 결과까지 기다려 판단한다.', 'Wait for next month\'s interviews before deciding, putting it down to departures clustering that month.'), tx('여러 번 반복된 말을 한 달의 일로 보면, 같은 이유의 퇴사가 계속 이어집니다.', 'Treating a repeated message as a one-month blip lets departures for the same reason continue.')),
       option('c', tx('남은 팀원에게 문의 유형 순환과 전문 상담 경로를 먼저 보여 준다.', 'Show the people still on the team inquiry rotation and paths such as specialist support up front.')),
     ],
     answer: 'c',

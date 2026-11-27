@@ -42,9 +42,9 @@ export default {
       id: "ready-q1",
       prompt: tx("직무전문가 지원자를 볼 때 무엇보다 먼저 보는 것은 무엇일까요?", "When choosing an SME, what do they check first?"),
       options: [
-        option("a", tx("입사한 지 얼마나 오래됐는지", "How long they've been with the company"), tx("연차보다 최근 몇 달의 출석, 기록, 점수, 기여를 봅니다.", "They look at the last few months of attendance, record, scores and contribution rather than tenure.")),
-        option("b", tx("출석률", "Attendance")),
-        option("c", tx("팀장과 얼마나 가까운지", "How close they are to the team leader"), tx("친분이 아니라 기록으로 봅니다. 출석률, 클레임과 징계 기록, 품질·시험 점수가 근거가 됩니다.", "It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence.")),
+        option("a", tx("근속 기간", "Length of service"), tx("연차보다 최근 몇 달의 출석, 기록, 점수, 기여를 봅니다.", "They look at the last few months of attendance, record, scores and contribution rather than tenure.")),
+        option("b", tx("출석률과 근태", "Attendance and timekeeping")),
+        option("c", tx("팀장과의 친분 정도", "How close they are to the team leader"), tx("친분이 아니라 기록으로 봅니다. 출석률, 클레임과 징계 기록, 품질·시험 점수가 근거가 됩니다.", "It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence.")),
       ],
       answer: "b",
       explanation: tx("직무전문가는 여러 사람과 함께 일합니다. 자리를 지켜 온 기록이 가장 먼저 믿음이 됩니다.", "SMEs work with many people. A record of showing up is the first thing that builds trust."),
