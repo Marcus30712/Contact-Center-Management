@@ -22,7 +22,7 @@ test('the five roles and their keys', () => {
   assert.deepEqual(ROLES, ['agent', 'sme', 'tl', 'am', 'om']);
   assert.equal(DEFAULT_ROLE, 'tl');
   assert.deepEqual(COURSE_ROLES, ['agent', 'sme', 'tl']);
-  assert.deepEqual(coursesFor('agent'), ['agent', 'agent-career']);
+  assert.deepEqual(coursesFor('agent'), ['agent', 'agent-career', 'agent-sop']);
   assert.equal(ROLE_KEY, 'queuecraft:role');
   assert.equal(ROLE_ASKED_KEY, 'queuecraft:role-asked');
 });
@@ -79,7 +79,7 @@ test('role wording is the approved copy', () => {
 test('courses per role', () => {
   assert.deepEqual(coursesFor('tl'), ['tl', 'lifecycle', 'tl-support', 'sop']);
   assert.deepEqual(coursesFor('sme'), ['sme', 'sme-lifecycle', 'sme-sop']);
-  assert.deepEqual(coursesFor('agent'), ['agent', 'agent-career']);
+  assert.deepEqual(coursesFor('agent'), ['agent', 'agent-career', 'agent-sop']);
   for (const r of ['am', 'om', 'boss']) assert.deepEqual(coursesFor(r), [], r);
 });
 
@@ -90,13 +90,14 @@ test('each course has one role, read from the same table', () => {
   assert.equal(roleOf('sme-lifecycle'), 'sme');
   assert.equal(roleOf('sme-sop'), 'sme');
   assert.equal(roleOf('agent-career'), 'agent');
+  assert.equal(roleOf('agent-sop'), 'agent');
   assert.equal(roleOf('excel'), undefined);
 });
 
 test('home and the quiz read courses from one shared list', async () => {
   const { COURSE_INFO } = await import('../../shared/courses.js');
   const { LEARN } = await import('../../home/data.js');
-  assert.deepEqual(Object.keys(COURSE_INFO), ['agent', 'agent-career', 'tl', 'lifecycle', 'tl-support', 'sop', 'sme', 'sme-lifecycle', 'sme-sop']);
+  assert.deepEqual(Object.keys(COURSE_INFO), ['agent', 'agent-career', 'agent-sop', 'tl', 'lifecycle', 'tl-support', 'sop', 'sme', 'sme-lifecycle', 'sme-sop']);
   for (const [id, c] of Object.entries(COURSE_INFO)) {
     const card = LEARN.find((x) => x.href === `./${c.dir}`);
     assert.equal(card.role, roleOf(id), id);

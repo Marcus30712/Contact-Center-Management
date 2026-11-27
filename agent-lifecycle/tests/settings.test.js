@@ -90,13 +90,14 @@ const filled = () => fakeStorage({
   'tl-support:v1': '{"completed":["qa"]}',
   'agent-course:v1': '{"completed":["golive"]}',
   'agent-career:v1': '{"completed":["sme"]}',
+  'agent-sop:v1': '{"completed":["outage"]}',
   'other-site:key': 'not ours',
 });
 
-test('a backup holds exactly the seventeen app keys that are set', () => {
+test('a backup holds exactly the eighteen app keys that are set', () => {
   assert.deepEqual(BACKUP_KEYS, ['agent-lifecycle-course:lang', 'agent-lifecycle-course:track', 'queuecraft:theme',
     'queuecraft:role', 'queuecraft:role-asked',
-    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1', 'sme-lifecycle:v1', 'sme-sop:v1', 'tl-course:v1', 'tl-support:v1', 'agent-course:v1', 'agent-career:v1']);
+    'agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1', 'sme-lifecycle:v1', 'sme-sop:v1', 'tl-course:v1', 'tl-support:v1', 'agent-course:v1', 'agent-career:v1', 'agent-sop:v1']);
   const b = makeBackup(filled(), '2026-11-20');
   assert.equal(b.app, 'queuecraft');
   assert.equal(b.format, 1);
@@ -388,8 +389,8 @@ test('the tutorial has its own section with a View link', () => {
 });
 
 // ---------- 2026-11-21: reset learning ----------
-test('reset clears only the twelve learning records and reports whether anything was there', () => {
-  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1', 'sme-lifecycle:v1', 'sme-sop:v1', 'tl-course:v1', 'tl-support:v1', 'agent-course:v1', 'agent-career:v1']);
+test('reset clears only the thirteen learning records and reports whether anything was there', () => {
+  assert.deepEqual(RESET_KEYS, ['agent-lifecycle-course:v1', 'sop-library:v1', 'excel-practice:v1', 'kb-practice:v1', 'sme-course:v1', 'queuecraft:review:v1', 'sme-lifecycle:v1', 'sme-sop:v1', 'tl-course:v1', 'tl-support:v1', 'agent-course:v1', 'agent-career:v1', 'agent-sop:v1']);
   const s = filled();
   s.setItem('queuecraft:tour', 'done');
   assert.equal(resetLearning(s), true);

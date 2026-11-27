@@ -20,6 +20,7 @@ test('the menu marks where you are', () => {
   assert.equal(current('https://x.test/kb/sme/'), 'learn');
   assert.equal(current('https://x.test/kb/sme-lifecycle/'), 'learn');
   assert.equal(current('https://x.test/kb/sme-sop/'), 'learn');
+  assert.equal(current('https://x.test/kb/agent-sop/#request-2'), 'learn');
   assert.equal(current('https://x.test/kb/review/#sme'), 'learn');
   for (const p of ['codex/#teams', 'staffing-calculator/', 'glossary/#aht', 'references/', 'privacy/']) assert.equal(current(`https://x.test/kb/${p}`), 'browse', p);
   assert.equal(current('https://x.test/kb/settings/'), 'settings');
