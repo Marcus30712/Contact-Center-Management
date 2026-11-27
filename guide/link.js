@@ -2,9 +2,10 @@
 // lesson it opens can lead on to that situation's "then go here" at its end.
 import { GROUPS } from './data.js';
 import { SME_GROUPS } from '../sme-guide/data.js';
+import { AGENT_GROUPS } from '../agent-guide/data.js';
 
-// Both guides' situations; their ids differ (s… for TL, m… for SME).
-const SITUATIONS = [...GROUPS, ...SME_GROUPS].flatMap((g) => g.situations);
+// Every guide's situations; their ids differ (s… for TL, m… for SME, a… for agents).
+const SITUATIONS = [...GROUPS, ...SME_GROUPS, ...AGENT_GROUPS].flatMap((g) => g.situations);
 
 // '../sop-library/#coaching-0' -> '../sop-library/?guide=s1#coaching-0'
 export function withGuide(href, id) {

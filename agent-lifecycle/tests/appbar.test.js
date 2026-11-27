@@ -95,7 +95,9 @@ test('changing the highlight keeps the same links, so focus stays put', async ()
 test('the menu\'s Guide follows the role', () => {
   const guide = (role, page = 'https://x.test/kb/') => appBarItems(ROOT, page, undefined, role).find((i) => i.id === 'guide');
   assert.equal(guide('sme').href, 'https://x.test/kb/sme-guide/');
-  for (const role of ['tl', 'agent', 'am', 'om', undefined]) assert.equal(guide(role).href, 'https://x.test/kb/guide/', String(role));
+  assert.equal(guide('agent').href, 'https://x.test/kb/agent-guide/');
+  assert.equal(current('https://x.test/kb/agent-guide/#a3'), 'guide');
+  for (const role of ['tl', 'am', 'om', undefined]) assert.equal(guide(role).href, 'https://x.test/kb/guide/', String(role));
   assert.equal(current('https://x.test/kb/sme-guide/'), 'guide');
   assert.equal(current('https://x.test/kb/guide/'), 'guide');
   assert.equal(guide('sme', 'https://x.test/kb/sme-guide/').current, true);

@@ -67,9 +67,10 @@ export function homeFor(role) {
     };
   }
   if (role === 'agent') {
-    // Agent First Steps and Agent Career Lifecycle (2026-11-26) and the Agent SOP Library (2026-11-27) are built; the guide is still coming.
+    // Agent First Steps and Agent Career Lifecycle (2026-11-26), the Agent SOP Library and the agent guide (2026-11-27) are built.
+    const agentGuide = { id: 'guide', href: './agent-guide/', title: withRole(HOME_COPY.guideTitle, role), text: GUIDE_CARD.text };
     return {
-      guide,
+      guide: agentGuide,
       learn: [{ id: 'agent', ...byHref('./agent/') }, { id: 'agent-career', ...byHref('./agent-career/') }, { id: 'agent-sop', ...byHref('./agent-sop/') }, excel(HOME_COPY.excelShared)],
     };
   }
