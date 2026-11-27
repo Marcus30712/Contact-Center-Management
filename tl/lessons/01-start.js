@@ -39,7 +39,7 @@ export default {
       id: "start-q1",
       prompt: tx("첫날, 전 팀장 때와 다른 방식이 눈에 띕니다. 어떻게 할까요?", "On your first day, you notice ways of working that differ from the previous team leader's. What do you do?"),
       options: [
-        option("a", tx("첫날 허들에서 내 방식을 알리고 바로 바꾼다. 처음에 기준을 세워야 나중에 덜 흔들린다.", "Announce your way at the first huddle and switch right away; setting the standard early means less wobbling later."), tx("이유를 알기 전에 바꾸면 잘 돌아가던 것까지 흔들리고, 팀원들은 새 팀장을 경계합니다.", "Changing things before you know why shakes what was working, and the team grows wary of the new team leader.")),
+        option("a", tx("흔들리지 않을 기준을 일찍 세우려고, 첫날 허들에서 내 방식을 알리고 바로 바꾼다.", "To set a firm standard early, announce your way at the first huddle and switch right away."), tx("이유를 알기 전에 바꾸면 잘 돌아가던 것까지 흔들리고, 팀원들은 새 팀장을 경계합니다.", "Changing things before you know why shakes what was working, and the team grows wary of the new team leader.")),
         option("b", tx("그 방식에도 사정이 있을 수 있으니, 적어 두고 이유를 파악한 뒤에 바꿀지 정한다.", "There may be a reason behind the old way, so note it down and decide whether to change it once you know why.")),
         option("c", tx("팀이 오래 해 온 방식이니, 팀원들이 불편하지 않게 앞으로도 손대지 않는다.", "It's how the team has long worked, so leave it alone for good so no one is put out."), tx("파악한 뒤에도 바꾸지 않으면 개선할 기회를 놓칩니다. 바꿀지는 파악한 다음에 정합니다.", "If you never change anything even after learning why, you miss chances to improve. Decide whether to change it after you understand it.")),
       ],

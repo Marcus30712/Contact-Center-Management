@@ -66,7 +66,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 질문 | You have coached Jimin one on one three times, but she keeps skipping the same check step. What comes next? |
 | 보기 a (오답) | Keep the same approach and book one more one-on-one on the same point. |
 | a 피드백 | If the same approach failed three times, it is time to set goals and support formally. |
-| 보기 b (오답) | Suggest she leave, since three chances brought no sign of improvement. |
+| 보기 b (오답) | Suggest she leave after three chances with no sign of improvement. |
 | b 피드백 | Ending it without formal goals and support tells the team that asking for help is pointless. |
 | 보기 c (정답) | Move to a PIP: meet with the data, agree on goals and support, and check in weekly. |
 | 해설 | When coaching alone is not enough, move to a PIP. A PIP is not a punishment but a procedure that makes goals, support and check-ins clear. |
@@ -103,9 +103,9 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | Two weeks (Example) into being team leader, Haeun, your closest colleague, complains that QA scores differ by evaluator. What fits best? |
-| 보기 a (오답) | Quietly ask QA to look at Haeun's scores again, trusting her account. |
+| 보기 a (오답) | Believe Haeun and quietly ask QA to look at only her scores again. |
 | a 피드백 | Looking after one person makes the team feel the standard depends on friendship. |
-| 보기 b (오답) | Stay out of it, since evaluation is QA's job. |
+| 보기 b (오답) | Stay out of it and leave evaluation to QA. |
 | b 피드백 | Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching. |
 | 보기 c (정답) | It may be a team-wide problem, so ask QA for calibration and tell the team the outcome. |
 | 해설 | Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone. |
@@ -132,7 +132,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 |---|---|
 | 질문 | Seojun has a customer on hold and his hand up, your peer Junho asks by ticket for a compensation approval for a customer whose call has ended, and Sujin, in a meeting, messages you to take the afternoon attendance. What do you do first? |
 | 보기 a (정답) | The customer on hold comes first, so go to Seojun, and tell Junho and the team leader when you will get to them. |
-| 보기 b (오답) | Approve your peer Junho's request first; it's already in a ticket, so it's quick. |
+| 보기 b (오답) | Approve your peer Junho's ticketed request first, a quick one. |
 | b 피드백 | The order is set by whether a customer is waiting now, not by what's quick or by friendship. |
 | 보기 c (오답) | The team leader asked, so do attendance first and signal Seojun to wait a moment. |
 | c 피드백 | Attendance can wait a moment; the customer on hold cannot. |

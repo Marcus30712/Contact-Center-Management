@@ -43,7 +43,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | On your first day, you notice ways of working that differ from the previous team leader's. What do you do? |
-| 보기 a (오답) | Announce your way at the first huddle and switch right away; setting the standard early means less wobbling later. |
+| 보기 a (오답) | To set a firm standard early, announce your way at the first huddle and switch right away. |
 | a 피드백 | Changing things before you know why shakes what was working, and the team grows wary of the new team leader. |
 | 보기 b (정답) | There may be a reason behind the old way, so note it down and decide whether to change it once you know why. |
 | 보기 c (오답) | It's how the team has long worked, so leave it alone for good so no one is put out. |
@@ -163,10 +163,10 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | In one of Jimin's calls, you notice she left out a minor explanation. How do you record it? |
-| 보기 a (오답) | Note it as Jimin's habit; writing down even small things gives you grounds for coaching later. |
+| 보기 a (오답) | Note it as Jimin's habit, so you have grounds for coaching later. |
 | a 피드백 | One contact isn't a habit yet. See whether it shows up in others. |
 | 보기 b (정답) | One call could be chance, so listen to a few more and note it as a habit if it repeats. |
-| 보기 c (오답) | Tell Jimin on the spot and warn her; saying it right away stops it repeating. |
+| 보기 c (오답) | To stop it repeating, call Jimin over on the spot, warn her and explain again. |
 | c 피드백 | Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog. |
 | 해설 | Call it a habit when it repeats across several contacts. But if it is a required disclosure, correct it right away, even once. |
 | 2번 질문 | Several agents are giving the same wrong explanation. What do you check first? |
@@ -253,7 +253,7 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Tell the team at the huddle about her situation and ask who could swap night shifts with her. |
 | a 피드백 | Sharing someone's personal matters without permission destroys trust. |
 | 보기 b (정답) | Don't share it without Jimin's permission, and check shift changes through the agreed process. |
-| 보기 c (오답) | Leave it out of your notes; it's personal and unrelated to performance. |
+| 보기 c (오답) | Leave it out of your notes as personal and unrelated to performance. |
 | c 피드백 | Personal matters may be affecting performance. Keep what you need in mind. |
 | 해설 | Protect personal matters, and take any needed action through the process. |
 | 다음 레슨 연결 | You've decided how to help each person. Last, take all of this to your assistant manager and set the direction for the whole team. |
@@ -291,7 +291,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | If you don't share how the team is now, the direction may not fit the team's reality. |
 | 해설 | Share what you've learned briefly, so you get direction that fits the team. |
 | 2번 질문 | Your priorities differ from your assistant manager's direction. What do you do? |
-| 보기 a (오답) | Follow your own priorities, trusting your better feel for the team. |
+| 보기 a (오답) | Follow your own priorities, as the one who knows the team better. |
 | a 피드백 | Running the team against the direction puts you out of step with the project's plan and costs trust. |
 | 보기 b (정답) | Give your view with evidence; once it's set, follow it and keep a record of your view. |
 | 보기 c (오답) | Say nothing and just write down the direction. |
