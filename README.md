@@ -10,6 +10,7 @@
 |---|---|---|
 | TL 상황별 길잡이 / Situation Guide | [`guide/`](guide/) | 상황 18개를 고르면 먼저 볼 강의·SOP·원페이저로 안내 (한국어/영어) |
 | SME 상황별 길잡이 / SME Situation Guide | [`sme-guide/`](sme-guide/) | 막 SME가 된 사람이 겪는 상황 16개를 고르면 먼저 볼 SME 강의·SOP로 안내 (한국어/영어) |
+| 상담사 상황별 길잡이 / Agent Situation Guide | [`agent-guide/`](agent-guide/) | 막 상담사가 된 사람이 겪는 상황 16개를 고르면 먼저 볼 상담사 강의·SOP로 안내 (한국어/영어) |
 | 오늘의 연습 / Today's Practice | [`practice/`](practice/) | 마친 레슨(상담사 강의 3개·팀장 강의 4개·직무전문가 강의 3개·엑셀)에서 하루 3문제, 용어 카드, 평일 연속 학습과 배지 12개. 김미소가 표정으로 반응 (한국어/영어). 기록은 휴대폰에만 저장 |
 | 미소의 엑셀 연습 / Miso's Excel Practice | [`excel/`](excel/) | 팀장이 꼭 쓰는 엑셀 11가지(셀 주소부터 SUMIFS·XLOOKUP·피벗·조건부 서식까지)와, 배운 함수를 섞어 쓰는 심화 5개. 타자 없이 카드와 칸을 눌러 수식을 만들고, 미소 팀 콜 기록(예시)으로 실제 계산해 채점 (한국어/영어) |
 | TL 첫걸음 / TL First Steps | [`tl/`](tl/) | 막 팀장이 된 사람을 위한 7개 레슨: 로스터, 개인 성과, 콜·티켓 직접 보기, 팀의 기여, 첫 1:1 면담, AM·OM에게 방침 받기 (한국어/영어) |
@@ -44,7 +45,7 @@
 | 무엇 | 라이선스 | 파일 |
 |---|---|---|
 | 코드 (화면을 그리는 코드, 계산기, 테스트, 도구) | MIT | [`LICENSE`](LICENSE) |
-| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/`, `agent/lessons/`, `agent-career/lessons/`, `agent-sop/lessons/` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `agent-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/`, `agent/lessons/`, `agent-career/lessons/`, `agent-sop/lessons/` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
 
 - CC BY-NC-ND 4.0: 출처("Marcus Shim, CX 2회차 (CX Replay)")를 밝히고, 바꾸지 않고, 비상업적으로만 공유할 수 있습니다. 자세한 범위는 `LICENSE-CONTENT`에 있습니다.
 - 2026년 11월 20일 이전에 MIT로 공개된 판은 그대로 MIT입니다.

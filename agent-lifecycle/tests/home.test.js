@@ -444,8 +444,18 @@ test('the SME home links to the SME guide', () => {
   assert.equal(card.querySelector('span').textContent, GUIDE_CARD.text.ko);
   assert.equal(homeOf('sme', 'en').querySelector('a.card[href="./sme-guide/"] strong').textContent, rhRow(2, 'SME')[2]);
   assert.equal(sme.querySelector('[data-soon="guide"]'), null);
-  for (const role of ['agent', 'am', 'om']) assert.ok(homeOf(role).querySelector('[data-soon="guide"]'), role);
+  for (const role of ['am', 'om']) assert.ok(homeOf(role).querySelector('[data-soon="guide"]'), role);
   assert.ok(homeOf('tl').querySelector('a.card[href="./guide/"]'));
+});
+
+test('the agent home links to the agent guide', () => {
+  const agent = homeOf('agent');
+  const card = agent.querySelector('a.card[href="./agent-guide/"]');
+  assert.ok(card);
+  assert.equal(card.querySelector('strong').textContent, '어디서부터 볼까요? · 상담사 상황별 길잡이');
+  assert.equal(card.querySelector('span').textContent, GUIDE_CARD.text.ko);
+  assert.equal(homeOf('agent', 'en').querySelector('a.card[href="./agent-guide/"] strong').textContent, 'Where to start? · Agent Situation Guide');
+  assert.equal(agent.querySelector('[data-soon="guide"]'), null);
 });
 
 test('the guide card is TL\'s guide or coming soon', () => {

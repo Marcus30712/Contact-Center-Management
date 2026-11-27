@@ -15,9 +15,9 @@ export const APPBAR_UI = {
 };
 
 const LEARN_PAGES = ['agent-lifecycle/', 'sop-library/', 'sme/', 'sme-lifecycle/', 'sme-sop/', 'tl/', 'tl-support/', 'agent/', 'agent-career/', 'agent-sop/', 'review/', 'practice/', 'excel/'];
-const GUIDE_PAGES = ['guide/', 'sme-guide/'];
+const GUIDE_PAGES = ['guide/', 'sme-guide/', 'agent-guide/'];
 // Each role's guide; roles without one of their own use the team lead's (2026-11-25).
-const GUIDE_FOR = { sme: './sme-guide/' };
+const GUIDE_FOR = { sme: './sme-guide/', agent: './agent-guide/' };
 
 // Simple line icons, drawn here so nothing else needs to load.
 const ICONS = {

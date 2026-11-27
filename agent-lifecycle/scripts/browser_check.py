@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "tl/", "tl/#listen-3", "tl-support/", "tl-support/#qa-3", "agent/", "agent/#golive-3", "agent-career/", "agent-career/#tl-3", "agent-sop/", "agent-sop/#outage-3", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "tl/", "tl/#listen-3", "tl-support/", "tl-support/#qa-3", "agent/", "agent/#golive-3", "agent-career/", "agent-career/#tl-3", "agent-sop/", "agent-sop/#outage-3", "agent-guide/", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -670,7 +670,7 @@ def main():
         page.reload()
         page.wait_for_selector("[data-course='lifecycle']")
         check("(a1) progress shows after a lesson", "1/6" in page.inner_text("[data-course='lifecycle']") and page.get_attribute("a[data-next='lifecycle']", "href") == "./agent-lifecycle/#onboarding-0")
-        PAGES = {"": "home", "guide/": "guide", "sme-guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "tl/": "learn", "tl-support/": "learn", "agent-career/": "learn", "agent-sop/": "learn", "codex/#daily": "browse", "browse/": "browse",
+        PAGES = {"": "home", "guide/": "guide", "sme-guide/": "guide", "agent-guide/": "guide", "agent-lifecycle/": "learn", "sop-library/": "learn", "sme-lifecycle/": "learn", "sme-sop/": "learn", "tl/": "learn", "tl-support/": "learn", "agent-career/": "learn", "agent-sop/": "learn", "codex/#daily": "browse", "browse/": "browse",
                  "staffing-calculator/": "browse", "glossary/": "browse", "references/": "browse", "privacy/": "browse", "settings/": "settings"}
         for path, item in PAGES.items():
             page.goto(HUB + path)
@@ -1651,6 +1651,39 @@ def main():
         page.wait_for_selector("[data-connection] a[data-guide-then]")
         check("(g2) the lesson ends with the guide's next place", page.get_attribute("[data-connection] a[data-guide-then]", "href") == "../agent-lifecycle/#nesting-0")
         page.screenshot(path=str(OUT / "sme-guide-then-390.png"), full_page=False)
+        page.context.close()
+
+        # (ga) Agent Situation Guide (2026-11-27): home card and menu lead an agent there; a3 leads on to its "then"
+        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'agent'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("a.card[href='./agent-guide/']")
+        check("(ga1) the agent home guide card and menu Guide both open the agent guide",
+              page.locator("[data-soon='guide']").count() == 0 and page.get_attribute("nav.appbar a[data-item='guide']", "href").endswith("/agent-guide/"))
+        page.click("a.card[href='./agent-guide/']")
+        page.wait_for_selector("[data-card]")
+        check("(ga1) the agent guide shows sixteen situations with Guide current",
+              page.url.endswith("/agent-guide/") and page.locator("[data-card]").count() == 16 and page.get_attribute("nav.appbar a[aria-current='page']", "data-item") == "guide")
+        page.click("[data-card='a3'] button")
+        page.click("[data-card='a3'] a[data-go='first']")
+        page.wait_for_selector("[data-counter]")
+        check("(ga2) a3 opens Agent First Steps lesson 3", "/agent/" in page.url and "nesting-0" in page.url)
+        steps = int(page.inner_text("[data-counter]").split("/")[1])
+        for _ in range(steps):
+            page.click("[data-next]")
+        page.wait_for_selector("[data-view='checkpoint']")
+        page.click("[data-question='nesting-q1'] [data-option='b']")
+        page.click("[data-question='nesting-q2'] [data-option='b']")
+        page.wait_for_selector("[data-connection] a[data-guide-then]")
+        check("(ga2) the lesson ends with the guide's next place", page.get_attribute("[data-connection] a[data-guide-then]", "href") == "../agent-sop/#request-0")
+        page.goto(HUB + "agent-guide/")
+        page.wait_for_selector("[data-card]")
+        page.click("[data-lang='en']")
+        page.wait_for_timeout(200)
+        for b in page.locator("[data-card] button").all():
+            b.click()
+        check("(ga3) the English agent guide shows no Korean", not any("\uac00" <= ch <= "\ud7a3" for ch in page.inner_text("#app")))
+        page.click("[data-lang='ko']")
+        page.screenshot(path=str(OUT / "agent-guide-390.png"), full_page=True)
         page.context.close()
         # Seed the role once: an init script runs on every page, and these checks change the role and move on.
         once_tl = "try { if (!localStorage.getItem('queuecraft:role')) localStorage.setItem('queuecraft:role', 'tl'); } catch (e) {}"
