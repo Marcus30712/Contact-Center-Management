@@ -3,6 +3,7 @@
 import { ROLE_SHORT } from '../shared/role-data.js';
 import { EXCEL_UI } from '../excel/data.js';
 import { SME_UI } from '../sme/ui.js';
+import { AS_UI } from '../agent-sop/ui.js';
 import { GUIDE_CARD, LEARN } from './data.js';
 
 export const HOME_COPY = {
@@ -21,6 +22,8 @@ export const HOME_COPY = {
     title: { ko: '직무전문가 SOP 라이브러리', en: 'SME SOP Library' },
     text: { ko: '직무전문가가 따르는 표준 절차 8개를 순서대로 배웁니다.', en: 'Learn the eight standard procedures an SME follows, in order.' },
   },
+  // The agent SOP card reads the course's own words; a test keeps them equal to the copy doc.
+  agentSop: { title: AS_UI.courseTitle, text: AS_UI.homeCard },
   excelSme: { ko: '직무전문가가 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.', en: 'The 11 Excel skills SMEs use most, learned by tapping.' },
   excelShared: { ko: '컨택센터에서 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.', en: 'The 11 Excel skills used most in a contact center, learned by tapping.' },
   startExcel: { ko: '처음이라면 미소의 엑셀 연습 레슨 1부터 시작해 보세요.', en: "New here? Start with lesson 1 of Miso's Excel Practice." },
@@ -64,10 +67,10 @@ export function homeFor(role) {
     };
   }
   if (role === 'agent') {
-    // Agent First Steps and Agent Career Lifecycle are built (2026-11-26); the agent SOP library and guide are still coming.
+    // Agent First Steps and Agent Career Lifecycle (2026-11-26) and the Agent SOP Library (2026-11-27) are built; the guide is still coming.
     return {
       guide,
-      learn: [{ id: 'agent', ...byHref('./agent/') }, { id: 'agent-career', ...byHref('./agent-career/') }, soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],
+      learn: [{ id: 'agent', ...byHref('./agent/') }, { id: 'agent-career', ...byHref('./agent-career/') }, { id: 'agent-sop', ...byHref('./agent-sop/') }, excel(HOME_COPY.excelShared)],
     };
   }
   return {

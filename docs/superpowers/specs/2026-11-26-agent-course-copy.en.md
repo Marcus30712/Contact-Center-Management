@@ -344,4 +344,4 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | Her numbers compared with other colleagues'. |
 | c 피드백 | The review is about your growth. Bring your own changes, not comparisons. |
 | 해설 | The review is a time to set the next goal together. |
-| 마지막 연결 | You have finished Agent First Steps. Next, look ahead at the roles you can aim for in Agent Career Lifecycle. |
+| 마지막 연결 | You have finished Agent First Steps. Next, preview the path up the operations team in Agent Career Lifecycle. |

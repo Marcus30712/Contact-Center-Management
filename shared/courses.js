@@ -19,10 +19,13 @@ import { AGENT_LESSONS } from '../agent/lessons/index.js';
 import { AGENT_PROGRESS_KEY } from '../agent/ui.js';
 import { AC_LESSONS } from '../agent-career/lessons/index.js';
 import { AC_PROGRESS_KEY } from '../agent-career/ui.js';
+import { AS_LESSONS } from '../agent-sop/lessons/index.js';
+import { AS_PROGRESS_KEY } from '../agent-sop/ui.js';
 
 export const COURSE_INFO = {
   agent: { key: AGENT_PROGRESS_KEY, lessons: AGENT_LESSONS, dir: 'agent/' },
   'agent-career': { key: AC_PROGRESS_KEY, lessons: AC_LESSONS, dir: 'agent-career/' },
+  'agent-sop': { key: AS_PROGRESS_KEY, lessons: AS_LESSONS, dir: 'agent-sop/' },
   tl: { key: TL_PROGRESS_KEY, lessons: TL_LESSONS, dir: 'tl/' },
   lifecycle: { key: PROGRESS_KEY, lessons: LESSONS, dir: 'agent-lifecycle/' },
   'tl-support': { key: TS_PROGRESS_KEY, lessons: TS_LESSONS, dir: 'tl-support/' },

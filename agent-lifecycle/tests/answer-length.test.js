@@ -8,6 +8,7 @@ import { AC_LESSONS } from '../../agent-career/lessons/index.js';
 import { SME_LESSONS } from '../../sme/lessons/index.js';
 import { SL_LESSONS } from '../../sme-lifecycle/lessons/index.js';
 import { SS_LESSONS } from '../../sme-sop/lessons/index.js';
+import { AS_LESSONS } from '../../agent-sop/lessons/index.js';
 import { TL_LESSONS } from '../../tl/lessons/index.js';
 import { TS_LESSONS } from '../../tl-support/lessons/index.js';
 import { LESSONS } from '../js/lessons/index.js';
@@ -21,7 +22,7 @@ const soloLongest = (q) => {
 };
 
 const COURSES = {
-  agent: AGENT_LESSONS, 'agent-career': AC_LESSONS, sme: SME_LESSONS, 'sme-lifecycle': SL_LESSONS, 'sme-sop': SS_LESSONS,
+  agent: AGENT_LESSONS, 'agent-career': AC_LESSONS, 'agent-sop': AS_LESSONS, sme: SME_LESSONS, 'sme-lifecycle': SL_LESSONS, 'sme-sop': SS_LESSONS,
   tl: TL_LESSONS, 'tl-support': TS_LESSONS, lifecycle: LESSONS, sop: SOP_LESSONS,
 };
 
@@ -67,3 +68,26 @@ for (const [id, lessons] of Object.entries(reasonCourses)) {
     assert.deepEqual(tell.map((q) => q.id), []);
   });
 }
+
+// Agent SOP Library (2026-11-27): the right answer must not give itself away by being the
+// shortest option either, and "~니" reasons must not sit only on wrong options.
+// Proposal: docs/superpowers/reviews/2026-11-27-agent-sop-answer-cues-proposal.md.
+test('agent-sop: the right answer is the single shortest option in at most a quarter of the questions', () => {
+  const qs = AS_LESSONS.flatMap((l) => l.checkpoint);
+  const soloShortest = (q) => {
+    const len = q.options.map((o) => o.text.ko.length);
+    const a = len[q.options.findIndex((o) => o.id === q.answer)];
+    return a === Math.min(...len) && len.filter((v) => v === a).length === 1;
+  };
+  const n = qs.filter(soloShortest).length;
+  assert.ok(n * 4 <= qs.length, `${n}/${qs.length}: ${qs.filter(soloShortest).map((q) => q.id).join(', ')}`);
+});
+
+test('agent-sop: at least a third of the options with a "~니" reason are right answers', () => {
+  const NI = /니[,\s]/;
+  let right = 0, all = 0;
+  for (const q of AS_LESSONS.flatMap((l) => l.checkpoint)) {
+    for (const o of q.options) if (NI.test(o.text.ko)) { all += 1; if (o.id === q.answer) right += 1; }
+  }
+  assert.ok(all > 0 && right * 3 >= all, `${right}/${all}`);
+});

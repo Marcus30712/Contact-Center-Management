@@ -11,6 +11,7 @@ import { TL_UI } from '../tl/ui.js';
 import { TS_UI } from '../tl-support/ui.js';
 import { AGENT_UI } from '../agent/ui.js';
 import { AC_UI } from '../agent-career/ui.js';
+import { AS_UI } from '../agent-sop/ui.js';
 import { HOME_UI as UI } from './data.js';
 import { HOME_COPY, homeFor, withRole } from './role-home.js';
 import { PRACTICE_UI as P } from '../practice/data.js';
@@ -34,6 +35,7 @@ const course = (id, name) => {
 const COURSES = [
   course('agent', AGENT_UI.courseTitle),
   course('agent-career', AC_UI.courseTitle),
+  course('agent-sop', AS_UI.courseTitle),
   course('tl', TL_UI.courseTitle),
   course('lifecycle', UI.lifecycle),
   course('tl-support', TS_UI.courseTitle),
