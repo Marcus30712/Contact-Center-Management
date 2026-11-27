@@ -79,7 +79,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | At the morning huddle, Jimin heard the client's refund period has changed, but the knowledge base still shows the old period. Just then, a customer asks about the refund period. What does she do? |
-| 보기 a (오답) | Give the old period, since the knowledge base is the official document. |
+| 보기 a (오답) | Give the old period from the knowledge base, the official document. |
 | a 피드백 | The document may not have caught up with the huddle yet. Giving the old period means the customer will have to contact you again. |
 | 보기 b (오답) | Fix the knowledge base article herself, deciding which one is right. |
 | b 피드백 | You don't fix the document yourself; you report it so the owner can correct it. |

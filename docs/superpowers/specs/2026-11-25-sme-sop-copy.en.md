@@ -93,7 +93,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 a (오답) | The customer was very angry, so file it as an agent handling issue and put it in the trend summary for coaching. |
 | a 피드백 | The agent explained it correctly. Sending a cause that isn't the agent's behavior to coaching won't fix it. |
 | 보기 b (정답) | Classify it as a cause the BPO can't control, and pass it to the client through the VOC report. |
-| 보기 c (오답) | Skip classifying it; there's nothing to coach. |
+| 보기 c (오답) | Skip classifying it, with nothing to coach. |
 | c 피드백 | Without classifying it, there is no evidence to give the client even as the same complaints pile up. |
 | 해설 | L2 sorts by whether the BPO can control the cause. If we can, we change it; if not, we ask the client. |
 | 다음 레슨 연결 | The agent behaviors found in scrubbing go to the team leader. Next is the procedure for writing that summary. |

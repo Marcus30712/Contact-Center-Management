@@ -51,7 +51,7 @@ export default {
       id: "direction-q2",
       prompt: tx("내가 본 우선순위와 부매니저의 방침이 다릅니다. 어떻게 할까요?", "Your priorities differ from your assistant manager's direction. What do you do?"),
       options: [
-        option("a", tx("팀 사정을 더 잘 아는 내 판단대로 진행한다.", "Follow your own priorities, trusting your better feel for the team."), tx("방침과 다르게 운영하면 프로젝트 전체의 계획과 어긋나고 신뢰를 잃습니다.", "Running the team against the direction puts you out of step with the project's plan and costs trust.")),
+        option("a", tx("팀 사정을 더 잘 아는 내 판단대로 진행한다.", "Follow your own priorities, as the one who knows the team better."), tx("방침과 다르게 운영하면 프로젝트 전체의 계획과 어긋나고 신뢰를 잃습니다.", "Running the team against the direction puts you out of step with the project's plan and costs trust.")),
         option("b", tx("근거를 들어 의견을 말하되, 정해지면 따르고 의견은 기록해 둔다.", "Give your view with evidence; once it's set, follow it and keep a record of your view.")),
         option("c", tx("의견을 말하지 않고 방침만 받아 적는다.", "Say nothing and just write down the direction."), tx("현장을 가장 가까이에서 본 팀장의 의견이 빠지면 좋은 결정을 놓칠 수 있습니다.", "Leaving out the view of the team leader who sees the floor most closely can mean missing a good decision.")),
       ],

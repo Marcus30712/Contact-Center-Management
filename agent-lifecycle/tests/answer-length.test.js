@@ -110,3 +110,18 @@ for (const [id, qs] of Object.entries(cueSets)) {
     });
   }
 }
+
+// Phase 4 small fixes (2026-11-27): a second sentence that justifies the option, and English
+// reason tails (", since…", "; …"), must not mark wrong options either.
+const TWO_SENTENCES = (o) => /다\.\s/.test(o.text.ko.replace(/"[^"]*"/g, '""'));
+const EN_TAIL = { since: (o) => /\bsince\b/i.test(o.text.en), semicolon: (o) => /; /.test(o.text.en) };
+for (const [id, qs] of Object.entries(cueSets)) {
+  for (const [name, has, min] of [['two-sentence options (ko)', TWO_SENTENCES, 1], ['"since" (en)', EN_TAIL.since, 3], ['"; " (en)', EN_TAIL.semicolon, 3]]) {
+    test(`${id}: ${name} are not only on wrong options`, () => {
+      let right = 0, all = 0;
+      const wrong = [];
+      for (const q of qs) for (const o of q.options) if (has(o)) { all += 1; if (o.id === q.answer) right += 1; else wrong.push(`${q.id}:${o.id}`); }
+      assert.ok(all < min || right * 3 >= all, `${right}/${all}; wrong: ${wrong.join(', ')}`);
+    });
+  }
+}

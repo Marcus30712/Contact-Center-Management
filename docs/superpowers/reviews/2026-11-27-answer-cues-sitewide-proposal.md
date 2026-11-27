@@ -240,3 +240,22 @@
 | agent-q1 b | 옆자리 동료의 말대로, 그대로 환불을 처리한다. / Take the colleague's word and process the refund as is. | (그대로) | Process the refund as is, as the colleague said. |
 | agent-q5 a | 지식 베이스를 공식 문서로 보고, 예전 기간으로 안내한다. / Treat the knowledge base as the official document and give the old period. | 지식 베이스가 공식 문서라며, 예전 기간으로 안내한다. | Give the old period, since the knowledge base is the official document. |
 | agent-q5 b | 어느 쪽이 맞는지 직접 판단해, 지식 베이스 문서를 고쳐 둔다. / Decide for herself which one is right and fix the knowledge base article. | (그대로) | Fix the knowledge base article herself, deciding which one is right. |
+
+
+## 남은 작은 점 (2026-11-27, 사용자 요청)
+
+오답에만 붙던 영어 이유 꼬리(", since…", "; …", ", trusting…")와, 오답에만 있던 "두 문장짜리 보기"(이유를 둘째 문장으로 붙인 것)를 고쳤습니다. 가드 테스트 3개를 더했습니다(두 문장 보기, 영어 "since", 영어 "; ").
+
+| 강의 · 문항 · 보기 | 지금 (한국어 / 영어) | 바꿀 한국어 | 바꿀 영어 |
+|---|---|---|---|
+| review-tl tl-q2 b | 세 번의 기회에도 나아질 기미가 없다며, 퇴사를 권한다. / Suggest she leave, since three chances brought no sign of improvement. | (그대로) | Suggest she leave after three chances with no sign of improvement. |
+| review-tl tl-q5 b | 평가는 QA의 일이니 관여하지 않는다. / Stay out of it, since evaluation is QA's job. | (그대로) | Stay out of it and leave evaluation to QA. |
+| review-tl tl-q5 a | 하은의 말을 믿고, QA에 하은의 점수만 다시 봐 달라고 조용히 부탁한다. / Quietly ask QA to look at Haeun's scores again, trusting her account. | (그대로) | Believe Haeun and quietly ask QA to look at only her scores again. |
+| review-agent agent-q5 a | 지식 베이스가 공식 문서라며, 예전 기간으로 안내한다. / Give the old period, since the knowledge base is the official document. | (그대로) | Give the old period from the knowledge base, the official document. |
+| review-sme sme-q1 b | 동기인 준호의 승인부터 처리한다. 티켓으로 와 있어 금방 끝난다. / Approve your peer Junho's request first; it's already in a ticket, so it's quick. | 티켓으로 와 있어 금방 끝나는, 동기 준호의 승인부터 처리한다. | Approve your peer Junho's ticketed request first, a quick one. |
+| tl direction-q2 a | 팀 사정을 더 잘 아는 내 판단대로 진행한다. / Follow your own priorities, trusting your better feel for the team. | (그대로) | Follow your own priorities, as the one who knows the team better. |
+| tl start-q1 a | 첫날 허들에서 내 방식을 알리고 바로 바꾼다. 처음에 기준을 세워야 나중에 덜 흔들린다. / Announce your way at the first huddle and switch right away; setting the standard early means less wobbling later. | 흔들리지 않을 기준을 일찍 세우려고, 첫날 허들에서 내 방식을 알리고 바로 바꾼다. | To set a firm standard early, announce your way at the first huddle and switch right away. |
+| tl listen-q1 a | 지민의 습관으로 메모한다. 작은 것도 적어 둬야 나중에 코칭 근거가 된다. / Note it as Jimin's habit; writing down even small things gives you grounds for coaching later. | 나중에 코칭 근거가 되게, 지민의 습관으로 메모해 둔다. | Note it as Jimin's habit, so you have grounds for coaching later. |
+| tl listen-q1 c | 그 자리에서 지민에게 알려 주의를 준다. 바로 말해야 반복을 막는다. / Tell Jimin on the spot and warn her; saying it right away stops it repeating. | 반복을 막으려고, 그 자리에서 바로 지민을 불러 주의를 주고 다시 설명한다. | To stop it repeating, call Jimin over on the spot, warn her and explain again. |
+| tl oneonone-q2 c | 성과와 상관없는 개인 이야기라서 면담 메모에 남기지 않는다. / Leave it out of your notes; it's personal and unrelated to performance. | (그대로) | Leave it out of your notes as personal and unrelated to performance. |
+| sme-sop scrubbing-q2 c | 코칭할 것이 없는 건이라 분류하지 않고 넘어간다. / Skip classifying it; there's nothing to coach. | (그대로) | Skip classifying it, with nothing to coach. |
