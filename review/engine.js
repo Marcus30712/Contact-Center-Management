@@ -6,7 +6,7 @@ import { COURSE_INFO } from '../shared/courses.js';
 
 export const REVIEW_KEY = 'queuecraft:review:v1';
 export const PASS_MARK = 5; // of six questions
-export const QUIZ_ROLES = ['tl', 'sme'];
+export const QUIZ_ROLES = ['tl', 'sme', 'agent'];
 
 // A record that could really happen: 0 ≤ best ≤ total, at least one question.
 const isRecord = (r) => r && Number.isInteger(r.best) && Number.isInteger(r.total) && typeof r.passed === 'boolean'

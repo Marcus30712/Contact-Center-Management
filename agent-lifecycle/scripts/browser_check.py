@@ -1416,6 +1416,28 @@ def main():
         check("(q3) Back returns to the list", page.locator("[data-start-quiz]").count() >= 1)
         page.context.close()
 
+        # (qa) agent review quiz (2026-11-27): an agent who finished First Steps and the SOP Library passes it and gets the badge
+        seed = ("try { localStorage.setItem('queuecraft:role', 'agent');"
+                " localStorage.setItem('agent-course:v1', JSON.stringify({ completed: ['start','training','nesting','golive','customers','review','attendance','growth'] }));"
+                " localStorage.setItem('agent-sop:v1', JSON.stringify({ completed: ['request','abuse','absence','huddle','kbreport','scrubfb','dispute','outage'] })); } catch (e) {}")
+        page = new_page(browser, errors, init=seed)
+        page.goto(HUB)
+        page.wait_for_selector("a[data-review-quiz]")
+        check("(qa1) the agent home quiz card leads to the agent quiz", page.get_attribute("a[data-review-quiz]", "href") == "./review/#agent")
+        page.click("a[data-review-quiz]")
+        page.wait_for_selector("[data-question='agent-q1']")
+        answers = page.evaluate("async () => (await import(new URL('./data.js', location.href).href)).QUIZZES.agent.questions.map((q) => q.answer)")
+        for a in answers:
+            page.click(f"[data-option='{a}']")
+            page.click("[data-next]")
+        page.wait_for_selector("[data-score]")
+        check("(qa1) a full agent run scores 6 of 6 and shows the badge", "6" in page.inner_text("[data-score]") and "상담사 과정 완주" in page.inner_text("[data-new-badge]"))
+        page.goto(HUB + "review/")
+        page.wait_for_selector("[data-quiz]")
+        check("(qa2) the agent sees the agent quiz first", page.get_attribute("[data-quiz]", "data-quiz") == "agent")
+        page.screenshot(path=str(OUT / "agent-review-390.png"), full_page=True)
+        page.context.close()
+
         # (h) every role's home has the same layout; Browse has its own page (2026-11-25)
         shapes = {}
         for role in ("tl", "sme", "agent", "am", "om"):

@@ -30,7 +30,7 @@ import { loadProgress as loadExcelProgress, displayOrder } from '../excel/engine
 import { EXCEL_FEEDBACK } from '../excel/feedback.js';
 
 export const PRACTICE_KEY = 'kb-practice:v1';
-export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel', 'review-tl', 'review-sme'];
+export const BADGE_IDS = ['first', 'streak3', 'week', 'month', 'perfect', 'comeback', 'terms', 'lifecycle', 'sop', 'excel', 'review-tl', 'review-sme', 'review-agent'];
 const LIFE_KEY = 'agent-lifecycle-course:v1';
 const SOP_KEY = 'sop-library:v1';
 const PER_DAY = 3;
@@ -293,6 +293,7 @@ export function checkBadges(state, ctx = {}) {
   add('excel', ctx.excelDone);
   add('review-tl', ctx.reviewTl);
   add('review-sme', ctx.reviewSme);
+  add('review-agent', ctx.reviewAgent);
   return earned;
 }
 
@@ -310,6 +311,7 @@ export function courseFacts(storage, state, terms) {
     })(),
     reviewTl: Boolean(storage && loadReview(storage).tl?.passed),
     reviewSme: Boolean(storage && loadReview(storage).sme?.passed),
+    reviewAgent: Boolean(storage && loadReview(storage).agent?.passed),
     openTermCount: terms.length,
     allTermsKnown: terms.length > 0 && terms.every((t) => state.cards[t.id]?.known),
   };

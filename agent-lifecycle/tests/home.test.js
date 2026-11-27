@@ -371,8 +371,22 @@ test('the quiz card appears once the role\'s courses are done', async () => {
   assert.equal(card(fakeStorage(ALL), 'tl').getAttribute('href'), './review/#tl');
 });
 
-test('roles without a course get no quiz card', () => {
-  for (const role of ['agent', 'am', 'om']) {
+test("an agent's quiz card appears once Agent First Steps and the Agent SOP Library are done", async () => {
+  const { AGENT_LESSONS } = await import('../../agent/lessons/index.js');
+  const { AS_LESSONS } = await import('../../agent-sop/lessons/index.js');
+  const first = JSON.stringify({ completed: AGENT_LESSONS.map((l) => l.id) });
+  const card = (storage) => {
+    const { root } = setupDom();
+    renderHome(root, 'ko', storage, '2026-11-27', 'agent');
+    return root.querySelector('a[data-review-quiz]');
+  };
+  assert.equal(card(fakeStorage({ 'agent-course:v1': first })), null);
+  const open = card(fakeStorage({ 'agent-course:v1': first, 'agent-sop:v1': JSON.stringify({ completed: AS_LESSONS.map((l) => l.id) }) }));
+  assert.equal(open.getAttribute('href'), './review/#agent');
+});
+
+test('roles without a review quiz get no quiz card', () => {
+  for (const role of ['am', 'om']) {
     const { root } = setupDom();
     renderHome(root, 'ko', fakeStorage(ALL), '2026-11-25', role);
     assert.equal(root.querySelector('a[data-review-quiz]'), null, role);

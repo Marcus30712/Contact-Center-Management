@@ -43,4 +43,5 @@ export const BADGES = [
   { id: 'excel', name: { ko: '엑셀 완주', en: 'Excel finished' }, rule: { ko: '미소의 엑셀 연습 11개 레슨을 모두 마침', en: 'Finish all 11 lessons of Miso\'s Excel Practice' } },
   { id: 'review-tl', name: { ko: '팀장 과정 완주', en: 'TL course complete' }, rule: { ko: '팀장 복습 퀴즈 통과 (6문제 중 5개 이상)', en: 'Pass the TL review quiz (5 or more of 6)' } },
   { id: 'review-sme', name: { ko: '직무전문가 과정 완주', en: 'SME course complete' }, rule: { ko: '직무전문가 복습 퀴즈 통과 (6문제 중 5개 이상)', en: 'Pass the SME review quiz (5 or more of 6)' } },
+  { id: 'review-agent', name: { ko: '상담사 과정 완주', en: 'Agent course complete' }, rule: { ko: '상담사 복습 퀴즈 통과 (6문제 중 5개 이상)', en: 'Pass the agent review quiz (5 or more of 6)' } },
 ];
