@@ -33,7 +33,7 @@ test('home wording is the approved wording', () => {
 });
 
 test('cards keep every topic and are split into learn and browse', () => {
-  assert.deepEqual(LEARN.map((c) => c.href), ['./agent/', './agent-career/', './agent-sop/', './tl/', './agent-lifecycle/', './tl-support/', './sop-library/', './excel/', './sme/', './sme-lifecycle/', './sme-sop/']);
+  assert.deepEqual(LEARN.map((c) => c.href), ['./agent/', './agent-career/', './agent-sop/', './am/', './tl/', './agent-lifecycle/', './tl-support/', './sop-library/', './excel/', './sme/', './sme-lifecycle/', './sme-sop/']);
   assert.deepEqual(BROWSE.map((c) => c.href), ['./codex/', './staffing-calculator/', './glossary/', './references/']);
   assert.equal(GUIDE_CARD.href, './guide/');
   for (const c of [GUIDE_CARD, ...LEARN, ...BROWSE]) {
@@ -295,7 +295,8 @@ test('team leads do not see support lifecycle but its progress counts', () => {
 });
 
 test('roles without a course see Excel only', () => {
-  for (const role of ['am', 'om']) assert.deepEqual(myLearning(fakeStorage(ALL), role).map((r) => r.id), ['excel'], role);
+  assert.deepEqual(myLearning(fakeStorage(ALL), 'am').map((r) => r.id), ['am', 'excel']);
+  for (const role of ['om']) assert.deepEqual(myLearning(fakeStorage(ALL), role).map((r) => r.id), ['excel'], role);
 });
 
 // 상담사 첫걸음 (2026-11-26): the agent's first course replaces its "coming soon" card.
@@ -433,7 +434,11 @@ test('Learn shows only the role\'s cards', () => {
   assert.deepEqual(hrefs(homeOf('agent')), ['./agent/', './agent-career/', './agent-sop/', './excel/']);
   assert.deepEqual(learnTitles(homeOf('agent')), ['상담사 첫걸음', '상담사 커리어 라이프사이클', '상담사 SOP 라이브러리', '미소의 엑셀 연습']);
   assert.deepEqual(learnTitles(homeOf('agent', 'en')), ['Agent First Steps', 'Agent Career Lifecycle', 'Agent SOP Library', "Miso's Excel Practice"]);
-  for (const role of ['am', 'om']) {
+  // AMs have AM First Steps since 2026-11-28; their SOP library is still coming.
+  assert.deepEqual(hrefs(homeOf('am')), ['./am/', 'soon', './excel/']);
+  assert.deepEqual(learnTitles(homeOf('am')), ['부매니저 첫걸음', '부매니저 SOP 라이브러리', '미소의 엑셀 연습']);
+  assert.deepEqual(learnTitles(homeOf('am', 'en')), ['AM First Steps', 'AM SOP Library', "Miso's Excel Practice"]);
+  for (const role of ['om']) {
     assert.deepEqual(hrefs(homeOf(role)), ['soon', 'soon', './excel/'], role);
     assert.deepEqual(learnTitles(homeOf(role)), [`${SHORT[role][0]} 첫걸음`, `${SHORT[role][0]} SOP 라이브러리`, '미소의 엑셀 연습'], role);
     assert.deepEqual(learnTitles(homeOf(role, 'en')), [`${SHORT[role][1]} First Steps`, `${SHORT[role][1]} SOP Library`, "Miso's Excel Practice"], role);
@@ -483,7 +488,7 @@ test('the guide card is TL\'s guide or coming soon', () => {
 test('coming-soon cards are not links and say so', () => {
   const mark = rhRow(1, '준비 중 표시');
   const text = rhRow(1, '준비 중 카드 설명');
-  for (const [role, lang] of [['am', 'ko'], ['om', 'en'], ['am', 'en']]) {
+  for (const [role, lang] of [['om', 'ko'], ['om', 'en']]) {
     const card = homeOf(role, lang).querySelector('[data-soon="first-steps"]');
     assert.notEqual(card.tagName, 'A');
     assert.equal(card.querySelector('[data-soon-mark]').textContent, lang === 'ko' ? mark[1] : mark[2]);
@@ -509,7 +514,10 @@ test('working links inside a coming-soon card are not announced as unavailable',
 test('roles without a course start at Excel lesson 1', () => {
   const row = rhRows(4).find((r) => r[0].startsWith('상담사'));
   // Agents start on Agent First Steps since 2026-11-26 (see the agent test above).
-  for (const role of ['am', 'om']) {
+  const am = homeOf('am').querySelector('[data-start] a');
+  assert.equal(am.getAttribute('href'), './am/#firstweek-0');
+  assert.equal(am.textContent, '처음이라면 부매니저 첫걸음 레슨 1부터 시작해 보세요.');
+  for (const role of ['om']) {
     const start = homeOf(role).querySelector('[data-start] a');
     assert.equal(start.getAttribute('href'), './excel/#lesson-1', role);
     assert.equal(start.textContent, row[1], role);

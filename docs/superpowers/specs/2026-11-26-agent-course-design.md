@@ -57,4 +57,4 @@ CX 2회차는 2018년 상담사로 시작해 2026년 매니저가 되기까지 �
 
 | 항목 | 한국어 | English |
 |---|---|---|
-| s2.item2 | 레슨 진도 (상담사 첫걸음, 상담사 커리어 라이프사이클, 상담사 SOP, 팀장 첫걸음, 상담사 라이프사이클, 팀장 서포트 라이프사이클, 팀장 SOP, 직무전문가 첫걸음, 직무전문가 서포트 라이프사이클, 직무전문가 SOP, 엑셀) | Lesson progress (Agent First Steps, Agent Career Lifecycle, Agent SOP, TL First Steps, The Agent Lifecycle, TL Support Lifecycle, TL SOP, SME First Steps, SME Support Lifecycle, SME SOP, Excel) |
+| s2.item2 | 레슨 진도 (상담사 첫걸음, 상담사 커리어 라이프사이클, 상담사 SOP, 부매니저 첫걸음, 팀장 첫걸음, 상담사 라이프사이클, 팀장 서포트 라이프사이클, 팀장 SOP, 직무전문가 첫걸음, 직무전문가 서포트 라이프사이클, 직무전문가 SOP, 엑셀) | Lesson progress (Agent First Steps, Agent Career Lifecycle, Agent SOP, AM First Steps, TL First Steps, The Agent Lifecycle, TL Support Lifecycle, TL SOP, SME First Steps, SME Support Lifecycle, SME SOP, Excel) |

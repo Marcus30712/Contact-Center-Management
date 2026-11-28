@@ -17,6 +17,9 @@ import { renderTlHome } from '../../tl/home.js';
 import { AGENT_LESSONS } from '../../agent/lessons/index.js';
 import { AGENT_UI, AGENT_PROGRESS_KEY, AGENT_FIGURE } from '../../agent/ui.js';
 import { renderAgentHome } from '../../agent/home.js';
+import { AM_LESSONS } from '../../am/lessons/index.js';
+import { AM_UI, AM_PROGRESS_KEY, AM_FIGURE } from '../../am/ui.js';
+import { renderAmHome } from '../../am/home.js';
 import { renderHome } from '../js/render/home.js';
 import { renderLesson } from '../js/render/lesson.js';
 import { parseRoute, lessonHref } from '../js/engine/router.js';
@@ -77,6 +80,14 @@ const COURSES = [
     ko: doc('2026-11-26-agent-course-copy-ko.md'), en: doc('2026-11-26-agent-course-copy.en.md'),
     ids: ['start', 'training', 'nesting', 'golive', 'customers', 'review', 'attendance', 'growth'],
     people: {}, checkpointLabel: '상담사 체크포인트',
+  },
+  // 부매니저 첫걸음 (2026-11-28): the same list course for the AM role, told through Minseok.
+  {
+    id: 'am', dir: 'am/', key: 'am-course:v1', lessons: AM_LESSONS, ui: AM_UI, progressKey: AM_PROGRESS_KEY, figure: AM_FIGURE,
+    ko: doc('2026-11-28-am-course-copy-ko.md'), en: doc('2026-11-28-am-course-copy.en.md'),
+    ids: ['firstweek', 'leaders', 'instructions', 'escalation', 'review', 'requests', 'cover', 'mentoring'],
+    people: Object.fromEntries(['firstweek', 'leaders', 'instructions', 'escalation', 'review', 'requests', 'cover', 'mentoring'].map((id) => [id, ['민석', 'Minseok']])),
+    checkpointLabel: '부매니저 체크포인트',
   },
 ];
 
@@ -249,7 +260,7 @@ test('Agent First Steps: the list shows eight lessons with done marks, in both l
 });
 
 test('the TL and agent course pages settle the guide and save their own progress', () => {
-  for (const [dir, key] of [['tl', 'TL_PROGRESS_KEY'], ['tl-support', 'TS_PROGRESS_KEY'], ['agent', 'AGENT_PROGRESS_KEY']]) {
+  for (const [dir, key] of [['tl', 'TL_PROGRESS_KEY'], ['tl-support', 'TS_PROGRESS_KEY'], ['agent', 'AGENT_PROGRESS_KEY'], ['am', 'AM_PROGRESS_KEY']]) {
     const src = readFileSync(new URL(`../../${dir}/app.js`, import.meta.url), 'utf8');
     assert.ok(src.includes(`settleGuide(location, history, '${dir}',`), dir);
     assert.ok(src.includes(`markComplete(storage, id, ${key})`), dir);
@@ -264,7 +275,7 @@ test('the course rename never doubles a prefix in the docs or the app', async ()
   const root = new URL('../../', import.meta.url);
   const bad = /(AM|OM|상담사|Agent) TL SOP|SME의 SME|\bTL TL\b|\bSME SME\b/;
   const files = readdirSync(new URL('docs/superpowers/specs/', root)).map((f) => `docs/superpowers/specs/${f}`);
-  for (const dir of ['home', 'tl', 'tl-support', 'agent', 'agent-career', 'agent-sop', 'agent-guide', 'sme', 'sme-lifecycle', 'sme-sop', 'sop-library', 'guide', 'sme-guide', 'review', 'privacy', 'codex/data', 'glossary']) {
+  for (const dir of ['home', 'tl', 'tl-support', 'agent', 'am', 'agent-career', 'agent-sop', 'agent-guide', 'sme', 'sme-lifecycle', 'sme-sop', 'sop-library', 'guide', 'sme-guide', 'review', 'privacy', 'codex/data', 'glossary']) {
     for (const f of readdirSync(new URL(`${dir}/`, root), { recursive: true })) {
       if (String(f).endsWith('.js') || String(f).endsWith('.html')) files.push(`${dir}/${f}`);
     }
@@ -284,7 +295,7 @@ test('the SOP badge rule names the TL SOP lessons', async () => {
 // Every course's lesson text is content under CC BY-NC-ND, as the README says.
 test('the content licence lists every course lesson folder', () => {
   const lic = readFileSync(new URL('../../LICENSE-CONTENT', import.meta.url), 'utf8').replace(/\s+/g, ' ');
-  for (const d of ['sme/lessons/', 'sme-lifecycle/lessons/', 'sme-sop/lessons/', 'tl/lessons/', 'tl-support/lessons/', 'agent/lessons/', 'agent-career/lessons/', 'agent-sop/lessons/', 'sme-guide/data.js', 'agent-guide/data.js']) {
+  for (const d of ['sme/lessons/', 'sme-lifecycle/lessons/', 'sme-sop/lessons/', 'tl/lessons/', 'tl-support/lessons/', 'agent/lessons/', 'agent-career/lessons/', 'agent-sop/lessons/', 'am/lessons/', 'sme-guide/data.js', 'agent-guide/data.js']) {
     assert.ok(lic.includes(d), d);
   }
 });
@@ -314,4 +325,17 @@ test('Agent First Steps ends by pointing to Agent Career Lifecycle', () => {
   assert.equal(last.to, 'home');
   assert.ok(last.text.ko.includes('상담사 커리어 라이프사이클'), last.text.ko);
   assert.ok(last.text.en.includes('Agent Career Lifecycle'), last.text.en);
+});
+
+test('AM First Steps: the list shows eight lessons with done marks, in both languages', () => {
+  const { root } = setupDom();
+  renderAmHome(root, AM_LESSONS, { completed: ['review'] }, 'ko');
+  assert.equal(root.querySelector('h1').textContent, '부매니저 첫걸음');
+  assert.equal(root.querySelector('[data-list-note]').textContent, AM_UI.listNote.ko);
+  const links = [...root.querySelectorAll('ol[data-am-list] a[data-am]')];
+  assert.deepEqual(links.map((a) => a.getAttribute('href')), AM_LESSONS.map((l) => `#${l.id}-0`));
+  assert.deepEqual(links.map((a) => a.classList.contains('is-done')), AM_LESSONS.map((l) => l.id === 'review'));
+  const en = setupDom();
+  renderAmHome(en.root, AM_LESSONS, { completed: [] }, 'en');
+  assert.ok(!/[가-힣]/.test(en.root.textContent));
 });

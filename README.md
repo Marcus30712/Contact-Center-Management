@@ -17,6 +17,7 @@
 | 상담사 첫걸음 / Agent First Steps | [`agent/`](agent/) | 막 상담사가 된 사람을 위한 8개 레슨: 첫 출근부터 교육, 묻는 법, 첫 콜, 어려운 고객, 평가 리뷰, 근태, 익숙해지기까지 (한국어/영어) |
 | 상담사 커리어 라이프사이클 / Agent Career Lifecycle | [`agent-career/`](agent-career/) | 운영팀 사다리 4개 레슨: 직무전문가 준비, 직무전문가, 팀장 준비, 팀장 (한국어/영어) |
 | 상담사 SOP 라이브러리 / Agent SOP Library | [`agent-sop/`](agent-sop/) | 상담사가 따르는 표준 절차 8개: 에스컬레이션 요청, 욕설·폭언 응대와 통화 종료, 결근·병가 알리기, 고객사 업데이트 허들 적용, 지식 베이스 오류 알리기, 스크러빙 피드백 반영, 평가 결과 이의 제기, 시스템 장애 대응 (한국어/영어) |
+| 부매니저 첫걸음 / AM First Steps | [`am/`](am/) | 막 부매니저가 된 사람을 위한 8개 레슨: 팀장 관리, 지침 전달, 에스컬레이션 보고 점검, 비즈니스 리뷰 준비, 고객사 요청 취합, 매니저 대행, 신임 팀장 멘토링 (한국어/영어) |
 | 상담사 라이프사이클 / The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | 신입 팀장을 위한 6단계 강의 (한국어/영어) |
 | TL 서포트 라이프사이클 / TL Support Lifecycle | [`tl-support/`](tl-support/) | 팀장이 상담사, SME, QA, 트레이너, 팀 전체를 각각 지원하는 절차, 5개 레슨 (한국어/영어) |
 | SME 첫걸음 / SME First Steps | [`sme/`](sme/) | 상담사에서 막 SME가 된 사람을 위한 7개 레슨: 첫날, 신입·기존 상담사·동료였던 선임·팀장 서포트, 요청이 몰릴 때, 팀에 지식 돌려주기 (한국어/영어) |
@@ -45,7 +46,7 @@
 | 무엇 | 라이선스 | 파일 |
 |---|---|---|
 | 코드 (화면을 그리는 코드, 계산기, 테스트, 도구) | MIT | [`LICENSE`](LICENSE) |
-| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `agent-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/`, `agent/lessons/`, `agent-career/lessons/`, `agent-sop/lessons/` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+| 강의 내용과 문안, 데이터 (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `agent-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/`, `agent/lessons/`, `agent-career/lessons/`, `agent-sop/lessons/`, `am/lessons/` 등), 설계·문안 문서 (`docs/`), 김미소 그림 (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
 
 - CC BY-NC-ND 4.0: 출처("Marcus Shim, CX 2회차 (CX Replay)")를 밝히고, 바꾸지 않고, 비상업적으로만 공유할 수 있습니다. 자세한 범위는 `LICENSE-CONTENT`에 있습니다.
 - 2026년 11월 20일 이전에 MIT로 공개된 판은 그대로 MIT입니다.
