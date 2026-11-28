@@ -119,13 +119,14 @@ Same sections and order as the Korean file. US English.
 1. This lesson is about knowing the five things checked when an SME moves up to team leader. The criteria differ by center, but this is the usual order.
 2. These days Harin covers for Sujin as team leader backup when Sujin is away. Jimin asked how Harin is getting ready to apply for a team leader opening.
 3. The first stage is attendance and attitude. A team leader looks after the team's attendance, so your own attendance and attitude must set the example first.
-4. The second stage is a clean record. They check for complaints from customers, agents or the client that were your fault, and for disciplinary action for breaking company rules, in the last 6 months (Example). A complaint that an internal review found was not the SME's fault doesn't count against you.
-5. The third stage is people management. You need to know the process for problems like conflict between team members, dissatisfaction with the work, and thoughts of quitting.
-6. Serious problems like harassment aren't handled alone: write down exactly what the person told you and pass it to the team leader and HR, following the company process. It's even better if you can suggest improvements to the current process.
-7. The fourth stage is coaching. You need to know how to prepare for coaching a team member and what steps it follows, and be able to suggest better ways.
-8. Each time Harin helps an agent, she writes a short note on what was stuck and what she said. These notes become practice for preparing coaching once she is a team leader.
-9. The fifth stage is the team's metrics during team leader backup. Whether you kept the team's metrics on track on days without the team leader is the most visible evidence.
-10. A word from Miso: I treated my team leader backup days as days to just get through. If I'd written down that day's metrics and what I did, it would have been my best evidence in the team leader interview.
+4. The second stage is a clean record. They check for complaints from customers, agents or the client that were your fault, and for disciplinary action for breaking company rules, in the last 6 months (Example). A complaint an internal review found wasn't your fault doesn't count against you.
+5. Escalation and disciplinary records usually have a grace period of 6 months to a year (Example), depending on the center. After it passes, they no longer count for promotions or transfers, but the record isn't erased. If you're thinking of applying for team leader, start preparing that grace period before.
+6. The third stage is people management. You need to know the process for problems like conflict between team members, dissatisfaction with the work, and thoughts of quitting.
+7. Serious problems like harassment aren't handled alone: write down exactly what the person told you and pass it to the team leader and HR, following the company process. It's even better if you can suggest improvements to the current process.
+8. The fourth stage is coaching. You need to know how to prepare for coaching a team member and what steps it follows, and be able to suggest better ways.
+9. Each time Harin helps an agent, she writes a short note on what was stuck and what she said. These notes become practice for preparing coaching once she is a team leader.
+10. The fifth stage is the team's metrics during team leader backup. Whether you kept the team's metrics on track on days without the team leader is the most visible evidence.
+11. A word from Miso: I treated my team leader backup days as days to just get through. If I'd written down that day's metrics and what I did, it would have been my best evidence in the team leader interview.
 
 체크포인트:
 
