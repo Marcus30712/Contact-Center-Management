@@ -272,7 +272,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 2. Jeongeun is on leave next week (Example). There's a weekly meeting with the client that week, and Minseok goes in her place.
 3. The first stage is taking over. Before her leave, they write down the work in progress, what has been promised to the client, and what Minseok may decide versus what he must ask her. They also agree how to reach her if something urgent comes up.
 4. The second stage is stepping in. Minseok reads the last meeting's notes and this week's numbers ahead of time, and goes into the meeting with the market team leaders. He runs it as usual, but doesn't guess at what the absent manager would say.
-5. The third stage is checking, then answering. In the meeting, the client asks whether the center can add people next month. Headcount planning is the manager's call, so Minseok says he'll check with her and answer by a set date.
+5. The third stage is checking, then answering. In the meeting, the client asks whether the center can add people next month. Promising the client more people touches the contract and costs, so Minseok says he'll check with her and answer by a set date.
 6. Right after the meeting, he sends Jeongeun a summary and the questions that need her decision. He takes her answers and passes them to the client on the promised day.
 7. The fourth stage is handing back. When the manager returns, he hands over in one go what happened that week, any new promises to the client and the questions still open.
 8. A word from Miso: The first time I covered, I felt I had to answer something in front of the client. That's when I learned that saying I'd check and get back actually builds trust.
@@ -283,7 +283,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 |---|---|
 | 1번 질문 | Covering Jeongeun's weekly meeting, Minseok is asked by the client whether the center can add ten people (Example) next month. What does he do? |
 | 보기 a (오답) | With the client relationship in mind, say right there that it can be done. |
-| a 피드백 | Headcount planning is the manager's decision, tied to costs and hiring. A promise made in her place is hard to take back. |
+| a 피드백 | Promising the client more people is the manager's decision, tied to the contract and costs. A promise made in her place is hard to take back. |
 | 보기 b (오답) | Say he's only covering, and suggest taking it up at the meeting after the manager returns. |
 | b 피드백 | Putting it off a week delays the client's plans. He can check with the manager and answer by a set date. |
 | 보기 c (정답) | Say he'll check with the manager and answer by a set date, then ask her that same day. |

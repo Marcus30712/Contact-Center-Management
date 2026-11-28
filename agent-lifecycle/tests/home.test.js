@@ -33,7 +33,7 @@ test('home wording is the approved wording', () => {
 });
 
 test('cards keep every topic and are split into learn and browse', () => {
-  assert.deepEqual(LEARN.map((c) => c.href), ['./agent/', './agent-career/', './agent-sop/', './am/', './tl/', './agent-lifecycle/', './tl-support/', './sop-library/', './excel/', './sme/', './sme-lifecycle/', './sme-sop/']);
+  assert.deepEqual(LEARN.map((c) => c.href), ['./agent/', './agent-career/', './agent-sop/', './am/', './am-sop/', './tl/', './agent-lifecycle/', './tl-support/', './sop-library/', './excel/', './sme/', './sme-lifecycle/', './sme-sop/']);
   assert.deepEqual(BROWSE.map((c) => c.href), ['./codex/', './staffing-calculator/', './glossary/', './references/']);
   assert.equal(GUIDE_CARD.href, './guide/');
   for (const c of [GUIDE_CARD, ...LEARN, ...BROWSE]) {
@@ -295,7 +295,7 @@ test('team leads do not see support lifecycle but its progress counts', () => {
 });
 
 test('roles without a course see Excel only', () => {
-  assert.deepEqual(myLearning(fakeStorage(ALL), 'am').map((r) => r.id), ['am', 'excel']);
+  assert.deepEqual(myLearning(fakeStorage(ALL), 'am').map((r) => r.id), ['am', 'am-sop', 'excel']);
   for (const role of ['om']) assert.deepEqual(myLearning(fakeStorage(ALL), role).map((r) => r.id), ['excel'], role);
 });
 
@@ -317,6 +317,25 @@ test('an agent learns Agent First Steps, Agent Career Lifecycle, the Agent SOP L
   assert.deepEqual(myLearning(s, 'agent').map((r) => [r.id, r.total, r.next.href]), [['agent', 8, './agent/#start-0'], ['agent-career', 4, './agent-career/#ready-0'], ['agent-sop', 8, './agent-sop/#request-0'], ['excel', 11, './excel/#lesson-1']]);
   const done = fakeStorage({ 'agent-course:v1': JSON.stringify({ completed: ['start', 'training'] }) });
   assert.deepEqual(myLearning(done, 'agent').map((r) => [r.id, r.done, r.next.id]), [['agent', 2, 'nesting'], ['agent-career', 0, 'ready'], ['agent-sop', 0, 'request'], ['excel', 0, '1']]);
+});
+
+// 부매니저 SOP 라이브러리 (2026-11-28): the AM's SOP card is a real course now.
+test('an AM learns AM First Steps, the AM SOP Library and Excel', async () => {
+  const { AMS_UI } = await import('../../am-sop/ui.js');
+  const s = fakeStorage();
+  const { root } = setupDom();
+  renderHome(root, 'ko', s, '2026-11-28', 'am');
+  assert.deepEqual([...root.querySelectorAll('#learn a.card')].map((a) => a.getAttribute('href')), ['./am/', './am-sop/', './excel/']);
+  assert.equal(root.querySelector('a.card[href="./am-sop/"] strong').textContent, AMS_UI.courseTitle.ko);
+  assert.equal(root.querySelector('a.card[href="./am-sop/"] span').textContent, AMS_UI.homeCard.ko);
+  assert.equal(root.querySelector('#learn [data-soon="sop"]'), null);
+  assert.deepEqual(myLearning(s, 'am').map((r) => [r.id, r.total, r.next.href]), [['am', 8, './am/#firstweek-0'], ['am-sop', 8, './am-sop/#weekly-0'], ['excel', 11, './excel/#lesson-1']]);
+  // Other roles never see it, though its progress counts as started.
+  const started = fakeStorage({ 'am-sop:v1': JSON.stringify({ completed: ['risk'] }) });
+  for (const role of ['agent', 'sme', 'tl', 'om']) {
+    assert.ok(!myLearning(started, role).some((r) => r.id === 'am-sop'), role);
+    assert.equal(myLearning(started, role).started, true, role);
+  }
 });
 
 test('other roles never see Agent First Steps, though its progress counts as started', () => {
@@ -434,8 +453,8 @@ test('Learn shows only the role\'s cards', () => {
   assert.deepEqual(hrefs(homeOf('agent')), ['./agent/', './agent-career/', './agent-sop/', './excel/']);
   assert.deepEqual(learnTitles(homeOf('agent')), ['상담사 첫걸음', '상담사 커리어 라이프사이클', '상담사 SOP 라이브러리', '미소의 엑셀 연습']);
   assert.deepEqual(learnTitles(homeOf('agent', 'en')), ['Agent First Steps', 'Agent Career Lifecycle', 'Agent SOP Library', "Miso's Excel Practice"]);
-  // AMs have AM First Steps since 2026-11-28; their SOP library is still coming.
-  assert.deepEqual(hrefs(homeOf('am')), ['./am/', 'soon', './excel/']);
+  // AMs have AM First Steps and the AM SOP Library since 2026-11-28.
+  assert.deepEqual(hrefs(homeOf('am')), ['./am/', './am-sop/', './excel/']);
   assert.deepEqual(learnTitles(homeOf('am')), ['부매니저 첫걸음', '부매니저 SOP 라이브러리', '미소의 엑셀 연습']);
   assert.deepEqual(learnTitles(homeOf('am', 'en')), ['AM First Steps', 'AM SOP Library', "Miso's Excel Practice"]);
   for (const role of ['om']) {

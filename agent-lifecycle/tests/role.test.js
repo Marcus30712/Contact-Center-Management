@@ -80,7 +80,7 @@ test('courses per role', () => {
   assert.deepEqual(coursesFor('tl'), ['tl', 'lifecycle', 'tl-support', 'sop']);
   assert.deepEqual(coursesFor('sme'), ['sme', 'sme-lifecycle', 'sme-sop']);
   assert.deepEqual(coursesFor('agent'), ['agent', 'agent-career', 'agent-sop']);
-  assert.deepEqual(coursesFor('am'), ['am']);
+  assert.deepEqual(coursesFor('am'), ['am', 'am-sop']);
   for (const r of ['om', 'boss']) assert.deepEqual(coursesFor(r), [], r);
 });
 
@@ -99,7 +99,7 @@ test('each course has one role, read from the same table', () => {
 test('home and the quiz read courses from one shared list', async () => {
   const { COURSE_INFO } = await import('../../shared/courses.js');
   const { LEARN } = await import('../../home/data.js');
-  assert.deepEqual(Object.keys(COURSE_INFO), ['agent', 'agent-career', 'agent-sop', 'am', 'tl', 'lifecycle', 'tl-support', 'sop', 'sme', 'sme-lifecycle', 'sme-sop']);
+  assert.deepEqual(Object.keys(COURSE_INFO), ['agent', 'agent-career', 'agent-sop', 'am', 'am-sop', 'tl', 'lifecycle', 'tl-support', 'sop', 'sme', 'sme-lifecycle', 'sme-sop']);
   for (const [id, c] of Object.entries(COURSE_INFO)) {
     const card = LEARN.find((x) => x.href === `./${c.dir}`);
     assert.equal(card.role, roleOf(id), id);

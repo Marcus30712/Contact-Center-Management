@@ -57,7 +57,7 @@ test('blocked storage still goes home', () => {
 });
 
 const SITE_PAGES = ['', 'settings/', 'guide/', 'sme-guide/', 'agent-guide/', 'browse/', 'glossary/', 'references/', 'staffing-calculator/', 'review/', 'practice/', 'excel/', 'privacy/'];
-const COURSE_PAGES = ['agent-lifecycle/', 'sop-library/', 'codex/', 'sme/', 'sme-lifecycle/', 'sme-sop/', 'tl/', 'tl-support/', 'agent-sop/', 'am/'];
+const COURSE_PAGES = ['agent-lifecycle/', 'sop-library/', 'codex/', 'sme/', 'sme-lifecycle/', 'sme-sop/', 'tl/', 'tl-support/', 'agent-sop/', 'am/', 'am-sop/'];
 
 test('the site pages hold a place for the picker instead of the Queuecraft word', () => {
   for (const p of SITE_PAGES) {

@@ -260,7 +260,7 @@ test('Agent First Steps: the list shows eight lessons with done marks, in both l
 });
 
 test('the TL and agent course pages settle the guide and save their own progress', () => {
-  for (const [dir, key] of [['tl', 'TL_PROGRESS_KEY'], ['tl-support', 'TS_PROGRESS_KEY'], ['agent', 'AGENT_PROGRESS_KEY'], ['am', 'AM_PROGRESS_KEY']]) {
+  for (const [dir, key] of [['tl', 'TL_PROGRESS_KEY'], ['tl-support', 'TS_PROGRESS_KEY'], ['agent', 'AGENT_PROGRESS_KEY'], ['am', 'AM_PROGRESS_KEY'], ['agent-sop', 'AS_PROGRESS_KEY'], ['am-sop', 'AMS_PROGRESS_KEY']]) {
     const src = readFileSync(new URL(`../../${dir}/app.js`, import.meta.url), 'utf8');
     assert.ok(src.includes(`settleGuide(location, history, '${dir}',`), dir);
     assert.ok(src.includes(`markComplete(storage, id, ${key})`), dir);
@@ -275,7 +275,7 @@ test('the course rename never doubles a prefix in the docs or the app', async ()
   const root = new URL('../../', import.meta.url);
   const bad = /(AM|OM|상담사|Agent) TL SOP|SME의 SME|\bTL TL\b|\bSME SME\b/;
   const files = readdirSync(new URL('docs/superpowers/specs/', root)).map((f) => `docs/superpowers/specs/${f}`);
-  for (const dir of ['home', 'tl', 'tl-support', 'agent', 'am', 'agent-career', 'agent-sop', 'agent-guide', 'sme', 'sme-lifecycle', 'sme-sop', 'sop-library', 'guide', 'sme-guide', 'review', 'privacy', 'codex/data', 'glossary']) {
+  for (const dir of ['home', 'tl', 'tl-support', 'agent', 'am', 'am-sop', 'agent-career', 'agent-sop', 'agent-guide', 'sme', 'sme-lifecycle', 'sme-sop', 'sop-library', 'guide', 'sme-guide', 'review', 'privacy', 'codex/data', 'glossary']) {
     for (const f of readdirSync(new URL(`${dir}/`, root), { recursive: true })) {
       if (String(f).endsWith('.js') || String(f).endsWith('.html')) files.push(`${dir}/${f}`);
     }
@@ -295,7 +295,7 @@ test('the SOP badge rule names the TL SOP lessons', async () => {
 // Every course's lesson text is content under CC BY-NC-ND, as the README says.
 test('the content licence lists every course lesson folder', () => {
   const lic = readFileSync(new URL('../../LICENSE-CONTENT', import.meta.url), 'utf8').replace(/\s+/g, ' ');
-  for (const d of ['sme/lessons/', 'sme-lifecycle/lessons/', 'sme-sop/lessons/', 'tl/lessons/', 'tl-support/lessons/', 'agent/lessons/', 'agent-career/lessons/', 'agent-sop/lessons/', 'am/lessons/', 'sme-guide/data.js', 'agent-guide/data.js']) {
+  for (const d of ['sme/lessons/', 'sme-lifecycle/lessons/', 'sme-sop/lessons/', 'tl/lessons/', 'tl-support/lessons/', 'agent/lessons/', 'agent-career/lessons/', 'agent-sop/lessons/', 'am/lessons/', 'am-sop/lessons/', 'sme-guide/data.js', 'agent-guide/data.js']) {
     assert.ok(lic.includes(d), d);
   }
 });
