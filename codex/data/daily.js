@@ -235,7 +235,7 @@ export const DAILY = {
             "en": "Analysis"
           },
           "name": {
-            "ko": "VOC 분석 및 리포팅",
+            "ko": "고객의 소리(VOC) 분석 및 리포팅",
             "en": "VOC analysis and reporting"
           },
           "freq": {
@@ -247,7 +247,7 @@ export const DAILY = {
             "en": "about 20%"
           },
           "outputs": {
-            "ko": "주간 VOC 트렌드 분석 보고서, 프로세스 또는 정책 개선 제안",
+            "ko": "주간 고객의 소리(VOC) 트렌드 분석 보고서, 프로세스 또는 정책 개선 제안",
             "en": "Weekly VOC trend report, proposals to improve processes or policies"
           }
         },
@@ -308,7 +308,7 @@ export const DAILY = {
           "to": "15:00",
           "task": 3,
           "text": {
-            "ko": "주간 VOC 데이터 분석 및 리포팅",
+            "ko": "주간 고객의 소리(VOC) 데이터 분석 및 리포팅",
             "en": "Weekly VOC analysis and reporting"
           }
         },

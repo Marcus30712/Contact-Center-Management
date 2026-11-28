@@ -34,7 +34,7 @@ Same sections and order as the Korean file. US English.
 2. Jimin saw a posting for an SME opening next month. Not sure whether she should apply, she asked Miso.
 3. The first stage is attendance, and it matters above all. SMEs work with many agents and other departments, so when you're often absent, the flow breaks when the team or project needs you.
 4. However high your quality and contribution, low attendance makes it hard to be chosen. When you're sick, rest. But cutting the gaps you can avoid, like lateness and no-shows, builds the most trust.
-5. The second stage is a clean record. People with no complaints from customers or the client in the last 6 months (Example) are preferred. They also check for any disciplinary record for breaking company rules.
+5. The second stage is a clean record. They check for complaints from customers or the client that were your fault, and for disciplinary action for breaking company rules, in the last 6 months (Example). A complaint that an internal review found was not the agent's fault doesn't count against you.
 6. Records fall outside the window as time passes. If you have a time in mind to apply, your preparation starts 6 months (Example) before it.
 7. The third stage is quality and test scores. You need to know the current project's products, services and systems better than the other applicants. The objective measures are QA quality scores and the trainer's training and test scores from the last 3 to 6 months (Example).
 8. Steady scores over several months beat one high month. The habit of picking one thing to fix in each weekly score review shows up here as numbers.
@@ -54,7 +54,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence. |
 | 해설 | SMEs work with many people. A record of showing up is the first thing that builds trust. |
 | 2번 질문 | In an interview, which statement best shows team contribution? |
-| 보기 a (오답) | "Whenever new colleagues got stuck, I went over to help first, and many people said the team mood got better." |
+| 보기 a (오답) | "Whenever new colleagues got stuck, I went over to help first, and my team leader often said the team mood got better for it." |
 | a 피드백 | It leaves out the facts of what she helped with, how, and what came of it, so it isn't evidence. |
 | 보기 b (오답) | "My quality score has been the team's highest for months, and my handling time is the shortest." |
 | b 피드백 | Scores belong to the quality and test scores criterion. Team contribution is what you did for others and the team, not your own score. |
@@ -96,7 +96,7 @@ Same sections and order as the Korean file. US English.
 | 해설 | An SME gives answers and also helps agents find them on their own next time. |
 | 2번 질문 | Why does Harin write reports for the team leader? |
 | 보기 a (정답) | To show the causes of frequent questions and VOC so they get fixed |
-| 보기 b (오답) | To score each agent's quality and show the team leader who does well |
+| 보기 b (오답) | To score each agent's quality and show the team leader separately who does better |
 | b 피드백 | Scoring contact quality is QA's job. |
 | 보기 c (오답) | To evaluate and rank team members in the team leader's place when they're busy |
 | c 피드백 | Evaluating team members is the team leader's job. The SME brings the evidence the team leader decides on. |
@@ -119,7 +119,7 @@ Same sections and order as the Korean file. US English.
 1. This lesson is about knowing the five things checked when an SME moves up to team leader. The criteria differ by center, but this is the usual order.
 2. These days Harin covers for Sujin as team leader backup when Sujin is away. Jimin asked how Harin is getting ready to apply for a team leader opening.
 3. The first stage is attendance and attitude. A team leader looks after the team's attendance, so your own attendance and attitude must set the example first.
-4. The second stage is a clean record. They check that you've had no escalations from customers or the client, and no disciplinary action for breaking company rules, in the last 6 months (Example).
+4. The second stage is a clean record. They check for complaints from customers, agents or the client that were your fault, and for disciplinary action for breaking company rules, in the last 6 months (Example). A complaint that an internal review found was not the SME's fault doesn't count against you.
 5. The third stage is people management. You need to know the process for problems like conflict between team members, dissatisfaction with the work, and thoughts of quitting.
 6. Serious problems like harassment aren't handled alone: write down exactly what the person told you and pass it to the team leader and HR, following the company process. It's even better if you can suggest improvements to the current process.
 7. The fourth stage is coaching. You need to know how to prepare for coaching a team member and what steps it follows, and be able to suggest better ways.
