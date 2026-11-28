@@ -194,10 +194,33 @@ export const KEEP_NAMES = [
   '지민은 2년째 일하는 상담사입니다', 'Jimin has been an agent for two years',
 ];
 
+// "QA" naming the people who score quality (no name given) is a pill too:
+// 품질전문가 in Korean, QA in English. QA as a score, a definition, a role name
+// or a course name stays text.
+const QA_PERSON = { name: { ko: '', en: '' }, role: { ko: '품질전문가', en: 'QA' }, roleKey: 'qa' };
+const QA_NOT = {
+  ko: /^(?: (?:점수|정확도|결과|평가|품질|일|직무|담당|자리|지원|전환|도현)|\()/,
+  en: /^(?: (?:score|scores|accuracy|results?|records?|quality|support|role|analyst|analysis|staff|work|review|evaluation)\b| ?\()/,
+};
+function qaPills(text, lang) {
+  const inQuote = quoted(text);
+  const out = [];
+  let at = 0;
+  const re = lang === 'ko' ? /(?<![A-Za-z])QA(?![A-Za-z])/g : /\bQA\b/g;
+  for (const m of text.matchAll(re)) {
+    if (inQuote(m.index) || QA_NOT[lang].test(text.slice(m.index + 2))) continue;
+    out.push(text.slice(at, m.index), { label: QA_PERSON.role[lang], roleKey: 'qa', person: QA_PERSON });
+    at = m.index + 2;
+  }
+  out.push(text.slice(at));
+  return out;
+}
+
 // text: one language's string. Returns strings and pills { label, roleKey, person }.
 export function segments(text, lang, cast) {
   if (KEEP_NAMES.some((k) => text.includes(k))) return [text];
-  const parts = lang === 'ko' ? koSegments(text, cast) : enSegments(text, cast);
+  const parts = (lang === 'ko' ? koSegments(text, cast) : enSegments(text, cast))
+    .flatMap((part) => (typeof part === 'string' ? qaPills(part, lang) : [part]));
   const merged = [];
   for (const part of parts) {
     if (part === '') continue;

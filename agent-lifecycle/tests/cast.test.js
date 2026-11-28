@@ -147,3 +147,33 @@ test('every kept sentence still exists in the lessons', async () => {
   const all = Object.values(COURSE_INFO).flatMap((c) => c.lessons.flatMap((l) => bodyTexts(l).flatMap((t) => [t.ko, t.en])));
   for (const k of KEEP_NAMES) assert.ok(all.some((t) => t.includes(k)), k);
 });
+
+// QA as a person or team, without a name (2026-11-29): a pill; QA as a score stays text.
+test('QA meaning people becomes a pill; QA scores, definitions and quotes stay text', () => {
+  const cast = castOf(lesson('지민'));
+  const ko = [
+    ['QA에게 바로 따지지 않고', '[품질전문가]에게 바로 따지지 않고'],
+    ['정해진 절차로 QA에 다시 검토를 요청합니다.', '정해진 절차로 [품질전문가]에 다시 검토를 요청합니다.'],
+    ['직무전문가·QA·트레이너에게', '직무전문가·[품질전문가]·트레이너에게'],
+    ['QA와 팀장이 봅니다.', '[품질전문가]와 팀장이 봅니다.'],
+    ['FCR과 QA 정확도는 높습니다.', 'FCR과 QA 정확도는 높습니다.'],
+    ['서준이 QA 점수가 부족합니다.', '[상담사]가 QA 점수가 부족합니다.'],
+    ['첫째는 QA(품질 보증)입니다.', '첫째는 QA(품질 보증)입니다.'],
+    ['팀장 서포트의 QA 지원이 이 다음 부분입니다.', '팀장 서포트의 QA 지원이 이 다음 부분입니다.'],
+    ['"저는 QA가 아니라서" 하고 말합니다.', '"저는 QA가 아니라서" 하고 말합니다.'],
+  ];
+  for (const [from, to] of ko) assert.equal(show(from, 'ko', cast), to, from);
+  const en = [
+    ["Don't argue with QA directly.", "Don't argue with [QA] directly."],
+    ['It asks QA for a re-review.', 'It asks [QA] for a re-review.'],
+    ["Quality is QA's job.", "Quality is [QA]'s job."],
+    ['The SME, QA and the trainer meet.', 'The SME, [QA] and the trainer meet.'],
+    ['FCR and QA accuracy are high.', 'FCR and QA accuracy are high.'],
+    ["The TL's QA support is what comes next.", "The TL's QA support is what comes next."],
+    ['The first is QA (quality assurance).', 'The first is QA (quality assurance).'],
+    ['"I\'m not QA, so" he says.', '"I\'m not QA, so" he says.'],
+  ];
+  for (const [from, to] of en) assert.equal(show(from, 'en', cast), to, from);
+  const [pill] = segments('QA에게', 'ko', cast).filter((s) => typeof s !== 'string');
+  assert.equal(pill.roleKey, 'qa');
+});
