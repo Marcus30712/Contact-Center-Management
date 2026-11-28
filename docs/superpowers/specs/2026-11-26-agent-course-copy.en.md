@@ -24,7 +24,7 @@ Same sections and order as the Korean file. US English.
 | 제목 | Your First Day at Work |
 | 짧은 이름 | First day |
 | 부제 | See the road ahead for the next half year, and get to know the people you'll work with. |
-| 노드 | Onboarding · Training · OJT and nesting · Go Live |
+| 노드 | Onboarding · Training · OJT and Nesting · Go Live |
 
 스텝:
 
@@ -32,7 +32,7 @@ Same sections and order as the Korean file. US English.
 2. Today is Jimin's first day at a contact center. The interview is behind her, but she doesn't yet know what she'll learn or when she'll meet real customers.
 3. The first stage is onboarding. You're introduced to the company and the project, and you learn the faces and names of your team leader, colleagues and SME.
 4. The second stage is training. You learn the project's products and services, its systems and its CRM tools. If you're new to this, it's the longest and hardest stretch.
-5. The third stage is OJT and nesting. You handle real contacts while the trainer and SME watch, then work in a group of new hires with closer support. At the end of nesting, the trainer and team leader decide together whether you graduate.
+5. The third stage is OJT and Nesting. You handle real contacts while the trainer and SME watch, then work in a group of new hires with closer support. At the end of Nesting, the trainer and team leader decide together whether you graduate.
 6. The fourth stage is Go Live. Once you graduate, you join the regular team and start handling contacts on your own. Lesson 4 covers this.
 7. Spend the first week learning who is who. Sujin is the team leader, Junho is a senior agent on the floor, Harin is the SME, Yuna the trainer teaches you, and Dohyun from QA scores contact quality.
 8. If names don't stick, use the seating plan or chat profiles to note down names and roles. Knowing whom to ask about what comes before names.
@@ -50,11 +50,11 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | Knowing people is how you get help when you're stuck. Learn names and roles over time. |
 | 해설 | In the first week, learning the people and their roles is the job. |
 | 2번 질문 | Which order does a new agent go through? |
-| 보기 a (오답) | Onboarding → OJT and nesting → training → Go Live |
+| 보기 a (오답) | Onboarding → OJT and Nesting → training → Go Live |
 | a 피드백 | Handling real contacts before learning the products and systems is hard on the customer and the agent. |
-| 보기 b (정답) | Onboarding → training → OJT and nesting → Go Live |
-| 보기 c (오답) | Onboarding → training → Go Live → OJT and nesting |
-| c 피드백 | OJT and nesting are where you practice with support before working alone. |
+| 보기 b (정답) | Onboarding → training → OJT and Nesting → Go Live |
+| 보기 c (오답) | Onboarding → training → Go Live → OJT and Nesting |
+| c 피드백 | OJT and Nesting are where you practice with support before working alone. |
 | 해설 | Learn, try it with support, then do it alone. |
 | 다음 레슨 연결 | The longest stage is training. First, how to get through it. |
 
@@ -97,7 +97,7 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | Ask the SME after Go Live. |
 | c 피드백 | Training is the time when you can ask as much as you like. Asking now is easiest. |
 | 해설 | Ask about what you don't understand the same day. |
-| 다음 레슨 연결 | After training, you start handling real contacts. Next is OJT and nesting, where you work with support. |
+| 다음 레슨 연결 | After training, you start handling real contacts. Next is OJT and Nesting, where you work with support. |
 
 ## 레슨 3. OJT and Nesting: How to Ask
 
@@ -111,7 +111,7 @@ Same sections and order as the Korean file. US English.
 스텝:
 
 1. This lesson is about deciding, once you start handling real contacts, whom to ask and how when you get stuck.
-2. In OJT, Jimin handles real contacts in each channel while the trainer and SME watch. In nesting, new hires work together and get closer support.
+2. In OJT, Jimin handles real contacts in each channel while the trainer and SME watch. In Nesting, new hires work together and get closer support.
 3. The first stage is looking it up. When stuck, search the knowledge base and your own notes briefly first. What you checked becomes the material for your question.
 4. The second stage is the next seat. At first you ask the colleagues or seniors sitting on either side of you most often. Quick checks get solved fast this way.
 5. The third stage is a senior. Ask an experienced agent on the floor, such as Junho. Having handled similar contacts many times, he can share the tricks too.
@@ -138,7 +138,7 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | "The customer is really angry. I can't handle this. Please come quickly." |
 | c 피드백 | The urgency is understandable, but Harin needs to know what you need to help right away. |
 | 해설 | Say the situation, what you checked and what you need, all at once. |
-| 다음 레슨 연결 | Once you finish nesting and graduate, you join the regular team. Next is your first call on your own. |
+| 다음 레슨 연결 | Once you finish Nesting and graduate, you join the regular team. Next is your first call on your own. |
 
 ## 레슨 4. Go Live and the First Call
 
@@ -152,7 +152,7 @@ Same sections and order as the Korean file. US English.
 스텝:
 
 1. This lesson is about learning the order that gets you through a call on your own after Go Live, even when you're nervous.
-2. Jimin has graduated, and from today she's on the regular team. When her first call without nesting support rings, her hands shake and it feels like she remembers nothing.
+2. Jimin has graduated, and from today she's on the regular team. When her first call without Nesting support rings, her hands shake and it feels like she remembers nothing.
 3. The first stage is preparing. Log in to your tools so you're ready to take contacts as your shift starts, and open the knowledge base and the screens you use most. Get a glass of water too.
 4. The second stage is the greeting. Say the set greeting slowly. Once the first sentence is steady, the rest follows.
 5. The third stage is confirming. Check the customer's identity, then repeat back what they want in your own words. Starting on a misunderstanding makes the call longer.

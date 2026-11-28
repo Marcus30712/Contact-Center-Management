@@ -59,5 +59,5 @@ export default {
       explanation: tx("직무전문가는 평가 대신 돕고, 반복되는 문제는 근거와 함께 팀장에게 전합니다.", "The SME helps instead of evaluating, and takes repeated problems to the team leader with evidence."),
     },
   ],
-  connection: { to: "newcomer", text: tx("역할을 알았으니 이제 사람을 만날 차례입니다. 먼저 가장 가까이 붙어 있어야 할 사람, 막 OJT를 마치고 네스팅을 시작한 신입입니다.", "Now that you know the role, it is time to meet people. First, the one you need to stay closest to: a new hire who has just finished OJT and started nesting.") },
+  connection: { to: "newcomer", text: tx("역할을 알았으니 이제 사람을 만날 차례입니다. 먼저 가장 가까이 붙어 있어야 할 사람, 막 실무 교육을 마치고 실무 체험을 시작한 신입입니다.", "Now that you know the role, it is time to meet people. First, the one you need to stay closest to: a new hire who has just finished OJT and started Nesting.") },
 };

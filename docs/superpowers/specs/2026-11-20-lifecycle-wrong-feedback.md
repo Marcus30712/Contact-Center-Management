@@ -25,14 +25,14 @@
 | hiring-tech-2.c | 용어를 아는 것과 고객이 따라 할 수 있게 설명하는 것은 다른 능력입니다. | Knowing the terms and explaining so a customer can follow along are different skills. |
 | onboarding-q1.a | 시험 점수는 아는 것을 보여 줄 뿐, 통화하면서 입력하는 손이 준비됐다는 뜻은 아닙니다. | A test score shows what she knows; it does not mean her hands are ready to type while she talks. |
 | onboarding-q1.c | 실전에서 익히라고 하면 첫 고객들이 입력 누락과 늦어진 응대를 그대로 겪게 됩니다. | Leaving it to the job means her first customers live with the missed entries and slower service. |
-| onboarding-general.a | 교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 배치만 늦어집니다. | A longer training period still will not make the whole range of policy memorable; it only delays going live. |
+| onboarding-general.a | 기본 교육 기간을 늘려도 넓은 정책을 전부 외우기는 어렵고, 실전 배치만 늦어집니다. | A longer training period still will not make the whole range of policy memorable; it only delays going live. |
 | onboarding-general.c | 찾아보는 법도 모른 채 실전에서 배우게 하면, 틀린 안내가 고객에게 그대로 전해집니다. | Learning on live contacts without knowing how to look things up passes wrong information straight to customers. |
 | onboarding-tech.a | 해결했더라도 기록이 한 줄뿐이면, 같은 고객이 다시 연락했을 때 다음 담당자가 처음부터 다시 물어야 합니다. | Even when it is solved, a one-line record means the next agent has to ask everything again if the customer comes back. |
 | onboarding-tech.c | 나중에 몰아서 쓰면 확인한 내용과 순서를 잊어 기록이 부정확해집니다. | Writing records up in a batch later means forgetting what was checked and in what order, so the records become inaccurate. |
 | onboarding-general-2.a | 드문 문의라도 틀린 안내는 고객 불만으로 이어지므로, 대부분 맞았다는 이유로 넘길 수 없습니다. | Wrong information leads to complaints even on rare inquiries, so getting most of it right is not a reason to let it pass. |
 | onboarding-general-2.b | 한 유형을 틀렸다고 바로 탈락시키면, 보충하면 충분히 해낼 사람을 잃습니다. | Failing her for one inquiry type loses someone who could do the job well after a little more training. |
 | onboarding-tech-2.a | 바뀐 내용을 모른 채 실전에 나가면, 업데이트 직후 몰리는 문의에 틀린 안내를 하게 됩니다. | Going live without knowing what changed means giving wrong answers in the rush of questions right after the update. |
-| onboarding-tech-2.c | 제품은 계속 바뀌므로 업데이트를 기다리면 교육은 끝나지 않습니다. | The product keeps changing, so waiting for updates to settle means training never ends. |
+| onboarding-tech-2.c | 제품은 계속 바뀌므로 업데이트를 기다리면 기본 교육은 끝나지 않습니다. | The product keeps changing, so waiting for updates to settle means training never ends. |
 | nesting-q1.a | 적응 기간에 바로 같은 목표를 적용하면, 지민은 정확하게 안내하기보다 빨리 끊는 법을 먼저 배웁니다. | Applying the full target while she is still settling in teaches Jimin to end calls fast before she learns to inform customers accurately. |
 | nesting-q1.c | 콜을 대신 마무리해 주면 지민은 스스로 끝까지 해낸 경험을 쌓지 못합니다. | Finishing her calls for her keeps Jimin from building the experience of seeing a call through herself. |
 | nesting-general.a | 준비되지 않은 유형을 혼자 맡기면 고객도 지민도 실패한 콜을 겪게 됩니다. | Leaving her alone with a type she is not ready for gives both the customer and Jimin a failed call. |

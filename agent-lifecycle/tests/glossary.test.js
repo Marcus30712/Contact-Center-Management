@@ -251,12 +251,12 @@ test('every "seen" lesson really uses the term', () => {
   }
 });
 
-test('OJT sits between training and nesting (user wording)', () => {
+test('OJT sits between training and Nesting (user wording)', () => {
   const ojt = term('ojt');
   assert.equal(ojt.category, 'process');
   assert.equal(ojt.name.en, 'On-the-Job Training');
   for (const w of ['Basic Training', '트레이너', '직무전문가', '채널별']) assert.ok(ojt.definition.ko.includes(w), w);
-  assert.ok(term('nesting').definition.ko.startsWith('OJT를 마친 신입이'));
+  assert.ok(term('nesting').definition.ko.startsWith('실무 교육을 마친 신입이'));
 });
 
 // --- the real terms (English) ---

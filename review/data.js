@@ -231,7 +231,7 @@ export const QUIZZES = {
     questions: [
       {
         id: "agent-q1",
-        prompt: tx("네스팅 중인 지민에게 고객이 환불 한도(예시)를 넘는 환불을 요구합니다. 지민은 지식 베이스에서 한도를 확인했고, 옆자리 동료는 \"그 정도는 그냥 해 줘도 돼\"라고 말합니다. 어떻게 할까요?", "During nesting, a customer asks Jimin for a refund over the refund limit (Example). She has checked the limit in the knowledge base, and the colleague next to her says, \"Just give it to them, it's not that much.\" What does she do?"),
+        prompt: tx("실무 체험 중인 지민에게 고객이 환불 한도(예시)를 넘는 환불을 요구합니다. 지민은 지식 베이스에서 한도를 확인했고, 옆자리 동료는 \"그 정도는 그냥 해 줘도 돼\"라고 말합니다. 어떻게 할까요?", "During Nesting, a customer asks Jimin for a refund over the refund limit (Example). She has checked the limit in the knowledge base, and the colleague next to her says, \"Just give it to them, it's not that much.\" What does she do?"),
         options: [
           option("a", tx("확인한 한도와 고객 상황을 정리해, 승인이 필요하다고 하린에게 묻는다.", "Sum up the limit she checked and the customer's situation, and ask Harin for the approval it needs.")),
           option("b", tx("옆자리 동료의 말대로, 그대로 환불을 처리한다.", "Process the refund as is, as the colleague said."), tx("승인이 필요한 판단은 옆자리가 아니라 직무전문가에게 묻습니다.", "A call that needs approval goes to the SME, not the next seat.")),
@@ -240,7 +240,7 @@ export const QUIZZES = {
         answer: "a",
         explanation: tx("스스로 찾아본 것을 바탕으로, 승인이 필요한 일은 직무전문가에게 한 번에 정리해 요청합니다.", "Build on what you looked up yourself, and ask the SME for approval with everything in one message."),
         lessons: [
-          { title: tx("상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법", "Agent First Steps lesson 3 · OJT and Nesting: How to Ask"), href: "../agent/#nesting-0" },
+          { title: tx("상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법", "Agent First Steps lesson 3 · OJT and Nesting: How to Ask"), href: "../agent/#nesting-0" },
           { title: tx("상담사 SOP · 에스컬레이션 요청하기", "Agent SOP · Requesting an Escalation"), href: "../agent-sop/#request-0" },
         ],
       },

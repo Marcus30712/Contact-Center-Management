@@ -26,7 +26,7 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 선임 상담사와 승인 기준을 나누고, 신입 지원을 함께 맡으며, 다음 자리를 준비하도록 돕는 것입니다. 동기였던 선임과의 관계는 직무전문가 첫걸음 레슨 4에서 다뤘습니다.", "This lesson is about sharing approval rules with senior agents, splitting new-hire support with them, and helping them get ready for the next role. Your relationship with a former peer was covered in SME First Steps lesson 4."), flow, procedure, null),
-    step(tx("준호는 팀의 선임 상담사입니다. 서준이 네스팅을 할 때 버디로 옆에서 도왔습니다.", "Junho is the team's senior agent. When Seojun was in nesting, Junho helped him as his buddy."), flow, [], null),
+    step(tx("준호는 팀의 선임 상담사입니다. 서준이 실무 체험을 할 때 버디로 옆에서 도왔습니다.", "Junho is the team's senior agent. When Seojun was in Nesting, Junho helped him as his buddy."), flow, [], null),
     step(tx("첫 단계는 기준 공유입니다. 내 승인 기준과 자주 오는 에스컬레이션 사례를 준호와 함께 봅니다. 기준이 바뀌면 준호에게도 먼저 알립니다.", "The first stage is sharing the rules. Go through your approval rules and common escalation cases with Junho. When a rule changes, tell Junho early too."), flow, ["share"], null),
     step(tx("선임이 기준을 알면 다른 상담사의 일반 질문에 직무전문가와 같은 답을 줄 수 있습니다. 승인은 여전히 직무전문가나 팀장이 합니다.", "A senior who knows the rules can give other agents the same answers to general questions as the SME. Approval still stays with the SME or the team leader."), flow, ["share"], null),
     step(tx("둘째 단계는 일 나누기입니다. 신입의 버디, 일반 질문 1차 답변, 어려운 케이스 함께 검토처럼 준호가 맡을 수 있는 일을 정합니다. 맡기는 범위는 팀장과 먼저 맞춥니다.", "The second stage is handing over work. Decide what Junho can take on, such as being a new hire's buddy, first answers to general questions, and reviewing hard cases together. Agree on the scope with the team leader first."), flow, ["delegate"], null),

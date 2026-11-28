@@ -82,7 +82,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 c (오답) | Say it isn't the SME's business and stay out of it. |
 | c 피드백 | Helping is the SME's job. If you stay out of it, the problem shows only after it has grown. |
 | 해설 | The SME helps instead of evaluating, and takes repeated problems to the team leader with evidence. |
-| 다음 레슨 연결 | Now that you know the role, it is time to meet people. First, the one you need to stay closest to: a new hire who has just finished OJT and started nesting. |
+| 다음 레슨 연결 | Now that you know the role, it is time to meet people. First, the one you need to stay closest to: a new hire who has just finished OJT and started Nesting. |
 
 ## 레슨 2. Supporting Agents in Training or Just Trained
 
@@ -96,13 +96,13 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 스텝:
 
 1. This lesson is about helping agents in training or just out of training settle into real contacts. This is when agents are most likely to leave.
-2. Seojun finished classroom training and OJT last week, and from this week he takes real contacts in the nesting group. He has the knowledge, but he has never handled customers without the trainer beside him.
+2. Seojun finished classroom training and OJT last week, and from this week he takes real contacts in the Nesting group. He has the knowledge, but he has never handled customers without the trainer beside him.
 3. The first stage is learning ahead. Ask the trainer what Seojun found hard in training, and think about which of today's contact types may be hard for him.
 4. The second stage is staying close. For the first few days (Example), stay near Seojun's desk and go through his first few contacts with him. Listen in on calls, and read chats and emails with him before they go out.
 5. Rather than giving the answer, show where to find it. When you point to the right knowledge base article, he can find it alone next time.
 6. The third stage is checking in first. New hires hesitate to ask at all. Don't wait for a raised hand; go to him at set intervals (Example: once an hour) and ask.
 7. Fix mistakes briefly on the spot, and say what he did well right away too. At this stage, one word of praise helps people hold on.
-8. You stay at a different distance in OJT and in nesting. During OJT you watch alongside the trainer; from nesting on, the SME stays closer.
+8. You stay at a different distance in OJT and in Nesting. During OJT you watch alongside the trainer; from Nesting on, the SME stays closer.
 9. The fourth stage is sharing with the team leader. At the end of the day, tell the team leader and the trainer briefly what Seojun did well and where he got stuck. The point is not to evaluate, but to decide where to help tomorrow.
 10. If he keeps getting stuck in the same place, he may need more training. The team leader and the trainer decide; you gather the examples to base it on.
 

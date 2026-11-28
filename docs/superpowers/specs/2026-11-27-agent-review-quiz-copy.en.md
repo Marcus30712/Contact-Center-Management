@@ -26,7 +26,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 
 | 항목 | English |
 |---|---|
-| 질문 | During nesting, a customer asks Jimin for a refund over the refund limit (Example). She has checked the limit in the knowledge base, and the colleague next to her says, "Just give it to them, it's not that much." What does she do? |
+| 질문 | During Nesting, a customer asks Jimin for a refund over the refund limit (Example). She has checked the limit in the knowledge base, and the colleague next to her says, "Just give it to them, it's not that much." What does she do? |
 | 보기 a (정답) | Sum up the limit she checked and the customer's situation, and ask Harin for the approval it needs. |
 | 보기 b (오답) | Process the refund as is, as the colleague said. |
 | b 피드백 | A call that needs approval goes to the SME, not the next seat. |

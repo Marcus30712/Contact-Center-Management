@@ -19,11 +19,11 @@ export const AGENT_GROUPS = [
   {
     "id": "start",
     "chip": {
-      "ko": "첫 출근·교육",
+      "ko": "첫 출근·기본 교육",
       "en": "First days and training"
     },
     "heading": {
-      "ko": "첫 출근과 교육",
+      "ko": "첫 출근과 기본 교육",
       "en": "Your first days and training"
     },
     "situations": [
@@ -51,19 +51,19 @@ export const AGENT_GROUPS = [
       {
         "id": "a2",
         "text": {
-          "ko": "교육 내용이 너무 많아 무엇부터 잡을지 모르겠다",
+          "ko": "기본 교육 내용이 너무 많아 무엇부터 잡을지 모르겠다",
           "en": "Training throws too much at you at once, and you don't know where to start"
         },
         "first": {
           "title": {
-            "ko": "상담사 첫걸음 레슨 2 · 교육을 버티는 법",
+            "ko": "상담사 첫걸음 레슨 2 · 기본 교육을 버티는 법",
             "en": "Agent First Steps lesson 2 · Getting Through Training"
           },
           "href": "../agent/#training-0"
         },
         "then": {
           "title": {
-            "ko": "상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법",
+            "ko": "상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법",
             "en": "Agent First Steps lesson 3 · OJT and Nesting: How to Ask"
           },
           "href": "../agent/#nesting-0"
@@ -72,12 +72,12 @@ export const AGENT_GROUPS = [
       {
         "id": "a3",
         "text": {
-          "ko": "OJT·네스팅 중 막혔는데 누구에게 물을지 모르겠다",
-          "en": "You're stuck during OJT or nesting and don't know whom to ask"
+          "ko": "실무 교육·실무 체험 중 막혔는데 누구에게 물을지 모르겠다",
+          "en": "You're stuck during OJT or Nesting and don't know whom to ask"
         },
         "first": {
           "title": {
-            "ko": "상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법",
+            "ko": "상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법",
             "en": "Agent First Steps lesson 3 · OJT and Nesting: How to Ask"
           },
           "href": "../agent/#nesting-0"
@@ -181,7 +181,7 @@ export const AGENT_GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법",
+            "ko": "상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법",
             "en": "Agent First Steps lesson 3 · OJT and Nesting: How to Ask"
           },
           "href": "../agent/#nesting-0"

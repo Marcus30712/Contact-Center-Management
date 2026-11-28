@@ -111,7 +111,7 @@
 ### 교육개발팀 (Training & Development)
 - 핵심 미션: 모든 구성원의 잠재력을 최대로 끌어올려, 개인의 성장과 조직의 성공을 함께 이룹니다.
 - 역할 및 책임: Trainer, Quality Analyst (QA), Instructional Designer
-- KPI: Nesting Success Rate | 네스팅을 마치고 수료한 비율. | 교육 효과성
+- KPI: Nesting Success Rate | 실무 체험을 마치고 수료한 비율. | 교육 효과성
 - KPI: Quality Score Improvement | 코칭 전후 품질 점수 향상률. | 품질 개선 기여도
 - KPI: Time to Proficiency | 신규 입사자가 목표 성과에 도달하는 시간. | 교육 효율성
 - 업무 흐름: 신입사원 교육 → 제품/프로세스 심화 교육 → 품질 감사(Auditing) 및 분석 → 1:1 코칭 및 피드백 → 리더십 개발 프로그램

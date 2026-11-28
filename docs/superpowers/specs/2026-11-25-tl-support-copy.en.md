@@ -150,10 +150,10 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson looks at how a team leader works with trainers to shape new-hire and refresher training to fit the floor.
 2. The first stage is handing over. Ask Yuna the trainer for the training your team needs, with evidence. Attaching cases, such as "12 wrong explanations on refund contacts this month (Example)," makes the training goal clear.
-3. The second stage is getting back. Get new hires' training records, the types to watch in nesting and graduation assessments from Yuna, and share them with the SME.
+3. The second stage is getting back. Get new hires' training records, the types to watch in Nesting and graduation assessments from Yuna, and share them with the SME.
 4. The third stage is helping. Tell her when training material and the floor's way differ, and find real cases and recordings for training. Cases from the floor keep training alive.
 5. What happens after training matters more. Check with the SME whether what was learned is used on the floor, and tell Yuna the results.
-6. The fourth stage is stepping in. If a new hire isn't ready, decide with Yuna to hold back graduation, and whether to extend nesting or add extra training. Don't force someone onto the floor because you're short of people.
+6. The fourth stage is stepping in. If a new hire isn't ready, decide with Yuna to hold back graduation, and whether to extend Nesting or add extra training. Don't force someone onto the floor because you're short of people.
 7. The trainer is responsible for the classroom, the team leader for the floor. New hires stay longer when both see them through the same eyes.
 
 체크포인트:
@@ -167,10 +167,10 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | "Please add more to the next class's training, so new hires don't hit the same problem." |
 | c 피드백 | Training the next class won't fix the problems of the people on your team now. |
 | 해설 | Ask for training with cases that show what needs learning and why. |
-| 2번 질문 | You're short of people, and a new hire about to graduate from nesting isn't ready yet. What do you do? |
+| 2번 질문 | You're short of people, and a new hire about to graduate from Nesting isn't ready yet. What do you do? |
 | 보기 a (오답) | Let them graduate on schedule and put them on the regular team right away. |
 | a 피드백 | Putting someone on the floor before they're ready is hard on both customers and the new hire, who may well leave. |
-| 보기 b (정답) | Decide with the trainer to hold back graduation, and choose between longer nesting and extra training. |
+| 보기 b (정답) | Decide with the trainer to hold back graduation, and choose between longer Nesting and extra training. |
 | 보기 c (오답) | Give the new hire materials and tell them to study more on their own before graduation. |
 | c 피드백 | Left alone, they keep getting stuck in the same places, and time passes without knowing what is missing. |
 | 해설 | Get a new hire who isn't ready prepared with the trainer before putting them on the floor. |

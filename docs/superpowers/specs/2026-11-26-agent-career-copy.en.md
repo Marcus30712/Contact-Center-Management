@@ -77,7 +77,7 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson is about knowing what an SME does and what skills the role needs.
 2. Jimin now handles most contacts on her own. Today, instead of asking Harin a question as she always did, she asks Harin about her work.
-3. The first stage is the work. The SME is the team's knowledge hub. They help agents with contacts they're stuck on through chat or floor support, and stay close to new hires through OJT and nesting.
+3. The first stage is the work. The SME is the team's knowledge hub. They help agents with contacts they're stuck on through chat or floor support, and stay close to new hires through OJT and Nesting.
 4. They gather frequent questions and the voice of the customer (VOC), find the causes, and report them to the team leader. When the team leader is away, they cover part of the team leader's work.
 5. The second stage is the skills needed. Knowing the products and systems in depth is the baseline, plus the ability to analyze VOC and write it up as a report. Coaching peers and analytical thinking, working through problems step by step, matter too.
 6. Just giving the answer isn't enough. The SME's way is to show where to find it, so the agent can find it alone next time.

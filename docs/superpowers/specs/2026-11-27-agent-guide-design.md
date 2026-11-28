@@ -68,19 +68,19 @@
 | 안내 | 지금 어떤 상황인가요? 누르면 먼저 볼 곳과 이어서 볼 곳을 알려 드립니다. |
 | 홈 카드 제목 | 어디서부터 볼까요? · 상담사 상황별 길잡이 (승인된 홈 문구 규칙 그대로) |
 | 홈 카드 설명 | 지금 겪는 상황을 고르면 먼저 볼 곳을 알려 드립니다. (팀장 카드와 같은 문구) |
-| 칩 | 전체 / 첫 출근·교육 / 고객 응대 / 시스템·지식 / 평가·피드백 / 근태·성장 |
+| 칩 | 전체 / 첫 출근·기본 교육 / 고객 응대 / 시스템·지식 / 평가·피드백 / 근태·성장 |
 
 ### 상황과 연결
 
 | 번호 | 묶음 (제목) | 상황 | 먼저 볼 곳 | 이어서 볼 곳 |
 |---|---|---|---|---|
-| a1 | 첫 출근과 교육 | 오늘 첫 출근이다 | 상담사 첫걸음 레슨 1 · 첫 출근 | Codex 원페이저 ④ 상담사의 하루 |
-| a2 | | 교육 내용이 너무 많아 무엇부터 잡을지 모르겠다 | 상담사 첫걸음 레슨 2 · 교육을 버티는 법 | 상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법 |
-| a3 | | OJT·네스팅 중 막혔는데 누구에게 물을지 모르겠다 | 상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법 | 상담사 SOP · 에스컬레이션 요청하기 |
+| a1 | 첫 출근과 기본 교육 | 오늘 첫 출근이다 | 상담사 첫걸음 레슨 1 · 첫 출근 | Codex 원페이저 ④ 상담사의 하루 |
+| a2 | | 기본 교육 내용이 너무 많아 무엇부터 잡을지 모르겠다 | 상담사 첫걸음 레슨 2 · 기본 교육을 버티는 법 | 상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법 |
+| a3 | | 실무 교육·실무 체험 중 막혔는데 누구에게 물을지 모르겠다 | 상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법 | 상담사 SOP · 에스컬레이션 요청하기 |
 | a4 | 고객 응대 | 실전 배치 뒤 혼자 받는 첫 콜이 겁난다 | 상담사 첫걸음 레슨 4 · 실전 배치와 첫 콜 | 상담사 첫걸음 레슨 5 · 어려운 고객 |
 | a5 | | 고객이 화가 나서 언성을 높인다 | 상담사 첫걸음 레슨 5 · 어려운 고객 | 상담사 SOP · 욕설·폭언 고객 응대와 통화 종료 |
 | a6 | | 고객이 욕설을 계속한다 | 상담사 SOP · 욕설·폭언 고객 응대와 통화 종료 | 상담사 첫걸음 레슨 5 · 어려운 고객 |
-| a7 | | 내 권한으로 해결할 수 없는 요청이다 | 상담사 SOP · 에스컬레이션 요청하기 | 상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법 |
+| a7 | | 내 권한으로 해결할 수 없는 요청이다 | 상담사 SOP · 에스컬레이션 요청하기 | 상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법 |
 | a8 | 시스템과 지식 | 시스템이 계속 오류를 낸다 | 상담사 SOP · 시스템 장애 때 대응 | 상담사 SOP · 에스컬레이션 요청하기 |
 | a9 | | 지식 베이스 내용이 허들에서 들은 것과 다르다 | 상담사 SOP · 지식 베이스 오류 알리기 | 상담사 SOP · 고객사 업데이트 허들 듣고 적용하기 |
 | a10 | | 쉬는 날 고객사 업데이트 허들이 있었다 | 상담사 SOP · 고객사 업데이트 허들 듣고 적용하기 | 상담사 SOP · 지식 베이스 오류 알리기 |
@@ -115,19 +115,19 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 |---|---|
 | 상담사 상황별 길잡이 | Agent Situation Guide |
 | 지금 어떤 상황인가요? 누르면 먼저 볼 곳과 이어서 볼 곳을 알려 드립니다. | What's happening right now? Tap a situation to see where to look first and where to go next. |
-| 첫 출근·교육 | First days and training |
+| 첫 출근·기본 교육 | First days and training |
 | 고객 응대 | Customers |
 | 시스템·지식 | Systems and knowledge |
 | 평가·피드백 | Scores and feedback |
 | 근태·성장 | Attendance and growth |
-| 첫 출근과 교육 | Your first days and training |
+| 첫 출근과 기본 교육 | Your first days and training |
 | 고객 응대 | Handling customers |
 | 시스템과 지식 | Systems and knowledge |
 | 평가와 피드백 | Scores and feedback |
 | 근태와 성장 | Attendance and growth |
 | 오늘 첫 출근이다 | It's your first day at work |
-| 교육 내용이 너무 많아 무엇부터 잡을지 모르겠다 | Training throws too much at you at once, and you don't know where to start |
-| OJT·네스팅 중 막혔는데 누구에게 물을지 모르겠다 | You're stuck during OJT or nesting and don't know whom to ask |
+| 기본 교육 내용이 너무 많아 무엇부터 잡을지 모르겠다 | Training throws too much at you at once, and you don't know where to start |
+| 실무 교육·실무 체험 중 막혔는데 누구에게 물을지 모르겠다 | You're stuck during OJT or Nesting and don't know whom to ask |
 | 실전 배치 뒤 혼자 받는 첫 콜이 겁난다 | You've gone live and your first solo call scares you |
 | 고객이 화가 나서 언성을 높인다 | A customer is angry and raising their voice |
 | 고객이 욕설을 계속한다 | A customer keeps swearing at you |
@@ -142,8 +142,8 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | 직무전문가가 되고 싶다 | You want to become an SME |
 | 언젠가 팀장이 되고 싶다 | You want to become a team leader someday |
 | 상담사 첫걸음 레슨 1 · 첫 출근 | Agent First Steps lesson 1 · Your First Day at Work |
-| 상담사 첫걸음 레슨 2 · 교육을 버티는 법 | Agent First Steps lesson 2 · Getting Through Training |
-| 상담사 첫걸음 레슨 3 · OJT와 네스팅: 묻는 법 | Agent First Steps lesson 3 · OJT and Nesting: How to Ask |
+| 상담사 첫걸음 레슨 2 · 기본 교육을 버티는 법 | Agent First Steps lesson 2 · Getting Through Training |
+| 상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법 | Agent First Steps lesson 3 · OJT and Nesting: How to Ask |
 | 상담사 첫걸음 레슨 4 · 실전 배치와 첫 콜 | Agent First Steps lesson 4 · Go Live and the First Call |
 | 상담사 첫걸음 레슨 5 · 어려운 고객 | Agent First Steps lesson 5 · Difficult Customers |
 | 상담사 첫걸음 레슨 6 · 매주 평가 리뷰 | Agent First Steps lesson 6 · The Weekly Score Review |
