@@ -59,7 +59,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 4. The SME does not evaluate or discipline agents. QA and the team leader do the evaluating. You are the one who approves and helps.
 5. The second stage is knowing the day. Most of the day goes to escalation support, hard cases and mentoring agents. Daily scrubbing, VOC write-ups and calibration with QA come on top.
 6. Requests come from two places. You walk the floor to help agents who raise a hand, and you answer questions that come in by messenger and the team chat.
-7. The third stage is checking your approval limits. On day one, sit down with Sujin and list what you can approve and what goes to the team leader. For example, you approve compensation within set limits, and pass on requests outside policy and attendance or performance issues.
+7. The third stage is checking your approval limits. Approval limits differ by role, so on day one, sit down with Sujin and list what you can approve and what goes to the team leader. For example, you approve compensation within set limits, and pass on requests outside policy and attendance or performance issues.
 8. Not knowing the limits leads to two mistakes. You approve something beyond your authority, or you pass everything to the team leader and jam their day.
 9. The fourth stage is sharing with the team leader. Agree early that you can take on attendance, trend summaries and huddles when the team leader is busy. Lesson 5 covers this in detail.
 10. At the end of day one, jot down the questions you got. The ones that come up often are what you prepare first tomorrow.

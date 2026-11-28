@@ -28,7 +28,7 @@ export default {
     step(tx("지민은 2년째 일하는 상담사입니다. 일은 익숙하지만, 오늘 받은 문의는 자기 권한으로 풀 수 없습니다. 지민이 메신저로 당신에게 승인을 요청합니다.", "Jimin has been an agent for two years. She knows the work, but today's contact is beyond her authority. She messages you to ask for approval."), flow, [], null),
     step(tx("첫 단계는 기록 확인입니다. 티켓에 고객이 원하는 것, 지민이 이미 해 본 것, 고객의 감정 상태가 적혀 있는지 봅니다.", "The first stage is checking the record. See whether the ticket says what the customer wants, what Jimin already tried, and how the customer feels."), flow, ["record"], null),
     step(tx("기록이 부족하면 지민에게 짧게 다시 묻습니다. 고객에게 같은 질문을 되풀이하지 않기 위해서입니다.", "If the record is thin, ask Jimin briefly. That way the customer does not get the same questions again."), flow, ["record"], null),
-    step(tx("둘째 단계는 판단입니다. 내 승인 범위 안이면 승인하고, 직접 응대가 필요하면 내가 이어서 처리하고, 범위 밖이면 팀장에게 넘깁니다.", "The second stage is deciding. Within your approval limits, you approve; if it needs you to speak to the customer, you take it over; if it is outside your limits, it goes to the team leader."), flow, ["decide"], null),
+    step(tx("둘째 단계는 판단입니다. 내 승인 권한 안이면 승인하고, 직접 응대가 필요하면 내가 이어서 처리하고, 권한 밖이면 팀장에게 넘깁니다.", "The second stage is deciding. Within your approval limits, you approve; if it needs you to speak to the customer, you take it over; if it is outside your limits, it goes to the team leader."), flow, ["decide"], null),
     step(tx("승인할 때는 이유도 함께 적어 둡니다. 비슷한 요청이 다시 오면 다른 사람도 같은 기준으로 판단할 수 있습니다.", "When you approve, note the reason too. When a similar request comes in, others can decide by the same standard."), flow, ["decide"], null),
     step(tx("직접 처리할 때는 고객에게 이전 내용을 알고 있다고 먼저 말합니다. 넘겨받은 사람이 처음부터 다시 묻는 것을 고객은 가장 싫어합니다.", "When you take it over, first tell the customer you know what happened so far. Customers hate nothing more than being asked everything again by the next person."), flow, ["decide"], null),
     step(tx("셋째 단계는 답 돌려주기입니다. 처리가 끝나면 결과와 이유를 지민에게 알려 줍니다. 다음에 비슷한 건이 오면 지민이 혼자 풀 수 있습니다.", "The third stage is reporting back. When it is done, tell Jimin the outcome and the reason. Next time a similar contact comes, she can handle it herself."), flow, ["answer"], null),
@@ -38,11 +38,11 @@ export default {
   checkpoint: [
     {
       id: "escalation-q1",
-      prompt: tx("지민의 요청이 내 승인 범위 안인지 확실하지 않습니다. 어떻게 할까요?", "You are not sure Jimin's request is within your approval limits. What do you do?"),
+      prompt: tx("지민의 요청이 내 승인 권한 안인지 확실하지 않습니다. 어떻게 할까요?", "You are not sure Jimin's request is within your approval limits. What do you do?"),
       options: [
         option("a", tx("고객이 오래 기다리지 않게 일단 승인한다.", "Approve it for now so the customer isn't kept waiting."), tx("확실하지 않은 승인은 나중에 되돌리기 어렵고, 잘못된 기준이 팀에 퍼집니다.", "An unsure approval is hard to undo later, and the wrong standard spreads through the team.")),
         option("b", tx("지민에게 고객 대기 안내를 부탁하고, 팀장에게 바로 확인한다.", "Ask Jimin to let the customer know there is a short wait, and check with the team leader right away.")),
-        option("c", tx("확실하지 않을 때는 거절하는 게 안전하니, 고객에게 어렵다고 안내하게 한다.", "When unsure, refusing is safer, so have Jimin tell the customer it can't be done."), tx("범위 안의 요청이었다면 고객이 받을 수 있던 해결을 놓치게 됩니다.", "If it was within your limits, the customer misses a fix they could have had.")),
+        option("c", tx("확실하지 않을 때는 거절하는 게 안전하니, 고객에게 어렵다고 안내하게 한다.", "When unsure, refusing is safer, so have Jimin tell the customer it can't be done."), tx("권한 안의 요청이었다면 고객이 받을 수 있던 해결을 놓치게 됩니다.", "If it was within your limits, the customer misses a fix they could have had.")),
       ],
       answer: "b",
       explanation: tx("모르면 추측하지 말고 확인합니다. 그동안 고객이 기다린다는 사실을 상담사가 알리게 합니다.", "When you don't know, check instead of guessing. Meanwhile, have the agent tell the customer they are waiting."),

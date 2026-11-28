@@ -38,7 +38,7 @@ export default {
       options: [
         option("a", tx("바쁜 시간에는 답만 짧게 보내고 다음 채팅으로 넘어간다.", "In a busy hour, send only a short answer and move on to the next chat."), tx("답만 주면 같은 문의에서 또 막힙니다. 찾는 곳까지 알려 줘야 다음에는 혼자 풉니다.", "With only the answer, the agent gets stuck on the same contact again. Showing where to find it lets her solve it alone next time.")),
         option("b", tx("다음엔 혼자 풀 수 있게, 답과 함께 찾는 곳을 알려 준다.", "So she can solve it alone next time, give the answer and where to find it.")),
-        option("c", tx("처음 보는 문의는 바로 팀장에게 넘기라고 한다.", "Tell her to pass any new kind of contact straight to the team leader."), tx("직무전문가가 답할 수 있는 문의를 넘기면 팀장과 고객 모두 기다립니다. 범위 밖일 때만 팀장에게 넘깁니다.", "Passing on a contact the SME can answer makes both the team leader and the customer wait. Pass it on only when it's outside the SME's scope.")),
+        option("c", tx("처음 보는 문의는 바로 팀장에게 넘기라고 한다.", "Tell her to pass any new kind of contact straight to the team leader."), tx("직무전문가가 답할 수 있는 문의를 넘기면 팀장과 고객 모두 기다립니다. 권한 밖일 때만 팀장에게 넘깁니다.", "Passing on a contact the SME can answer makes both the team leader and the customer wait. Pass it on only when it's outside the SME's scope.")),
       ],
       answer: "b",
       explanation: tx("직무전문가는 답을 주는 사람이자, 상담사가 다음에 혼자 찾게 돕는 사람입니다.", "An SME gives answers and also helps agents find them on their own next time."),
