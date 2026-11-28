@@ -4,6 +4,7 @@ import { ROLE_SHORT } from '../shared/role-data.js';
 import { EXCEL_UI } from '../excel/data.js';
 import { SME_UI } from '../sme/ui.js';
 import { AS_UI } from '../agent-sop/ui.js';
+import { AMS_UI } from '../am-sop/ui.js';
 import { GUIDE_CARD, LEARN } from './data.js';
 
 export const HOME_COPY = {
@@ -24,6 +25,8 @@ export const HOME_COPY = {
   },
   // The agent SOP card reads the course's own words; a test keeps them equal to the copy doc.
   agentSop: { title: AS_UI.courseTitle, text: AS_UI.homeCard },
+  // The AM SOP card reads the course's own words too (2026-11-28).
+  amSop: { title: AMS_UI.courseTitle, text: AMS_UI.homeCard },
   excelSme: { ko: '직무전문가가 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.', en: 'The 11 Excel skills SMEs use most, learned by tapping.' },
   excelShared: { ko: '컨택센터에서 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다.', en: 'The 11 Excel skills used most in a contact center, learned by tapping.' },
   startExcel: { ko: '처음이라면 미소의 엑셀 연습 레슨 1부터 시작해 보세요.', en: "New here? Start with lesson 1 of Miso's Excel Practice." },
@@ -75,10 +78,10 @@ export function homeFor(role) {
     };
   }
   if (role === 'am') {
-    // AM First Steps is built (2026-11-28); the AM SOP library and guide are still coming.
+    // AM First Steps and the AM SOP Library are built (2026-11-28); the AM guide is still coming.
     return {
       guide,
-      learn: [{ id: 'am', ...byHref('./am/') }, soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],
+      learn: [{ id: 'am', ...byHref('./am/') }, { id: 'am-sop', ...byHref('./am-sop/') }, excel(HOME_COPY.excelShared)],
     };
   }
   return {

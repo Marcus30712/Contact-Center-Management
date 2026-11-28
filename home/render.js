@@ -12,6 +12,7 @@ import { TS_UI } from '../tl-support/ui.js';
 import { AGENT_UI } from '../agent/ui.js';
 import { AC_UI } from '../agent-career/ui.js';
 import { AS_UI } from '../agent-sop/ui.js';
+import { AMS_UI } from '../am-sop/ui.js';
 import { AM_UI } from '../am/ui.js';
 import { HOME_UI as UI } from './data.js';
 import { HOME_COPY, homeFor, withRole } from './role-home.js';
@@ -38,6 +39,7 @@ const COURSES = [
   course('agent-career', AC_UI.courseTitle),
   course('agent-sop', AS_UI.courseTitle),
   course('am', AM_UI.courseTitle),
+  course('am-sop', AMS_UI.courseTitle),
   course('tl', TL_UI.courseTitle),
   course('lifecycle', UI.lifecycle),
   course('tl-support', TS_UI.courseTitle),

@@ -16,6 +16,7 @@ import { AGENT_PROGRESS_KEY } from '../agent/ui.js';
 import { AC_PROGRESS_KEY } from '../agent-career/ui.js';
 import { AS_PROGRESS_KEY } from '../agent-sop/ui.js';
 import { AM_PROGRESS_KEY } from '../am/ui.js';
+import { AMS_PROGRESS_KEY } from '../am-sop/ui.js';
 import { REVIEW_KEY } from '../review/engine.js';
 
 // shared/theme-boot.js reads the same key before each page draws.
@@ -43,10 +44,10 @@ export function applyTheme(doc, theme) {
 }
 
 // Everything a learner would lose when changing phones. Order is the file's order.
-export const BACKUP_KEYS = [LANG_KEY, TRACK_KEY, THEME_KEY, ROLE_KEY, ROLE_ASKED_KEY, PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY, REVIEW_KEY, SL_PROGRESS_KEY, SS_PROGRESS_KEY, TL_PROGRESS_KEY, TS_PROGRESS_KEY, AGENT_PROGRESS_KEY, AC_PROGRESS_KEY, AS_PROGRESS_KEY, AM_PROGRESS_KEY];
+export const BACKUP_KEYS = [LANG_KEY, TRACK_KEY, THEME_KEY, ROLE_KEY, ROLE_ASKED_KEY, PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY, REVIEW_KEY, SL_PROGRESS_KEY, SS_PROGRESS_KEY, TL_PROGRESS_KEY, TS_PROGRESS_KEY, AGENT_PROGRESS_KEY, AC_PROGRESS_KEY, AS_PROGRESS_KEY, AM_PROGRESS_KEY, AMS_PROGRESS_KEY];
 // A file must carry some progress: replacing everything with an empty file
 // (exported on a fresh or blocked browser) would wipe a learner's records.
-const PROGRESS_KEYS = [PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY, REVIEW_KEY, SL_PROGRESS_KEY, SS_PROGRESS_KEY, TL_PROGRESS_KEY, TS_PROGRESS_KEY, AGENT_PROGRESS_KEY, AC_PROGRESS_KEY, AS_PROGRESS_KEY, AM_PROGRESS_KEY];
+const PROGRESS_KEYS = [PROGRESS_KEY, SOP_PROGRESS_KEY, EXCEL_KEY, PRACTICE_KEY, SME_PROGRESS_KEY, REVIEW_KEY, SL_PROGRESS_KEY, SS_PROGRESS_KEY, TL_PROGRESS_KEY, TS_PROGRESS_KEY, AGENT_PROGRESS_KEY, AC_PROGRESS_KEY, AS_PROGRESS_KEY, AM_PROGRESS_KEY, AMS_PROGRESS_KEY];
 
 // "Reset learning" clears these and nothing else: language, job track,
 // display mode and the tutorial flag stay.
