@@ -5,6 +5,8 @@ export const PRACTICE_UI = {
   intro: { ko: '마친 레슨에서 문제 {n}개를 골랐어요. 틈틈이 풀어 보세요.', en: '{n} for today from lessons you\'ve finished. Try them when you have a moment.' },
   streak: { ko: '🔥 {n}일째', en: '🔥 Day {n}' },
   streakPending: { ko: '오늘 하면 {n}일째', en: 'Practice today for day {n}' },
+  streakWeekendZero: { ko: '🔥 월요일부터 다시 시작', en: '🔥 Starts again on Monday' },
+  homeWeekendZero: { ko: '월요일부터 연속 일수가 쌓여요', en: 'Your streak builds again from Monday' },
   weekend: { ko: '주말은 연속 일수에 넣지 않아요. 풀어도 좋아요.', en: 'Weekends don\'t count toward your streak, but you can still practice.' },
   questionCount: { ko: '문제 {i} / {n}', en: 'Question {i} of {n}' },
   correct: { ko: '맞아요!', en: 'That\'s right!' },

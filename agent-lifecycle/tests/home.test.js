@@ -543,3 +543,12 @@ test('roles without a course start at Excel lesson 1', () => {
   }
   assert.equal(homeOf('om', 'en').querySelector('[data-start] a').textContent, row[2]);
 });
+
+test('on a weekend with no weekday run, the home practice card says Monday instead of day 0', async () => {
+  const { PRACTICE_UI: P } = await import('../../practice/data.js');
+  const s = fakeStorage(ALL);
+  const { root } = setupDom();
+  renderHome(root, 'ko', s, '2026-11-29', 'agent');
+  const line = root.querySelector('[data-practice] .hm-practice-streak');
+  assert.equal(line.textContent, P.homeWeekendZero.ko);
+});

@@ -93,7 +93,9 @@ function practiceCard(tr, storage, today) {
     const answered = st.today?.date === today ? Object.keys(st.today.answers).filter((k) => st.today.ids.includes(k)).length : 0;
     const done = st.days.includes(today);
     parts.push(h('span', { text: done ? tr(P.homeDone) : fill(tr(P.homeToday), { x: answered, n: total }) }));
-    const line = run.pending ? fill(tr(P.streakPending), { n: run.count + 1 }) : fill(tr(P.streak), { n: run.count });
+    // A weekend with no weekday run to show says when it starts again (2026-11-29).
+    const line = run.weekend && !run.count ? tr(P.homeWeekendZero)
+      : run.pending ? fill(tr(P.streakPending), { n: run.count + 1 }) : fill(tr(P.streak), { n: run.count });
     parts.push(h('span', { class: 'hm-practice-streak', text: line }));
   }
   return h('a', { class: 'card hm-practice', href: './practice/', 'data-practice': true }, parts);

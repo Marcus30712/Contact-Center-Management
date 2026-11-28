@@ -135,6 +135,8 @@
 | intro | 마친 레슨에서 문제 {n}개를 골랐어요. 틈틈이 풀어 보세요. | {n} for today from lessons you've finished. Try them when you have a moment. |
 | streak | 🔥 {n}일째 | 🔥 Day {n} |
 | streakPending | 오늘 하면 {n}일째 | Practice today for day {n} |
+| streakWeekendZero | 🔥 월요일부터 다시 시작 | 🔥 Starts again on Monday |
+| homeWeekendZero | 월요일부터 연속 일수가 쌓여요 | Your streak builds again from Monday |
 | weekend | 주말은 연속 일수에 넣지 않아요. 풀어도 좋아요. | Weekends don't count toward your streak, but you can still practice. |
 | questionCount | 문제 {i} / {n} | Question {i} of {n} |
 | correct | 맞아요! | That's right! |
