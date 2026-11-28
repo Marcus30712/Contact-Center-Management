@@ -34,7 +34,9 @@ export function renderLesson(root, lesson, stepIndex, lang, {
       // The particle right after the pill (가, 에게, 's) never wraps away from it.
       const rest = typeof parts[i + 1] === 'string' ? parts[i + 1] : '';
       const glue = rest.match(/^[^\s,.;:!?)]*/)[0];
-      out.push(h('span', { class: 'pill-wrap', 'data-pill-wrap': true }, [pill, glue]));
+      // A Korean particle after the pill sits one space's width away from its border.
+      const particle = /^[가-힣]/.test(glue);
+      out.push(h('span', { class: particle ? 'pill-wrap has-particle' : 'pill-wrap', 'data-pill-wrap': true }, [pill, glue]));
       if (glue) { parts[i + 1] = rest.slice(glue.length); }
     }
     return out.filter((n) => n !== '');

@@ -305,6 +305,7 @@ a.ladder-step:hover { background: var(--accent-soft); }
   border: 1.5px solid rgb(var(--role)); background: rgb(var(--role) / 0.16); color: var(--ink);
 }
 .pill-wrap { white-space: nowrap; }
+.pill-wrap.has-particle .role-pill { margin-right: 0.3em; }
 .cast-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0.75rem 0 0.25rem; font-size: 0.9rem; }
 .cast-label { font-size: 0.78rem; color: var(--muted); margin-right: 2px; }
 .cast-chip { padding: 0.45em 0.8em 0.4em; }
