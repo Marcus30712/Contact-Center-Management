@@ -62,7 +62,7 @@
 | m13 | | 팀장이 팀원별 현황을 물어본다 | 직무전문가 서포트 라이프사이클 레슨 5 · 팀장 지원 | 직무전문가 SOP · 상담 트렌드 요약 보고 |
 | m14 | | 고객사가 정책 변경을 보내왔다 | 직무전문가 SOP · 고객사 업데이트 허들 | 직무전문가 SOP · 지식 베이스 업데이트 요청 |
 | m15 | | 캘리브레이션에 참석하게 됐다 | 직무전문가 SOP · 캘리브레이션 참여와 기준 전달 | 팀장 SOP · 캘리브레이션 |
-| m16 | | 같은 고객 불만이 계속 쌓인다 | 직무전문가 SOP · VOC 리포팅 | 직무전문가 SOP · 스크러빙 |
+| m16 | | 같은 고객 불만이 계속 쌓인다 | 직무전문가 SOP · 고객의 소리(VOC) 리포팅 | 직무전문가 SOP · 스크러빙 |
 
 주소: 직무전문가 첫걸음 `../sme/#<id>-0`, 직무전문가 서포트 라이프사이클 `../sme-lifecycle/#<id>-0`, 직무전문가 SOP `../sme-sop/#<id>-0`, 팀장 SOP `../sop-library/#<id>-0`, Codex `../codex/#daily-sme`·`../codex/#career`.
 
@@ -126,7 +126,7 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | 직무전문가 SOP · 출석 관리 대행 | SME SOP · Covering Attendance |
 | 직무전문가 SOP · 고객사 업데이트 허들 | SME SOP · Client Update Huddle |
 | 직무전문가 SOP · 캘리브레이션 참여와 기준 전달 | SME SOP · Joining Calibration and Passing On Standards |
-| 직무전문가 SOP · VOC 리포팅 | SME SOP · VOC Reporting |
+| 직무전문가 SOP · 고객의 소리(VOC) 리포팅 | SME SOP · VOC Reporting |
 | 직무전문가 SOP · 지식 베이스 업데이트 요청 | SME SOP · Knowledge Base Update Requests |
 | 상담사 라이프사이클 레슨 3 · 실무 교육 및 실무 체험 | Agent Lifecycle lesson 3 · OJT and Nesting |
 | 팀장 SOP · 캘리브레이션 | TL SOP · Calibration |

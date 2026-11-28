@@ -402,7 +402,7 @@ export const SME_GROUPS = [
         },
         "first": {
           "title": {
-            "ko": "직무전문가 SOP · VOC 리포팅",
+            "ko": "직무전문가 SOP · 고객의 소리(VOC) 리포팅",
             "en": "SME SOP · VOC Reporting"
           },
           "href": "../sme-sop/#voc-0"

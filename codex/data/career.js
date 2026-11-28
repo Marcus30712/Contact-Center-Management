@@ -91,7 +91,7 @@ export const CAREER = {
           },
           "skills": {
             "work": {
-              "ko": "VOC 분석, 보고서 작성",
+              "ko": "고객의 소리(VOC) 분석, 보고서 작성",
               "en": "VOC analysis, report writing"
             },
             "soft": {

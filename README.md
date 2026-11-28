@@ -23,7 +23,7 @@
 | TL 서포트 라이프사이클 / TL Support Lifecycle | [`tl-support/`](tl-support/) | 팀장이 상담사, SME, QA, 트레이너, 팀 전체를 각각 지원하는 절차, 5개 레슨 (한국어/영어) |
 | SME 첫걸음 / SME First Steps | [`sme/`](sme/) | 상담사에서 막 SME가 된 사람을 위한 7개 레슨: 첫날, 신입·기존 상담사·동료였던 선임·팀장 서포트, 요청이 몰릴 때, 팀에 지식 돌려주기 (한국어/영어) |
 | SME 서포트 라이프사이클 / SME Support Lifecycle | [`sme-lifecycle/`](sme-lifecycle/) | 상담사 한 사람이 교육 중 → 실무 체험 → 정식 → 선임으로 자라는 동안 단계마다 SME가 따르는 지원 절차와 팀장 지원, 5개 레슨 (한국어/영어) |
-| SME SOP 라이브러리 / SME SOP Library | [`sme-sop/`](sme-sop/) | SME가 맡는 표준 절차 8개: 에스컬레이션 승인, 스크러빙, 상담 트렌드 요약 보고, 출석 관리 대행, 고객사 업데이트 허들, 캘리브레이션 참여와 기준 전달, VOC 리포팅, 지식 베이스 업데이트 요청 (한국어/영어) |
+| SME SOP 라이브러리 / SME SOP Library | [`sme-sop/`](sme-sop/) | SME가 맡는 표준 절차 8개: 에스컬레이션 승인, 스크러빙, 상담 트렌드 요약 보고, 출석 관리 대행, 고객사 업데이트 허들, 캘리브레이션 참여와 기준 전달, 고객의 소리(VOC) 리포팅, 지식 베이스 업데이트 요청 (한국어/영어) |
 | 복습 퀴즈 / Review Quiz | [`review/`](review/) | 직급 강의(팀장: 라이프사이클·TL SOP, SME: SME 첫걸음, 상담사: 상담사 첫걸음·상담사 SOP)를 모두 마치면 열리는 상황형 6문제. 5개 이상 맞히면 통과하고 배지를 받습니다 (한국어/영어) |
 | TL SOP 라이브러리 / TL SOP Library | [`sop-library/`](sop-library/) | 팀장이 알아야 할 SOP를 순서대로 배우는 강의 (한국어/영어) |
 | Codex 원페이저 / Codex One-Pagers | [`codex/`](codex/) | Codex의 네 장(운영 최적화 원칙, 5대 핵심팀, 커리어 매트릭스, 직무별 일일 업무)을 한 장씩, 누르면 자세히 (한국어/영어) |
