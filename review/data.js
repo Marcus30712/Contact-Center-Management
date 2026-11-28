@@ -212,12 +212,12 @@ export const QUIZZES = {
         id: "sme-q6",
         prompt: tx("직무전문가가 된 첫 주, 동기 준호가 정책에 없는 큰 보상을 승인해 달라고 합니다. 고객은 통화 중에 기다리고 있습니다. 어떻게 할까요?", "In your first week as SME, your peer Junho asks you to approve a large compensation that policy does not cover. The customer is waiting on the call. What do you do?"),
         options: [
-          option("a", tx("준호가 경력이 더 많으니, 그 판단을 믿고 이번 한 번은 승인한다.", "Junho has more experience, so trust his call and approve it this once."), tx("승인 범위 밖의 결정은 되돌리기 어렵고, 경험이 기준을 대신하지 않습니다.", "A decision beyond your limits is hard to undo, and experience does not replace the standard.")),
+          option("a", tx("준호가 경력이 더 많으니, 그 판단을 믿고 이번 한 번은 승인한다.", "Junho has more experience, so trust his call and approve it this once."), tx("승인 권한 밖의 결정은 되돌리기 어렵고, 경험이 기준을 대신하지 않습니다.", "A decision beyond your limits is hard to undo, and experience does not replace the standard.")),
           option("b", tx("정책에 없는 보상이니 거절하고, 준호에게 그대로 응대를 이어 가게 한다.", "Policy does not cover it, so turn it down and let Junho carry on with the call."), tx("거절로 끝내면 고객의 문제가 남습니다. 내가 정할 수 없는 건은 정할 수 있는 사람에게 넘깁니다.", "Turning it down leaves the customer's problem where it was. What you cannot decide goes to someone who can.")),
-          option("c", tx("범위 밖이니 준호에게 고객 대기 안내를 부탁하고, 팀장에게 바로 넘긴다.", "It is outside your limits, so ask Junho to tell the customer there is a short wait, and pass it to the team leader right away.")),
+          option("c", tx("권한 밖이니 준호에게 고객 대기 안내를 부탁하고, 팀장에게 바로 넘긴다.", "It is outside your limits, so ask Junho to tell the customer there is a short wait, and pass it to the team leader right away.")),
         ],
         answer: "c",
-        explanation: tx("범위 안은 내가 정하고, 범위 밖은 팀장에게 넘깁니다. 동기의 요청도 같은 기준입니다.", "You decide within your limits and pass on what is outside them. A peer's request follows the same standard."),
+        explanation: tx("권한 안은 내가 정하고, 권한 밖은 팀장에게 넘깁니다. 동기의 요청도 같은 기준입니다.", "You decide within your limits and pass on what is outside them. A peer's request follows the same standard."),
         lessons: [
           { title: tx("직무전문가 첫걸음 레슨 1 · 직무전문가가 된 첫날", "SME First Steps lesson 1 · Your First Day as an SME"), href: "../sme/#firstday-0" },
           { title: tx("직무전문가 첫걸음 레슨 4 · 동료였던 선임 서포트", "SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers"), href: "../sme/#peer-0" },

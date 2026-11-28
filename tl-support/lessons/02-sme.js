@@ -12,7 +12,7 @@ export default {
   order: 2,
   title: tx("직무전문가 지원", "Supporting the SME"),
   short: tx("직무전문가", "SME"),
-  subtitle: tx("승인 범위와 대신 맡길 일을 정하고, 현장의 트렌드를 받습니다.", "Agree on the approval scope and the work to cover, and get the trends from the floor."),
+  subtitle: tx("승인 권한과 대신 맡길 일을 정하고, 현장의 트렌드를 받습니다.", "Agree on the approval scope and the work to cover, and get the trends from the floor."),
   personaName: tx("하린", "Harin"),
   procedure,
   diagram: {
@@ -26,7 +26,7 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 팀장이 직무전문가를 지원하는 절차를 팀장 쪽에서 보는 것입니다.", "This lesson looks at how a team leader supports the SME, from the team leader's side."), flow, procedure, null),
-    step(tx("첫 단계는 맡기기입니다. 직무전문가 하린과 승인 범위 목록을 맞추고, 출석 관리나 허들처럼 대신 맡길 일을 정합니다. 범위가 분명해야 하린이 매번 묻지 않고 판단할 수 있습니다.", "The first stage is handing over. Agree on the approval scope list with Harin, the SME, and decide what she will cover for you, such as attendance or huddles. A clear scope lets Harin decide without asking every time."), flow, ["handover"], null),
+    step(tx("첫 단계는 맡기기입니다. 직무전문가 하린과 승인 권한 목록을 맞추고, 출석 관리나 허들처럼 대신 맡길 일을 정합니다. 권한이 분명해야 하린이 매번 묻지 않고 판단할 수 있습니다.", "The first stage is handing over. Agree on the approval scope list with Harin, the SME, and decide what she will cover for you, such as attendance or huddles. A clear scope lets Harin decide without asking every time."), flow, ["handover"], null),
     step(tx("둘째 단계는 받기입니다. 하린에게서 주간 트렌드 요약, 출석 결과, 팀원별 단계 현황을 정해진 날에 받습니다. 받은 요약은 그 주의 코칭 계획에 바로 씁니다.", "The second stage is getting back. Get the weekly trend summary, attendance results and each member's stage from Harin on agreed days. Use the summary straight away in that week's coaching plan."), flow, ["getback"], null),
     step(tx("셋째 단계는 돕기입니다. 직무전문가는 요청이 몰리면 혼자 버티기 쉽습니다. 바쁜 시간대에는 팀장이 함께 서포트하거나 RTA와 인원을 조정합니다.", "The third stage is helping. SMEs tend to try to hold out alone when requests pile up. At busy times, the team leader helps support the floor or adjusts staffing with the RTA."), flow, ["help"], null),
     step(tx("직무전문가의 성장도 돕습니다. 하린이 팀장 자리를 바란다면 회의 진행이나 신입 계획 같은 일을 조금씩 맡겨 봅니다.", "Help the SME grow too. If Harin wants to become a team leader, give her a little of that work at a time, such as running a meeting or planning for new hires."), flow, ["help"], null),
@@ -39,11 +39,11 @@ export default {
       prompt: tx("하린이 비슷한 보상 요청마다 팀장에게 묻습니다. 먼저 할 일은 무엇일까요?", "Harin asks you about every similar compensation request. What do you do first?"),
       options: [
         option("a", tx("매번 바로 답해 준다.", "Answer each one right away."), tx("매번 답하면 팀장의 하루가 막히고, 하린은 스스로 판단할 기준을 얻지 못합니다.", "Answering every time blocks your day, and Harin never gets a standard to judge by herself.")),
-        option("b", tx("같은 요청이 반복되니, 하린과 승인 범위 목록을 다시 맞춘다.", "Similar requests keep coming, so go over the approval scope list with Harin again.")),
+        option("b", tx("같은 요청이 반복되니, 하린과 승인 권한 목록을 다시 맞춘다.", "Similar requests keep coming, so go over the approval scope list with Harin again.")),
         option("c", tx("하린을 믿고, 앞으로는 보상 요청을 모두 알아서 판단하라고 한다.", "Trust Harin and tell her to decide every compensation request on her own from now on."), tx("기준 없이 맡기면 요청마다 다르게 승인하게 됩니다.", "Handing over without a standard means each request gets approved differently.")),
       ],
       answer: "b",
-      explanation: tx("범위를 분명히 맡겨야 직무전문가가 같은 기준으로 판단합니다.", "A clear scope lets the SME judge by the same standard."),
+      explanation: tx("권한을 분명히 맡겨야 직무전문가가 같은 기준으로 판단합니다.", "A clear scope lets the SME judge by the same standard."),
     },
     {
       id: "sme-q2",
