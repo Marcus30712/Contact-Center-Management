@@ -378,6 +378,24 @@ def main():
         check("(s2) a first visit turns to ready without reopening", True)
         first.wait_for_function("/v0\\.1\\.0 \\([0-9a-f]{8}\\)/.test(document.querySelector('[data-footer]').textContent)", timeout=8000)
         check("(s2) the footer shows the build", True)
+        # (s3) 최신 버전 받기: Update now reloads the page and keeps learning records
+        first.evaluate("localStorage.setItem('agent-course:v1', JSON.stringify({ completed: ['first'] }))")
+        check("(s3) the update section shows the build", "현재 버전 v0.1.0 (" in first.inner_text("[data-update-version]"))
+        stored = "caches.keys().then((ns) => Promise.all(ns.filter((n) => n.startsWith('cckb-')).map((n) => caches.open(n).then((c) => c.keys())))).then((ks) => ks.reduce((s, k) => s + k.length, 0))"
+        before = first.evaluate(stored)
+        with first.expect_navigation(timeout=20000):
+            first.click("[data-refresh]")
+        first.wait_for_selector("[data-refresh]")
+        check("(s3) Update now reloads and keeps learning records", first.evaluate("localStorage.getItem('agent-course:v1')") == '{"completed":["first"]}')
+        after = first.evaluate(stored)
+        check("(s3) the offline copy is kept whole", before >= 300 and after >= before, f"{before} -> {after}")
+        first.wait_for_function("document.querySelector('[data-offline]').textContent === '오프라인 준비 완료'", timeout=15000)
+        first.context.set_offline(True)
+        first.evaluate("Object.defineProperty(navigator, 'onLine', { get: () => false })")
+        first.click("[data-refresh]")
+        first.wait_for_selector("[data-update-message]")
+        check("(s3) offline: Update now only asks to connect", first.inner_text("[data-update-message]") == "인터넷에 연결된 뒤 다시 눌러 주세요." and first.evaluate(stored) >= before)
+        first.context.set_offline(False)
         first.context.close()
 
         # (w) the language chosen in the course carries over
