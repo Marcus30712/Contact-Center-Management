@@ -31,7 +31,7 @@ export default {
     step(tx("셋째 단계는 알리기입니다. 하린에게 문서 이름, 이상한 문장, 그렇게 생각한 근거(공지나 티켓 번호)를 함께 전합니다.", "The third step is reporting it. Give Harin the document name, the sentence that looks wrong, and your basis (a notice or a ticket number) together."), flow, ["report"], null),
     step(tx("\"환불 문서가 이상해요\"처럼 말하면 하린이 다시 찾아야 합니다. 어느 문서의 어느 문장인지까지 알려야 빨리 고쳐집니다.", "If you only say \"The refund document is weird,\" Harin has to go looking for it. Saying which sentence in which document gets it fixed fast."), flow, ["report"], null),
     step(tx("넷째 단계는 임시 안내 따르기입니다. 고쳐지기 전까지는 하린이 팀 채팅방에 올린 임시 안내대로 응대합니다. 혼자 다른 내용으로 안내하지 않습니다.", "The fourth step is following the interim guidance. Until it's fixed, handle contacts with the interim guidance Harin posted in the team chat. Don't guide customers differently on your own."), flow, ["interim"], null),
-    step(tx("하린은 원문을 확인해 담당자에게 업데이트를 요청합니다. 직무전문가 SOP의 지식 베이스 업데이트 요청이 이 다음 부분입니다.", "Harin checks the source and asks the owner to update it. The SME's knowledge base update request is what comes next."), flow, ["interim"], null),
+    step(tx("임시 안내로 응대한 건은 티켓에 표시해 둡니다. 지식 베이스가 고쳐지면 바뀐 내용을 다시 읽고, 그때부터 고쳐진 내용대로 안내합니다.", "Mark the tickets you handled with the interim guidance. Once the knowledge base is fixed, read the change again and follow the fixed version from then on."), flow, ["interim"], null),
     step(tx("미소의 한마디: 저는 틀린 문서를 보면 제 메모장에 바른 내용을 적어 두고 혼자만 썼어요. 그때 알렸다면 팀 전체가 같은 실수를 덜 했을 거예요.", "A word from Miso: When I saw a wrong document, I wrote the right answer in my own notes and used it alone. If I'd reported it, the whole team would have made that mistake less often."), flow, ["interim"], null),
   ],
   checkpoint: [

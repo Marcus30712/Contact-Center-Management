@@ -35,7 +35,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 4. The third step is asking in one go. By messenger or by raising a hand, give Harin the customer's request, what you've already tried and how the customer is doing, all at once.
 5. If you only ask "Can I give compensation?", Harin has to ask you back, and the customer waits all that time.
 6. The fourth step is recording and following through. Mark the ticket as an escalation and record what the customer said and how they felt, as fact. When Harin answers, carry the result back to the customer.
-7. Harin approves it right away if it's in scope, or passes it to Sujin if not. The SME's escalation approval and the team leader's customer complaint escalation are what come next.
+7. While you wait for Harin's answer, tell the customer roughly how long it will take, and get back to them within the time you promised. After you give the result, check whether they have any other questions before you close.
 8. A word from Miso: I thought my job was done once I'd escalated. On the days I left a detailed record, the customer got less angry and I got called over less.
 
 체크포인트:
@@ -164,7 +164,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 4. If you guess on your own and it's wrong, the same mistake reaches many customers.
 5. The third step is applying it right away. From the start time, guide customers with the wording Harin gave. Even if the old way is a habit, stick a note about the change next to your screen.
 6. The fourth step is reading it again. If you were late for the huddle or off that day, read what was posted in the team chat before starting work.
-7. On the first day, Harin checks tickets about the changed policy first in scrubbing. The SME's client-update huddle is what comes before this.
+7. During your shift, keep your notes beside your screen and check them on every inquiry the change applies to. For the first few days (Example), after each one, check yourself that you explained it the new way. Ask Harin about anything that confused you that day, and sort it out before your next shift.
 8. A word from Miso: In huddles I just nodded and didn't write anything down. Only after scrubbing showed I'd quoted the old period that afternoon did I start taking notes.
 
 체크포인트:
@@ -207,7 +207,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 4. The third step is reporting it. Give Harin the document name, the sentence that looks wrong, and your basis (a notice or a ticket number) together.
 5. If you only say "The refund document is weird," Harin has to go looking for it. Saying which sentence in which document gets it fixed fast.
 6. The fourth step is following the interim guidance. Until it's fixed, handle contacts with the interim guidance Harin posted in the team chat. Don't guide customers differently on your own.
-7. Harin checks the source and asks the owner to update it. The SME's knowledge base update request is what comes next.
+7. Mark the tickets you handled with the interim guidance. Once the knowledge base is fixed, read the change again and follow the fixed version from then on.
 8. A word from Miso: When I saw a wrong document, I wrote the right answer in my own notes and used it alone. If I'd reported it, the whole team would have made that mistake less often.
 
 체크포인트:
@@ -250,7 +250,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 4. Scrubbing isn't about finding who was wrong; it's about finding the cause. Harin doesn't post names in the team chat either.
 5. The third step is putting it right. If the customer is still affected, decide with Harin how to fix it. For example, contact them again or complete the record.
 6. The fourth step is stopping it repeating. Write the skipped step on a checklist beside your screen, and make sure to check it for the next few contacts.
-7. If it keeps happening, Harin puts it in the trend summary for the team leader, and it leads to Sujin's coaching. The SME's scrubbing is what comes before this.
+7. After fixing it, check that the same note is gone from your next scrubbing results. If you're still unsure, ask Harin to walk you through a correct example once more.
 8. A word from Miso: When I got scrubbing feedback, I felt scolded and got upset first. Once I saw it as someone finding the cause for me, the same mistakes dropped sharply.
 
 체크포인트:
@@ -336,7 +336,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 4. If you hold on to it trying to fix it yourself, more agents keep getting stuck on the same error meanwhile.
 5. The third step is telling the customer. With the wording Harin or Sujin gives, honestly say you can't check right now and explain how you'll get back to them. Don't promise a recovery time you're not sure of.
 6. The fourth step is recording and following up. Mark the contacts you couldn't handle because of the outage as set, and once it's back, contact or handle them in order.
-7. Harin and Sujin also report the outage to the manager, and if contacts pile up, the whole team's response begins. The team leader's large-scale issue response is what comes next.
+7. Once it's restored, read the recovery notice in the team chat first. Before working through the contacts you held, check with one case that the system really works.
 8. A word from Miso: When an outage hit, I assumed it was my computer and just kept rebooting. If I'd reported it first, the whole team would have given the same guidance ten minutes sooner.
 
 체크포인트:

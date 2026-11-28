@@ -31,7 +31,7 @@ export default {
     step(tx("스크러빙은 누가 잘못했는지 찾는 일이 아니라 원인을 찾는 일입니다. 하린도 팀 채팅방에 이름을 밝혀 올리지 않습니다.", "Scrubbing isn't about finding who was wrong; it's about finding the cause. Harin doesn't post names in the team chat either."), flow, ["cause"], null),
     step(tx("셋째 단계는 고쳐 쓰기입니다. 아직 고객에게 영향이 남아 있으면 하린과 함께 바로잡는 방법을 정합니다. 예를 들어 다시 연락하거나 기록을 보완합니다.", "The third step is putting it right. If the customer is still affected, decide with Harin how to fix it. For example, contact them again or complete the record."), flow, ["rewrite"], null),
     step(tx("넷째 단계는 반복 막기입니다. 빠뜨린 단계를 화면 옆 체크리스트에 적어 두고, 다음 몇 건은 그 단계를 꼭 확인합니다.", "The fourth step is stopping it repeating. Write the skipped step on a checklist beside your screen, and make sure to check it for the next few contacts."), flow, ["prevent"], null),
-    step(tx("같은 일이 반복되면 하린은 팀장에게 가는 트렌드 요약에 담고, 수진 팀장의 코칭으로 이어집니다. 직무전문가 SOP의 스크러빙이 이 앞부분입니다.", "If it keeps happening, Harin puts it in the trend summary for the team leader, and it leads to Sujin's coaching. The SME's scrubbing is what comes before this."), flow, ["prevent"], null),
+    step(tx("고친 뒤에는 다음 스크러빙 결과에서 같은 지적이 사라졌는지 확인합니다. 그래도 헷갈리면 하린에게 바른 예시를 한 번 더 들어 봅니다.", "After fixing it, check that the same note is gone from your next scrubbing results. If you're still unsure, ask Harin to walk you through a correct example once more."), flow, ["prevent"], null),
     step(tx("미소의 한마디: 저는 스크러빙 피드백을 받으면 혼난 것 같아서 기분부터 상했어요. 원인을 찾아 주는 거라고 생각을 바꾼 뒤로 같은 실수가 확 줄었어요.", "A word from Miso: When I got scrubbing feedback, I felt scolded and got upset first. Once I saw it as someone finding the cause for me, the same mistakes dropped sharply."), flow, ["prevent"], null),
   ],
   checkpoint: [
