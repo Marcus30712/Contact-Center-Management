@@ -35,7 +35,7 @@ Same sections and order as the Korean file. US English.
 3. The first stage is attendance, and it matters above all. SMEs work with many agents and other departments, so when you're often absent, the flow breaks when the team or project needs you.
 4. However high your quality and contribution, low attendance makes it hard to be chosen. When you're sick, rest. But cutting the gaps you can avoid, like lateness and no-shows, builds the most trust.
 5. The second stage is a clean record. They check for complaints from customers or the client that were your fault, and for disciplinary action for breaking company rules, in the last 6 months (Example). A complaint that an internal review found was not the agent's fault doesn't count against you.
-6. Records fall outside the window as time passes. If you have a time in mind to apply, your preparation starts 6 months (Example) before it.
+6. Escalation and disciplinary records usually have a grace period of 6 months to a year (Example), depending on the center. After it passes, they no longer count for promotions or transfers, but the record isn't erased. If you have a time in mind to apply, start preparing that grace period before.
 7. The third stage is quality and test scores. You need to know the current project's products, services and systems better than the other applicants. The objective measures are QA quality scores and the trainer's training and test scores from the last 3 to 6 months (Example).
 8. Steady scores over several months beat one high month. The habit of picking one thing to fix in each weekly score review shows up here as numbers.
 9. The fourth stage is team contribution. Having helped the agents around you is something extra you can show in the interview.
