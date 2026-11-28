@@ -120,7 +120,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 3. The first step is telling them early. Report it 1 to 2 hours before your shift (Example). The team can use that time to fill the seat.
 4. The second step is the set method. Report it the way your team or center has set: a call, a message or the attendance system. Don't ask a colleague to pass it on.
 5. The third step is the right person. Tell Sujin directly, or Harin if Sujin is on leave or sick herself.
-6. Keep the reason short and clear. If you're sick, say "I'm unwell and can't come in today," and add that you'll see a doctor and send a medical certificate. For an unexpected family or personal matter, give a rough reason and ask for emergency leave.
+6. Keep the reason short and clear. If you're sick, say "I'm unwell and can't come in today," and add that you'll see a doctor and send a medical certificate. For an unexpected family or personal matter, give a rough reason and ask for Emergency Leave.
 7. The fourth step is sending documents. After reporting sick and visiting a doctor, send a document such as a medical certificate to Sujin or Harin through the set channel on the same day. Deadlines can differ by center, so learn your center's rules ahead of time, including that sick days stay on your attendance record.
 8. A word from Miso: On a sick day I once asked a colleague to "tell the team leader," and it was recorded as a no-show. The sicker you are, the more reporting it yourself by the set method protects you.
 
