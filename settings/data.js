@@ -31,4 +31,11 @@ export const SETTINGS_UI = {
   offlineReady: { ko: "오프라인 준비 완료", en: "Ready for offline use" },
   offlineWait: { ko: "오프라인 준비 중이에요. 인터넷이 될 때 앱을 한 번 다시 열어 주세요.", en: "Getting ready for offline use. Open the app again once you're online." },
   installHeading: { ko: "홈 화면에 추가", en: "Add to home screen" },
+  updateHeading: { ko: "최신 버전 받기", en: "Get the latest version" },
+  updateNote: { ko: "업데이트가 안 보이면 눌러 주세요. 학습 기록은 그대로 남아요.", en: "If you don't see the latest update, tap Update now. Your learning records stay as they are." },
+  updateNow: { ko: "현재 버전", en: "Current version" },
+  updateButton: { ko: "새로 받기", en: "Update now" },
+  updateOffline: { ko: "인터넷에 연결된 뒤 다시 눌러 주세요.", en: "Connect to the internet, then tap again." },
+  updateWorking: { ko: "최신 버전을 받고 있어요. 잠시 뒤 화면이 다시 열려요.", en: "Getting the latest version. The page will reload in a moment." },
+  updateUnreachable: { ko: "서버에 연결하지 못했어요. 잠시 뒤 다시 눌러 주세요.", en: "Couldn't reach the server. Try again in a moment." },
 };

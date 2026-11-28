@@ -4,7 +4,7 @@
 // On install it keeps every page file; afterwards it answers from that copy
 // and refreshes it in the background. A new version (any file changed)
 // replaces the old copy as soon as it is installed.
-const VERSION = 'f8149954c16b';
+const VERSION = 'e57e560cc5ad';
 // A name only this site uses: other projects can share the github.io address.
 const PREFIX = 'cckb-';
 const CACHE = `${PREFIX}${VERSION}`;
@@ -216,6 +216,7 @@ const PRECACHE = [
   "settings/install-sheet.js",
   "settings/render.js",
   "settings/settings.css",
+  "settings/update.js",
   "shared/appbar.css",
   "shared/appbar.js",
   "shared/brand.js",

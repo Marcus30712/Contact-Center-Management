@@ -54,7 +54,15 @@
 | offlineReady | 오프라인 준비 완료 | Ready for offline use |
 | offlineWait | 오프라인 준비 중이에요. 인터넷이 될 때 앱을 한 번 다시 열어 주세요. | Getting ready for offline use. Open the app again once you're online. |
 | installHeading | 홈 화면에 추가 | Add to home screen |
+| updateHeading | 최신 버전 받기 | Get the latest version |
+| updateNote | 업데이트가 안 보이면 눌러 주세요. 학습 기록은 그대로 남아요. | If you don't see the latest update, tap Update now. Your learning records stay as they are. |
+| updateNow | 현재 버전 | Current version |
+| updateButton | 새로 받기 | Update now |
+| updateOffline | 인터넷에 연결된 뒤 다시 눌러 주세요. | Connect to the internet, then tap again. |
+| updateWorking | 최신 버전을 받고 있어요. 잠시 뒤 화면이 다시 열려요. | Getting the latest version. The page will reload in a moment. |
+| updateUnreachable | 서버에 연결하지 못했어요. 잠시 뒤 다시 눌러 주세요. | Couldn't reach the server. Try again in a moment. |
 
+- 최신 버전 받기(2026-11-28): "새로 받기"를 누르면 인터넷이 없을 때는 아무것도 하지 않고 알린다. 새 버전 확인이 실패하거나 10초 안에 끝나지 않으면 "서버에 연결하지 못했어요"라고 알리고 아무것도 지우지 않는다. 새 버전이 있으면 설치가 끝나기를(최대 60초) 기다린 뒤, 없으면 기기에 저장된 화면 파일을 인터넷에서 다시 받아 덮어쓴 뒤 화면을 다시 불러온다. 저장된 파일은 지우지 않으므로 오프라인 사용이 유지되고, 학습 기록(localStorage)은 건드리지 않는다. 받는 동안에는 버튼을 다시 눌러도 한 번만 실행된다.
 - 설치 안내 문장은 첫 화면의 `HOME_UI.install`을 그대로 쓴다. 맨 아래 링크 글자는 개인정보처리방침의 `link`, 참고 자료의 `title`을 쓴다. 언어 버튼은 "한국어" / "English".
 
 ## 5. 개인정보처리방침 변경 (승인 2026-11-20)

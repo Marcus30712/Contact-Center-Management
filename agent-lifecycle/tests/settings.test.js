@@ -29,7 +29,7 @@ const rows = () => {
 
 test('settings wording is the confirmed table, in both languages', () => {
   const table = rows();
-  assert.equal(table.length, 28);
+  assert.equal(table.length, 35);
   assert.deepEqual(Object.keys(SETTINGS_UI), table.map((r) => r[0]));
   for (const [key, ko, en] of table) assert.deepEqual(SETTINGS_UI[key], { ko, en }, key);
   for (const v of Object.values(SETTINGS_UI)) assert.ok(!/[가-힣]/.test(v.en), v.en);
@@ -193,7 +193,7 @@ test('the page shows its sections in order with the confirmed words', () => {
     const tr = (k) => SETTINGS_UI[k][lang];
     assert.equal(root.querySelector('h1').textContent, tr('title'));
     assert.deepEqual([...root.querySelectorAll('h2')].map((x) => x.textContent),
-      [tr('langHeading'), ROLE_UI.settingsHeading[lang], INSTALL_UI.tutorialHeading[lang], tr('themeHeading'), tr('backupHeading'), tr('installHeading')]);
+      [tr('langHeading'), ROLE_UI.settingsHeading[lang], INSTALL_UI.tutorialHeading[lang], tr('themeHeading'), tr('backupHeading'), tr('updateHeading'), tr('installHeading')]);
     assert.equal(root.querySelector('[data-install]').textContent, INSTALL_UI.installNote[lang]);
     assert.equal(root.querySelector('button[data-install-open]').textContent, INSTALL_UI.installButton[lang]);
     const foot = root.querySelector('[data-footer]');
@@ -432,4 +432,48 @@ test('with nothing to erase, Reset learning only says so', () => {
   root.querySelector('button[data-reset]').click();
   assert.equal(root.querySelector('[data-reset-confirm]'), null);
   assert.equal(root.ownerDocument.querySelector('[data-status]').textContent, SETTINGS_UI.resetNone.ko);
+});
+
+// 최신 버전 받기 (2026-11-28): Update now shows the version and hands the work to opts.refresh.
+test('the update section shows the version and the note, with an Update now button', () => {
+  for (const lang of ['ko', 'en']) {
+    const { root } = page(fakeStorage(), lang, { build: '8295c1916230' });
+    const sec = root.querySelector('[data-update-section]');
+    assert.equal(sec.querySelector('h2').textContent, SETTINGS_UI.updateHeading[lang]);
+    assert.equal(sec.querySelector('[data-update-version]').textContent, `${SETTINGS_UI.updateNow[lang]} v${APP_VERSION} (8295c191)`);
+    assert.ok(sec.textContent.includes(SETTINGS_UI.updateNote[lang]));
+    assert.equal(sec.querySelector('button[data-refresh]').textContent, SETTINGS_UI.updateButton[lang]);
+  }
+  assert.equal(page(fakeStorage(), 'ko', { build: null }).root.querySelector('[data-update-version]').textContent, `현재 버전 v${APP_VERSION}`);
+});
+
+test('Update now shows it is working, runs once, keeps the learning records, and explains when it cannot', async () => {
+  const storage = fakeStorage({ 'agent-course:v1': '{"completed":["first"]}' });
+  let calls = 0;
+  let release;
+  let answer = 'reloading';
+  const { root, document } = page(storage, 'ko', { refresh: () => { calls += 1; return new Promise((r) => { release = () => r(answer); }); } });
+  click(root.querySelector('[data-refresh]'));
+  assert.equal(document.querySelector('[data-status]').textContent, SETTINGS_UI.updateWorking.ko);
+  assert.equal(root.querySelector('[data-update-working]').textContent, SETTINGS_UI.updateWorking.ko);
+  assert.equal(root.querySelector('[data-refresh]').getAttribute('aria-disabled'), 'true');
+  assert.equal(document.activeElement, root.querySelector('[data-refresh]'));
+  click(root.querySelector('[data-refresh]'));
+  assert.equal(calls, 1, 'a second tap while working does nothing');
+  release();
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(storage.getItem('agent-course:v1'), '{"completed":["first"]}');
+  for (const [result, key] of [['offline', 'updateOffline'], ['unreachable', 'updateUnreachable']]) {
+    answer = result;
+    const before = calls;
+    const { root: r2, document: d2 } = page(storage, 'ko', { refresh: async () => { calls += 1; return answer; } });
+    click(r2.querySelector('[data-refresh]'));
+    await new Promise((r) => setTimeout(r, 0));
+    assert.equal(calls, before + 1);
+    assert.equal(d2.querySelector('[data-status]').textContent, SETTINGS_UI[key].ko);
+    assert.equal(r2.querySelector('[data-update-message]').textContent, SETTINGS_UI[key].ko);
+    assert.equal(r2.querySelector('[data-update-working]'), null);
+    assert.equal(r2.querySelector('[data-refresh]').getAttribute('aria-disabled'), null);
+    assert.equal(d2.activeElement, r2.querySelector('[data-refresh]'));
+  }
 });

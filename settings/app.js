@@ -4,6 +4,7 @@ import { renderLangToggle } from '../agent-lifecycle/js/render/langToggle.js';
 import { localDate } from '../practice/engine.js';
 import { SETTINGS_UI as UI } from './data.js';
 import { renderSettings, newSettingsView } from './render.js';
+import { refreshApp } from './update.js';
 
 function getStorage() {
   try {
@@ -51,6 +52,7 @@ function draw() {
     today: localDate(),
     offline,
     build,
+    refresh: () => refreshApp({ online: navigator.onLine, caches: globalThis.caches, container: navigator.serviceWorker, fetch: (url, init) => fetch(url, init), reload: () => location.reload() }),
   });
 }
 

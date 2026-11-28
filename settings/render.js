@@ -10,7 +10,7 @@ import { PRIVACY_TEXT } from '../privacy/text.js';
 import { REFERENCES_TEXT } from '../references/text.js';
 
 export function newSettingsView() {
-  return { status: '', statusLang: null, pending: null, resetAsk: false, pick: async () => {} };
+  return { status: '', statusLang: null, pending: null, resetAsk: false, updating: false, updateMessage: null, pick: async () => {} };
 }
 
 // opts: onLang(lang) to switch language, download(name, text) to save a file,
@@ -137,6 +137,13 @@ export function renderSettings(root, lang, storage, view, opts) {
       resetAsk,
       h('p', { class: 'st-offline', 'data-offline': true, text: tr(opts.offline ? UI.offlineReady : UI.offlineWait) }),
     ]),
+    section(UI.updateHeading, [
+      h('p', { class: 'muted', 'data-update-version': true, text: `${tr(UI.updateNow)} v${APP_VERSION}${opts.build ? ` (${opts.build.slice(0, 8)})` : ''}` }),
+      h('p', { class: 'muted', text: tr(UI.updateNote) }),
+      h('button', { type: 'button', class: 'btn st-wide', 'data-refresh': true, ...(view.updating ? { 'aria-disabled': 'true' } : {}), text: tr(UI.updateButton), onclick: refresh }),
+      view.updating ? h('p', { class: 'st-offline', 'data-update-working': true, text: tr(UI.updateWorking) }) : null,
+      view.updateMessage ? h('p', { class: 'st-offline', 'data-update-message': true, text: tr(UI[view.updateMessage]) }) : null,
+    ], { 'data-update-section': true }),
     section(UI.installHeading, [
       h('p', { class: 'muted', 'data-install': true, text: tr(INSTALL_UI.installNote) }),
       h('button', { type: 'button', class: 'btn st-wide', 'data-install-open': true, text: tr(INSTALL_UI.installButton), onclick: () => openInstallSheet(document, lang, { platform: installPlatform(navigator.userAgent), focusBack: () => root.querySelector('[data-install-open]')?.focus({ preventScroll: true }) }) }),
@@ -148,6 +155,24 @@ export function renderSettings(root, lang, storage, view, opts) {
       h('a', { href: '../references/', 'data-references': true, text: tr(REFERENCES_TEXT.title) }),
     ]),
   );
+
+  // 최신 버전 받기: the work (and the reload) belongs to opts.refresh. While it
+  // runs the button stays focusable but does nothing; a result that is not a
+  // reload explains itself on screen and to screen readers.
+  function refresh() {
+    if (view.updating) return;
+    view.updating = true;
+    view.updateMessage = null;
+    say(UI.updateWorking);
+    redraw('[data-refresh]');
+    Promise.resolve(opts.refresh?.()).catch(() => 'unreachable').then((result) => {
+      if (result === 'reloading') return;
+      view.updating = false;
+      view.updateMessage = result === 'offline' ? 'updateOffline' : 'updateUnreachable';
+      say(UI[view.updateMessage]);
+      redraw('[data-refresh]');
+    });
+  }
 
   function askReset() {
     view.pending = null;
