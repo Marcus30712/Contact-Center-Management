@@ -358,3 +358,11 @@ test('a wrong Excel answer in practice shows that option\'s feedback', async () 
   const id = q.key.slice('excel:'.length);
   assert.equal(root.querySelector('[data-explanation] [data-feedback]').textContent, EXCEL_FEEDBACK[id][Number(wrong.id)].ko);
 });
+
+// 2026-11-29: a weekend with no weekday run says when the streak starts again, not "0일째".
+test('a weekend with nothing carried over says Monday instead of day 0', () => {
+  const s = store();
+  const sat = page(s, SAT).root;
+  assert.equal(sat.querySelector('[data-streak]').textContent, UI.streakWeekendZero.ko);
+  assert.ok(!sat.querySelector('[data-streak]').textContent.includes('0일째'));
+});

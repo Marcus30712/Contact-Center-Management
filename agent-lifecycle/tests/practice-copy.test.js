@@ -18,7 +18,7 @@ const rows = (header) => {
 
 test('practice wording is the confirmed table, in both languages', () => {
   const table = rows('| 키 | 한국어 | English |');
-  assert.equal(table.length, 27);
+  assert.equal(table.length, 29);
   assert.deepEqual(Object.keys(PRACTICE_UI), table.map((r) => r[0]));
   for (const [key, ko, en] of table) assert.deepEqual(PRACTICE_UI[key], { ko, en }, key);
 });

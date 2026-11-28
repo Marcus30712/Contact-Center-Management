@@ -91,7 +91,7 @@ export function renderPractice(root, lang, storage, today, view = newPracticeVie
 
   const header = h('header', { class: 'pr-head' }, [
     h('h1', { text: tr(UI.title) }),
-    questions.length ? h('p', { class: 'pr-streak', 'data-streak': true, text: run.weekend ? fill(tr(UI.streak), { n: run.count }) : streakText }) : null,
+    questions.length ? h('p', { class: 'pr-streak', 'data-streak': true, text: run.weekend ? (run.count ? fill(tr(UI.streak), { n: run.count }) : tr(UI.streakWeekendZero)) : streakText }) : null,
   ]);
   // One status line for screen readers, outside the redrawn area, so a change
   // of its text is announced.
