@@ -398,7 +398,7 @@ export const AGENT_GROUPS = [
         "id": "a16",
         "text": {
           "ko": "언젠가 팀장이 되고 싶다",
-          "en": "You want to become a team leader someday"
+          "en": "You want to become a TL someday"
         },
         "first": {
           "title": {

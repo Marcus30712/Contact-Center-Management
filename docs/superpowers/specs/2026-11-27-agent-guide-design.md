@@ -140,7 +140,7 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | 감점이 부당하다고 생각한다 | You think you lost points unfairly |
 | 아파서 내일 출근하기 어렵다 | You're sick and may not make it in tomorrow |
 | 직무전문가가 되고 싶다 | You want to become an SME |
-| 언젠가 팀장이 되고 싶다 | You want to become a team leader someday |
+| 언젠가 팀장이 되고 싶다 | You want to become a TL someday |
 | 상담사 첫걸음 레슨 1 · 첫 출근 | Agent First Steps lesson 1 · Your First Day at Work |
 | 상담사 첫걸음 레슨 2 · 기본 교육을 버티는 법 | Agent First Steps lesson 2 · Getting Through Training |
 | 상담사 첫걸음 레슨 3 · 실무 교육과 실무 체험: 묻는 법 | Agent First Steps lesson 3 · OJT and Nesting: How to Ask |

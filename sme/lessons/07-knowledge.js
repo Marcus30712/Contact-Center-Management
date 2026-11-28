@@ -29,10 +29,10 @@ export default {
     step(tx("첫 단계는 매일 스크러빙하기입니다. DSAT, CSAT, 미해결 순서로 티켓을 고르고, 원인을 한두 문장으로 요약해 정해진 분류로 나눕니다. 절차는 직무전문가 SOP의 스크러빙에 있습니다.", "The first stage is scrubbing every day. Pick tickets in the order DSAT, CSAT, then unresolved, sum up each cause in a sentence or two, and sort it into the set categories. The procedure is in the Scrubbing lesson of the SME SOP Library."), flow, ["scrub"], null),
     step(tx("매일 조금씩 하는 이유는 트렌드가 쌓여야 보이기 때문입니다. 한 번에 몰아서 보면 원인이 겹치는 것을 놓치기 쉽고, 돌려주는 것도 늦어집니다.", "A little each day works because trends show only as they build up. Looking at many at once makes it easy to miss shared causes, and slows giving them back."), flow, ["scrub"], null),
     step(tx("둘째 단계는 고객의 소리(VOC) 정리입니다. 고객이 반복해서 하는 말, 곧 불만과 요청과 제품에 대한 의견을 모아 정리합니다. 상담사가 바꿀 수 없는 원인은 고객사에 전할 내용이 됩니다.", "The second stage is the VOC write-up. Collect what customers keep saying: complaints, requests and views on the product. Causes agents cannot change become something to pass to the client."), flow, ["voc"], null),
-    step(tx("셋째 단계는 캘리브레이션입니다. QA, 팀장과 함께 같은 상담을 각자 채점하고 점수 차이를 맞춥니다. 직무전문가는 상담사를 평가하러 가는 것이 아니라, 상담사가 현장에서 실제로 겪는 상황을 알려 주러 갑니다.", "The third stage is calibration. With QA and the team leader, each person scores the same contact and you align the differences. The SME is there not to evaluate agents but to bring what they really face on the floor."), flow, ["calibrate"], null),
-    step(tx("캘리브레이션에서 기준이 바뀌면 팀장과 맞춰 상담사들에게 먼저 전하는 것도 직무전문가의 일입니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다.", "When calibration changes a standard, the SME also agrees with the team leader and tells the agents first. No agent should be scored on a standard they did not know had changed."), flow, ["calibrate"], null),
+    step(tx("셋째 단계는 캘리브레이션입니다. QA, 팀장과 함께 같은 상담을 각자 채점하고 점수 차이를 맞춥니다. 직무전문가는 상담사를 평가하러 가는 것이 아니라, 상담사가 현장에서 실제로 겪는 상황을 알려 주러 갑니다.", "The third stage is calibration. With QA and the TL, each person scores the same contact and you align the differences. The SME is there not to evaluate agents but to bring what they really face on the floor."), flow, ["calibrate"], null),
+    step(tx("캘리브레이션에서 기준이 바뀌면 팀장과 맞춰 상담사들에게 먼저 전하는 것도 직무전문가의 일입니다. 바뀐 기준을 모른 채 평가받는 상담사가 없게 합니다.", "When calibration changes a standard, the SME also agrees with the TL and tells the agents first. No agent should be scored on a standard they did not know had changed."), flow, ["calibrate"], null),
     step(tx("넷째 단계는 팀에 돌려주기입니다. 찾은 것을 허들, 팀 채팅방, 지식 베이스 업데이트로 나눠 전합니다.", "The fourth stage is giving it back. Pass what you found to the team through huddles, the team chat and knowledge base updates."), flow, ["give"], null),
-    step(tx("한 사람의 실수가 원인이면 팀 앞이 아니라 팀장에게 건네는 요약(레슨 5)으로 보냅니다. 팀에는 누구의 건인지 밝히지 않고 배울 점만 나눕니다.", "If one person's mistake is the cause, send it in the summary for the team leader (lesson 5), not to the whole team. With the team, share only the lesson, without saying whose contact it was."), flow, ["give"], null),
+    step(tx("한 사람의 실수가 원인이면 팀 앞이 아니라 팀장에게 건네는 요약(레슨 5)으로 보냅니다. 팀에는 누구의 건인지 밝히지 않고 배울 점만 나눕니다.", "If one person's mistake is the cause, send it in the summary for the TL (lesson 5), not to the whole team. With the team, share only the lesson, without saying whose contact it was."), flow, ["give"], null),
     step(tx("돌려준 지식이 쌓이면 같은 질문이 줄고, 당신에게 오는 요청도 줄어듭니다. 이것이 직무전문가가 팀을 키우는 방식입니다.", "As the knowledge you give back builds up, the same questions drop, and so do the requests that come to you. That is how an SME grows a team."), flow, ["give"], null),
   ],
   checkpoint: [
@@ -41,11 +41,11 @@ export default {
       prompt: tx("스크러빙에서 지민의 절차 실수로 생긴 DSAT를 찾았습니다. 어떻게 나눌까요?", "While scrubbing, you find a DSAT caused by Jimin's procedure mistake. How do you share it?"),
       options: [
         option("a", tx("허들에서 지민의 건이라고 밝히고, 같은 실수를 막을 사례로 설명한다.", "In the huddle, say it was Jimin's contact and use it as an example to prevent the same mistake."), tx("이름이 나오면 지민은 창피를 당하고, 다른 상담사들은 실수를 숨기기 시작합니다.", "Naming her embarrasses Jimin, and other agents start hiding their mistakes.")),
-        option("b", tx("팀장에게 건넬 요약에 담고, 팀에는 이름 없이 배울 점만 나눈다.", "Put it in the summary for the team leader, and share only the lesson with the team, without names.")),
+        option("b", tx("팀장에게 건넬 요약에 담고, 팀에는 이름 없이 배울 점만 나눈다.", "Put it in the summary for the TL, and share only the lesson with the team, without names.")),
         option("c", tx("한 번의 실수라 아무에게도 알리지 않는다.", "Tell no one; it was a one-off mistake."), tx("같은 실수가 다른 상담사에게도 생길 수 있습니다. 배울 점은 팀에 돌려줘야 합니다.", "The same mistake can happen to other agents. The lesson belongs back with the team.")),
       ],
       answer: "b",
-      explanation: tx("개인의 건은 팀장에게, 배울 점은 이름 없이 팀에게 돌려줍니다.", "Individual cases go to the team leader; the lesson goes back to the team without names."),
+      explanation: tx("개인의 건은 팀장에게, 배울 점은 이름 없이 팀에게 돌려줍니다.", "Individual cases go to the TL; the lesson goes back to the team without names."),
     },
     {
       id: "knowledge-q2",

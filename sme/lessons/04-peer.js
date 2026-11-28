@@ -33,7 +33,7 @@ export default {
     step(tx("반대로 일부러 더 엄하게 대하는 것도 공정하지 않습니다. 기준은 같게 하고, 말투는 지금까지처럼 편해도 괜찮습니다.", "Being deliberately stricter with him is not fair either. Keep the standard the same; you can keep talking as casually as before."), flow, ["same"], null),
     step(tx("셋째 단계는 존중하며 돕기입니다. 선임 상담사는 아는 것이 많습니다. 가르치려 하기보다 준호의 판단을 먼저 묻고, 필요한 부분만 더합니다.", "The third stage is helping with respect. Senior agents know a lot. Rather than teaching, ask for Junho's judgment first and add only what is needed."), flow, ["respect"], null),
     step(tx("준호의 경험은 팀의 자원입니다. 신입 서준의 질문을 함께 봐 달라고 부탁하거나, 어려운 케이스를 같이 검토하자고 요청할 수 있습니다.", "Junho's experience is a resource for the team. You can ask him to look at new hire Seojun's questions with you, or to review hard cases together."), flow, ["respect"], null),
-    step(tx("넷째 단계는 팀장과 상의하기입니다. 준호가 승인 없이 절차를 건너뛰는 일이 반복되면 혼자 해결하려 하지 말고 팀장과 상의합니다. 근태와 성과 문제는 팀장이 맡습니다.", "The fourth stage is talking to the team leader. If Junho keeps skipping steps without approval, don't try to fix it alone; talk to the team leader. Attendance and performance belong to the team leader."), flow, ["consult"], null),
+    step(tx("넷째 단계는 팀장과 상의하기입니다. 준호가 승인 없이 절차를 건너뛰는 일이 반복되면 혼자 해결하려 하지 말고 팀장과 상의합니다. 근태와 성과 문제는 팀장이 맡습니다.", "The fourth stage is talking to the TL. If Junho keeps skipping steps without approval, don't try to fix it alone; talk to the TL. Attendance and performance belong to the TL."), flow, ["consult"], null),
     step(tx("첫 주의 솔직한 대화가 출발점입니다. 시간이 지나면 동기였던 사이가 서로를 가장 잘 받쳐 주는 관계가 될 수 있습니다.", "An honest talk in the first week is the starting point. In time, former peers can become the ones who back each other up best."), flow, ["reset"], null),
   ],
   checkpoint: [
@@ -60,5 +60,5 @@ export default {
       explanation: tx("선임의 경험은 존중하되, 승인 기준은 누구에게나 똑같이 확인합니다.", "Respect a senior's experience, but check the approval standard the same way for everyone."),
     },
   ],
-  connection: { to: "lead", text: tx("직무전문가가 받쳐 주는 사람은 상담사만이 아닙니다. 팀장의 일도 나눠 맡습니다.", "The SME does not back up only agents. You also take on part of the team leader's work.") },
+  connection: { to: "lead", text: tx("직무전문가가 받쳐 주는 사람은 상담사만이 아닙니다. 팀장의 일도 나눠 맡습니다.", "The SME does not back up only agents. You also take on part of the TL's work.") },
 };

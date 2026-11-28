@@ -99,10 +99,10 @@ export const QUIZZES = {
       },
       {
         id: "tl-q5",
-        prompt: tx("팀장이 된 지 2주째(예시), 가장 친했던 하은이 QA 점수가 평가자마다 다르다고 불만을 말합니다. 알맞은 것은 무엇일까요?", "Two weeks (Example) into being team leader, Haeun, your closest colleague, complains that QA scores differ by evaluator. What fits best?"),
+        prompt: tx("팀장이 된 지 2주째(예시), 가장 친했던 하은이 QA 점수가 평가자마다 다르다고 불만을 말합니다. 알맞은 것은 무엇일까요?", "Two weeks (Example) into being TL, Haeun, your closest colleague, complains that QA scores differ by evaluator. What fits best?"),
         options: [
           option("a", tx("하은의 말을 믿고, QA에 하은의 점수만 다시 봐 달라고 조용히 부탁한다.", "Believe Haeun and quietly ask QA to look at only her scores again."), tx("한 사람만 챙기면 팀은 기준이 친분에 따라 다르다고 느낍니다.", "Looking after one person makes the team feel the standard depends on friendship.")),
-          option("b", tx("평가는 QA의 일이니 관여하지 않는다.", "Stay out of it and leave evaluation to QA."), tx("팀장도 캘리브레이션에 참여합니다. 기준이 흔들리면 코칭의 근거도 흔들립니다.", "Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching.")),
+          option("b", tx("평가는 QA의 일이니 관여하지 않는다.", "Stay out of it and leave evaluation to QA."), tx("팀장도 캘리브레이션에 참여합니다. 기준이 흔들리면 코칭의 근거도 흔들립니다.", "TLs take part in calibration too. If the standard wobbles, so does the basis for coaching.")),
           option("c", tx("팀 전체의 문제일 수 있으니, QA에 캘리브레이션을 요청하고 결과를 팀에 알린다.", "It may be a team-wide problem, so ask QA for calibration and tell the team the outcome.")),
         ],
         answer: "c",
@@ -137,9 +137,9 @@ export const QUIZZES = {
         id: "sme-q1",
         prompt: tx("통화 중 고객을 보류해 둔 서준이 손을 들었고, 동기 준호는 통화가 끝난 고객의 보상 승인을 티켓으로 요청했고, 미팅 중인 수진 팀장은 오후 출석을 맡아 달라고 메신저를 보냈습니다. 먼저 할 일은 무엇일까요?", "Seojun has a customer on hold and his hand up, your peer Junho asks by ticket for a compensation approval for a customer whose call has ended, and Sujin, in a meeting, messages you to take the afternoon attendance. What do you do first?"),
         options: [
-          option("a", tx("보류 고객이 먼저이니, 서준에게 가고 준호와 팀장에게 언제 할지 알린다.", "The customer on hold comes first, so go to Seojun, and tell Junho and the team leader when you will get to them.")),
+          option("a", tx("보류 고객이 먼저이니, 서준에게 가고 준호와 팀장에게 언제 할지 알린다.", "The customer on hold comes first, so go to Seojun, and tell Junho and the TL when you will get to them.")),
           option("b", tx("티켓으로 와 있어 금방 끝나는, 동기 준호의 승인부터 처리한다.", "Approve your peer Junho's ticketed request first, a quick one."), tx("순서는 빨리 끝나는 일이나 친분이 아니라, 고객이 지금 기다리느냐로 정합니다.", "The order is set by whether a customer is waiting now, not by what's quick or by friendship.")),
-          option("c", tx("팀장의 요청이니 출석 확인부터 하고, 서준에게는 잠시 기다리라고 손짓한다.", "The team leader asked, so do attendance first and signal Seojun to wait a moment."), tx("출석은 잠시 뒤에도 할 수 있지만, 보류된 고객은 기다릴 수 없습니다.", "Attendance can wait a moment; the customer on hold cannot.")),
+          option("c", tx("팀장의 요청이니 출석 확인부터 하고, 서준에게는 잠시 기다리라고 손짓한다.", "The TL asked, so do attendance first and signal Seojun to wait a moment."), tx("출석은 잠시 뒤에도 할 수 있지만, 보류된 고객은 기다릴 수 없습니다.", "Attendance can wait a moment; the customer on hold cannot.")),
         ],
         answer: "a",
         explanation: tx("실시간으로 기다리는 고객이 먼저이고, 기다리게 되는 사람에게는 언제 갈지 알립니다.", "Customers waiting live come first, and whoever has to wait hears when you will come."),
@@ -154,10 +154,10 @@ export const QUIZZES = {
         options: [
           option("a", tx("같은 일이 없도록 팀 채팅방에 준호의 건이라고 밝히고 절차를 다시 안내한다.", "So it doesn't happen again, say in the team chat these were Junho's and explain the procedure again."), tx("이름을 밝히면 준호는 창피를 당하고, 팀은 실수를 숨기기 시작합니다.", "Naming him embarrasses Junho, and the team starts hiding mistakes.")),
           option("b", tx("동기인 준호의 체면을 생각해, 이번에도 모른 척 넘어간다.", "Think of your peer Junho's pride and look the other way again."), tx("한 사람에게만 느슨하면 승인 기준이 친분에 따라 달라집니다.", "When it is looser for one person, the approval standard depends on friendship.")),
-          option("c", tx("준호와 1:1로 같은 기준임을 말하고, 사례는 팀장에게 바로 알린다.", "Tell Junho one on one that the standard is the same for everyone, and tell the team leader about the cases right away.")),
+          option("c", tx("준호와 1:1로 같은 기준임을 말하고, 사례는 팀장에게 바로 알린다.", "Tell Junho one on one that the standard is the same for everyone, and tell the TL about the cases right away.")),
         ],
         answer: "c",
-        explanation: tx("같은 기준을 존중하는 방식으로 지키고, 반복되는 문제는 팀장과 함께 다룹니다.", "Keep the same standard in a respectful way, and handle repeated problems together with the team leader."),
+        explanation: tx("같은 기준을 존중하는 방식으로 지키고, 반복되는 문제는 팀장과 함께 다룹니다.", "Keep the same standard in a respectful way, and handle repeated problems together with the TL."),
         lessons: [
           { title: tx("직무전문가 첫걸음 레슨 4 · 동료였던 선임 서포트", "SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers"), href: "../sme/#peer-0" },
           { title: tx("직무전문가 첫걸음 레슨 5 · 팀장 서포트", "SME First Steps lesson 5 · Supporting the Team Leader"), href: "../sme/#lead-0" },
@@ -180,14 +180,14 @@ export const QUIZZES = {
       },
       {
         id: "sme-q4",
-        prompt: tx("팀장이 자리에 없는 오전, 결근 연락이 두 건 들어오고 대기 고객이 늘기 시작합니다. 어떻게 할까요?", "One morning while the team leader is away, two absence messages come in and customer waits start to grow. What do you do?"),
+        prompt: tx("팀장이 자리에 없는 오전, 결근 연락이 두 건 들어오고 대기 고객이 늘기 시작합니다. 어떻게 할까요?", "One morning while the TL is away, two absence messages come in and customer waits start to grow. What do you do?"),
         options: [
-          option("a", tx("결근 사유를 들어 보고, 아프다고 하면 병가로 처리해 둔다.", "Hear the reasons, and record sick leave if they say they are ill."), tx("사유를 판단하고 근태를 정하는 것은 팀장의 몫입니다.", "Judging reasons and deciding attendance belong to the team leader.")),
-          option("b", tx("결근 연락을 기록하고, 인원 부족을 팀장과 RTA에 바로 알린다.", "Record the absence messages, and tell the team leader and the RTA right away that the team is short.")),
+          option("a", tx("결근 사유를 들어 보고, 아프다고 하면 병가로 처리해 둔다.", "Hear the reasons, and record sick leave if they say they are ill."), tx("사유를 판단하고 근태를 정하는 것은 팀장의 몫입니다.", "Judging reasons and deciding attendance belong to the TL.")),
+          option("b", tx("결근 연락을 기록하고, 인원 부족을 팀장과 RTA에 바로 알린다.", "Record the absence messages, and tell the TL and the RTA right away that the team is short.")),
           option("c", tx("대기가 늘고 있으니 서포트를 멈추고, 혼자 콜을 더 받아 빈자리를 메운다.", "Waits are growing, so stop supporting and take more calls yourself to fill the gap."), tx("혼자 메우는 동안 팀의 요청은 쌓이고, 인원을 조정할 수 있는 사람은 상황을 모릅니다.", "While you fill in alone, the team's requests pile up, and the people who can adjust staffing don't know.")),
         ],
         answer: "b",
-        explanation: tx("출석 대행은 기록하고 알리는 데까지입니다. 인원 조정은 팀장과 RTA가 할 수 있습니다.", "Covering attendance means recording and reporting, nothing more. The team leader and the RTA can adjust staffing."),
+        explanation: tx("출석 대행은 기록하고 알리는 데까지입니다. 인원 조정은 팀장과 RTA가 할 수 있습니다.", "Covering attendance means recording and reporting, nothing more. The TL and the RTA can adjust staffing."),
         lessons: [
           { title: tx("직무전문가 첫걸음 레슨 5 · 팀장 서포트", "SME First Steps lesson 5 · Supporting the Team Leader"), href: "../sme/#lead-0" },
           { title: tx("직무전문가 첫걸음 레슨 6 · 요청이 동시에 몰릴 때", "SME First Steps lesson 6 · When Requests Pile Up at Once"), href: "../sme/#priority-0" },
@@ -214,7 +214,7 @@ export const QUIZZES = {
         options: [
           option("a", tx("준호가 경력이 더 많으니, 그 판단을 믿고 이번 한 번은 승인한다.", "Junho has more experience, so trust his call and approve it this once."), tx("승인 권한 밖의 결정은 되돌리기 어렵고, 경험이 기준을 대신하지 않습니다.", "A decision beyond your limits is hard to undo, and experience does not replace the standard.")),
           option("b", tx("정책에 없는 보상이니 거절하고, 준호에게 그대로 응대를 이어 가게 한다.", "Policy does not cover it, so turn it down and let Junho carry on with the call."), tx("거절로 끝내면 고객의 문제가 남습니다. 내가 정할 수 없는 건은 정할 수 있는 사람에게 넘깁니다.", "Turning it down leaves the customer's problem where it was. What you cannot decide goes to someone who can.")),
-          option("c", tx("권한 밖이니 준호에게 고객 대기 안내를 부탁하고, 팀장에게 바로 넘긴다.", "It is outside your limits, so ask Junho to tell the customer there is a short wait, and pass it to the team leader right away.")),
+          option("c", tx("권한 밖이니 준호에게 고객 대기 안내를 부탁하고, 팀장에게 바로 넘긴다.", "It is outside your limits, so ask Junho to tell the customer there is a short wait, and pass it to the TL right away.")),
         ],
         answer: "c",
         explanation: tx("권한 안은 내가 정하고, 권한 밖은 팀장에게 넘깁니다. 동기의 요청도 같은 기준입니다.", "You decide within your limits and pass on what is outside them. A peer's request follows the same standard."),
@@ -263,7 +263,7 @@ export const QUIZZES = {
         id: "agent-q3",
         prompt: tx("밤새 열이 난 지민은 아침에 출근하기 어렵다고 느낍니다. 근무 시작까지 세 시간(예시) 남았고, 팀 단체 채팅방에는 동료들이 있습니다. 어떻게 할까요?", "Jimin ran a fever all night and doesn't think she can make it in this morning. Her shift starts in three hours (Example), and her colleagues are in the team group chat. What does she do?"),
         options: [
-          option("a", tx("단체 채팅방에 \"오늘 못 나가요\"라고만 남기고 다시 잔다.", "Just post \"Can't make it today\" in the group chat and go back to sleep."), tx("받을 사람이 정해지지 않은 곳에 남기면, 팀장이 늦게 보거나 못 볼 수 있습니다.", "A message with no set recipient may reach the team leader late, or not at all.")),
+          option("a", tx("단체 채팅방에 \"오늘 못 나가요\"라고만 남기고 다시 잔다.", "Just post \"Can't make it today\" in the group chat and go back to sleep."), tx("받을 사람이 정해지지 않은 곳에 남기면, 팀장이 늦게 보거나 못 볼 수 있습니다.", "A message with no set recipient may reach the TL late, or not at all.")),
           option("b", tx("동료가 빠지면 남은 사람에게 문의가 몰리니, 약을 먹고 무리해서 출근한다.", "Contacts pile up on the others when someone is out, so take medicine and push through to work."), tx("아픈데 무리하면 더 길게 빠질 수 있습니다. 절차대로 쉬는 것도 팀을 돕는 일입니다.", "Pushing through while sick can keep you out longer. Resting by the procedure helps the team too.")),
           option("c", tx("정한 방법으로 수진 팀장에게 바로 알리고, 진단서는 당일 안에 보낸다.", "Tell Sujin right away the way the team has set up, and send the doctor's note the same day.")),
         ],
@@ -283,7 +283,7 @@ export const QUIZZES = {
           option("c", tx("목표는 1~2가지만 고른다는 원칙대로, 이번 주는 안내 항목만 고친다.", "Follow the one-or-two-goals rule and fix only the guidance item this week."), tx("본인 확인 누락 같은 치명적 오류는 순서를 기다리지 않고 바로 고칩니다.", "A critical error like missing ID verification gets fixed right away, without waiting its turn.")),
         ],
         answer: "b",
-        explanation: tx("치명적 오류는 바로 고칩니다. 동의하기 어려운 감점은 녹취를 근거로, 팀장을 거쳐 정해진 기한 안에 다시 검토를 요청합니다.", "Fix critical errors right away. For points you can't agree with, ask for a second look with the recording as evidence, through the team leader and by the set deadline."),
+        explanation: tx("치명적 오류는 바로 고칩니다. 동의하기 어려운 감점은 녹취를 근거로, 팀장을 거쳐 정해진 기한 안에 다시 검토를 요청합니다.", "Fix critical errors right away. For points you can't agree with, ask for a second look with the recording as evidence, through the TL and by the set deadline."),
         lessons: [
           { title: tx("상담사 첫걸음 레슨 6 · 매주 평가 리뷰", "Agent First Steps lesson 6 · The Weekly Score Review"), href: "../agent/#review-0" },
           { title: tx("상담사 SOP · 평가 결과 이의 제기", "Agent SOP · Disputing a Quality Score"), href: "../agent-sop/#dispute-0" },
@@ -308,12 +308,12 @@ export const QUIZZES = {
         id: "agent-q6",
         prompt: tx("실전 배치 첫 주, 통화 중에 상담 시스템이 멈췄습니다. 옆자리 동료의 화면도 멈춘 것 같고, 고객은 수화기 너머에서 기다리고 있습니다. 어떻게 할까요?", "In Jimin's first week after Go Live, the contact system freezes mid-call. Her neighbor's screen seems frozen too, and the customer is waiting on the line. What does she do?"),
         options: [
-          option("a", tx("정해진 조치로도 안 되면, 바로 하린이나 팀장에게 알리고 고객에게 안내한다.", "If the set first fix doesn't help, tell Harin or the team leader right away and let the customer know.")),
+          option("a", tx("정해진 조치로도 안 되면, 바로 하린이나 팀장에게 알리고 고객에게 안내한다.", "If the set first fix doesn't help, tell Harin or the TL right away and let the customer know.")),
           option("b", tx("첫 주라 내 실수 같아, 고객 몰래 혼자 재부팅해 본다.", "It's her first week and probably her mistake, so quietly reboot on her own without telling the customer."), tx("정해진 조치로도 안 되면 내 탓으로 여기지 말고 바로 알립니다. 고객에게도 상황을 안내해야 기다림이 길어지지 않습니다.", "If the set first fix doesn't help, don't blame yourself; report it right away. Telling the customer what's happening keeps the wait from dragging on.")),
           option("c", tx("고객에게 10분(예시) 안에 고쳐진다고 약속하고 기다리게 한다.", "Promise the customer it will be fixed within 10 minutes (Example) and ask them to wait."), tx("복구 시간은 상담사가 알 수 없으니, 지킬 수 없는 약속은 하지 않습니다.", "An agent can't know the recovery time, so don't make a promise you can't keep.")),
         ],
         answer: "a",
-        explanation: tx("장애가 의심되면 바로 직무전문가나 팀장에게 알립니다. 고객에게는 정해 준 문장으로 안내하고 복구 시간은 약속하지 않습니다.", "If you suspect an outage, tell the SME or the team leader right away. Give the customer the set wording and don't promise a recovery time."),
+        explanation: tx("장애가 의심되면 바로 직무전문가나 팀장에게 알립니다. 고객에게는 정해 준 문장으로 안내하고 복구 시간은 약속하지 않습니다.", "If you suspect an outage, tell the SME or the TL right away. Give the customer the set wording and don't promise a recovery time."),
         lessons: [
           { title: tx("상담사 첫걸음 레슨 4 · 실전 배치와 첫 콜", "Agent First Steps lesson 4 · Go Live and the First Call"), href: "../agent/#golive-0" },
           { title: tx("상담사 SOP · 시스템 장애 때 대응", "Agent SOP · Responding to a System Outage"), href: "../agent-sop/#outage-0" },

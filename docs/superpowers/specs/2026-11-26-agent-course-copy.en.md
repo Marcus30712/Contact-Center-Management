@@ -30,11 +30,11 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson is about knowing, on your first day at work, the road ahead and the people you'll work with. The course follows Jimin through the first half year.
 2. Today is Jimin's first day at a contact center. The interview is behind her, but she doesn't yet know what she'll learn or when she'll meet real customers.
-3. The first stage is onboarding. You're introduced to the company and the project, and you learn the faces and names of your team leader, colleagues and SME.
+3. The first stage is onboarding. You're introduced to the company and the project, and you learn the faces and names of your TL, colleagues and SME.
 4. The second stage is training. You learn the project's products and services, its systems and its CRM tools. If you're new to this, it's the longest and hardest stretch.
-5. The third stage is OJT and Nesting. You handle real contacts while the trainer and SME watch, then work in a group of new hires with closer support. At the end of Nesting, the trainer and team leader decide together whether you graduate.
+5. The third stage is OJT and Nesting. You handle real contacts while the trainer and SME watch, then work in a group of new hires with closer support. At the end of Nesting, the trainer and TL decide together whether you graduate.
 6. The fourth stage is Go Live. Once you graduate, you join the regular team and start handling contacts on your own. Lesson 4 covers this.
-7. Spend the first week learning who is who. Sujin is the team leader, Junho is a senior agent on the floor, Harin is the SME, Yuna the trainer teaches you, and Dohyun from QA scores contact quality.
+7. Spend the first week learning who is who. Sujin is the TL, Junho is a senior agent on the floor, Harin is the SME, Yuna the trainer teaches you, and Dohyun from QA scores contact quality.
 8. If names don't stick, use the seating plan or chat profiles to note down names and roles. Knowing whom to ask about what comes before names.
 9. A word from Miso: At first this road looked endless to me too. It took me about half a year to feel at home, so you don't need to know everything in your first week.
 
@@ -158,7 +158,7 @@ Same sections and order as the Korean file. US English.
 5. The third stage is confirming. Check the customer's identity, then repeat back what they want in your own words. Starting on a misunderstanding makes the call longer.
 6. The fourth stage is wrapping up. Sum up what you told them and ask whether they need anything else. When the call ends, write the contact notes right away.
 7. At first your average handle time (AHT) will be long. Accuracy comes first; speed follows as you get used to it.
-8. If you made a mistake, don't hide it; tell Harin the SME or your team leader right away. The sooner you tell, the easier it is to put right.
+8. If you made a mistake, don't hide it; tell Harin the SME or your TL right away. The sooner you tell, the easier it is to put right.
 9. A word from Miso: I still can't remember what I said on my first call. Getting to the end was enough.
 
 체크포인트:
@@ -175,7 +175,7 @@ Same sections and order as the Korean file. US English.
 | 2번 질문 | After a call ends, Jimin realizes she gave wrong information. What should she do? |
 | 보기 a (오답) | Move on to the next contact; if the customer doesn't call back, it's fine. |
 | a 피드백 | Wrong information can come back as a bigger complaint. |
-| 보기 b (정답) | Tell the SME or team leader right away and correct it through the process. |
+| 보기 b (정답) | Tell the SME or TL right away and correct it through the process. |
 | 보기 c (오답) | Contact the customer again on her own without telling anyone. |
 | c 피드백 | There may be set rules for contacting customers again and recording it. Tell someone first and follow the process. |
 | 해설 | The sooner a mistake is reported, the smaller it stays. |
@@ -197,10 +197,10 @@ Same sections and order as the Korean file. US English.
 3. The first stage is listening. A customer's anger is usually aimed at the situation, not at the agent. Listen to the end without cutting in, and note the key points.
 4. The second stage is acknowledging. Acknowledge their feelings first, with something like "That must have been really frustrating." Don't promise what you can't do.
 5. The third stage is saying it simply. Use short sentences, one point at a time, and explain in-house terms in plain words. Check along the way that they've understood.
-6. The fourth stage is handing over. Hand requests beyond your authority to Harin the SME or your team leader, as your center's process says. When you do, pass on the customer's situation and what you've told them.
+6. The fourth stage is handing over. Hand requests beyond your authority to Harin the SME or your TL, as your center's process says. When you do, pass on the customer's situation and what you've told them.
 7. There's a set process for ongoing abuse too. First warn the customer with your center's set wording; if it goes past the number of times your center allows, tell them you can't continue because of the abusive language, then end the call.
-8. If your center needs a supervisor's approval, get it from the SME or team leader by voice or message before ending the call. After the call, record in the contact notes who approved it and that it ended because of abusive language.
-9. Handing over or ending a call isn't giving up; it's the process. After a hard call, take a short breather within the agreed limits, and if it shook you badly, tell your team leader.
+8. If your center needs a supervisor's approval, get it from the SME or TL by voice or message before ending the call. After the call, record in the contact notes who approved it and that it ended because of abusive language.
+9. Handing over or ending a call isn't giving up; it's the process. After a hard call, take a short breather within the agreed limits, and if it shook you badly, tell your TL.
 10. A word from Miso: I used to take angry customers' words as my fault and stay upset for a long time. Only when I saw that they were angry at the situation could I keep going.
 
 체크포인트:
@@ -221,7 +221,7 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | There's no need to listen, so hang up the moment the swearing starts, without a word. |
 | c 피드백 | Ending without a warning and a record can leave the complaint on the agent. If your center needs approval, get that too. |
 | 해설 | For abuse, follow the center's process starting with a warning, get approval where it's needed, and leave a record. |
-| 다음 레슨 연결 | Calls like these also come back as quality scores. Next is the weekly score review with your team leader. |
+| 다음 레슨 연결 | Calls like these also come back as quality scores. Next is the weekly score review with your TL. |
 
 ## 레슨 6. The Weekly Score Review
 
@@ -229,17 +229,17 @@ Same sections and order as the Korean file. US English.
 |---|---|
 | 제목 | The Weekly Score Review |
 | 짧은 이름 | Score review |
-| 부제 | Learn to read your quality scores and use the review with your team leader to grow. |
+| 부제 | Learn to read your quality scores and use the review with your Team Leader to grow. |
 | 노드 | Read the score · Listen back · Pick 1–2 goals · Midpoint and final check |
 
 스텝:
 
-1. This lesson is about reading the quality scores you get each week and using the review with your team leader to grow.
-2. Dohyun from QA scores a few of Jimin's contacts each week (Example). Sujin, her team leader, reviews those scores with her every week.
+1. This lesson is about reading the quality scores you get each week and using the review with your TL to grow.
+2. Dohyun from QA scores a few of Jimin's contacts each week (Example). Sujin, her TL, reviews those scores with her every week.
 3. The first stage is reading the score. Look at each item's score rather than the total. What matters is where you lost points, such as the greeting, the identity check or accurate information.
-4. The second stage is listening back. Before the review, go back over the recording or chat log that was scored, or, if your center doesn't let agents open them, ask your team leader or QA to listen with you. You'll hear what the score alone doesn't show.
-5. The third stage is picking one or two goals. Even with several things to fix, pick just the one or two most important as goals with your team leader, and give each goal at least two weeks. With too many goals in a short time, it's hard to reach any of them.
-6. The fourth stage is the midpoint and final check. After the first week, do a midpoint check on how much has improved, and after the last week, do a final check with your team leader on what improved and where you still need help. But if you lost points for a critical error, such as a missed identity check, fix it right away instead of waiting out the period.
+4. The second stage is listening back. Before the review, go back over the recording or chat log that was scored, or, if your center doesn't let agents open them, ask your TL or QA to listen with you. You'll hear what the score alone doesn't show.
+5. The third stage is picking one or two goals. Even with several things to fix, pick just the one or two most important as goals with your TL, and give each goal at least two weeks. With too many goals in a short time, it's hard to reach any of them.
+6. The fourth stage is the midpoint and final check. After the first week, do a midpoint check on how much has improved, and after the last week, do a final check with your TL on what improved and where you still need help. But if you lost points for a critical error, such as a missed identity check, fix it right away instead of waiting out the period.
 7. In the review, ask concretely, for example: "How should I say this part?" Sujin spends this time precisely to give you that answer.
 8. If you disagree with a score, don't push back emotionally. Ask to go over the recording together; if there are grounds, it can be reviewed again through the agreed process.
 9. A word from Miso: At first the reviews scared me, because the score felt like a verdict on me. Only later did I see it as a map of what to fix next.
@@ -249,7 +249,7 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 1번 질문 | Jimin's score dropped this week. What should she do before the review? |
-| 보기 a (오답) | Nothing until the team leader explains it in the review. |
+| 보기 a (오답) | Nothing until the TL explains it in the review. |
 | a 피드백 | Looking first gets you far more out of the same review. |
 | 보기 b (정답) | Go back over the scored contact and write down her questions. |
 | 보기 c (오답) | Prepare explanations for why the score is low. |
@@ -258,7 +258,7 @@ Same sections and order as the Korean file. US English.
 | 2번 질문 | The review turned up five things to fix. What should Jimin do? |
 | 보기 a (오답) | Fix all five at once next week. |
 | a 피드백 | Trying to change everything at once means none of it sticks. |
-| 보기 b (정답) | Pick the one or two most important with the team leader, and work on them for at least two weeks with check-ins. |
+| 보기 b (정답) | Pick the one or two most important with the TL, and work on them for at least two weeks with check-ins. |
 | 보기 c (오답) | Fix only the easiest one, and forget the other four without writing them down. |
 | c 피드백 | Forgetting the rest means the same points keep being lost. Take them in order of importance, and write down the rest. |
 | 해설 | Work on the one or two most important things for at least two weeks, and check them together at the midpoint and the end. |
@@ -279,7 +279,7 @@ Same sections and order as the Korean file. US English.
 2. A contact center builds its schedule to match the people needed in each time slot. If Jimin is out, that slot's calls, chats and emails fall on everyone else.
 3. The first stage is checking the schedule. Check next week's shifts, breaks and training times ahead, and keep to them. This is what schedule adherence measures.
 4. The second stage is telling them early. Request leave or schedule changes as early as you can, using the method and deadline your center sets.
-5. The third stage is sick days. If you're ill or something unavoidable keeps you from work, tell Sujin, your team leader, directly at least 1–2 hours before your shift (Example), the way your team or center sets. If Sujin is on leave or off sick, tell Harin the SME, and bring any documents that are needed.
+5. The third stage is sick days. If you're ill or something unavoidable keeps you from work, tell Sujin, your TL, directly at least 1–2 hours before your shift (Example), the way your team or center sets. If Sujin is on leave or off sick, tell Harin the SME, and bring any documents that are needed.
 6. The fourth stage is days a colleague is out. Even when contacts pile up, keep your scheduled breaks and handle one contact at a time, accurately.
 7. Sick days are recorded too and can affect your evaluation. Knowing your center's attendance rules ahead of time helps you avoid needless penalties.
 8. Coming in when you're ill can keep you out for longer. Resting by the process when you need to is also a way of helping the team.
@@ -292,10 +292,10 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | Jimin wakes up with a fever and can't come in. What should she do? |
 | 보기 a (오답) | See how she feels and get in touch after her shift starts. |
 | a 피드백 | Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence. |
-| 보기 b (정답) | Tell her team leader directly 1–2 hours before her shift (Example), so the schedule can be rearranged. |
+| 보기 b (정답) | Tell her TL directly 1–2 hours before her shift (Example), so the schedule can be rearranged. |
 | 보기 c (오답) | Only ask a colleague to pass it on. |
 | c 피드백 | Going through a colleague can delay or lose the message. Tell them directly the agreed way. |
-| 해설 | On a sick day, tell your team leader directly, well before your shift and the agreed way. If your team leader is away, tell the SME. |
+| 해설 | On a sick day, tell your TL directly, well before your shift and the agreed way. If your TL is away, tell the SME. |
 | 2번 질문 | Two colleagues are off sick, and many contacts are waiting. What should Jimin do? |
 | 보기 a (오답) | Skip her breaks today and take contacts nonstop. |
 | a 피드백 | When you're worn out, mistakes rise and handling time grows. Breaks are part of the schedule too. |
@@ -338,7 +338,7 @@ Same sections and order as the Korean file. US English.
 | c 피드백 | Speed is built on accuracy. Cutting steps brings more repeat contacts. |
 | 해설 | Compare yourself with last month, and practice one thing at a time. |
 | 2번 질문 | What should Jimin bring to the monthly performance review? |
-| 보기 a (오답) | Nothing; just listen to the team leader. |
+| 보기 a (오답) | Nothing; just listen to the TL. |
 | a 피드백 | If you only listen, what you wanted to ask goes undiscussed. |
 | 보기 b (정답) | Notes on what she tried and what changed during the month, and her questions. |
 | 보기 c (오답) | Her numbers compared with other colleagues'. |

@@ -16,7 +16,7 @@ export default {
   title: tx('성과 개선 계획 (PIP)', 'Performance Improvement Plan (PIP)'),
   short: tx('PIP', 'PIP'),
   subtitle: tx('코칭만으로 부족할 때 쓰는 공식 절차.', 'The formal procedure for when coaching alone is not enough.'),
-  roles: tx('팀장', 'Team leader'),
+  roles: tx('팀장', 'Team Leader'),
   personaName: tx('우진', 'Woojin'),
   procedure,
   diagram: {

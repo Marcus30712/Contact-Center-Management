@@ -27,7 +27,7 @@
 | calibration-q1.c | 평가자를 줄 세우는 자리가 되면 솔직한 점수가 나오지 않아, 기준을 맞출 수 없습니다. | If the session ranks the evaluators, people stop giving honest scores, and the standards cannot be aligned. |
 | calibration-q2.a | 참고용으로만 남기면 다음 평가에서 각자 원래 기준으로 돌아가 같은 차이가 다시 생깁니다. | Keeping it only for reference sends everyone back to their own standard at the next evaluation, and the same gap returns. |
 | calibration-q2.c | 직급으로 점수를 정하면 토론한 근거가 사라지고, 다음 세션에서 아무도 의견을 내지 않게 됩니다. | Settling the score by rank throws away the reasons discussed, and at the next session nobody speaks up. |
-| onboarding-q1.b | 근로 계약과 장비 지급은 HR이 맡는 일이라, 팀장이 붙잡으면 팀장만 할 수 있는 일이 비게 됩니다. | Contracts and equipment are HR’s job; if the team leader takes them on, the work only the team leader can do is left undone. |
+| onboarding-q1.b | 근로 계약과 장비 지급은 HR이 맡는 일이라, 팀장이 붙잡으면 팀장만 할 수 있는 일이 비게 됩니다. | Contracts and equipment are HR’s job; if the TL takes them on, the work only the TL can do is left undone. |
 | onboarding-q1.c | 근무 스케줄은 WFM이 맡고, 첫 2주의 서아에게 먼저 필요한 것은 팀에 속해 있다는 느낌입니다. | Schedules belong to WFM, and what Seoa needs first in her first two weeks is a sense that she belongs on the team. |
 | onboarding-q2.a | 결과를 공유받는 사람은 I(Informed)이며, 그 일을 직접 하지는 않습니다. | The person told about the result afterward is I (Informed), who does not do the work. |
 | onboarding-q2.b | 시작 전에 협의하는 사람은 C(Consulted)이며, 의견을 주지만 실무를 맡지는 않습니다. | The person consulted beforehand is C (Consulted), who gives input but does not do the work. |
@@ -38,4 +38,4 @@
 | launch-q1.b | 교육은 뽑은 사람을 가르치는 일이라, 몇 명이 필요한지 정해진 뒤에야 규모와 일정을 잡을 수 있습니다. | Training teaches the people you hire, so its size and schedule can only be set once you know how many people you need. |
 | launch-q1.c | 상담 시스템을 다 갖춰도 필요한 인원을 모르면 몇 명을 뽑을지 정할 수 없습니다. | Even with the systems fully built, you cannot decide how many people to hire without knowing the staffing need. |
 | launch-q2.a | 첫 달 데이터를 기다리는 동안, 현장에서 먼저 드러난 문제가 그대로 고객에게 전해집니다. | While you wait for first-month data, the problems that show up first on the floor go straight to customers. |
-| launch-q2.b | 고객사 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다. | The client business review is the OM’s job; right after launch, the team leader belongs on the floor. |
+| launch-q2.b | 고객사 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다. | The client business review is the OM’s job; right after launch, the TL belongs on the floor. |

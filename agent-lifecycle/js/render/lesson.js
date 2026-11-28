@@ -8,6 +8,7 @@ import { orderedOptions } from '../../../shared/option-order.js';
 import { renderDiagram } from './diagram.js';
 import { UI } from '../i18n/ui.js';
 import { GUIDE_UI } from '../../../guide/data.js';
+import { castOf, segments, CAST_UI } from '../../../shared/cast.js';
 
 // Found from this file's place, so any page that shows a lesson finds the image.
 const MISO_PROUD = new URL('../../../assets/miso/proud.webp', import.meta.url).href;
@@ -20,6 +21,30 @@ export function renderLesson(root, lesson, stepIndex, lang, {
   onNavigate, onComplete, restore, track = 'general', lessonCount = 6, text = {}, guide = null,
 }) {
   const tr = (entry) => t(entry, lang).text;
+  // People in this lesson: a "name (role)" row on top, role pills in body text.
+  const cast = castOf(lesson);
+  const rich = (entry) => {
+    const text = tr(entry);
+    const parts = segments(text, /[가-힣]/.test(text) ? 'ko' : 'en', cast);
+    const out = [];
+    for (let i = 0; i < parts.length; i += 1) {
+      const part = parts[i];
+      if (typeof part === 'string') { out.push(part); continue; }
+      const pill = h('span', { class: 'role-pill', 'data-role-pill': true, 'data-role': part.roleKey, text: part.label });
+      // The particle right after the pill (가, 에게, 's) never wraps away from it.
+      const rest = typeof parts[i + 1] === 'string' ? parts[i + 1] : '';
+      const glue = rest.match(/^[^\s,.;:!?)]*/)[0];
+      out.push(h('span', { class: 'pill-wrap', 'data-pill-wrap': true }, [pill, glue]));
+      if (glue) { parts[i + 1] = rest.slice(glue.length); }
+    }
+    return out.filter((n) => n !== '');
+  };
+  const castRow = cast.length ? h('p', { class: 'cast-row', 'data-cast': true }, [
+    h('span', { class: 'cast-label', 'data-cast-label': true, text: tr(CAST_UI.label) }),
+    ...cast.map((person) => h('span', { class: 'role-pill cast-chip', 'data-cast-person': true, 'data-role': person.roleKey }, [
+      h('strong', { text: person.name[lang] }), ` (${person.role[lang]})`,
+    ])),
+  ]) : null;
   const ui = { ...UI, ...text };
   // A lesson whose connection is 'home' ends its course: the card leads back to the list.
   const toList = lesson.connection.to === 'home';
@@ -60,7 +85,7 @@ export function renderLesson(root, lesson, stepIndex, lang, {
     h('h3', { text: tr(ui.connection) }),
     // Opened from the guide: the usual "up next" text gives way to the guide's
     // "then go here", which comes first; the usual next lesson stays second.
-    guide ? null : h('p', { text: tr(lesson.connection.text) }),
+    guide ? null : h('p', {}, rich(lesson.connection.text)),
     guide ? h('p', { class: 'guide-from', 'data-guide-from': true, text: `${tr(GUIDE_UI.fromGuide)} · ${tr(guide.text)}` }) : null,
     guide ? h('a', {
       class: 'btn primary', 'data-guide-then': true, href: guide.then.href,
@@ -76,11 +101,11 @@ export function renderLesson(root, lesson, stepIndex, lang, {
   const questions = checkpoint.map((q) => {
     const explanation = h('div', { class: 'explanation', 'data-explanation': true, hidden: true, 'aria-live': 'polite' });
     const buttons = orderedOptions(q).map((o) => h('button', {
-      type: 'button', class: 'option', 'data-option': o.id, text: tr(o.text),
+      type: 'button', class: 'option', 'data-option': o.id,
       onclick: () => answer(q, o.id, buttons, explanation),
-    }));
+    }, rich(o.text)));
     return h('div', { class: 'question', 'data-question': q.id }, [
-      h('p', { class: 'prompt', 'data-prompt': true, text: tr(q.prompt) }),
+      h('p', { class: 'prompt', 'data-prompt': true }, rich(q.prompt)),
       h('div', { class: 'options' }, buttons),
       explanation,
     ]);
@@ -107,9 +132,9 @@ export function renderLesson(root, lesson, stepIndex, lang, {
     const feedback = correct ? null : q.options.find((o) => o.id === optionId)?.feedback;
     explanation.replaceChildren(...[
       h('strong', { text: `${tr(correct ? UI.correct : UI.incorrect)} ` }),
-      feedback ? h('span', { 'data-feedback': true, text: tr(feedback) }) : null,
+      feedback ? h('span', { 'data-feedback': true }, rich(feedback)) : null,
       feedback ? ' ' : null,
-      document.createTextNode(tr(q.explanation)),
+      ...rich(q.explanation).map((n) => (typeof n === 'string' ? document.createTextNode(n) : n)),
     ].filter(Boolean)); // replaceChildren would write an empty part as "null".
     answers.set(q.id, optionId);
     if (answers.size === checkpoint.length) {
@@ -136,7 +161,7 @@ export function renderLesson(root, lesson, stepIndex, lang, {
   function drawStep() {
     const step = steps[player.index];
     renderDiagram(svg, lesson.diagram, step, lang, lesson.personaName ? { personaName: lesson.personaName } : undefined);
-    caption.textContent = tr(step.caption);
+    caption.replaceChildren(...rich(step.caption));
     counter.textContent = `${player.index + 1} / ${steps.length}`;
     badge.hidden = !step.track;
     badge.textContent = step.track ? tr(step.track === 'tech' ? UI.trackTech : UI.trackGeneral) : '';
@@ -169,6 +194,7 @@ export function renderLesson(root, lesson, stepIndex, lang, {
       h('h1', { text: tr(lesson.title) }),
       h('p', { class: 'subtitle', text: tr(lesson.subtitle) }),
       h('p', { class: 'translation-note', 'data-translation-note': true, hidden: !fallback, text: fallback ? tr(UI.translationComing) : '' }),
+      castRow,
     ]),
     stepsView,
     checkpointView,

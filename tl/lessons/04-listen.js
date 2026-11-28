@@ -40,7 +40,7 @@ export default {
       options: [
         option("a", tx("나중에 코칭 근거가 되게, 지민의 습관으로 메모해 둔다.", "Note it as Jimin's habit, so you have grounds for coaching later."), tx("한 건은 아직 습관이 아닙니다. 다른 건에서도 나오는지 봅니다.", "One contact isn't a habit yet. See whether it shows up in others.")),
         option("b", tx("한 건은 우연일 수 있으니, 몇 건 더 듣고 반복되면 습관으로 적는다.", "One call could be chance, so listen to a few more and note it as a habit if it repeats.")),
-        option("c", tx("반복을 막으려고, 그 자리에서 바로 지민을 불러 주의를 주고 다시 설명한다.", "To stop it repeating, call Jimin over on the spot, warn her and explain again."), tx("파악하는 단계에서 한 건으로 지적하면, 팀원은 새 팀장을 감시자로 느낍니다.", "Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog.")),
+        option("c", tx("반복을 막으려고, 그 자리에서 바로 지민을 불러 주의를 주고 다시 설명한다.", "To stop it repeating, call Jimin over on the spot, warn her and explain again."), tx("파악하는 단계에서 한 건으로 지적하면, 팀원은 새 팀장을 감시자로 느낍니다.", "Pointing out a single contact while you're still getting to know the team makes people see the new TL as a watchdog.")),
       ],
       answer: "b",
       explanation: tx("여러 건에서 반복될 때 습관이라고 봅니다. 다만 필수 고지처럼 꼭 해야 하는 안내라면 한 건이라도 바로 바로잡습니다.", "Call it a habit when it repeats across several contacts. But if it is a required disclosure, correct it right away, even once."),

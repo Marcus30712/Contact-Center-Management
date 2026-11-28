@@ -13,7 +13,7 @@ export default {
   title: tx("시스템 장애 때 대응", "Responding to a System Outage"),
   short: tx("시스템 장애", "System outage"),
   subtitle: tx("혼자 고치려 하지 않고, 바로 알리고, 고객에게 정직하게 안내합니다.", "Don't try to fix it alone; report it right away and be honest with customers."),
-  roles: tx("상담사 → 직무전문가 → 팀장", "Agent → SME → Team leader"),
+  roles: tx("상담사 → 직무전문가 → 팀장", "Agent → SME → TL"),
   procedure,
   diagram: {
     nodes: [
@@ -58,5 +58,5 @@ export default {
       explanation: tx("장애 때는 정직하게 알리고, 다음에 어떻게 될지 안내합니다. 확실하지 않은 시간은 약속하지 않습니다.", "During an outage, be honest and explain what happens next. Don't promise a time you're not sure of."),
     },
   ],
-  connection: { to: "home", text: tx("상담사 SOP 라이브러리를 마쳤습니다. 배운 순서대로 하면 직무전문가와 팀장이 내 일을 바로 이어받을 수 있습니다.", "You've finished the Agent SOP Library. Follow the steps in the order you learned, and the SME and the team leader can pick up your work right away.") },
+  connection: { to: "home", text: tx("상담사 SOP 라이브러리를 마쳤습니다. 배운 순서대로 하면 직무전문가와 팀장이 내 일을 바로 이어받을 수 있습니다.", "You've finished the Agent SOP Library. Follow the steps in the order you learned, and the SME and the TL can pick up your work right away.") },
 };

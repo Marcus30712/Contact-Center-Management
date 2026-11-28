@@ -1648,6 +1648,21 @@ def main():
         page.screenshot(path=str(OUT / "am-sop-390.png"), full_page=True)
         page.context.close()
 
+        # (cast) 등장인물 줄 · 본문 직급 표시: chips and pills fit a 320px screen, in both languages
+        page = new_page(browser, errors, init="try { localStorage.setItem('queuecraft:role', 'am'); } catch (e) {}")
+        page.set_viewport_size({"width": 320, "height": 740})
+        for lang in ("ko", "en"):
+            for path in ("am-sop/#backup-2", "agent-sop/#kbreport-3", "agent/#review-1", "tl/#listen-3"):
+                page.goto(HUB + path)
+                page.wait_for_selector("[data-cast] [data-cast-person]")
+                page.click(f"[data-lang='{lang}']")
+                page.wait_for_timeout(150)
+                fits = page.evaluate("() => [...document.querySelectorAll('[data-cast-person], [data-role-pill]')].every((e) => { const r = e.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth + 0.5; })")
+                pills = page.locator("[data-caption] [data-role-pill]").count()
+                check(f"(cast) {lang} {path}: the cast row and pills fit at 320px", fits and pills >= 1, str(pills))
+        page.click("[data-lang='ko']")
+        page.context.close()
+
         # (ac) Agent Career Lifecycle (2026-11-26): an agent opens it from Learn, finishes lesson 1, and home counts it
         page = new_page(browser, errors, init="try { if (!localStorage.getItem('queuecraft:role')) localStorage.setItem('queuecraft:role', 'agent'); } catch (e) {}")
         page.goto(HUB)

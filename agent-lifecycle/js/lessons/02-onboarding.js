@@ -28,7 +28,7 @@ export default {
   steps: [
     step(tx('지민이 첫 출근을 합니다. 실무에 들어가기 전에 필수 지식과 시스템을 익히는 기간이 온보딩입니다. 기간은 센터마다 다릅니다(예시: 2~4주).', 'Jimin starts her first day. Onboarding is the period for learning the essential knowledge and systems before live work. The length varies by center (Example: 2 to 4 weeks).'),
       ['join'], ['join'], 'join'),
-    step(tx('팀장은 지민에게 버디(Buddy)를 정해 주고 팀원들에게 소개합니다. 편하게 물어볼 사람이 생기면 적응이 쉬워집니다. 첫 주가 끝나면 1:1로 만나 어려운 점을 듣고 필요한 지원을 약속합니다.', 'The team leader assigns Jimin a buddy and introduces her to the team. Having someone she can ask freely makes settling in easier. At the end of the first week, the team leader meets her one-on-one to hear what was hard and commit to the support she needs.'),
+    step(tx('팀장은 지민에게 버디(Buddy)를 정해 주고 팀원들에게 소개합니다. 편하게 물어볼 사람이 생기면 적응이 쉬워집니다. 첫 주가 끝나면 1:1로 만나 어려운 점을 듣고 필요한 지원을 약속합니다.', 'The TL assigns Jimin a buddy and introduces her to the team. Having someone she can ask freely makes settling in easier. At the end of the first week, the TL meets her one-on-one to hear what was hard and commit to the support she needs.'),
       ['join'], ['join'], 'join'),
     step(tx('하드 스킬은 "무엇을 안내할지"입니다. 자사 상품과 서비스 지식, 약관, 그리고 CRM(고객관계관리)과 CTI(전화 시스템) 조작법을 배웁니다.', 'Hard skills are what to tell the customer. Trainees learn the company’s products and services, the terms and conditions, and how to operate the CRM (customer relationship management) and CTI (telephony) systems.'),
       hard, ['hard', 'join-hard'], 'hard'),

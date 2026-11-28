@@ -15,7 +15,7 @@ export default {
       node('agent', '상담사', 58, 96, 'Agent'),
       node('qa', 'QA', 196, 26, 'QA'),
       node('trainer', '트레이너', 196, 72, 'Trainer'),
-      node('lead', '팀장', 196, 118, 'Team leader'),
+      node('lead', '팀장', 196, 118, 'Team Leader'),
       node('wfm', 'WFM', 196, 164, 'WFM'),
       node('exit', '퇴사 면담', 58, 212, 'Exit interview'),
       node('improve', '채용·관리 개선', 250, 212, 'Hiring fixes'),
@@ -28,9 +28,9 @@ export default {
   steps: [
     step(tx('마지막 단계에는 두 갈래가 있습니다. 상담사로서의 경력을 넓히는 길과, 잘 마무리하고 떠나는 길입니다.', 'The last stage has two branches. One is growing a career that started as an agent, and the other is leaving on good terms.'),
       ['agent'], ['agent'], 'agent'),
-    step(tx('먼저 경력 경로입니다. 상담 업무에서 QA(품질 평가 담당), 트레이너, WFM(인력 관리)으로 직무를 바꾸거나, 직무전문가를 거쳐 팀장으로 승진할 기회를 줍니다.', 'Start with career paths. Agents get the chance to move into roles such as QA (quality analyst), trainer, or WFM (workforce management), or to be promoted through SME to team leader.'),
+    step(tx('먼저 경력 경로입니다. 상담 업무에서 QA(품질 평가 담당), 트레이너, WFM(인력 관리)으로 직무를 바꾸거나, 직무전문가를 거쳐 팀장으로 승진할 기회를 줍니다.', 'Start with career paths. Agents get the chance to move into roles such as QA (quality analyst), trainer, or WFM (workforce management), or to be promoted through SME to TL.'),
       paths, ['qa', 'trainer', 'lead', 'wfm'], 'agent'),
-    step(tx('이런 길이 있다는 것을 상담사가 스스로 알기는 어렵습니다. 경로를 보여 주고 연결해 주는 것이 팀장의 몫입니다.', 'Agents rarely find out on their own that these paths exist. Showing the paths and making the connection is the team leader’s part.'),
+    step(tx('이런 길이 있다는 것을 상담사가 스스로 알기는 어렵습니다. 경로를 보여 주고 연결해 주는 것이 팀장의 몫입니다.', 'Agents rarely find out on their own that these paths exist. Showing the paths and making the connection is the TL’s part.'),
       paths, ['agent'], 'agent'),
     step(tx('운영팀 안에서 올라가는 길도 있습니다. 상담사 다음 단계는 직무전문가(SME)입니다. 어려운 문의를 지원하고 동료의 성장을 돕는, 팀의 지식 허브 역할입니다.', 'There is also a path up within the operations team. The step after agent is SME (Subject Matter Expert). An SME supports difficult inquiries and helps colleagues grow, acting as the team’s knowledge hub.'),
       paths, ['agent', 'lead'], 'agent'),
@@ -65,7 +65,7 @@ export default {
     id: 'career-general',
     prompt: tx('지민의 동료가 상담은 잘하지만 관리 직무에는 관심이 없다고 합니다. 어떤 길을 보여 줄까요?', 'A colleague of Jimin’s is strong on calls but says management roles do not appeal. Which path do you show?'),
     options: [
-      option('a', tx('관리 경험이 있어야 성장하니, 팀장 길을 다시 생각해 보라고 권한다.', 'Growth needs management experience, so urge them to reconsider the team leader path.'), tx('관리 직무만 길이라고 하면, 상담을 잘하는 사람이 성장할 곳이 없다고 느껴 떠날 수 있습니다.', 'Presenting management as the only path can make a strong agent feel there is nowhere to grow, and leave.')),
+      option('a', tx('관리 경험이 있어야 성장하니, 팀장 길을 다시 생각해 보라고 권한다.', 'Growth needs management experience, so urge them to reconsider the TL path.'), tx('관리 직무만 길이라고 하면, 상담을 잘하는 사람이 성장할 곳이 없다고 느껴 떠날 수 있습니다.', 'Presenting management as the only path can make a strong agent feel there is nowhere to grow, and leave.')),
       option('b', tx('전문 상담처럼 응대의 깊이를 넓히는 길을 소개한다.', 'Introduce a path that deepens handling skill, such as specialist support.')),
       option('c', tx('지금 자리에 만족하라고 한다.', 'Tell them to be satisfied where they are.'), tx('지금 자리에 만족하라는 말은 성장하고 싶은 마음을 닫아 버립니다.', 'Telling them to be content where they are shuts down the wish to grow.')),
     ],
@@ -80,7 +80,7 @@ export default {
       option('c', tx('의욕이 있을 때 준비 과정 없이 바로 2차 지원으로 보낸다.', 'Move them to Tier 2 right away while the motivation lasts, with no preparation.'), tx('준비 없이 보내면 실패할 가능성이 커지고, 고객도 그 부담을 함께 집니다.', 'Sending them unprepared raises the chance of failure, and customers share the cost.')),
     ],
     answer: 'b',
-    explanation: tx('상위 단계로 가는 길은 필요한 역량이 분명할 때 열립니다. 기준을 알려 주고 실제 티켓으로 경험하게 하면 준비와 검증이 함께 됩니다. 지민에게 QA를 제안했던 것처럼, 길을 보여 주는 것이 팀장의 몫입니다.', 'The path to a higher tier opens when the required skills are clear. Explaining the standard and giving real tickets to try builds readiness and verifies it at once. Showing the path is the team leader’s part, as it was when you suggested QA to Jimin.'),
+    explanation: tx('상위 단계로 가는 길은 필요한 역량이 분명할 때 열립니다. 기준을 알려 주고 실제 티켓으로 경험하게 하면 준비와 검증이 함께 됩니다. 지민에게 QA를 제안했던 것처럼, 길을 보여 주는 것이 팀장의 몫입니다.', 'The path to a higher tier opens when the required skills are clear. Explaining the standard and giving real tickets to try builds readiness and verifies it at once. Showing the path is the TL’s part, as it was when you suggested QA to Jimin.'),
   }), trackQuestion('general', {
     id: 'career-general-2',
     prompt: tx('일반 고객지원 퇴사 면담에서 "매일 같은 문의만 받아 성장하는 느낌이 없었다"는 말이 여러 번 나옵니다. 무엇을 할까요?', 'In general support exit interviews, several people say, “I handled the same inquiries every day and never felt I was growing.” What do you do?'),
@@ -97,10 +97,10 @@ export default {
     options: [
       option('a', tx('지식 자료 담당을 맡겨 보고, 그 경로를 함께 이야기한다.', 'Try giving them the knowledge base role, and talk through that path together.')),
       option('b', tx('업무 시간에는 문서 대신 상담에 집중하라고 한다.', 'Tell them to focus on contacts, not documents, during work hours.'), tx('문서를 쓰지 못하게 하면 같은 설명이 계속 반복되고, 상담사의 강점도 묻힙니다.', 'Forbidding the document keeps the same explanation on repeat and buries the agent’s strength.')),
-      option('c', tx('문서를 받아 팀장 이름으로 공유한다.', 'Take the document and share it under the team leader\'s name.'), tx('다른 사람의 이름으로 공유하면 상담사의 기여가 사라지고 신뢰도 잃습니다.', 'Sharing it under someone else’s name erases the agent’s contribution and costs their trust.')),
+      option('c', tx('문서를 받아 팀장 이름으로 공유한다.', 'Take the document and share it under the TL\'s name.'), tx('다른 사람의 이름으로 공유하면 상담사의 기여가 사라지고 신뢰도 잃습니다.', 'Sharing it under someone else’s name erases the agent’s contribution and costs their trust.')),
     ],
     answer: 'a',
-    explanation: tx('기술지원에는 지식 자료를 만들고 고치는 길도 있습니다. 상담사가 스스로 보여 준 강점을 경로와 연결해 주는 것이 팀장의 몫입니다.', 'Tech support also has a path in creating and updating knowledge base articles. Connecting a strength the agent has shown on their own to a career path is the team leader’s part.'),
+    explanation: tx('기술지원에는 지식 자료를 만들고 고치는 길도 있습니다. 상담사가 스스로 보여 준 강점을 경로와 연결해 주는 것이 팀장의 몫입니다.', 'Tech support also has a path in creating and updating knowledge base articles. Connecting a strength the agent has shown on their own to a career path is the TL’s part.'),
   })],
   connection: {
     to: 'hiring',

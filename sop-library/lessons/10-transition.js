@@ -16,7 +16,7 @@ export default {
   title: tx('동료에서 팀장으로', 'From Colleague to Team Leader'),
   short: tx('첫 90일', 'First 90 days'),
   subtitle: tx("함께 일하던 동료들의 팀장이 된 첫 90일.", "Your first 90 days leading the colleagues you used to work beside."),
-  roles: tx('새 팀장, 부매니저', 'New team leader, assistant manager'),
+  roles: tx('새 팀장, 부매니저', 'New TL, assistant manager'),
   personaName: tx('하은', 'Haeun'),
   procedure,
   diagram: {
@@ -32,7 +32,7 @@ export default {
     ],
   },
   steps: [
-    step(tx("이 절차의 목적은 함께 일하던 동료들의 팀장이 되었을 때, 신뢰를 잃지 않고 팀을 이끄는 자리로 옮겨 가는 것입니다. 새 팀장과 그를 맡은 부매니저가 따릅니다. 세 단계로 진행합니다.", "This procedure exists to move you, once you lead the colleagues you used to work beside, into the role of leading the team without losing their trust. The new team leader and the assistant manager responsible for them follow it. It runs in three steps."),
+    step(tx("이 절차의 목적은 함께 일하던 동료들의 팀장이 되었을 때, 신뢰를 잃지 않고 팀을 이끄는 자리로 옮겨 가는 것입니다. 새 팀장과 그를 맡은 부매니저가 따릅니다. 세 단계로 진행합니다.", "This procedure exists to move you, once you lead the colleagues you used to work beside, into the role of leading the team without losing their trust. The new TL and the assistant manager responsible for them follow it. It runs in three steps."),
       flow, procedure, null),
     step(tx("오늘부터 당신은 같은 팀에서 함께 상담하던 동료들의 팀장입니다. 어제까지 점심을 같이 먹던 사이라, 모두가 당신이 어떻게 달라질지 지켜보고 있습니다.", "From today you lead the colleagues you used to take contacts beside on the same team. Until yesterday you had lunch together, so everyone is watching how you will change."),
       flow, [], null),
@@ -40,7 +40,7 @@ export default {
       flow, ['listen'], null),
     step(tx("물려받은 규칙과 지시도 먼저 지켜보며 왜 그렇게 하는지 이해합니다. 이유를 모르고 바꾸면 팀원들은 새 팀장이 현장을 모른다고 느낍니다.", "Watch the rules and instructions you inherited first, and understand why they are done that way. Change them without knowing why, and the team feels the new leader does not know the floor."),
       flow, ['listen'], null),
-    step(tx("부매니저와는 팀장에게 무엇을 기대하는지, 어디까지 혼자 정해도 되는지를 먼저 맞춥니다.", "With your assistant manager, agree first on what they expect of a team leader and how far you can decide on your own."),
+    step(tx("부매니저와는 팀장에게 무엇을 기대하는지, 어디까지 혼자 정해도 되는지를 먼저 맞춥니다.", "With your assistant manager, agree first on what they expect of a TL and how far you can decide on your own."),
       flow, ['listen'], null),
     step(tx("둘째 단계는 기준 합의입니다(예시: 31~60일). 회사 규정 안에서 근태 연락 방법, 품질, 도움을 요청하는 방법처럼 팀이 함께 지킬 기준을 팀원들과 이야기해 정하고, 모두에게 똑같이 적용한다고 분명히 말합니다.", "The second step is agreeing on standards (Example: days 31 to 60). Within company rules, talk with the team to set the standards it will keep together, such as how to report attendance issues, quality and how to ask for help, and say clearly that they apply to everyone the same way."),
       flow, ['agree'], null),
@@ -48,7 +48,7 @@ export default {
       flow, ['agree'], 'agree'),
     step(tx("셋째 단계는 실행과 점검입니다(예시: 61~90일). 1:1 코칭과 팀 허들을 정해진 리듬으로 돌리고, 바꾸고 싶은 절차는 팀원과 상의한 뒤 하나씩 바꿉니다.", "The third step is acting and checking (Example: days 61 to 90). Run one-on-one coaching and team huddles on a set rhythm, and change the procedures you want to change one at a time, after talking them over with the team."),
       flow, ['act'], null),
-    step(tx("실수를 하면 먼저 인정합니다. 새 팀장이 실수를 감추면 팀원들도 실수를 숨기기 시작합니다.", "When you make a mistake, own it first. When a new team leader hides mistakes, the team starts hiding theirs too."),
+    step(tx("실수를 하면 먼저 인정합니다. 새 팀장이 실수를 감추면 팀원들도 실수를 숨기기 시작합니다.", "When you make a mistake, own it first. When a new TL hides mistakes, the team starts hiding theirs too."),
       flow, ['act'], null),
     step(tx("90일이 되면 부매니저와 함께 돌아봅니다. 팀원들의 이야기와 팀 지표를 같이 보고, 다음 90일에 무엇을 할지 정합니다.", "At 90 days, look back together with your assistant manager. Review what the team members say and the team's metrics side by side, and decide what to do in the next 90 days."),
       [...flow, ...side], ['act', 'review', 'act-review'], null),
@@ -56,7 +56,7 @@ export default {
   checkpoint: [
     {
       id: 'transition-q1',
-      prompt: tx("팀장이 된 첫 주, 물려받은 절차 하나가 비효율적으로 보입니다. 먼저 할 일은 무엇일까요?", "In your first week as team leader, one inherited procedure looks inefficient. What should you do first?"),
+      prompt: tx("팀장이 된 첫 주, 물려받은 절차 하나가 비효율적으로 보입니다. 먼저 할 일은 무엇일까요?", "In your first week as TL, one inherited procedure looks inefficient. What should you do first?"),
       options: [
         option('a', tx("오늘 바로 새 방식으로 바꾼다.", "Switch to a new way today."), tx("이유를 모른 채 바꾸면 팀원들은 상의 없이 정했다고 느끼고, 원래 그 절차가 막던 문제가 다시 생길 수 있습니다.", "Changing it without knowing why makes the team feel it was decided without them, and the problem the procedure was preventing can come back.")),
         option('b', tx("팀원들과 이야기하며 왜 그렇게 해 왔는지 먼저 이해한다.", "Talk with the team and first understand why it has been done that way.")),
@@ -77,5 +77,5 @@ export default {
       explanation: tx("합의한 기준은 누구에게나 똑같이, 그러나 존중하는 방식으로 적용합니다.", "Apply the agreed standards the same way to everyone, but in a way that shows respect."),
     },
   ],
-  connection: { to: 'onboarding', text: tx("여기까지가 팀장이 직접 하거나 함께하는 여섯 가지 절차입니다. 다음부터는 여러 팀이 함께 움직이는 절차입니다. 첫 번째는 신규 입사자 온보딩입니다.", "These are the six procedures a team leader runs or takes part in. From here on, the procedures are ones several teams run together. The first is new hire onboarding.") },
+  connection: { to: 'onboarding', text: tx("여기까지가 팀장이 직접 하거나 함께하는 여섯 가지 절차입니다. 다음부터는 여러 팀이 함께 움직이는 절차입니다. 첫 번째는 신규 입사자 온보딩입니다.", "These are the six procedures a TL runs or takes part in. From here on, the procedures are ones several teams run together. The first is new hire onboarding.") },
 };

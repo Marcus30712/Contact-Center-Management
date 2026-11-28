@@ -16,7 +16,7 @@ export default {
   title: tx('기존 상담사 육성', 'Developing Existing Agents'),
   short: tx('기존 상담사 육성', 'Developing agents'),
   subtitle: tx("강점을 데이터로 찾아, 맞는 자리와 길로.", 'Find strengths in the data, then the right work and path.'),
-  roles: tx("팀장 · QA · WFM · T&D · HR", 'Team leader · QA · WFM · T&D · HR'),
+  roles: tx("팀장 · QA · WFM · T&D · HR", 'TL · QA · WFM · T&D · HR'),
   procedure,
   diagram: {
     nodes: [
@@ -62,7 +62,7 @@ export default {
       "The fifth step is the growth review and recommendation. Every quarter, you and the operation manager (OM) review the data and the results of the development plan together. When the requirements are met, you recommend a promotion or a change of role to HR."),
       flow, ['review'], 'review'),
     step(tx("성장 경로는 두 갈래일 수 있습니다. 사람을 이끄는 데 강점이 있으면 직무전문가와 팀장으로 가는 관리자 트랙, 고난도 응대나 분석에 강점이 있으면 그 일을 깊게 하는 전문가 트랙입니다. 전문가 트랙을 두는지, 어떤 조건인지는 센터마다 다릅니다.",
-      "The path can split in two. Someone whose strength is leading people takes the manager track, toward SME and team leader; someone whose strength is difficult contacts or analysis takes the specialist track, going deeper into that work. Whether a center has a specialist track, and on what terms, differs from center to center."),
+      "The path can split in two. Someone whose strength is leading people takes the manager track, toward SME and TL; someone whose strength is difficult contacts or analysis takes the specialist track, going deeper into that work. Whether a center has a specialist track, and on what terms, differs from center to center."),
       [...flow, ...tracks], ['review', 'manager', 'specialist', 'review-manager', 'review-specialist'], 'review'),
     step(tx("지민은 지식 문서 검토와 멘토 경험을 살려 전문가 트랙인 QA 자리에 추천되었습니다. 직급별 조건은 Codex 커리어 매트릭스에서, 다른 길로 떠나는 경우는 상담사 라이프사이클 6단계에서 볼 수 있습니다.",
       "Building on her knowledge-article reviews and mentoring, Jimin was recommended for a QA role on the specialist track. The requirements for each role are in the Codex career matrix, and leaving for another path is covered in stage 6 of the Agent Lifecycle."),

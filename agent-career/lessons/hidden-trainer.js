@@ -27,7 +27,7 @@ export default {
   steps: [
     step(tx("이 레슨의 목적은 트레이너가 무슨 일을 하는지, 그 자리로 가려면 지금부터 무엇을 준비하면 되는지 아는 것입니다.", "This lesson is about knowing what a trainer does, and what to prepare now to get there."), flow, procedure, null),
     step(tx("지민이 기본 교육 첫 주에 만난 사람이 유나였습니다. 그때는 받아 적기 바빴지만, 이제는 앞에서 가르치는 사람의 일이 궁금해졌습니다.", "Yuna was the person Jimin met in her first week of training. Back then she was busy taking notes; now she's curious about the work of the person at the front."), flow, [], null),
-    step(tx("첫 단계는 하는 일입니다. 트레이너는 신입 교육을 맡아 제품, 서비스, 시스템, 정책을 가르치고 시험으로 확인합니다. 수료 여부는 팀장과 함께 정합니다.", "The first stage is the work. The trainer runs new-hire training, teaches the products, services, systems and policies, and checks learning with tests. They decide with the team leader who graduates."), flow, ["work"], null),
+    step(tx("첫 단계는 하는 일입니다. 트레이너는 신입 교육을 맡아 제품, 서비스, 시스템, 정책을 가르치고 시험으로 확인합니다. 수료 여부는 팀장과 함께 정합니다.", "The first stage is the work. The trainer runs new-hire training, teaches the products, services, systems and policies, and checks learning with tests. They decide with the TL who graduates."), flow, ["work"], null),
     step(tx("새 제품이나 정책이 나오면 이미 일하는 상담사에게도 다시 가르칩니다. QA가 찾은 자주 틀리는 부분을 교육 자료에 반영하기도 합니다.", "When a new product or policy comes out, they teach agents who are already working too. They also put the mistakes QA often finds into the training material."), flow, ["work"], null),
     step(tx("둘째 단계는 필요한 역량입니다. 어려운 내용을 쉬운 말로 풀어 설명하는 힘과, 여러 사람 앞에서 말하는 발표력이 필요합니다. 교육생이 어디서 막히는지 시험 결과로 읽는 데이터 분석 기초도 필요합니다.", "The second stage is the skills needed. You need to explain hard things in plain words and to speak in front of a group. Basic data analysis, to read from test results where trainees get stuck, matters too."), flow, ["skills"], null),
     step(tx("셋째 단계는 지금부터 준비하기입니다. 교육과 시험 점수를 꾸준히 높게 받는 것이 첫 준비입니다. 내가 모르는 것은 남에게 가르칠 수 없습니다.", "The third stage is preparing now. Steadily high training and test scores are the first step. You can't teach what you don't know."), flow, ["prepare"], null),
@@ -59,5 +59,5 @@ export default {
       explanation: tx("QA가 현장에서 찾은 문제를 트레이너가 교육으로 고칩니다. 두 직무가 함께 상담 품질을 끌어올립니다.", "The trainer uses training to fix the problems QA finds on the floor. Together they raise contact quality."),
     },
   ],
-  connection: { to: "home", text: tx("여기까지는 돕고, 평가하고, 가르치는 길이었습니다. 다음은 팀 전체를 맡는 길, 수진 팀장을 만납니다.", "So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the team leader.") },
+  connection: { to: "home", text: tx("여기까지는 돕고, 평가하고, 가르치는 길이었습니다. 다음은 팀 전체를 맡는 길, 수진 팀장을 만납니다.", "So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the TL.") },
 };

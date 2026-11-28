@@ -277,3 +277,36 @@ a.ladder-step:hover { background: var(--accent-soft); }
 .ladder-step.is-prep { flex: 1; min-width: 0; padding: 8px 10px; border-width: 1.5px; border-color: var(--signal); font-size: 13.5px; }
 .ladder-step.is-prep .ladder-num { color: var(--ink); }
 @media (max-width: 360px) { .ladder-step { padding: 10px; font-size: 14px; } .ladder-step.is-prep { font-size: 13px; padding: 7px 8px; } }
+
+/* 등장인물 줄 · 본문 직급 표시 (2026-11-28): one colour per role, a border and a light fill. */
+[data-role="agent"] { --role: 31 150 139; }
+[data-role="sme"] { --role: 196 128 40; }
+[data-role="tl"] { --role: 86 112 214; }
+[data-role="qa"] { --role: 150 90 196; }
+[data-role="am"] { --role: 210 84 76; }
+[data-role="mgr"] { --role: 184 140 20; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-role="agent"] { --role: 79 196 185; }
+  :root:not([data-theme="light"]) [data-role="sme"] { --role: 224 164 88; }
+  :root:not([data-theme="light"]) [data-role="tl"] { --role: 143 168 255; }
+  :root:not([data-theme="light"]) [data-role="qa"] { --role: 199 146 234; }
+  :root:not([data-theme="light"]) [data-role="am"] { --role: 255 138 128; }
+  :root:not([data-theme="light"]) [data-role="mgr"] { --role: 255 209 102; }
+}
+:root[data-theme="dark"] [data-role="agent"] { --role: 79 196 185; }
+:root[data-theme="dark"] [data-role="sme"] { --role: 224 164 88; }
+:root[data-theme="dark"] [data-role="tl"] { --role: 143 168 255; }
+:root[data-theme="dark"] [data-role="qa"] { --role: 199 146 234; }
+:root[data-theme="dark"] [data-role="am"] { --role: 255 138 128; }
+:root[data-theme="dark"] [data-role="mgr"] { --role: 255 209 102; }
+.role-pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  padding: 0.3em 0.62em 0.25em; border-radius: 999px; line-height: 1; vertical-align: middle;
+  border: 1.5px solid rgb(var(--role)); background: rgb(var(--role) / 0.16); color: var(--ink);
+}
+.pill-wrap { white-space: nowrap; }
+.cast-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0.75rem 0 0.25rem; font-size: 0.9rem; }
+.cast-label { font-size: 0.78rem; color: var(--muted); margin-right: 2px; }
+.cast-chip { padding: 0.45em 0.8em 0.4em; }
+.cast-chip strong { font-weight: 600; }
+.option .role-pill { font-size: 0.95em; }

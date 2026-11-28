@@ -74,7 +74,8 @@ test('diagram persona hides when the step has none', () => {
 test('lesson shows the first caption and counter', () => {
   const l = makeLesson();
   const { $ } = mountLesson(l);
-  assert.equal($('[data-caption]').textContent, l.steps[0].caption.ko);
+  // Names show as role pills (shared/cast.js): 지민이 → [지원자]가 (채용 레슨).
+  assert.equal($('[data-caption]').textContent, '지원자가 지원서를 냅니다.');
   assert.equal($('[data-counter]').textContent, '1 / 6');
 });
 
@@ -167,7 +168,7 @@ test('goTo moves to a step without navigating', () => {
 test('english with translation shows English and no note', () => {
   const l = makeBilingualLesson();
   const { $ } = mountLesson(l, 0, 'en');
-  assert.equal($('[data-caption]').textContent, l.steps[0].caption.en);
+  assert.equal($('[data-caption]').textContent, 'The Applicant applies.');
   assert.equal($('[data-prev]').textContent.trim(), UI.prev.en);
   assert.equal($('[data-next]').textContent.trim(), UI.next.en);
   assert.ok($('[data-translation-note]').hidden);
@@ -177,7 +178,7 @@ test('english with translation shows English and no note', () => {
 test('english without translation falls back to Korean with a note', () => {
   const l = makeLesson();
   const { $ } = mountLesson(l, 0, 'en');
-  assert.equal($('[data-caption]').textContent, l.steps[0].caption.ko);
+  assert.equal($('[data-caption]').textContent, '지원자가 지원서를 냅니다.');
   assert.equal($('[data-translation-note]').textContent, 'Translation coming soon');
   assert.ok(!$('[data-translation-note]').hidden);
   assert.equal($('[data-next]').textContent.trim(), UI.next.en);

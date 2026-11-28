@@ -38,7 +38,7 @@ export default {
       walk, ['mentor', 'nest'], 'nest'),
     step(tx('혼자 해결하기 어려운 불만 문의도 만납니다. 이때 따르는 순서가 에스컬레이션입니다. 끝까지 듣고, 자기 권한 안에서 먼저 해결을 시도합니다.', 'She will also meet complaints she cannot resolve alone. The sequence to follow then is escalation. Listen to the end, and first try to resolve it within your own authority.'),
       walk, ['nest'], 'nest'),
-    step(tx('어렵다고 판단되면 고객과 논쟁하지 않고 상급자에게 전달하겠다고 정중히 안내합니다. 팀장에게 바로 알리고, 있었던 일을 사실대로 기록해 넘깁니다. 실무 체험 기간에 이 순서를 몸에 익히게 합니다.', 'If that will not work, do not argue with the customer; tell them politely that you will pass it to someone more senior. Notify the team leader right away, and record what happened factually before handing it over. Nesting is when this sequence becomes habit.'),
+    step(tx('어렵다고 판단되면 고객과 논쟁하지 않고 상급자에게 전달하겠다고 정중히 안내합니다. 팀장에게 바로 알리고, 있었던 일을 사실대로 기록해 넘깁니다. 실무 체험 기간에 이 순서를 몸에 익히게 합니다.', 'If that will not work, do not argue with the customer; tell them politely that you will pass it to someone more senior. Notify the TL right away, and record what happened factually before handing it over. Nesting is when this sequence becomes habit.'),
       walk, ['mentor', 'nest'], 'nest'),
     trackStep('general', tx('일반 고객지원에서는 쉬운 문의 유형부터 차례로 맡깁니다. 지민은 단순 조회와 안내 문의로 시작해, 익숙해지면 변경이나 불만 문의로 범위를 넓힙니다.', 'In general support, inquiry types are handed over from the easiest up. Jimin starts with simple lookups and information requests, then widens to changes and complaints as she gets comfortable.'),
       walk, ['nest'], 'nest'),
@@ -48,7 +48,7 @@ export default {
       all, ['target', 'target-nest'], 'nest'),
     step(tx('지민의 통화는 선배들보다 깁니다. 이때 "왜 이렇게 오래 걸려요?"라는 말을 들으면, 지민은 정확히 안내하는 법보다 빨리 끊는 법을 먼저 배웁니다.', 'Jimin’s calls run longer than her seniors’ calls. If she hears “Why is this taking so long?” now, she learns to end calls quickly before she learns to get them right.'),
       all, ['target'], 'nest'),
-    step(tx('실무 체험이 끝나면 트레이너와 팀장이 함께 수료를 정합니다. 수료한 지민은 정식 팀에 실전 배치되어, 이제 다른 팀원들과 같은 기준으로 일합니다.', 'When Nesting ends, the trainer and the team leader decide together on graduation. Having graduated, Jimin goes live on a regular team and from now on works to the same standard as everyone else.'),
+    step(tx('실무 체험이 끝나면 트레이너와 팀장이 함께 수료를 정합니다. 수료한 지민은 정식 팀에 실전 배치되어, 이제 다른 팀원들과 같은 기준으로 일합니다.', 'When Nesting ends, the trainer and the TL decide together on graduation. Having graduated, Jimin goes live on a regular team and from now on works to the same standard as everyone else.'),
       [...all, 'nest-grad', 'grad', 'grad-team', 'team'], ['grad', 'nest-grad', 'team', 'grad-team'], 'team'),
   ],
   checkpoint: [{

@@ -65,14 +65,14 @@ export default {
     },
     {
       id: 'launch-q2',
-      prompt: tx('론칭 직후 팀장인 당신의 역할은 무엇일까요?', 'Right after go-live, what is your role as the team leader?'),
+      prompt: tx('론칭 직후 팀장인 당신의 역할은 무엇일까요?', 'Right after go-live, what is your role as the TL?'),
       options: [
         option('a', tx('정확한 판단을 위해, 첫 달 성과 데이터가 나올 때까지 지켜본다.', 'Watch until the first month\'s performance data comes in, so you can judge accurately.'), tx('첫 달 데이터를 기다리는 동안, 현장에서 먼저 드러난 문제가 그대로 고객에게 전해집니다.', 'While you wait for first-month data, the problems that show up first on the floor go straight to customers.')),
-        option('b', tx('고객사와의 비즈니스 리뷰 미팅을 주관한다.', 'Lead the business review meeting with the client.'), tx('고객사 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다.', 'The client business review is the OM’s job; right after launch, the team leader belongs on the floor.')),
+        option('b', tx('고객사와의 비즈니스 리뷰 미팅을 주관한다.', 'Lead the business review meeting with the client.'), tx('고객사 비즈니스 리뷰는 매니저가 맡는 일이고, 론칭 직후 팀장이 있어야 할 곳은 현장입니다.', 'The client business review is the OM’s job; right after launch, the TL belongs on the floor.')),
         option('c', tx('매니저와 함께 초기 집중 관리로 현장을 밀착 지원한다.', 'Run hyper-care with the OM and support the floor closely.')),
       ],
       answer: 'c',
-      explanation: tx('론칭 초기에는 예상하지 못한 문제가 현장에서 먼저 드러납니다. 그래서 팀장이 현장 가까이에서 지원합니다.', 'In the first days after launch, unexpected problems show up on the floor first. That is why the team leader supports the floor at close range.'),
+      explanation: tx('론칭 초기에는 예상하지 못한 문제가 현장에서 먼저 드러납니다. 그래서 팀장이 현장 가까이에서 지원합니다.', 'In the first days after launch, unexpected problems show up on the floor first. That is why the TL supports the floor at close range.'),
     },
   ],
   connection: { to: 'home', text: tx("여기까지가 SOP 열 가지입니다. 절차는 한 번 정하면 끝나는 것이 아니라, 회고할 때마다 고쳐 가는 문서입니다.", "These are the ten SOPs. A procedure is not finished once it is written; it is a document you revise at every retrospective.") },

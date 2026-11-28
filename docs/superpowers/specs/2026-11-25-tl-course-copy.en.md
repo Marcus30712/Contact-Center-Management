@@ -9,11 +9,11 @@ Same sections and order as the Korean file. US English.
 | Place | English |
 |---|---|
 | Course title | TL First Steps |
-| Course intro | Seven lessons for people who have just become team leaders. Learn, in order, how to get to know your team members and team inside out before running it, and how to make your first plan. |
-| Home card | Seven lessons for new team leaders, from getting to know the team to the first operating plan. |
+| Course intro | Seven lessons for people who have just become Team Leaders. Learn, in order, how to get to know your team members and team inside out before running it, and how to make your first plan. |
+| Home card | Seven lessons for new Team Leaders, from getting to know the team to the first operating plan. |
 | Figures note | Headcounts, counts and periods in the lessons are examples and may differ from center to center. |
 | Start note (TL) | New here? Start with TL First Steps lesson 1. |
-| Lesson screen | All lessons · Team leader checkpoint · Up next · Next lesson · Back to the list · Done |
+| Lesson screen | All lessons · Team Leader checkpoint · Up next · Next lesson · Back to the list · Done |
 
 ---
 
@@ -28,7 +28,7 @@ Same sections and order as the Korean file. US English.
 
 스텝:
 
-1. This lesson is about deciding, on your first day as a team leader, what to learn about the team and in what order before you start running it. The whole course follows this order.
+1. This lesson is about deciding, on your first day as a TL, what to learn about the team and in what order before you start running it. The whole course follows this order.
 2. From today you lead a team of 15 people (Example). The team doesn't know you, and you don't know how they have been working.
 3. The first stage is getting to know the people. You need to know who is on the team, what skills each person has and what work they have done. The roster in lesson 2 is the starting point.
 4. The second stage is individual results. Look at what numbers Jimin, Seojun and Junho have delivered and how they have actually worked. Lessons 3 and 4 cover this.
@@ -36,15 +36,15 @@ Same sections and order as the Korean file. US English.
 6. The fourth stage is the first plan. Decide how to help each team member, get the operating direction from your assistant manager, and plan for the whole team. Lessons 6 and 7 cover this.
 7. You don't do this alone. The records and observations of Harin the SME, Dohyun from QA and Yuna the trainer, who have watched the team most closely, help a great deal.
 8. Don't rush big changes in the first few weeks. Changing things before you understand them can shake what was working well.
-9. On day one, greet the team briefly and tell them you will talk with each person over the next few weeks. They are also curious about what the new team leader will do.
+9. On day one, greet the team briefly and tell them you will talk with each person over the next few weeks. They are also curious about what the new TL will do.
 
 체크포인트:
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | On your first day, you notice ways of working that differ from the previous team leader's. What do you do? |
+| 1번 질문 | On your first day, you notice ways of working that differ from the previous TL's. What do you do? |
 | 보기 a (오답) | To set a firm standard early, announce your way at the first huddle and switch right away. |
-| a 피드백 | Changing things before you know why shakes what was working, and the team grows wary of the new team leader. |
+| a 피드백 | Changing things before you know why shakes what was working, and the team grows wary of the new TL. |
 | 보기 b (정답) | There may be a reason behind the old way, so note it down and decide whether to change it once you know why. |
 | 보기 c (오답) | It's how the team has long worked, so leave it alone for good so no one is put out. |
 | c 피드백 | If you never change anything even after learning why, you miss chances to improve. Decide whether to change it after you understand it. |
@@ -75,7 +75,7 @@ Same sections and order as the Korean file. US English.
 4. Ask people about what the records don't show. Harin the SME knows who gets stuck on which types, and Yuna the trainer knows who has had which training.
 5. The third stage is the work pattern. Note shift times, scheduled leave and whether someone works part-time. You need these when planning staffing and coaching.
 6. Put only facts on the roster. If you write impressions like "diligent," others who read it later have nothing to go on.
-7. Keep personal details to what is needed, in the agreed place. Only the team leader and those who truly need it see the roster.
+7. Keep personal details to what is needed, in the agreed place. Only the TL and those who truly need it see the roster.
 8. The fourth stage is keeping it current. The roster isn't a document you make once in the first week. Update it whenever someone learns a new skill or their work changes.
 
 체크포인트:
@@ -167,7 +167,7 @@ Same sections and order as the Korean file. US English.
 | a 피드백 | One contact isn't a habit yet. See whether it shows up in others. |
 | 보기 b (정답) | One call could be chance, so listen to a few more and note it as a habit if it repeats. |
 | 보기 c (오답) | To stop it repeating, call Jimin over on the spot, warn her and explain again. |
-| c 피드백 | Pointing out a single contact while you're still getting to know the team makes people see the new team leader as a watchdog. |
+| c 피드백 | Pointing out a single contact while you're still getting to know the team makes people see the new TL as a watchdog. |
 | 해설 | Call it a habit when it repeats across several contacts. But if it is a required disclosure, correct it right away, even once. |
 | 2번 질문 | Several agents are giving the same wrong explanation. What do you check first? |
 | 보기 a (오답) | Call in each agent who got it wrong and coach them one by one. |
@@ -272,7 +272,7 @@ Same sections and order as the Korean file. US English.
 1. This lesson is about reporting what you've learned to your assistant manager (AM) or operation manager (OM), getting the operating direction and making the team's first plan.
 2. The first stage is preparing the report. From the team summary in lesson 5 and the personal notes in lesson 6, pick only what you must pass on. Leave team members' personal matters out of the report.
 3. Your first meeting with Minseok, your assistant manager, is 30 minutes (Example). Briefly share how the team is now, why, and what you see as the priorities.
-4. The second stage is hearing the direction. Confirm which metrics the project cares about most this quarter, what it expects from the team and what the team leader may decide alone.
+4. The second stage is hearing the direction. Confirm which metrics the project cares about most this quarter, what it expects from the team and what the TL may decide alone.
 5. If your priorities differ from the direction, give your view with evidence. If the direction is still set, follow it and keep a record of your view.
 6. The third stage is the first plan. In line with the direction, decide what to do over the next month (Example). Write down whom to coach and how, what to change first across the team, and what to ask of the SME, QA and the trainer.
 7. Start the plan small. Trying to change everything at once wears out both the team and you. Start with the one or two biggest problems.
@@ -295,6 +295,6 @@ Same sections and order as the Korean file. US English.
 | a 피드백 | Running the team against the direction puts you out of step with the project's plan and costs trust. |
 | 보기 b (정답) | Give your view with evidence; once it's set, follow it and keep a record of your view. |
 | 보기 c (오답) | Say nothing and just write down the direction. |
-| c 피드백 | Leaving out the view of the team leader who sees the floor most closely can mean missing a good decision. |
+| c 피드백 | Leaving out the view of the TL who sees the floor most closely can mean missing a good decision. |
 | 해설 | Give your view with evidence, and follow the direction once it's decided. |
 | 마지막 연결 | You have finished TL First Steps. Next, The Agent Lifecycle shows the stages one agent goes through, from hiring to growth. |

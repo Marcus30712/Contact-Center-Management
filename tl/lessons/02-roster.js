@@ -30,7 +30,7 @@ export default {
     step(tx("기록만으로 모르는 것은 사람에게 묻습니다. 직무전문가 하린은 누가 어떤 유형에서 막히는지, 트레이너 유나는 누가 어떤 교육을 받았는지 알고 있습니다.", "Ask people about what the records don't show. Harin the SME knows who gets stuck on which types, and Yuna the trainer knows who has had which training."), flow, ["skills"], null),
     step(tx("셋째 단계는 근무 형태입니다. 근무 시간대, 정해진 휴가, 파트타임 여부를 적습니다. 인력 계획과 코칭 일정을 짤 때 필요합니다.", "The third stage is the work pattern. Note shift times, scheduled leave and whether someone works part-time. You need these when planning staffing and coaching."), flow, ["pattern"], null),
     step(tx("로스터에는 사실만 적습니다. \"성실함\"처럼 인상을 적으면 나중에 다른 사람이 볼 때 근거가 없습니다.", "Put only facts on the roster. If you write impressions like \"diligent,\" others who read it later have nothing to go on."), flow, ["pattern"], null),
-    step(tx("개인 정보는 필요한 만큼만 정해진 곳에 둡니다. 로스터는 팀장과 꼭 필요한 사람만 봅니다.", "Keep personal details to what is needed, in the agreed place. Only the team leader and those who truly need it see the roster."), flow, ["pattern"], null),
+    step(tx("개인 정보는 필요한 만큼만 정해진 곳에 둡니다. 로스터는 팀장과 꼭 필요한 사람만 봅니다.", "Keep personal details to what is needed, in the agreed place. Only the TL and those who truly need it see the roster."), flow, ["pattern"], null),
     step(tx("넷째 단계는 계속 고치기입니다. 로스터는 첫 주에 한 번 만들고 끝나는 문서가 아닙니다. 새 스킬을 배우거나 업무가 바뀌면 그때마다 고칩니다.", "The fourth stage is keeping it current. The roster isn't a document you make once in the first week. Update it whenever someone learns a new skill or their work changes."), flow, ["current"], null),
   ],
   checkpoint: [

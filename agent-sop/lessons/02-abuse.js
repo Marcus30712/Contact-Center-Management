@@ -13,7 +13,7 @@ export default {
   title: tx("욕설·폭언 고객 응대와 통화 종료", "Handling Abusive Callers and Ending the Call"),
   short: tx("욕설 응대", "Abusive callers"),
   subtitle: tx("참고 버티지 않고, 센터가 정한 순서대로 끝냅니다.", "Don't just endure it; end the call in the order your center sets."),
-  roles: tx("상담사 → 직무전문가 또는 팀장", "Agent → SME or Team leader"),
+  roles: tx("상담사 → 직무전문가 또는 팀장", "Agent → SME or TL"),
   procedure,
   diagram: {
     nodes: [

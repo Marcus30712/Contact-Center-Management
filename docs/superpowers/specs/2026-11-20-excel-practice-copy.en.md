@@ -26,7 +26,7 @@ How to read: the formula line starts with `=` already in place; the learner pick
 | key | English |
 |---|---|
 | title | Miso's Excel Practice |
-| intro | Learn the 11 Excel skills a team leader needs, using one example table of Miso's team's calls. No typing: just tap. |
+| intro | Learn the 11 Excel skills a Team Leader needs, using one example table of Miso's team's calls. No typing: just tap. |
 | lessonOf | Lesson {i} of {n} |
 | questionOf | Question {i} of {n} |
 | start | Start |
@@ -50,7 +50,7 @@ How to read: the formula line starts with `=` already in place; the learner pick
 | backToList | All lessons |
 | allDone | You've finished all 11 lessons. Now try them on your real team reports. |
 | homeCard | Miso's Excel Practice |
-| homeCardLine | The 11 Excel skills team leaders use most, learned by tapping. |
+| homeCardLine | The 11 Excel skills Team Leaders use most, learned by tapping. |
 
 ## Lesson 1 · Cell addresses and ranges
 

@@ -41,7 +41,7 @@ export default {
       prompt: tx("공지의 \"일부 회원\"이 누구인지 분명하지 않은데, 허들은 10분 뒤입니다. 어떻게 할까요?", "\"Some members\" in the notice is unclear, and the huddle is in 10 minutes. What do you do?"),
       options: [
         option("a", tx("시간이 없으니 일단 모든 회원에게 적용된다고 전하고, 나중에 바로잡는다.", "There's no time, so say for now it applies to all members and correct it later."), tx("추측으로 전하면 팀 전체가 같은 잘못을 고객에게 안내합니다.", "Passing on a guess means the whole team tells customers the same wrong thing.")),
-        option("b", tx("팀장이나 고객사 담당에게 확인하고, 확인 전이면 확인 중이라고 전한다.", "Check with the team leader or the client contact, and if it isn't confirmed yet, say it's being checked.")),
+        option("b", tx("팀장이나 고객사 담당에게 확인하고, 확인 전이면 확인 중이라고 전한다.", "Check with the TL or the client contact, and if it isn't confirmed yet, say it's being checked.")),
         option("c", tx("모호한 부분은 빼고, 확실한 내용만 정리해 전한다.", "Leave out the unclear part, and share only what's certain."), tx("상담사는 그 질문을 받게 되고, 그때마다 각자 다르게 답하게 됩니다.", "Agents will get that question anyway, and each will answer it differently.")),
       ],
       answer: "b",
@@ -52,7 +52,7 @@ export default {
       prompt: tx("야간 근무 상담사들이 허들에 참석하지 못했습니다. 어떻게 할까요?", "Night-shift agents couldn't attend the huddle. What do you do?"),
       options: [
         option("a", tx("다음 날 허들에서 야간 근무자까지 모아 다시 전하고, 질문도 함께 받는다.", "Gather the night shift too at the next day's huddle, share it again and take questions."), tx("그사이 야간 고객은 예전 정책으로 안내받습니다.", "Meanwhile, night customers are told the old policy.")),
-        option("b", tx("글로 남겨 근무 전에 읽게 하고, 야간 직무전문가나 팀장에게도 전한다.", "Leave it in writing for them to read before their shift, and pass it to the night SME or team leader too.")),
+        option("b", tx("글로 남겨 근무 전에 읽게 하고, 야간 직무전문가나 팀장에게도 전한다.", "Leave it in writing for them to read before their shift, and pass it to the night SME or TL too.")),
         option("c", tx("고객이 물으면 그때 직무전문가에게 메신저로 물어보라고 안내해 둔다.", "Tell them to message the SME whenever a customer asks."), tx("야간에는 직무전문가가 없을 수 있고, 모든 문의가 직무전문가를 거치면 고객 대기가 길어집니다.", "There may be no SME at night, and sending every contact through the SME makes customers wait longer.")),
       ],
       answer: "b",

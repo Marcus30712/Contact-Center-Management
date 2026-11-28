@@ -28,7 +28,7 @@ export default {
     step(tx("이 레슨의 목적은 지금까지 파악한 내용을 부매니저(AM)나 매니저(OM)에게 보고하고, 운영 방침을 받아 팀의 첫 계획을 세우는 것입니다.", "This lesson is about reporting what you've learned to your assistant manager (AM) or operation manager (OM), getting the operating direction and making the team's first plan."), flow, procedure, null),
     step(tx("첫 단계는 보고 준비입니다. 레슨 5의 팀 요약과 레슨 6의 개인 메모에서 꼭 전할 것만 추립니다. 팀원의 개인 사정은 보고에 넣지 않습니다.", "The first stage is preparing the report. From the team summary in lesson 5 and the personal notes in lesson 6, pick only what you must pass on. Leave team members' personal matters out of the report."), flow, ["prepare"], null),
     step(tx("민석 부매니저와의 첫 미팅은 30분(예시)입니다. 팀의 지금 모습, 그 원인, 당신이 보는 우선순위를 짧게 전합니다.", "Your first meeting with Minseok, your assistant manager, is 30 minutes (Example). Briefly share how the team is now, why, and what you see as the priorities."), flow, ["prepare"], null),
-    step(tx("둘째 단계는 방침 듣기입니다. 프로젝트가 이번 분기에 가장 중요하게 보는 지표, 팀에 기대하는 것, 팀장이 정할 수 있는 범위를 확인합니다.", "The second stage is hearing the direction. Confirm which metrics the project cares about most this quarter, what it expects from the team and what the team leader may decide alone."), flow, ["hear"], null),
+    step(tx("둘째 단계는 방침 듣기입니다. 프로젝트가 이번 분기에 가장 중요하게 보는 지표, 팀에 기대하는 것, 팀장이 정할 수 있는 범위를 확인합니다.", "The second stage is hearing the direction. Confirm which metrics the project cares about most this quarter, what it expects from the team and what the TL may decide alone."), flow, ["hear"], null),
     step(tx("당신의 우선순위와 방침이 다르면 근거를 들어 의견을 말합니다. 그래도 방침이 정해지면 그 방침을 따르고, 의견은 기록해 둡니다.", "If your priorities differ from the direction, give your view with evidence. If the direction is still set, follow it and keep a record of your view."), flow, ["hear"], null),
     step(tx("셋째 단계는 첫 계획입니다. 방침에 맞춰 앞으로 한 달(예시) 동안 할 일을 정합니다. 누구를 어떻게 코칭할지, 팀 전체에서 무엇을 먼저 바꿀지, 직무전문가·QA·트레이너에게 무엇을 부탁할지 적습니다.", "The third stage is the first plan. In line with the direction, decide what to do over the next month (Example). Write down whom to coach and how, what to change first across the team, and what to ask of the SME, QA and the trainer."), flow, ["plan"], null),
     step(tx("계획은 작게 시작합니다. 한 번에 다 바꾸려 하면 팀도 당신도 지칩니다. 가장 큰 문제 한두 개부터 시작합니다.", "Start the plan small. Trying to change everything at once wears out both the team and you. Start with the one or two biggest problems."), flow, ["plan"], null),
@@ -53,7 +53,7 @@ export default {
       options: [
         option("a", tx("팀 사정을 더 잘 아는 내 판단대로 진행한다.", "Follow your own priorities, as the one who knows the team better."), tx("방침과 다르게 운영하면 프로젝트 전체의 계획과 어긋나고 신뢰를 잃습니다.", "Running the team against the direction puts you out of step with the project's plan and costs trust.")),
         option("b", tx("근거를 들어 의견을 말하되, 정해지면 따르고 의견은 기록해 둔다.", "Give your view with evidence; once it's set, follow it and keep a record of your view.")),
-        option("c", tx("의견을 말하지 않고 방침만 받아 적는다.", "Say nothing and just write down the direction."), tx("현장을 가장 가까이에서 본 팀장의 의견이 빠지면 좋은 결정을 놓칠 수 있습니다.", "Leaving out the view of the team leader who sees the floor most closely can mean missing a good decision.")),
+        option("c", tx("의견을 말하지 않고 방침만 받아 적는다.", "Say nothing and just write down the direction."), tx("현장을 가장 가까이에서 본 팀장의 의견이 빠지면 좋은 결정을 놓칠 수 있습니다.", "Leaving out the view of the TL who sees the floor most closely can mean missing a good decision.")),
       ],
       answer: "b",
       explanation: tx("의견은 근거와 함께 말하고, 결정된 방침은 따릅니다.", "Give your view with evidence, and follow the direction once it's decided."),

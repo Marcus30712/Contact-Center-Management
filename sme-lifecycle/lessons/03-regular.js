@@ -29,11 +29,11 @@ export default {
     step(tx("정식 팀에 합류하고 석 달(예시)이 지났습니다. 서준은 이제 대부분의 문의를 혼자 처리합니다.", "Three months (Example) have passed since he joined a regular team. Seojun now handles most contacts alone."), flow, [], null),
     step(tx("첫 단계는 요청으로 받기입니다. 서준은 승인이 필요하거나 막힐 때 플로어나 메신저로 직무전문가를 부릅니다. 승인하고 처리하는 순서는 직무전문가 첫걸음 레슨 3과 같습니다.", "The first stage is taking requests. Seojun calls the SME on the floor or by messenger when he needs approval or gets stuck. The order for approving and handling is the same as in SME First Steps lesson 3."), flow, ["request"], null),
     step(tx("둘째 단계는 스크러빙으로 보기입니다. 혼자 일하는 상담사의 실수는 스스로 모르기 때문에 요청으로 오지 않습니다. 매일 하는 스크러빙에서 서준의 티켓이 나오면 반복되는 모습이 있는지 봅니다.", "The second stage is checking through scrubbing. Mistakes by an agent who works alone don't arrive as requests, because he doesn't know about them. When Seojun's tickets come up in your daily scrubbing, look for anything that repeats."), flow, ["scrub"], null),
-    step(tx("찾은 것은 행동과 티켓 번호로 적어 둡니다. 한 번의 실수는 서준에게 짧게 알려 주고, 반복되면 팀장에게 건네는 요약에 담습니다.", "Write down what you find as behaviors and ticket numbers. Tell Seojun briefly about a one-off mistake, and put a repeated one in the summary you hand the team leader."), flow, ["scrub"], null),
+    step(tx("찾은 것은 행동과 티켓 번호로 적어 둡니다. 한 번의 실수는 서준에게 짧게 알려 주고, 반복되면 팀장에게 건네는 요약에 담습니다.", "Write down what you find as behaviors and ticket numbers. Tell Seojun briefly about a one-off mistake, and put a repeated one in the summary you hand the TL."), flow, ["scrub"], null),
     step(tx("셋째 단계는 다시 가까이 붙기입니다. 새 상품이 나오거나 정책이 바뀌면 정식 상담사도 그 유형에서는 다시 신입이 됩니다. 바뀐 뒤 첫 며칠(예시)은 관련 문의를 먼저 확인합니다.", "The third stage is moving back in close. When a new product launches or a policy changes, even a regular agent is new again for that type. For the first few days (Example) after a change, check those contacts first."), flow, ["closer"], null),
-    step(tx("서준의 품질이 갑자기 떨어지거나 요청이 크게 늘어도 다시 가까이 갑니다. 이유가 업무 밖에 있어 보이면 캐묻지 않고 팀장에게 알립니다.", "Move back in close as well when Seojun's quality suddenly drops or his requests rise sharply. If the reason seems to lie outside work, don't press him; tell the team leader."), flow, ["closer"], null),
+    step(tx("서준의 품질이 갑자기 떨어지거나 요청이 크게 늘어도 다시 가까이 갑니다. 이유가 업무 밖에 있어 보이면 캐묻지 않고 팀장에게 알립니다.", "Move back in close as well when Seojun's quality suddenly drops or his requests rise sharply. If the reason seems to lie outside work, don't press him; tell the TL."), flow, ["closer"], null),
     step(tx("넷째 단계는 성장 신호 전하기입니다. 서준이 어려운 문의를 혼자 끝내고, 다른 상담사의 질문에 답하기 시작하면 기록해 둡니다.", "The fourth stage is sharing signs of growth. When Seojun handles hard contacts alone and starts answering other agents' questions, write it down."), flow, ["growth"], null),
-    step(tx("이런 신호는 팀장에게 전합니다. 신입의 버디를 맡길지, 선임으로 키울지는 팀장이 정합니다.", "Pass these signs on to the team leader. The team leader decides whether to make him a buddy for new hires or grow him into a senior."), flow, ["growth"], null),
+    step(tx("이런 신호는 팀장에게 전합니다. 신입의 버디를 맡길지, 선임으로 키울지는 팀장이 정합니다.", "Pass these signs on to the TL. The TL decides whether to make him a buddy for new hires or grow him into a senior."), flow, ["growth"], null),
   ],
   checkpoint: [
     {
@@ -41,11 +41,11 @@ export default {
       prompt: tx("스크러빙에서 서준의 티켓 세 건(예시)에 같은 확인 단계 누락이 보였습니다. 어떻게 할까요?", "In scrubbing, three of Seojun's tickets (Example) show the same missed check step. What do you do?"),
       options: [
         option("a", tx("서준이 먼저 요청할 때까지 아무 말 없이 그대로 둔다.", "Say nothing and leave it until Seojun asks."), tx("혼자 일하는 상담사의 실수는 스스로 모르기 때문에 요청으로 오지 않습니다.", "Mistakes by an agent who works alone don't arrive as requests, because he doesn't know about them.")),
-        option("b", tx("티켓 번호와 함께 팀장에게 건넬 요약에 담는다.", "Put it, with the ticket numbers, in the summary you hand the team leader.")),
+        option("b", tx("티켓 번호와 함께 팀장에게 건넬 요약에 담는다.", "Put it, with the ticket numbers, in the summary you hand the TL.")),
         option("c", tx("팀 채팅방에 서준의 티켓을 사례로 올린다.", "Post Seojun's tickets in the team chat as an example."), tx("이름이 드러나면 서준은 창피를 당하고, 팀은 실수를 숨기기 시작합니다.", "With his name showing, Seojun is embarrassed and the team starts hiding mistakes.")),
       ],
       answer: "b",
-      explanation: tx("반복되는 모습은 행동과 사례로 팀장에게 전합니다. 한 번의 실수는 서준에게 짧게 알려 줍니다.", "Pass repeated behavior to the team leader as behaviors and examples. Tell Seojun briefly about a one-off mistake."),
+      explanation: tx("반복되는 모습은 행동과 사례로 팀장에게 전합니다. 한 번의 실수는 서준에게 짧게 알려 줍니다.", "Pass repeated behavior to the TL as behaviors and examples. Tell Seojun briefly about a one-off mistake."),
     },
     {
       id: "regular-q2",

@@ -31,7 +31,7 @@
 |---|---|---|---|---|---|
 | TL | 라이프사이클 · SOP · 엑셀 | 지금 그대로 | 지금 그대로 | as now | as now |
 | SME | 직무전문가 첫걸음 | 지금 그대로 | 지금 그대로 | as now | as now |
-| SME | 직무전문가 서포트 라이프사이클 | 직무전문가 서포트 라이프사이클 | 교육 중인 상담사부터 선임, 팀장까지, 단계마다 직무전문가가 따르는 지원 절차. | SME Support Lifecycle | The support procedure an SME follows at each stage, from agents in training to seniors and the team leader. |
+| SME | 직무전문가 서포트 라이프사이클 | 직무전문가 서포트 라이프사이클 | 교육 중인 상담사부터 선임, 팀장까지, 단계마다 직무전문가가 따르는 지원 절차. | SME Support Lifecycle | The support procedure an SME follows at each stage, from agents in training to seniors and the Team Leader. |
 | SME | 직무전문가 SOP 라이브러리 | 직무전문가 SOP 라이브러리 | 직무전문가가 따르는 표준 절차 8개를 순서대로 배웁니다. | SME SOP Library | Learn the eight standard procedures an SME follows, in order. |
 | SME | 엑셀 | 미소의 엑셀 연습 | 직무전문가가 꼭 쓰는 엑셀 11가지를 눌러서 익힙니다. | Miso's Excel Practice | The 11 Excel skills SMEs use most, learned by tapping. |
 | 상담사 | 첫걸음 · SOP | 상담사 첫걸음 · 상담사 SOP 라이브러리 | 준비 중 (§1) | Agent First Steps · Agent SOP Library | Coming soon (§1) |

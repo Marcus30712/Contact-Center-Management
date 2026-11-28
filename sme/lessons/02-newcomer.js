@@ -33,8 +33,8 @@ export default {
     step(tx("셋째 단계는 먼저 확인하기입니다. 신입은 질문하는 것 자체를 망설입니다. 손을 들 때까지 기다리지 말고, 정해진 간격(예시: 1시간에 한 번)으로 먼저 다가가 묻습니다.", "The third stage is checking in first. New hires hesitate to ask at all. Don't wait for a raised hand; go to him at set intervals (Example: once an hour) and ask."), flow, ["check"], null),
     step(tx("실수는 그 자리에서 짧게 고쳐 주고, 잘한 것도 바로 말해 줍니다. 이 시기에는 칭찬 한마디가 버티는 힘이 됩니다.", "Fix mistakes briefly on the spot, and say what he did well right away too. At this stage, one word of praise helps people hold on."), flow, ["check"], null),
     step(tx("실무 교육 때와 실무 체험 때는 곁에 붙어 있는 거리가 다릅니다. 실무 교육 기간에는 트레이너와 함께 보고, 실무 체험부터는 직무전문가가 더 가까이 붙습니다.", "You stay at a different distance in OJT and in Nesting. During OJT you watch alongside the trainer; from Nesting on, the SME stays closer."), flow, ["beside"], null),
-    step(tx("넷째 단계는 팀장에게 공유하기입니다. 하루가 끝나면 서준이 무엇을 잘했고 어디서 막혔는지 팀장과 트레이너에게 짧게 전합니다. 평가가 아니라 다음 날 도울 곳을 정하기 위해서입니다.", "The fourth stage is sharing with the team leader. At the end of the day, tell the team leader and the trainer briefly what Seojun did well and where he got stuck. The point is not to evaluate, but to decide where to help tomorrow."), flow, ["report"], null),
-    step(tx("같은 곳에서 계속 막히면 추가 교육이 필요할 수 있습니다. 결정은 팀장과 트레이너가 하고, 당신은 근거가 될 사례를 모읍니다.", "If he keeps getting stuck in the same place, he may need more training. The team leader and the trainer decide; you gather the examples to base it on."), flow, ["report"], null),
+    step(tx("넷째 단계는 팀장에게 공유하기입니다. 하루가 끝나면 서준이 무엇을 잘했고 어디서 막혔는지 팀장과 트레이너에게 짧게 전합니다. 평가가 아니라 다음 날 도울 곳을 정하기 위해서입니다.", "The fourth stage is sharing with the TL. At the end of the day, tell the TL and the trainer briefly what Seojun did well and where he got stuck. The point is not to evaluate, but to decide where to help tomorrow."), flow, ["report"], null),
+    step(tx("같은 곳에서 계속 막히면 추가 교육이 필요할 수 있습니다. 결정은 팀장과 트레이너가 하고, 당신은 근거가 될 사례를 모읍니다.", "If he keeps getting stuck in the same place, he may need more training. The TL and the trainer decide; you gather the examples to base it on."), flow, ["report"], null),
   ],
   checkpoint: [
     {
@@ -43,7 +43,7 @@ export default {
       options: [
         option("a", tx("잘하고 있다고 믿고 그대로 둔다.", "Leave him be, trusting he's doing well."), tx("신입이 조용한 것은 잘해서가 아니라 묻기를 망설여서일 때가 많습니다.", "A quiet new hire is often hesitating to ask, not doing well.")),
         option("b", tx("먼저 다가가 오전 문의가 어땠는지 묻는다.", "Go to him first and ask how his morning contacts went.")),
-        option("c", tx("질문이 없는 게 걱정되니 팀장에게 알려 따로 면담을 잡아 달라고 한다.", "Worried by the silence, tell the team leader and ask for a one-on-one with him."), tx("아직 무슨 일인지 모르는 상태입니다. 면담보다 먼저 서준에게 직접 묻는 것이 순서입니다.", "You don't know yet what is going on. Asking Seojun directly comes before any meeting.")),
+        option("c", tx("질문이 없는 게 걱정되니 팀장에게 알려 따로 면담을 잡아 달라고 한다.", "Worried by the silence, tell the TL and ask for a one-on-one with him."), tx("아직 무슨 일인지 모르는 상태입니다. 면담보다 먼저 서준에게 직접 묻는 것이 순서입니다.", "You don't know yet what is going on. Asking Seojun directly comes before any meeting.")),
       ],
       answer: "b",
       explanation: tx("신입 서포트는 기다리는 것이 아니라 먼저 다가가는 것입니다.", "Supporting new hires means going to them first, not waiting."),
@@ -53,7 +53,7 @@ export default {
       prompt: tx("서준이 같은 절차를 세 번째 묻습니다. 알맞은 것은 무엇일까요?", "Seojun asks about the same procedure for the third time. What fits best?"),
       options: [
         option("a", tx("이번에도 바로 답을 알려 주고, 화면 캡처로 정리해 보내 준다.", "Give him the answer right away again, and send it as a screenshot."), tx("정리한 답을 받아도 스스로 찾는 힘은 생기지 않아, 네 번째 질문도 오게 됩니다.", "Even a tidy answer builds no skill in finding it, so a fourth question will come.")),
-        option("b", tx("지식 베이스에서 함께 찾아 보고, 반복되는 어려움은 팀장과 트레이너에게 전한다.", "Look it up in the knowledge base together, and pass the repeated difficulty to the team leader and trainer.")),
+        option("b", tx("지식 베이스에서 함께 찾아 보고, 반복되는 어려움은 팀장과 트레이너에게 전한다.", "Look it up in the knowledge base together, and pass the repeated difficulty to the TL and trainer.")),
         option("c", tx("이미 두 번 알려 줬으니, 이번에는 교육 자료를 다시 읽고 혼자 찾아보라고 한다.", "You've explained it twice, so tell him to reread the training material and find it himself this time."), tx("혼자 찾게 두면 고객이 그만큼 기다리고, 서준은 다시 묻기를 망설이게 됩니다.", "Leaving him to search keeps the customer waiting, and Seojun will hesitate to ask again.")),
       ],
       answer: "b",
