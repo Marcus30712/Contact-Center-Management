@@ -13,7 +13,7 @@ export default {
   title: tx("에스컬레이션 요청하기", "Requesting an Escalation"),
   short: tx("에스컬레이션", "Escalation"),
   subtitle: tx("내 권한으로 안 될 때, 고객이 다시 말하지 않게 넘깁니다.", "When it's beyond your authority, pass it on so the customer doesn't have to repeat themselves."),
-  roles: tx("상담사 → 직무전문가 → 팀장", "Agent → SME → Team leader"),
+  roles: tx("상담사 → 직무전문가 → 팀장", "Agent → SME → TL"),
   procedure,
   diagram: {
     nodes: [

@@ -9,7 +9,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | Place | English |
 |---|---|
 | Course title | AM SOP Library |
-| Course intro | Learn the eight standard procedures an assistant manager repeats every week and month, in order. See the path from team leaders up to the manager, too. |
+| Course intro | Learn the eight standard procedures an assistant manager repeats every week and month, in order. See the path from Team Leaders up to the manager, too. |
 | Home card | From the weekly performance meeting to covering for the manager: the eight standard procedures an AM follows. |
 | Figures note | Times, deadlines and counts with numbers are examples; each center sets its own values. |
 | Lesson screen | All SOPs · AM checkpoint · Up next · Next SOP · Back to the list · Done |
@@ -24,16 +24,16 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 제목 | Weekly Team Leader Performance Meeting |
 | 짧은 이름 | Weekly meeting |
 | 부제 | Look at the metrics in the same order every week, and leave actions with owners. |
-| 누가 | Team leader → AM → Manager |
+| 누가 | TL → AM → Manager |
 | 노드 | Collect the data · Run the meeting · Set actions · Report to the manager |
 
 스텝:
 
 1. This procedure exists to look at the three markets' metrics in the same order every week and record who will do what by when.
 2. The first step is collecting the data. Minseok gets a metrics summary in the same template from each market by the afternoon before the meeting (Example). Answer rate, average handle time, quality score, attendance and the results of last week's actions fit on one page.
-3. The second step is running the meeting. Each team leader takes 5 minutes (Example) for last week's results, this week's plan and where they need help. Minseok asks only about the numbers that are off target.
+3. The second step is running the meeting. Each TL takes 5 minutes (Example) for last week's results, this week's plan and where they need help. Minseok asks only about the numbers that are off target.
 4. The third step is setting actions. For each problem, set one task, one owner and one deadline, and write them in the meeting notes. An action with no owner is still sitting there next week.
-5. When Taeo, the new team leader, only says he'll "keep an eye on quality", Minseok asks again in terms of what and by when. He writes it so it can be checked, such as "1:1 coaching with 3 agents (Example) this week".
+5. When Taeo, the new TL, only says he'll "keep an eye on quality", Minseok asks again in terms of what and by when. He writes it so it can be checked, such as "1:1 coaching with 3 agents (Example) this week".
 6. The fourth step is reporting to the manager. On the day of the meeting, send Jeongeun a summary by market, the new actions and anything that needs the manager's decision.
 7. The next meeting starts by checking last week's action list. Look first at what's done, what's late and why, then move on to the new numbers.
 8. A word from Miso: I once thought a meeting went well, and the next week nobody had moved. An action without an owner and a deadline isn't an action.
@@ -43,7 +43,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 항목 | English |
 |---|---|
 | 1번 질문 | In the weekly meeting, Taeo says about a drop in quality score, "I'll keep an eye on it from now on." What does Minseok do? |
-| 보기 a (오답) | The new team leader showed he's willing, so encourage him and move on to the next market. |
+| 보기 a (오답) | The new TL showed he's willing, so encourage him and move on to the next market. |
 | a 피드백 | Willingness alone leaves nothing to check next week. Turn it into a task and a deadline. |
 | 보기 b (정답) | Settle together what he'll do by when, and write the owner and deadline in the meeting notes. |
 | 보기 c (오답) | After the meeting, Minseok draws up the US market's action plan himself and sends it over to Taeo. |
@@ -67,15 +67,15 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 제목 | Passing On Instructions and Reporting Back |
 | 짧은 이름 | Instructions |
 | 부제 | Send one summary, get a confirmation list back and report. |
-| 누가 | Client and manager → AM → Team leader → Agent |
+| 누가 | Client and manager → AM → TL → Agent |
 | 노드 | Write the summary · Send it · Get the confirmation list · Report the result |
 
 스텝:
 
 1. This procedure exists to confirm that instructions from the client, the manager and the company have reached agents in every market, and to report the result to the manager.
 2. The first step is writing the summary. On one page, write what changes, from when, who it applies to and how to explain it to customers. Check anything unclear with Jeongeun before sending.
-3. The second step is sending it. Send the same summary to all three market team leaders at the same time, and mark separately what differs by market. Team leaders pass it on to agents in huddles and team chat.
-4. The third step is getting the confirmation list. From each team leader, get a list of agent names, whether they've confirmed and how, by one day before it takes effect (Example). For agents on days off or leave, also get the plan for telling them before their first shift back.
+3. The second step is sending it. Send the same summary to all three market TLs at the same time, and mark separately what differs by market. TLs pass it on to agents in huddles and team chat.
+4. The third step is getting the confirmation list. From each TL, get a list of agent names, whether they've confirmed and how, by one day before it takes effect (Example). For agents on days off or leave, also get the plan for telling them before their first shift back.
 5. Taeo sent only "notice done", with no list. Minseok asks again for the list in the same template, and if anyone is missing, has him decide who tells them and when.
 6. The fourth step is reporting the result. Report to Jeongeun the confirmation rate by market, the people who haven't got it yet and the plan for them. The manager uses this report to tell the client how ready the floor is.
 7. On the first day it takes effect, get a short note from the SMEs on any questions or mistakes about the change, and fix and resend the summary if needed.
@@ -89,7 +89,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 보기 a (오답) | Trust that the notice went out and report that the US market is done too. |
 | a 피드백 | A notice is not a confirmation. Report without a list, and no one knows who's missing. |
 | 보기 b (오답) | Minseok messages the US market agents himself and checks them one by one. |
-| b 피드백 | Skipping the team leader means Taeo doesn't learn to collect a list, and it happens again. |
+| b 피드백 | Skipping the TL means Taeo doesn't learn to collect a list, and it happens again. |
 | 보기 c (정답) | Get the list in the same template, with a plan for whoever is missing. |
 | 해설 | Passing it on ends only with a list of names and a plan for the people who were missed. |
 | 2번 질문 | What must the instruction summary include? |
@@ -99,7 +99,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 보기 c (오답) | The list of deductions and penalties for breaking the instruction |
 | c 피드백 | Leading with penalties buries what to do. Write first how to explain it correctly. |
 | 해설 | The summary covers what, when, who and how, so agents can explain it right away. |
-| 다음 레슨 연결 | What comes up from below gets checked, too. Next is the procedure for checking team leaders' escalation reports to the client. |
+| 다음 레슨 연결 | What comes up from below gets checked, too. Next is the procedure for checking TLs' escalation reports to the client. |
 
 ---
 
@@ -110,19 +110,19 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 제목 | Checking Escalation Reports |
 | 짧은 이름 | Report check |
 | 부제 | Check the category and content of each report, and combine the same problem across markets. |
-| 누가 | SME → Team leader → Client (AM checks) |
+| 누가 | SME → TL → Client (AM checks) |
 | 노드 | Check the category · Check the content · Decide on combining · Keep a record |
 
 스텝:
 
-1. This procedure exists to check that the escalation reports team leaders send to the client are correctly categorized and complete.
-2. SMEs gather agents' escalations and customer complaints and report them to the team leader, who reports to the client by email or at the interval agreed with the client. Minseok sees those reports every evening (Example) before they go to the client.
+1. This procedure exists to check that the escalation reports TLs send to the client are correctly categorized and complete.
+2. SMEs gather agents' escalations and customer complaints and report them to the TL, who reports to the client by email or at the interval agreed with the client. Minseok sees those reports every evening (Example) before they go to the client.
 3. The first step is checking the category. See whether cases solved in-house and cases reported to the client were split by the criteria agreed with the client. Policy exceptions, system errors and personal data cases usually go to the client.
-4. The second step is checking the content. See whether the customer details, what happened, what's been done so far and what's being asked of the client are all there. If anything is missing, Minseok doesn't fix it but sends it back to the team leader.
+4. The second step is checking the content. See whether the customer details, what happened, what's been done so far and what's being asked of the client are all there. If anything is missing, Minseok doesn't fix it but sends it back to the TL.
 5. The third step is deciding on combining. When the same problem comes up in two or more markets, have it reported as one case with its scale rather than separately. Big cases such as system errors also go straight to Jeongeun.
 6. Among the Korean market cases Harin raised, one involving personal data was marked as solved in-house. Minseok reviews the criteria again with Sujin and has it moved to a client report.
 7. The fourth step is keeping a record. In each market's record, note the cases reported, the client's answers, the outcome and how long it took. This record becomes the numbers and examples for business reviews.
-8. A word from Miso: I used to fix reports and send them myself, so the team leaders never knew what was wrong. Once I sent them back pointing only at what was missing, within two months there was almost nothing left to fix.
+8. A word from Miso: I used to fix reports and send them myself, so the TLs never knew what was wrong. Once I sent them back pointing only at what was missing, within two months there was almost nothing left to fix.
 
 체크포인트:
 
@@ -130,14 +130,14 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 |---|---|
 | 1번 질문 | Sujin's report is missing "what's being asked of the client". The report is due in an hour (Example). What do you do? |
 | 보기 a (오답) | Time is short, so Minseok writes in the request himself and sends it on before the deadline. |
-| a 피드백 | Fix it for her, and the team leader writes the same report next time without knowing what was missing. |
+| a 피드백 | Fix it for her, and the TL writes the same report next time without knowing what was missing. |
 | 보기 b (정답) | Point out the missing part, send it back to Sujin and get it again before it's due. |
 | 보기 c (오답) | Send it as it is and let the client work out what's being requested. |
 | c 피드백 | Without a request, the client doesn't know what to do, asks again and the case slows down. |
-| 해설 | Point out what's missing and send it back, so the team leader fills it in herself. |
+| 해설 | Point out what's missing and send it back, so the TL fills it in herself. |
 | 2번 질문 | What decides whether a case is a client report or solved in-house? |
-| 보기 a (오답) | The team leader who handled it judges the situation case by case. |
-| a 피드백 | If each team leader judges differently, reporting drifts apart across markets. |
+| 보기 a (오답) | The TL who handled it judges the situation case by case. |
+| a 피드백 | If each TL judges differently, reporting drifts apart across markets. |
 | 보기 b (오답) | How angry the customer was. |
 | b 피드백 | The customer's feelings matter, but set criteria are what keep cases from slipping through. |
 | 보기 c (정답) | The reporting criteria agreed with the client in advance. |
@@ -153,7 +153,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 제목 | The Risk Register |
 | 짧은 이름 | Risk register |
 | 부제 | Write down risks that haven't happened yet, assign owners and responses, and update it every week. |
-| 누가 | Team leader → AM → Manager |
+| 누가 | TL → AM → Manager |
 | 노드 | Find · Rate · Assign an owner · Update weekly |
 
 스텝:
@@ -196,18 +196,18 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 제목 | Preparing Business Review Materials |
 | 짧은 이름 | Review prep |
 | 부제 | Schedule backward from the meeting date, and prepare the numbers and likely questions. |
-| 누가 | Team leaders and WFM → AM → Manager |
+| 누가 | TLs and WFM → AM → Manager |
 | 노드 | Schedule backward · Verify the numbers · Likely questions · Hand over |
 
 스텝:
 
 1. This procedure exists to prepare the materials the manager presents at the WBR, MBR and QBR on a set schedule, with numbers on the same basis.
 2. The first step is scheduling backward. Count back from the meeting date to set the request date, the due date, the review date and the date to hand it to the manager. For an MBR, keep it the same every month, such as materials due three days before (Example) and handed over the day before.
-3. Minseok asks team leaders and the WFM analyst for the same template and the same date range as last time. Change the template, and you can't compare with last month.
-4. The second step is verifying the numbers. Check that the range and basis are the same, that they follow on from the last report and that they match the system data. Recalculate any number that doesn't fit, together with that market's team leader.
-5. The third step is likely questions. For each number off target, write the question the client may ask and who will answer. The market's team leader answers detailed market questions, and for anything hard to answer on the spot, you agree in advance to answer after the meeting.
+3. Minseok asks TLs and the WFM analyst for the same template and the same date range as last time. Change the template, and you can't compare with last month.
+4. The second step is verifying the numbers. Check that the range and basis are the same, that they follow on from the last report and that they match the system data. Recalculate any number that doesn't fit, together with that market's TL.
+5. The third step is likely questions. For each number off target, write the question the client may ask and who will answer. The market's TL answers detailed market questions, and for anything hard to answer on the spot, you agree in advance to answer after the meeting.
 6. The fourth step is handing over. Send Jeongeun the materials along with one page on the numbers that changed, where questions are likely and who will answer.
-7. After the meeting, list the open questions, set an owner team leader and a deadline for each, and send the confirmed answers by email or chat after the manager signs off.
+7. After the meeting, list the open questions, set an owner TL and a deadline for each, and send the confirmed answers by email or chat after the manager signs off.
 8. A word from Miso: I set the schedule from scratch every month, so I was always fixing numbers the night before. Only once I fixed the dates backward from the meeting did I have time to review.
 
 체크포인트:
@@ -219,7 +219,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | a 피드백 | A different template and basis can't be compared with last month, and the numbers won't match in front of the client. |
 | 보기 b (정답) | Send last time's template and basis again, get it on the same basis and verify it. |
 | 보기 c (오답) | Minseok copies Yuki's data into last month's template by himself. |
-| c 피드백 | Copy it alone and get the basis wrong, and a number even the team leader doesn't know gets presented. Get it again on the same basis. |
+| c 피드백 | Copy it alone and get the basis wrong, and a number even the TL doesn't know gets presented. Get it again on the same basis. |
 | 해설 | Data has to come in the same template and basis before it can be compared and verified. |
 | 2번 질문 | What do you do with client questions that couldn't be answered in the meeting? |
 | 보기 a (오답) | Put them in next month's meeting materials and answer them in detail then. |
@@ -239,18 +239,18 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | 제목 | Gathering Information the Client Requests |
 | 짧은 이름 | Client requests |
 | 부제 | Pin down the request, gather it, filter out personal data and pass it on after the manager signs off. |
-| 누가 | Client → Manager → AM → Team leader |
+| 누가 | Client → Manager → AM → TL |
 | 노드 | Pin down the request · Template and deadline · Review · Send after sign-off |
 
 스텝:
 
-1. This procedure exists to gather the information the client requests from team leaders and send it through the agreed channel after the manager signs off.
+1. This procedure exists to gather the information the client requests from TLs and send it through the agreed channel after the manager signs off.
 2. The first step is pinning down the request. Write down what they want, for what period, in what form and by when. If it's unclear, don't guess; ask the client first through the manager.
-3. The second step is the template and deadline. Minseok sends the same template to all three market team leaders, with one shared deadline a day (Example) before the client's.
+3. The second step is the template and deadline. Minseok sends the same template to all three market TLs, with one shared deadline a day (Example) before the client's.
 4. The third step is reviewing. Check that the numbers share the same range and basis, and that the examples carry no personal data beyond the set scope. A customer's name is left in one of Yuki's examples, so he asks Yuki to remove it and send it again.
 5. The fourth step is sending after sign-off. Send the combined materials to Jeongeun for sign-off. If the manager is away, send the key points by messenger or email and get sign-off that way.
 6. Send the signed-off materials through the channel agreed with the client, and note what was sent and when in the request record.
-7. If the same request comes every month, fix the template and tell team leaders in advance, so it arrives on the same day every month.
+7. If the same request comes every month, fix the template and tell TLs in advance, so it arrives on the same day every month.
 8. A word from Miso: I once sent something in a hurry without the manager's sign-off, and the client got two different numbers. However urgent it is, always get one sign-off.
 
 체크포인트:
@@ -259,19 +259,19 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 |---|---|
 | 1번 질문 | The client asked for "last month's refund inquiry data", and it's not clear whether they mean counts or examples. What do you do? |
 | 보기 a (오답) | They'll probably need both, so gather counts and examples from all three markets and send them. |
-| a 피드백 | Gathering what isn't needed takes team leaders' time and raises the chance of personal data slipping in. |
+| a 피드백 | Gathering what isn't needed takes TLs' time and raises the chance of personal data slipping in. |
 | 보기 b (정답) | Ask the client first through the manager, and request it in the agreed form. |
 | 보기 c (오답) | Gather it in the same form as for a similar request last time. |
 | c 피드백 | This request may differ from the last one. If it's unclear, check first. |
 | 해설 | Don't guess at an unclear request; check first through the manager. |
 | 2번 질문 | What must you check when reviewing the gathered data? |
-| 보기 a (오답) | Whether each team leader's layout looks good and reads easily |
+| 보기 a (오답) | Whether each TL's layout looks good and reads easily |
 | a 피드백 | Content comes before looks. |
 | 보기 b (오답) | Whether the three markets' numbers came out at a similar level |
 | b 피드백 | Markets can differ. What matters is that they were calculated on the same basis. |
 | 보기 c (정답) | Same range and basis, and no personal data beyond scope |
 | 해설 | Check that the numbers share a basis and personal data is filtered out, then raise it to the manager. |
-| 다음 레슨 연결 | Some days a team leader is away. Next is the procedure for team leader leave and naming a backup. |
+| 다음 레슨 연결 | Some days a TL is away. Next is the procedure for TL leave and naming a backup. |
 
 ---
 
@@ -281,20 +281,20 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 |---|---|
 | 제목 | Team Leader Leave and Naming a Backup |
 | 짧은 이름 | TL backup |
-| 부제 | Name who looks after the team while the team leader is away, and check the handover. |
-| 누가 | Team leader → AM → Backup |
+| 부제 | Name who looks after the team while the Team Leader is away, and check the handover. |
+| 누가 | TL → AM → Backup |
 | 노드 | Request early · Name a backup · Hand over · Check the return |
 
 스텝:
 
-1. This procedure exists to name a backup while a team leader is away on leave or training, so the team stays steady, and to check the handover.
-2. The first step is requesting early. Team leaders request leave from Minseok by the set deadline (Example: 2 weeks before). Minseok checks that it doesn't overlap with other team leaders' leave or client dates.
+1. This procedure exists to name a backup while a TL is away on leave or training, so the team stays steady, and to check the handover.
+2. The first step is requesting early. TLs request leave from Minseok by the set deadline (Example: 2 weeks before). Minseok checks that it doesn't overlap with other TLs' leave or client dates.
 3. The second step is naming a backup. While Sujin is on leave, Harin the SME covers the floor work: huddles, real-time queue management and agents' questions. Minseok covers gathering team and market information, submitting reports and reporting to the client.
 4. The third step is handing over. Sujin hands floor work to Harin and the report schedule and templates to Minseok. The three of them go through ongoing coaching, escalations and the list of agents to watch together.
-5. When new team leader Taeo goes on leave, having experienced team leader Yuki give floor advice to the US market's backup SME is one option. Gathering and reporting stay with Minseok, and he checks in once a day (Example) with anyone backing up for the first time.
-6. The fourth step is checking the return. When the team leader is back, Harin hands over what happened on the floor and what's left, and Minseok hands over the reports he sent and the client's answers.
-7. Harin's time as backup becomes part of her record as she prepares to become a team leader. Minseok notes what she did well and what to give her next time.
-8. A word from Miso: I once left the reports to the SME too, and the client's weekly report was missed while the team leader was on leave. After that, the backup took the floor and I took the reports.
+5. When new TL Taeo goes on leave, having experienced TL Yuki give floor advice to the US market's backup SME is one option. Gathering and reporting stay with Minseok, and he checks in once a day (Example) with anyone backing up for the first time.
+6. The fourth step is checking the return. When the TL is back, Harin hands over what happened on the floor and what's left, and Minseok hands over the reports he sent and the client's answers.
+7. Harin's time as backup becomes part of her record as she prepares to become a TL. Minseok notes what she did well and what to give her next time.
+8. A word from Miso: I once left the reports to the SME too, and the client's weekly report was missed while the TL was on leave. After that, the backup took the floor and I took the reports.
 
 체크포인트:
 
@@ -307,11 +307,11 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 | b 피드백 | If Minseok takes it all, he loses sight of the other markets, and Harin loses her backup experience. |
 | 보기 c (정답) | Harin takes the floor work, and Minseok takes gathering, report submission and client reports. |
 | 해설 | An SME backup takes the floor work, and the AM covers gathering team and market information, submitting reports and reporting to the client. |
-| 2번 질문 | When a team leader's leave request comes in, what does Minseok check first? |
-| 보기 a (정답) | Whether it overlaps with other team leaders' leave or client dates |
+| 2번 질문 | When a TL's leave request comes in, what does Minseok check first? |
+| 보기 a (정답) | Whether it overlaps with other TLs' leave or client dates |
 | 보기 b (오답) | Whether the reason for the leave is really necessary |
 | b 피드백 | Questioning the reason for leave isn't the AM's job. Look for dates that clash with running the team. |
-| 보기 c (오답) | Whether the team leader can still take urgent messages during the leave |
+| 보기 c (오답) | Whether the TL can still take urgent messages during the leave |
 | c 피드백 | Expect contact during leave, and they can't rest. A backup and a handover take its place. |
 | 해설 | Look first at overlapping leave and client dates, and fill the gap with a backup and a handover. |
 | 다음 레슨 연결 | When the manager is away, the AM covers. Last is the procedure for covering for the manager and handing back. |
@@ -335,7 +335,7 @@ Same sections and order as the Korean file. US English. "AM" is the assistant ma
 3. P&L and contract decisions stay outside the scope of cover. Staffing plans, SLA management and crisis response can be covered by Minseok within the scope agreed in advance with the manager. Questions outside the scope get an answer on a set date after checking.
 4. The second step is the cover log. In one document, by date, write down client meetings, requests received, what Minseok decided and what he asked the manager.
 5. The third step is checking, then answering. For questions outside the scope, send the key points to the manager that day, get her answer and give it to the client on the promised date.
-6. Minseok goes into client meetings with the market team leaders. If a crisis hits during the cover, he acts first on the agreed crisis response procedure and tells the manager the key points right away.
+6. Minseok goes into client meetings with the market TLs. If a crisis hits during the cover, he acts first on the agreed crisis response procedure and tells the manager the key points right away.
 7. The fourth step is handing back. On the day the manager returns, hand over the cover log and point out the new commitments, open questions and what the manager needs to decide.
 8. A word from Miso: When my cover ended, I explained from memory, and the manager nearly told the client something different. One log by date saved the day.
 

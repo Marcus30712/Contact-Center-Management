@@ -102,11 +102,11 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 
 | 항목 | English |
 |---|---|
-| 질문 | Two weeks (Example) into being team leader, Haeun, your closest colleague, complains that QA scores differ by evaluator. What fits best? |
+| 질문 | Two weeks (Example) into being TL, Haeun, your closest colleague, complains that QA scores differ by evaluator. What fits best? |
 | 보기 a (오답) | Believe Haeun and quietly ask QA to look at only her scores again. |
 | a 피드백 | Looking after one person makes the team feel the standard depends on friendship. |
 | 보기 b (오답) | Stay out of it and leave evaluation to QA. |
-| b 피드백 | Team leaders take part in calibration too. If the standard wobbles, so does the basis for coaching. |
+| b 피드백 | TLs take part in calibration too. If the standard wobbles, so does the basis for coaching. |
 | 보기 c (정답) | It may be a team-wide problem, so ask QA for calibration and tell the team the outcome. |
 | 해설 | Find the team-wide standard problem behind one person's complaint, and settle it the same way for everyone. |
 | 관련 레슨 | TL SOP · Calibration (../sop-library/#calibration-0) · TL SOP · From Colleague to Team Leader (../sop-library/#transition-0) |
@@ -131,10 +131,10 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | Seojun has a customer on hold and his hand up, your peer Junho asks by ticket for a compensation approval for a customer whose call has ended, and Sujin, in a meeting, messages you to take the afternoon attendance. What do you do first? |
-| 보기 a (정답) | The customer on hold comes first, so go to Seojun, and tell Junho and the team leader when you will get to them. |
+| 보기 a (정답) | The customer on hold comes first, so go to Seojun, and tell Junho and the TL when you will get to them. |
 | 보기 b (오답) | Approve your peer Junho's ticketed request first, a quick one. |
 | b 피드백 | The order is set by whether a customer is waiting now, not by what's quick or by friendship. |
-| 보기 c (오답) | The team leader asked, so do attendance first and signal Seojun to wait a moment. |
+| 보기 c (오답) | The TL asked, so do attendance first and signal Seojun to wait a moment. |
 | c 피드백 | Attendance can wait a moment; the customer on hold cannot. |
 | 해설 | Customers waiting live come first, and whoever has to wait hears when you will come. |
 | 관련 레슨 | SME First Steps lesson 6 · When Requests Pile Up at Once (../sme/#priority-0) · SME First Steps lesson 2 · Supporting Agents in Training or Just Trained (../sme/#newcomer-0) |
@@ -148,8 +148,8 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | a 피드백 | Naming him embarrasses Junho, and the team starts hiding mistakes. |
 | 보기 b (오답) | Think of your peer Junho's pride and look the other way again. |
 | b 피드백 | When it is looser for one person, the approval standard depends on friendship. |
-| 보기 c (정답) | Tell Junho one on one that the standard is the same for everyone, and tell the team leader about the cases right away. |
-| 해설 | Keep the same standard in a respectful way, and handle repeated problems together with the team leader. |
+| 보기 c (정답) | Tell Junho one on one that the standard is the same for everyone, and tell the TL about the cases right away. |
+| 해설 | Keep the same standard in a respectful way, and handle repeated problems together with the TL. |
 | 관련 레슨 | SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers (../sme/#peer-0) · SME First Steps lesson 5 · Supporting the Team Leader (../sme/#lead-0) |
 
 ### 문제 3
@@ -169,13 +169,13 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 
 | 항목 | English |
 |---|---|
-| 질문 | One morning while the team leader is away, two absence messages come in and customer waits start to grow. What do you do? |
+| 질문 | One morning while the TL is away, two absence messages come in and customer waits start to grow. What do you do? |
 | 보기 a (오답) | Hear the reasons, and record sick leave if they say they are ill. |
-| a 피드백 | Judging reasons and deciding attendance belong to the team leader. |
-| 보기 b (정답) | Record the absence messages, and tell the team leader and the RTA right away that the team is short. |
+| a 피드백 | Judging reasons and deciding attendance belong to the TL. |
+| 보기 b (정답) | Record the absence messages, and tell the TL and the RTA right away that the team is short. |
 | 보기 c (오답) | Waits are growing, so stop supporting and take more calls yourself to fill the gap. |
 | c 피드백 | While you fill in alone, the team's requests pile up, and the people who can adjust staffing don't know. |
-| 해설 | Covering attendance means recording and reporting, nothing more. The team leader and the RTA can adjust staffing. |
+| 해설 | Covering attendance means recording and reporting, nothing more. The TL and the RTA can adjust staffing. |
 | 관련 레슨 | SME First Steps lesson 5 · Supporting the Team Leader (../sme/#lead-0) · SME First Steps lesson 6 · When Requests Pile Up at Once (../sme/#priority-0) |
 
 ### 문제 5
@@ -200,6 +200,6 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | a 피드백 | A decision beyond your limits is hard to undo, and experience does not replace the standard. |
 | 보기 b (오답) | Policy does not cover it, so turn it down and let Junho carry on with the call. |
 | b 피드백 | Turning it down leaves the customer's problem where it was. What you cannot decide goes to someone who can. |
-| 보기 c (정답) | It is outside your limits, so ask Junho to tell the customer there is a short wait, and pass it to the team leader right away. |
+| 보기 c (정답) | It is outside your limits, so ask Junho to tell the customer there is a short wait, and pass it to the TL right away. |
 | 해설 | You decide within your limits and pass on what is outside them. A peer's request follows the same standard. |
 | 관련 레슨 | SME First Steps lesson 1 · Your First Day as an SME (../sme/#firstday-0) · SME First Steps lesson 4 · Supporting Senior Agents Who Were Your Peers (../sme/#peer-0) |

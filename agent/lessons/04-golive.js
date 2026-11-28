@@ -31,7 +31,7 @@ export default {
     step(tx("셋째 단계는 확인입니다. 본인 확인을 하고, 고객이 원하는 것을 내 말로 한 번 되짚습니다. 잘못 알아들은 채 시작하면 통화가 길어집니다.", "The third stage is confirming. Check the customer's identity, then repeat back what they want in your own words. Starting on a misunderstanding makes the call longer."), flow, ["confirm"], null),
     step(tx("넷째 단계는 마무리입니다. 안내한 내용을 짧게 정리하고 더 필요한 것이 있는지 묻습니다. 통화가 끝나면 상담 기록을 바로 남깁니다.", "The fourth stage is wrapping up. Sum up what you told them and ask whether they need anything else. When the call ends, write the contact notes right away."), flow, ["wrapup"], null),
     step(tx("처음에는 평균 처리 시간(AHT)이 길게 나옵니다. 정확하게 안내하는 것이 먼저이고, 속도는 익숙해지면서 따라옵니다.", "At first your average handle time (AHT) will be long. Accuracy comes first; speed follows as you get used to it."), flow, ["wrapup"], null),
-    step(tx("실수했다면 숨기지 않고 바로 직무전문가 하린이나 팀장에게 알립니다. 빨리 알릴수록 바로잡기도 쉬워집니다.", "If you made a mistake, don't hide it; tell Harin the SME or your team leader right away. The sooner you tell, the easier it is to put right."), flow, ["wrapup"], null),
+    step(tx("실수했다면 숨기지 않고 바로 직무전문가 하린이나 팀장에게 알립니다. 빨리 알릴수록 바로잡기도 쉬워집니다.", "If you made a mistake, don't hide it; tell Harin the SME or your TL right away. The sooner you tell, the easier it is to put right."), flow, ["wrapup"], null),
     step(tx("미소의 한마디: 첫 콜은 저도 무슨 말을 했는지 기억이 안 나요. 그래도 끝까지 해냈다는 것만으로 충분했어요.", "A word from Miso: I still can't remember what I said on my first call. Getting to the end was enough."), flow, ["wrapup"], null),
   ],
   checkpoint: [
@@ -51,7 +51,7 @@ export default {
       prompt: tx("통화를 마친 뒤 잘못 안내한 것을 알았습니다. 어떻게 할까요?", "After a call ends, Jimin realizes she gave wrong information. What should she do?"),
       options: [
         option("a", tx("고객이 다시 연락하지 않으면 문제없는 것으로 치고 다음 문의로 넘어간다.", "Move on to the next contact; if the customer doesn't call back, it's fine."), tx("잘못된 안내는 더 큰 불만으로 돌아올 수 있습니다.", "Wrong information can come back as a bigger complaint.")),
-        option("b", tx("바로 직무전문가나 팀장에게 알리고 절차대로 바로잡는다.", "Tell the SME or team leader right away and correct it through the process.")),
+        option("b", tx("바로 직무전문가나 팀장에게 알리고 절차대로 바로잡는다.", "Tell the SME or TL right away and correct it through the process.")),
         option("c", tx("아무에게도 말하지 않고 혼자 고객에게 다시 연락한다.", "Contact the customer again on her own without telling anyone."), tx("다시 연락하는 방법과 기록 규칙이 정해져 있을 수 있습니다. 먼저 알리고 절차를 따릅니다.", "There may be set rules for contacting customers again and recording it. Tell someone first and follow the process.")),
       ],
       answer: "b",

@@ -13,7 +13,7 @@ export const EXCEL_ROLE_UI = {
     },
     "tl": {
       "ko": "미소 팀 하루 콜 기록(예시) 하나로 팀장에게 꼭 필요한 엑셀 11가지를 익혀요. 타자 없이 눌러서만 풀어요.",
-      "en": "Learn the 11 Excel skills a team leader needs, using one example table of Miso's team's calls. No typing: just tap."
+      "en": "Learn the 11 Excel skills a Team Leader needs, using one example table of Miso's team's calls. No typing: just tap."
     },
     "am": {
       "ko": "미소 팀 하루 콜 기록(예시) 하나로 여러 팀의 실적을 비교할 때 쓰는 엑셀 11가지를 익혀요. 타자 없이 눌러서만 풀어요.",

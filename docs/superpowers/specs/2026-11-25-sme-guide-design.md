@@ -86,12 +86,12 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | 신입·교육생 | New hires |
 | 기존·선임 | Existing and senior agents |
 | 요청이 몰릴 때 | Request rush |
-| 팀장·품질 | Team leader and quality |
+| 팀장·품질 | TL and quality |
 | 직무전문가가 된 첫 주 | Your first week as an SME |
 | 신입과 교육 중인 상담사 | New hires and agents in training |
 | 기존 상담사와 선임 | Existing and senior agents |
 | 요청이 한꺼번에 몰릴 때 | When requests pile up at once |
-| 팀장 지원과 품질 | Team leader support and quality |
+| 팀장 지원과 품질 | Team Leader support and quality |
 | 직무전문가가 된 첫날이다 | It's your first day as an SME |
 | 동료였던 선임이 승인 없이 처리하려 한다 | A senior agent who was your peer wants to go ahead without approval |
 | 다음 주 실무 교육 교육생이 플로어에 나온다 | Trainees start OJT on the floor next week |
@@ -99,12 +99,12 @@ US English. 링크 이름은 도착하는 레슨·원페이저의 영어 제목�
 | 신입이 하루 종일 질문을 하지 않는다 | A new hire hasn't asked a single question all day |
 | 상담사가 권한 밖 보상 승인을 요청한다 | An agent asks you to approve compensation they aren't authorized to give |
 | 정식 상담사의 품질이 갑자기 떨어졌다 | A regular agent's quality has suddenly dropped |
-| 선임이 직무전문가나 팀장이 되고 싶어 한다 | A senior agent wants to become an SME or team leader |
+| 선임이 직무전문가나 팀장이 되고 싶어 한다 | A senior agent wants to become an SME or TL |
 | 플로어와 메신저 요청이 한꺼번에 몰린다 | Floor and messenger requests pile up at once |
 | 같은 질문이 여러 상담사에게서 계속 온다 | Several agents keep asking the same question |
-| 팀장이 자리를 비워 출석을 대신 봐야 한다 | The team leader is away and you have to cover attendance |
-| 팀장에게 주간 코칭 요약을 보내야 한다 | You need to send the team leader the weekly coaching summary |
-| 팀장이 팀원별 현황을 물어본다 | The team leader asks where each team member stands |
+| 팀장이 자리를 비워 출석을 대신 봐야 한다 | The TL is away and you have to cover attendance |
+| 팀장에게 주간 코칭 요약을 보내야 한다 | You need to send the TL the weekly coaching summary |
+| 팀장이 팀원별 현황을 물어본다 | The TL asks where each team member stands |
 | 고객사가 정책 변경을 보내왔다 | The client has sent a policy change |
 | 캘리브레이션에 참석하게 됐다 | You're joining a calibration session |
 | 같은 고객 불만이 계속 쌓인다 | Complaints about the same issue keep piling up |

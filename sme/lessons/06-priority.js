@@ -31,9 +31,9 @@ export default {
     step(tx("급한 정도가 같다면 감정이 올라간 고객의 건과 신입의 건을 먼저 봅니다. 신입은 고객을 오래 붙잡고 있기 쉽기 때문입니다.", "If two are equally urgent, take the upset customer's case or the new hire's first. New hires tend to keep customers waiting longer."), flow, ["urgent"], null),
     step(tx("둘째 단계는 기다림 알리기입니다. 바로 갈 수 없는 사람에게는 \"2분 뒤에 갈게요\"(예시)처럼 언제 갈지 먼저 알립니다. 답이 없는 것보다 기다릴 시간을 아는 것이 훨씬 낫습니다.", "The second stage is saying when. Tell anyone you can't reach right away when you will come, as in \"I'll be there in 2 minutes\" (Example). Knowing how long to wait is far better than no answer."), flow, ["tell"], null),
     step(tx("셋째 단계는 나눠 맡기기입니다. 일반 질문은 준호 같은 선임 상담사에게 부탁하거나, 지식 베이스 문서 위치만 먼저 보내 줍니다.", "The third stage is handing off. Ask a senior agent like Junho to take general questions, or send just the knowledge base article first."), flow, ["hand"], null),
-    step(tx("넷째 단계는 팀장 부르기입니다. 요청이 계속 쌓여 고객 대기가 길어지면 혼자 버티지 말고 팀장에게 알립니다. 팀장이 함께 서포트하거나 RTA와 인원을 조정할 수 있습니다.", "The fourth stage is calling the team leader. If requests keep piling up and customer waits get long, don't hold on alone; tell the team leader. The team leader can help support or adjust staffing with the RTA."), flow, ["call"], null),
+    step(tx("넷째 단계는 팀장 부르기입니다. 요청이 계속 쌓여 고객 대기가 길어지면 혼자 버티지 말고 팀장에게 알립니다. 팀장이 함께 서포트하거나 RTA와 인원을 조정할 수 있습니다.", "The fourth stage is calling the TL. If requests keep piling up and customer waits get long, don't hold on alone; tell the TL. The TL can help support or adjust staffing with the RTA."), flow, ["call"], null),
     step(tx("플로어와 온라인을 모두 놓치지 않으려면 방법을 정해 둡니다. 센터 규정이 허락하면 플로어를 돌 때도 메신저를 볼 수 있는 기기를 들고 다닙니다.", "Decide how you will keep up with both the floor and online. If center rules allow, carry a device for the messenger while walking the floor."), flow, [], null),
-    step(tx("바쁜 시간이 지나면 왜 몰렸는지 돌아봅니다. 같은 질문이 몰렸다면 허들 주제가 되고, 특정 시간대마다 몰린다면 팀장과 서포트 계획을 바꿉니다.", "After the rush, look back at why it piled up. If the same question piled up, it becomes a huddle topic; if it piles up at the same time each day, change the support plan with the team leader."), flow, [], null),
+    step(tx("바쁜 시간이 지나면 왜 몰렸는지 돌아봅니다. 같은 질문이 몰렸다면 허들 주제가 되고, 특정 시간대마다 몰린다면 팀장과 서포트 계획을 바꿉니다.", "After the rush, look back at why it piled up. If the same question piled up, it becomes a huddle topic; if it piles up at the same time each day, change the support plan with the TL."), flow, [], null),
   ],
   checkpoint: [
     {
@@ -51,12 +51,12 @@ export default {
       id: "priority-q2",
       prompt: tx("30분째 요청이 계속 쌓이고 고객 대기가 길어지고 있습니다. 알맞은 것은 무엇일까요?", "Requests have kept piling up for 30 minutes and customer waits are getting longer. What fits best?"),
       options: [
-        option("a", tx("점심을 미루고 혼자 끝까지 처리한다.", "Skip lunch and handle it all yourself to the end."), tx("혼자 버티는 동안 고객 대기는 더 길어지고, 팀장은 문제가 있다는 것도 모릅니다.", "While you hold on alone, customer waits grow and the team leader doesn't even know there is a problem.")),
-        option("b", tx("팀장에게 상황을 알려 함께 대응한다.", "Tell the team leader what is happening and handle it together.")),
+        option("a", tx("점심을 미루고 혼자 끝까지 처리한다.", "Skip lunch and handle it all yourself to the end."), tx("혼자 버티는 동안 고객 대기는 더 길어지고, 팀장은 문제가 있다는 것도 모릅니다.", "While you hold on alone, customer waits grow and the TL doesn't even know there is a problem.")),
+        option("b", tx("팀장에게 상황을 알려 함께 대응한다.", "Tell the TL what is happening and handle it together.")),
         option("c", tx("메신저를 잠시 끄고 플로어 요청만 처리한다.", "Turn off the messenger for a while and handle only floor requests."), tx("온라인 요청 뒤에도 기다리는 고객이 있습니다. 요청을 안 보이게 해도 사라지지 않습니다.", "Customers are waiting behind the online requests too. Hiding requests does not make them go away.")),
       ],
       answer: "b",
-      explanation: tx("혼자 감당할 수 없는 양이면 팀장에게 알립니다. 인원 조정은 팀장과 RTA가 할 수 있습니다.", "When it is more than you can handle alone, tell the team leader. The team leader and the RTA can adjust staffing."),
+      explanation: tx("혼자 감당할 수 없는 양이면 팀장에게 알립니다. 인원 조정은 팀장과 RTA가 할 수 있습니다.", "When it is more than you can handle alone, tell the TL. The TL and the RTA can adjust staffing."),
     },
   ],
   connection: { to: "knowledge", text: tx("바쁜 하루가 지나고 나면 직무전문가에게 남는 일이 있습니다. 오늘 본 것을 팀의 지식으로 돌려주는 일입니다.", "When the busy day is over, one job is left for the SME: turning what you saw today into knowledge for the team.") },

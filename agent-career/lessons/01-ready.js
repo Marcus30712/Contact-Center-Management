@@ -44,7 +44,7 @@ export default {
       options: [
         option("a", tx("근속 기간", "Length of service"), tx("연차보다 최근 몇 달의 출석, 기록, 점수, 기여를 봅니다.", "They look at the last few months of attendance, record, scores and contribution rather than tenure.")),
         option("b", tx("출석률과 근태", "Attendance and timekeeping")),
-        option("c", tx("팀장과의 친분 정도", "How close they are to the team leader"), tx("친분이 아니라 기록으로 봅니다. 출석률, 클레임과 징계 기록, 품질·시험 점수가 근거가 됩니다.", "It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence.")),
+        option("c", tx("팀장과의 친분 정도", "How close they are to the TL"), tx("친분이 아니라 기록으로 봅니다. 출석률, 클레임과 징계 기록, 품질·시험 점수가 근거가 됩니다.", "It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence.")),
       ],
       answer: "b",
       explanation: tx("직무전문가는 여러 사람과 함께 일합니다. 자리를 지켜 온 기록이 가장 먼저 믿음이 됩니다.", "SMEs work with many people. A record of showing up is the first thing that builds trust."),
@@ -53,7 +53,7 @@ export default {
       id: "ready-q2",
       prompt: tx("면접에서 팀 기여를 가장 잘 보여 주는 말은 무엇일까요?", "In an interview, which statement best shows team contribution?"),
       options: [
-        option("a", tx("\"신입 동료들이 막힐 때마다 먼저 다가가 도왔고, 덕분에 팀 분위기가 좋아졌다는 말을 팀장님께 많이 들었습니다.\"", "\"Whenever new colleagues got stuck, I went over to help first, and my team leader often said the team mood got better for it.\""), tx("무엇을 어떻게 도왔고 결과가 어땠는지 사실이 빠져 있어 근거가 되지 않습니다.", "It leaves out the facts of what she helped with, how, and what came of it, so it isn't evidence.")),
+        option("a", tx("\"신입 동료들이 막힐 때마다 먼저 다가가 도왔고, 덕분에 팀 분위기가 좋아졌다는 말을 팀장님께 많이 들었습니다.\"", "\"Whenever new colleagues got stuck, I went over to help first, and my TL often said the team mood got better for it.\""), tx("무엇을 어떻게 도왔고 결과가 어땠는지 사실이 빠져 있어 근거가 되지 않습니다.", "It leaves out the facts of what she helped with, how, and what came of it, so it isn't evidence.")),
         option("b", tx("\"제 품질 점수가 몇 달째 팀에서 가장 높았고, 처리 시간도 가장 짧습니다.\"", "\"My quality score has been the team's highest for months, and my handling time is the shortest.\""), tx("점수는 품질·시험 점수 항목에서 봅니다. 팀 기여는 내 점수가 아니라 다른 사람과 팀을 위해 한 일입니다.", "Scores belong to the quality and test scores criterion. Team contribution is what you did for others and the team, not your own score.")),
         option("c", tx("\"고객의 소리(VOC)로 배송 지연 문의 원인을 찾아 문구 변경을 제안했고, 다음 달 그 문의가 줄었습니다.\"", "\"Using VOC, I found why delivery-delay contacts were frequent and proposed new wording; the next month those contacts dropped.\"")),
       ],

@@ -204,7 +204,7 @@ export const SME_GROUPS = [
         "id": "m8",
         "text": {
           "ko": "선임이 직무전문가나 팀장이 되고 싶어 한다",
-          "en": "A senior agent wants to become an SME or team leader"
+          "en": "A senior agent wants to become an SME or TL"
         },
         "first": {
           "title": {
@@ -282,18 +282,18 @@ export const SME_GROUPS = [
     "id": "lead",
     "chip": {
       "ko": "팀장·품질",
-      "en": "Team leader and quality"
+      "en": "TL and quality"
     },
     "heading": {
       "ko": "팀장 지원과 품질",
-      "en": "Team leader support and quality"
+      "en": "Team Leader support and quality"
     },
     "situations": [
       {
         "id": "m11",
         "text": {
           "ko": "팀장이 자리를 비워 출석을 대신 봐야 한다",
-          "en": "The team leader is away and you have to cover attendance"
+          "en": "The TL is away and you have to cover attendance"
         },
         "first": {
           "title": {
@@ -314,7 +314,7 @@ export const SME_GROUPS = [
         "id": "m12",
         "text": {
           "ko": "팀장에게 주간 코칭 요약을 보내야 한다",
-          "en": "You need to send the team leader the weekly coaching summary"
+          "en": "You need to send the TL the weekly coaching summary"
         },
         "first": {
           "title": {
@@ -335,7 +335,7 @@ export const SME_GROUPS = [
         "id": "m13",
         "text": {
           "ko": "팀장이 팀원별 현황을 물어본다",
-          "en": "The team leader asks where each team member stands"
+          "en": "The TL asks where each team member stands"
         },
         "first": {
           "title": {

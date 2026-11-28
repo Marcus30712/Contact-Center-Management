@@ -50,8 +50,8 @@
 | nesting-tech-2.c | 익숙해질 때까지 바로 넘기는 습관을 그대로 둔다. | Leave the habit of passing tickets straight on until she gets used to the work. |
 | nesting-tech-2.answer | a | a |
 | nesting-tech-2.explanation | 너무 늦게 넘기는 것도, 너무 빨리 넘기는 것도 문제입니다. 1차 지원에서 할 수 있는 확인을 마치고 정해진 기준에 따라 넘기는 습관을 실무 체험에서 들여야 상위 단계의 부담이 줄어듭니다. | Passing too late and passing too early are both problems. Building the habit in Nesting of finishing the Tier 1 checks and escalating by the agreed criteria eases the load on higher tiers. |
-| coaching-general-2.prompt | 같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요? | On the same call, the team leader scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do? |
-| coaching-general-2.a | 팀원을 가장 잘 아는 팀장의 점수를 공식 점수로 따른다. | Use the score of the team leader, who knows the agent best, as the official one. |
+| coaching-general-2.prompt | 같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요? | On the same call, the TL scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do? |
+| coaching-general-2.a | 팀원을 가장 잘 아는 팀장의 점수를 공식 점수로 따른다. | Use the score of the TL, who knows the agent best, as the official one. |
 | coaching-general-2.b | 어느 쪽도 틀리지 않았으니, 두 점수의 평균을 공식 점수로 삼는다. | Neither is wrong, so make the average of the two the official score. |
 | coaching-general-2.c | 기준이 달라 생긴 차이니, 캘리브레이션에서 채점 기준을 맞춘다. | The gap comes from different standards, so align the scoring standards in calibration. |
 | coaching-general-2.answer | c | c |
@@ -67,7 +67,7 @@
 | retention-general-2.b | 따로 이야기 없이, 내일 새로 시작하자고 한다. | Skip any talk and say you will start fresh tomorrow. |
 | retention-general-2.c | 가장 지친 사람을 따로 불러, 오늘 실적이 떨어진 이유를 함께 짚어 본다. | Call in the most exhausted person and go over why their numbers dropped today. |
 | retention-general-2.answer | a | a |
-| retention-general-2.explanation | 감정노동은 쌓이면 번아웃이 됩니다. 힘든 날을 함께 정리하는 자리를 만들고 회사의 케어 제도를 팀장이 직접 연결해 줄 때, 제도가 실제로 쓰입니다. | Emotional labor turns into burnout when it builds up. Care programs actually get used when the team leader makes room to process hard days together and connects people to them directly. |
+| retention-general-2.explanation | 감정노동은 쌓이면 번아웃이 됩니다. 힘든 날을 함께 정리하는 자리를 만들고 회사의 케어 제도를 팀장이 직접 연결해 줄 때, 제도가 실제로 쓰입니다. | Emotional labor turns into burnout when it builds up. Care programs actually get used when the TL makes room to process hard days together and connects people to them directly. |
 | retention-tech-2.prompt | 기술지원 상담사 한 명이 몇 주째 어려운 티켓만 맡아 지쳐 보입니다. 어떻게 할까요? | A tech support agent has handled only hard tickets for weeks and looks worn out. What do you do? |
 | retention-tech-2.a | 어려운 티켓은 실력 있는 사람에게 계속 맡기고, 지금 배정을 그대로 둔다. | Keep hard tickets with the skilled person, and leave the current assignments as they are. |
 | retention-tech-2.b | 쉬운 티켓을 섞어 주고, 해결 사례를 지식 자료로 정리하게 한다. | Mix in easier tickets, and have them write up solved cases for the knowledge base. |
@@ -83,6 +83,6 @@
 | career-tech-2.prompt | 기술지원 상담사가 같은 문제를 고객마다 반복해 설명하는 것이 아깝다며 해결 방법을 문서로 정리해 두었습니다. 무엇을 할까요? | A tech support agent felt it was wasteful to explain the same problem to customer after customer, so they wrote the fix up as a document. What do you do? |
 | career-tech-2.a | 지식 자료 담당을 맡겨 보고, 그 경로를 함께 이야기한다. | Try giving them the knowledge base role, and talk through that path together. |
 | career-tech-2.b | 업무 시간에는 문서 대신 상담에 집중하라고 한다. | Tell them to focus on contacts, not documents, during work hours. |
-| career-tech-2.c | 문서를 받아 팀장 이름으로 공유한다. | Take the document and share it under the team leader's name. |
+| career-tech-2.c | 문서를 받아 팀장 이름으로 공유한다. | Take the document and share it under the TL's name. |
 | career-tech-2.answer | a | a |
-| career-tech-2.explanation | 기술지원에는 지식 자료를 만들고 고치는 길도 있습니다. 상담사가 스스로 보여 준 강점을 경로와 연결해 주는 것이 팀장의 몫입니다. | Tech support also has a path in creating and updating knowledge base articles. Connecting a strength the agent has shown on their own to a career path is the team leader’s part. |
+| career-tech-2.explanation | 기술지원에는 지식 자료를 만들고 고치는 길도 있습니다. 상담사가 스스로 보여 준 강점을 경로와 연결해 주는 것이 팀장의 몫입니다. | Tech support also has a path in creating and updating knowledge base articles. Connecting a strength the agent has shown on their own to a career path is the TL’s part. |

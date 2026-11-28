@@ -119,7 +119,7 @@ export const GROUPS = [
         "id": "s4",
         "text": {
           "ko": "팀원이 직무전문가나 팀장으로 성장하고 싶다고 한다",
-          "en": "A team member says they want to grow into an SME or team leader"
+          "en": "A team member says they want to grow into an SME or TL"
         },
         "first": {
           "title": {
@@ -373,7 +373,7 @@ export const GROUPS = [
         "first": {
           "title": {
             "ko": "Codex 원페이저 ④ 직무별 일일 업무 가이드 · 팀장",
-            "en": "Codex one-pager ④ Daily Guide by Role · Team leader"
+            "en": "Codex one-pager ④ Daily Guide by Role · Team Leader"
           },
           "href": "../codex/#daily-tl"
         },
@@ -477,7 +477,7 @@ export const GROUPS = [
         "then": {
           "title": {
             "ko": "Codex 원페이저 ④ 직무별 일일 업무 가이드 · 팀장",
-            "en": "Codex one-pager ④ Daily Guide by Role · Team leader"
+            "en": "Codex one-pager ④ Daily Guide by Role · Team Leader"
           },
           "href": "../codex/#daily-tl"
         }

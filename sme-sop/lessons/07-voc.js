@@ -13,7 +13,7 @@ export default {
   title: tx("고객의 소리(VOC) 리포팅", "VOC Reporting"),
   short: tx("VOC", "VOC"),
   subtitle: tx("상담사 선에서 풀 수 없는 고객의 목소리를, 고객사가 쓸 수 있게 정리합니다.", "Organize the customer voice agents can't act on, so the client can use it."),
-  roles: tx("직무전문가 → 팀장 → 고객사", "SME → Team leader → Client"),
+  roles: tx("직무전문가 → 팀장 → 고객사", "SME → TL → Client"),
   procedure,
   diagram: {
     nodes: [
@@ -51,8 +51,8 @@ export default {
       prompt: tx("지난달 전한 고객의 소리(VOC) 주제가 이번 달에도 그대로 많습니다. 어떻게 할까요?", "A VOC topic you sent last month is still just as common this month. What do you do?"),
       options: [
         option("a", tx("이미 전한 주제는 이번 리포트에서 빼고, 새 주제에 자리를 준다.", "Leave out the topic already sent this time, and make room for new ones."), tx("빠지면 고객사는 문제가 해결된 것으로 봅니다.", "If it drops out, the client assumes it's solved.")),
-        option("b", tx("지난 리포트와 건수 변화를 함께 보여 다시 올리고, 우선순위를 팀장과 상의한다.", "Raise it again with last report's figures to show the change, and discuss priority with the team leader.")),
-        option("c", tx("한 달이 지나도 그대로이니, 고객사 담당에게 직접 연락해 빨리 고쳐 달라고 항의한다.", "Nothing has changed in a month, so contact the client directly and complain for a quick fix."), tx("고객사에 문제를 올리는 것은 팀장과 정해진 경로를 거칩니다. 혼자 항의하면 같은 이야기가 여러 길로 가서 혼란이 생깁니다.", "Raising issues with the client goes through the team leader and the agreed channel. Complaining on your own sends the same story down several paths and causes confusion.")),
+        option("b", tx("지난 리포트와 건수 변화를 함께 보여 다시 올리고, 우선순위를 팀장과 상의한다.", "Raise it again with last report's figures to show the change, and discuss priority with the TL.")),
+        option("c", tx("한 달이 지나도 그대로이니, 고객사 담당에게 직접 연락해 빨리 고쳐 달라고 항의한다.", "Nothing has changed in a month, so contact the client directly and complain for a quick fix."), tx("고객사에 문제를 올리는 것은 팀장과 정해진 경로를 거칩니다. 혼자 항의하면 같은 이야기가 여러 길로 가서 혼란이 생깁니다.", "Raising issues with the client goes through the TL and the agreed channel. Complaining on your own sends the same story down several paths and causes confusion.")),
       ],
       answer: "b",
       explanation: tx("전달한 고객의 소리(VOC)는 바뀔 때까지 추적합니다.", "Track a VOC topic you sent until it changes."),

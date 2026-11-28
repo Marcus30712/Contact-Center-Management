@@ -30,7 +30,7 @@ export default {
       care, ['care', 'care-stay'], 'stay'),
     step(tx('보호 조치의 한 예가 선끊기 권한입니다. 악성 민원 통화를 상담사가 먼저 끝낼 수 있게 하는 것으로, 구체적인 기준과 절차는 센터마다 다릅니다.', 'One example of protection is the authority to hang up first. It lets an agent end a call with an abusive caller, and how it works in detail varies by center.'),
       care, ['care'], 'stay'),
-    step(tx('지민이 폭언이 이어지는 콜을 받고, 기준에 따라 통화를 끝냅니다. 당신은 잘 끊었다고 말해 주고 잠시 쉬게 합니다. 제도는 팀장이 써도 된다고 확인해 줄 때 비로소 쓰입니다.', 'Jimin gets a call where the verbal abuse will not stop, and she ends it according to the criteria. You tell her she was right to end it and give her a short break. A policy only gets used once the team leader confirms it is fine to use.'),
+    step(tx('지민이 폭언이 이어지는 콜을 받고, 기준에 따라 통화를 끝냅니다. 당신은 잘 끊었다고 말해 주고 잠시 쉬게 합니다. 제도는 팀장이 써도 된다고 확인해 줄 때 비로소 쓰입니다.', 'Jimin gets a call where the verbal abuse will not stop, and she ends it according to the criteria. You tell her she was right to end it and give her a short break. A policy only gets used once the TL confirms it is fine to use.'),
       care, ['care', 'stay'], 'stay'),
     step(tx('셋째는 조직 문화입니다. 팀 빌딩 활동과 자유로운 피드백 창구로 고립감을 풀어 줍니다. 헤드셋을 쓰고 일하면 옆자리 동료와도 멀어지기 쉽습니다.', 'The third is team culture. Team-building activities and open feedback channels ease the sense of isolation. Working under a headset, it is easy to drift apart even from the person at the next desk.'),
       all, ['culture', 'culture-stay'], 'stay'),
@@ -50,7 +50,7 @@ export default {
       option('c', tx('왜 조금 더 참지 못했는지 묻는다.', 'Ask why she could not hold on a little longer.'), tx('판단을 따져 물으면 지민은 다음에 선끊기 권한을 쓰기를 망설이게 됩니다.', 'Questioning her judgment makes Jimin hesitate to use her authority to hang up first next time.')),
     ],
     answer: 'b',
-    explanation: tx('감정노동 케어는 제도가 있는 것만으로 끝나지 않고, 팀장이 그 순간에 어떻게 반응하는지로 완성됩니다. 바로 다음 콜을 받게 하거나 판단을 따져 물으면, 지민은 다음부터 보호 조치를 쓰지 못하게 됩니다.', 'Care for emotional labor is not finished by having a policy. It is completed by how the team leader responds in the moment. Send her straight to the next call or question her judgment, and Jimin will not use the protection next time.'),
+    explanation: tx('감정노동 케어는 제도가 있는 것만으로 끝나지 않고, 팀장이 그 순간에 어떻게 반응하는지로 완성됩니다. 바로 다음 콜을 받게 하거나 판단을 따져 물으면, 지민은 다음부터 보호 조치를 쓰지 못하게 됩니다.', 'Care for emotional labor is not finished by having a policy. It is completed by how the TL responds in the moment. Send her straight to the next call or question her judgment, and Jimin will not use the protection next time.'),
   }, trackQuestion('general', {
     id: 'retention-general',
     prompt: tx('지민이 요즘 같은 문의만 반복해서 지친다고 말합니다. 어떻게 할까요?', 'Jimin says she is worn out from handling the same inquiries over and over. What do you do?'),
@@ -80,7 +80,7 @@ export default {
       option('c', tx('가장 지친 사람을 따로 불러, 오늘 실적이 떨어진 이유를 함께 짚어 본다.', 'Call in the most exhausted person and go over why their numbers dropped today.'), tx('지친 날 실적 이야기를 꺼내면 케어가 아니라 압박으로 받아들여집니다.', 'Raising performance on an exhausting day lands as pressure, not care.')),
     ],
     answer: 'a',
-    explanation: tx('감정노동은 쌓이면 번아웃이 됩니다. 힘든 날을 함께 정리하는 자리를 만들고 회사의 케어 제도를 팀장이 직접 연결해 줄 때, 제도가 실제로 쓰입니다.', 'Emotional labor turns into burnout when it builds up. Care programs actually get used when the team leader makes room to process hard days together and connects people to them directly.'),
+    explanation: tx('감정노동은 쌓이면 번아웃이 됩니다. 힘든 날을 함께 정리하는 자리를 만들고 회사의 케어 제도를 팀장이 직접 연결해 줄 때, 제도가 실제로 쓰입니다.', 'Emotional labor turns into burnout when it builds up. Care programs actually get used when the TL makes room to process hard days together and connects people to them directly.'),
   }), trackQuestion('tech', {
     id: 'retention-tech-2',
     prompt: tx('기술지원 상담사 한 명이 몇 주째 어려운 티켓만 맡아 지쳐 보입니다. 어떻게 할까요?', 'A tech support agent has handled only hard tickets for weeks and looks worn out. What do you do?'),

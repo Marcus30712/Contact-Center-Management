@@ -28,7 +28,7 @@ export default {
     step(tx("고객센터는 시간대마다 필요한 인원을 맞춰 스케줄을 짭니다. 지민 한 사람이 빠지면 그 시간의 콜과 채팅, 이메일이 남은 사람에게 몰립니다.", "A contact center builds its schedule to match the people needed in each time slot. If Jimin is out, that slot's calls, chats and emails fall on everyone else."), flow, [], null),
     step(tx("첫 단계는 스케줄 확인입니다. 다음 주 근무와 휴식, 교육 시간을 미리 확인하고 정해진 시간을 지킵니다. 이것을 스케줄 준수율로 봅니다.", "The first stage is checking the schedule. Check next week's shifts, breaks and training times ahead, and keep to them. This is what schedule adherence measures."), flow, ["schedule"], null),
     step(tx("둘째 단계는 미리 알리기입니다. 휴가나 일정 변경은 센터가 정한 방법과 기한에 맞춰 최대한 일찍 신청합니다.", "The second stage is telling them early. Request leave or schedule changes as early as you can, using the method and deadline your center sets."), flow, ["early"], null),
-    step(tx("셋째 단계는 아픈 날입니다. 아프거나 불가피한 사정으로 출근할 수 없으면, 근무 시작 1~2시간 전(예시)에는 팀이나 센터가 정한 방법으로 수진 팀장에게 직접 알립니다. 수진 팀장이 휴가나 병가 중이면 직무전문가 하린에게 알리고, 필요한 서류가 있다면 챙깁니다.", "The third stage is sick days. If you're ill or something unavoidable keeps you from work, tell Sujin, your team leader, directly at least 1–2 hours before your shift (Example), the way your team or center sets. If Sujin is on leave or off sick, tell Harin the SME, and bring any documents that are needed."), flow, ["sick"], null),
+    step(tx("셋째 단계는 아픈 날입니다. 아프거나 불가피한 사정으로 출근할 수 없으면, 근무 시작 1~2시간 전(예시)에는 팀이나 센터가 정한 방법으로 수진 팀장에게 직접 알립니다. 수진 팀장이 휴가나 병가 중이면 직무전문가 하린에게 알리고, 필요한 서류가 있다면 챙깁니다.", "The third stage is sick days. If you're ill or something unavoidable keeps you from work, tell Sujin, your TL, directly at least 1–2 hours before your shift (Example), the way your team or center sets. If Sujin is on leave or off sick, tell Harin the SME, and bring any documents that are needed."), flow, ["sick"], null),
     step(tx("넷째 단계는 동료가 빠진 날입니다. 문의가 몰려도 정해진 휴식은 지키고, 한 건씩 정확하게 처리합니다.", "The fourth stage is days a colleague is out. Even when contacts pile up, keep your scheduled breaks and handle one contact at a time, accurately."), flow, ["covering"], null),
     step(tx("병가도 출결 기록에 남아 평가에 영향을 줄 수 있습니다. 내 센터의 출결 규칙을 미리 알아 두면 불필요한 불이익을 줄일 수 있습니다.", "Sick days are recorded too and can affect your evaluation. Knowing your center's attendance rules ahead of time helps you avoid needless penalties."), flow, ["sick"], null),
     step(tx("아픈데 무리해서 출근하면 더 길게 빠지게 될 수 있습니다. 쉬어야 할 때 절차대로 쉬는 것도 팀을 돕는 일입니다.", "Coming in when you're ill can keep you out for longer. Resting by the process when you need to is also a way of helping the team."), flow, ["sick"], null),
@@ -40,11 +40,11 @@ export default {
       prompt: tx("지민이 아침에 열이 나서 출근하기 어렵습니다. 어떻게 할까요?", "Jimin wakes up with a fever and can't come in. What should she do?"),
       options: [
         option("a", tx("근무가 시작된 뒤에 상태를 보고 연락한다.", "See how she feels and get in touch after her shift starts."), tx("늦게 알리면 스케줄을 다시 짤 시간이 없고, 무단 결근으로 남을 수 있습니다.", "Telling them late leaves no time to rearrange the schedule and can go down as an unexcused absence.")),
-        option("b", tx("스케줄을 다시 짤 수 있게, 근무 1~2시간 전(예시)에 팀장에게 직접 알린다.", "Tell her team leader directly 1–2 hours before her shift (Example), so the schedule can be rearranged.")),
+        option("b", tx("스케줄을 다시 짤 수 있게, 근무 1~2시간 전(예시)에 팀장에게 직접 알린다.", "Tell her TL directly 1–2 hours before her shift (Example), so the schedule can be rearranged.")),
         option("c", tx("동료에게 대신 말해 달라고만 부탁한다.", "Only ask a colleague to pass it on."), tx("동료를 거치면 전달이 늦거나 빠질 수 있습니다. 정해진 방법으로 직접 알립니다.", "Going through a colleague can delay or lose the message. Tell them directly the agreed way.")),
       ],
       answer: "b",
-      explanation: tx("아픈 날은 근무 시작 전에 여유를 두고, 정해진 방법으로 팀장에게 직접 알립니다. 팀장이 자리에 없으면 직무전문가에게 알립니다.", "On a sick day, tell your team leader directly, well before your shift and the agreed way. If your team leader is away, tell the SME."),
+      explanation: tx("아픈 날은 근무 시작 전에 여유를 두고, 정해진 방법으로 팀장에게 직접 알립니다. 팀장이 자리에 없으면 직무전문가에게 알립니다.", "On a sick day, tell your TL directly, well before your shift and the agreed way. If your TL is away, tell the SME."),
     },
     {
       id: "attendance-q2",

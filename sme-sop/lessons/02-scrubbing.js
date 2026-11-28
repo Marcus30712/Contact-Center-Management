@@ -13,7 +13,7 @@ export default {
   title: tx("스크러빙", "Scrubbing"),
   short: tx("스크러빙", "Scrubbing"),
   subtitle: tx("매일 몇 건씩 다시 읽고, 원인을 찾아 분류해 보냅니다.", "Reread a few tickets every day, find the cause, classify it and send it on."),
-  roles: tx("직무전문가 → 팀장 · 고객사", "SME → Team leader · Client"),
+  roles: tx("직무전문가 → 팀장 · 고객사", "SME → TL · Client"),
   personaName: tx("서준", "Seojun"),
   procedure,
   diagram: {
@@ -26,12 +26,12 @@ export default {
     edges: [edge("pick", "rca"), edge("rca", "classify"), edge("classify", "log")],
   },
   steps: [
-    step(tx("이 절차의 목적은 처리된 티켓과 쌓인 티켓을 다시 읽어 진짜 원인을 찾고, 고칠 수 있는 곳으로 보내는 것입니다. 팀장 SOP의 스크러빙 가운데 직무전문가가 매일 맡는 부분입니다.", "This procedure exists to reread closed and backlogged tickets, find the real cause, and send it where it can be fixed. It is the part of the team leader's scrubbing SOP that the SME does every day."), flow, procedure, null),
+    step(tx("이 절차의 목적은 처리된 티켓과 쌓인 티켓을 다시 읽어 진짜 원인을 찾고, 고칠 수 있는 곳으로 보내는 것입니다. 팀장 SOP의 스크러빙 가운데 직무전문가가 매일 맡는 부분입니다.", "This procedure exists to reread closed and backlogged tickets, find the real cause, and send it where it can be fixed. It is the part of the TL's scrubbing SOP that the SME does every day."), flow, procedure, null),
     step(tx("첫 단계는 대상 고르기입니다. DSAT, CSAT, 미해결 순서로 티켓을 고릅니다. 매일 3~4건(예시)씩 꾸준히 봅니다.", "The first step is picking tickets. Pick them in the order DSAT, CSAT, then unresolved. Review 3 to 4 a day (Example), steadily."), flow, ["pick"], null),
     step(tx("둘째 단계는 원인 분석입니다. 고객이 처음 원한 것, 상담사가 한 것, 결과가 어긋난 지점을 찾아 한두 문장으로 요약합니다.", "The second step is root cause analysis. Find what the customer first wanted, what the agent did, and where the result went wrong, and sum it up in a sentence or two."), flow, ["rca"], null),
     step(tx("원인은 \"왜\"를 몇 번 물어 끝까지 갑니다. \"안내가 틀렸다\"에서 멈추지 않고, 왜 틀렸는지, 문서가 없었는지, 문서가 오래됐는지까지 봅니다.", "Follow the cause to the end by asking \"why\" a few times. Don't stop at \"the explanation was wrong\"; check why it was wrong, whether there was no document, or whether the document was out of date."), flow, ["rca"], null),
-    step(tx("셋째 단계는 L1·L2 분류입니다. L1은 원인이 있는 곳(제품, 절차, 지원, 고객, 기타)으로, L2는 BPO가 통제할 수 있는 원인인지로 나눕니다. 팀장 SOP의 스크러빙과 같은 기준입니다.", "The third step is L1/L2 classification. L1 sorts by where the cause lies (Product, Process, Support, Customer, Others), and L2 by whether the BPO can control it. These are the same rules as the team leader's scrubbing SOP."), flow, ["classify"], null),
-    step(tx("넷째 단계는 기록과 전달입니다. 결과를 스크러빙 시트에 티켓 번호와 함께 적습니다. 상담사의 행동에서 나온 원인은 팀장에게 건네는 트렌드 요약으로, 통제할 수 없는 원인은 고객의 소리(VOC) 리포트로 이어집니다.", "The fourth step is logging and passing on. Write the result in the scrubbing sheet with the ticket number. Causes in an agent's behavior go into the trend summary for the team leader, and causes the BPO can't control go into the VOC report."), flow, ["log"], null),
+    step(tx("셋째 단계는 L1·L2 분류입니다. L1은 원인이 있는 곳(제품, 절차, 지원, 고객, 기타)으로, L2는 BPO가 통제할 수 있는 원인인지로 나눕니다. 팀장 SOP의 스크러빙과 같은 기준입니다.", "The third step is L1/L2 classification. L1 sorts by where the cause lies (Product, Process, Support, Customer, Others), and L2 by whether the BPO can control it. These are the same rules as the TL's scrubbing SOP."), flow, ["classify"], null),
+    step(tx("넷째 단계는 기록과 전달입니다. 결과를 스크러빙 시트에 티켓 번호와 함께 적습니다. 상담사의 행동에서 나온 원인은 팀장에게 건네는 트렌드 요약으로, 통제할 수 없는 원인은 고객의 소리(VOC) 리포트로 이어집니다.", "The fourth step is logging and passing on. Write the result in the scrubbing sheet with the ticket number. Causes in an agent's behavior go into the trend summary for the TL, and causes the BPO can't control go into the VOC report."), flow, ["log"], null),
     step(tx("서준의 티켓에서 확인 단계 누락을 찾았다면, 한 번은 서준에게 짧게 알려 주고, 반복되면 요약에 담습니다. 팀 채팅방에 이름을 밝혀 올리지 않습니다.", "If you find a missed check step in Seojun's ticket, tell Seojun briefly the first time, and put it in the summary if it repeats. Don't post it in the team chat with his name."), flow, ["log"], null),
   ],
   checkpoint: [
@@ -58,5 +58,5 @@ export default {
       explanation: tx("L2는 BPO가 통제할 수 있는지로 나눕니다. 통제할 수 있으면 우리가 바꾸고, 없으면 고객사에 요청합니다.", "L2 sorts by whether the BPO can control the cause. If we can, we change it; if not, we ask the client."),
     },
   ],
-  connection: { to: "trend", text: tx("스크러빙에서 찾은 상담사의 행동은 팀장에게 갑니다. 다음은 그 요약을 만드는 절차입니다.", "The agent behaviors found in scrubbing go to the team leader. Next is the procedure for writing that summary.") },
+  connection: { to: "trend", text: tx("스크러빙에서 찾은 상담사의 행동은 팀장에게 갑니다. 다음은 그 요약을 만드는 절차입니다.", "The agent behaviors found in scrubbing go to the TL. Next is the procedure for writing that summary.") },
 };

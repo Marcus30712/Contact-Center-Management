@@ -14,7 +14,7 @@ export default {
   title: tx('캘리브레이션', 'Calibration'),
   short: tx('캘리브레이션', 'Calibration'),
   subtitle: tx('평가자끼리 기준의 눈높이를 맞춥니다.', 'Evaluators align on a shared standard.'),
-  roles: tx('QA · 직무전문가 · 팀장', 'QA · SME · Team leader'),
+  roles: tx('QA · 직무전문가 · 팀장', 'QA · SME · TL'),
   procedure,
   diagram: {
     nodes: [
@@ -31,7 +31,7 @@ export default {
     ],
   },
   steps: [
-    step(tx('이 절차의 목적은 상담 품질 평가의 일관성과 공정성을 지키는 것입니다. QA, 직무전문가, 팀장이 정기적으로 모여 평가 기준의 눈높이를 맞춥니다. 다섯 단계로 진행합니다.', 'This procedure exists to keep quality evaluation consistent and fair. QA, SMEs, and team leaders meet regularly to align on the evaluation standard. It runs in five steps.'),
+    step(tx('이 절차의 목적은 상담 품질 평가의 일관성과 공정성을 지키는 것입니다. QA, 직무전문가, 팀장이 정기적으로 모여 평가 기준의 눈높이를 맞춥니다. 다섯 단계로 진행합니다.', 'This procedure exists to keep quality evaluation consistent and fair. QA, SMEs, and TLs meet regularly to align on the evaluation standard. It runs in five steps.'),
       flow, procedure, null),
     step(tx('지민은 이제 QA입니다. 이번 세션은 지민이 진행하고, 당신은 참석자입니다.', 'Jimin is in QA now. She runs this session, and you take part.'),
       flow, [], null),
@@ -51,7 +51,7 @@ export default {
       flow, ['consensus'], 'consensus'),
     step(tx('다섯째 단계는 후속 조치 및 공유입니다. 지민은 세션이 끝나고 정한 기한 안에(예시: 하루) 케이스별 최종 점수, 주요 논의 내용, 합의한 기준을 정리해 참석자와 관련자에게 공유합니다.', 'The fifth step is follow-up and sharing. Within a set time after the session (Example: one day), Jimin writes up the final score for each case, the main points discussed, and the agreed standard, and shares it with those who took part and others concerned.'),
       flow, ['followup'], 'followup'),
-    step(tx('세션에서 드러난 공통적인 실수나 오해는 교육 담당과 팀장이 전체 상담사 대상 추가 교육이나 공지로 이어 갑니다. 맞춘 기준이 현장에 닿아야 캘리브레이션이 끝납니다.', 'Common mistakes or misunderstandings that surfaced in the session are carried on by the training team and the team leaders, as extra training or a notice for all agents. Calibration is finished only when the aligned standard reaches the floor.'),
+    step(tx('세션에서 드러난 공통적인 실수나 오해는 교육 담당과 팀장이 전체 상담사 대상 추가 교육이나 공지로 이어 갑니다. 맞춘 기준이 현장에 닿아야 캘리브레이션이 끝납니다.', 'Common mistakes or misunderstandings that surfaced in the session are carried on by the training team and the TLs, as extra training or a notice for all agents. Calibration is finished only when the aligned standard reaches the floor.'),
       [...flow, ...branch], ['followup', ...branch], 'followup'),
   ],
   checkpoint: [
@@ -78,5 +78,5 @@ export default {
       explanation: tx('합의한 점수와 그 근거가 기록으로 남아야 다음에 비슷한 케이스를 같은 눈높이로 평가할 수 있습니다.', 'Only when the agreed score and its reasoning are on record can similar cases be evaluated to the same standard next time.'),
     },
   ],
-  connection: { to: 'transition', text: tx("팀장이 직접 하거나 함께하는 절차가 하나 더 있습니다. 동료들의 팀장이 된 첫 90일을 다루는 다음 레슨, 동료에서 팀장으로입니다.", "There is one more procedure a team leader runs or takes part in. The next lesson, From Colleague to Team Leader, covers your first 90 days leading the colleagues you worked beside.") },
+  connection: { to: 'transition', text: tx("팀장이 직접 하거나 함께하는 절차가 하나 더 있습니다. 동료들의 팀장이 된 첫 90일을 다루는 다음 레슨, 동료에서 팀장으로입니다.", "There is one more procedure a TL runs or takes part in. The next lesson, From Colleague to Team Leader, covers your first 90 days leading the colleagues you worked beside.") },
 };

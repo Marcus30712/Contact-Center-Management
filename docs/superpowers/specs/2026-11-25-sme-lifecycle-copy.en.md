@@ -9,8 +9,8 @@ Same sections and order as the Korean file. US English.
 | Place | English |
 |---|---|
 | Course title | SME Support Lifecycle |
-| Course intro | Learn the support procedure an SME follows at each stage as agents grow from training to regular and senior. The last stage is supporting the team leader. |
-| Home card | The support procedure an SME follows at each stage, from agents in training to seniors and the team leader. |
+| Course intro | Learn the support procedure an SME follows at each stage as agents grow from training to regular and senior. The last stage is supporting the Team Leader. |
+| Home card | The support procedure an SME follows at each stage, from agents in training to seniors and the Team Leader. |
 | Figures note | Periods, counts and times in the lessons are examples and may differ from center to center. |
 | Name in the ring | Seojun |
 | Loop note (under the ring) | When a new training class arrives, start again at stage 1 |
@@ -32,7 +32,7 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson is about knowing what an SME checks, records and hands off when supporting an agent in training. This course follows Seojun as he grows, looks at the SME's procedure at each stage, and meets Junho at the senior stage.
 2. Seojun is a trainee in his third week (Example). He has finished classroom training, and this week he takes real contacts for the first time in OJT. He graduates only after both OJT and Nesting.
-3. The first stage is dividing the roles. The trainer owns the curriculum, and the trainer and the team leader decide who graduates. The SME uses the real systems and tools to show how the training is used on the floor.
+3. The first stage is dividing the roles. The trainer owns the curriculum, and the trainer and the TL decide who graduates. The SME uses the real systems and tools to show how the training is used on the floor.
 4. Before OJT starts, align briefly with the trainer. Agree on the channels and contact types Seojun will take this week, and when the SME will sit in.
 5. The second stage is demos and shadowing. Demonstrate handling several ticket types in the real systems and tools. Connect a second headset with a splitter so Seojun can listen in on real calls the SME takes.
 6. When Seojun starts taking calls himself, the SME listens in on the second headset instead. If he gets stuck, mute the call for a moment and tell him the next step.
@@ -40,7 +40,7 @@ Same sections and order as the Korean file. US English.
 8. The third stage is the observation record. After each session, note briefly the types Seojun handled alone, the types he needed help with, and where he often paused.
 9. The record is a handover note, not an evaluation. Write only which behavior came up in which contact, not scores or personality.
 10. The fourth stage is preparing the handover. A week before OJT ends (Example), go through the record with the trainer and choose the contact types to watch more closely in Nesting.
-11. The trainer and the team leader decide on graduation when Nesting ends. The SME's record is the basis for the opinion you give then.
+11. The trainer and the TL decide on graduation when Nesting ends. The SME's record is the basis for the opinion you give then.
 
 체크포인트:
 
@@ -76,13 +76,13 @@ Same sections and order as the Korean file. US English.
 1. This lesson is about how close to start support in Nesting, when to step back, and the rule for graduating to a regular team. How to help from beside the agent was covered in SME First Steps lesson 2.
 2. Seojun has finished OJT. As the last stage before graduation, he takes real contacts in the Nesting group for the next two weeks (Example).
 3. The first stage is taking the handover. Get the OJT observation record from the trainer, and check which contact types Seojun has not yet handled alone. Make sure he meets each of those types during Nesting.
-4. The second stage is setting check-ins. In the first week (Example), go to him at set intervals, and go over hard contacts with him before he sends his reply. Agree on the interval and the types with Sujin, the team leader, beforehand.
+4. The second stage is setting check-ins. In the first week (Example), go to him at set intervals, and go over hard contacts with him before he sends his reply. Agree on the interval and the types with Sujin, the TL, beforehand.
 5. At the end of each day, write down three things briefly. The types he finished alone, the types he needed help with, and the cases he escalated.
 6. The third stage is easing off. Once he finishes a type alone several days in a row (Example), stop checking that type first and look at it only when he asks.
 7. Step back type by type, not all at once. Instead of helping directly, send links to the policy articles he needs in chat, so he finds and handles it himself. Left alone suddenly, new hires hesitate even more to ask.
 8. Tell Seojun ahead of time what is changing. Say "You can handle shipping contacts on your own now. Call me any time you get stuck," and stepping back sounds like recognition, not being left alone.
-9. The fourth stage is the graduation review. Before Nesting ends, go through the record with the trainer and Sujin and give your view. The trainer and the team leader decide whether he graduates to a regular team or stays longer in Nesting.
-10. When he moves to a regular team, pass on the types where he still often gets stuck. If he goes to another team, tell its SME and team leader; if he stays, mark them in your own record.
+9. The fourth stage is the graduation review. Before Nesting ends, go through the record with the trainer and Sujin and give your view. The trainer and the TL decide whether he graduates to a regular team or stays longer in Nesting.
+10. When he moves to a regular team, pass on the types where he still often gets stuck. If he goes to another team, tell its SME and TL; if he stays, mark them in your own record.
 
 체크포인트:
 
@@ -101,7 +101,7 @@ Same sections and order as the Korean file. US English.
 | 보기 b (정답) | Review the record with the trainer and Sujin, and discuss extending Nesting or more training. |
 | 보기 c (오답) | So Seojun doesn't burn out, say the SME will handle refund contacts for him from now on. |
 | c 피드백 | If you handle them for him, Seojun never learns that type, and your own day gets blocked. |
-| 해설 | The trainer and the team leader decide whether he graduates or Nesting is extended. The SME shows the stuck types through the record. |
+| 해설 | The trainer and the TL decide whether he graduates or Nesting is extended. The SME shows the stuck types through the record. |
 | 다음 레슨 연결 | Seojun has graduated and joined a regular team. Now, instead of the SME going to him first, he comes to the SME when he needs to. |
 
 ## 레슨 3. Supporting Regular Agents
@@ -119,11 +119,11 @@ Same sections and order as the Korean file. US English.
 2. Three months (Example) have passed since he joined a regular team. Seojun now handles most contacts alone.
 3. The first stage is taking requests. Seojun calls the SME on the floor or by messenger when he needs approval or gets stuck. The order for approving and handling is the same as in SME First Steps lesson 3.
 4. The second stage is checking through scrubbing. Mistakes by an agent who works alone don't arrive as requests, because he doesn't know about them. When Seojun's tickets come up in your daily scrubbing, look for anything that repeats.
-5. Write down what you find as behaviors and ticket numbers. Tell Seojun briefly about a one-off mistake, and put a repeated one in the summary you hand the team leader.
+5. Write down what you find as behaviors and ticket numbers. Tell Seojun briefly about a one-off mistake, and put a repeated one in the summary you hand the TL.
 6. The third stage is moving back in close. When a new product launches or a policy changes, even a regular agent is new again for that type. For the first few days (Example) after a change, check those contacts first.
-7. Move back in close as well when Seojun's quality suddenly drops or his requests rise sharply. If the reason seems to lie outside work, don't press him; tell the team leader.
+7. Move back in close as well when Seojun's quality suddenly drops or his requests rise sharply. If the reason seems to lie outside work, don't press him; tell the TL.
 8. The fourth stage is sharing signs of growth. When Seojun handles hard contacts alone and starts answering other agents' questions, write it down.
-9. Pass these signs on to the team leader. The team leader decides whether to make him a buddy for new hires or grow him into a senior.
+9. Pass these signs on to the TL. The TL decides whether to make him a buddy for new hires or grow him into a senior.
 
 체크포인트:
 
@@ -132,10 +132,10 @@ Same sections and order as the Korean file. US English.
 | 1번 질문 | In scrubbing, three of Seojun's tickets (Example) show the same missed check step. What do you do? |
 | 보기 a (오답) | Say nothing and leave it until Seojun asks. |
 | a 피드백 | Mistakes by an agent who works alone don't arrive as requests, because he doesn't know about them. |
-| 보기 b (정답) | Put it, with the ticket numbers, in the summary you hand the team leader. |
+| 보기 b (정답) | Put it, with the ticket numbers, in the summary you hand the TL. |
 | 보기 c (오답) | Post Seojun's tickets in the team chat as an example. |
 | c 피드백 | With his name showing, Seojun is embarrassed and the team starts hiding mistakes. |
-| 해설 | Pass repeated behavior to the team leader as behaviors and examples. Tell Seojun briefly about a one-off mistake. |
+| 해설 | Pass repeated behavior to the TL as behaviors and examples. Tell Seojun briefly about a one-off mistake. |
 | 2번 질문 | A new plan launches next week. What support fits Seojun, a regular agent? |
 | 보기 a (오답) | Leave the new plan to the huddle notice and give Seojun no extra support. |
 | a 피드백 | Contacts you've never seen stall anyone, whatever their experience. A notice alone can't prevent mistakes in the first few days. |
@@ -159,12 +159,12 @@ Same sections and order as the Korean file. US English.
 1. This lesson is about sharing approval rules with senior agents, splitting new-hire support with them, and helping them get ready for the next role. Your relationship with a former peer was covered in SME First Steps lesson 4.
 2. Junho is the team's senior agent. When Seojun was in Nesting, Junho helped him as his buddy.
 3. The first stage is sharing the rules. Go through your approval rules and common escalation cases with Junho. When a rule changes, tell Junho early too.
-4. A senior who knows the rules can give other agents the same answers to general questions as the SME. Approval still stays with the SME or the team leader.
-5. The second stage is handing over work. Decide what Junho can take on, such as being a new hire's buddy, first answers to general questions, and reviewing hard cases together. Agree on the scope with the team leader first.
+4. A senior who knows the rules can give other agents the same answers to general questions as the SME. Approval still stays with the SME or the TL.
+5. The second stage is handing over work. Decide what Junho can take on, such as being a new hire's buddy, first answers to general questions, and reviewing hard cases together. Agree on the scope with the TL first.
 6. The third stage is confirming judgment. A senior's escalation often comes from wanting a decision confirmed more than from not knowing the answer. Hear Junho's judgment first, and approve it as it is if it fits the rules.
 7. If his judgment differs from the rules, point out where. Once he knows why, Junho can make the same call alone next time.
-8. The fourth stage is preparing for the next role. If Junho wants an SME or team leader role, give him a little of that work at a time, such as running a huddle or sitting in on calibration.
-9. Record what you gave him and how it went, and pass it to the team leader. Promotions are reviewed and recommended by the team leader and the manager, and the SME's record is part of the grounds.
+8. The fourth stage is preparing for the next role. If Junho wants an SME or TL role, give him a little of that work at a time, such as running a huddle or sitting in on calibration.
+9. Record what you gave him and how it went, and pass it to the TL. Promotions are reviewed and recommended by the TL and the manager, and the SME's record is part of the grounds.
 
 체크포인트:
 
@@ -176,7 +176,7 @@ Same sections and order as the Korean file. US English.
 | 보기 b (정답) | Seniors don't hold approval authority, so keep him on answering but have approval cases come to you. |
 | 보기 c (오답) | Overstepping approval is a problem, so stop giving Junho questions to answer. |
 | c 피드백 | Taking back all the shared work over one case piles it on the SME again, and Junho loses a chance to grow. |
-| 해설 | What you share with seniors is answering and support; approval stays with the SME and the team leader. |
+| 해설 | What you share with seniors is answering and support; approval stays with the SME and the TL. |
 | 2번 질문 | Junho sends an escalation with a solution already written down, and it fits the rules. What do you do? |
 | 보기 a (오답) | Judge it again from scratch and find your own way. |
 | a 피드백 | Judging again something that already fits the rules slows the customer's answer, and Junho stops trusting his own judgment. |
@@ -184,7 +184,7 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | He is a senior, so tell him to handle such cases himself without checking from now on. |
 | c 피드백 | Approval authority comes with the role, not the person. Handling cases without checking blurs records and responsibility. |
 | 해설 | When a senior's judgment fits the rules, approve it as is and say so. That is how a senior grows into the next role. |
-| 다음 레슨 연결 | From trainee to senior, you have gone once around. Last is the person who sees all these stages together: the team leader. |
+| 다음 레슨 연결 | From trainee to senior, you have gone once around. Last is the person who sees all these stages together: the TL. |
 
 ## 레슨 5. Supporting the Team Leader
 
@@ -192,17 +192,17 @@ Same sections and order as the Korean file. US English.
 |---|---|
 | 제목 | Supporting the Team Leader |
 | 짧은 이름 | TL support |
-| 부제 | Bring what you saw at each stage to the team leader, then start again. |
+| 부제 | Bring what you saw at each stage to the Team Leader, then start again. |
 | 노드 | Stage status · Delegated scope · Hand-off rules · Back to the start |
 
 스텝:
 
-1. This lesson is about bringing what you saw in the first four stages to the team leader, so the team leader can decide each person's next stage. Delegated work such as attendance, trend summaries and huddles was covered in SME First Steps lesson 5.
+1. This lesson is about bringing what you saw in the first four stages to the TL, so the TL can decide each person's next stage. Delegated work such as attendance, trend summaries and huddles was covered in SME First Steps lesson 5.
 2. Every Monday (Example), Sujin decides the next stage for each team member. These are decisions such as who needs close support again and who becomes a buddy.
 3. The first stage is putting together the stage status. For each team member, write one line: their current stage, what you saw last week, and any sign they are ready for the next stage.
 4. For example, write "Seojun: three months as a regular agent, steady on new-plan contacts, starting to answer other agents' questions." From that one line, Sujin can decide whether to make Seojun a buddy for the next class.
 5. The second stage is aligning the delegated scope. Each quarter (Example), check again with Sujin what the SME does on her behalf and what the SME doesn't do. When team size or policies change, the scope changes too.
-6. The third stage is the hand-off rules. Attendance, performance actions, personal matters and approvals outside policy go to the team leader at any stage. When you hand something off, send a factual note of what happened with it.
+6. The third stage is the hand-off rules. Attendance, performance actions, personal matters and approvals outside policy go to the TL at any stage. When you hand something off, send a factual note of what happened with it.
 7. Ask how handed-off cases turned out, and record it. Next time the same thing happens, you will know what to do.
 8. The fourth stage is going back to the start. When a new training class arrives, the SME's support starts again at the in-training stage. Use the last class's records with the trainer to prepare for the next one.
 9. Each time around, the team's records grow and fewer people get stuck in the same places.
@@ -213,16 +213,16 @@ Same sections and order as the Korean file. US English.
 |---|---|
 | 1번 질문 | Sujin asks for a team status before the Monday meeting. Which fits best? |
 | 보기 a (오답) | Send only those who had problems last week, written up in detail with examples. |
-| a 피드백 | Without the growth signs of those doing well, the team leader can't decide whom to move to the next stage. |
+| a 피드백 | Without the growth signs of those doing well, the TL can't decide whom to move to the next stage. |
 | 보기 b (정답) | So Sujin can decide quickly, write one line per team member: current stage, what you saw last week, and signs for the next stage. |
 | 보기 c (오답) | To leave nothing out, send a detailed hour-by-hour log of last week. |
-| c 피드백 | What the team leader needs for decisions is each person's stage and signs. They are hard to find in a long log. |
+| c 피드백 | What the TL needs for decisions is each person's stage and signs. They are hard to find in a long log. |
 | 해설 | Write the stage status as one line per person, so the next decision can be made from it. |
 | 2번 질문 | A regular agent is absent more often, and their work requests have suddenly risen too. What do you do? |
 | 보기 a (오답) | Take them aside yourself, ask why, and adjust their hours to fit. |
-| a 피드백 | Attendance and personal matters belong to the team leader. If the SME adjusts them, the rules differ from others in the same situation. |
-| 보기 b (정답) | Support the work requests closely again, and hand the absences and changes to the team leader as facts. |
+| a 피드백 | Attendance and personal matters belong to the TL. If the SME adjusts them, the rules differ from others in the same situation. |
+| 보기 b (정답) | Support the work requests closely again, and hand the absences and changes to the TL as facts. |
 | 보기 c (오답) | Wait until they speak up, and just answer the work requests. |
-| c 피드백 | If you know about a change and don't pass it on, the team leader finds out only after the problem has grown. |
-| 해설 | The SME handles work support; the team leader handles attendance and personal matters. Deal with the two separately. |
+| c 피드백 | If you know about a change and don't pass it on, the TL finds out only after the problem has grown. |
+| 해설 | The SME handles work support; the TL handles attendance and personal matters. Deal with the two separately. |
 | 마지막 연결 | You have finished SME Support Lifecycle. Procedures such as escalation approval and scrubbing are covered one by one in the SME SOP Library. |

@@ -56,12 +56,12 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 1. This lesson is about your first day after moving from agent to SME: what your role is, how you spend the day, and how far you decide. We look at it in four stages.
 2. Until yesterday you were a senior agent on Sujin's team. From today you are the SME who backs up the same team of 12 people (Example). Your job is no longer handling your own contacts well, but keeping the team from getting stuck.
 3. The first stage is knowing the role. The SME is the team's knowledge hub. You give answers on stuck contacts, approve or handle escalations, and help colleagues grow.
-4. The SME does not evaluate or discipline agents. QA and the team leader do the evaluating. You are the one who approves and helps.
+4. The SME does not evaluate or discipline agents. QA and the TL do the evaluating. You are the one who approves and helps.
 5. The second stage is knowing the day. Most of the day goes to escalation support, hard cases and mentoring agents. Daily scrubbing, VOC write-ups and calibration with QA come on top.
 6. Requests come from two places. You walk the floor to help agents who raise a hand, and you answer questions that come in by messenger and the team chat.
-7. The third stage is checking your approval limits. Approval limits differ by role, so on day one, sit down with Sujin and list what you can approve and what goes to the team leader. For example, you approve compensation within set limits, and pass on requests outside policy and attendance or performance issues.
-8. Not knowing the limits leads to two mistakes. You approve something beyond your authority, or you pass everything to the team leader and jam their day.
-9. The fourth stage is sharing with the team leader. Agree early that you can take on attendance, trend summaries and huddles when the team leader is busy. Lesson 5 covers this in detail.
+7. The third stage is checking your approval limits. Approval limits differ by role, so on day one, sit down with Sujin and list what you can approve and what goes to the TL. For example, you approve compensation within set limits, and pass on requests outside policy and attendance or performance issues.
+8. Not knowing the limits leads to two mistakes. You approve something beyond your authority, or you pass everything to the TL and jam their day.
+9. The fourth stage is sharing with the TL. Agree early that you can take on attendance, trend summaries and huddles when the TL is busy. Lesson 5 covers this in detail.
 10. At the end of day one, jot down the questions you got. The ones that come up often are what you prepare first tomorrow.
 
 체크포인트:
@@ -69,19 +69,19 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 항목 | English |
 |---|---|
 | 1번 질문 | On your first day, an agent asks you to approve a large compensation that policy does not cover. What do you do? |
-| 보기 a (오답) | The customer is very upset and the wait is growing, so approve it just this once and report to the team leader later. |
+| 보기 a (오답) | The customer is very upset and the wait is growing, so approve it just this once and report to the TL later. |
 | a 피드백 | A decision beyond your limits is hard to undo, and other customers will ask for the same. |
-| 보기 b (정답) | It's outside your limits, so have the agent ask the customer to wait and pass it to the team leader right away. |
+| 보기 b (정답) | It's outside your limits, so have the agent ask the customer to wait and pass it to the TL right away. |
 | 보기 c (오답) | Policy doesn't cover it, so have the agent decline politely, and write the apology line together. |
 | c 피드백 | A polite refusal still leaves the customer's problem where it was. What you cannot decide goes to someone who can. |
 | 해설 | You decide within your limits and pass on what is outside them. That is why you agree on the limits on day one. |
 | 2번 질문 | You are worried about how Jimin has been treating customers lately. What fits your role as SME? |
 | 보기 a (오답) | Mark down Jimin's quality score yourself, and ask QA to reflect it in the next evaluation. |
-| a 피드백 | QA and the team leader do the evaluating. If the SME scores agents, the roles blur and Jimin won't know whom to ask for help. |
-| 보기 b (정답) | Watch Jimin's contacts alongside her and help, and if it repeats, tell the team leader with examples. |
+| a 피드백 | QA and the TL do the evaluating. If the SME scores agents, the roles blur and Jimin won't know whom to ask for help. |
+| 보기 b (정답) | Watch Jimin's contacts alongside her and help, and if it repeats, tell the TL with examples. |
 | 보기 c (오답) | Say it isn't the SME's business and stay out of it. |
 | c 피드백 | Helping is the SME's job. If you stay out of it, the problem shows only after it has grown. |
-| 해설 | The SME helps instead of evaluating, and takes repeated problems to the team leader with evidence. |
+| 해설 | The SME helps instead of evaluating, and takes repeated problems to the TL with evidence. |
 | 다음 레슨 연결 | Now that you know the role, it is time to meet people. First, the one you need to stay closest to: a new hire who has just finished OJT and started Nesting. |
 
 ## 레슨 2. Supporting Agents in Training or Just Trained
@@ -103,8 +103,8 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 6. The third stage is checking in first. New hires hesitate to ask at all. Don't wait for a raised hand; go to him at set intervals (Example: once an hour) and ask.
 7. Fix mistakes briefly on the spot, and say what he did well right away too. At this stage, one word of praise helps people hold on.
 8. You stay at a different distance in OJT and in Nesting. During OJT you watch alongside the trainer; from Nesting on, the SME stays closer.
-9. The fourth stage is sharing with the team leader. At the end of the day, tell the team leader and the trainer briefly what Seojun did well and where he got stuck. The point is not to evaluate, but to decide where to help tomorrow.
-10. If he keeps getting stuck in the same place, he may need more training. The team leader and the trainer decide; you gather the examples to base it on.
+9. The fourth stage is sharing with the TL. At the end of the day, tell the TL and the trainer briefly what Seojun did well and where he got stuck. The point is not to evaluate, but to decide where to help tomorrow.
+10. If he keeps getting stuck in the same place, he may need more training. The TL and the trainer decide; you gather the examples to base it on.
 
 체크포인트:
 
@@ -114,13 +114,13 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 a (오답) | Leave him be, trusting he's doing well. |
 | a 피드백 | A quiet new hire is often hesitating to ask, not doing well. |
 | 보기 b (정답) | Go to him first and ask how his morning contacts went. |
-| 보기 c (오답) | Worried by the silence, tell the team leader and ask for a one-on-one with him. |
+| 보기 c (오답) | Worried by the silence, tell the TL and ask for a one-on-one with him. |
 | c 피드백 | You don't know yet what is going on. Asking Seojun directly comes before any meeting. |
 | 해설 | Supporting new hires means going to them first, not waiting. |
 | 2번 질문 | Seojun asks about the same procedure for the third time. What fits best? |
 | 보기 a (오답) | Give him the answer right away again, and send it as a screenshot. |
 | a 피드백 | Even a tidy answer builds no skill in finding it, so a fourth question will come. |
-| 보기 b (정답) | Look it up in the knowledge base together, and pass the repeated difficulty to the team leader and trainer. |
+| 보기 b (정답) | Look it up in the knowledge base together, and pass the repeated difficulty to the TL and trainer. |
 | 보기 c (오답) | You've explained it twice, so tell him to reread the training material and find it himself this time. |
 | c 피드백 | Leaving him to search keeps the customer waiting, and Seojun will hesitate to ask again. |
 | 해설 | Show how to find answers, and pass on repeated difficulties as grounds for more training. |
@@ -137,11 +137,11 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 
 스텝:
 
-1. This lesson is about deciding quickly on contacts and escalations that existing agents pass to you: approve, handle yourself, or pass to the team leader.
+1. This lesson is about deciding quickly on contacts and escalations that existing agents pass to you: approve, handle yourself, or pass to the TL.
 2. Jimin has been an agent for two years. She knows the work, but today's contact is beyond her authority. She messages you to ask for approval.
 3. The first stage is checking the record. See whether the ticket says what the customer wants, what Jimin already tried, and how the customer feels.
 4. If the record is thin, ask Jimin briefly. That way the customer does not get the same questions again.
-5. The second stage is deciding. Within your approval limits, you approve; if it needs you to speak to the customer, you take it over; if it is outside your limits, it goes to the team leader.
+5. The second stage is deciding. Within your approval limits, you approve; if it needs you to speak to the customer, you take it over; if it is outside your limits, it goes to the TL.
 6. When you approve, note the reason too. When a similar request comes in, others can decide by the same standard.
 7. When you take it over, first tell the customer you know what happened so far. Customers hate nothing more than being asked everything again by the next person.
 8. The third stage is reporting back. When it is done, tell Jimin the outcome and the reason. Next time a similar contact comes, she can handle it herself.
@@ -155,7 +155,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 1번 질문 | You are not sure Jimin's request is within your approval limits. What do you do? |
 | 보기 a (오답) | Approve it for now so the customer isn't kept waiting. |
 | a 피드백 | An unsure approval is hard to undo later, and the wrong standard spreads through the team. |
-| 보기 b (정답) | Ask Jimin to let the customer know there is a short wait, and check with the team leader right away. |
+| 보기 b (정답) | Ask Jimin to let the customer know there is a short wait, and check with the TL right away. |
 | 보기 c (오답) | When unsure, refusing is safer, so have Jimin tell the customer it can't be done. |
 | c 피드백 | If it was within your limits, the customer misses a fix they could have had. |
 | 해설 | When you don't know, check instead of guessing. Meanwhile, have the agent tell the customer they are waiting. |
@@ -187,7 +187,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 6. Being deliberately stricter with him is not fair either. Keep the standard the same; you can keep talking as casually as before.
 7. The third stage is helping with respect. Senior agents know a lot. Rather than teaching, ask for Junho's judgment first and add only what is needed.
 8. Junho's experience is a resource for the team. You can ask him to look at new hire Seojun's questions with you, or to review hard cases together.
-9. The fourth stage is talking to the team leader. If Junho keeps skipping steps without approval, don't try to fix it alone; talk to the team leader. Attendance and performance belong to the team leader.
+9. The fourth stage is talking to the TL. If Junho keeps skipping steps without approval, don't try to fix it alone; talk to the TL. Attendance and performance belong to the TL.
 10. An honest talk in the first week is the starting point. In time, former peers can become the ones who back each other up best.
 
 체크포인트:
@@ -208,7 +208,7 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 보기 c (오답) | Approve Junho's requests without checking, to keep things from getting awkward. |
 | c 피드백 | Skipping the check makes the standard depend on the person, and if something goes wrong, it is on you as the approver. |
 | 해설 | Respect a senior's experience, but check the approval standard the same way for everyone. |
-| 다음 레슨 연결 | The SME does not back up only agents. You also take on part of the team leader's work. |
+| 다음 레슨 연결 | The SME does not back up only agents. You also take on part of the TL's work. |
 
 ## 레슨 5. Supporting the Team Leader
 
@@ -221,36 +221,36 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 
 스텝:
 
-1. This lesson is about taking on part of the team leader's work so the team leader can spend time on coaching and running the team. There are three typical tasks.
+1. This lesson is about taking on part of the TL's work so the TL can spend time on coaching and running the team. There are three typical tasks.
 2. Sujin leads a team of 12 people (Example), and today she is in client meetings all afternoon.
-3. The first is attendance. When the team is large or the team leader is away, the SME checks attendance instead. You note who is not at their desk at start time, and any late or absence messages.
-4. Covering means recording and reporting, nothing more. The team leader judges the reasons and decides on attendance action. If absences leave the team short, tell the team leader and the RTA right away.
-5. The second is the scrubbing trend summary. From the tickets you scrub each day, collect what keeps showing up for each agent, and sum it up briefly on the agreed day (Example: every Friday) so the team leader can use it right away for coaching.
-6. Write the summary with facts and examples. For example, "Jimin: skipped the same check step in 3 refund contacts (Example) this week," with the ticket numbers, is something the team leader can coach from right away.
+3. The first is attendance. When the team is large or the TL is away, the SME checks attendance instead. You note who is not at their desk at start time, and any late or absence messages.
+4. Covering means recording and reporting, nothing more. The TL judges the reasons and decides on attendance action. If absences leave the team short, tell the TL and the RTA right away.
+5. The second is the scrubbing trend summary. From the tickets you scrub each day, collect what keeps showing up for each agent, and sum it up briefly on the agreed day (Example: every Friday) so the TL can use it right away for coaching.
+6. Write the summary with facts and examples. For example, "Jimin: skipped the same check step in 3 refund contacts (Example) this week," with the ticket numbers, is something the TL can coach from right away.
 7. Write down behavior, not judgments about people. Not "careless," but "skipped the check step."
 8. The third is running the huddle. When the client sends a policy or promotion update, the SME passes it to the team in the huddle.
 9. Before the huddle, understand the update yourself and prepare how agents should explain it to customers. Questions raised in the huddle get answers posted back in the team chat.
-10. Last, report to the team leader. Pass on attendance, the summary and the huddle briefly, so the team leader sees at a glance what happened while she was away.
+10. Last, report to the TL. Pass on attendance, the summary and the huddle briefly, so the TL sees at a glance what happened while she was away.
 
 체크포인트:
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | While the team leader is away, an agent arrives 30 minutes late and explains why. What do you do? |
+| 1번 질문 | While the TL is away, an agent arrives 30 minutes late and explains why. What do you do? |
 | 보기 a (오답) | Hear the reason, judge it fair, and leave it off the late record. |
-| a 피드백 | Judging the reason is the team leader's job. If the SME excuses it, the standard can differ for someone else with the same reason. |
-| 보기 b (정답) | Record the arrival time and the reason as given, and pass them to the team leader. |
-| 보기 c (오답) | So it doesn't happen again, warn them you'll report it to the team leader next time. |
-| c 피드백 | Attendance action like a warning belongs to the team leader. Covering means recording and reporting, nothing more. |
-| 해설 | Covering attendance means recording the facts and passing them on. The team leader judges and acts. |
-| 2번 질문 | What belongs in the scrubbing trend summary you give the team leader? |
+| a 피드백 | Judging the reason is the TL's job. If the SME excuses it, the standard can differ for someone else with the same reason. |
+| 보기 b (정답) | Record the arrival time and the reason as given, and pass them to the TL. |
+| 보기 c (오답) | So it doesn't happen again, warn them you'll report it to the TL next time. |
+| c 피드백 | Attendance action like a warning belongs to the TL. Covering means recording and reporting, nothing more. |
+| 해설 | Covering attendance means recording the facts and passing them on. The TL judges and acts. |
+| 2번 질문 | What belongs in the scrubbing trend summary you give the TL? |
 | 보기 a (오답) | A one-line rating of each agent's personality and attitude. |
 | a 피드백 | A personality rating has no evidence and does not show what behavior to coach. |
 | 보기 b (정답) | The behavior that repeated for each agent, with the ticket numbers. |
 | 보기 c (오답) | A ranking of this week's quality scores, marking coaching targets from the bottom up. |
 | c 피드백 | A ranking shows only who is low, not what to coach. |
-| 해설 | Behavior and examples let the team leader decide right away what to coach. |
-| 다음 레슨 연결 | New hires, experienced agents, seniors, the team leader. These requests do not come one at a time; they come all at once. |
+| 해설 | Behavior and examples let the TL decide right away what to coach. |
+| 다음 레슨 연결 | New hires, experienced agents, seniors, the TL. These requests do not come one at a time; they come all at once. |
 
 ## 레슨 6. When Requests Pile Up at Once
 
@@ -270,9 +270,9 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 5. If two are equally urgent, take the upset customer's case or the new hire's first. New hires tend to keep customers waiting longer.
 6. The second stage is saying when. Tell anyone you can't reach right away when you will come, as in "I'll be there in 2 minutes" (Example). Knowing how long to wait is far better than no answer.
 7. The third stage is handing off. Ask a senior agent like Junho to take general questions, or send just the knowledge base article first.
-8. The fourth stage is calling the team leader. If requests keep piling up and customer waits get long, don't hold on alone; tell the team leader. The team leader can help support or adjust staffing with the RTA.
+8. The fourth stage is calling the TL. If requests keep piling up and customer waits get long, don't hold on alone; tell the TL. The TL can help support or adjust staffing with the RTA.
 9. Decide how you will keep up with both the floor and online. If center rules allow, carry a device for the messenger while walking the floor.
-10. After the rush, look back at why it piled up. If the same question piled up, it becomes a huddle topic; if it piles up at the same time each day, change the support plan with the team leader.
+10. After the rush, look back at why it piled up. If the same question piled up, it becomes a huddle topic; if it piles up at the same time each day, change the support plan with the TL.
 
 체크포인트:
 
@@ -287,11 +287,11 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 해설 | Customers waiting live come first, and whoever has to wait hears when you will come. |
 | 2번 질문 | Requests have kept piling up for 30 minutes and customer waits are getting longer. What fits best? |
 | 보기 a (오답) | Skip lunch and handle it all yourself to the end. |
-| a 피드백 | While you hold on alone, customer waits grow and the team leader doesn't even know there is a problem. |
-| 보기 b (정답) | Tell the team leader what is happening and handle it together. |
+| a 피드백 | While you hold on alone, customer waits grow and the TL doesn't even know there is a problem. |
+| 보기 b (정답) | Tell the TL what is happening and handle it together. |
 | 보기 c (오답) | Turn off the messenger for a while and handle only floor requests. |
 | c 피드백 | Customers are waiting behind the online requests too. Hiding requests does not make them go away. |
-| 해설 | When it is more than you can handle alone, tell the team leader. The team leader and the RTA can adjust staffing. |
+| 해설 | When it is more than you can handle alone, tell the TL. The TL and the RTA can adjust staffing. |
 | 다음 레슨 연결 | When the busy day is over, one job is left for the SME: turning what you saw today into knowledge for the team. |
 
 ## 레슨 7. Giving Knowledge Back to the Team
@@ -310,10 +310,10 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 3. The first stage is scrubbing every day. Pick tickets in the order DSAT, CSAT, then unresolved, sum up each cause in a sentence or two, and sort it into the set categories. The procedure is in the Scrubbing lesson of the SME SOP Library.
 4. A little each day works because trends show only as they build up. Looking at many at once makes it easy to miss shared causes, and slows giving them back.
 5. The second stage is the VOC write-up. Collect what customers keep saying: complaints, requests and views on the product. Causes agents cannot change become something to pass to the client.
-6. The third stage is calibration. With QA and the team leader, each person scores the same contact and you align the differences. The SME is there not to evaluate agents but to bring what they really face on the floor.
-7. When calibration changes a standard, the SME also agrees with the team leader and tells the agents first. No agent should be scored on a standard they did not know had changed.
+6. The third stage is calibration. With QA and the TL, each person scores the same contact and you align the differences. The SME is there not to evaluate agents but to bring what they really face on the floor.
+7. When calibration changes a standard, the SME also agrees with the TL and tells the agents first. No agent should be scored on a standard they did not know had changed.
 8. The fourth stage is giving it back. Pass what you found to the team through huddles, the team chat and knowledge base updates.
-9. If one person's mistake is the cause, send it in the summary for the team leader (lesson 5), not to the whole team. With the team, share only the lesson, without saying whose contact it was.
+9. If one person's mistake is the cause, send it in the summary for the TL (lesson 5), not to the whole team. With the team, share only the lesson, without saying whose contact it was.
 10. As the knowledge you give back builds up, the same questions drop, and so do the requests that come to you. That is how an SME grows a team.
 
 체크포인트:
@@ -323,10 +323,10 @@ Lesson sections use the Korean file's row names so the same check reads both fil
 | 1번 질문 | While scrubbing, you find a DSAT caused by Jimin's procedure mistake. How do you share it? |
 | 보기 a (오답) | In the huddle, say it was Jimin's contact and use it as an example to prevent the same mistake. |
 | a 피드백 | Naming her embarrasses Jimin, and other agents start hiding their mistakes. |
-| 보기 b (정답) | Put it in the summary for the team leader, and share only the lesson with the team, without names. |
+| 보기 b (정답) | Put it in the summary for the TL, and share only the lesson with the team, without names. |
 | 보기 c (오답) | Tell no one; it was a one-off mistake. |
 | c 피드백 | The same mistake can happen to other agents. The lesson belongs back with the team. |
-| 해설 | Individual cases go to the team leader; the lesson goes back to the team without names. |
+| 해설 | Individual cases go to the TL; the lesson goes back to the team without names. |
 | 2번 질문 | Why scrub a few tickets every day, steadily? |
 | 보기 a (오답) | Because a rule sets how many to do each day, and a shortfall shows in your performance. |
 | a 피드백 | The count is an example that differs by center. What matters is looking every day. |

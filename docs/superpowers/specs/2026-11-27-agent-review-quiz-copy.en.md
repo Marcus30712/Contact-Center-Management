@@ -54,7 +54,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 |---|---|
 | 질문 | Jimin ran a fever all night and doesn't think she can make it in this morning. Her shift starts in three hours (Example), and her colleagues are in the team group chat. What does she do? |
 | 보기 a (오답) | Just post "Can't make it today" in the group chat and go back to sleep. |
-| a 피드백 | A message with no set recipient may reach the team leader late, or not at all. |
+| a 피드백 | A message with no set recipient may reach the TL late, or not at all. |
 | 보기 b (오답) | Contacts pile up on the others when someone is out, so take medicine and push through to work. |
 | b 피드백 | Pushing through while sick can keep you out longer. Resting by the procedure helps the team too. |
 | 보기 c (정답) | Tell Sujin right away the way the team has set up, and send the doctor's note the same day. |
@@ -71,7 +71,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 b (정답) | Fix ID verification right away, and dispute the guidance points with the recording as evidence. |
 | 보기 c (오답) | Follow the one-or-two-goals rule and fix only the guidance item this week. |
 | c 피드백 | A critical error like missing ID verification gets fixed right away, without waiting its turn. |
-| 해설 | Fix critical errors right away. For points you can't agree with, ask for a second look with the recording as evidence, through the team leader and by the set deadline. |
+| 해설 | Fix critical errors right away. For points you can't agree with, ask for a second look with the recording as evidence, through the TL and by the set deadline. |
 | 관련 레슨 | Agent First Steps lesson 6 · The Weekly Score Review (../agent/#review-0) · Agent SOP · Disputing a Quality Score (../agent-sop/#dispute-0) |
 
 ### 문제 5
@@ -92,10 +92,10 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 항목 | English |
 |---|---|
 | 질문 | In Jimin's first week after Go Live, the contact system freezes mid-call. Her neighbor's screen seems frozen too, and the customer is waiting on the line. What does she do? |
-| 보기 a (정답) | If the set first fix doesn't help, tell Harin or the team leader right away and let the customer know. |
+| 보기 a (정답) | If the set first fix doesn't help, tell Harin or the TL right away and let the customer know. |
 | 보기 b (오답) | It's her first week and probably her mistake, so quietly reboot on her own without telling the customer. |
 | b 피드백 | If the set first fix doesn't help, don't blame yourself; report it right away. Telling the customer what's happening keeps the wait from dragging on. |
 | 보기 c (오답) | Promise the customer it will be fixed within 10 minutes (Example) and ask them to wait. |
 | c 피드백 | An agent can't know the recovery time, so don't make a promise you can't keep. |
-| 해설 | If you suspect an outage, tell the SME or the team leader right away. Give the customer the set wording and don't promise a recovery time. |
+| 해설 | If you suspect an outage, tell the SME or the TL right away. Give the customer the set wording and don't promise a recovery time. |
 | 관련 레슨 | Agent First Steps lesson 4 · Go Live and the First Call (../agent/#golive-0) · Agent SOP · Responding to a System Outage (../agent-sop/#outage-0) |

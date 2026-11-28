@@ -50,7 +50,7 @@ export default {
       id: "growth-q2",
       prompt: tx("매달 퍼포먼스 리뷰에 무엇을 가져가면 좋을까요?", "What should Jimin bring to the monthly performance review?"),
       options: [
-        option("a", tx("아무것도 준비하지 않고 팀장의 말을 듣는다.", "Nothing; just listen to the team leader."), tx("듣기만 하면 내가 궁금한 것은 다루지 못하고 끝납니다.", "If you only listen, what you wanted to ask goes undiscussed.")),
+        option("a", tx("아무것도 준비하지 않고 팀장의 말을 듣는다.", "Nothing; just listen to the TL."), tx("듣기만 하면 내가 궁금한 것은 다루지 못하고 끝납니다.", "If you only listen, what you wanted to ask goes undiscussed.")),
         option("b", tx("한 달 동안 시도한 것과 바뀐 것, 궁금한 점을 적어 간다.", "Notes on what she tried and what changed during the month, and her questions.")),
         option("c", tx("다른 동료와 비교한 내 숫자를 가져간다.", "Her numbers compared with other colleagues'."), tx("리뷰는 내 성장을 보는 자리입니다. 비교보다 나의 변화를 가져갑니다.", "The review is about your growth. Bring your own changes, not comparisons.")),
       ],

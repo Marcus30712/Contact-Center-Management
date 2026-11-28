@@ -17,7 +17,7 @@ export const HOME_COPY = {
   sopLibrary: { ko: '{직급} SOP 라이브러리', en: '{role} SOP Library' },
   supportLifecycle: {
     title: { ko: '직무전문가 서포트 라이프사이클', en: 'SME Support Lifecycle' },
-    text: { ko: '교육 중인 상담사부터 선임, 팀장까지, 단계마다 직무전문가가 따르는 지원 절차.', en: 'The support procedure an SME follows at each stage, from agents in training to seniors and the team leader.' },
+    text: { ko: '교육 중인 상담사부터 선임, 팀장까지, 단계마다 직무전문가가 따르는 지원 절차.', en: 'The support procedure an SME follows at each stage, from agents in training to seniors and the Team Leader.' },
   },
   smeSop: {
     title: { ko: '직무전문가 SOP 라이브러리', en: 'SME SOP Library' },

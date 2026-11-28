@@ -9,7 +9,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | Place | English |
 |---|---|
 | Course title | Agent SOP Library |
-| Course intro | Learn the eight standard procedures an agent meets every day, in order. See how the SME and the team leader pick up each one, too. |
+| Course intro | Learn the eight standard procedures an agent meets every day, in order. See how the SME and the Team Leader pick up each one, too. |
 | Home card | From escalations to system outages: the eight standard procedures an agent follows. |
 | Figures note | Times and counts with numbers are examples; each center sets its own values. |
 | Lesson screen | All SOPs · Agent checkpoint · Up next · Next SOP · Back to the list · Done |
@@ -24,7 +24,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 제목 | Requesting an Escalation |
 | 짧은 이름 | Escalation |
 | 부제 | When it's beyond your authority, pass it on so the customer doesn't have to repeat themselves. |
-| 누가 | Agent → SME → Team leader |
+| 누가 | Agent → SME → TL |
 | 노드 | Try it yourself · Tell the customer · Ask in one go · Record and follow through |
 
 스텝:
@@ -67,7 +67,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 제목 | Handling Abusive Callers and Ending the Call |
 | 짧은 이름 | Abusive callers |
 | 부제 | Don't just endure it; end the call in the order your center sets. |
-| 누가 | Agent → SME or Team leader |
+| 누가 | Agent → SME or TL |
 | 노드 | Warn · Get approval · Announce the end · Record |
 
 스텝:
@@ -110,7 +110,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 제목 | Reporting an Absence or Sick Day |
 | 짧은 이름 | Absence |
 | 부제 | Tell them early, by the set method, to the set person. |
-| 누가 | Agent → Team leader (SME if away) |
+| 누가 | Agent → TL (SME if away) |
 | 노드 | Tell them early · Set method · Right person · Send documents |
 
 스텝:
@@ -122,7 +122,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 5. The third step is the right person. Tell Sujin directly, or Harin if Sujin is on leave or sick herself.
 6. Keep the reason short and clear. If you're sick, say "I'm unwell and can't come in today," and add that you'll see a doctor and send a medical certificate. For an unexpected family or personal matter, give a rough reason and ask for Emergency Leave.
 7. The fourth step is sending documents. After reporting sick and visiting a doctor, send a document such as a medical certificate to Sujin or Harin through the set channel on the same day. Deadlines can differ by center, so learn your center's rules ahead of time, including that sick days stay on your attendance record.
-8. A word from Miso: On a sick day I once asked a colleague to "tell the team leader," and it was recorded as a no-show. The sicker you are, the more reporting it yourself by the set method protects you.
+8. A word from Miso: On a sick day I once asked a colleague to "tell the TL," and it was recorded as a no-show. The sicker you are, the more reporting it yourself by the set method protects you.
 
 체크포인트:
 
@@ -136,12 +136,12 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 보기 c (정답) | Tell Sujin directly, the way the team has set, 1 to 2 hours before her shift (Example). |
 | 해설 | Reporting early, by the set method, to the right person lets the team fill the gap and keeps your record right. |
 | 2번 질문 | Sujin is on leave. Whom does Jimin tell? |
-| 보기 a (정답) | Since the team leader is out, tell Harin, the SME. |
+| 보기 a (정답) | Since the TL is out, tell Harin, the SME. |
 | 보기 b (오답) | Tell Sujin anyway and wait for her reply, even though she's on leave. |
-| b 피드백 | A team leader on leave can't answer quickly. Tell the SME who has the team that day. |
+| b 피드백 | A TL on leave can't answer quickly. Tell the SME who has the team that day. |
 | 보기 c (오답) | Tell any colleague on the same team. |
-| c 피드백 | A colleague can't process an absence. If the team leader is away, tell the SME. |
-| 해설 | When the team leader is on leave or sick, the SME covers attendance. The SME's attendance cover is what comes next. |
+| c 피드백 | A colleague can't process an absence. If the TL is away, tell the SME. |
+| 해설 | When the TL is on leave or sick, the SME covers attendance. The SME's attendance cover is what comes next. |
 | 다음 레슨 연결 | On the mornings you do come in, there's a huddle. Next is listening to a client update and applying it right away. |
 
 ---
@@ -282,16 +282,16 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 제목 | Disputing a Quality Score |
 | 짧은 이름 | Score dispute |
 | 부제 | Ask with evidence, not feelings, through the set route. |
-| 누가 | Agent → Team leader → QA |
-| 노드 | Read the score sheet · Gather evidence · Ask the team leader · Accept the result |
+| 누가 | Agent → TL → QA |
+| 노드 | Read the score sheet · Gather evidence · Ask the Team Leader · Accept the result |
 
 스텝:
 
 1. This procedure exists so that when a quality score item doesn't seem right, you gather evidence and ask for a re-review through the set route.
 2. Jimin lost points on the guidance item in her score sheet, though she believes she guided the customer as the huddle said. The first step is reading the score sheet. Check which item lost points and by which standard.
 3. The second step is gathering evidence. Collect the ticket number, the moment in the recording or record, and the notice or huddle content behind your guidance.
-4. The third step is asking the team leader. Don't argue with QA directly; within 24 to 48 hours (Example) of getting the score, ask for a re-review with your evidence through Sujin. The deadline can differ by center.
-5. Sujin listens to the recording with you, and if there's a basis, asks QA for a re-review through the set procedure. The team leader's QA support is what comes next.
+4. The third step is asking the TL. Don't argue with QA directly; within 24 to 48 hours (Example) of getting the score, ask for a re-review with your evidence through Sujin. The deadline can differ by center.
+5. Sujin listens to the recording with you, and if there's a basis, asks QA for a re-review through the set procedure. The TL's QA support is what comes next.
 6. The fourth step is accepting the result. Whether the score changes or not, hear the reason, and if the standard was different, guide by that standard from then on.
 7. Cases like this are also used in calibration to align the standard. A dispute with evidence corrects the standard for the whole team, not just for you.
 8. A word from Miso: When I got a score I thought was unfair, I just complained to colleagues. If I'd gathered evidence and asked once, properly, I'd have understood the standard much faster.
@@ -302,11 +302,11 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 |---|---|
 | 1번 질문 | Jimin thinks a deduction was unfair. What is the best first step? |
 | 보기 a (오답) | Message QA and demand to know right away why points were taken. |
-| a 피드백 | Arguing with QA directly easily turns into a fight. Ask through the set route, the team leader. |
+| a 피드백 | Arguing with QA directly easily turns into a fight. Ask through the set route, the TL. |
 | 보기 b (정답) | Read the score sheet and gather evidence like the ticket, recording and notice. |
 | 보기 c (오답) | Raise everything together next month, after the scoring period ends. |
 | c 피드백 | Disputes have a deadline. Gather evidence and ask within it. |
-| 해설 | A dispute starts with evidence. With evidence, the team leader can ask QA for a re-review. |
+| 해설 | A dispute starts with evidence. With evidence, the TL can ask QA for a re-review. |
 | 2번 질문 | After the re-review, the score stays the same. What fits best for Jimin? |
 | 보기 a (오답) | Dispute the same case again until it makes sense. |
 | a 피드백 | The same evidence gets the same result. Hear the reason and understand the standard. |
@@ -325,7 +325,7 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | 제목 | Responding to a System Outage |
 | 짧은 이름 | System outage |
 | 부제 | Don't try to fix it alone; report it right away and be honest with customers. |
-| 누가 | Agent → SME → Team leader |
+| 누가 | Agent → SME → TL |
 | 노드 | Notice it · Report it right away · Tell the customer · Record and follow up |
 
 스텝:
@@ -357,4 +357,4 @@ Same sections and order as the Korean file. US English. Terms follow the SME and
 | b 피드백 | Ending like this leaves the customer not knowing what to do next. Explain how you'll get back to them. |
 | 보기 c (정답) | With the given wording, say you can't check right now and explain how you'll get back to them. |
 | 해설 | During an outage, be honest and explain what happens next. Don't promise a time you're not sure of. |
-| 마지막 연결 | You've finished the Agent SOP Library. Follow the steps in the order you learned, and the SME and the team leader can pick up your work right away. |
+| 마지막 연결 | You've finished the Agent SOP Library. Follow the steps in the order you learned, and the SME and the TL can pick up your work right away. |

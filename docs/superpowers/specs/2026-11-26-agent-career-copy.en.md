@@ -9,12 +9,12 @@ Same sections and order as the Korean file. US English.
 | Place | English |
 |---|---|
 | Course title | Agent Career Lifecycle |
-| Course intro | With Jimin, about a year after Go Live (Example), look at the path up the operations team, one step at a time. An SME and a team leader do different work, and each role takes different preparation to reach. |
-| Home card | Agent → SME → Team leader: the path up the operations team, with different preparation at each step. |
+| Course intro | With Jimin, about a year after Go Live (Example), look at the path up the operations team, one step at a time. An SME and a Team Leader do different work, and each role takes different preparation to reach. |
+| Home card | Agent → SME → Team Leader: the path up the operations team, with different preparation at each step. |
 | Figures note | Periods, headcounts and score windows in the lessons are examples and may differ from center to center. |
 | Top of the ladder | Operations team |
 | Agent step | Agent · Jimin (now) |
-| Ladder step names | Ready for SME · SME · Ready for TL · Team leader |
+| Ladder step names | Ready for SME · SME · Ready for TL · Team Leader |
 | Lesson screen | Same as Agent First Steps (All lessons · Agent checkpoint · Up next · Next lesson · Back to the list · Done) |
 
 ---
@@ -50,11 +50,11 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | Length of service |
 | a 피드백 | They look at the last few months of attendance, record, scores and contribution rather than tenure. |
 | 보기 b (정답) | Attendance and timekeeping |
-| 보기 c (오답) | How close they are to the team leader |
+| 보기 c (오답) | How close they are to the TL |
 | c 피드백 | It's the record, not closeness. Attendance, complaint and disciplinary records, and quality and test scores are the evidence. |
 | 해설 | SMEs work with many people. A record of showing up is the first thing that builds trust. |
 | 2번 질문 | In an interview, which statement best shows team contribution? |
-| 보기 a (오답) | "Whenever new colleagues got stuck, I went over to help first, and my team leader often said the team mood got better for it." |
+| 보기 a (오답) | "Whenever new colleagues got stuck, I went over to help first, and my TL often said the team mood got better for it." |
 | a 피드백 | It leaves out the facts of what she helped with, how, and what came of it, so it isn't evidence. |
 | 보기 b (오답) | "My quality score has been the team's highest for months, and my handling time is the shortest." |
 | b 피드백 | Scores belong to the quality and test scores criterion. Team contribution is what you did for others and the team, not your own score. |
@@ -78,7 +78,7 @@ Same sections and order as the Korean file. US English.
 1. This lesson is about knowing what an SME does and what skills the role needs.
 2. Jimin now handles most contacts on her own. Today, instead of asking Harin a question as she always did, she asks Harin about her work.
 3. The first stage is the work. The SME is the team's knowledge hub. They help agents with contacts they're stuck on through chat or floor support, and stay close to new hires through OJT and Nesting.
-4. They gather frequent questions and the voice of the customer (VOC), find the causes, and report them to the team leader. When the team leader is away, they cover part of the team leader's work.
+4. They gather frequent questions and the voice of the customer (VOC), find the causes, and report them to the TL. When the TL is away, they cover part of the TL's work.
 5. The second stage is the skills needed. Knowing the products and systems in depth is the baseline, plus the ability to analyze VOC and write it up as a report. Coaching peers and analytical thinking, working through problems step by step, matter too.
 6. Just giving the answer isn't enough. The SME's way is to show where to find it, so the agent can find it alone next time.
 7. A word from Miso: I only went around asking what I didn't know; I never thought to write down what I'd learned. If I'd kept notes from then on, I'd have helped my peers much faster once I became an SME.
@@ -91,17 +91,17 @@ Same sections and order as the Korean file. US English.
 | 보기 a (오답) | In a busy hour, send only a short answer and move on to the next chat. |
 | a 피드백 | With only the answer, the agent gets stuck on the same contact again. Showing where to find it lets her solve it alone next time. |
 | 보기 b (정답) | So she can solve it alone next time, give the answer and where to find it. |
-| 보기 c (오답) | Tell her to pass any new kind of contact straight to the team leader. |
-| c 피드백 | Passing on a contact the SME can answer makes both the team leader and the customer wait. Pass it on only when it's outside the SME's scope. |
+| 보기 c (오답) | Tell her to pass any new kind of contact straight to the TL. |
+| c 피드백 | Passing on a contact the SME can answer makes both the TL and the customer wait. Pass it on only when it's outside the SME's scope. |
 | 해설 | An SME gives answers and also helps agents find them on their own next time. |
-| 2번 질문 | Why does Harin write reports for the team leader? |
+| 2번 질문 | Why does Harin write reports for the TL? |
 | 보기 a (정답) | To show the causes of frequent questions and VOC so they get fixed |
-| 보기 b (오답) | To score each agent's quality and show the team leader separately who does better |
+| 보기 b (오답) | To score each agent's quality and show the TL separately who does better |
 | b 피드백 | Scoring contact quality is QA's job. |
-| 보기 c (오답) | To evaluate and rank team members in the team leader's place when they're busy |
-| c 피드백 | Evaluating team members is the team leader's job. The SME brings the evidence the team leader decides on. |
-| 해설 | An SME's report tells the team leader the causes of repeated problems, so the whole team gets stuck less often. |
-| 다음 레슨 연결 | Going from SME to team leader takes a different kind of preparation. Next, see how Harin, who covers as team leader backup, gets ready. |
+| 보기 c (오답) | To evaluate and rank team members in the TL's place when they're busy |
+| c 피드백 | Evaluating team members is the TL's job. The SME brings the evidence the TL decides on. |
+| 해설 | An SME's report tells the TL the causes of repeated problems, so the whole team gets stuck less often. |
+| 다음 레슨 연결 | Going from SME to TL takes a different kind of preparation. Next, see how Harin, who covers as TL backup, gets ready. |
 
 ---
 
@@ -111,42 +111,42 @@ Same sections and order as the Korean file. US English.
 |---|---|
 | 제목 | Getting Ready to Be a Team Leader |
 | 짧은 이름 | Ready for TL |
-| 부제 | Five things are checked when an SME moves up to team leader. |
+| 부제 | Five things are checked when an SME moves up to Team Leader. |
 | 노드 | Attendance and attitude · Clean record · People management · Coaching · Backup metrics |
 
 스텝:
 
-1. This lesson is about knowing the five things checked when an SME moves up to team leader. The criteria differ by center, but this is the usual order.
-2. These days Harin covers for Sujin as team leader backup when Sujin is away. Jimin asked how Harin is getting ready to apply for a team leader opening.
-3. The first stage is attendance and attitude. A team leader looks after the team's attendance, so your own attendance and attitude must set the example first.
+1. This lesson is about knowing the five things checked when an SME moves up to TL. The criteria differ by center, but this is the usual order.
+2. These days Harin covers for Sujin as TL backup when Sujin is away. Jimin asked how Harin is getting ready to apply for a TL opening.
+3. The first stage is attendance and attitude. A TL looks after the team's attendance, so your own attendance and attitude must set the example first.
 4. The second stage is a clean record. They check for complaints from customers, agents or the client that were your fault, and for disciplinary action for breaking company rules, in the last 6 months (Example). A complaint an internal review found wasn't your fault doesn't count against you.
-5. Escalation and disciplinary records usually have a grace period of 6 months to a year (Example), depending on the center. After it passes, they no longer count for promotions or transfers, but the record isn't erased. If you're thinking of applying for team leader, start preparing that grace period before.
+5. Escalation and disciplinary records usually have a grace period of 6 months to a year (Example), depending on the center. After it passes, they no longer count for promotions or transfers, but the record isn't erased. If you're thinking of applying for TL, start preparing that grace period before.
 6. The third stage is people management. You need to know the process for problems like conflict between team members, dissatisfaction with the work, and thoughts of quitting.
-7. Serious problems like harassment aren't handled alone: write down exactly what the person told you and pass it to the team leader and HR, following the company process. It's even better if you can suggest improvements to the current process.
+7. Serious problems like harassment aren't handled alone: write down exactly what the person told you and pass it to the TL and HR, following the company process. It's even better if you can suggest improvements to the current process.
 8. The fourth stage is coaching. You need to know how to prepare for coaching a team member and what steps it follows, and be able to suggest better ways.
-9. Each time Harin helps an agent, she writes a short note on what was stuck and what she said. These notes become practice for preparing coaching once she is a team leader.
-10. The fifth stage is the team's metrics during team leader backup. Whether you kept the team's metrics on track on days without the team leader is the most visible evidence.
-11. A word from Miso: I treated my team leader backup days as days to just get through. If I'd written down that day's metrics and what I did, it would have been my best evidence in the team leader interview.
+9. Each time Harin helps an agent, she writes a short note on what was stuck and what she said. These notes become practice for preparing coaching once she is a TL.
+10. The fifth stage is the team's metrics during TL backup. Whether you kept the team's metrics on track on days without the TL is the most visible evidence.
+11. A word from Miso: I treated my TL backup days as days to just get through. If I'd written down that day's metrics and what I did, it would have been my best evidence in the TL interview.
 
 체크포인트:
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | When an SME moves up to team leader, what do they look at first? |
-| 보기 a (오답) | Times covering as team leader backup |
+| 1번 질문 | When an SME moves up to TL, what do they look at first? |
+| 보기 a (오답) | Times covering as TL backup |
 | a 피드백 | Backup metrics count too, but attendance and attitude come first. |
 | 보기 b (정답) | Attendance and work attitude |
 | 보기 c (오답) | Length of time as an SME |
 | c 피드백 | Attendance and attitude, the recent record and readiness to lead people come before time in the role. |
-| 해설 | A team leader looks after the team's attendance. So your own attendance and attitude are the first criterion. |
-| 2번 질문 | A team member tells Harin she is being harassed by a colleague. What fits best for Harin, who is covering as team leader backup? |
+| 해설 | A TL looks after the team's attendance. So your own attendance and attitude are the first criterion. |
+| 2번 질문 | A team member tells Harin she is being harassed by a colleague. What fits best for Harin, who is covering as TL backup? |
 | 보기 a (오답) | Call the two in together so they clear up the misunderstanding. |
 | a 피드백 | With harassment, bringing the two together can hurt the person more. Follow the company process. |
 | 보기 b (오답) | To keep it from growing, keep their shifts apart for a while. |
 | b 피드백 | Deciding alone and covering it up leaves the problem in place. Record it and pass it on through the process. |
-| 보기 c (정답) | Write down exactly what she told you and pass it to the team leader and HR, following the company process. |
+| 보기 c (정답) | Write down exactly what she told you and pass it to the TL and HR, following the company process. |
 | 해설 | Serious problems aren't handled alone. Recording the facts and passing them on through the process is how you protect the team member. |
-| 다음 레슨 연결 | Now that you know what to prepare, see what a team leader actually does. Next, meet Sujin. |
+| 다음 레슨 연결 | Now that you know what to prepare, see what a TL actually does. Next, meet Sujin. |
 
 ---
 
@@ -155,38 +155,38 @@ Same sections and order as the Korean file. US English.
 | 항목 | English |
 |---|---|
 | 제목 | Team Leader |
-| 짧은 이름 | Team leader |
+| 짧은 이름 | Team Leader |
 | 부제 | Lead the whole team to its goals. |
 | 노드 | The work · Skills needed |
 
 스텝:
 
-1. This lesson is about knowing what a team leader does and what skills the role needs.
-2. Jimin has a score review with Sujin every week. Today, after the review, she asks how a team leader spends the day.
-3. The first stage is the work. A team leader manages the results of 10 to 15 team members (Example) and leads the team to its goals through coaching and feedback. Looking after schedules and attendance, and hearing team members' concerns, are part of it too.
+1. This lesson is about knowing what a TL does and what skills the role needs.
+2. Jimin has a score review with Sujin every week. Today, after the review, she asks how a TL spends the day.
+3. The first stage is the work. A TL manages the results of 10 to 15 team members (Example) and leads the team to its goals through coaching and feedback. Looking after schedules and attendance, and hearing team members' concerns, are part of it too.
 4. They check the team's metrics every day, hold score reviews every week and performance reviews every month. Upward, they report the team's results and problems to the assistant manager and the operation manager.
 5. The second stage is the skills needed. You need to read performance data and to manage people. Above all, you need the leadership and feedback that make team members want to try again.
-6. It varies by center, but rather than going straight from agent to team leader, many work as an SME and serve as team leader backup first.
-7. A word from Miso: I thought leadership would just appear once I became a team leader. The people who listened to their peers and looked for answers with them as agents were the ones who became good team leaders.
+6. It varies by center, but rather than going straight from agent to TL, many work as an SME and serve as TL backup first.
+7. A word from Miso: I thought leadership would just appear once I became a TL. The people who listened to their peers and looked for answers with them as agents were the ones who became good TLs.
 
 체크포인트:
 
 | 항목 | English |
 |---|---|
-| 1번 질문 | Which path from agent to team leader is common in many centers? |
-| 보기 a (오답) | Agent → team leader (managing a team) → SME |
-| a 피드백 | SME is usually the role you hold before becoming a team leader. |
-| 보기 b (오답) | Team leader training (leadership course) right after joining → team leader |
+| 1번 질문 | Which path from agent to TL is common in many centers? |
+| 보기 a (오답) | Agent → TL (managing a team) → SME |
+| a 피드백 | SME is usually the role you hold before becoming a TL. |
+| 보기 b (오답) | TL training (leadership course) right after joining → TL |
 | b 피드백 | You need to know what agents go through to lead a team, so people usually build floor experience first. |
-| 보기 c (정답) | Agent → SME (team leader backup) → team leader |
-| 해설 | Helping peers as an SME and covering for the team leader is the bridge to team leader. It may differ by center. |
-| 2번 질문 | The team's metrics dropped sharply this week. What fits best for Sujin, the team leader? |
+| 보기 c (정답) | Agent → SME (TL backup) → TL |
+| 해설 | Helping peers as an SME and covering for the TL is the bridge to TL. It may differ by center. |
+| 2번 질문 | The team's metrics dropped sharply this week. What fits best for Sujin, the TL? |
 | 보기 a (정답) | Check the cause and report the results and a plan to the assistant manager. |
 | 보기 b (오답) | Hold off on reporting until next week and see if it recovers. |
 | b 피드백 | If they hear late, the people above can't help. Report the cause and the plan together, right away. |
 | 보기 c (오답) | Call in the team members with low metrics and warn them right away. |
 | c 피드백 | Warning people before checking the cause costs their trust. The cause comes first. |
-| 해설 | A team leader reports the team's results and problems upward. Sharing the cause and plan together lets the people above help. |
+| 해설 | A TL reports the team's results and problems upward. Sharing the cause and plan together lets the people above help. |
 | 마지막 연결 | You've finished Agent Career Lifecycle. Today's attendance and this week's score review are where preparing for your next role begins. |
 
 ---
@@ -206,8 +206,8 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson is about knowing what QA does, and what to prepare now to get there.
 2. Every week in her score review, Jimin sees the quality scores Dohyun gave. She has always looked only at the score; today she asks about the work of the person who gives it.
-3. The first stage is the work. QA checks call recordings, chats and emails against a set scoring standard and gives scores. They send the results back to the team leader and agents so coaching has evidence to stand on.
-4. QA also runs calibration, where QA, the team leader, the SME and the trainer listen to the same recording and line up their scores. If scores differ by who gives them, agents stop trusting them.
+3. The first stage is the work. QA checks call recordings, chats and emails against a set scoring standard and gives scores. They send the results back to the TL and agents so coaching has evidence to stand on.
+4. QA also runs calibration, where QA, the TL, the SME and the trainer listen to the same recording and line up their scores. If scores differ by who gives them, agents stop trusting them.
 5. The second stage is the skills needed. You need to know the standard exactly and score carefully enough that anyone would reach the same score. Basic data analysis, to see where points are often lost, matters too.
 6. The third stage is preparing now. When you get your score sheet, read why points were lost on each item, not just the total. The better you know the standard, the better your own contacts get and the more you see contacts the way QA does.
 7. Play back your recording if you can, or listen together in a score review, and score it yourself with the sheet, then compare with Dohyun's score. The items that differ are the standards you don't know yet.
@@ -249,7 +249,7 @@ Same sections and order as the Korean file. US English.
 
 1. This lesson is about knowing what a trainer does, and what to prepare now to get there.
 2. Yuna was the person Jimin met in her first week of training. Back then she was busy taking notes; now she's curious about the work of the person at the front.
-3. The first stage is the work. The trainer runs new-hire training, teaches the products, services, systems and policies, and checks learning with tests. They decide with the team leader who graduates.
+3. The first stage is the work. The trainer runs new-hire training, teaches the products, services, systems and policies, and checks learning with tests. They decide with the TL who graduates.
 4. When a new product or policy comes out, they teach agents who are already working too. They also put the mistakes QA often finds into the training material.
 5. The second stage is the skills needed. You need to explain hard things in plain words and to speak in front of a group. Basic data analysis, to read from test results where trainees get stuck, matters too.
 6. The third stage is preparing now. Steadily high training and test scores are the first step. You can't teach what you don't know.
@@ -275,6 +275,6 @@ Same sections and order as the Korean file. US English.
 | 보기 c (오답) | The two roles sit in different teams with different work, so they have nothing to do with each other. |
 | c 피드백 | The two roles often sit in the same Training & Development team, and quality results feed the next training. |
 | 해설 | The trainer uses training to fix the problems QA finds on the floor. Together they raise contact quality. |
-| 다음 레슨 연결 | So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the team leader. |
+| 다음 레슨 연결 | So far these were the paths of helping, evaluating and teaching. Next is the path that takes on the whole team: meet Sujin the TL. |
 
 

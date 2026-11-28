@@ -16,7 +16,7 @@ export default {
   title: tx('1:1 코칭', 'One-on-One Coaching'),
   short: tx('1:1 코칭', 'Coaching'),
   subtitle: tx('지적 대신 질문으로 이끄는 다섯 단계.', 'Five steps that lead with questions instead of criticism.'),
-  roles: tx('팀장', 'Team leader'),
+  roles: tx('팀장', 'Team Leader'),
   procedure,
   diagram: {
     nodes: [
@@ -38,7 +38,7 @@ export default {
     ],
   },
   steps: [
-    step(tx('이 절차의 목적은 데이터에 기반해 팀원의 성과가 부진한 원인을 찾고, 분명한 개선 계획을 함께 세워 성장을 돕는 것입니다. 팀장과 그 이상 직급이 따릅니다. 다섯 단계로 진행합니다.', 'This procedure exists to find, from data, why a team member\'s performance is falling short, and to agree on a clear improvement plan together so they can grow. Team leaders and those above them follow it. It runs in five steps.'),
+    step(tx('이 절차의 목적은 데이터에 기반해 팀원의 성과가 부진한 원인을 찾고, 분명한 개선 계획을 함께 세워 성장을 돕는 것입니다. 팀장과 그 이상 직급이 따릅니다. 다섯 단계로 진행합니다.', 'This procedure exists to find, from data, why a team member\'s performance is falling short, and to agree on a clear improvement plan together so they can grow. TLs and those above them follow it. It runs in five steps.'),
       flow, procedure, null),
     step(tx('오늘 코칭 상대는 지민입니다. 지민은 한 번에 해결하는 비율은 높지만 평균 처리 시간(AHT)이 긴 편입니다.', 'Today you are coaching Jimin. She resolves a high share of contacts the first time, but her average handle time (AHT) runs long.'),
       flow, [], null),
@@ -60,7 +60,7 @@ export default {
       [...flow, ...grow], ['plan'], 'plan'),
     step(tx('다섯째 단계는 마무리 및 격려입니다(예시: 5분). 합의한 내용을 다시 요약하고, 할 수 있다는 믿음과 지지를 표현하며 끝냅니다. "제가 지켜보고 도울게요. 잘할 수 있을 거예요."', 'The fifth step is wrapping up and encouraging (Example: 5 min). Summarize what you agreed once more, and close by showing that you believe in her and will back her. "I will be right here to help. You can do this."'),
       [...flow, ...grow], ['close'], 'close'),
-    step(tx("세션이 끝난 뒤에도 할 일이 있습니다(예시: 한 달에 한 번). 부매니저나 선배 팀장이 당신의 코칭을 지켜보고, 질문으로 이끌었는지와 행동 계획이 구체적이었는지 피드백합니다. 코치도 코칭을 받아야 늡니다.", "There is still work after the session (Example: once a month). Your assistant manager or a senior team leader watches you coach and tells you whether you led with questions and whether the action plan was specific. Coaches get better by being coached too."),
+    step(tx("세션이 끝난 뒤에도 할 일이 있습니다(예시: 한 달에 한 번). 부매니저나 선배 팀장이 당신의 코칭을 지켜보고, 질문으로 이끌었는지와 행동 계획이 구체적이었는지 피드백합니다. 코치도 코칭을 받아야 늡니다.", "There is still work after the session (Example: once a month). Your assistant manager or a senior TL watches you coach and tells you whether you led with questions and whether the action plan was specific. Coaches get better by being coached too."),
       [...flow, ...grow, ...observe], ['close', ...observe], 'close'),
   ],
   checkpoint: [

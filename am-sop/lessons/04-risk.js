@@ -13,7 +13,7 @@ export default {
   title: tx("리스크 관리 대장", "The Risk Register"),
   short: tx("리스크 대장", "Risk register"),
   subtitle: tx("아직 터지지 않은 위험을 적고, 담당과 대응을 정해 매주 갱신합니다.", "Write down risks that haven't happened yet, assign owners and responses, and update it every week."),
-  roles: tx("팀장 → 부매니저 → 매니저", "Team leader → AM → Manager"),
+  roles: tx("팀장 → 부매니저 → 매니저", "TL → AM → Manager"),
   personaName: tx("민석", "Minseok"),
   procedure,
   diagram: {

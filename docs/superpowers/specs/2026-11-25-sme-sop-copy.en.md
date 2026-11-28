@@ -9,7 +9,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | Place | English |
 |---|---|
 | Course title | SME SOP Library |
-| Course intro | Learn the eight standard procedures an SME runs, in order. Where a procedure is also in the team leader's SOP Library, only the SME's part is covered. |
+| Course intro | Learn the eight standard procedures an SME runs, in order. Where a procedure is also in the Team Leader's SOP Library, only the SME's part is covered. |
 | Home card | Learn the eight standard procedures an SME follows, in order. |
 | Figures note | Times and counts with numbers are examples; each center sets its own values. |
 | Lesson screen | All SOPs · SME checkpoint · Up next · Next SOP · Back to the list · Done |
@@ -24,17 +24,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 제목 | Escalation Approval |
 | 짧은 이름 | Approval |
 | 부제 | Check what came in, approve it if it's in scope, and pass it on if not. |
-| 누가 | Agent → SME → Team leader |
+| 누가 | Agent → SME → TL |
 | 노드 | Check the request · Judge the scope · Approve or handle · Hand to the TL · Keep a record |
 
 스텝:
 
-1. This procedure exists to judge an agent's escalation quickly and by the same rules, then approve it, handle it yourself, or pass it to the team leader. It is the part that comes after the SME takes over in the team leader's customer complaint escalation SOP.
+1. This procedure exists to judge an agent's escalation quickly and by the same rules, then approve it, handle it yourself, or pass it to the TL. It is the part that comes after the SME takes over in the TL's customer complaint escalation SOP.
 2. Jimin asks for a compensation approval by messenger. The first step is checking the request. See whether the ticket records what the customer wants, what Jimin has already tried, and how the customer is feeling.
 3. If the record is thin, ask Jimin a quick question. That way the customer isn't asked the same thing again.
-4. The second step is judging the scope. Use the approval scope list agreed with the team leader to decide whether it is inside your scope or not. If you're not sure, treat it as outside.
+4. The second step is judging the scope. Use the approval scope list agreed with the TL to decide whether it is inside your scope or not. If you're not sure, treat it as outside.
 5. The third step is approving or handling. Approve it if it's in scope; if the agent is stuck, take the case over and handle the customer yourself. When you take over, first tell the customer you already know what happened so far.
-6. The fourth step is handing it to the team leader. Requests outside your scope or outside policy go to the team leader. Meanwhile, ask Jimin to tell the customer about the wait.
+6. The fourth step is handing it to the TL. Requests outside your scope or outside policy go to the TL. Meanwhile, ask Jimin to tell the customer about the wait.
 7. The fifth step is keeping a record. Whether you approved it or passed it on, write the decision and the reason in the ticket and in the approval log. When the same request comes again, anyone can judge it by the same rule.
 8. If an answer will take time, say first when you will answer (Example: within 5 minutes). While the agent waits, the customer is waiting too.
 
@@ -46,8 +46,8 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 a (오답) | End it at the approval and record nothing else. |
 | a 피드백 | Without the reason on record, people judge similar requests differently. |
 | 보기 b (정답) | Write the decision and the reason in the ticket and the approval log. |
-| 보기 c (오답) | Ask the team leader again whether the approval is okay. |
-| c 피드백 | Asking about in-scope cases too blocks the team leader's day and defeats the point of agreeing on a scope. |
+| 보기 c (오답) | Ask the TL again whether the approval is okay. |
+| c 피드백 | Asking about in-scope cases too blocks the TL's day and defeats the point of agreeing on a scope. |
 | 해설 | An approval is finished only when the decision and reason are recorded. That keeps the rule consistent. |
 | 2번 질문 | The SME takes over a case Jimin found hard and calls the customer. What should you say first? |
 | 보기 a (오답) | "To help you accurately, could you explain it all again from the start?" |
@@ -65,17 +65,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 제목 | Scrubbing |
 | 짧은 이름 | Scrubbing |
 | 부제 | Reread a few tickets every day, find the cause, classify it and send it on. |
-| 누가 | SME → Team leader · Client |
+| 누가 | SME → TL · Client |
 | 노드 | Pick tickets · Root cause · L1/L2 classification · Log and pass on |
 
 스텝:
 
-1. This procedure exists to reread closed and backlogged tickets, find the real cause, and send it where it can be fixed. It is the part of the team leader's scrubbing SOP that the SME does every day.
+1. This procedure exists to reread closed and backlogged tickets, find the real cause, and send it where it can be fixed. It is the part of the TL's scrubbing SOP that the SME does every day.
 2. The first step is picking tickets. Pick them in the order DSAT, CSAT, then unresolved. Review 3 to 4 a day (Example), steadily.
 3. The second step is root cause analysis. Find what the customer first wanted, what the agent did, and where the result went wrong, and sum it up in a sentence or two.
 4. Follow the cause to the end by asking "why" a few times. Don't stop at "the explanation was wrong"; check why it was wrong, whether there was no document, or whether the document was out of date.
-5. The third step is L1/L2 classification. L1 sorts by where the cause lies (Product, Process, Support, Customer, Others), and L2 by whether the BPO can control it. These are the same rules as the team leader's scrubbing SOP.
-6. The fourth step is logging and passing on. Write the result in the scrubbing sheet with the ticket number. Causes in an agent's behavior go into the trend summary for the team leader, and causes the BPO can't control go into the VOC report.
+5. The third step is L1/L2 classification. L1 sorts by where the cause lies (Product, Process, Support, Customer, Others), and L2 by whether the BPO can control it. These are the same rules as the TL's scrubbing SOP.
+6. The fourth step is logging and passing on. Write the result in the scrubbing sheet with the ticket number. Causes in an agent's behavior go into the trend summary for the TL, and causes the BPO can't control go into the VOC report.
 7. If you find a missed check step in Seojun's ticket, tell Seojun briefly the first time, and put it in the summary if it repeats. Don't post it in the team chat with his name.
 
 체크포인트:
@@ -96,7 +96,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 보기 c (오답) | Skip classifying it, with nothing to coach. |
 | c 피드백 | Without classifying it, there is no evidence to give the client even as the same complaints pile up. |
 | 해설 | L2 sorts by whether the BPO can control the cause. If we can, we change it; if not, we ask the client. |
-| 다음 레슨 연결 | The agent behaviors found in scrubbing go to the team leader. Next is the procedure for writing that summary. |
+| 다음 레슨 연결 | The agent behaviors found in scrubbing go to the TL. Next is the procedure for writing that summary. |
 
 ## 레슨 3. Contact Trend Summary Report
 
@@ -104,20 +104,20 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 |---|---|
 | 제목 | Contact Trend Summary Report |
 | 짧은 이름 | Trend summary |
-| 부제 | Turn what you saw in scrubbing into something the team leader can use for coaching right away. |
-| 누가 | SME → Team leader |
+| 부제 | Turn what you saw in scrubbing into something the Team Leader can use for coaching right away. |
+| 누가 | SME → TL |
 | 노드 | Gather · Find repeats · One line each · Report |
 
 스텝:
 
-1. This procedure exists to sum up each agent's repeated behaviors seen in scrubbing, so the team leader can decide right away whom to coach on what.
-2. Sujin, the team leader, gets this summary every Friday (Example) and plans the next week's coaching.
+1. This procedure exists to sum up each agent's repeated behaviors seen in scrubbing, so the TL can decide right away whom to coach on what.
+2. Sujin, the TL, gets this summary every Friday (Example) and plans the next week's coaching.
 3. The first step is gathering. From the causes you logged in the scrubbing sheet this week, gather those that came from agents' behavior, by agent.
 4. The second step is finding repeats. Only a behavior seen twice or more (Example) counts as a trend. Once is a mistake; a repeat is a behavior to coach.
 5. The third step is writing one line each. Note the person, the behavior, how often, and the ticket numbers. For example, write "Jimin: missed the step after identity verification in 3 refund contacts (Example)."
 6. Write behaviors, not personality or attitude. Don't score or rank; include only what coaching can change.
 7. The fourth step is reporting. Send it to Sujin on the agreed day. If several people show the same behavior, group it separately and suggest it as a huddle topic.
-8. If Junho keeps helping other agents well, write that down too. The summary tells the team leader not only what to fix but also whom to praise and grow.
+8. If Junho keeps helping other agents well, write that down too. The summary tells the TL not only what to fix but also whom to praise and grow.
 
 체크포인트:
 
@@ -131,13 +131,13 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | c 피드백 | Raising one person's one-time mistake as a team issue gives everyone else a talk they don't need. |
 | 해설 | Only repeated behaviors go into the summary as trends. |
 | 2번 질문 | This week the same explanation mistake came up with five team members. What do you do? |
-| 보기 a (오답) | So the team leader sees who made the mistake, write one line for each of the five in the summary. |
+| 보기 a (오답) | So the TL sees who made the mistake, write one line for each of the five in the summary. |
 | a 피드백 | Separate lines hide that it's a team-wide problem. |
 | 보기 b (정답) | Group it as a team-wide trend, suggest it as a huddle topic, and if a document is the cause, request an update too. |
 | 보기 c (오답) | Before it spreads, call the five in one by one and warn each of them. |
-| c 피드백 | Formal cautions and warnings are the team leader's call. When several people make the same mistake, the cause may lie in a document or training rather than the people. |
+| c 피드백 | Formal cautions and warnings are the TL's call. When several people make the same mistake, the cause may lie in a document or training rather than the people. |
 | 해설 | When several people make the same mistake, look at the cause before the people. |
-| 다음 레슨 연결 | Supporting the team leader isn't only summaries. When the team leader is away, you also check attendance. |
+| 다음 레슨 연결 | Supporting the TL isn't only summaries. When the TL is away, you also check attendance. |
 
 ## 레슨 4. Covering Attendance
 
@@ -145,19 +145,19 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 |---|---|
 | 제목 | Covering Attendance |
 | 짧은 이름 | Attendance |
-| 부제 | Record and report; the team leader judges and acts. |
-| 누가 | SME → Team leader · RTA |
+| 부제 | Record and report; the Team Leader judges and acts. |
+| 누가 | SME → TL · RTA |
 | 노드 | Confirm the cover · Check attendance · Record the facts · Flag gaps |
 
 스텝:
 
-1. This procedure exists so that when the team leader is away or the team is large, the SME checks and records attendance on the team leader's behalf and flags staffing gaps quickly.
+1. This procedure exists so that when the TL is away or the team is large, the SME checks and records attendance on the TL's behalf and flags staffing gaps quickly.
 2. The first step is confirming the cover. Confirm with Sujin in advance whether you're covering today, where absence calls will come in, and when to report.
 3. The second step is checking attendance. At the start of the shift, match the schedule against actual logins and find who is missing.
 4. When someone calls to say they'll be late or absent, take down the time and the reason as given. Don't judge whether the reason is valid, and don't probe into or write down details of health or other personal matters.
 5. The third step is recording the facts. Write the arrival time, whether they called, and the reason in the attendance sheet, as they are. Don't leave anything out or change it.
 6. The fourth step is flagging gaps. If absences leave you short, tell the RTA and Sujin right away so the queue can be protected.
-7. Send Sujin the attendance results at the agreed time. Warnings, attendance actions and schedule changes are for the team leader to decide.
+7. Send Sujin the attendance results at the agreed time. Warnings, attendance actions and schedule changes are for the TL to decide.
 
 체크포인트:
 
@@ -168,16 +168,16 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | a 피드백 | Until then the queue runs two people short. Staffing gaps need flagging right away. |
 | 보기 b (정답) | Staffing needs adjusting fast, so log it in the attendance sheet and flag the gap to the RTA and Sujin. |
 | 보기 c (오답) | So the queue doesn't back up, the SME takes the two people's contacts. |
-| c 피드백 | If the SME fills an agent seat, escalation approvals stall. Staffing changes are for the RTA and the team leader. |
+| c 피드백 | If the SME fills an agent seat, escalation approvals stall. Staffing changes are for the RTA and the TL. |
 | 해설 | In covering attendance, the most urgent thing is flagging gaps quickly. |
 | 2번 질문 | Junho was 15 minutes late today and asks you to leave it off the attendance sheet. What do you do? |
 | 보기 a (오답) | It's a long-time colleague asking, so leave the 15 minutes off the sheet just this once. |
 | a 피드백 | Changing the record makes the rules differ from the rest of the team, and the cover's records can no longer be trusted. |
-| 보기 b (정답) | Covering means recording, not deciding, so log it as it is and tell him to take any reason to the team leader. |
+| 보기 b (정답) | Covering means recording, not deciding, so log it as it is and tell him to take any reason to the TL. |
 | 보기 c (오답) | So everyone knows the rule, mention in the team chat that he was late. |
-| c 피드백 | Attendance is not for public posting. Records and reports go to the team leader only. |
+| c 피드백 | Attendance is not for public posting. Records and reports go to the TL only. |
 | 해설 | Covering is recording and passing on facts. You don't change or judge them. |
-| 다음 레슨 연결 | Another thing you do on the team leader's behalf is the huddle that passes client updates to the team. |
+| 다음 레슨 연결 | Another thing you do on the TL's behalf is the huddle that passes client updates to the team. |
 
 ## 레슨 5. Client Update Huddle
 
@@ -207,14 +207,14 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 1번 질문 | "Some members" in the notice is unclear, and the huddle is in 10 minutes. What do you do? |
 | 보기 a (오답) | There's no time, so say for now it applies to all members and correct it later. |
 | a 피드백 | Passing on a guess means the whole team tells customers the same wrong thing. |
-| 보기 b (정답) | Check with the team leader or the client contact, and if it isn't confirmed yet, say it's being checked. |
+| 보기 b (정답) | Check with the TL or the client contact, and if it isn't confirmed yet, say it's being checked. |
 | 보기 c (오답) | Leave out the unclear part, and share only what's certain. |
 | c 피드백 | Agents will get that question anyway, and each will answer it differently. |
 | 해설 | Pass on unclear things after checking, and if you're still checking, say so. |
 | 2번 질문 | Night-shift agents couldn't attend the huddle. What do you do? |
 | 보기 a (오답) | Gather the night shift too at the next day's huddle, share it again and take questions. |
 | a 피드백 | Meanwhile, night customers are told the old policy. |
-| 보기 b (정답) | Leave it in writing for them to read before their shift, and pass it to the night SME or team leader too. |
+| 보기 b (정답) | Leave it in writing for them to read before their shift, and pass it to the night SME or TL too. |
 | 보기 c (오답) | Tell them to message the SME whenever a customer asks. |
 | c 피드백 | There may be no SME at night, and sending every contact through the SME makes customers wait longer. |
 | 해설 | The same content needs to reach those who missed the huddle, on the same day. |
@@ -227,17 +227,17 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 제목 | Joining Calibration and Passing On Standards |
 | 짧은 이름 | Calibration |
 | 부제 | Bring the floor's reality to the session, and bring the agreed standard back to the floor. |
-| 누가 | QA · SME · Team leader → Agents |
+| 누가 | QA · SME · TL → Agents |
 | 노드 | Send cases · Score alone · Explain the floor · Pass on the standard |
 
 스텝:
 
-1. This procedure exists so the SME explains the floor's reality at calibration to keep the standard realistic, and passes any changed standard to agents first. The session itself follows the team leader's calibration SOP.
+1. This procedure exists so the SME explains the floor's reality at calibration to keep the standard realistic, and passes any changed standard to agents first. The session itself follows the TL's calibration SOP.
 2. The first step is sending cases. Pick cases where the standard and the floor's way differ, such as a ticket Jimin handled the floor's way but lost points on, and send them to QA before the session.
 3. The second step is scoring alone. Before seeing anyone else's score, score it yourself against the scorecard and write down why.
 4. The third step is explaining the floor. On items where scores differ, explain what the agent could see on screen at that moment and which tools they used.
 5. The SME is not there to take the agents' side. The SME is there to share the floor's reality so the standard fits it.
-6. The fourth step is passing on the standard. If the agreed standard changes, agree with the team leader and tell agents first at the huddle and in the team chat, before they are scored on it. When QA's official summary comes out, share that too.
+6. The fourth step is passing on the standard. If the agreed standard changes, agree with the TL and tell agents first at the huddle and in the team chat, before they are scored on it. When QA's official summary comes out, share that too.
 7. Pass on a changed standard with one example. Showing "this is how to do it now" lets agents follow it right away.
 
 체크포인트:
@@ -267,7 +267,7 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 제목 | VOC Reporting |
 | 짧은 이름 | VOC |
 | 부제 | Organize the customer voice agents can't act on, so the client can use it. |
-| 누가 | SME → Team leader → Client |
+| 누가 | SME → TL → Client |
 | 노드 | Gather · Group and count · Write the report · Send and track |
 
 스텝:
@@ -295,9 +295,9 @@ Same sections and order as the Korean file. US English. Terms follow the team le
 | 2번 질문 | A VOC topic you sent last month is still just as common this month. What do you do? |
 | 보기 a (오답) | Leave out the topic already sent this time, and make room for new ones. |
 | a 피드백 | If it drops out, the client assumes it's solved. |
-| 보기 b (정답) | Raise it again with last report's figures to show the change, and discuss priority with the team leader. |
+| 보기 b (정답) | Raise it again with last report's figures to show the change, and discuss priority with the TL. |
 | 보기 c (오답) | Nothing has changed in a month, so contact the client directly and complain for a quick fix. |
-| c 피드백 | Raising issues with the client goes through the team leader and the agreed channel. Complaining on your own sends the same story down several paths and causes confusion. |
+| c 피드백 | Raising issues with the client goes through the TL and the agreed channel. Complaining on your own sends the same story down several paths and causes confusion. |
 | 해설 | Track a VOC topic you sent until it changes. |
 | 다음 레슨 연결 | If VOC changes the client, the last procedure changes the documents the team reads every day. |
 

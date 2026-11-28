@@ -26,13 +26,13 @@ export default {
     ],
   },
   steps: [
-    step(tx('지민은 이제 정식 상담사입니다. 이 단계에서는 품질을 꾸준히 유지하고 역량을 끌어올립니다. 팀장이 쓸 재료는 두 가지입니다.', 'Jimin is now a regular agent. At this stage you keep quality steady and build up skill. A team leader has two kinds of material to work with.'),
+    step(tx('지민은 이제 정식 상담사입니다. 이 단계에서는 품질을 꾸준히 유지하고 역량을 끌어올립니다. 팀장이 쓸 재료는 두 가지입니다.', 'Jimin is now a regular agent. At this stage you keep quality steady and build up skill. A TL has two kinds of material to work with.'),
       ['calls'], ['calls'], 'calls'),
     step(tx('첫째는 QA(품질 보증) 평가입니다. 상담 녹취를 무작위로 뽑아 스크립트 준수 여부, 친절도, 문제 해결의 정확도를 평가합니다.', 'The first is QA (quality assurance) evaluation. Recorded calls are sampled at random and scored on script adherence, courtesy, and how accurately the problem was solved.'),
       qa, ['qa', 'calls-qa'], 'calls'),
     step(tx('무작위로 뽑는 데에는 이유가 있습니다. 잘된 콜만 골라 들으면 평소의 응대를 알 수 없습니다.', 'There is a reason for random sampling. Listen only to the good calls and you never learn what an ordinary one sounds like.'),
       qa, ['qa'], 'calls'),
-    step(tx('평가자끼리 기준도 맞춰야 합니다. 캘리브레이션은 QA, 직무전문가, 팀장이 같은 콜을 각자 채점한 뒤 모여서 점수 차이를 이야기하고 기준을 맞추는 자리입니다. 얼마나 자주 할지는 센터마다 다릅니다.', 'Evaluators also need to agree on the standard. In a calibration session, QA, SMEs and team leaders each score the same call separately, then meet to discuss the gaps and align on the standard. How often to hold one varies by center.'),
+    step(tx('평가자끼리 기준도 맞춰야 합니다. 캘리브레이션은 QA, 직무전문가, 팀장이 같은 콜을 각자 채점한 뒤 모여서 점수 차이를 이야기하고 기준을 맞추는 자리입니다. 얼마나 자주 할지는 센터마다 다릅니다.', 'Evaluators also need to agree on the standard. In a calibration session, QA, SMEs and TLs each score the same call separately, then meet to discuss the gaps and align on the standard. How often to hold one varies by center.'),
       cal, ['calibration', 'calibration-qa'], 'calls'),
     step(tx('둘째는 KPI입니다. 평균 처리 시간(AHT), 최초 통화 해결률(FCR), 고객 만족도(CSAT)를 추적합니다.', 'The second is KPIs. You track average handle time (AHT), first contact resolution (FCR), and customer satisfaction (CSAT).'),
       kpi, ['kpi', 'calls-kpi'], 'calls'),
@@ -85,9 +85,9 @@ export default {
     explanation: tx('빨리 닫힌 티켓이 해결된 티켓은 아닙니다. 지표 하나만 보지 말고 진단 과정이 맞았는지 함께 봐야 합니다. 건너뛴 단계를 구체적으로 짚어 주는 것이 코칭입니다.', 'A ticket closed quickly is not a ticket resolved. Do not look at one metric alone but check whether the diagnosis was sound. Naming the skipped step specifically is what makes it coaching.'),
   }), trackQuestion('general', {
     id: 'coaching-general-2',
-    prompt: tx('같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요?', 'On the same call, the team leader scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do?'),
+    prompt: tx('같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요?', 'On the same call, the TL scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do?'),
     options: [
-      option('a', tx('팀원을 가장 잘 아는 팀장의 점수를 공식 점수로 따른다.', 'Use the score of the team leader, who knows the agent best, as the official one.'), tx('한쪽 점수를 따르면 기준은 맞춰지지 않고, 다음 평가에서도 같은 차이가 생깁니다.', 'Going with one score leaves the standards unaligned, and the same gap appears in the next evaluation.')),
+      option('a', tx('팀원을 가장 잘 아는 팀장의 점수를 공식 점수로 따른다.', 'Use the score of the TL, who knows the agent best, as the official one.'), tx('한쪽 점수를 따르면 기준은 맞춰지지 않고, 다음 평가에서도 같은 차이가 생깁니다.', 'Going with one score leaves the standards unaligned, and the same gap appears in the next evaluation.')),
       option('b', tx('어느 쪽도 틀리지 않았으니, 두 점수의 평균을 공식 점수로 삼는다.', 'Neither is wrong, so make the average of the two the official score.'), tx('평균을 내면 숫자는 하나가 되지만, 무엇을 고쳐야 하는지는 여전히 알 수 없습니다.', 'Averaging gives you one number, but it still does not say what needs to change.')),
       option('c', tx('기준이 달라 생긴 차이니, 캘리브레이션에서 채점 기준을 맞춘다.', 'The gap comes from different standards, so align the scoring standards in calibration.')),
     ],

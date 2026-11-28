@@ -534,7 +534,7 @@ export const DAILY = {
           },
           "outputs": {
             "ko": "팀장 주간 미팅 회의록, 구체적인 프로세스 개선 제안서 (기대효과 포함)",
-            "en": "Minutes of weekly team leader meetings, concrete process improvement proposals (with expected impact)"
+            "en": "Minutes of weekly TL meetings, concrete process improvement proposals (with expected impact)"
           }
         },
         {
