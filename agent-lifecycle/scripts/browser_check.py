@@ -312,7 +312,7 @@ def main():
         for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 780})
             for lang in ("ko", "en"):
-                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "tl/", "tl/#listen-3", "tl-support/", "tl-support/#qa-3", "agent/", "agent/#golive-3", "agent-career/", "agent-career/#tl-3", "agent-sop/", "agent-sop/#outage-3", "agent-guide/", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
+                for path in ("", "glossary/", "references/", "staffing-calculator/", "sop-library/", "sop-library/#coaching-6", "sme/", "sme/#peer-3", "sme-lifecycle/", "sme-lifecycle/#senior-3", "sme-sop/", "sme-sop/#voc-3", "sme-guide/", "tl/", "tl/#listen-3", "tl-support/", "tl-support/#qa-3", "agent/", "agent/#golive-3", "agent-career/", "agent-career/#tl-3", "agent-sop/", "agent-sop/#outage-3", "agent-guide/", "am/", "am/#cover-4", "review/", "browse/", "codex/", "codex/#principles", "codex/#teams", "codex/#career", "codex/#daily", "guide/", "privacy/", "settings/"):
                     page.goto(HUB + path)
                     if path:
                         page.wait_for_selector("#app > *")
@@ -1372,7 +1372,7 @@ def main():
         check("(r5) the SME lesson opens", page.inner_text("#app h1") == "직무전문가가 된 첫날")
         page.goto(HUB + "settings/")
         page.wait_for_timeout(1500)  # let the page's own late redraws (offline status) finish first
-        page.click("[data-set-role='am']")
+        page.click("[data-set-role='om']")
         page.wait_for_url(HUB)  # a new role in Settings opens that role's home (2026-11-26)
         page.wait_for_selector("[data-soon='first-steps']")
         check("(r6) a role without a course sees coming-soon cards", page.locator("[data-soon] a").count() >= 2 and page.locator("#learn a.card[href='./excel/']").count() == 1)
@@ -1549,6 +1549,44 @@ def main():
         check("(ag4) an agent lesson in English shows no Korean", not any("\uac00" <= ch <= "\ud7a3" for ch in page.inner_text("#app")))
         page.click("[data-lang='ko']")
         page.screenshot(path=str(OUT / "agent-390.png"), full_page=True)
+        page.context.close()
+
+        # (am) AM First Steps (2026-11-28): an AM opens it from Learn, finishes lesson 1, and home counts it
+        page = new_page(browser, errors, init="try { if (!localStorage.getItem('queuecraft:role')) localStorage.setItem('queuecraft:role', 'am'); } catch (e) {}")
+        page.goto(HUB)
+        page.wait_for_selector("#learn a.card[href='./am/']")
+        check("(am1) an AM's Learn shows AM First Steps, the SOP library still coming, then Excel",
+              page.get_attribute("#learn li:nth-child(1) a.card", "href") == "./am/" and page.locator("#learn li:nth-child(2) [data-soon='sop']").count() == 1
+              and page.get_attribute("#learn li:nth-child(3) a.card", "href") == "./excel/" and page.get_attribute("[data-start] a", "href") == "./am/#firstweek-0")
+        page.click("#learn a.card[href='./am/']")
+        page.wait_for_selector("[data-am-list] a")
+        check("(am2) AM First Steps opens with 8 lessons", page.locator("[data-am-list] a").count() == 8)
+        page.click("[data-am-list] a[href='#firstweek-0']")
+        page.wait_for_selector("[data-counter]")
+        steps = int(page.inner_text("[data-counter]").split("/")[1])
+        for _ in range(steps):
+            page.click("[data-next]")
+        page.wait_for_selector("[data-view='checkpoint']")
+        check("(am2) the checkpoint is the AM's", "부매니저 체크포인트" in page.inner_text("#app"))
+        page.click("[data-question='firstweek-q1'] [data-option='b']")
+        page.click("[data-question='firstweek-q2'] [data-option='c']")
+        page.wait_for_selector("[data-connection]")
+        check("(am2) lesson 1 leads on to lesson 2", page.get_attribute("[data-next-lesson]", "href") == "#leaders-0")
+        page.goto(HUB)
+        page.wait_for_selector("[data-course='am']")
+        check("(am3) home my learning counts AM First Steps", "1/8" in page.inner_text("[data-course='am']"))
+        for lid in ("firstweek", "leaders", "instructions", "escalation", "review", "requests", "cover", "mentoring"):
+            page.goto(HUB + f"am/#{lid}-1")
+            page.wait_for_selector("[data-counter]")
+            page.click("[data-lang='en']")
+            page.wait_for_timeout(150)
+            fits = page.evaluate("""() => [...document.querySelectorAll('svg text')].every((t) => {
+              const box = t.getBBox(); const rect = t.closest('g')?.querySelector('rect');
+              if (!rect) return true; const r = rect.getBBox(); return r.width < 100 || box.width <= r.width - 8; })  // stage boxes only; the small persona marker is checked elsewhere""")
+            check(f"(am4) {lid} in English: no Korean, labels fit their boxes",
+                  fits and not any("\uac00" <= ch <= "\ud7a3" for ch in page.inner_text("#app")))
+            page.click("[data-lang='ko']")
+        page.screenshot(path=str(OUT / "am-390.png"), full_page=True)
         page.context.close()
 
         # (ac) Agent Career Lifecycle (2026-11-26): an agent opens it from Learn, finishes lesson 1, and home counts it

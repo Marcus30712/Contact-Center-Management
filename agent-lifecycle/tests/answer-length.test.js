@@ -9,6 +9,7 @@ import { SME_LESSONS } from '../../sme/lessons/index.js';
 import { SL_LESSONS } from '../../sme-lifecycle/lessons/index.js';
 import { SS_LESSONS } from '../../sme-sop/lessons/index.js';
 import { AS_LESSONS } from '../../agent-sop/lessons/index.js';
+import { AM_LESSONS } from '../../am/lessons/index.js';
 import { TL_LESSONS } from '../../tl/lessons/index.js';
 import { TS_LESSONS } from '../../tl-support/lessons/index.js';
 import { LESSONS } from '../js/lessons/index.js';
@@ -22,7 +23,7 @@ const soloLongest = (q) => {
 };
 
 const COURSES = {
-  agent: AGENT_LESSONS, 'agent-career': AC_LESSONS, 'agent-sop': AS_LESSONS, sme: SME_LESSONS, 'sme-lifecycle': SL_LESSONS, 'sme-sop': SS_LESSONS,
+  agent: AGENT_LESSONS, 'agent-career': AC_LESSONS, 'agent-sop': AS_LESSONS, am: AM_LESSONS, sme: SME_LESSONS, 'sme-lifecycle': SL_LESSONS, 'sme-sop': SS_LESSONS,
   tl: TL_LESSONS, 'tl-support': TS_LESSONS, lifecycle: LESSONS, sop: SOP_LESSONS,
 };
 

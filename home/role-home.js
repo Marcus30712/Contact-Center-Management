@@ -74,6 +74,13 @@ export function homeFor(role) {
       learn: [{ id: 'agent', ...byHref('./agent/') }, { id: 'agent-career', ...byHref('./agent-career/') }, { id: 'agent-sop', ...byHref('./agent-sop/') }, excel(HOME_COPY.excelShared)],
     };
   }
+  if (role === 'am') {
+    // AM First Steps is built (2026-11-28); the AM SOP library and guide are still coming.
+    return {
+      guide,
+      learn: [{ id: 'am', ...byHref('./am/') }, soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],
+    };
+  }
   return {
     guide,
     learn: [soon('first-steps', withRole(HOME_COPY.firstSteps, role)), soon('sop', withRole(HOME_COPY.sopLibrary, role)), excel(HOME_COPY.excelShared)],

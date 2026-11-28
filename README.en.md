@@ -17,6 +17,7 @@ A learning app for getting ready for your next contact center role, from agent t
 | Agent First Steps | [`agent/`](agent/) | Eight lessons for new agents: the first day, training, how to ask, the first call, difficult customers, score reviews, attendance and getting comfortable (Korean/English) |
 | Agent Career Lifecycle | [`agent-career/`](agent-career/) | Four lessons up the operations-team ladder: getting ready for SME, the SME role, getting ready for team leader, the team leader role (Korean/English) |
 | Agent SOP Library | [`agent-sop/`](agent-sop/) | Eight standard procedures an agent follows: requesting an escalation, handling abusive callers and ending the call, reporting an absence or sick day, applying a client update from the huddle, reporting a knowledge base error, taking scrubbing feedback, disputing a quality score and responding to a system outage (Korean/English) |
+| AM First Steps | [`am/`](am/) | Eight lessons for new assistant managers: managing team leaders, passing on instructions, checking escalation reports, preparing business reviews, gathering client requests, covering for the manager and mentoring new team leaders (Korean/English) |
 | The Agent Lifecycle | [`agent-lifecycle/`](agent-lifecycle/) | A six-stage course for new team leads (Korean/English) |
 | TL Support Lifecycle | [`tl-support/`](tl-support/) | Five lessons on how a team leader supports agents, the SME, QA, trainers and the whole team (Korean/English) |
 | SME First Steps | [`sme/`](sme/) | Seven lessons for agents who have just become SMEs: the first day; supporting new hires, existing agents, former peers and the team leader; when requests pile up; giving knowledge back (Korean/English) |
@@ -45,7 +46,7 @@ A static site with no build step. To deploy on GitHub Pages, choose the root fol
 | What | Licence | File |
 |---|---|---|
 | Code (rendering code, calculators, tests, tools) | MIT | [`LICENSE`](LICENSE) |
-| Lesson content, copy and data (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `agent-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/`, `agent/lessons/`, `agent-career/lessons/`, `agent-sop/lessons/` and others), design and copy documents (`docs/`), Miso Kim artwork (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+| Lesson content, copy and data (`agent-lifecycle/js/lessons/`, `sop-library/lessons/`, `codex/data/`, `glossary/terms.js`, `guide/data.js`, `sme-guide/data.js`, `agent-guide/data.js`, `practice/data.js`, `excel/data.js`, `sme/lessons/`, `sme-lifecycle/lessons/`, `sme-sop/lessons/`, `tl/lessons/`, `tl-support/lessons/`, `agent/lessons/`, `agent-career/lessons/`, `agent-sop/lessons/`, `am/lessons/` and others), design and copy documents (`docs/`), Miso Kim artwork (`assets/miso/`, `art/miso/`, `icons/`) | CC BY-NC-ND 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
 
 - CC BY-NC-ND 4.0: you may share it unchanged, non-commercially, with credit ("Marcus Shim, CX 2회차 (CX Replay)"). See `LICENSE-CONTENT` for the full scope.
 - Versions published under MIT before 20 November 2026 remain MIT.
