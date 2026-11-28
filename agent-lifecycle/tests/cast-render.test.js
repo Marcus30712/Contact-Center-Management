@@ -53,3 +53,11 @@ test('a lesson with no people shows no cast row', () => {
   renderLesson(root, lesson, 0, 'ko', { onNavigate() {}, onComplete() {}, track: 'general', lessonCount: 8, text: AS_UI });
   assert.equal(root.querySelector('[data-cast]'), null);
 });
+
+test('a Korean particle after a pill gets the spaced wrapper; English and commas do not', () => {
+  const ko = open(AMS_LESSONS, AMS_UI, 'backup', 2).querySelector('[data-caption]');
+  const wraps = [...ko.querySelectorAll('[data-pill-wrap]')];
+  assert.ok(wraps.length > 0 && wraps.every((w) => w.classList.contains('has-particle') === /[가-힣]$/.test(w.textContent)));
+  const en = open(AMS_LESSONS, AMS_UI, 'backup', 2, 'en').querySelector('[data-caption]');
+  assert.ok([...en.querySelectorAll('[data-pill-wrap]')].every((w) => !w.classList.contains('has-particle')));
+});
