@@ -69,7 +69,7 @@ Same sections, order and row names as the Korean file, so one check reads both. 
 | 보기 a (오답) | Message QA right away and argue that both items are unfair. |
 | a 피드백 | Rather than arguing from feelings, gather evidence and dispute through the set route. |
 | 보기 b (정답) | Fix ID verification right away, and dispute the guidance points with the recording as evidence. |
-| 보기 c (오답) | Follow the one-fix-a-week rule and fix only the guidance item this week. |
+| 보기 c (오답) | Follow the one-or-two-goals rule and fix only the guidance item this week. |
 | c 피드백 | A critical error like missing ID verification gets fixed right away, without waiting its turn. |
 | 해설 | Fix critical errors right away. For points you can't agree with, ask for a second look with the recording as evidence, through the team leader and by the set deadline. |
 | 관련 레슨 | Agent First Steps lesson 6 · The Weekly Score Review (../agent/#review-0) · Agent SOP · Disputing a Quality Score (../agent-sop/#dispute-0) |
