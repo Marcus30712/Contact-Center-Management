@@ -32,24 +32,24 @@
 | onboarding-general-2.c | 보충 교육 뒤 그 유형으로 다시 평가한다. | Give extra training, then reassess her on that type. |
 | onboarding-general-2.answer | c | c |
 | onboarding-general-2.explanation | 스킬 검증은 탈락시키려는 자리가 아니라, 실전에 나갈 준비가 됐는지 확인하는 자리입니다. 일반 고객지원은 정책 범위가 넓어서, 틀린 안내가 그대로 고객 불만으로 이어집니다. | Skills verification is not there to weed people out; it confirms readiness for real customers. General support covers a wide range of policy, so wrong information turns straight into customer complaints. |
-| onboarding-tech-2.prompt | 기술지원 교육 막바지에 제품 업데이트가 나와 교육 자료 일부가 맞지 않게 됐습니다. 어떻게 할까요? | Near the end of tech support training, a product update makes part of the training material out of date. What do you do? |
+| onboarding-tech-2.prompt | 기술지원 기본 교육 막바지에 제품 업데이트가 나와 교육 자료 일부가 맞지 않게 됐습니다. 어떻게 할까요? | Near the end of tech support training, a product update makes part of the training material out of date. What do you do? |
 | onboarding-tech-2.a | 바뀐 부분은 실전에서 알아서 익히게 한다. | Let the trainees pick up the changes on the job. |
 | onboarding-tech-2.b | 바뀐 부분을 지식 자료에서 찾는 법을 익히게 한다. | Have the trainees practice finding the changes in the knowledge base. |
-| onboarding-tech-2.c | 틀린 내용을 가르치지 않도록, 업데이트가 안정될 때까지 교육을 멈춘다. | Pause training until the update settles, so nothing wrong gets taught. |
+| onboarding-tech-2.c | 틀린 내용을 가르치지 않도록, 업데이트가 안정될 때까지 기본 교육을 멈춘다. | Pause training until the update settles, so nothing wrong gets taught. |
 | onboarding-tech-2.answer | b | b |
-| onboarding-tech-2.explanation | 기술지원은 제품이 바뀌면 알아야 할 내용도 바뀝니다. 모든 내용을 외우게 하기보다, 지식 자료를 찾아 확인하는 습관을 교육 단계에서 길러 줍니다. | In tech support, when the product changes, what agents need to know changes too. Rather than memorizing everything, build the habit of looking things up in the knowledge base during training. |
-| nesting-general-2.prompt | 네스팅 둘째 주, 지민은 단순 조회와 안내 문의를 실수 없이 처리합니다. 다음은 어떻게 할까요? | In the second week of nesting, Jimin handles simple lookups and information requests without mistakes. What next? |
+| onboarding-tech-2.explanation | 기술지원은 제품이 바뀌면 알아야 할 내용도 바뀝니다. 모든 내용을 외우게 하기보다, 지식 자료를 찾아 확인하는 습관을 기본 교육 단계에서 길러 줍니다. | In tech support, when the product changes, what agents need to know changes too. Rather than memorizing everything, build the habit of looking things up in the knowledge base during training. |
+| nesting-general-2.prompt | 실무 체험 둘째 주, 지민은 단순 조회와 안내 문의를 실수 없이 처리합니다. 다음은 어떻게 할까요? | In the second week of Nesting, Jimin handles simple lookups and information requests without mistakes. What next? |
 | nesting-general-2.a | 바로 모든 유형의 문의를 맡긴다. | Give her every type of inquiry at once. |
 | nesting-general-2.b | 변경 문의로 범위를 넓히고, 직무전문가가 계속 들으며 돕는다. | Widen her range to change requests, with the SME still listening in to help. |
 | nesting-general-2.c | 자신감을 지키도록, 실수 없는 지금 유형만 당분간 계속 맡긴다. | To protect her confidence, keep her on the types she handles without mistakes for now. |
 | nesting-general-2.answer | b | b |
 | nesting-general-2.explanation | 일반 고객지원은 쉬운 유형부터 차례로 넓힙니다. 한 번에 모든 유형을 맡기면 막히는 순간이 몰립니다. 범위를 넓힐 때도 플로어 서포트는 이어 갑니다. | General support widens from easy types in order. Handing over every type at once piles up the moments she gets stuck. Floor support continues as the range widens. |
-| nesting-tech-2.prompt | 기술지원 네스팅 중인 지민이 원인을 찾아보기도 전에 티켓을 곧바로 상위 단계로 넘기는 일이 잦습니다. 어떻게 할까요? | During tech support nesting, Jimin often passes tickets straight to a higher tier before looking for the cause. What do you do? |
+| nesting-tech-2.prompt | 기술지원 실무 체험 중인 지민이 원인을 찾아보기도 전에 티켓을 곧바로 상위 단계로 넘기는 일이 잦습니다. 어떻게 할까요? | During tech support Nesting, Jimin often passes tickets straight to a higher tier before looking for the cause. What do you do? |
 | nesting-tech-2.a | 습관이 되지 않도록, 넘기기 전 확인 단계와 기준을 다시 짚어 준다. | So it does not become a habit, go over the checks to try before passing a ticket on, and the criteria for passing it. |
 | nesting-tech-2.b | 혼자 푸는 힘을 기르도록, 넘기는 것을 금지하고 혼자 해결하게 한다. | Ban passing tickets on so she builds the ability to solve them alone. |
 | nesting-tech-2.c | 익숙해질 때까지 바로 넘기는 습관을 그대로 둔다. | Leave the habit of passing tickets straight on until she gets used to the work. |
 | nesting-tech-2.answer | a | a |
-| nesting-tech-2.explanation | 너무 늦게 넘기는 것도, 너무 빨리 넘기는 것도 문제입니다. 1차 지원에서 할 수 있는 확인을 마치고 정해진 기준에 따라 넘기는 습관을 네스팅에서 들여야 상위 단계의 부담이 줄어듭니다. | Passing too late and passing too early are both problems. Building the habit in nesting of finishing the Tier 1 checks and escalating by the agreed criteria eases the load on higher tiers. |
+| nesting-tech-2.explanation | 너무 늦게 넘기는 것도, 너무 빨리 넘기는 것도 문제입니다. 1차 지원에서 할 수 있는 확인을 마치고 정해진 기준에 따라 넘기는 습관을 실무 체험에서 들여야 상위 단계의 부담이 줄어듭니다. | Passing too late and passing too early are both problems. Building the habit in Nesting of finishing the Tier 1 checks and escalating by the agreed criteria eases the load on higher tiers. |
 | coaching-general-2.prompt | 같은 콜을 두고 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를 지키지 않았다고 서로 다른 점수를 매겼습니다. 어떻게 할까요? | On the same call, the team leader scored the empathy highly, while the QA staff member marked it down for not explaining the policy in the set order. Their scores differ. What do you do? |
 | coaching-general-2.a | 팀원을 가장 잘 아는 팀장의 점수를 공식 점수로 따른다. | Use the score of the team leader, who knows the agent best, as the official one. |
 | coaching-general-2.b | 어느 쪽도 틀리지 않았으니, 두 점수의 평균을 공식 점수로 삼는다. | Neither is wrong, so make the average of the two the official score. |

@@ -104,8 +104,8 @@ export const TEAMS = {
         {
           "name": "Nesting Success Rate",
           "def": {
-            "ko": "네스팅을 마치고 수료한 비율.",
-            "en": "Share of new hires who finish nesting and graduate."
+            "ko": "실무 체험을 마치고 수료한 비율.",
+            "en": "Share of new hires who finish Nesting and graduate."
           },
           "why": {
             "ko": "교육 효과성",

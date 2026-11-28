@@ -10,7 +10,7 @@ const flow = ["lookup", "nextseat", "senior", "sme", "lookup-nextseat", "nextsea
 export default {
   id: "nesting",
   order: 3,
-  title: tx("OJT와 네스팅: 묻는 법", "OJT and Nesting: How to Ask"),
+  title: tx("실무 교육과 실무 체험: 묻는 법", "OJT and Nesting: How to Ask"),
   short: tx("묻는 법", "How to ask"),
   subtitle: tx("실제 문의를 받으며, 막혔을 때 누구에게 어떻게 물을지 익힙니다.", "While handling real contacts, learn whom to ask and how when you get stuck."),
   procedure,
@@ -25,7 +25,7 @@ export default {
   },
   steps: [
     step(tx("이 레슨의 목적은 실제 문의를 받기 시작했을 때, 막히면 누구에게 어떻게 물을지 정하는 것입니다.", "This lesson is about deciding, once you start handling real contacts, whom to ask and how when you get stuck."), flow, procedure, null),
-    step(tx("OJT에서 지민은 트레이너와 직무전문가가 지켜보는 가운데 채널별로 실제 문의를 받습니다. 네스팅에서는 신입끼리 모여 일하면서 조금 더 가까이 도움을 받습니다.", "In OJT, Jimin handles real contacts in each channel while the trainer and SME watch. In nesting, new hires work together and get closer support."), flow, [], null),
+    step(tx("실무 교육에서 지민은 트레이너와 직무전문가가 지켜보는 가운데 채널별로 실제 문의를 받습니다. 실무 체험에서는 신입끼리 모여 일하면서 조금 더 가까이 도움을 받습니다.", "In OJT, Jimin handles real contacts in each channel while the trainer and SME watch. In Nesting, new hires work together and get closer support."), flow, [], null),
     step(tx("첫 단계는 스스로 찾기입니다. 막히면 지식 베이스와 내 메모를 먼저 짧게 찾아봅니다. 무엇을 찾아봤는지가 다음 질문의 재료가 됩니다.", "The first stage is looking it up. When stuck, search the knowledge base and your own notes briefly first. What you checked becomes the material for your question."), flow, ["lookup"], null),
     step(tx("둘째 단계는 옆자리입니다. 처음에는 양옆에 앉은 동료나 선임에게 가장 많이 묻습니다. 짧은 확인은 이렇게 빨리 해결됩니다.", "The second stage is the next seat. At first you ask the colleagues or seniors sitting on either side of you most often. Quick checks get solved fast this way."), flow, ["nextseat"], null),
     step(tx("셋째 단계는 선임입니다. 플로어의 선임 준호처럼 경험 많은 상담사에게 묻습니다. 비슷한 문의를 여러 번 받아 본 사람이라 요령까지 알려 줍니다.", "The third stage is a senior. Ask an experienced agent on the floor, such as Junho. Having handled similar contacts many times, he can share the tricks too."), flow, ["senior"], null),
@@ -58,5 +58,5 @@ export default {
       explanation: tx("상황, 확인한 것, 필요한 것을 한 번에 말합니다.", "Say the situation, what you checked and what you need, all at once."),
     },
   ],
-  connection: { to: "golive", text: tx("네스팅을 마치고 수료하면 정식 팀에 합류합니다. 혼자 받는 첫 콜입니다.", "Once you finish nesting and graduate, you join the regular team. Next is your first call on your own.") },
+  connection: { to: "golive", text: tx("실무 체험을 마치고 수료하면 정식 팀에 합류합니다. 혼자 받는 첫 콜입니다.", "Once you finish Nesting and graduate, you join the regular team. Next is your first call on your own.") },
 };

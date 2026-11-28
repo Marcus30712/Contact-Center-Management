@@ -66,10 +66,10 @@ Knowledge Base 첫 화면에 독립 페이지 두 개를 더한다.
 - 테스트는 지금의 `agent-lifecycle/` 테스트 묶음에 추가한다. 브라우저 점검은 저장소 루트를 기준으로 열도록 바꿔 첫 화면·용어집·참고 자료까지 함께 확인한다.
 - 내용 순서: 한국어 정의 초안 → 사용자 검토(채팅으로 전달하는 목록 문서) → 확정 → 영어 → 커밋 승인 요청 → PR.
 
-### 3.4 용어 목록 (사용자 승인) — 44개 (OJT는 한국어 검토 때 사용자가 추가)
+### 3.4 용어 목록 (사용자 승인) — 44개 (실무 교육은 한국어 검토 때 사용자가 추가)
 - **지표 (14)**: AHT, FCR, CSAT, DSAT, Quality Score, SLA, KPI, Shrinkage, Planned Shrinkage, Unplanned Shrinkage, Occupancy, Schedule Adherence, Forecast Accuracy, Attrition
 - **사람과 역할 (11)**: Agent, SME, Team Lead, Assistant Manager, Operation Manager, QA, Trainer, WFM, RTA, FTE, Buddy
-- **절차 (12)**: RJP, OJT, Nesting, Floor Walking, Calibration, Escalation, 1:1 Coaching, GROW, PIP, SOP, VOC, EAP
+- **절차 (12)**: RJP, 실무 교육, Nesting, Floor Walking, Calibration, Escalation, 1:1 Coaching, GROW, PIP, SOP, VOC, EAP
 - **도구와 기록 (7)**: CRM, CTI, Ticket, Knowledge Base, 녹취(Call Recording), 채팅 로그(Chat Log), 이메일 로그(Email Log)
 
 ### 3.5 정의 작성 원칙 (제작자 제안)

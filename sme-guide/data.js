@@ -85,7 +85,7 @@ export const SME_GROUPS = [
       {
         "id": "m3",
         "text": {
-          "ko": "다음 주 OJT 교육생이 플로어에 나온다",
+          "ko": "다음 주 실무 교육 교육생이 플로어에 나온다",
           "en": "Trainees start OJT on the floor next week"
         },
         "first": {
@@ -97,7 +97,7 @@ export const SME_GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "상담사 라이프사이클 레슨 3 · OJT 및 네스팅",
+            "ko": "상담사 라이프사이클 레슨 3 · 실무 교육 및 실무 체험",
             "en": "Agent Lifecycle lesson 3 · OJT and Nesting"
           },
           "href": "../agent-lifecycle/#nesting-0"
@@ -106,12 +106,12 @@ export const SME_GROUPS = [
       {
         "id": "m4",
         "text": {
-          "ko": "네스팅 중인 신입이 같은 유형에서 계속 막힌다",
-          "en": "A new hire in nesting keeps getting stuck on the same contact type"
+          "ko": "실무 체험 중인 신입이 같은 유형에서 계속 막힌다",
+          "en": "A new hire in Nesting keeps getting stuck on the same contact type"
         },
         "first": {
           "title": {
-            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 네스팅 중인 상담사 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 실무 체험 중인 상담사 지원",
             "en": "SME Support Lifecycle lesson 2 · Supporting Agents in Nesting"
           },
           "href": "../sme-lifecycle/#graduate-0"
@@ -139,7 +139,7 @@ export const SME_GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 네스팅 중인 상담사 지원",
+            "ko": "직무전문가 서포트 라이프사이클 레슨 2 · 실무 체험 중인 상담사 지원",
             "en": "SME Support Lifecycle lesson 2 · Supporting Agents in Nesting"
           },
           "href": "../sme-lifecycle/#graduate-0"

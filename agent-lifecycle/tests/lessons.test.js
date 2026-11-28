@@ -216,17 +216,17 @@ test('lessons 2, 3 and 6 show 11 steps on each track', () => {
 });
 
 // --- OJT comes before nesting in lesson 3 (user decision); graduation ends nesting (2026-11-26) ---
-test('lesson 3 runs verification -> OJT -> nesting -> graduation -> go live', () => {
+test('lesson 3 runs verification -> OJT -> Nesting -> graduation -> go live', () => {
   assert.ok(hasNode('nesting', 'ojt'));
   const ko = commonCaptions('nesting', 'ko');
   const en = commonCaptions('nesting', 'en');
-  const iOjt = ko.findIndex((c) => c.includes('OJT(직무교육)'));
-  const iNest = ko.findIndex((c) => c.includes('이것이 네스팅입니다'));
+  const iOjt = ko.findIndex((c) => c.includes('실무 교육'));
+  const iNest = ko.findIndex((c) => c.includes('이것이 실무 체험입니다'));
   assert.ok(iOjt === 1 && iNest === 2, `${iOjt} ${iNest}`);
   for (const w of ['트레이너와 직무전문가가 참관', '채널별']) assert.ok(ko[1].includes(w), w);
   assert.ok(ko[0].includes('실제 고객의 문의'));
-  assert.ok(ko[2].startsWith('OJT를 마쳐도 곧바로 정식 팀에 넣지 않습니다.'));
-  assert.ok(ko[3].startsWith('네스팅에서 받은 콜입니다.'));
+  assert.ok(ko[2].startsWith('실무 교육을 마쳐도 곧바로 정식 팀에 넣지 않습니다.'));
+  assert.ok(ko[3].startsWith('실무 체험에서 받은 콜입니다.'));
   assert.ok(en[1].includes('OJT (on-the-job training)') && en[1].includes('observing'));
   assert.ok(en[2].startsWith('Even after OJT'));
   const edges = byId('nesting').diagram.edges.map((e) => `${e.from}-${e.to}`);
@@ -235,9 +235,9 @@ test('lesson 3 runs verification -> OJT -> nesting -> graduation -> go live', ()
   assert.ok(last.includes('트레이너와 팀장이 함께 수료') && last.includes('실전 배치'), last);
 });
 
-test('lesson 2 hands over to OJT and nesting; lesson 3 subtitle speaks of inquiries', () => {
-  assert.ok(byId('onboarding').connection.text.ko.includes('다음 단계인 OJT와 네스팅은 그 순간을 혼자 두지 않기 위한 장치입니다.'));
-  assert.ok(byId('onboarding').connection.text.en.includes('OJT and nesting'));
+test('lesson 2 hands over to OJT and Nesting; lesson 3 subtitle speaks of inquiries', () => {
+  assert.ok(byId('onboarding').connection.text.ko.includes('다음 단계인 실무 교육과 실무 체험은 그 순간을 혼자 두지 않기 위한 장치입니다.'));
+  assert.ok(byId('onboarding').connection.text.en.includes('OJT and Nesting'));
   assert.equal(byId('nesting').subtitle.ko, '처음 실제 문의를 받는 적응기. 가장 많이 떠나는 시기입니다.');
   assert.ok(byId('nesting').subtitle.en.includes('real contacts'));
 });
@@ -286,9 +286,9 @@ test('every wrong option has its own approved one-sentence feedback; right answe
   }
 });
 
-test('the lifecycle nesting lesson is called OJT 및 네스팅 / OJT and Nesting (2026-11-26)', async () => {
+test('the lifecycle nesting lesson is called 실무 교육 및 실무 체험 / OJT and Nesting (2026-11-28)', async () => {
   const nesting = LESSONS.find((l) => l.id === 'nesting');
-  assert.deepEqual(nesting.title, { ko: 'OJT 및 네스팅', en: 'OJT and Nesting' });
+  assert.deepEqual(nesting.title, { ko: '실무 교육 및 실무 체험', en: 'OJT and Nesting' });
   const { readFileSync } = await import('node:fs');
   const guide = readFileSync(new URL('../../guide/data.js', import.meta.url), 'utf8');
   assert.ok(!guide.includes('Go-Live'), 'guide still says Go-Live');

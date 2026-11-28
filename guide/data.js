@@ -185,7 +185,7 @@ export const GROUPS = [
         },
         "then": {
           "title": {
-            "ko": "라이프사이클 레슨 2 · 온보딩 및 초기 교육",
+            "ko": "라이프사이클 레슨 2 · 온보딩 및 기본 교육",
             "en": "Lifecycle lesson 2 · Onboarding and Initial Training"
           },
           "href": "../agent-lifecycle/#onboarding-0"
@@ -194,12 +194,12 @@ export const GROUPS = [
       {
         "id": "s7",
         "text": {
-          "ko": "교육을 마친 신입이 처음 실제 문의를 받는다",
+          "ko": "기본 교육을 마친 신입이 처음 실제 문의를 받는다",
           "en": "A new hire who finished training takes live contacts for the first time"
         },
         "first": {
           "title": {
-            "ko": "라이프사이클 레슨 3 · OJT 및 네스팅",
+            "ko": "라이프사이클 레슨 3 · 실무 교육 및 실무 체험",
             "en": "Lifecycle lesson 3 · OJT and Nesting"
           },
           "href": "../agent-lifecycle/#nesting-0"
