@@ -1,0 +1,153 @@
+# QA 알약 적용 목록
+
+## 알약으로 바뀐 문장 (102)
+
+- ko (매주 평가 리뷰): [품질전문가]는 [상담사]의 상담을 매주 몇 건(예시) 골라 평가합니다. [팀장]은 그 점수로 [상담사]와 매주 리뷰를 합니다.
+- en (매주 평가 리뷰): The [QA] scores a few of the [Agent]'s contacts each week (Example). The [TL] reviews those scores with her every week.
+- ko (매주 평가 리뷰): 둘째 단계는 녹취 듣기입니다. 리뷰 전에 평가받은 내 녹취나 채팅 로그를 다시 보고, 직접 볼 수 없는 센터라면 팀장이나 [품질전문가]에게 함께 듣자고 요청합니다. 점수만 볼 때 보이지 않던 것이 들립니다.
+- en (매주 평가 리뷰): The second stage is listening back. Before the review, go back over the recording or chat log that was scored, or, if your center doesn't let agents open them, ask your TL or [QA] to listen with you. You'll hear what the score alone doesn't show.
+- ko (직무전문가): 상담 품질 점수를 매기는 것은 [품질전문가]의 일입니다.
+- en (직무전문가): Scoring contact quality is [QA]'s job.
+- ko (스크러빙 피드백 받고 고치기): 스크러빙 말고 [품질전문가]의 평가에서도 피드백을 받습니다. 다음은 평가 결과가 납득되지 않을 때의 절차입니다.
+- ko (평가 결과 이의 제기): 셋째 단계는 팀장에게 요청입니다. [품질전문가]에게 바로 따지지 않고, 평가를 공유받은 뒤 24~48시간(예시) 안에 [팀장]을 거쳐 근거와 함께 다시 검토를 요청합니다. 기한은 센터마다 다를 수 있습니다.
+- en (평가 결과 이의 제기): The third step is asking the TL. Don't argue with [QA] directly; within 24 to 48 hours (Example) of getting the score, ask for a re-review with your evidence through the [TL]. The deadline can differ by center.
+- ko (평가 결과 이의 제기): [팀장]은 녹취를 함께 듣고, 근거가 있으면 정해진 절차로 [품질전문가]에 다시 검토를 요청합니다. 팀장 서포트의 QA 지원이 이 다음 부분입니다.
+- en (평가 결과 이의 제기): The [TL] listens to the recording with you, and if there's a basis, asks [QA] for a re-review through the set procedure. The TL's QA support is what comes next.
+- ko (평가 결과 이의 제기): 이의 제기는 근거에서 시작합니다. 근거가 있어야 팀장도 [품질전문가]에 다시 검토를 요청할 수 있습니다.
+- en (평가 결과 이의 제기): A dispute starts with evidence. With evidence, the TL can ask [QA] for a re-review.
+- ko (평가 결과 이의 제기): [품질전문가]에게 바로 메시지를 보내 왜 감점했는지 따져 묻는다.
+- en (평가 결과 이의 제기): Message [QA] and demand to know right away why points were taken.
+- ko (평가 결과 이의 제기): [품질전문가]와 직접 다투면 감정싸움이 되기 쉽습니다. 정해진 경로인 팀장을 통해 요청합니다.
+- en (평가 결과 이의 제기): Arguing with [QA] directly easily turns into a fight. Ask through the set route, the TL.
+- ko (팀장이 된 첫날): 혼자 파악하지 않습니다. 팀을 가장 가까이에서 봐 온 [직무전문가], [품질전문가], [트레이너]의 기록과 관찰이 큰 도움이 됩니다.
+- en (팀장이 된 첫날): You don't do this alone. The records and observations of the [SME], the [QA] and the [Trainer], who have watched the team most closely, help a great deal.
+- ko (개인 성과 확인): 셋째 단계는 함께 읽기입니다. [품질전문가]에게 품질 점수가 왜 그렇게 나왔는지, 자주 감점된 항목이 무엇인지 듣습니다. 점수의 이유는 점수를 매긴 사람이 가장 잘 압니다.
+- en (개인 성과 확인): The third stage is reading it together. Ask the [QA] why the quality scores came out as they did and which items lose points most often. The person who gave the scores knows best why they are what they are.
+- ko (개인 성과 확인): [품질전문가]에게 감점 항목을 듣고, 녹취로 확인할 질문을 적는다.
+- en (개인 성과 확인): Hear from [QA] which items lost points, and note questions to check in his recordings.
+- ko (녹취와 티켓 직접 보기): [품질전문가]와 같은 건을 함께 들어 보면 좋습니다. 같은 콜을 두고 무엇을 보는지 맞추면, 나중에 코칭할 때 기준이 어긋나지 않습니다.
+- en (녹취와 티켓 직접 보기): It helps to listen to the same contacts with the [QA]. Agreeing on what you each listen for keeps your standards aligned when you coach later.
+- ko (팀의 기여 파악): 원인을 함께 봅니다. [직무전문가]의 스크러빙과 고객의 소리(VOC) 기록에서 고객 불만의 주제를, [품질전문가]의 기록에서 팀 공통 감점 항목을 확인합니다.
+- ko (부매니저·매니저에게 방침 받기): 셋째 단계는 첫 계획입니다. 방침에 맞춰 앞으로 한 달(예시) 동안 할 일을 정합니다. 누구를 어떻게 코칭할지, 팀 전체에서 무엇을 먼저 바꿀지, 직무전문가·[품질전문가]·트레이너에게 무엇을 부탁할지 적습니다.
+- en (부매니저·매니저에게 방침 받기): The third stage is the first plan. In line with the direction, decide what to do over the next month (Example). Write down whom to coach and how, what to change first across the team, and what to ask of the SME, [QA] and the trainer.
+- ko (성과 관리 및 코칭): 평가자끼리 기준도 맞춰야 합니다. 캘리브레이션은 [품질전문가], 직무전문가, 팀장이 같은 콜을 각자 채점한 뒤 모여서 점수 차이를 이야기하고 기준을 맞추는 자리입니다. 얼마나 자주 할지는 센터마다 다릅니다.
+- en (성과 관리 및 코칭): Evaluators also need to agree on the standard. In a calibration session, [QA], SMEs and TLs each score the same call separately, then meet to discuss the gaps and align on the standard. How often to hold one varies by center.
+- ko (성과 관리 및 코칭): 일반 고객지원은 문의 유형이 다양합니다. 그래서 [품질전문가]에서 정책을 정확히 안내했는지와 공감 표현을 함께 봅니다.
+- en (성과 관리 및 코칭): General support sees many kinds of inquiries. So [QA] looks at whether policy was explained accurately, along with expressions of empathy.
+- ko (성과 관리 및 코칭): 기술지원은 티켓 단위로 봅니다. 해결까지 걸린 시간, 에스컬레이션 비율, 티켓 기록의 품질을 추적합니다. [품질전문가]에서는 진단 과정이 맞았는지를 확인합니다.
+- en (성과 관리 및 코칭): Tech support is tracked by ticket. You follow time to resolution, escalation rate, and the quality of ticket documentation. [QA] checks whether the diagnostic process was sound.
+- ko (성과 관리 및 코칭): 일반 고객지원 [품질전문가]에서 [상담사]의 콜은 친절도가 높았지만 정책 안내에 틀린 부분이 있었습니다. 어떻게 피드백할까요?
+- en (성과 관리 및 코칭): In general support [QA], the [Agent]’s call scored high on courtesy but part of the policy information was wrong. How do you give feedback?
+- en (경력 개발 및 전환·퇴사): Management is not the only career path. Staying in customer contact while deepening the skill is a career too. The [Agent]’s move to [QA] has already shown that the right path differs from person to person.
+- ko (경력 개발 및 전환·퇴사): 상위 단계로 가는 길은 필요한 역량이 분명할 때 열립니다. 기준을 알려 주고 실제 티켓으로 경험하게 하면 준비와 검증이 함께 됩니다. [상담사]에게 [품질전문가]를 제안했던 것처럼, 길을 보여 주는 것이 팀장의 몫입니다.
+- en (경력 개발 및 전환·퇴사): The path to a higher tier opens when the required skills are clear. Explaining the standard and giving real tickets to try builds readiness and verifies it at once. Showing the path is the TL’s part, as it was when you suggested [QA] to the [Agent].
+- ko (직무전문가 지원): 직무전문가가 현장을 돕는다면, [품질전문가]는 품질의 기준을 지킵니다. 다음은 [품질전문가]와 일하는 법입니다.
+- en (직무전문가 지원): If the SME helps the floor, [QA] guards the quality standard. Next is how to work with [QA].
+- ko (QA 지원): 이 레슨의 목적은 팀장이 [품질전문가]와 함께 일하며 품질 평가를 팀의 성장으로 이어 가는 절차를 보는 것입니다.
+- en (QA 지원): This lesson looks at how a TL works with [QA] to turn quality scoring into the team's growth.
+- ko (QA 지원): 첫 단계는 맡기기입니다. [품질전문가]에게 팀에서 특히 봐 줬으면 하는 부분을 요청합니다. 예를 들어 새 정책이 시작된 주에는 관련 문의를 더 많이 평가해 달라고 부탁합니다.
+- en (QA 지원): The first stage is handing over. Ask the [QA] to look closely at what matters for your team. For example, in the week a new policy starts, ask for more of those contacts to be scored.
+- ko (QA 지원): 상담사가 평가에 이의를 제기하면, 팀장이 먼저 녹취를 함께 듣고 근거가 있을 때 정해진 절차로 다시 검토를 요청합니다. [품질전문가]와 상담사가 직접 다투게 두지 않습니다.
+- en (QA 지원): If an agent disputes a score, the TL first listens to the recording with them and asks for a re-review through the agreed process only when there are grounds. Don't leave [QA] and the agent to argue it out directly.
+- ko (QA 지원): 넷째 단계는 개입하기입니다. 팀의 품질이 계속 떨어지거나 평가가 사람마다 다르다는 말이 나오면, 팀장이 [품질전문가]와 따로 만나 원인을 함께 봅니다.
+- en (QA 지원): The fourth stage is stepping in. If the team's quality keeps falling, or people say scoring varies by evaluator, meet [QA] separately and look at the cause together.
+- ko (QA 지원): [품질전문가]는 상대 팀이 아니라 같은 목표를 가진 동료입니다. 점수를 두고 다투기보다 같은 녹취를 함께 듣는 시간이 더 많은 것을 바꿉니다.
+- en (QA 지원): [QA] isn't the other side but a colleague with the same goal. Listening to the same recording together changes more than arguing over scores.
+- ko (QA 지원): 점수는 본인 일이니, [상담사]에게 [품질전문가]를 직접 찾아가 따지라고 한다.
+- en (QA 지원): It's his score, so tell the [Agent] to go to [QA] and argue it himself.
+- ko (QA 지원): 상담사와 [품질전문가]가 직접 다투면 관계가 나빠지고 결론도 나기 어렵습니다.
+- en (QA 지원): When an agent and [QA] argue directly, the relationship sours and it's hard to reach a conclusion.
+- en (QA 지원): Calm him down and tell him to accept [QA]'s scoring this time.
+- ko (트레이너 지원): 상담사, 직무전문가, [품질전문가], 트레이너를 각각 보았습니다. 마지막은 이들을 한 팀으로 묶는 일입니다.
+- en (트레이너 지원): You've looked at agents, the SME, [QA] and trainers in turn. Last is bringing them together as one team.
+- ko (팀 전체 지원): 이 레슨의 목적은 상담사, 직무전문가, [품질전문가], 트레이너가 따로 움직이지 않고 한 팀으로 같은 목표를 보도록 팀장이 잇는 절차를 보는 것입니다.
+- en (팀 전체 지원): This lesson looks at how a TL connects agents, the SME, [QA] and trainers so they work as one team toward the same goal instead of separately.
+- ko (팀 전체 지원): 둘째 단계는 받기입니다. 정기적인 팀 회의(예시: 주 1회)에서 직무전문가, [품질전문가], 트레이너가 본 것을 함께 나눕니다. 따로 들으면 놓치는 연결이 한자리에서 보입니다.
+- en (팀 전체 지원): The second stage is getting back. At regular team meetings (Example: once a week), have the SME, [QA] and the trainer share what they've seen. Connections you miss when you hear them separately show up in one room.
+- ko (팀 전체 지원): 넷째 단계는 개입하기입니다. 상담사와 [품질전문가]가 평가를 두고 부딪히는 것처럼 역할 사이에 갈등이 생기면, 팀장이 양쪽 이야기를 듣고 [품질전문가]와 캘리브레이션으로 기준을 다시 맞춥니다.
+- en (팀 전체 지원): The fourth stage is stepping in. When roles clash, for example an agent and [QA] disagreeing over a score, the TL hears both sides and brings everyone back to one standard through calibration with [QA].
+- ko (팀 전체 지원): 직무전문가, [품질전문가], 트레이너가 각각 다른 문제를 이야기합니다. 팀장이 먼저 할 일은 무엇일까요?
+- en (팀 전체 지원): The SME, [QA] and the trainer each raise a different problem. What should the TL do first?
+- ko (스크러빙): 이 절차의 목적은 처리된 티켓과 쌓여 있는 티켓을 다시 읽고 원인을 찾아, BPO와 고객사가 함께 개선하게 하는 것입니다. [품질전문가]의 품질 평가와 별개로, 팀장이 상담사들이 매일 케이스를 어떻게 처리하는지 흐름을 읽는 자료가 됩니다. 다섯 단계로 진행합니다.
+- en (스크러빙): The purpose of this procedure is to reread both handled tickets and tickets that have piled up, find the causes, and let the BPO and the client improve together. Separate from [QA]'s quality evaluation, it gives the TL a way to read how agents handle cases every day. It runs in five steps.
+- ko (스크러빙): 넷째 단계는 내부 토의입니다. 팀장, 직무전문가, [품질전문가], 매니저가 모여 원인과 개선안을 이야기합니다. 통제 가능한 원인은 BPO가 무엇을 바꿀지, 통제 불가한 원인은 고객사에 무엇을 요청할지 정합니다.
+- en (스크러빙): The fourth step is the internal discussion. The TL, SME, [QA] and operation manager (OM) meet to talk through the causes and the improvements. For controllable causes they decide what the BPO will change; for uncontrollable ones, what to ask of the client.
+- ko (캘리브레이션): 이 절차의 목적은 상담 품질 평가의 일관성과 공정성을 지키는 것입니다. [품질전문가], 직무전문가, 팀장이 정기적으로 모여 평가 기준의 눈높이를 맞춥니다. 다섯 단계로 진행합니다.
+- en (캘리브레이션): This procedure exists to keep quality evaluation consistent and fair. [QA], SMEs, and TLs meet regularly to align on the evaluation standard. It runs in five steps.
+- ko (대규모 이슈 대응): 이 절차의 목적은 특정 제품이나 서비스에 대한 고객 불만이 폭주할 때 운영, [품질전문가], WFM, T&D가 빠르고 체계적으로 협력해 대응하는 것입니다. 네 단계로 진행합니다.
+- en (대규모 이슈 대응): This procedure exists so that Operations, [QA], WFM, and T&D work together quickly and in an organized way when complaints about a particular product or service surge. It runs in four steps.
+- ko (대규모 이슈 대응): 매니저와 부매니저는 상황의 심각성을 판단해 [품질전문가], WFM, T&D 부서장에게 '대규모 이슈 발생'을 공식적으로 알리고 긴급 대응팀을 소집합니다.
+- en (대규모 이슈 대응): The OM and AM judge how serious the situation is, formally announce a large-scale issue to the heads of [QA], WFM, and T&D, and call together an emergency response team.
+- ko (대규모 이슈 대응): 매니저와 부매니저는 [품질전문가]의 분석과 WFM의 계획을 바탕으로 종합 대응 전략을 세우고 각 팀의 역할을 정합니다.
+- ko (대규모 이슈 대응): 셋째 단계는 실행 및 모니터링입니다. T&D가 [품질전문가]의 분석을 바탕으로 긴급 공지, FAQ, 예상 질문 답변 스크립트를 빠르게 만들어 상담사를 교육합니다.
+- ko (대규모 이슈 대응): 현장이 가장 먼저 알아차립니다. 빨리 알려야 [품질전문가], WFM, T&D가 함께 움직일 수 있습니다. 원인 분석은 그다음 단계에서 [품질전문가]가 맡습니다.
+- en (대규모 이슈 대응): The floor notices first. [QA], WFM, and T&D can only move together if they are told quickly. Finding the cause is [QA]'s job in the next step.
+- ko (기존 상담사 육성): [품질전문가]로 옮기기 전, 입사 1년 차였던 [상담사]의 이야기입니다. [상담사]는 스크러빙과 1:1 코칭을 거치며 처리 시간을 줄였고, 다음 단계를 고민하고 있었습니다.
+- en (기존 상담사 육성): This story goes back to the [Agent]'s first year, before she moved to [QA]. Through scrubbing and one-on-one coaching she had cut her handle time, and she was thinking about her next step.
+- ko (기존 상담사 육성): 첫 단계는 강점 데이터 진단입니다. [품질전문가]는 품질 점수와 CSAT를, 직무전문가는 스크러빙 기록을, WFM은 처리 시간과 근태 자료를 모아 당신에게 건넵니다. 당신은 최초 통화 해결률(FCR), 고객 만족, 지식 공유 기여를 함께 놓고 [상담사]의 강점을 찾습니다.
+- en (기존 상담사 육성): The first step is diagnosing strengths from data. [QA] brings quality scores and CSAT, the SME brings scrubbing records, and WFM brings handle time and attendance, all to you. You look at first contact resolution (FCR), customer satisfaction and knowledge-sharing contributions together to find the [Agent]'s strengths.
+- ko (직무전문가가 된 첫날): 직무전문가는 상담사를 평가하거나 징계하는 자리가 아닙니다. 평가는 [품질전문가]와 팀장이 맡습니다. 당신은 승인하고 돕는 사람입니다.
+- en (직무전문가가 된 첫날): The SME does not evaluate or discipline agents. [QA] and the TL do the evaluating. You are the one who approves and helps.
+- ko (직무전문가가 된 첫날): 둘째 단계는 하루 일과 알기입니다. 하루의 대부분은 에스컬레이션 지원과 어려운 케이스 처리, 상담사 멘토링에 씁니다. 여기에 매일 하는 스크러빙과 고객의 소리(VOC) 정리, [품질전문가]와의 캘리브레이션이 더해집니다.
+- en (직무전문가가 된 첫날): The second stage is knowing the day. Most of the day goes to escalation support, hard cases and mentoring agents. Daily scrubbing, VOC write-ups and calibration with [QA] come on top.
+- ko (직무전문가가 된 첫날): [상담사]의 품질 점수를 직접 낮춰 기록하고, 다음 평가에 반영해 달라고 [품질전문가]에 요청한다.
+- en (직무전문가가 된 첫날): Mark down the [Agent]'s quality score yourself, and ask [QA] to reflect it in the next evaluation.
+- ko (직무전문가가 된 첫날): 평가는 [품질전문가]와 팀장이 맡습니다. 직무전문가가 점수를 매기면 역할이 섞여 [상담사]도 누구에게 도움을 청할지 헷갈립니다.
+- en (직무전문가가 된 첫날): [QA] and the TL do the evaluating. If the SME scores agents, the roles blur and the [Agent] won't know whom to ask for help.
+- ko (팀에 지식 돌려주기): 셋째 단계는 캘리브레이션입니다. [품질전문가], 팀장과 함께 같은 상담을 각자 채점하고 점수 차이를 맞춥니다. 직무전문가는 상담사를 평가하러 가는 것이 아니라, 상담사가 현장에서 실제로 겪는 상황을 알려 주러 갑니다.
+- en (팀에 지식 돌려주기): The third stage is calibration. With [QA] and the TL, each person scores the same contact and you align the differences. The SME is there not to evaluate agents but to bring what they really face on the floor.
+- ko (교육 중인 상담사 지원): 점수를 매기는 것은 트레이너와 [품질전문가]의 일이고, 숫자만으로는 어떤 문의를 도와야 할지 알 수 없습니다.
+- en (교육 중인 상담사 지원): Scoring is the trainer's and [QA]'s job, and a number alone doesn't tell you which contacts to help with.
+- ko (캘리브레이션 참여와 기준 전달): 첫 단계는 사례 보내기입니다. [상담사]가 현장 방식대로 처리했는데 감점된 티켓처럼, 평가 기준과 현장 방식이 엇갈린 사례를 골라 세션 전에 [품질전문가]에게 보냅니다.
+- en (캘리브레이션 참여와 기준 전달): The first step is sending cases. Pick cases where the standard and the floor's way differ, such as a ticket the [Agent] handled the floor's way but lost points on, and send them to [QA] before the session.
+- ko (캘리브레이션 참여와 기준 전달): 넷째 단계는 기준 전달입니다. 합의로 기준이 바뀌면, 그 기준으로 평가받기 전에 상담사들이 알도록 팀장과 맞춰 허들과 팀 채팅방에서 먼저 전합니다. [품질전문가]의 공식 공유가 나오면 그 내용도 다시 알립니다.
+- en (캘리브레이션 참여와 기준 전달): The fourth step is passing on the standard. If the agreed standard changes, agree with the TL and tell agents first at the huddle and in the team chat, before they are scored on it. When [QA]'s official summary comes out, share that too.
+- ko (캘리브레이션 참여와 기준 전달): 직무전문가가 현장의 목소리를 전하는 곳은 [품질전문가]만이 아닙니다. 고객의 목소리는 고객사로 갑니다.
+- en (캘리브레이션 참여와 기준 전달): [QA] isn't the only place the SME carries the floor's voice. The customer's voice goes to the client.
+
+## 글자로 남는 QA (44) — 점수·정의·강의 이름·따옴표·이름 그대로 두는 문장
+
+- ko (첫 출근): …이너 유나가 맡고, 상담 품질은 QA 도현이 평가합니다.…
+- en (첫 출근): …, and Dohyun from QA scores contac…
+- ko (직무전문가 준비): …지표가 최근 3~6개월(예시)의 QA 품질 점수와 트레이너의 …
+- en (직무전문가 준비): …tive measures are QA quality score…
+- en (스크러빙 피드백 받고 고치기): …get feedback from QA scores. Next …
+- ko (평가 결과 이의 제기): …토를 요청합니다. 팀장 서포트의 QA 지원이 이 다음 부분입니…
+- en (평가 결과 이의 제기): …ocedure. The TL's QA support is wh…
+- en (팀의 기여 파악): …osses in Dohyun's QA records.…
+- ko (성과 관리 및 코칭): …첫째는 QA(품질 보증) 평가입니다.…
+- en (성과 관리 및 코칭): …The first is QA (quality assu…
+- ko (성과 관리 및 코칭): … AHT는 긴 편이고, FCR과 QA 정확도는 높습니다. 숫자…
+- en (성과 관리 및 코칭): …while her FCR and QA accuracy are …
+- ko (성과 관리 및 코칭): …이제 1:1 맞춤 코칭입니다. QA 결과와 KPI 데이터를 …
+- en (성과 관리 및 코칭): …, grounded in the QA results and K…
+- ko (성과 관리 및 코칭): …신은 메모해 둡니다. 이 사람은 QA 일에 맞을 수 있습니다.…
+- en (성과 관리 및 코칭): …be a good fit for QA work.…
+- ko (성과 관리 및 코칭): … 팀장은 공감 표현이 좋았다고, QA 담당은 정책 안내 순서를…
+- en (성과 관리 및 코칭): …highly, while the QA staff member …
+- ko (경력 개발 및 전환·퇴사): …경력 경로입니다. 상담 업무에서 QA(품질 평가 담당), 트레…
+- en (경력 개발 및 전환·퇴사): …nto roles such as QA (quality anal…
+- ko (경력 개발 및 전환·퇴사): … 둔 메모를 꺼냅니다. 지민에게 QA 직무를 제안하고, 지민은…
+- ko (경력 개발 및 전환·퇴사): … QA 담당으로 자리를 옮깁니다…
+- en (경력 개발 및 전환·퇴사): …. You suggest the QA role to Jimin…
+- en (경력 개발 및 전환·퇴사): …e moves over as a QA analyst.…
+- ko (경력 개발 및 전환·퇴사): …나지 않고 처음으로 돌아갑니다. QA가 된 지민은 이제 다음 …
+- en (경력 개발 및 전환·퇴사): …rt. Jimin, now in QA, listens to t…
+- ko (경력 개발 및 전환·퇴사): …다 맞는 길이 다르다는 것을 의 QA 전환이 이미 보여 줬습니…
+- ko (QA 지원): …가 QA 점수가 부당하다며 이의를…
+- en (QA 지원): …The  says his QA score is unfa…
+- ko (QA 지원): …이번 QA 평가는 그대로 받아들이라…
+- ko (스크러빙): …흐름도 보였습니다. 이런 흐름은 QA 점수만으로는 잘 보이지 …
+- en (스크러빙): …is hard to see in QA scores alone.…
+- ko (캘리브레이션): …지민은 이제 QA입니다. 이번 세션은 지민…
+- en (캘리브레이션): …Jimin is in QA now. She runs…
+- ko (대규모 이슈 대응): …원인 분석 및 자원 계획입니다. QA인 지민이 관련 녹취와 티…
+- en (대규모 이슈 대응): …ng. Jimin, now in QA, closely revi…
+- en (대규모 이슈 대응): …Based on the QA analysis and …
+- en (대규모 이슈 대응): … Working from the QA analysis, T&D…
+- ko (기존 상담사 육성): …멘토 경험을 살려 전문가 트랙인 QA 자리에 추천되었습니다. …
+- en (기존 상담사 육성): …recommended for a QA role on the s…
+- ko (신규 프로젝트 론칭): …QA인 지민과 T&D는 초기 …
+- en (신규 프로젝트 론칭): …Jimin, now in QA, and T&D clos…
+- ko (캘리브레이션 참여와 기준 전달): …"저는 QA가 아니라서 점수에는 의견…
+- en (캘리브레이션 참여와 기준 전달): …"I'm not QA, so I have no…
