@@ -230,7 +230,7 @@ Same sections and order as the Korean file. US English.
 | 제목 | The Weekly Score Review |
 | 짧은 이름 | Score review |
 | 부제 | Learn to read your quality scores and use the review with your team leader to grow. |
-| 노드 | Read the score · Listen back · Pick one · Check next week |
+| 노드 | Read the score · Listen back · Pick 1–2 goals · Midpoint and final check |
 
 스텝:
 
@@ -238,8 +238,8 @@ Same sections and order as the Korean file. US English.
 2. Dohyun from QA scores a few of Jimin's contacts each week (Example). Sujin, her team leader, reviews those scores with her every week.
 3. The first stage is reading the score. Look at each item's score rather than the total. What matters is where you lost points, such as the greeting, the identity check or accurate information.
 4. The second stage is listening back. Before the review, go back over the recording or chat log that was scored, or, if your center doesn't let agents open them, ask your team leader or QA to listen with you. You'll hear what the score alone doesn't show.
-5. The third stage is picking one. Even with several things to fix, pick just the most important one to change this week, together with your team leader. Trying to change everything at once changes nothing.
-6. The fourth stage is checking next week. At the next review, look together at whether that one thing actually changed. But if you lost points for a critical error, such as a missed identity check, fix it right away instead of waiting your turn.
+5. The third stage is picking one or two goals. Even with several things to fix, pick just the one or two most important as goals with your team leader, and give each goal at least two weeks. With too many goals in a short time, it's hard to reach any of them.
+6. The fourth stage is the midpoint and final check. After the first week, do a midpoint check on how much has improved, and after the last week, do a final check with your team leader on what improved and where you still need help. But if you lost points for a critical error, such as a missed identity check, fix it right away instead of waiting out the period.
 7. In the review, ask concretely, for example: "How should I say this part?" Sujin spends this time precisely to give you that answer.
 8. If you disagree with a score, don't push back emotionally. Ask to go over the recording together; if there are grounds, it can be reviewed again through the agreed process.
 9. A word from Miso: At first the reviews scared me, because the score felt like a verdict on me. Only later did I see it as a map of what to fix next.
@@ -258,10 +258,10 @@ Same sections and order as the Korean file. US English.
 | 2번 질문 | The review turned up five things to fix. What should Jimin do? |
 | 보기 a (오답) | Fix all five at once next week. |
 | a 피드백 | Trying to change everything at once means none of it sticks. |
-| 보기 b (정답) | Pick the most important one with the team leader, fix it, and check it at the next review. |
+| 보기 b (정답) | Pick the one or two most important with the team leader, and work on them for at least two weeks with check-ins. |
 | 보기 c (오답) | Fix only the easiest one, and forget the other four without writing them down. |
 | c 피드백 | Forgetting the rest means the same points keep being lost. Take them in order of importance, and write down the rest. |
-| 해설 | Fix the most important thing first, one at a time, and check it. |
+| 해설 | Work on the one or two most important things for at least two weeks, and check them together at the midpoint and the end. |
 | 다음 레슨 연결 | Attendance weighs on you as much as scores. Next, how to look after yourself in a tight schedule. |
 
 ## 레슨 7. Attendance and Schedules

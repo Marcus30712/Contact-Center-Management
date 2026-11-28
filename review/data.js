@@ -280,7 +280,7 @@ export const QUIZZES = {
         options: [
           option("a", tx("QA에게 바로 메시지를 보내, 두 항목 모두 억울하다고 따진다.", "Message QA right away and argue that both items are unfair."), tx("감정적으로 따지기보다 근거를 모아, 정해진 경로로 이의를 제기합니다.", "Rather than arguing from feelings, gather evidence and dispute through the set route.")),
           option("b", tx("본인 확인은 바로 고치고, 안내 감점은 녹취를 근거로 이의를 낸다.", "Fix ID verification right away, and dispute the guidance points with the recording as evidence.")),
-          option("c", tx("한 주에 하나만 고친다는 원칙대로, 이번 주는 안내 항목만 고친다.", "Follow the one-fix-a-week rule and fix only the guidance item this week."), tx("본인 확인 누락 같은 치명적 오류는 순서를 기다리지 않고 바로 고칩니다.", "A critical error like missing ID verification gets fixed right away, without waiting its turn.")),
+          option("c", tx("목표는 1~2가지만 고른다는 원칙대로, 이번 주는 안내 항목만 고친다.", "Follow the one-or-two-goals rule and fix only the guidance item this week."), tx("본인 확인 누락 같은 치명적 오류는 순서를 기다리지 않고 바로 고칩니다.", "A critical error like missing ID verification gets fixed right away, without waiting its turn.")),
         ],
         answer: "b",
         explanation: tx("치명적 오류는 바로 고칩니다. 동의하기 어려운 감점은 녹취를 근거로, 팀장을 거쳐 정해진 기한 안에 다시 검토를 요청합니다.", "Fix critical errors right away. For points you can't agree with, ask for a second look with the recording as evidence, through the team leader and by the set deadline."),
